@@ -1,4 +1,4 @@
-import themeClasses from '../../theme-classes';
+import themeClasses from '../../utils/theme-classes';
 
 export default themeClasses({
     light: {

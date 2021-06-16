@@ -1,0 +1,23 @@
+<script>
+    function getOrCreateLinkElement(id) {
+        let linkElement = document.getElementById(id);
+        if (!linkElement) {
+            linkElement = document.createElement('link');
+            linkElement.setAttribute('id', id);
+            linkElement.setAttribute('rel', 'stylesheet');
+            document.head.appendChild(linkElement);
+        }
+        return linkElement;
+    }
+
+    function setThemeCSS(theme) {
+        themeProvider.theme = theme;
+        const themeCSS = `/css/tailwind.${theme}.css`;
+        const link = getOrCreateLinkElement('theme-stylesheet');
+        link.href = themeCSS;
+    }
+
+    const themeProvider = {
+        theme: null
+    };
+</script>

@@ -1,0 +1,40 @@
+{
+  "name": "stackbit-components",
+  "version": "0.1.0",
+  "description": "Stackbit components library",
+  "scripts": {
+    "build-theme-css": "./build-theme-css.sh",
+    "storybook": "start-storybook -s ./public -p 6006",
+    "build-storybook": "build-storybook -s ./public",
+    "build": "npm run build-theme-css && npm run build-storybook",
+    "pretty": "prettier --write src"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stackbit/components.git"
+  },
+  "author": "Stackbit Inc.",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stackbit/components/issues"
+  },
+  "homepage": "https://github.com/stackbit/components#readme",
+  "dependencies": {
+    "classnames": "^2.3.1",
+    "lodash": "^4.17.21",
+    "next": "^10.2.3",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-markdown": "^6.0.2"
+  },
+  "devDependencies": {
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
+    "@storybook/addon-postcss": "^2.0.0",
+    "@storybook/react": "^6.2.9",
+    "prettier": "2.3.0",
+    "tailwindcss": "^2.1.4",
+    "tailwindcss-cli": "^0.1.2"
+  }
+}

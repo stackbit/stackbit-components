@@ -1,15 +1,11 @@
 import React from 'react';
 
 export const parameters = {
+    backgrounds: { disable: true },
     options: {
         storySort: {
-            order: [
-                'Layouts',
-                ['Landing'],
-                'Components',
-                ['Navigation Bar', 'Footer', 'Team Section']
-            ],
-        },
+            order: ['Layouts', ['Landing'], 'Components', ['Navigation Bar', 'Footer', 'Team Section']]
+        }
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
@@ -40,6 +36,4 @@ function withThemeProvider(Story, context) {
     return <Story {...context} />;
 }
 
-export const decorators = [
-    withThemeProvider
-];
+export const decorators = [withThemeProvider];

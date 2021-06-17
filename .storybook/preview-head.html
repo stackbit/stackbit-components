@@ -1,4 +1,11 @@
+<link href="/css/tailwind.light.css" rel="stylesheet" id="theme-css-light" />
+<link href="/css/tailwind.dark.css" rel="stylesheet" id="theme-css-dark" media="max-width: 1px" />
+
 <script>
+    function getLinkElementForTheme(theme) {
+        return document.getElementById(`theme-css-${theme}`);
+    }
+
     function getOrCreateLinkElement(id) {
         let linkElement = document.getElementById(id);
         if (!linkElement) {
@@ -11,13 +18,15 @@
     }
 
     function setThemeCSS(theme) {
+        const prev = current;
+        current = getLinkElementForTheme(theme);
+        current.removeAttribute('media');
+        prev.setAttribute('media', 'max-width: 1px');
         themeProvider.theme = theme;
-        const themeCSS = `/css/tailwind.${theme}.css`;
-        const link = getOrCreateLinkElement('theme-stylesheet');
-        link.href = themeCSS;
     }
 
     const themeProvider = {
-        theme: null
+        theme: 'light'
     };
+    let current = getLinkElementForTheme(themeProvider.theme);
 </script>

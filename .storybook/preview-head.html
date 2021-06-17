@@ -2,31 +2,28 @@
 <link href="/css/tailwind.dark.css" rel="stylesheet" id="theme-css-dark" media="max-width: 1px" />
 
 <script>
+    const themeProvider = { theme: null };
+    let currentElm = null;
+
     function getLinkElementForTheme(theme) {
         return document.getElementById(`theme-css-${theme}`);
     }
 
-    function getOrCreateLinkElement(id) {
-        let linkElement = document.getElementById(id);
-        if (!linkElement) {
-            linkElement = document.createElement('link');
-            linkElement.setAttribute('id', id);
-            linkElement.setAttribute('rel', 'stylesheet');
-            document.head.appendChild(linkElement);
-        }
-        return linkElement;
+    function setCurrentTheme(theme) {
+        themeProvider.theme = theme;
+        currentElm = getLinkElementForTheme(theme);
     }
 
     function setThemeCSS(theme) {
-        const prev = current;
-        current = getLinkElementForTheme(theme);
-        current.removeAttribute('media');
-        prev.setAttribute('media', 'max-width: 1px');
+        console.log('setThemeCSS', theme);
+        if (themeProvider.theme === theme) {
+            return;
+        }
+        currentElm.setAttribute('media', 'max-width: 1px');
+        currentElm = getLinkElementForTheme(theme);
+        currentElm.removeAttribute('media');
         themeProvider.theme = theme;
     }
 
-    const themeProvider = {
-        theme: 'light'
-    };
-    let current = getLinkElementForTheme(themeProvider.theme);
+    setCurrentTheme('light');
 </script>

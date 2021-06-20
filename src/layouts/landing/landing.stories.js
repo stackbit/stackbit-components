@@ -1,8 +1,9 @@
 import React from 'react';
-import Landing from './landing';
+import Landing from './index';
 
 import * as NavBarStories from '../../components/navbar/navbar.stories';
 import FooterStory from '../../components/footer/footer.stories';
+import * as HeroSectionStories from '../../components/hero-section/hero-section.stories';
 import * as TeamSectionStories from '../../components/team-section/team-section.stories';
 
 export default {
@@ -18,7 +19,9 @@ Primary.args = {
     page: {
         title: 'Example Page',
         sections: [
-            TeamSectionStories.Primary.args
+            HeroSectionStories.HeroVideo.args,
+            TeamSectionStories.Primary.args,
+            HeroSectionStories.HeroSVG.args
         ]
     },
     siteConfig: {

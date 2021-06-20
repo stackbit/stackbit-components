@@ -1,5 +1,5 @@
 import React from 'react';
-import TeamSection from './team-section';
+import TeamSection from './index';
 
 export default {
     title: 'Components/Team Section',

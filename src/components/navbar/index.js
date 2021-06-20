@@ -2,16 +2,15 @@ import Link from 'next/link';
 import { useState } from 'react';
 import Logo from '../../svgs/logo';
 import classNames from 'classnames';
+import Button from '../button';
 
-import getThemeClass from './navbar.theme';
-
-export default function NavBar(props) {
+export default function Index(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const companyName = props.companyName;
     const leftLinks = props.leftLinks;
     const rightLinks = props.rightLinks;
     return (
-        <div className={`${getThemeClass('rootDiv')} px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8`}>
+        <div className="px-4 py-5 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
             <div className="relative flex items-center justify-between">
                 {navBarVariants(props)}
                 <div className="lg:hidden">
@@ -122,23 +121,23 @@ function siteLogoLink({ companyName, navBarLinksPosition }) {
 function listOfLinks(links, inMenu = false) {
     return links.map((link, idx) => (
         <li key={idx}>
-            <Link href={link.url}>
-                <a
-                    aria-label={link.alt}
-                    title={link.alt}
-                    className={
-                        link.style !== 'button'
-                            ? !inMenu
+            {link.style !== 'button' ? (
+                <Link href={link.url}>
+                    <a
+                        aria-label={link.alt}
+                        title={link.alt}
+                        className={
+                            !inMenu
                                 ? 'font-medium tracking-wide transition-colors duration-200 hover:text-primary text-light'
                                 : 'font-medium tracking-wide text-gray-700 transition-colors duration-200 hover:text-deep-purple-accent-400'
-                            : !inMenu
-                            ? 'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-                            : 'inline-flex items-center justify-center w-full h-12 px-6 font-medium tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none'
-                    }
-                >
-                    {link.label}
-                </a>
-            </Link>
+                        }
+                    >
+                        {link.label}
+                    </a>
+                </Link>
+            ) : (
+                <Button label={link.label} url={link.url} alt={link.alt} className={inMenu ? 'w-full' : ''} />
+            )}
         </li>
     ));
 }

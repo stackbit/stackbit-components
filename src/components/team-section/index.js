@@ -6,14 +6,14 @@ const icons = {
     facebook: Facebook
 };
 
-import getThemeClass from './team-section.theme';
+import Badge from '../badge';
 
 export default function TeamSection(props) {
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="mx-auto mb-10 lg:max-w-xl sm:text-center">
-                {props.badge && <p className={`inline-block px-3 mb-4 text-xs font-semibold tracking-wider text-primary-900 uppercase text-secondary-foreground bg-secondary ${getThemeClass('badge')}`}>{props.badge}</p>}
-                {props.subtitle && <p className="text-base text-gray-700 md:text-lg">{props.subtitle}</p>}
+                {props.badge && <Badge label={props.badge} />}
+                {props.subtitle && <p className="text-base text-light md:text-lg">{props.subtitle}</p>}
             </div>
             <TeamVariants {...props} />
         </div>
@@ -40,8 +40,8 @@ function TeamVariantA(props) {
                         <img className="absolute object-cover w-full h-full rounded" src={person.photo} alt="Person" />
                     </div>
                     <div className="flex flex-col sm:text-center">
-                        <p className="text-lg font-bold">{person.name}</p>
-                        <p className="mb-5 text-xs text-gray-800">{person.title}</p>
+                        <p className="text-lg font-bold text-dark">{person.name}</p>
+                        <p className="mb-5 text-xs text-dark">{person.title}</p>
                         {person.social_links?.length > 0 && (
                             <div className="flex items-center space-x-3 sm:justify-center">
                                 {person.social_links.map((link, idx) => (
@@ -67,9 +67,9 @@ function TeamVariantB(props) {
                         <img className="absolute object-cover w-full h-full rounded" src={person.photo} alt="Person" />
                     </div>
                     <div className="flex flex-col justify-center mt-5 sm:mt-0 sm:p-5 sm:col-span-2">
-                        <p className="text-lg font-bold">{person.name}</p>
-                        <p className="mb-4 text-xs text-gray-800">{person.title}</p>
-                        <p className="mb-4 text-sm tracking-wide text-gray-800">{person.bio}</p>
+                        <p className="text-lg font-bold text-dark">{person.name}</p>
+                        <p className="mb-4 text-xs text-dark">{person.title}</p>
+                        <p className="mb-4 text-sm tracking-wide text-dark">{person.bio}</p>
                         {person.social_links?.length > 0 && (
                             <div className="flex items-center space-x-3">
                                 {person.social_links.map((link, idx) => (

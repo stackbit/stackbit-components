@@ -1,11 +1,13 @@
 import React from 'react';
 import _ from 'lodash';
 
-import TeamSection from '../../components/team-section/team-section';
 import BaseLayout from '../base-layout/base-layout';
+import TeamSection from '../../components/team-section';
+import HeroSection from '../../components/hero-section';
 
 const components = {
-    section_team: TeamSection
+    section_team: TeamSection,
+    section_hero: HeroSection
 };
 
 export default function Landing(props) {

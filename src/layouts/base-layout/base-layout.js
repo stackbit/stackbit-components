@@ -1,6 +1,6 @@
 import Head from 'next/head';
-import NavBar from '../../components/navbar/navbar';
-import Footer from '../../components/footer/footer';
+import NavBar from '../../components/navbar';
+import Footer from '../../components/footer';
 
 export default function BaseLayout(props) {
     return (

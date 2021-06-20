@@ -1,5 +1,5 @@
 import React from 'react';
-import Footer from './footer';
+import Footer from './index';
 
 export default {
     title: 'Components/Footer',
@@ -60,6 +60,14 @@ export default {
 
 const Template = (args) => <Footer {...args} />;
 
-//👇 Each story then reuses that template
 export const Primary = Template.bind({});
 Primary.storyName = 'Footer';
+
+export const FooterNoContacts = Template.bind({});
+FooterNoContacts.storyName = 'Footer without contacts';
+FooterNoContacts.args = { companyContacts: undefined }
+
+//👇 Each story then reuses that template
+export const FooterNoSocial = Template.bind({});
+FooterNoSocial.storyName = 'Footer without social';
+FooterNoSocial.args = { companySocial: undefined }

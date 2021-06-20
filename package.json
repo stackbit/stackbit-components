@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "description": "Stackbit components library",
   "scripts": {
-    "build-theme-css": "./build-theme-css.sh",
+    "develop": "./develop.sh",
     "storybook": "start-storybook -s ./public -p 6006",
+    "build-theme-css": "./build-theme-css.sh",
     "build-storybook": "build-storybook -s ./public",
     "build": "npm run build-theme-css && npm run build-storybook",
     "pretty": "prettier --write src"
@@ -21,9 +22,6 @@
   "homepage": "https://github.com/stackbit/components#readme",
   "dependencies": {
     "classnames": "^2.3.1",
-    "lodash": "^4.17.21",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
     "react-helmet": "^6.1.0",
     "react-markdown": "^6.0.2"
   },
@@ -33,9 +31,14 @@
     "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.2.9",
+    "concurrently": "^6.2.0",
     "postcss": "^8.3.4",
     "prettier": "2.3.0",
-    "tailwindcss": "^2.1.4",
-    "tailwindcss-cli": "^0.1.2"
+    "tailwindcss": "^2.2.2",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2"
+  },
+  "peerDependencies": {
+    "react": ">=16"
   }
 }

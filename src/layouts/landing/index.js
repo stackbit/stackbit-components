@@ -1,5 +1,4 @@
 import React from 'react';
-import _ from 'lodash';
 
 import BaseLayout from '../base-layout/base-layout';
 import TeamSection from '../../components/team-section';
@@ -11,16 +10,16 @@ const components = {
 };
 
 export default function Landing(props) {
-    const siteConfig = _.get(props, 'siteConfig');
-    const page = _.get(props, 'page');
-    const sections = _.get(page, 'sections');
-    const urlPath = _.get(page, '__metadata.urlPath');
-    const pageUrl = '/' + _.trimStart(urlPath, '/');
+    const siteConfig = props?.siteConfig ?? {};
+    const page = props?.page ?? {};
+    const sections = page?.sections ?? [];
+    const urlPath = page?.__metadata?.urlPath ?? '';
+    const pageUrl = '/' + urlPath.replace(/^\//, '');
 
     return (
         <BaseLayout page={page} siteConfig={siteConfig}>
-            {_.map(sections, (section, index) => {
-                const sectionType = _.get(section, 'type');
+            {sections.map((section, index) => {
+                const sectionType = section?.type;
                 if (!sectionType) {
                     throw new Error(`page section does not have the 'type' property, page: ${pageUrl}`);
                 }

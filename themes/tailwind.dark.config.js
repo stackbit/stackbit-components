@@ -2,6 +2,7 @@ const kitwindTheme = require('./kitwind');
 const plugin = require('tailwindcss/plugin')
 
 module.exports = {
+    mode: 'jit',
     purge: {
         enabled: true,
         content: ['./src/**/*.{js,ts,jsx,tsx}']

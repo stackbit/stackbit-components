@@ -22,15 +22,29 @@ export default function HeroSection({ variant, ...props }) {
 }
 
 function HeroImageHorizontal(props) {
+    const mediaPosition = props.mediaPosition || 'left';
+    const alignHoriz = props.alignHoriz || 'left';
+
     return (
         <div className="relative flex flex-col py-16 lg:pt-0 lg:flex-col lg:pb-0">
-            <div className="flex flex-col items-start w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl">
-                <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
+            <div
+                className={classNames('flex flex-col w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl', {
+                    'items-end': mediaPosition === 'left',
+                    'items-start': mediaPosition === 'right',
+                    'text-center': alignHoriz === 'center'
+                })}
+            >
+                <div className="mb-16 lg:my-40 lg:w-1/2">
                     {HeroContent(props)}
                     {HeroActions(props)}
                 </div>
             </div>
-            <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
+            <div
+                className={classNames('inset-y-0 w-full max-w-xl px-4 mx-auto lg:w-1/2 lg:max-w-full lg:absolute', {
+                    'left-0 lg:pl-0 lg:pr-8': mediaPosition === 'left',
+                    'right-0 lg:pl-8 lg:pr-0': mediaPosition === 'right'
+                })}
+            >
                 <img src={props.imageUrl} className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full" alt="" />
             </div>
         </div>
@@ -38,24 +52,49 @@ function HeroImageHorizontal(props) {
 }
 
 function HeroImageVertical(props) {
+    const mediaPosition = props.mediaPosition || 'left';
+    const alignHoriz = props.alignHoriz || 'left';
+
     return (
         <div className="flex flex-col justify-between max-w-xl px-4 mx-auto lg:pt-16 lg:flex-row md:px-8 lg:max-w-screen-xl">
-            <div className="pt-16 mb-16 lg:mb-0 lg:pt-32 lg:max-w-lg lg:pr-5">
+            <div
+                className={classNames('pt-16 mb-16 lg:mb-0 lg:pt-32 lg:max-w-lg', {
+                    'lg:order-last lg:pl-5': mediaPosition === 'left',
+                    'lg:pr-5': mediaPosition === 'right',
+                    'text-center': alignHoriz === 'center'
+                })}
+            >
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
             <div>
-                <img src={props.imageUrl} className="object-cover object-top w-full h-64 mx-auto lg:h-auto xl:mr-24 md:max-w-sm" alt="" />
+                <img
+                    src={props.imageUrl}
+                    alt=""
+                    className={classNames('object-cover object-top w-full h-64 mx-auto lg:h-auto md:max-w-sm', {
+                        'xl:ml-24': mediaPosition === 'left',
+                        'xl:mr-24': mediaPosition === 'right'
+                    })}
+                />
             </div>
         </div>
     );
 }
 
 function HeroVideo(props) {
+    const mediaPosition = props.mediaPosition || 'left';
+    const alignHoriz = props.alignHoriz || 'left';
+
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
             <div className="flex flex-col items-center justify-between lg:flex-row">
-                <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
+                <div
+                    className={classNames('mb-10 lg:max-w-lg lg:mb-0', {
+                        'lg:order-last lg:pl-5': mediaPosition === 'left',
+                        'lg:pr-5': mediaPosition === 'right',
+                        'text-center': alignHoriz === 'center'
+                    })}
+                >
                     {HeroContent(props)}
                     {HeroActions(props)}
                 </div>
@@ -77,10 +116,18 @@ function HeroVideo(props) {
 }
 
 function HeroSVG(props) {
+    const mediaPosition = props.mediaPosition || 'left';
+    const alignHoriz = props.alignHoriz || 'left';
+
     return (
         <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div className="grid gap-5 row-gap-8 lg:grid-cols-2">
-                <div className="flex flex-col justify-center">
+            <div className="grid gap-8 lg:grid-cols-2">
+                <div
+                    className={classNames('flex flex-col justify-center', {
+                        'lg:order-last': mediaPosition === 'left',
+                        'text-center': alignHoriz === 'center'
+                    })}
+                >
                     {HeroContent(props)}
                     {HeroActions(props)}
                 </div>
@@ -93,6 +140,8 @@ function HeroSVG(props) {
 }
 
 function HeroContent(props) {
+    const alignHoriz = props.alignHoriz || 'left';
+
     return (
         <div className="max-w-xl mb-6">
             {props.badge && (
@@ -100,7 +149,11 @@ function HeroContent(props) {
                     <Badge label={props.badge} />
                 </div>
             )}
-            <h2 className="header-2 max-w-lg mb-6">
+            <h2
+                className={classNames('header-2 max-w-lg mb-6', {
+                    'mx-auto lg:mx-0': alignHoriz === 'center'
+                })}
+            >
                 <ReactMarkdown components={components}>{props.title}</ReactMarkdown>
             </h2>
             <p className="text-paragraph text-base md:text-lg">{props.description}</p>
@@ -113,17 +166,27 @@ function HeroActions(props) {
     if (actions.length === 0) {
         return null;
     }
+    const alignHoriz = props.alignHoriz || 'left';
     return (
-        <div className="flex flex-col items-center md:flex-row">
+        <div
+            className={classNames('flex flex-col items-center md:flex-row', {
+                'justify-center': alignHoriz === 'center'
+            })}
+        >
             {props.actions.map((action, idx) =>
                 action.type === 'button' ? (
-                    <Button key={idx} {...action} className="w-full mb-3 md:w-auto md:mr-4 md:mb-0" />
+                    <Button
+                        key={idx}
+                        {...action}
+                        className={classNames('w-full mb-3 md:w-auto md:mb-0', alignHoriz === 'left' ? 'md:mr-4' : 'md:mx-2')}
+                    />
                 ) : (
                     <Link
                         key={idx}
                         {...action}
                         className={classNames(
-                            action.primary ? 'text-primary hover:text-primary-hover' : 'text-dark hover:text-dark-hover'
+                            action.primary ? 'text-primary hover:text-primary-hover' : 'text-dark hover:text-dark-hover',
+                            alignHoriz === 'left' ? 'md:mr-4' : 'md:mx-2'
                         )}
                     />
                 )

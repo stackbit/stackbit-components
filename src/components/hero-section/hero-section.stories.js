@@ -8,6 +8,14 @@ export default {
         variant: {
             options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
             control: { type: 'select' }
+        },
+        alignHoriz: {
+            options: ['left', 'center'],
+            control: { type: 'select' }
+        },
+        mediaPosition: {
+            options: ['left', 'right'],
+            control: { type: 'select' }
         }
     }
 };
@@ -17,6 +25,8 @@ const Template = (args) => <HeroSection {...args} />;
 const args = {
     type: 'section_hero',
     variant: 'variant-a',
+    alignHoriz: 'left',
+    mediaPosition: 'right',
     badge: 'New Collaboration',
     title: 'The quick, brown fox  \njumps over **a lazy dog**',
     description:
@@ -45,6 +55,7 @@ Secondary.storyName = 'Hero Section Image Vertical Bleed';
 Secondary.args = {
     ...args,
     variant: 'variant-b',
+    mediaPosition: 'left',
     badge: 'Brand new',
     imageUrl: 'https://kitwind.io/assets/kometa/two-thirds-phone.png',
     actions: [

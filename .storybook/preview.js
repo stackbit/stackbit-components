@@ -4,7 +4,7 @@ export const parameters = {
     backgrounds: { disable: true },
     options: {
         storySort: {
-            order: ['Layouts', ['Landing'], 'Components', ['Navigation Bar', 'Footer', 'Hero Section', 'Team Section'], 'Atoms']
+            order: ['Layouts', ['Landing'], 'Components', ['Navigation Bar', 'Footer', 'Form Section', 'Hero Section', 'Posts Section', 'Team Section', 'Testimonials Section'], 'Atoms']
         }
     },
     actions: { argTypesRegex: '^on[A-Z].*' },

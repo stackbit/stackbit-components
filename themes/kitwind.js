@@ -6,7 +6,7 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                sans: ['Montserrat', ...defaultTheme.fontFamily.sans]
+                sans: ['Rubik', ...defaultTheme.fontFamily.sans]
             },
             colors: {
                 red: {
@@ -307,7 +307,9 @@ module.exports = {
                 9: '2.25rem',
                 28: '7rem',
                 80: '20rem',
-                96: '24rem'
+                96: '24rem',
+                '1/2': '50%',
+                '1/1': '100%',
             },
             height: {
                 '1/2': '50%'

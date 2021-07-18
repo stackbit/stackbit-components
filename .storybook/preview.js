@@ -4,7 +4,7 @@ export const parameters = {
     backgrounds: { disable: true },
     options: {
         storySort: {
-            order: ['Layouts', ['Landing'], 'Components', ['Navigation Bar', 'Footer', 'Form Section', 'Hero Section', 'Posts Section', 'Team Section', 'Testimonials Section'], 'Atoms']
+            order: ['Layouts', ['Landing'], 'Components', ['Navigation Bar', 'Footer', 'Form Section', 'Hero Section', 'Posts Section', 'Testimonials Section'], 'Atoms']
         }
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -13,7 +13,8 @@ export const parameters = {
             color: /(background|color)$/i,
             date: /Date$/
         }
-    }
+    },
+    layout: 'fullscreen'
 };
 
 export const globalTypes = {

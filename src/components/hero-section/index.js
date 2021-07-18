@@ -2,8 +2,6 @@ import ReactMarkdown from 'react-markdown';
 import Badge from '../badge';
 import Button from '../button';
 import Link from '../link';
-import VideoPlay from '../../svgs/video-play';
-import Graph from '../../svgs/graph';
 import classNames from 'classnames';
 
 export default function HeroSection({ variant, ...props }) {
@@ -16,123 +14,185 @@ export default function HeroSection({ variant, ...props }) {
         case 'variant-c':
             return HeroVideo(props);
         case 'variant-d':
-            return HeroSVG(props);
+            return HeroImage(props);
     }
     return null;
 }
 
 function HeroImageHorizontal(props) {
+    const width = props.width || 'full';
+    const height = props.height || 'auto';
     const mediaPosition = props.mediaPosition || 'left';
-    const alignHoriz = props.alignHoriz || 'left';
 
     return (
-        <div className="relative flex flex-col py-16 lg:pt-0 lg:flex-col lg:pb-0">
+        <div
+            className={classNames('bg-yellow-400 overflow-x-hidden relative', {
+                'mx-auto': width !== 'full',
+                'max-w-screen-xl': width === 'wide',
+                'max-w-screen-lg': width === 'narrow',
+                'min-h-screen flex flex-col': height === 'viewport'
+            })}
+        >
             <div
-                className={classNames('flex flex-col w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl', {
-                    'items-end': mediaPosition === 'left',
-                    'items-start': mediaPosition === 'right',
-                    'text-center': alignHoriz === 'center'
+                className={classNames('mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg', {
+                    'xl:max-w-screen-xl': width !== 'narrow',
+                    'flex flex-col flex-grow w-full': height === 'viewport'
                 })}
             >
-                <div className="mb-16 lg:my-40 lg:w-1/2">
-                    {HeroContent(props)}
-                    {HeroActions(props)}
+                <div
+                    className={classNames('flex flex-wrap', {
+                        'flex-grow': height === 'viewport',
+                        'lg:justify-end': mediaPosition === 'left',
+                    })}
+                >
+                    <div
+                        className={classNames('py-16 px-4 w-full lg:self-center lg:w-1/2 lg:py-20', {
+                            'lg:order-last lg:pr-8': mediaPosition === 'left',
+                            'lg:pl-8': mediaPosition === 'right'
+                        })}
+                    >
+                        {HeroContent(props)}
+                        {HeroActions(props)}
+                    </div>
+                    <div
+                        className={classNames('w-full lg:inset-y-0 lg:w-1/2 lg:max-w-full lg:absolute', {
+                            'left-0 lg:pr-4': mediaPosition === 'left',
+                            'right-0 lg:pl-4': mediaPosition === 'right'
+                        })}
+                    >
+                        <img src={props.imageUrl} className="w-screen max-w-none ml-1/2 transform -translate-x-1/2 object-cover lg:h-full lg:ml-0 lg:transform-none lg:w-full lg:max-w-full" alt={props.imageAlt} />
+                    </div>
                 </div>
-            </div>
-            <div
-                className={classNames('inset-y-0 w-full max-w-xl px-4 mx-auto lg:w-1/2 lg:max-w-full lg:absolute', {
-                    'left-0 lg:pl-0 lg:pr-8': mediaPosition === 'left',
-                    'right-0 lg:pl-8 lg:pr-0': mediaPosition === 'right'
-                })}
-            >
-                <img src={props.imageUrl} className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full" alt="" />
             </div>
         </div>
     );
 }
 
 function HeroImageVertical(props) {
+    const width = props.width || 'full';
+    const height = props.height || 'auto';
     const mediaPosition = props.mediaPosition || 'left';
-    const alignHoriz = props.alignHoriz || 'left';
 
     return (
-        <div className="flex flex-col justify-between max-w-xl px-4 mx-auto lg:pt-16 lg:flex-row md:px-8 lg:max-w-screen-xl">
+        <div
+            className={classNames('bg-yellow-400', {
+                'mx-auto': width !== 'full',
+                'max-w-screen-xl': width === 'wide',
+                'max-w-screen-lg': width === 'narrow',
+                'min-h-screen flex flex-col': height === 'viewport'
+            })}
+        >
             <div
-                className={classNames('pt-16 mb-16 lg:mb-0 lg:pt-32 lg:max-w-lg', {
-                    'lg:order-last lg:pl-5': mediaPosition === 'left',
-                    'lg:pr-5': mediaPosition === 'right',
-                    'text-center': alignHoriz === 'center'
+                className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {
+                    'xl:max-w-screen-xl': width !== 'narrow',
+                    'flex flex-col flex-grow': height === 'viewport'
                 })}
             >
-                {HeroContent(props)}
-                {HeroActions(props)}
-            </div>
-            <div>
-                <img
-                    src={props.imageUrl}
-                    alt=""
-                    className={classNames('object-cover object-top w-full h-64 mx-auto lg:h-auto md:max-w-sm', {
-                        'xl:ml-24': mediaPosition === 'left',
-                        'xl:mr-24': mediaPosition === 'right'
+                <div
+                    className={classNames('flex flex-wrap -mx-4', {
+                        'flex-grow': height === 'viewport'
                     })}
-                />
+                >
+                    <div
+                        className={classNames('py-16 px-4 w-full lg:self-center lg:w-1/2 lg:py-20', {
+                            'lg:order-last': mediaPosition === 'left'
+                        })}
+                    >
+                        {HeroContent(props)}
+                        {HeroActions(props)}
+                    </div>
+                    <div className="px-4 w-full lg:w-1/2">
+                        <img
+                            src={props.imageUrl}
+                            alt={props.imageAlt}
+                            className="w-full h-full mx-auto object-cover"
+                        />
+                    </div>
+                </div>
             </div>
         </div>
     );
 }
 
 function HeroVideo(props) {
+    const width = props.width || 'full';
+    const height = props.height || 'auto';
     const mediaPosition = props.mediaPosition || 'left';
-    const alignHoriz = props.alignHoriz || 'left';
 
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div className="flex flex-col items-center justify-between lg:flex-row">
-                <div
-                    className={classNames('mb-10 lg:max-w-lg lg:mb-0', {
-                        'lg:order-last lg:pl-5': mediaPosition === 'left',
-                        'lg:pr-5': mediaPosition === 'right',
-                        'text-center': alignHoriz === 'center'
-                    })}
-                >
-                    {HeroContent(props)}
-                    {HeroActions(props)}
-                </div>
-                <div className="relative lg:w-1/2">
-                    <img className="object-cover w-full h-56 rounded shadow-lg sm:h-96" src={props.imageUrl} alt="" />
-                    <a
-                        href={props.videoUrl}
-                        aria-label="Play Video"
-                        className="absolute inset-0 flex items-center justify-center w-full h-full transition-colors duration-300 bg-gray-900 bg-opacity-50 group hover:bg-opacity-25"
+        <div
+            className={classNames('bg-yellow-400 py-16 lg:py-20', {
+                'mx-auto': width !== 'full',
+                'max-w-screen-xl': width === 'wide',
+                'max-w-screen-lg': width === 'narrow',
+                'min-h-screen flex flex-col justify-center': height === 'viewport'
+            })}
+        >
+            <div
+                className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {
+                    'xl:max-w-screen-xl': width !== 'narrow'
+                })}
+            >
+                <div className="grid gap-8 lg:grid-cols-2">
+                    <div
+                        className={classNames('flex flex-col justify-center', {
+                            'lg:order-last': mediaPosition === 'left'
+                        })}
                     >
-                        <div className="flex items-center justify-center w-16 h-16 transition duration-300 transform bg-gray-100 rounded-full shadow-2xl group-hover:scale-110">
-                            <VideoPlay />
+                        {HeroContent(props)}
+                        {HeroActions(props)}
+                    </div>
+                    <div>
+                        <div className="relative">
+                            <video
+                                className="product-hero-media product-hero-media-secondary"
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                poster={props.imageUrl}
+                            >
+                                <source src={props.videoUrl} type="video/mp4" />
+                            </video>
                         </div>
-                    </a>
+                    </div>
                 </div>
             </div>
         </div>
     );
 }
 
-function HeroSVG(props) {
+function HeroImage(props) {
+    const width = props.width || 'full';
+    const height = props.height || 'auto';
     const mediaPosition = props.mediaPosition || 'left';
-    const alignHoriz = props.alignHoriz || 'left';
 
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div className="grid gap-8 lg:grid-cols-2">
-                <div
-                    className={classNames('flex flex-col justify-center', {
-                        'lg:order-last': mediaPosition === 'left',
-                        'text-center': alignHoriz === 'center'
-                    })}
-                >
-                    {HeroContent(props)}
-                    {HeroActions(props)}
-                </div>
-                <div className="relative">
-                    <Graph />
+        <div
+            className={classNames('bg-yellow-400 py-16 lg:py-20', {
+                'mx-auto': width !== 'full',
+                'max-w-screen-xl': width === 'wide',
+                'max-w-screen-lg': width === 'narrow',
+                'min-h-screen flex flex-col justify-center': height === 'viewport'
+            })}
+        >
+            <div
+                className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {
+                    'xl:max-w-screen-xl': width !== 'narrow'
+                })}
+            >
+                <div className="grid gap-8 lg:grid-cols-2">
+                    <div
+                        className={classNames('flex flex-col justify-center', {
+                            'lg:order-last': mediaPosition === 'left'
+                        })}
+                    >
+                        {HeroContent(props)}
+                        {HeroActions(props)}
+                    </div>
+                    <div className="relative">
+                        <img src={props.imageUrl} alt={props.imageAlt} />
+                    </div>
                 </div>
             </div>
         </div>
@@ -141,22 +201,15 @@ function HeroSVG(props) {
 
 function HeroContent(props) {
     const alignHoriz = props.alignHoriz || 'left';
-
     return (
-        <div className="max-w-xl mb-6">
-            {props.badge && (
-                <div>
-                    <Badge label={props.badge} />
-                </div>
-            )}
-            <h2
-                className={classNames('header-2 max-w-lg mb-6', {
-                    'mx-auto lg:mx-0': alignHoriz === 'center'
-                })}
-            >
-                <ReactMarkdown components={components}>{props.title}</ReactMarkdown>
-            </h2>
-            <p className="text-paragraph text-base md:text-lg">{props.description}</p>
+        <div
+            className={classNames('max-w-2xl mb-6', {
+                'mx-auto text-center': alignHoriz === 'center'
+            })}
+        >
+            {props.badge && <Badge label={props.badge} />}
+            {props.title && <h1 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-6"><ReactMarkdown allowedElements={["br","span","strong"]} unwrapDisallowed={true} components={components}>{props.title}</ReactMarkdown></h1>}
+            {props.description && <div className="md:text-lg"><ReactMarkdown>{props.description}</ReactMarkdown></div>}
         </div>
     );
 }

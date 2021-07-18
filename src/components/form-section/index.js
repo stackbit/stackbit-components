@@ -3,53 +3,65 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 
 export default function FormSection(props) {
+    const width = props.width || 'full';
+    const height = props.height || 'auto';
     const imagePosition = props.imagePosition || 'left';
-    const alignVert = props.alignVert || 'top';
+    const alignHoriz = props.alignHoriz || 'left';
 
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div className="flex flex-col lg:flex-row">
-                <div
-                    className={classNames('w-full mb-10 lg:w-1/2', {
-                        'lg:order-last lg:pl-5': imagePosition === 'left',
-                        'lg:pr-8': imagePosition === 'right',
-                        'self-center': alignVert === 'middle',
-                        'self-end': alignVert === 'bottom'
-                    })}
-                >
-                    {props.badge && <Badge label={props.badge} />}
-                    {props.title && <h2 className="header-2 mb-4">{props.title}</h2>}
-                    {props.description && (
-                        <div className="mb-12">
-                            <ReactMarkdown>{props.description}</ReactMarkdown>
+        <div
+            className={classNames('bg-yellow-400 py-16 lg:py-20', {
+                'mx-auto': width !== 'full',
+                'max-w-screen-xl': width === 'wide',
+                'max-w-screen-lg': width === 'narrow',
+                'min-h-screen flex flex-col justify-center': height === 'viewport'
+            })}
+        >
+            <div
+                className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {
+                    'xl:max-w-screen-xl': width !== 'narrow'
+                })}
+            >
+                <div className="grid gap-8 lg:grid-cols-2">
+                    <div
+                        className={classNames('flex flex-col justify-center', {
+                            'lg:order-last': imagePosition === 'left',
+                            'text-center': alignHoriz === 'center'
+                        })}
+                    >
+                        {props.badge && <Badge label={props.badge} />}
+                        {props.title && <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-4">{props.title}</h2>}
+                        {props.description && (
+                            <div className="mb-12 md:text-lg">
+                                <ReactMarkdown>{props.description}</ReactMarkdown>
+                            </div>
+                        )}
+                        <form
+                            name={props.formId}
+                            id={props.formId}
+                            {...(props.formAction ? ({ action: props.formAction }) : null)}
+                            method="POST"
+                            className="text-left"
+                        >
+                            <div className="flex flex-wrap -mx-2">
+                                {(props.formFields || []).map((field, idx) => (
+                                    <React.Fragment key={idx}>
+                                        {FormField(field)}
+                                    </React.Fragment>
+                                ))}
+                            </div>
+                            <div className="mt-4 sm:mt-8">
+                                <button type="submit" className="inline-flex items-center justify-center h-12 px-6 font-medium w-full tracking-wide text-white transition duration-200 shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none md:w-auto">{props.submitLabel}</button>
+                            </div>
+                        </form>
+                    </div>
+                    {props.imageUrl && (
+                        <div className="relative">
+                            <img src={props.imageUrl} alt={props.imageAlt} />
                         </div>
                     )}
-                    <form
-                        name={props.formId}
-                        id={props.formId}
-                        {...(props.formAction ? ({ action: props.formAction }) : null)}
-                        method="POST"
-                        className=""
-                    >
-                        <div className="flex flex-wrap -mx-2">
-                            {(props.formFields || []).map((field, idx) => (
-                                <React.Fragment key={idx}>
-                                    {FormField(field)}
-                                </React.Fragment>
-                            ))}
-                        </div>
-                        <div className="mt-4 sm:mt-8">
-                            <button type="submit" className="inline-flex items-center justify-center h-12 px-6 font-medium w-full tracking-wide text-white transition duration-200 rounded shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none md:w-auto">{props.submitLabel}</button>
-                        </div>
-                    </form>
                 </div>
-                {props.imageUrl && (
-                    <div
-                        className="w-full lg:w-1/2">
-                        <img src={props.imageUrl} className="w-full h-full object-cover" alt={props.imageAlt} />
-                    </div>
-                )}
-            </div>
+            </div>  
         </div>
     );
 }

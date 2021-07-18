@@ -2,11 +2,10 @@ import React from 'react';
 import Landing from './index';
 
 import * as NavBarStories from '../../components/navbar/navbar.stories';
-import FooterStory from '../../components/footer/footer.stories';
+import * as FooterStories from '../../components/footer/footer.stories';
 import * as FormSectionStories from '../../components/form-section/form-section.stories';
 import * as HeroSectionStories from '../../components/hero-section/hero-section.stories';
 import * as PostsSectionStories from '../../components/posts-section/posts-section.stories';
-import * as TeamSectionStories from '../../components/team-section/team-section.stories';
 import * as TestimonialsSectionStories from '../../components/testimonials-section/testimonials-section.stories';
 
 export default {
@@ -22,9 +21,7 @@ Primary.args = {
     page: {
         title: 'Example Page',
         sections: [
-            HeroSectionStories.HeroVideo.args,
-            TeamSectionStories.Primary.args,
-            HeroSectionStories.HeroSVG.args,
+            HeroSectionStories.HeroImage.args,
             TestimonialsSectionStories.Primary.args,
             PostsSectionStories.Primary.args,
             FormSectionStories.Primary.args
@@ -32,6 +29,6 @@ Primary.args = {
     },
     siteConfig: {
         ...NavBarStories.Primary.args,
-        ...FooterStory.args
+        ...FooterStories.Primary.args
     }
 };

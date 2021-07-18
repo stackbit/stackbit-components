@@ -8,6 +8,14 @@ export default {
         variant: {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
+        },
+        width: {
+            options: ['narrow', 'wide', 'full'],
+            control: { type: 'select' }
+        },
+        height: {
+            options: ['auto', 'viewport'],
+            control: { type: 'select' }
         }
     }
 };
@@ -17,6 +25,8 @@ const Template = (args) => <TestimonialsSection {...args} />;
 const args = {
     type: 'section_testimonials',
     variant: 'variant-a',
+    width: 'wide',
+    height: 'auto',
     testimonials: [
         {
             quote: '“It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”',
@@ -37,4 +47,4 @@ Primary.args = { ...args, variant: 'variant-a' };
 
 export const VariantB = Template.bind({});
 VariantB.storyName = 'quote to the right of the image';
-VariantB.args = { ...args, variant: 'variant-b' };
+VariantB.args = { ...args, variant: 'variant-b', width: 'narrow' };

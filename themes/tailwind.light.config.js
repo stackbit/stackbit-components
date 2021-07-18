@@ -33,7 +33,7 @@ module.exports = {
         plugin(function({ addComponents, theme }) {
             addComponents({
                 '.header-2': {
-                    "@apply font-sans text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl sm:leading-none": {}
+                    "@apply font-sans text-3xl font-medium tracking-tight text-gray-900 sm:text-4xl sm:leading-none": {}
                 },
                 '.btn': {
                     padding: `${theme('spacing.2')} ${theme('spacing.4')}`,

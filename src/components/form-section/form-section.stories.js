@@ -5,12 +5,20 @@ export default {
     title: 'Components/Form Section',
     component: FormSection,
     argTypes: {
-        imagePosition: {
-            options: ['left', 'right'],
+        width: {
+            options: ['narrow', 'wide', 'full'],
             control: { type: 'select' }
         },
-        alignVert: {
-            options: ['top', 'middle', 'bottom'],
+        height: {
+            options: ['auto', 'viewport'],
+            control: { type: 'select' }
+        },
+        alignHoriz: {
+            options: ['left', 'center'],
+            control: { type: 'select' }
+        },
+        imagePosition: {
+            options: ['left', 'right'],
             control: { type: 'select' }
         }
     }
@@ -20,10 +28,14 @@ const Template = (args) => <FormSection {...args} />;
 
 const args = {
     type: 'section_form',
+    width: 'wide',
+    height: 'auto',
+    alignHoriz: 'left',
     title: 'Join our club',
     description: 'We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.',
     imageUrl: '/images/lobster.jpg',
     imageAlt: 'Fisherman holding lobster',
+    imagePosition: 'left',
     formId: 'contact-form',
     formFields: [
         {
@@ -57,16 +69,14 @@ const args = {
             width: 'full'
         },
     ],
-    submitLabel: 'Send Message',
-    imagePosition: 'left',
-    alignVert: 'middle'
+    submitLabel: 'Send Message'
 };
 
 //👇 Each story then reuses that template
 export const Primary = Template.bind({});
 Primary.storyName = 'Form with left image';
-Primary.args = { ...args, imagePosition: 'left', alignVert: 'middle' };
+Primary.args = { ...args, imagePosition: 'left' };
 
 export const VariantB = Template.bind({});
 VariantB.storyName = 'Form with right image, centered';
-VariantB.args = { ...args, imagePosition: 'right', alignVert: 'top' };
+VariantB.args = { ...args, imagePosition: 'right', alignHoriz: 'center' };

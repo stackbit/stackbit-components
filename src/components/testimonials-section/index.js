@@ -1,9 +1,26 @@
 import ReactMarkdown from 'react-markdown';
+import classNames from 'classnames';
 
 export default function TestimonialsSection(props) {
+    const width = props.width || 'full';
+    const height = props.height || 'auto';
+
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <TestimonialVariants {...props} />
+        <div
+            className={classNames('bg-yellow-400 py-8 lg:py-12', {
+                'mx-auto': width !== 'full',
+                'max-w-screen-xl': width === 'wide',
+                'max-w-screen-lg': width === 'narrow',
+                'min-h-screen flex flex-col justify-center': height === 'viewport'
+            })}
+        >
+            <div
+                className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {
+                    'xl:max-w-screen-xl': width !== 'narrow'
+                })}
+            >
+                <TestimonialVariants {...props} />
+            </div>
         </div>
     );
 }
@@ -21,9 +38,9 @@ function TestimonialVariants({ variant, ...props }) {
 
 function TestimonialsVariantA(props) {
     return (
-        <div className="mx-auto lg:max-w-screen-lg">
+        <>
             {(props.testimonials || []).map((testimonial, idx) => (
-                <blockquote key={idx} className="max-w-5xl mx-auto mb-12">
+                <blockquote key={idx} className="max-w-5xl mx-auto py-8">
                     {testimonial.logo && (
                         <img src={testimonial.logo} alt={testimonial.logo_alt} className="mx-auto mb-10" />
                     )}
@@ -43,15 +60,15 @@ function TestimonialsVariantA(props) {
                     )}
                 </blockquote>
             ))}
-        </div>
+        </>
     );
 }
 
 function TestimonialsVariantB(props) {
     return (
-        <div className="mx-auto lg:max-w-screen-lg">
+        <>
             {(props.testimonials || []).map((testimonial, idx) => (
-                <blockquote key={idx} className="max-w-5xl mx-auto mb-12 sm:flex">
+                <blockquote key={idx} className="max-w-5xl mx-auto py-8 sm:flex">
                     {testimonial.image && (
                         <div className="mb-8 sm:flex-shrink-0 sm:mb-0 sm:mr-10">
                             <img src={testimonial.image} alt={testimonial.image_alt} className="mx-auto mb-8 object-cover rounded-full w-36 h-36 sm:w-48 sm:h-48" />
@@ -73,6 +90,6 @@ function TestimonialsVariantB(props) {
                     
                 </blockquote>
             ))}
-        </div>
+        </>
     );
 }

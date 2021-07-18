@@ -5,8 +5,16 @@ export default {
     title: 'Components/Navigation Bar',
     component: NavBar,
     argTypes: {
-        navBarLinksPosition: {
-            options: ['left', 'center', 'right'],
+        width: {
+            options: ['narrow', 'wide', 'full'],
+            control: { type: 'select' }
+        },
+        desktopNavVariant: {
+            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
+            control: { type: 'select' }
+        },
+        mobileNavVariant: {
+            options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
         }
     }
@@ -15,8 +23,14 @@ export default {
 const Template = (args) => <NavBar {...args} />;
 
 const args = {
-    companyName: 'Stackbit',
-    leftLinks: [
+    desktopNavVariant: 'variant-a',
+    mobileNavVariant: 'variant-a',
+    width: 'wide',
+    title: 'Stackbit',
+    isTitleVisible: true,
+    logoUrl: '',
+    logoAlt: '',
+    primaryLinks: [
         {
             label: 'About us',
             url: '/about',
@@ -38,7 +52,7 @@ const args = {
             alt: 'Pricing'
         }
     ],
-    rightLinks: [
+    secondaryLinks: [
         {
             label: 'Sign in',
             url: '/',
@@ -51,23 +65,22 @@ const args = {
             style: 'button',
             alt: 'Sign up'
         }
-    ],
-    navBarLinksPosition: 'left'
+    ]
 };
 
 //👇 Each story then reuses that template
 export const Primary = Template.bind({});
-Primary.storyName = 'Left and right links';
-Primary.args = { ...args, navBarLinksPosition: 'left' };
+Primary.storyName = 'Logo on the left, primary links on the left';
+Primary.args = { ...args, desktopNavVariant: 'variant-a' };
 
 export const VariantB = Template.bind({});
-VariantB.storyName = 'Center and right links';
-VariantB.args = { ...args, navBarLinksPosition: 'center' };
+VariantB.storyName = 'Logo on the left, primary links centered, mobile nav alt';
+VariantB.args = { ...args, desktopNavVariant: 'variant-b', mobileNavVariant: 'variant-b' };
 
 export const VariantC = Template.bind({});
-VariantC.storyName = 'Left links aligned to the right';
-VariantC.args = { ...args, navBarLinksPosition: 'right' };
+VariantC.storyName = 'Logo on the left, primary links on the right';
+VariantC.args = { ...args, desktopNavVariant: 'variant-c' };
 
 export const VariantD = Template.bind({});
-VariantD.storyName = 'Left links empty';
-VariantD.args = { ...args, leftLinks: [], rightLinks: args.leftLinks.concat(args.rightLinks), navBarLinksPosition: 'left' };
+VariantD.storyName = 'Logo centered, primary links on the left, mobile nav alt';
+VariantD.args = { ...args, desktopNavVariant: 'variant-d', mobileNavVariant: 'variant-b' };

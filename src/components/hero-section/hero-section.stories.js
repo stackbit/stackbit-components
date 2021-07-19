@@ -41,7 +41,7 @@ const args = {
     title: 'The quick, brown fox  \njumps over **a lazy dog**',
     description:
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
-    imageUrl: 'https://images.pexels.com/photos/3184287/pexels-photo-3184287.jpeg?auto=compress&amp;cs=tinysrgb&amp;dpr=2&amp;h=750&amp;w=1260',
+    imageUrl: '/images/hero.png',
     imageAlt: '',
     actions: [
         {

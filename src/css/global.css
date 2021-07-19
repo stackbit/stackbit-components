@@ -1,0 +1,48 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: theme("colors.base");
+  --on-background: theme("colors.base-content");
+  --btn-background: theme("colors.primary");
+  --btn-border: theme("colors.primary");
+  --on-btn-background: theme("colors.base-content");
+  --on-btn-background-alt: theme("colors.base-content");
+}
+
+[data-theme="style-one"] {
+  --background: theme("colors.primary");
+  --on-background: theme("colors.base-content");
+  --btn-background: theme("colors.base");
+  --btn-border: theme("colors.base");
+  --on-btn-background: theme("colors.base-content");
+  --on-btn-background-alt: theme("colors.base-content");
+}
+
+[data-theme="style-two"] {
+  --background: theme("colors.base");
+  --on-background: theme("colors.base-content");
+  --btn-background: theme("colors.primary");
+  --btn-border: theme("colors.primary");
+  --on-btn-background: theme("colors.base-100");
+  --on-btn-background-alt: theme("colors.base-content");
+}
+
+[data-theme="style-three"] {
+  --background: theme("colors.base");
+  --on-background: theme("colors.base-content");
+  --btn-background: theme("colors.accent");
+  --btn-border: theme("colors.accent");
+  --on-btn-background: theme("colors.base-100");
+  --on-btn-background-alt: theme("colors.base-content");
+}
+
+[data-theme="style-four"] {
+  --background: theme("colors.neutral");
+  --on-background: theme("colors.neutral-content");
+  --btn-background: theme("colors.base");
+  --btn-border: theme("colors.base");
+  --on-btn-background: theme("colors.base-content");
+  --on-btn-background-alt: theme("colors.neutral-content");
+}

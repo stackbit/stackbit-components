@@ -1,5 +1,5 @@
 {
-  "name": "stackbit-components",
+  "name": "@stackbit/components",
   "version": "0.1.0",
   "description": "Stackbit components library",
   "scripts": {

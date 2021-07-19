@@ -11,7 +11,7 @@
   --on-btn-background-alt: theme("colors.base-content");
 }
 
-[data-theme="style-one"] {
+[data-style="style-a"] {
   --background: theme("colors.primary");
   --on-background: theme("colors.base-content");
   --btn-background: theme("colors.base");
@@ -20,7 +20,7 @@
   --on-btn-background-alt: theme("colors.base-content");
 }
 
-[data-theme="style-two"] {
+[data-style="style-b"] {
   --background: theme("colors.base");
   --on-background: theme("colors.base-content");
   --btn-background: theme("colors.primary");
@@ -29,7 +29,7 @@
   --on-btn-background-alt: theme("colors.base-content");
 }
 
-[data-theme="style-three"] {
+[data-style="style-c"] {
   --background: theme("colors.base");
   --on-background: theme("colors.base-content");
   --btn-background: theme("colors.accent");
@@ -38,7 +38,7 @@
   --on-btn-background-alt: theme("colors.base-content");
 }
 
-[data-theme="style-four"] {
+[data-style="style-d"] {
   --background: theme("colors.neutral");
   --on-background: theme("colors.neutral-content");
   --btn-background: theme("colors.base");

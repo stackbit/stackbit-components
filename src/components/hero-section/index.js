@@ -20,17 +20,21 @@ export default function HeroSection({ variant, ...props }) {
 }
 
 function HeroImageHorizontal(props) {
+    const style = props.style || 'style-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
     const mediaPosition = props.mediaPosition || 'left';
 
     return (
         <div
-            className={classNames('bg-yellow-400 overflow-x-hidden relative', {
+            className={classNames('overflow-x-hidden relative', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col': height === 'viewport'
+                'min-h-screen flex flex-col': height === 'viewport',
+                'bg-base text-base-content': style === 'style-a',
+                'bg-primary text-primary-content': style === 'style-b',
+                'bg-neutral text-neutral-content': style === 'style-c',
             })}
         >
             <div
@@ -69,17 +73,21 @@ function HeroImageHorizontal(props) {
 }
 
 function HeroImageVertical(props) {
+    const style = props.style || 'style-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
     const mediaPosition = props.mediaPosition || 'left';
 
     return (
         <div
-            className={classNames('bg-yellow-400', {
+            className={classNames({
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col': height === 'viewport'
+                'min-h-screen flex flex-col': height === 'viewport',
+                'bg-base text-base-content': style === 'style-a',
+                'bg-primary text-primary-content': style === 'style-b',
+                'bg-neutral text-neutral-content': style === 'style-c',
             })}
         >
             <div
@@ -115,6 +123,7 @@ function HeroImageVertical(props) {
 }
 
 function HeroVideo(props) {
+    const style = props.style || 'style-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
     const mediaPosition = props.mediaPosition || 'left';
@@ -125,7 +134,10 @@ function HeroVideo(props) {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col justify-center': height === 'viewport'
+                'min-h-screen flex flex-col justify-center': height === 'viewport',
+                'bg-base text-base-content': style === 'style-a',
+                'bg-primary text-primary-content': style === 'style-b',
+                'bg-neutral text-neutral-content': style === 'style-c'
             })}
         >
             <div
@@ -163,6 +175,7 @@ function HeroVideo(props) {
 }
 
 function HeroImage(props) {
+    const style = props.style || 'style-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
     const mediaPosition = props.mediaPosition || 'left';
@@ -173,7 +186,10 @@ function HeroImage(props) {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col justify-center': height === 'viewport'
+                'min-h-screen flex flex-col justify-center': height === 'viewport',
+                'bg-base text-base-content': style === 'style-a',
+                'bg-primary text-primary-content': style === 'style-b',
+                'bg-neutral text-neutral-content': style === 'style-c',
             })}
         >
             <div
@@ -200,6 +216,7 @@ function HeroImage(props) {
 }
 
 function HeroContent(props) {
+    const style = props.style || 'style-a';
     const alignHoriz = props.alignHoriz || 'left';
     return (
         <div
@@ -207,7 +224,15 @@ function HeroContent(props) {
                 'mx-auto text-center': alignHoriz === 'center'
             })}
         >
-            {props.badge && <Badge label={props.badge} />}
+            {props.badge && (
+                <Badge
+                    label={props.badge}
+                    className={classNames({
+                        'bg-primary-variant text-primary-content': style !== 'style-c',
+                        'bg-neutral-variant text-neutral-content': style === 'style-c',
+                    })}
+                />
+            )}
             {props.title && <h1 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-6"><ReactMarkdown allowedElements={["br","span","strong"]} unwrapDisallowed={true} components={components}>{props.title}</ReactMarkdown></h1>}
             {props.description && <div className="md:text-lg"><ReactMarkdown>{props.description}</ReactMarkdown></div>}
         </div>
@@ -215,6 +240,7 @@ function HeroContent(props) {
 }
 
 function HeroActions(props) {
+    const style = props.style || 'style-a';
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
@@ -231,7 +257,10 @@ function HeroActions(props) {
                     <Button
                         key={idx}
                         {...action}
-                        className={classNames('w-full mb-3 md:w-auto md:mb-0', alignHoriz === 'left' ? 'md:mr-4' : 'md:mx-2')}
+                        className={classNames('w-full mb-3 md:w-auto md:mb-0', alignHoriz === 'left' ? 'md:mr-4' : 'md:mx-2', {
+                            'bg-neutral text-primary hover:bg-neutral-variant': style === 'style-b',
+                            'bg-primary text-primary-content hover:bg-primary-variant': style !== 'style-b',
+                        })}
                     />
                 ) : (
                     <Link
@@ -250,6 +279,6 @@ function HeroActions(props) {
 
 const components = {
     strong({ children }) {
-        return <span className="inline-block text-primary">{children}</span>;
+        return <span className="inline-block underline">{children}</span>;
     }
 };

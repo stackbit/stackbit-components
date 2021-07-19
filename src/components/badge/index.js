@@ -1,6 +1,17 @@
-export default function Badge({ label }) {
+import classNames from 'classnames';
+
+export default function Badge({ label, className }) {
     if (!label) {
         return null;
     }
-    return <p className="inline-block px-3 py-px mb-4 text-xs font-semibold tracking-wider text-teal-900 uppercase rounded-full bg-teal-accent-400">{label}</p>;
+    return (
+        <p
+            className={classNames(
+                'inline-block px-3 py-px mb-4 text-xs font-medium tracking-wider uppercase rounded-full',
+                className
+            )}
+        >
+                {label}
+        </p>
+    );
 }

@@ -13,7 +13,7 @@ export default function Button({ label, url, icon, alt, className }) {
                 aria-label={alt}
                 title={alt}
                 className={classNames(
-                    'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide text-white transition duration-200 shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none',
+                    'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none',
                     className
                 )}
             >

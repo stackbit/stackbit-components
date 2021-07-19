@@ -112,43 +112,12 @@ module.exports = {
       },
       spacing: {
         '1/2': '50%',
+        '1/1': '100%',
       }
     },
   },
   variants: {
     extend: {},
   },
-  plugins: [
-    plugin(function({ addComponents, theme }) {
-      const buttons = {
-        '.sb-btn': {
-          alignItems: 'center',
-          display: 'inline-flex',
-          fontFamily: theme('fontFamily.headline'),
-          fontWeight: theme('fontWeight.medium'),
-          justifyContent: 'center',
-          padding: `0.75em 1.5em`,
-          textAlign: 'center',
-          transition: '.2s ease-in',
-        },
-        '.sb-btn-primary': {
-          backgroundColor: theme('colors.base'),
-          border: `2px solid transparent`,
-          color: theme('colors.white'),
-          '&:hover': {},
-        },
-        '.sb-btn-secondary': {
-          backgroundColor: 'transparent',
-          border: `2px solid ${theme('colors.base')}`,
-          color: theme('colors.base'),
-          '&:hover': {},
-        },
-        '.sb-btn-icon': {
-          padding: '0',
-        },
-      }
-
-      addComponents(buttons)
-    })
-  ],
+  plugins: [],
 };

@@ -5,6 +5,10 @@ export default {
     title: 'Components/Navigation Bar',
     component: NavBar,
     argTypes: {
+        style: {
+            options: ['style-a', 'style-b', 'style-c'],
+            control: { type: 'select' }
+        },
         width: {
             options: ['narrow', 'wide', 'full'],
             control: { type: 'select' }
@@ -23,13 +27,14 @@ export default {
 const Template = (args) => <NavBar {...args} />;
 
 const args = {
+    style: 'style-a',
     desktopNavVariant: 'variant-a',
     mobileNavVariant: 'variant-a',
     width: 'wide',
-    title: 'Stackbit',
+    title: 'Fish_of_the_day',
     isTitleVisible: true,
-    logoUrl: '',
-    logoAlt: '',
+    logoUrl: '/images/logo.svg',
+    logoAlt: 'Logo',
     primaryLinks: [
         {
             label: 'About us',

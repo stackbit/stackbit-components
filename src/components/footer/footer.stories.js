@@ -16,10 +16,10 @@ const Template = (args) => <Footer {...args} />;
 
 const args = {
     width: 'wide',
-    title: 'Stackbit',
+    title: 'Fish_of_the_day',
     isTitleVisible: true,
-    logoUrl: '',
-    logoAlt: '',
+    logoUrl: '/images/logo.svg',
+    logoAlt: 'Logo',
     info:
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.\n' +
         '\n' +

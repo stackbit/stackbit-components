@@ -1,12 +1,14 @@
 import React from 'react';
 
 import BaseLayout from '../base-layout/base-layout';
+import CTASection from '../../components/cta-section';
 import FormSection from '../../components/form-section';
 import HeroSection from '../../components/hero-section';
 import PostsSection from '../../components/posts-section';
 import TestimonialsSection from '../../components/testimonials-section';
 
 const components = {
+    section_cta: CTASection,
     section_form: FormSection,
     section_hero: HeroSection,
     section_posts: PostsSection,

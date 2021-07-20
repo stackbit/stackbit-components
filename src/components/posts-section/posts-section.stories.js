@@ -9,6 +9,10 @@ export default {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
         },
+        style: {
+            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+            control: { type: 'select' }
+        },
         width: {
             options: ['narrow', 'wide', 'full'],
             control: { type: 'select' }
@@ -29,6 +33,7 @@ const Template = (args) => <PostsSection {...args} />;
 const args = {
     type: 'section_posts',
     variant: 'variant-a',
+    style: 'style-d',
     width: 'wide',
     height: 'auto',
     alignHoriz: 'center',

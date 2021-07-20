@@ -10,7 +10,7 @@ export default {
             control: { type: 'select' }
         },
         style: {
-            options: ['style-a', 'style-b', 'style-c'],
+            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
             control: { type: 'select' }
         },
         width: {
@@ -36,7 +36,7 @@ const Template = (args) => <HeroSection {...args} />;
 
 const args = {
     type: 'section_hero',
-    style: 'style-a',
+    style: 'style-d',
     variant: 'variant-a',
     width: 'wide',
     height: 'auto',

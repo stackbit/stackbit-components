@@ -19,7 +19,7 @@ export default {
 const Template = (args) => <Footer {...args} />;
 
 const args = {
-    style: 'style-a',
+    style: 'style-d',
     width: 'wide',
     title: 'Fish_of_the_day',
     isTitleVisible: true,

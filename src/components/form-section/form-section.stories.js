@@ -32,7 +32,7 @@ const Template = (args) => <FormSection {...args} />;
 
 const args = {
     type: 'section_form',
-    style: 'style-a',
+    style: 'style-e',
     width: 'wide',
     height: 'auto',
     alignHoriz: 'left',

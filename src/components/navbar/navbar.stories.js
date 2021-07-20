@@ -31,7 +31,7 @@ export default {
 const Template = (args) => <NavBar {...args} />;
 
 const args = {
-    primaryStyle: 'style-a',
+    primaryStyle: 'style-d',
     secondaryStyle: 'style-a',
     desktopNavVariant: 'variant-a',
     mobileNavVariant: 'variant-a',

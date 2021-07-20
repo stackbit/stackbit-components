@@ -21,10 +21,10 @@ module.exports = {
         'accent-variant':    '#E03817',
         'neutral':           '#282828',
         'neutral-variant':   '#3D404C',
-        'base':              '#0A0A0A',
         'base-50':           '#FFFFFF',
         'base-100':          '#F5F5F5',
         'base-200':          '#E1E1E1',
+        'base-900':          '#0A0A0A',
       },
       fontFamily: {
         sans: ['Rubik', ...defaultTheme.fontFamily.sans]

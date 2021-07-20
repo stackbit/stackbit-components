@@ -16,11 +16,11 @@ export default function FormSection(props) {
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
                 'min-h-screen flex flex-col justify-center': height === 'viewport',
-                'bg-base-50 text-base': style === 'style-a',
+                'bg-base-50 text-base-900': style === 'style-a',
                 'bg-neutral text-base-50': style === 'style-b',
                 'bg-neutral text-primary': style === 'style-c',
-                'bg-primary text-base': style === 'style-d',
-                'bg-primary-variant text-base': style === 'style-e'
+                'bg-primary text-base-900': style === 'style-d',
+                'bg-secondary text-base-900': style === 'style-e'
             })}
         >
             <div
@@ -52,12 +52,12 @@ export default function FormSection(props) {
                             <div className="flex flex-wrap -mx-2">
                                 {(props.formFields || []).map((field, idx) => (
                                     <React.Fragment key={idx}>
-                                        {FormField(field)}
+                                        {FormField(field, style)}
                                     </React.Fragment>
                                 ))}
                             </div>
                             <div className="mt-4 sm:mt-8">
-                                <button type="submit" className="inline-flex items-center justify-center h-12 px-6 font-medium w-full tracking-wide text-white transition duration-200 shadow-md bg-deep-purple-accent-400 hover:bg-deep-purple-accent-700 focus:shadow-outline focus:outline-none md:w-auto">{props.submitLabel}</button>
+                                <button type="submit" className={classNames('inline-flex items-center justify-center h-12 px-6 font-medium w-full tracking-wide focus:outline-none md:w-auto', style === 'style-a' ? 'bg-primary text-base-900': 'bg-neutral-variant text-base-50')}>{props.submitLabel}</button>
                             </div>
                         </form>
                     </div>
@@ -72,7 +72,7 @@ export default function FormSection(props) {
     );
 }
 
-function FormField(field) {
+function FormField(field, style) {
     const labelId = `${field.name}-label`;
     const attr = {};
     if (field.label) {
@@ -91,7 +91,7 @@ function FormField(field) {
     switch (field.type) {
         case 'checkbox':
             return (
-                <div className={classNames('sb-checkbox', classes)}>
+                <div className={classes}>
                     <input type="checkbox" id={field.name} name={field.name} className="mr-2" {...attr} />
                     {field.label && <label htmlFor={field.name} id={labelId}>{field.label}</label>}
                 </div>
@@ -100,7 +100,7 @@ function FormField(field) {
             return (
                 <div className={classes}>
                     {field.label && <label htmlFor={field.name} id={field.labelId} className="sr-only">{field.label}</label>}
-                    <select id={field.name} name={field.name} {...attr} className="bg-transparent font-light text-xl border border-current w-full p-2">
+                    <select id={field.name} name={field.name} {...attr} className={classNames('bg-transparent text-xl border border-current w-full p-2')}>
                         {field.defaultValue && <option value="">{field.defaultValue}</option>}
                         {_.map(field.options, (option, idx) => (
                             <option key={idx} value={option}>{option}</option>
@@ -112,14 +112,28 @@ function FormField(field) {
             return (
                 <div className={classes}>
                     {field.label && <label htmlFor={field.name} id={field.labelId} className="sr-only">{field.label}</label>}
-                    <textarea name={field.name} id={field.name} rows="5" {...(field.defaultValue ? { placeholder: field.defaultValue } : null)} {...attr} className="bg-transparent font-light text-xl placeholder-black placeholder-opacity-40 border-b border-current w-full focus:outline-none pb-2 sm:pr-6" />
+                    <textarea
+                        name={field.name}
+                        id={field.name}
+                        rows="5"
+                        {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
+                        {...attr}
+                        className={classNames('bg-transparent font-light text-xl  placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6', style === 'style-b' || style === 'style-c' ? 'placeholder-base-200 border-neutral-variant': 'placeholder-black border-current')}
+                    />
                 </div>
             );
         default:
             return (
                 <div className={classes}>
                     {field.label && <label htmlFor={field.name} id={field.labelId} className="sr-only">{field.label}</label>}
-                    <input type={field.type} name={field.name} id={field.name} {...(field.defaultValue ? { placeholder: field.defaultValue } : null)} {...attr} className="bg-transparent font-light text-xl placeholder-black placeholder-opacity-40 border-b border-current w-full focus:outline-none pb-2 sm:pr-6" />
+                    <input
+                        type={field.type}
+                        name={field.name}
+                        id={field.name}
+                        {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
+                        {...attr}
+                        className={classNames('bg-transparent text-xl font-light placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6', style === 'style-b' || style === 'style-c' ? 'placeholder-base-200 border-neutral-variant': 'placeholder-black border-current')}
+                    />
                 </div>
             );
     }

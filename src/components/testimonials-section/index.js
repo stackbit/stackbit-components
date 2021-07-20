@@ -2,16 +2,22 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 
 export default function TestimonialsSection(props) {
+    const style = props.style || 'style-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
 
     return (
         <div
-            className={classNames('bg-yellow-400 py-8 lg:py-12', {
+            className={classNames('py-8 lg:py-12', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col justify-center': height === 'viewport'
+                'min-h-screen flex flex-col justify-center': height === 'viewport',
+                'bg-base-50 text-base-900': style === 'style-a',
+                'bg-neutral text-base-50': style === 'style-b',
+                'bg-neutral text-primary': style === 'style-c',
+                'bg-primary text-base-900': style === 'style-d',
+                'bg-secondary text-base-900': style === 'style-e'
             })}
         >
             <div
@@ -54,7 +60,7 @@ function TestimonialsVariantA(props) {
                             {testimonial.image && (
                         <img src={testimonial.image} alt={testimonial.image_alt} className="mx-auto mb-4 rounded-full object-cover w-14 h-14" />
                     )}
-                            <strong className="block mb-0.5 text-lg">{testimonial.name}</strong>
+                            <strong className="block mb-0.5 font-medium text-lg">{testimonial.name}</strong>
                             {testimonial.title}
                         </footer>
                     )}
@@ -82,7 +88,7 @@ function TestimonialsVariantB(props) {
                         )}
                         {(testimonial.name || testimonial.title) && (
                             <footer className="mt-8 text-center text-sm sm:text-left">
-                                <strong className="block mb-0.5 text-lg">{testimonial.name}</strong>
+                                <strong className="block font-medium mb-0.5 text-lg">{testimonial.name}</strong>
                                 {testimonial.title}
                             </footer>
                         )}

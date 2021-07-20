@@ -23,11 +23,11 @@ export default function Index(props) {
             'mx-auto': width !== 'full',
             'max-w-screen-xl': width === 'wide',
             'max-w-screen-lg': width === 'narrow',
-            'bg-base-50 text-base': style === 'style-a',
+            'bg-base-50 text-base-900': style === 'style-a',
             'bg-neutral text-base-50': style === 'style-b',
             'bg-neutral text-primary': style === 'style-c',
-            'bg-primary text-base': style === 'style-d',
-            'bg-primary-variant text-base': style === 'style-e'
+            'bg-primary text-base-900': style === 'style-d',
+            'bg-secondary text-base-900': style === 'style-e'
         })}>
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 {(props.title &&props.isTitleVisible || props.logoUrl) && (
@@ -81,7 +81,7 @@ export default function Index(props) {
                     </div>
                 )}
             </div>
-            <div className={classNames('flex flex-col-reverse justify-between pt-6 border-t lg:flex-row', style === 'style-b' || style === 'style-c' ? 'border-neutral-variant' : 'border-base')}>
+            <div className={classNames('flex flex-col-reverse justify-between pt-6 border-t lg:flex-row', style === 'style-b' || style === 'style-c' ? 'border-neutral-variant' : 'border-base-900')}>
                 {props.copyrightText && <p className="text-sm">{props.copyrightText}</p>}
                 {props.legalLinks && props.legalLinks.length > 0 && (
                     <ul className="flex flex-col mb-6 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">

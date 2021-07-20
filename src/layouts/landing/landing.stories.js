@@ -1,6 +1,7 @@
 import React from 'react';
 import Landing from './index';
 
+import * as CTASectionStories from '../../components/cta-section/cta-section.stories';
 import * as NavBarStories from '../../components/navbar/navbar.stories';
 import * as FooterStories from '../../components/footer/footer.stories';
 import * as FormSectionStories from '../../components/form-section/form-section.stories';
@@ -24,6 +25,7 @@ Primary.args = {
             HeroSectionStories.HeroImage.args,
             TestimonialsSectionStories.Primary.args,
             PostsSectionStories.Primary.args,
+            CTASectionStories.Primary.args,
             FormSectionStories.Primary.args
         ]
     },

@@ -17,11 +17,11 @@ export default function Index(props) {
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
                 'relative': mobileNavVariant === 'variant-b',
-                'bg-base-50 text-base': primaryStyle === 'style-a',
+                'bg-base-50 text-base-900': primaryStyle === 'style-a',
                 'bg-neutral text-base-50': primaryStyle === 'style-b',
                 'bg-neutral text-primary': primaryStyle === 'style-c',
-                'bg-primary text-base': primaryStyle === 'style-d',
-                'bg-primary-variant text-base': primaryStyle === 'style-e'
+                'bg-primary text-base-900': primaryStyle === 'style-d',
+                'bg-secondary text-base-900': primaryStyle === 'style-e'
             })}>
                 <Link href="#content">
                     <a className="sr-only">
@@ -123,11 +123,11 @@ function mobileNavVariants(props) {
                 {isMenuOpen && (
                     <div className="absolute top-0 left-0 w-full z-10">
                         <div className={classNames('p-5 border rounded shadow-sm', {
-                                'bg-base-50 text-base': secondaryStyle === 'style-a',
-                                'bg-neutral border-base text-base-50': secondaryStyle === 'style-b',
-                                'bg-neutral border-base text-primary': secondaryStyle === 'style-c',
-                                'bg-primary border-primary text-base': secondaryStyle === 'style-d',
-                                'bg-primary-variant border-primary text-base': secondaryStyle === 'style-e'
+                                'bg-base-50 text-base-900': secondaryStyle === 'style-a',
+                                'bg-neutral border-base-900 text-base-50': secondaryStyle === 'style-b',
+                                'bg-neutral border-base-900 text-primary': secondaryStyle === 'style-c',
+                                'bg-primary border-primary text-base-900': secondaryStyle === 'style-d',
+                                'bg-secondary border-secondary-variant text-base-900': secondaryStyle === 'style-e'
                         })}>
                             <div className="flex items-center justify-between mb-6">
                                 {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
@@ -161,15 +161,15 @@ function mobileNavVariants(props) {
                 {isMenuOpen && (
                     <div>
                         <div
-                            className={classNames('fixed inset-0 bg-opacity-50', secondaryStyle === 'style-b' || secondaryStyle === 'style-c' ? 'bg-primary' : 'bg-base')}
+                            className={classNames('fixed inset-0 bg-opacity-50', secondaryStyle === 'style-b' || secondaryStyle === 'style-c' ? 'bg-primary' : 'bg-base-900')}
                             onClick={() => setIsMenuOpen(false)}
                         />
                         <div className={classNames('fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto', {
-                                'bg-base-50 text-base': secondaryStyle === 'style-a',
-                                'bg-neutral border-base text-base-50': secondaryStyle === 'style-b',
-                                'bg-neutral border-base text-primary': secondaryStyle === 'style-c',
-                                'bg-primary border-primary text-base': secondaryStyle === 'style-d',
-                                'bg-primary-variant border-primary text-base': secondaryStyle === 'style-e'
+                                'bg-base-50 text-base-900': secondaryStyle === 'style-a',
+                                'bg-neutral border-base-900 text-base-50': secondaryStyle === 'style-b',
+                                'bg-neutral border-base-900 text-primary': secondaryStyle === 'style-c',
+                                'bg-primary border-primary text-base-900': secondaryStyle === 'style-d',
+                                'bg-secondary border-secondary-variant text-base-900': secondaryStyle === 'style-e'
                         })}>
                             <div className="flex items-center justify-between mb-6">
                                 {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
@@ -224,11 +224,7 @@ function listOfLinks(links, style, inMenu = false) {
                     label={link.label}
                     url={link.url}
                     alt={link.alt}
-                    className={classNames('px-4 py-5 lg:px-8', {
-                        'w-full': inMenu,
-                        'bg-primary text-base': style === 'style-a',
-                        'bg-neutral-variant text-base-50': style !== 'style-a'
-                    })}
+                    className={classNames('px-4 py-5 lg:px-8', inMenu ? 'w-full' : '', style === 'style-a' ? 'bg-primary text-base-900' : 'bg-neutral-variant text-base-50')}
                 />
             )}
         </li>

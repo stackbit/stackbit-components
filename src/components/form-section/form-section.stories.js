@@ -5,6 +5,10 @@ export default {
     title: 'Components/Form Section',
     component: FormSection,
     argTypes: {
+        style: {
+            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+            control: { type: 'select' }
+        },
         width: {
             options: ['narrow', 'wide', 'full'],
             control: { type: 'select' }
@@ -28,6 +32,7 @@ const Template = (args) => <FormSection {...args} />;
 
 const args = {
     type: 'section_form',
+    style: 'style-a',
     width: 'wide',
     height: 'auto',
     alignHoriz: 'left',

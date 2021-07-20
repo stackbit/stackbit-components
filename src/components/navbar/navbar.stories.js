@@ -5,8 +5,12 @@ export default {
     title: 'Components/Navigation Bar',
     component: NavBar,
     argTypes: {
-        style: {
-            options: ['style-a', 'style-b', 'style-c'],
+        primaryStyle: {
+            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+            control: { type: 'select' }
+        },
+        secondaryStyle: {
+            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
             control: { type: 'select' }
         },
         width: {
@@ -27,7 +31,8 @@ export default {
 const Template = (args) => <NavBar {...args} />;
 
 const args = {
-    style: 'style-a',
+    primaryStyle: 'style-a',
+    secondaryStyle: 'style-a',
     desktopNavVariant: 'variant-a',
     mobileNavVariant: 'variant-a',
     width: 'wide',

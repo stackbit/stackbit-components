@@ -5,6 +5,10 @@ export default {
     title: 'Components/Footer',
     component: Footer,
     argTypes: {
+        style: {
+            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+            control: { type: 'select' }
+        },
         width: {
             options: ['narrow', 'wide', 'full'],
             control: { type: 'select' }
@@ -15,6 +19,7 @@ export default {
 const Template = (args) => <Footer {...args} />;
 
 const args = {
+    style: 'style-a',
     width: 'wide',
     title: 'Fish_of_the_day',
     isTitleVisible: true,

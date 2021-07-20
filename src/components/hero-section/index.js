@@ -234,7 +234,7 @@ function HeroContent(props) {
                 />
             )}
             {props.title && <h1 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-6"><ReactMarkdown allowedElements={["br","span","strong"]} unwrapDisallowed={true} components={components}>{props.title}</ReactMarkdown></h1>}
-            {props.description && <div className="md:text-lg"><ReactMarkdown>{props.description}</ReactMarkdown></div>}
+            {props.description && <ReactMarkdown className="md:text-lg">{props.description}</ReactMarkdown>}
         </div>
     );
 }

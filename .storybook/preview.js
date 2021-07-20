@@ -25,8 +25,7 @@ export const globalTypes = {
         toolbar: {
             icon: 'photo',
             items: [
-                { value: 'light', title: 'Light Theme' },
-                { value: 'dark', title: 'Dark Theme' }
+                { value: 'light', title: 'Light Theme' }
             ]
         }
     }

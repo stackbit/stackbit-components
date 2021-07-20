@@ -1,23 +1,33 @@
 import Link from 'next/link';
 import classNames from 'classnames';
-import Twitter from '../../svgs/twitter';
-import Instagram from '../../svgs/instagram';
 import Facebook from '../../svgs/facebook';
+import GitHub from '../../svgs/github';
+import Instagram from '../../svgs/instagram';
+import LinkedIn from '../../svgs/linkedin';
+import Twitter from '../../svgs/twitter';
 import ReactMarkdown from 'react-markdown';
 
 export default function Index(props) {
+    const style = props.style || 'style-a';
     const width = props.width || 'full';
     const iconMap = {
-        twitter: Twitter,
+        facebook: Facebook,
+        github: GitHub,
         instagram: Instagram,
-        facebook: Facebook
+        linkedin: LinkedIn,
+        twitter: Twitter
     };
 
     return (
-        <footer className={classNames('bg-yellow-400 px-4 py-12 lg:px-8 lg:py-16', {
+        <footer className={classNames('px-4 py-12 lg:px-8 lg:py-16', {
             'mx-auto': width !== 'full',
             'max-w-screen-xl': width === 'wide',
-            'max-w-screen-lg': width === 'narrow'
+            'max-w-screen-lg': width === 'narrow',
+            'bg-base-50 text-base': style === 'style-a',
+            'bg-neutral text-base-50': style === 'style-b',
+            'bg-neutral text-primary': style === 'style-c',
+            'bg-primary text-base': style === 'style-d',
+            'bg-primary-variant text-base': style === 'style-e'
         })}>
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 {(props.title &&props.isTitleVisible || props.logoUrl) && (
@@ -60,7 +70,7 @@ export default function Index(props) {
                                     return (
                                         <li key={idx}>
                                             <a href={link.url} className="transition-opacity duration-300 hover:opacity-70">
-                                                <IconComponent />
+                                                <IconComponent className="fill-current h-6 w-6" />
                                             </a>
                                         </li>
                                     );
@@ -71,7 +81,7 @@ export default function Index(props) {
                     </div>
                 )}
             </div>
-            <div className="flex flex-col-reverse justify-between pt-6 border-t border-current lg:flex-row">
+            <div className={classNames('flex flex-col-reverse justify-between pt-6 border-t lg:flex-row', style === 'style-b' || style === 'style-c' ? 'border-neutral-variant' : 'border-base')}>
                 {props.copyrightText && <p className="text-sm">{props.copyrightText}</p>}
                 {props.legalLinks && props.legalLinks.length > 0 && (
                     <ul className="flex flex-col mb-6 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">

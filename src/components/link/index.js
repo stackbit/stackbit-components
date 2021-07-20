@@ -1,12 +1,15 @@
 import Link from 'next/link';
 import classNames from 'classnames';
 import ArrowRight from '../../svgs/arrow-right';
-
-const icons = {
-    arrowRight: ArrowRight
-};
+import Cart from '../../svgs/cart';
 
 export default function Button({ label, url, icon, alt, className }) {
+    const iconMap = {
+        arrowRight: ArrowRight,
+        cart: Cart
+    };
+    const IconComponent = icon ? iconMap[icon] : null;
+
     return (
         <Link href={url}>
             <a
@@ -18,7 +21,7 @@ export default function Button({ label, url, icon, alt, className }) {
                 )}
             >
                 {label}
-                {icon && icon in icons && icons[icon]()}
+                {IconComponent && <IconComponent className="fill-current h-5 ml-2 w-5" />}
             </a>
         </Link>
     );

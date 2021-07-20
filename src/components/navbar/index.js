@@ -1,10 +1,12 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import classNames from 'classnames';
+import Hamburger from '../../svgs/hamburger';
+import Close from '../../svgs/close';
 import Button from '../button';
 
 export default function Index(props) {
-    const style = props.style || 'style-a';
+    const primaryStyle = props.primaryStyle || 'style-a';
     const width = props.width || 'full';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
 
@@ -15,9 +17,11 @@ export default function Index(props) {
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
                 'relative': mobileNavVariant === 'variant-b',
-                'bg-base text-base-content': style === 'style-a',
-                'bg-primary text-primary-content': style === 'style-b',
-                'bg-neutral text-neutral-content': style === 'style-c',
+                'bg-base-50 text-base': primaryStyle === 'style-a',
+                'bg-neutral text-base-50': primaryStyle === 'style-b',
+                'bg-neutral text-primary': primaryStyle === 'style-c',
+                'bg-primary text-base': primaryStyle === 'style-d',
+                'bg-primary-variant text-base': primaryStyle === 'style-e'
             })}>
                 <Link href="#content">
                     <a className="sr-only">
@@ -37,7 +41,7 @@ export default function Index(props) {
 }
 
 function desktopNavVariants(props) {
-    const style = props.style || 'style-a';
+    const primaryStyle = props.primaryStyle || 'style-a';
     const desktopNavVariant = props.desktopNavVariant || 'variant-a';
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
@@ -52,8 +56,8 @@ function desktopNavVariants(props) {
                 <div>
                     {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
                 </div>
-                {primaryLinks && primaryLinks.length > 0 && <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks, style)}</ul>}
-                {secondaryLinks && secondaryLinks.length > 0 && <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, style)}</ul>}
+                {primaryLinks && primaryLinks.length > 0 && <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks, primaryStyle)}</ul>}
+                {secondaryLinks && secondaryLinks.length > 0 && <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, primaryStyle)}</ul>}
                 {mobileNavVariants(props)}
             </>
         );
@@ -63,8 +67,8 @@ function desktopNavVariants(props) {
                 <div>
                     {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
                 </div>
-                {primaryLinks && primaryLinks.length > 0 && <ul className="hidden absolute space-x-8 left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto lg:flex lg:items-center">{listOfLinks(primaryLinks, style)}</ul>}
-                {secondaryLinks && secondaryLinks.length > 0 && <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, style)}</ul>}
+                {primaryLinks && primaryLinks.length > 0 && <ul className="hidden absolute space-x-8 left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto lg:flex lg:items-center">{listOfLinks(primaryLinks, primaryStyle)}</ul>}
+                {secondaryLinks && secondaryLinks.length > 0 && <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, primaryStyle)}</ul>}
                 {mobileNavVariants(props)}
             </>
         );
@@ -75,7 +79,7 @@ function desktopNavVariants(props) {
                 <div>
                     {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
                 </div>
-                {links.length > 0 && <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks.concat(secondaryLinks), style)}</ul>}
+                {links.length > 0 && <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks.concat(secondaryLinks), primaryStyle)}</ul>}
                 {mobileNavVariants(props)}
             </>
         );
@@ -85,8 +89,8 @@ function desktopNavVariants(props) {
                 <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-1/2">
                     {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
                 </div>
-                {primaryLinks && primaryLinks.length > 0 && <ul className="hidden space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks, style)}</ul>}
-                {secondaryLinks && secondaryLinks.length > 0 && <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, style)}</ul>}
+                {primaryLinks && primaryLinks.length > 0 && <ul className="hidden space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks, primaryStyle)}</ul>}
+                {secondaryLinks && secondaryLinks.length > 0 && <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, primaryStyle)}</ul>}
                 {mobileNavVariants(props)}
             </>
         );
@@ -95,7 +99,7 @@ function desktopNavVariants(props) {
 
 function mobileNavVariants(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const style = props.style || 'style-a';
+    const secondaryStyle = props.secondaryStyle || 'style-a';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
@@ -114,13 +118,17 @@ function mobileNavVariants(props) {
                     onClick={() => setIsMenuOpen(true)}
                 >
                     <span className="sr-only">Open Menu</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
-                        <path d="M3 13h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 7h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 19h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1z"></path>
-                    </svg>
+                    <Hamburger className="fill-current h-6 w-6" />
                 </button>
                 {isMenuOpen && (
                     <div className="absolute top-0 left-0 w-full z-10">
-                        <div className="p-5 bg-white border rounded shadow-sm">
+                        <div className={classNames('p-5 border rounded shadow-sm', {
+                                'bg-base-50 text-base': secondaryStyle === 'style-a',
+                                'bg-neutral border-base text-base-50': secondaryStyle === 'style-b',
+                                'bg-neutral border-base text-primary': secondaryStyle === 'style-c',
+                                'bg-primary border-primary text-base': secondaryStyle === 'style-d',
+                                'bg-primary-variant border-primary text-base': secondaryStyle === 'style-e'
+                        })}>
                             <div className="flex items-center justify-between mb-6">
                                 {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
                                 <button
@@ -129,12 +137,10 @@ function mobileNavVariants(props) {
                                     className="p-2 -mt-2 -mr-2 focus:outline-none"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
-                                        <path d="M5.293 6.707l5.293 5.293-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l5.293-5.293 5.293 5.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414l-5.293-5.293 5.293-5.293c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-                                    </svg>
+                                    <Close className="fill-current h-6 w-6" />
                                 </button>
                             </div>
-                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), style, true)}</ul>
+                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), secondaryStyle, true)}</ul>
                         </div>
                     </div>
                 )}
@@ -150,14 +156,21 @@ function mobileNavVariants(props) {
                     onClick={() => setIsMenuOpen(true)}
                 >
                     <span className="sr-only">Open Menu</span>
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
-                        <path d="M3 13h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 7h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1zM3 19h18c0.552 0 1-0.448 1-1s-0.448-1-1-1h-18c-0.552 0-1 0.448-1 1s0.448 1 1 1z"></path>
-                    </svg>
+                    <Hamburger className="fill-current h-6 w-6" />
                 </button>
                 {isMenuOpen && (
                     <div>
-                        <div className="fixed inset-0 bg-black bg-opacity-50" onClick={() => setIsMenuOpen(false)}></div>
-                        <div className="fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 bg-white overflow-y-auto">
+                        <div
+                            className={classNames('fixed inset-0 bg-opacity-50', secondaryStyle === 'style-b' || secondaryStyle === 'style-c' ? 'bg-primary' : 'bg-base')}
+                            onClick={() => setIsMenuOpen(false)}
+                        />
+                        <div className={classNames('fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto', {
+                                'bg-base-50 text-base': secondaryStyle === 'style-a',
+                                'bg-neutral border-base text-base-50': secondaryStyle === 'style-b',
+                                'bg-neutral border-base text-primary': secondaryStyle === 'style-c',
+                                'bg-primary border-primary text-base': secondaryStyle === 'style-d',
+                                'bg-primary-variant border-primary text-base': secondaryStyle === 'style-e'
+                        })}>
                             <div className="flex items-center justify-between mb-6">
                                 {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
                                 <button
@@ -166,12 +179,10 @@ function mobileNavVariants(props) {
                                     className="p-2 -mt-2 -mr-2 focus:outline-none"
                                     onClick={() => setIsMenuOpen(false)}
                                 >
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" className="fill-current">
-                                        <path d="M5.293 6.707l5.293 5.293-5.293 5.293c-0.391 0.391-0.391 1.024 0 1.414s1.024 0.391 1.414 0l5.293-5.293 5.293 5.293c0.391 0.391 1.024 0.391 1.414 0s0.391-1.024 0-1.414l-5.293-5.293 5.293-5.293c0.391-0.391 0.391-1.024 0-1.414s-1.024-0.391-1.414 0l-5.293 5.293-5.293-5.293c-0.391-0.391-1.024-0.391-1.414 0s-0.391 1.024 0 1.414z"></path>
-                                    </svg>
+                                    <Close className="fill-current h-6 w-6" />
                                 </button>
                             </div>
-                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), style, true)}</ul>
+                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), secondaryStyle, true)}</ul>
                         </div>
                     </div>
                 )}
@@ -215,8 +226,8 @@ function listOfLinks(links, style, inMenu = false) {
                     alt={link.alt}
                     className={classNames('px-4 py-5 lg:px-8', {
                         'w-full': inMenu,
-                        'bg-neutral text-primary hover:bg-neutral-variant': style === 'style-b',
-                        'bg-primary text-primary-content hover:bg-primary-variant': style !== 'style-b',
+                        'bg-primary text-base': style === 'style-a',
+                        'bg-neutral-variant text-base-50': style !== 'style-a'
                     })}
                 />
             )}

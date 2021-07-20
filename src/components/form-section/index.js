@@ -3,6 +3,7 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 
 export default function FormSection(props) {
+    const style = props.style || 'style-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
     const imagePosition = props.imagePosition || 'left';
@@ -10,11 +11,16 @@ export default function FormSection(props) {
 
     return (
         <div
-            className={classNames('bg-yellow-400 py-16 lg:py-20', {
+            className={classNames('py-16 lg:py-20', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col justify-center': height === 'viewport'
+                'min-h-screen flex flex-col justify-center': height === 'viewport',
+                'bg-base-50 text-base': style === 'style-a',
+                'bg-neutral text-base-50': style === 'style-b',
+                'bg-neutral text-primary': style === 'style-c',
+                'bg-primary text-base': style === 'style-d',
+                'bg-primary-variant text-base': style === 'style-e'
             })}
         >
             <div
@@ -85,7 +91,7 @@ function FormField(field) {
     switch (field.type) {
         case 'checkbox':
             return (
-                <div className={classes}>
+                <div className={classNames('sb-checkbox', classes)}>
                     <input type="checkbox" id={field.name} name={field.name} className="mr-2" {...attr} />
                     {field.label && <label htmlFor={field.name} id={labelId}>{field.label}</label>}
                 </div>

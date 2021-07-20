@@ -2,7 +2,6 @@
 
 themes=(
   "light"
-  "dark"
 )
 
 command=("./node_modules/.bin/concurrently" "--kill-others-on-fail" "--names")

@@ -2,7 +2,6 @@
 
 themes=(
   "light"
-  "dark"
 )
 
 for theme in "${themes[@]}"; do

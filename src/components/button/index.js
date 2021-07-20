@@ -1,30 +1,27 @@
 import classNames from 'classnames';
 import Link from 'next/link';
+import ArrowRight from '../../svgs/arrow-right';
 import Cart from '../../svgs/cart';
 
-const icons = {
-    cart: Cart
-};
-
 export default function Button({ label, url, icon, alt, className }) {
+    const iconMap = {
+        arrowRight: ArrowRight,
+        cart: Cart
+    };
+    const IconComponent = icon ? iconMap[icon] : null;
+
     return (
         <Link href={url}>
             <a
                 aria-label={alt}
                 title={alt}
                 className={classNames(
-                    'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 shadow-md focus:shadow-outline focus:outline-none',
+                    'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide transition duration-200 focus:outline-none',
                     className
                 )}
             >
-                {icon && icon in icons ? (
-                    <>
-                        <span className="mr-3">{label}</span>
-                        {icons[icon]()}
-                    </>
-                ) : (
-                    label
-                )}
+                {label}
+                {IconComponent && <IconComponent className="fill-current h-5 ml-2 w-5" />}
             </a>
         </Link>
     );

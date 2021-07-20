@@ -48,7 +48,7 @@ function HeroImageHorizontal(props) {
                 <div
                     className={classNames('flex flex-wrap', {
                         'flex-grow': height === 'viewport',
-                        'lg:justify-end': mediaPosition === 'left',
+                        'lg:justify-end': mediaPosition === 'left'
                     })}
                 >
                     <div
@@ -66,7 +66,11 @@ function HeroImageHorizontal(props) {
                             'right-0 lg:pl-4': mediaPosition === 'right'
                         })}
                     >
-                        <img src={props.imageUrl} className="w-screen max-w-none ml-1/2 transform -translate-x-1/2 object-cover lg:h-full lg:ml-0 lg:transform-none lg:w-full lg:max-w-full" alt={props.imageAlt} />
+                        <img
+                            src={props.imageUrl}
+                            className="w-screen max-w-none ml-1/2 transform -translate-x-1/2 object-cover lg:h-full lg:ml-0 lg:transform-none lg:w-full lg:max-w-full"
+                            alt={props.imageAlt}
+                        />
                     </div>
                 </div>
             </div>
@@ -114,11 +118,7 @@ function HeroImageVertical(props) {
                         {HeroActions(props)}
                     </div>
                     <div className="px-4 w-full lg:w-1/2">
-                        <img
-                            src={props.imageUrl}
-                            alt={props.imageAlt}
-                            className="w-full h-full mx-auto object-cover"
-                        />
+                        <img src={props.imageUrl} alt={props.imageAlt} className="w-full h-full mx-auto object-cover" />
                     </div>
                 </div>
             </div>
@@ -162,14 +162,7 @@ function HeroVideo(props) {
                     </div>
                     <div>
                         <div className="relative">
-                            <video
-                                className="product-hero-media product-hero-media-secondary"
-                                autoPlay
-                                loop
-                                muted
-                                playsInline
-                                poster={props.imageUrl}
-                            >
+                            <video className="product-hero-media product-hero-media-secondary" autoPlay loop muted playsInline poster={props.imageUrl}>
                                 <source src={props.videoUrl} type="video/mp4" />
                             </video>
                         </div>
@@ -231,10 +224,14 @@ function HeroContent(props) {
                 'mx-auto text-center': alignHoriz === 'center'
             })}
         >
-            {props.badge && (
-                <Badge label={props.badge} className="bg-accent text-base-900" />
+            {props.badge && <Badge label={props.badge} className="bg-accent text-base-900" />}
+            {props.title && (
+                <h1 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-6">
+                    <ReactMarkdown allowedElements={['br', 'span', 'strong']} unwrapDisallowed={true} components={components}>
+                        {props.title}
+                    </ReactMarkdown>
+                </h1>
             )}
-            {props.title && <h1 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-6"><ReactMarkdown allowedElements={["br","span","strong"]} unwrapDisallowed={true} components={components}>{props.title}</ReactMarkdown></h1>}
             {props.description && <ReactMarkdown className="md:text-lg">{props.description}</ReactMarkdown>}
         </div>
     );
@@ -258,16 +255,14 @@ function HeroActions(props) {
                     <Button
                         key={idx}
                         {...action}
-                        className={classNames('w-full mb-3 md:w-auto md:mb-0', alignHoriz === 'left' ? 'md:mr-4' : 'md:mx-2', style === 'style-a' ? 'bg-primary text-base-900': 'bg-neutral-variant text-base-50' )}
-                    />
-                ) : (
-                    <Link
-                        key={idx}
-                        {...action}
                         className={classNames(
-                            alignHoriz === 'left' ? 'md:mr-4' : 'md:mx-2'
+                            'w-full mb-3 md:w-auto md:mb-0',
+                            alignHoriz === 'left' ? 'md:mr-4' : 'md:mx-2',
+                            style === 'style-a' ? 'bg-primary text-base-900' : 'bg-neutral-variant text-base-50'
                         )}
                     />
+                ) : (
+                    <Link key={idx} {...action} className={classNames(alignHoriz === 'left' ? 'md:mr-4' : 'md:mx-2')} />
                 )
             )}
         </div>

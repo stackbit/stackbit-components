@@ -72,7 +72,7 @@ const args = {
             name: 'updates',
             label: 'Sign me up to recieve updates',
             width: 'full'
-        },
+        }
     ],
     submitLabel: 'Send Message'
 };

@@ -45,19 +45,25 @@ export default function FormSection(props) {
                         <form
                             name={props.formId}
                             id={props.formId}
-                            {...(props.formAction ? ({ action: props.formAction }) : null)}
+                            {...(props.formAction ? { action: props.formAction } : null)}
                             method="POST"
                             className="text-left"
                         >
                             <div className="flex flex-wrap -mx-2">
                                 {(props.formFields || []).map((field, idx) => (
-                                    <React.Fragment key={idx}>
-                                        {FormField(field, style)}
-                                    </React.Fragment>
+                                    <React.Fragment key={idx}>{FormField(field, style)}</React.Fragment>
                                 ))}
                             </div>
                             <div className="mt-4 sm:mt-8">
-                                <button type="submit" className={classNames('inline-flex items-center justify-center h-12 px-6 font-medium w-full tracking-wide focus:outline-none md:w-auto', style === 'style-a' ? 'bg-primary text-base-900': 'bg-neutral-variant text-base-50')}>{props.submitLabel}</button>
+                                <button
+                                    type="submit"
+                                    className={classNames(
+                                        'inline-flex items-center justify-center h-12 px-6 font-medium w-full tracking-wide focus:outline-none md:w-auto',
+                                        style === 'style-a' ? 'bg-primary text-base-900' : 'bg-neutral-variant text-base-50'
+                                    )}
+                                >
+                                    {props.submitLabel}
+                                </button>
                             </div>
                         </form>
                     </div>
@@ -67,7 +73,7 @@ export default function FormSection(props) {
                         </div>
                     )}
                 </div>
-            </div>  
+            </div>
         </div>
     );
 }
@@ -81,29 +87,34 @@ function FormField(field, style) {
     if (field.isRequired) {
         attr.required = true;
     }
-    const classes = classNames([
-        'mb-8',
-        'px-2',
-        'w-full',
-        field.width !== 'full' && `md:w-${field.width}`
-    ]);
+    const classes = classNames(['mb-8', 'px-2', 'w-full', field.width !== 'full' && `md:w-${field.width}`]);
 
     switch (field.type) {
         case 'checkbox':
             return (
                 <div className={classes}>
                     <input type="checkbox" id={field.name} name={field.name} className="mr-2" {...attr} />
-                    {field.label && <label htmlFor={field.name} id={labelId}>{field.label}</label>}
+                    {field.label && (
+                        <label htmlFor={field.name} id={labelId}>
+                            {field.label}
+                        </label>
+                    )}
                 </div>
             );
         case 'select':
             return (
                 <div className={classes}>
-                    {field.label && <label htmlFor={field.name} id={field.labelId} className="sr-only">{field.label}</label>}
+                    {field.label && (
+                        <label htmlFor={field.name} id={field.labelId} className="sr-only">
+                            {field.label}
+                        </label>
+                    )}
                     <select id={field.name} name={field.name} {...attr} className={classNames('bg-transparent text-xl border border-current w-full p-2')}>
                         {field.defaultValue && <option value="">{field.defaultValue}</option>}
                         {_.map(field.options, (option, idx) => (
-                            <option key={idx} value={option}>{option}</option>
+                            <option key={idx} value={option}>
+                                {option}
+                            </option>
                         ))}
                     </select>
                 </div>
@@ -111,28 +122,42 @@ function FormField(field, style) {
         case 'textarea':
             return (
                 <div className={classes}>
-                    {field.label && <label htmlFor={field.name} id={field.labelId} className="sr-only">{field.label}</label>}
+                    {field.label && (
+                        <label htmlFor={field.name} id={field.labelId} className="sr-only">
+                            {field.label}
+                        </label>
+                    )}
                     <textarea
                         name={field.name}
                         id={field.name}
                         rows="5"
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
                         {...attr}
-                        className={classNames('bg-transparent font-light text-xl  placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6', style === 'style-b' || style === 'style-c' ? 'placeholder-base-200 border-neutral-variant': 'placeholder-black border-current')}
+                        className={classNames(
+                            'bg-transparent font-light text-xl  placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6',
+                            style === 'style-b' || style === 'style-c' ? 'placeholder-base-200 border-neutral-variant' : 'placeholder-black border-current'
+                        )}
                     />
                 </div>
             );
         default:
             return (
                 <div className={classes}>
-                    {field.label && <label htmlFor={field.name} id={field.labelId} className="sr-only">{field.label}</label>}
+                    {field.label && (
+                        <label htmlFor={field.name} id={field.labelId} className="sr-only">
+                            {field.label}
+                        </label>
+                    )}
                     <input
                         type={field.type}
                         name={field.name}
                         id={field.name}
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
                         {...attr}
-                        className={classNames('bg-transparent text-xl font-light placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6', style === 'style-b' || style === 'style-c' ? 'placeholder-base-200 border-neutral-variant': 'placeholder-black border-current')}
+                        className={classNames(
+                            'bg-transparent text-xl font-light placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6',
+                            style === 'style-b' || style === 'style-c' ? 'placeholder-base-200 border-neutral-variant' : 'placeholder-black border-current'
+                        )}
                     />
                 </div>
             );

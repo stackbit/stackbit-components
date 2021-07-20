@@ -12,7 +12,7 @@ const components = {
     section_form: FormSection,
     section_hero: HeroSection,
     section_posts: PostsSection,
-    section_testimonials: TestimonialsSection,
+    section_testimonials: TestimonialsSection
 };
 
 export default function Landing(props) {

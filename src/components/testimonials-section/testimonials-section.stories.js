@@ -40,7 +40,7 @@ const args = {
             image: '/images/isabelle-parks.jpg',
             image_alt: 'Photo of Isabelle Parks',
             logo: '/images/the-cook-logo.svg',
-            logo_alt: 'The Cook logo',
+            logo_alt: 'The Cook logo'
         }
     ]
 };

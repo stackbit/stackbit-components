@@ -20,7 +20,7 @@ export default {
         alignHoriz: {
             options: ['left', 'center'],
             control: { type: 'select' }
-        },
+        }
     }
 };
 
@@ -32,9 +32,8 @@ const args = {
     width: 'wide',
     height: 'auto',
     alignHoriz: 'center',
-    title: 'Let\'s do this',
-    description:
-        'The Stackbit theme is felxible and scalable to every need. It can manage any layout and any screen',
+    title: "Let's do this",
+    description: 'The Stackbit theme is felxible and scalable to every need. It can manage any layout and any screen',
     actions: [
         {
             url: '#',

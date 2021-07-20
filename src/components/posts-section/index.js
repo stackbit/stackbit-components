@@ -34,7 +34,13 @@ export default function PostsSection(props) {
                     })}
                 >
                     {props.badge && <Badge label={props.badge} className="bg-accent text-base-900" />}
-                    {props.title && <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl"><ReactMarkdown allowedElements={["br","span","strong"]} unwrapDisallowed={true} components={components}>{props.title}</ReactMarkdown></h2>}
+                    {props.title && (
+                        <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl">
+                            <ReactMarkdown allowedElements={['br', 'span', 'strong']} unwrapDisallowed={true} components={components}>
+                                {props.title}
+                            </ReactMarkdown>
+                        </h2>
+                    )}
                     {props.subtitle && <p className="md:text-lg">{props.subtitle}</p>}
                 </div>
                 <PostVariants {...props} />
@@ -61,22 +67,23 @@ function PostsVariantA(props) {
         <div className="grid gap-4 md:grid-cols-3 lg:gap-8">
             {(props.posts || []).map((post, idx) => (
                 <Link key={idx} href={post.url}>
-                    <a className={classNames('block shadow-xl transition duration-300 hover:-translate-y-1', {
+                    <a
+                        className={classNames('block shadow-xl transition duration-300 hover:-translate-y-1', {
                             'bg-secondary': style === 'style-a',
                             'bg-neutral-variant': style === 'style-b' || style === 'style-c',
                             'bg-primary-variant': style === 'style-d',
                             'bg-secondary-variant': style === 'style-e'
-                    })}>
+                        })}
+                    >
                         <article>
                             {post.thumbImageUrl && (
                                 <div className="h-0 w-full pt-1/2 relative">
                                     <img src={post.thumbImageUrl} alt={post.thumbImageAlt} className="absolute left-0 top-0 h-full w-full object-cover" />
                                 </div>
-                                
                             )}
                             <div className="px-4 py-6 sm:px-6 sm:pb-10">
                                 <h2 className="font-medium text-xl sm:text-2xl mb-3">{post.title}</h2>
-                                {post.excerpt && (<ReactMarkdown>{post.excerpt}</ReactMarkdown>)}
+                                {post.excerpt && <ReactMarkdown>{post.excerpt}</ReactMarkdown>}
                             </div>
                         </article>
                     </a>
@@ -95,7 +102,11 @@ function PostsVariantB(props) {
                         <div className="mb-4 w-full md:mb-0 md:w-1/3">
                             <Link href={post.url}>
                                 <a className="block group overflow-hidden pt-1/1 relative w-full">
-                                    <img src={post.thumbImageUrl} alt={post.thumbImageAlt} className="absolute left-0 top-0 h-full w-full object-cover scale-100 transition duration-300 group-hover:scale-105" />
+                                    <img
+                                        src={post.thumbImageUrl}
+                                        alt={post.thumbImageAlt}
+                                        className="absolute left-0 top-0 h-full w-full object-cover scale-100 transition duration-300 group-hover:scale-105"
+                                    />
                                 </a>
                             </Link>
                         </div>
@@ -106,7 +117,7 @@ function PostsVariantB(props) {
                                 <a>{post.title}</a>
                             </Link>
                         </h2>
-                        {post.excerpt && (<ReactMarkdown>{post.excerpt}</ReactMarkdown>)}
+                        {post.excerpt && <ReactMarkdown>{post.excerpt}</ReactMarkdown>}
                     </div>
                 </article>
             ))}

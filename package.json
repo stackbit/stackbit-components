@@ -7,7 +7,8 @@
     "storybook": "start-storybook -s ./public -p 6006",
     "build-theme-css": "./build-theme-css.sh",
     "build-storybook": "build-storybook -s ./public",
-    "build": "babel src -d dist",
+    "build": "npm run build-theme-css && npm run build-storybook",
+    "build-dist": "babel src -d dist",
     "pretty": "prettier --write src"
   },
   "repository": {

@@ -9,7 +9,7 @@ export default {
 const Template = (args) => <Badge {...args} />;
 
 const args = {
-    label: 'Stackbit',
+    label: 'Stackbit'
 };
 
 export const Primary = Template.bind({});

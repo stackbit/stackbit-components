@@ -5,6 +5,14 @@ export default {
     title: 'Components/Navigation Bar',
     component: NavBar,
     argTypes: {
+        desktopNavVariant: {
+            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
+            control: { type: 'select' }
+        },
+        mobileNavVariant: {
+            options: ['variant-a', 'variant-b'],
+            control: { type: 'select' }
+        },
         primaryColors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
@@ -15,14 +23,6 @@ export default {
         },
         width: {
             options: ['narrow', 'wide', 'full'],
-            control: { type: 'select' }
-        },
-        desktopNavVariant: {
-            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
-            control: { type: 'select' }
-        },
-        mobileNavVariant: {
-            options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
         }
     }
@@ -39,7 +39,7 @@ const args = {
     title: 'Fish_of_the_day',
     isTitleVisible: true,
     logoUrl: '/images/logo.svg',
-    logoAlt: 'Logo',
+    logoAltText: 'Logo',
     primaryLinks: [
         {
             label: 'About us',

@@ -51,7 +51,7 @@ function TestimonialsVariantA(props) {
         <>
             {testimonials.map((testimonial, idx) => (
                 <blockquote key={idx} className="max-w-5xl mx-auto py-8">
-                    {testimonial.logo && <img src={testimonial.logo} alt={testimonial.logo_alt} className="mx-auto mb-10" />}
+                    {testimonial.logoUrl && <img src={testimonial.logoUrl} alt={testimonial.logoAltText} className="mx-auto mb-10" />}
                     {testimonial.quote && (
                         <div className="text-center text-3xl sm:text-4xl">
                             <ReactMarkdown>{testimonial.quote}</ReactMarkdown>
@@ -59,8 +59,8 @@ function TestimonialsVariantA(props) {
                     )}
                     {(testimonial.name || testimonial.title) && (
                         <footer className="mt-8 text-center text-sm">
-                            {testimonial.image && (
-                                <img src={testimonial.image} alt={testimonial.image_alt} className="mx-auto mb-4 rounded-full object-cover w-14 h-14" />
+                            {testimonial.imageUrl && (
+                                <img src={testimonial.imageUrl} alt={testimonial.imageAltText} className="mx-auto mb-4 rounded-full object-cover w-14 h-14" />
                             )}
                             <strong className="block mb-0.5 font-medium text-lg">{testimonial.name}</strong>
                             {testimonial.title}
@@ -81,11 +81,11 @@ function TestimonialsVariantB(props) {
         <>
             {testimonials.map((testimonial, idx) => (
                 <blockquote key={idx} className="max-w-5xl mx-auto py-8 sm:flex">
-                    {testimonial.image && (
+                    {testimonial.imageUrl && (
                         <div className="mb-8 sm:flex-shrink-0 sm:mb-0 sm:mr-10">
                             <img
-                                src={testimonial.image}
-                                alt={testimonial.image_alt}
+                                src={testimonial.imageUrl}
+                                alt={testimonial.imageAltText}
                                 className="mx-auto mb-8 object-cover rounded-full w-36 h-36 sm:w-48 sm:h-48"
                             />
                         </div>

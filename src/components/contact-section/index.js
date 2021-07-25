@@ -62,7 +62,7 @@ function ContactImageRight(props) {
                 <img
                     src={props.imageUrl}
                     className="w-screen max-w-none ml-1/2 transform -translate-x-1/2 object-cover lg:h-full lg:ml-0 lg:transform-none lg:w-full lg:max-w-full"
-                    alt={props.imageAlt}
+                    alt={props.imageAltText}
                 />
             </div>
         </div>
@@ -83,7 +83,7 @@ function ContactImageLeft(props) {
                 <img
                     src={props.imageUrl}
                     className="w-screen max-w-none ml-1/2 transform -translate-x-1/2 object-cover lg:h-full lg:ml-0 lg:transform-none lg:w-full lg:max-w-full"
-                    alt={props.imageAlt}
+                    alt={props.imageAltText}
                 />
             </div>
             <div className="py-16 px-4 w-full lg:self-center lg:w-1/2 lg:py-20 lg:pr-8">
@@ -159,7 +159,7 @@ function FormField(field, colors) {
     }
     const classes = classNames(['mb-8', 'px-2', 'w-full', field.width !== 'full' && `md:w-${field.width}`]);
 
-    switch (field.type) {
+    switch (field.inputType) {
         case 'checkbox':
             return (
                 <div className={classes}>
@@ -219,7 +219,7 @@ function FormField(field, colors) {
                         </label>
                     )}
                     <input
-                        type={field.type}
+                        type={field.inputType}
                         name={field.name}
                         id={field.name}
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}

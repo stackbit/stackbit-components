@@ -24,10 +24,6 @@ export default {
         alignHoriz: {
             options: ['left', 'center'],
             control: { type: 'select' }
-        },
-        imagePosition: {
-            options: ['left', 'right'],
-            control: { type: 'select' }
         }
     }
 };
@@ -44,12 +40,11 @@ const args = {
     title: 'Join our club',
     text: 'We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.',
     imageUrl: '/images/lobster.jpg',
-    imageAlt: 'Fisherman holding lobster',
-    imagePosition: 'left',
+    imageAltText: 'Fisherman holding lobster',
     formId: 'contact-form',
     formFields: [
         {
-            type: 'text',
+            inputType: 'text',
             name: 'name',
             label: 'Name',
             defaultValue: 'Your name',
@@ -57,7 +52,7 @@ const args = {
             width: '1/2'
         },
         {
-            type: 'email',
+            inputType: 'email',
             name: 'email',
             label: 'Email',
             defaultValue: 'Your email',
@@ -65,7 +60,7 @@ const args = {
             width: '1/2'
         },
         {
-            type: 'text',
+            inputType: 'text',
             name: 'home-address',
             label: 'Home address',
             defaultValue: 'Your home address',
@@ -73,7 +68,7 @@ const args = {
             width: 'full'
         },
         {
-            type: 'checkbox',
+            inputType: 'checkbox',
             name: 'updates',
             label: 'Sign me up to recieve updates',
             width: 'full'
@@ -96,7 +91,7 @@ ContactRightImage.args = {
     title: 'Join our **club**',
     formFields: [
         {
-            type: 'text',
+            inputType: 'text',
             name: 'name',
             label: 'Name',
             defaultValue: 'Your name',
@@ -104,7 +99,7 @@ ContactRightImage.args = {
             width: 'full'
         },
         {
-            type: 'email',
+            inputType: 'email',
             name: 'email',
             label: 'Email',
             defaultValue: 'Your email',
@@ -112,7 +107,7 @@ ContactRightImage.args = {
             width: 'full'
         },
         {
-            type: 'text',
+            inputType: 'text',
             name: 'home-address',
             label: 'Home address',
             defaultValue: 'Your home address',
@@ -120,7 +115,7 @@ ContactRightImage.args = {
             width: 'full'
         },
         {
-            type: 'checkbox',
+            inputType: 'checkbox',
             name: 'updates',
             label: 'Sign me up to recieve updates',
             width: 'full'

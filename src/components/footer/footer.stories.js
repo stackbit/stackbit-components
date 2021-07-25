@@ -24,7 +24,7 @@ const args = {
     title: 'Fish_of_the_day',
     isTitleVisible: true,
     logoUrl: '/images/logo.svg',
-    logoAlt: 'Logo',
+    logoAltText: 'Logo',
     info:
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
     contacts: {

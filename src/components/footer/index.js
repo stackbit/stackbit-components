@@ -37,7 +37,7 @@ export default function Index(props) {
                     <div className="sm:col-span-2">
                         <Link href="/">
                             <a aria-label="Go home" title={props.title} className="">
-                                {props.logoUrl && <img src={props.logoUrl} alt={props.logoAlt} className="mb-2" />}
+                                {props.logoUrl && <img src={props.logoUrl} alt={props.logoAltText} className="mb-2" />}
                                 {props.isTitleVisible && <div className="mb-2 font-medium text-2xl tracking-wide">{props.title}</div>}
                             </a>
                         </Link>

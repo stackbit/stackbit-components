@@ -10,8 +10,8 @@ const Template = (args) => <Image {...args} />;
 
 const args = {
     imageUrl: '/images/fisherman.jpg',
-    altText: 'Image alt text',
-    caption: 'Image caption'
+    imageAltText: 'Image alt text',
+    imageCaption: 'Image caption'
 };
 
 export const Primary = Template.bind({});

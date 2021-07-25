@@ -44,7 +44,7 @@ function desktopNavVariants(props) {
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
     const logo = props.logoUrl;
-    const logoAlt = props.logoAlt || '';
+    const logoAlt = props.logoAltText || '';
     const primaryLinks = props.primaryLinks;
     const secondaryLinks = props.secondaryLinks;
 
@@ -112,7 +112,7 @@ function mobileNavVariants(props) {
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
     const logo = props.logoUrl;
-    const logoAlt = props.logoAlt || '';
+    const logoAlt = props.logoAltText || '';
     const primaryLinks = props.primaryLinks;
     const secondaryLinks = props.secondaryLinks;
 

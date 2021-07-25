@@ -2,7 +2,7 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 
 export default function TestimonialsSection(props) {
-    const style = props.style || 'style-a';
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
 
@@ -13,11 +13,11 @@ export default function TestimonialsSection(props) {
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
                 'min-h-screen flex flex-col justify-center': height === 'viewport',
-                'bg-base-50 text-base-900': style === 'style-a',
-                'bg-neutral text-base-50': style === 'style-b',
-                'bg-neutral text-primary': style === 'style-c',
-                'bg-primary text-base-900': style === 'style-d',
-                'bg-secondary text-base-900': style === 'style-e'
+                'bg-base-50 text-base-900': colors === 'colors-a',
+                'bg-neutral text-base-50': colors === 'colors-b',
+                'bg-neutral text-primary': colors === 'colors-c',
+                'bg-primary text-base-900': colors === 'colors-d',
+                'bg-secondary text-base-900': colors === 'colors-e'
             })}
         >
             <div
@@ -43,9 +43,13 @@ function TestimonialVariants({ variant, ...props }) {
 }
 
 function TestimonialsVariantA(props) {
+    const testimonials = props.testimonials || [];
+    if (testimonials.length === 0) {
+        return null;
+    }
     return (
         <>
-            {(props.testimonials || []).map((testimonial, idx) => (
+            {testimonials.map((testimonial, idx) => (
                 <blockquote key={idx} className="max-w-5xl mx-auto py-8">
                     {testimonial.logo && <img src={testimonial.logo} alt={testimonial.logo_alt} className="mx-auto mb-10" />}
                     {testimonial.quote && (
@@ -69,9 +73,13 @@ function TestimonialsVariantA(props) {
 }
 
 function TestimonialsVariantB(props) {
+    const testimonials = props.testimonials || [];
+    if (testimonials.length === 0) {
+        return null;
+    }
     return (
         <>
-            {(props.testimonials || []).map((testimonial, idx) => (
+            {testimonials.map((testimonial, idx) => (
                 <blockquote key={idx} className="max-w-5xl mx-auto py-8 sm:flex">
                     {testimonial.image && (
                         <div className="mb-8 sm:flex-shrink-0 sm:mb-0 sm:mr-10">

@@ -4,7 +4,7 @@ import Landing from './index';
 import * as CTASectionStories from '../../components/cta-section/cta-section.stories';
 import * as NavBarStories from '../../components/navbar/navbar.stories';
 import * as FooterStories from '../../components/footer/footer.stories';
-import * as FormSectionStories from '../../components/form-section/form-section.stories';
+import * as ContactSectionStories from '../../components/contact-section/contact-section.stories';
 import * as HeroSectionStories from '../../components/hero-section/hero-section.stories';
 import * as PostsSectionStories from '../../components/posts-section/posts-section.stories';
 import * as TestimonialsSectionStories from '../../components/testimonials-section/testimonials-section.stories';
@@ -22,11 +22,11 @@ Primary.args = {
     page: {
         title: 'Example Page',
         sections: [
-            HeroSectionStories.HeroImage.args,
+            HeroSectionStories.Primary.args,
             TestimonialsSectionStories.Primary.args,
             PostsSectionStories.Primary.args,
             CTASectionStories.Primary.args,
-            FormSectionStories.Primary.args
+            ContactSectionStories.Primary.args
         ]
     },
     siteConfig: {

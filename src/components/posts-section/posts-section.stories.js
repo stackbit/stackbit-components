@@ -9,8 +9,8 @@ export default {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
         },
-        style: {
-            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+        colors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
         },
         width: {
@@ -31,13 +31,11 @@ export default {
 const Template = (args) => <PostsSection {...args} />;
 
 const args = {
-    type: 'section_posts',
+    type: 'posts_section',
     variant: 'variant-a',
-    style: 'style-d',
+    colors: 'colors-d',
     width: 'wide',
     height: 'auto',
-    alignHoriz: 'center',
-    title: 'Latest from **the Blog**',
     badge: '',
     subtitle: '',
     posts: [
@@ -74,11 +72,17 @@ const args = {
     ]
 };
 
-//👇 Each story then reuses that template
 export const Primary = Template.bind({});
-Primary.storyName = 'content under image';
-Primary.args = { ...args, variant: 'variant-a', width: 'wide', height: 'auto', alignHoriz: 'center' };
+Primary.storyName = 'Three Cols, Post Content Below Image';
+Primary.args = args;
 
 export const VariantB = Template.bind({});
-VariantB.storyName = 'content to the right of the image';
-VariantB.args = { ...args, variant: 'variant-b', width: 'wide', height: 'auto', alignHoriz: 'left' };
+VariantB.storyName = 'Two Cols, Post Content to the Right of the Image';
+VariantB.args = {
+    ...args,
+    variant: 'variant-b',
+    colors: 'colors-b',
+    width: 'full',
+    alignHoriz: 'center',
+    title: 'Latest from **the Blog**'
+};

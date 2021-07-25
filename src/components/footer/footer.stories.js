@@ -5,8 +5,8 @@ export default {
     title: 'Components/Footer',
     component: Footer,
     argTypes: {
-        style: {
-            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+        colors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
         },
         width: {
@@ -19,16 +19,14 @@ export default {
 const Template = (args) => <Footer {...args} />;
 
 const args = {
-    style: 'style-d',
+    colors: 'colors-d',
     width: 'wide',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
     logoUrl: '/images/logo.svg',
     logoAlt: 'Logo',
     info:
-        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.\n' +
-        '\n' +
-        'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
     contacts: {
         phoneAlt: 'Our phone',
         phoneNumber: '850-123-5021',
@@ -95,10 +93,19 @@ Primary.storyName = 'Footer';
 Primary.args = args;
 
 export const FooterNoContacts = Template.bind({});
-FooterNoContacts.storyName = 'Footer without contacts';
-FooterNoContacts.args = { ...args, contacts: undefined };
+FooterNoContacts.storyName = 'Footer Without Contacts';
+FooterNoContacts.args = {
+    ...args,
+    colors: 'colors-b',
+    width: 'full',
+    logoUrl: '/images/logo-alt.svg',
+    contacts: undefined
+};
 
-//👇 Each story then reuses that template
 export const FooterNoLegal = Template.bind({});
-FooterNoLegal.storyName = 'Footer without legal links';
-FooterNoLegal.args = { ...args, legalLinks: undefined };
+FooterNoLegal.storyName = 'Footer Without Legal Links';
+FooterNoLegal.args = {
+    ...args,
+    colors: 'colors-e',
+    legalLinks: undefined
+};

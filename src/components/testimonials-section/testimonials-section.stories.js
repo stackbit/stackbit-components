@@ -9,8 +9,8 @@ export default {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
         },
-        style: {
-            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+        colors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
         },
         width: {
@@ -27,9 +27,9 @@ export default {
 const Template = (args) => <TestimonialsSection {...args} />;
 
 const args = {
-    type: 'section_testimonials',
+    type: 'testimonials_section',
     variant: 'variant-a',
-    style: 'style-e',
+    colors: 'colors-e',
     width: 'wide',
     height: 'auto',
     testimonials: [
@@ -45,11 +45,15 @@ const args = {
     ]
 };
 
-//👇 Each story then reuses that template
 export const Primary = Template.bind({});
-Primary.storyName = 'quote under image';
-Primary.args = { ...args, variant: 'variant-a' };
+Primary.storyName = 'Quote Under Image';
+Primary.args = args;
 
 export const VariantB = Template.bind({});
-VariantB.storyName = 'quote to the right of the image';
-VariantB.args = { ...args, variant: 'variant-b', width: 'narrow' };
+VariantB.storyName = 'Quote to the Right of the Image';
+VariantB.args = {
+    ...args,
+    variant: 'variant-b',
+    colors: 'colors-a',
+    width: 'narrow'
+};

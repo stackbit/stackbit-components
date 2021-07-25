@@ -6,11 +6,11 @@ export default {
     component: HeroSection,
     argTypes: {
         variant: {
-            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
+            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d', 'variant-e'],
             control: { type: 'select' }
         },
-        style: {
-            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+        colors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
         },
         width: {
@@ -24,10 +24,6 @@ export default {
         alignHoriz: {
             options: ['left', 'center'],
             control: { type: 'select' }
-        },
-        mediaPosition: {
-            options: ['left', 'right'],
-            control: { type: 'select' }
         }
     }
 };
@@ -35,19 +31,16 @@ export default {
 const Template = (args) => <HeroSection {...args} />;
 
 const args = {
-    type: 'section_hero',
-    style: 'style-d',
+    type: 'hero_section',
     variant: 'variant-a',
+    colors: 'colors-d',
     width: 'wide',
     height: 'auto',
     alignHoriz: 'left',
-    mediaPosition: 'right',
     badge: 'New Collaboration',
     title: 'The quick, brown fox  \njumps over **a lazy dog**',
-    description:
+    text:
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
-    imageUrl: '/images/hero.png',
-    imageAlt: '',
     actions: [
         {
             url: '#',
@@ -59,45 +52,78 @@ const args = {
             label: 'Learn more',
             type: 'link'
         }
-    ]
+    ],
+    feature: {
+        type: 'image',
+        imageUrl: '/images/hero.png',
+        imageAltText: 'Image alt text',
+        imageCaption: 'Image caption'
+    }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Hero Section Image Horizontal Bleed';
+Primary.storyName = 'Hero Section With Image on the Right';
 Primary.args = args;
 
-export const Secondary = Template.bind({});
-Secondary.storyName = 'Hero Section Image Vertical Bleed';
-Secondary.args = {
+export const HeroLeftVideo = Template.bind({});
+HeroLeftVideo.storyName = 'Hero Section With Video on the Left';
+HeroLeftVideo.args = {
     ...args,
     variant: 'variant-b',
+    colors: 'colors-b',
     width: 'full',
-    height: 'auto',
-    alignHoriz: 'center',
-    mediaPosition: 'left',
     badge: 'Brand new',
     actions: [
         {
             url: '#',
             label: 'Get started',
-            type: 'button'
-        },
-        {
-            url: '#',
-            label: 'Learn more',
-            type: 'link'
+            type: 'button',
         }
-    ]
+    ],
+    feature: {
+        type: 'video',
+        videoUrl: '/videos/stackbit-for-marketers.mp4',
+        posterUrl: '/images/stackbit-for-marketers.jpg',
+        autoplay: true,
+        loop: true,
+        muted: true,
+        controls: false
+    }
 };
 
-export const HeroVideo = Template.bind({});
-HeroVideo.storyName = 'Hero Section Video';
-HeroVideo.args = {
+export const HeroBottomImage = Template.bind({});
+HeroBottomImage.storyName = 'Hero Section With Image at the Bottom';
+HeroBottomImage.args = {
     ...args,
-    variant: 'variant-c',
+    variant: 'variant-d',
+    colors: 'colors-b',
+    width: 'full',
+    alignHoriz: 'center',
     badge: 'Brand new',
-    imageUrl: '',
-    videoUrl: '/videos/schema.mp4',
+    title: 'The quick, brown fox jumps over **a lazy dog**',
+    actions: [
+        {
+            url: '#',
+            label: 'Get started',
+            type: 'button',
+        }
+    ],
+    feature: {
+        type: 'image',
+        imageUrl: '/images/hero-alt.png',
+        imageAltText: 'Image alt text',
+        imageCaption: 'Image caption'
+    }
+};
+
+export const HeroTextOnly = Template.bind({});
+HeroTextOnly.storyName = 'Hero Section With Text Only';
+HeroTextOnly.args = {
+    ...args,
+    variant: 'variant-e',
+    colors: 'colors-e',
+    badge: null,
+    title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
             url: '#',
@@ -108,25 +134,9 @@ HeroVideo.args = {
         {
             url: '#',
             label: 'Get 15% discount',
-            type: 'link'
-        }
-    ]
-};
-
-export const HeroImage = Template.bind({});
-HeroImage.storyName = 'Hero Section Image';
-HeroImage.args = {
-    ...args,
-    variant: 'variant-d',
-    badge: 'Brand new',
-    title: 'Innovative analytics  \nthat you **will love**',
-    actions: [
-        {
-            url: '#',
-            label: 'Learn more',
             type: 'link',
-            primary: true,
             icon: 'arrowRight'
         }
-    ]
+    ],
+    feature: null
 };

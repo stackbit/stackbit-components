@@ -5,8 +5,12 @@ export default {
     title: 'Components/CTA Section',
     component: CTASection,
     argTypes: {
-        style: {
-            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+        variant: {
+            options: ['variant-a', 'variant-b'],
+            control: { type: 'select' }
+        },
+        colors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
         },
         width: {
@@ -27,13 +31,14 @@ export default {
 const Template = (args) => <CTASection {...args} />;
 
 const args = {
-    type: 'section_cta',
-    style: 'style-b',
+    type: 'cta_section',
+    variant: 'variant-a',
+    colors: 'colors-b',
     width: 'wide',
     height: 'auto',
     alignHoriz: 'center',
     title: "Let's do this",
-    description: 'The Stackbit theme is felxible and scalable to every need. It can manage any layout and any screen',
+    text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen',
     actions: [
         {
             url: '#',
@@ -43,11 +48,14 @@ const args = {
     ]
 };
 
-//👇 Each story then reuses that template
 export const Primary = Template.bind({});
-Primary.storyName = 'Wide, centered';
-Primary.args = { ...args, style: 'style-b' };
+Primary.storyName = 'CTA Section With Button at the Bottom';
+Primary.args = args;
 
-export const VariantB = Template.bind({});
-VariantB.storyName = 'Narrow, left-aligned';
-VariantB.args = { ...args, style: 'style-d', width: 'narrow', alignHoriz: 'left' };
+export const CtaButtonsRight = Template.bind({});
+CtaButtonsRight.storyName = 'CTA Section With Buttons on the Right';
+CtaButtonsRight.args = {
+    ...args,
+    variant: 'variant-b',
+    colors: 'colors-d'
+};

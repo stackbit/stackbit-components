@@ -1,14 +1,15 @@
-import Link from 'next/link';
+import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
+import Link from 'next/link';
 import Facebook from '../../svgs/facebook';
 import GitHub from '../../svgs/github';
 import Instagram from '../../svgs/instagram';
 import LinkedIn from '../../svgs/linkedin';
 import Twitter from '../../svgs/twitter';
-import ReactMarkdown from 'react-markdown';
+
 
 export default function Index(props) {
-    const style = props.style || 'style-a';
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const iconMap = {
         facebook: Facebook,
@@ -24,11 +25,11 @@ export default function Index(props) {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'bg-base-50 text-base-900': style === 'style-a',
-                'bg-neutral text-base-50': style === 'style-b',
-                'bg-neutral text-primary': style === 'style-c',
-                'bg-primary text-base-900': style === 'style-d',
-                'bg-secondary text-base-900': style === 'style-e'
+                'bg-base-50 text-base-900': colors === 'colors-a',
+                'bg-neutral text-base-50': colors === 'colors-b',
+                'bg-neutral text-primary': colors === 'colors-c',
+                'bg-primary text-base-900': colors === 'colors-d',
+                'bg-secondary text-base-900': colors === 'colors-e'
             })}
         >
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -86,7 +87,7 @@ export default function Index(props) {
             <div
                 className={classNames(
                     'flex flex-col-reverse justify-between pt-6 border-t lg:flex-row',
-                    style === 'style-b' || style === 'style-c' ? 'border-neutral-variant' : 'border-base-900'
+                    colors === 'colors-b' || colors === 'colors-c' ? 'border-neutral-variant' : 'border-base-900'
                 )}
             >
                 {props.copyrightText && <p className="text-sm">{props.copyrightText}</p>}

@@ -5,12 +5,12 @@ export default {
     title: 'Components/Navigation Bar',
     component: NavBar,
     argTypes: {
-        primaryStyle: {
-            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+        primaryColors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
         },
-        secondaryStyle: {
-            options: ['style-a', 'style-b', 'style-c', 'style-d', 'style-e'],
+        secondaryColors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
         },
         width: {
@@ -31,10 +31,10 @@ export default {
 const Template = (args) => <NavBar {...args} />;
 
 const args = {
-    primaryStyle: 'style-d',
-    secondaryStyle: 'style-a',
     desktopNavVariant: 'variant-a',
     mobileNavVariant: 'variant-a',
+    primaryColors: 'colors-d',
+    secondaryColors: 'colors-a',
     width: 'wide',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
@@ -78,19 +78,39 @@ const args = {
     ]
 };
 
-//👇 Each story then reuses that template
 export const Primary = Template.bind({});
-Primary.storyName = 'Logo on the left, primary links on the left';
-Primary.args = { ...args, desktopNavVariant: 'variant-a' };
+Primary.storyName = 'Navbar With Logo and Primary Links on the Left';
+Primary.args = args;
 
 export const VariantB = Template.bind({});
-VariantB.storyName = 'Logo on the left, primary links centered, mobile nav alt';
-VariantB.args = { ...args, desktopNavVariant: 'variant-b', mobileNavVariant: 'variant-b' };
+VariantB.storyName = 'Navbar With Logo on the Left and Primary Links Centered';
+VariantB.args = {
+    ...args,
+    desktopNavVariant: 'variant-b',
+    primaryColors: 'colors-a',
+    secondaryColors: 'colors-e'
+};
 
 export const VariantC = Template.bind({});
-VariantC.storyName = 'Logo on the left, primary links on the right';
-VariantC.args = { ...args, desktopNavVariant: 'variant-c' };
+VariantC.storyName = 'Navbar With Logo on the Left and Primary Links on the Right';
+VariantC.args = {
+    ...args,
+    desktopNavVariant: 'variant-c',
+    mobileNavVariant: 'variant-b',
+    primaryColors: 'colors-b',
+    secondaryColors: 'colors-e',
+    width: 'full',
+    logoUrl: undefined
+};
 
 export const VariantD = Template.bind({});
-VariantD.storyName = 'Logo centered, primary links on the left, mobile nav alt';
-VariantD.args = { ...args, desktopNavVariant: 'variant-d', mobileNavVariant: 'variant-b' };
+VariantD.storyName = 'Navbar With Logo Centered and Primary Links on the Left';
+VariantD.args = {
+    ...args,
+    desktopNavVariant: 'variant-d',
+    mobileNavVariant: 'variant-b',
+    primaryColors: 'colors-b',
+    secondaryColors: 'colors-b',
+    logoUrl: '/images/logo-alt.svg',
+    isTitleVisible: false
+};

@@ -15,7 +15,7 @@ const components = {
     testimonials_section: TestimonialsSection
 };
 
-export default function Landing(props) {
+export default function Advanced(props) {
     const siteConfig = props?.siteConfig ?? {};
     const page = props?.page ?? {};
     const sections = page?.sections ?? [];

@@ -1,5 +1,5 @@
 import React from 'react';
-import Landing from './index';
+import Advanced from './index';
 
 import * as CTASectionStories from '../../components/cta-section/cta-section.stories';
 import * as NavBarStories from '../../components/navbar/navbar.stories';
@@ -10,14 +10,14 @@ import * as PostsSectionStories from '../../components/posts-section/posts-secti
 import * as TestimonialsSectionStories from '../../components/testimonials-section/testimonials-section.stories';
 
 export default {
-    title: 'Layouts/Landing Page',
-    component: Landing
+    title: 'Layouts/Advanced Page',
+    component: Advanced
 };
 
-const Template = (args) => <Landing {...args} />;
+const Template = (args) => <Advanced {...args} />;
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Landing Page';
+Primary.storyName = 'Advanced Page';
 Primary.args = {
     page: {
         title: 'Example Page',

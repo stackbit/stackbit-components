@@ -2,22 +2,17 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 
 export default function TestimonialsSection(props) {
-    const colors = props.colors || 'colors-a';
+    const colorSchemeClass = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
 
     return (
         <div
-            className={classNames('py-8 lg:py-12', {
+            className={classNames(colorSchemeClass, 'py-8 lg:py-12', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col justify-center': height === 'viewport',
-                'bg-base-50 text-base-900': colors === 'colors-a',
-                'bg-neutral text-base-50': colors === 'colors-b',
-                'bg-neutral text-primary': colors === 'colors-c',
-                'bg-primary text-base-900': colors === 'colors-d',
-                'bg-secondary text-base-900': colors === 'colors-e'
+                'min-h-screen flex flex-col justify-center': height === 'viewport'
             })}
         >
             <div

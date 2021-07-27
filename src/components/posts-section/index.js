@@ -4,23 +4,18 @@ import Link from 'next/link';
 import Badge from '../badge';
 
 export default function PostsSection(props) {
-    const colors = props.colors || 'colors-a';
+    const colorSchemeClass = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
     const alignHoriz = props.alignHoriz || 'left';
 
     return (
         <div
-            className={classNames('py-16 lg:py-20', {
+            className={classNames(colorSchemeClass, 'py-16 lg:py-20', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col justify-center': height === 'viewport',
-                'bg-base-50 text-base-900': colors === 'colors-a',
-                'bg-neutral text-base-50': colors === 'colors-b',
-                'bg-neutral text-primary': colors === 'colors-c',
-                'bg-primary text-base-900': colors === 'colors-d',
-                'bg-secondary text-base-900': colors === 'colors-e'
+                'min-h-screen flex flex-col justify-center': height === 'viewport'
             })}
         >
             <div
@@ -33,7 +28,7 @@ export default function PostsSection(props) {
                         'mx-auto text-center': alignHoriz === 'center'
                     })}
                 >
-                    {props.badge && <Badge label={props.badge} className="bg-accent text-base-900" />}
+                    {props.badge && <Badge label={props.badge} />}
                     {props.title && (
                         <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl">
                             <ReactMarkdown allowedElements={['br', 'span', 'strong']} unwrapDisallowed={true} components={components}>
@@ -65,19 +60,11 @@ function PostsVariantA(props) {
     if (posts.length === 0) {
         return null;
     }
-    const colors = props.colors || 'colors-a';
     return (
         <div className="grid gap-4 md:grid-cols-3 lg:gap-8">
             {posts.map((post, idx) => (
                 <Link key={idx} href={post.url}>
-                    <a
-                        className={classNames('block shadow-xl transition duration-300 hover:-translate-y-1', {
-                            'bg-secondary': colors === 'colors-a',
-                            'bg-neutral-variant': colors === 'colors-b' || colors === 'colors-c',
-                            'bg-primary-variant': colors === 'colors-d',
-                            'bg-secondary-variant': colors === 'colors-e'
-                        })}
-                    >
+                    <a className="sb-card block">
                         <article>
                             {post.thumbImageUrl && (
                                 <div className="h-0 w-full pt-1/2 relative">
@@ -130,6 +117,6 @@ function PostsVariantB(props) {
 
 const components = {
     strong({ children }) {
-        return <span className="inline-block text-accent">{children}</span>;
+        return <span className="sb-highlight inline-block">{children}</span>;
     }
 };

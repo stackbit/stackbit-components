@@ -3,22 +3,17 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 
 export default function ContactSection(props) {
-    const colors = props.colors || 'colors-a';
+    const colorSchemeClass = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
 
     return (
         <div
-            className={classNames('overflow-x-hidden relative', {
+            className={classNames(colorSchemeClass, 'overflow-x-hidden relative', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col': height === 'viewport',
-                'bg-base-50 text-base-900': colors === 'colors-a',
-                'bg-neutral text-base-50': colors === 'colors-b',
-                'bg-neutral text-primary': colors === 'colors-c',
-                'bg-primary text-base-900': colors === 'colors-d',
-                'bg-secondary text-base-900': colors === 'colors-e'
+                'min-h-screen flex flex-col': height === 'viewport'
             })}
         >
             <div
@@ -100,7 +95,7 @@ function ContactContent(props) {
         <div className={classNames('mb-12', {
             'text-center': alignHoriz === 'center'
         })}>
-            {props.badge && <Badge label={props.badge} className="bg-accent text-base-900" />}
+            {props.badge && <Badge label={props.badge} />}
             {props.title && (
                 <h1 className="font-medium font-sans text-4xl tracking-tight sm:text-5xl mb-6">
                     <ReactMarkdown allowedElements={['br', 'span', 'strong']} unwrapDisallowed={true} components={components}>
@@ -120,7 +115,6 @@ function ContactForm(props) {
     if (formFields.length === 0) {
         return null;
     }
-    const colors = props.colors || 'colors-a';
     return (
         <form
             name={props.formId}
@@ -130,16 +124,13 @@ function ContactForm(props) {
         >
             <div className="flex flex-wrap -mx-2">
                 {formFields.map((field, idx) => (
-                    <React.Fragment key={idx}>{FormField(field, colors)}</React.Fragment>
+                    <React.Fragment key={idx}>{FormField(field)}</React.Fragment>
                 ))}
             </div>
             <div className="mt-4 sm:mt-8">
                 <button
                     type="submit"
-                    className={classNames(
-                        'inline-flex items-center justify-center h-12 px-6 font-medium tracking-wide focus:outline-none',
-                        colors === 'colors-a' ? 'bg-primary text-base-900' : 'bg-neutral-variant text-base-50'
-                    )}
+                    className="sb-btn inline-flex items-center justify-center transition duration-200 focus:outline-none"
                 >
                     {props.submitLabel}
                 </button>
@@ -148,7 +139,7 @@ function ContactForm(props) {
     );
 }
 
-function FormField(field, colors) {
+function FormField(field) {
     const labelId = `${field.name}-label`;
     const attr = {};
     if (field.label) {
@@ -204,8 +195,7 @@ function FormField(field, colors) {
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
                         {...attr}
                         className={classNames(
-                            'bg-transparent font-light text-xl  placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6',
-                            colors === 'colors-b' || colors === 'colors-c' ? 'placeholder-base-200 border-neutral-variant' : 'placeholder-black border-current'
+                            'bg-transparent font-light text-xl  placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6'
                         )}
                     />
                 </div>
@@ -225,8 +215,7 @@ function FormField(field, colors) {
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
                         {...attr}
                         className={classNames(
-                            'bg-transparent text-xl font-light placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6',
-                            colors === 'colors-b' || colors === 'colors-c' ? 'placeholder-base-200 border-neutral-variant' : 'placeholder-black border-current'
+                            'bg-transparent text-xl font-light placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6'
                         )}
                     />
                 </div>
@@ -236,6 +225,6 @@ function FormField(field, colors) {
 
 const components = {
     strong({ children }) {
-        return <span className="inline-block text-accent">{children}</span>;
+        return <span className="sb-highlight inline-block">{children}</span>;
     }
 };

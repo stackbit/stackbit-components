@@ -5,22 +5,17 @@ import Button from '../button';
 import Link from '../link';
 
 export default function CTASection(props) {
-    const colors = props.colors || 'colors-a';
+    const colorSchemeClass = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
 
     return (
         <div
-            className={classNames('py-16 lg:py-20', {
+            className={classNames(colorSchemeClass, 'py-16 lg:py-20', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col justify-center': height === 'viewport',
-                'bg-base-50 text-base-900': colors === 'colors-a',
-                'bg-neutral text-base-50': colors === 'colors-b',
-                'bg-neutral text-primary': colors === 'colors-c',
-                'bg-primary text-base-900': colors === 'colors-d',
-                'bg-secondary text-base-900': colors === 'colors-e'
+                'min-h-screen flex flex-col justify-center': height === 'viewport'
             })}
         >
             <div
@@ -47,7 +42,6 @@ function CtaVariants({ variant, ...props }) {
 }
 
 function CtaButtonsBottom(props) {
-    const colors = props.colors || 'colors-a';
     const alignHoriz = props.alignHoriz || 'left';
     const actions = props.actions || [];
     return (
@@ -68,8 +62,7 @@ function CtaButtonsBottom(props) {
                             {...action}
                             className={classNames(
                                 'mb-3',
-                                alignHoriz === 'left' ? 'mr-4' : 'mx-2',
-                                colors === 'colors-a' ? 'bg-primary text-base-900' : 'bg-neutral-variant text-base-50'
+                                alignHoriz === 'left' ? 'mr-4' : 'mx-2'
                             )}
                         />
                     ) : (
@@ -82,7 +75,6 @@ function CtaButtonsBottom(props) {
 }
 
 function CtaButtonsRight(props) {
-    const colors = props.colors || 'colors-a';
     const alignHoriz = props.alignHoriz || 'left';
     const actions = props.actions || [];
     return (
@@ -96,10 +88,7 @@ function CtaButtonsRight(props) {
                         <Button
                             key={idx}
                             {...action}
-                            className={classNames(
-                                'mb-3',
-                                colors === 'colors-a' ? 'bg-primary text-base-900' : 'bg-neutral-variant text-base-50'
-                            )}
+                            className="mb-3"
                         />
                     ) : (
                         <Link key={idx} {...action} className="mb-3" />
@@ -114,7 +103,7 @@ function CtaContent(props) {
     const alignHoriz = props.alignHoriz || 'left';
     return (
         <>
-            {props.badge && <Badge label={props.badge} className="bg-accent text-base-900" />}
+            {props.badge && <Badge label={props.badge} />}
             {props.title && (
                 <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-6">
                     <ReactMarkdown allowedElements={['br', 'span', 'strong']} unwrapDisallowed={true} components={components}>
@@ -130,6 +119,6 @@ function CtaContent(props) {
 
 const components = {
     strong({ children }) {
-        return <span className="inline-block text-accent">{children}</span>;
+        return <span className="sb-highlight inline-block">{children}</span>;
     }
 };

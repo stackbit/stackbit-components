@@ -7,24 +7,19 @@ import Link from '../link';
 import Video from '../video';
 
 export default function HeroSection(props) {
-    const colors = props.colors || 'colors-a';
+    const colorSchemeClass = props.colors || 'colors-a';
     const width = props.width || 'wide';
     const height = props.height || 'auto';
     const alignHoriz = props.alignHoriz || 'left';
 
     return (
         <div
-            className={classNames('py-16 lg:py-20', {
+            className={classNames(colorSchemeClass, 'py-16 lg:py-20', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
                 'min-h-screen flex flex-col justify-center': height === 'viewport',
-                'text-center': alignHoriz === 'center',
-                'bg-base-50 text-base-900': colors === 'colors-a',
-                'bg-neutral text-base-50': colors === 'colors-b',
-                'bg-neutral text-primary': colors === 'colors-c',
-                'bg-primary text-base-900': colors === 'colors-d',
-                'bg-secondary text-base-900': colors === 'colors-e'
+                'text-center': alignHoriz === 'center'
             })}
         >
             <div
@@ -138,7 +133,7 @@ function HeroContent(props) {
     const alignHoriz = props.alignHoriz || 'left';
     return (
         <>
-            {props.badge && <Badge label={props.badge} className="bg-accent text-base-900" />}
+            {props.badge && <Badge label={props.badge} />}
             {props.title && (
                 <h1 className="font-medium font-sans text-4xl tracking-tight sm:text-5xl mb-6">
                     <ReactMarkdown allowedElements={['br', 'span', 'strong']} unwrapDisallowed={true} components={components}>
@@ -158,7 +153,6 @@ function HeroActions(props) {
     if (actions.length === 0) {
         return null;
     }
-    const colors = props.colors || 'colors-a';
     const alignHoriz = props.alignHoriz || 'left';
     return (
         <div
@@ -173,9 +167,9 @@ function HeroActions(props) {
                         key={idx}
                         {...action}
                         className={classNames(
+                            'sb-btn',
                             'mb-3',
-                            alignHoriz === 'left' ? 'mr-4' : 'mx-2',
-                            colors === 'colors-a' ? 'bg-primary text-base-900' : 'bg-neutral-variant text-base-50'
+                            alignHoriz === 'left' ? 'mr-4' : 'mx-2'
                         )}
                     />
                 ) : (
@@ -188,6 +182,6 @@ function HeroActions(props) {
 
 const components = {
     strong({ children }) {
-        return <span className="inline-block text-accent">{children}</span>;
+        return <span className="sb-highlight inline-block">{children}</span>;
     }
 };

@@ -16,7 +16,7 @@ export default function Button({ label, url, icon, alt, className }) {
                 aria-label={alt}
                 title={alt}
                 className={classNames(
-                    'inline-flex items-center justify-center h-12 px-8 font-medium tracking-wide transition duration-200 focus:outline-none',
+                    'sb-btn inline-flex items-center justify-center transition duration-200 focus:outline-none',
                     className
                 )}
             >

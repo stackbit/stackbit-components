@@ -9,7 +9,7 @@ import Twitter from '../../svgs/twitter';
 
 
 export default function Index(props) {
-    const colors = props.colors || 'colors-a';
+    const colorSchemeClass = props.colors || 'colors-a';
     const width = props.width || 'full';
     const iconMap = {
         facebook: Facebook,
@@ -21,15 +21,10 @@ export default function Index(props) {
 
     return (
         <footer
-            className={classNames('px-4 py-12 lg:px-8 lg:py-16', {
+            className={classNames(colorSchemeClass, 'px-4 py-12 lg:px-8 lg:py-16', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
-                'max-w-screen-lg': width === 'narrow',
-                'bg-base-50 text-base-900': colors === 'colors-a',
-                'bg-neutral text-base-50': colors === 'colors-b',
-                'bg-neutral text-primary': colors === 'colors-c',
-                'bg-primary text-base-900': colors === 'colors-d',
-                'bg-secondary text-base-900': colors === 'colors-e'
+                'max-w-screen-lg': width === 'narrow'
             })}
         >
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
@@ -84,12 +79,9 @@ export default function Index(props) {
                     </div>
                 )}
             </div>
+            <hr />
             <div
-                className={classNames(
-                    'flex flex-col-reverse justify-between pt-6 border-t lg:flex-row',
-                    colors === 'colors-b' || colors === 'colors-c' ? 'border-neutral-variant' : 'border-base-900'
-                )}
-            >
+                className="flex flex-col-reverse justify-between pt-6 lg:flex-row">
                 {props.copyrightText && <p className="text-sm">{props.copyrightText}</p>}
                 {props.legalLinks && props.legalLinks.length > 0 && (
                     <ul className="flex flex-col mb-6 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">

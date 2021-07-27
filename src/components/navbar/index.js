@@ -6,22 +6,17 @@ import CloseIcon from '../../svgs/close';
 import HamburgerIcon from '../../svgs/hamburger';
 
 export default function Index(props) {
-    const primaryColors = props.primaryColors || 'colors-a';
+    const primaryColorSchemeClass = props.primaryColors || 'colors-a';
     const width = props.width || 'full';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
 
     return (
         <nav
-            className={classNames('px-4 py-5 lg:px-8', {
+            className={classNames(primaryColorSchemeClass, 'px-4 py-5 lg:px-8', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
-                relative: mobileNavVariant === 'variant-b',
-                'bg-base-50 text-base-900': primaryColors === 'colors-a',
-                'bg-neutral text-base-50': primaryColors === 'colors-b',
-                'bg-neutral text-primary': primaryColors === 'colors-c',
-                'bg-primary text-base-900': primaryColors === 'colors-d',
-                'bg-secondary text-base-900': primaryColors === 'colors-e'
+                relative: mobileNavVariant === 'variant-b'
             })}
         >
             <Link href="#content">
@@ -39,7 +34,6 @@ export default function Index(props) {
 }
 
 function desktopNavVariants(props) {
-    const primaryColors = props.primaryColors || 'colors-a';
     const desktopNavVariant = props.desktopNavVariant || 'variant-a';
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
@@ -53,10 +47,10 @@ function desktopNavVariants(props) {
             <>
                 <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
                 {primaryLinks && primaryLinks.length > 0 && (
-                    <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks, primaryColors)}</ul>
+                    <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks)}</ul>
                 )}
                 {secondaryLinks && secondaryLinks.length > 0 && (
-                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, primaryColors)}</ul>
+                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks)}</ul>
                 )}
                 {mobileNavVariants(props)}
             </>
@@ -67,11 +61,11 @@ function desktopNavVariants(props) {
                 <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
                 {primaryLinks && primaryLinks.length > 0 && (
                     <ul className="hidden absolute space-x-8 left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto lg:flex lg:items-center">
-                        {listOfLinks(primaryLinks, primaryColors)}
+                        {listOfLinks(primaryLinks)}
                     </ul>
                 )}
                 {secondaryLinks && secondaryLinks.length > 0 && (
-                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, primaryColors)}</ul>
+                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks)}</ul>
                 )}
                 {mobileNavVariants(props)}
             </>
@@ -82,7 +76,7 @@ function desktopNavVariants(props) {
             <>
                 <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
                 {links.length > 0 && (
-                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks.concat(secondaryLinks), primaryColors)}</ul>
+                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks.concat(secondaryLinks))}</ul>
                 )}
                 {mobileNavVariants(props)}
             </>
@@ -94,10 +88,10 @@ function desktopNavVariants(props) {
                     {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
                 </div>
                 {primaryLinks && primaryLinks.length > 0 && (
-                    <ul className="hidden space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks, primaryColors)}</ul>
+                    <ul className="hidden space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks)}</ul>
                 )}
                 {secondaryLinks && secondaryLinks.length > 0 && (
-                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks, primaryColors)}</ul>
+                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks)}</ul>
                 )}
                 {mobileNavVariants(props)}
             </>
@@ -107,7 +101,7 @@ function desktopNavVariants(props) {
 
 function mobileNavVariants(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const secondaryColors = props.secondaryColors || 'colors-a';
+    const secondaryColorSchemeClass = props.secondaryColors || 'colors-a';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
@@ -126,13 +120,7 @@ function mobileNavVariants(props) {
                 {isMenuOpen && (
                     <div className="absolute top-0 left-0 w-full z-10">
                         <div
-                            className={classNames('p-5 border rounded shadow-sm', {
-                                'bg-base-50 text-base-900': secondaryColors === 'colors-a',
-                                'bg-neutral border-base-900 text-base-50': secondaryColors === 'colors-b',
-                                'bg-neutral border-base-900 text-primary': secondaryColors === 'colors-c',
-                                'bg-primary border-primary text-base-900': secondaryColors === 'colors-d',
-                                'bg-secondary border-secondary-variant text-base-900': secondaryColors === 'colors-e'
-                            })}
+                            className={classNames(secondaryColorSchemeClass, 'p-5 shadow-lg')}
                         >
                             <div className="flex items-center justify-between mb-6">
                                 {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
@@ -145,7 +133,7 @@ function mobileNavVariants(props) {
                                     <CloseIcon className="fill-current h-6 w-6" />
                                 </button>
                             </div>
-                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), secondaryColors, true)}</ul>
+                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), true)}</ul>
                         </div>
                     </div>
                 )}
@@ -161,20 +149,11 @@ function mobileNavVariants(props) {
                 {isMenuOpen && (
                     <div>
                         <div
-                            className={classNames(
-                                'fixed inset-0 bg-opacity-50',
-                                secondaryColors === 'colors-b' || secondaryColors === 'colors-c' ? 'bg-primary' : 'bg-base-900'
-                            )}
+                            className="fixed inset-0 bg-base-900 bg-opacity-50"
                             onClick={() => setIsMenuOpen(false)}
                         />
                         <div
-                            className={classNames('fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto', {
-                                'bg-base-50 text-base-900': secondaryColors === 'colors-a',
-                                'bg-neutral border-base-900 text-base-50': secondaryColors === 'colors-b',
-                                'bg-neutral border-base-900 text-primary': secondaryColors === 'colors-c',
-                                'bg-primary border-primary text-base-900': secondaryColors === 'colors-d',
-                                'bg-secondary border-secondary-variant text-base-900': secondaryColors === 'colors-e'
-                            })}
+                            className={classNames(secondaryColorSchemeClass, 'fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto')}
                         >
                             <div className="flex items-center justify-between mb-6">
                                 {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
@@ -187,7 +166,7 @@ function mobileNavVariants(props) {
                                     <CloseIcon className="fill-current h-6 w-6" />
                                 </button>
                             </div>
-                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), secondaryColors, true)}</ul>
+                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), true)}</ul>
                         </div>
                     </div>
                 )}
@@ -207,7 +186,7 @@ function siteLogoLink({ title, logo, logoAlt, isTitleVisible }) {
     );
 }
 
-function listOfLinks(links, style, inMenu = false) {
+function listOfLinks(links, inMenu = false) {
     return links.map((link, idx) => (
         <li key={idx}>
             {link.style !== 'button' ? (
@@ -230,9 +209,7 @@ function listOfLinks(links, style, inMenu = false) {
                     url={link.url}
                     alt={link.alt}
                     className={classNames(
-                        'px-4 py-5 lg:px-8',
-                        inMenu ? 'w-full' : '',
-                        style === 'colors-a' ? 'bg-primary text-base-900' : 'bg-neutral-variant text-base-50'
+                        inMenu ? 'w-full' : ''
                     )}
                 />
             )}

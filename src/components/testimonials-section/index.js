@@ -55,7 +55,7 @@ function TestimonialsVariantA(props) {
                     {(testimonial.name || testimonial.title) && (
                         <footer className="mt-8 text-center text-sm">
                             {testimonial.imageUrl && (
-                                <img src={testimonial.imageUrl} alt={testimonial.imageAltText} className="sb-avatar mx-auto mb-4 object-cover w-14 h-14" />
+                                <img src={testimonial.imageUrl} alt={testimonial.imageAltText} className="sb-avatar mx-auto mb-4 object-cover w-24 h-24" />
                             )}
                             <strong className="block mb-0.5 font-medium text-lg">{testimonial.name}</strong>
                             {testimonial.title}

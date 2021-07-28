@@ -63,8 +63,7 @@ module.exports = {
           color: theme('colors.base-900'),
           fontWeight: theme('fontWeight.medium'),
           letterSpacing: theme('letterSpacing.wider'),
-          padding: `${theme('spacing[0.5]')} ${theme('spacing.2')}`,
-          textTransform: 'uppercase'
+          padding: `${theme('spacing[0.5]')} ${theme('spacing.2')}`
         },
         '.sb-btn': {
           fontWeight: theme('fontWeight.normal'),
@@ -72,7 +71,7 @@ module.exports = {
           padding: `${theme('spacing[2.5]')} ${theme('spacing.5')}`
         },
         '.sb-card': {
-          boxShadow: theme('boxShadow.xl')
+          border: `2px solid ${theme('colors.base-900')}`
         },
         'a.sb-card': {
           transition: 'transform .3s',
@@ -82,6 +81,9 @@ module.exports = {
         },
         '.sb-highlight': {
           color: theme('colors.accent')
+        },
+        '.sb-avatar': {
+          border: `2px solid ${theme('colors.base-900')}`
         },
         '.colors-a': {
           backgroundColor: theme('colors.base-50'),
@@ -114,7 +116,8 @@ module.exports = {
             color: theme('colors.base-50')
           },
           '.sb-card': {
-            backgroundColor: theme('colors.neutral-variant')
+            backgroundColor: theme('colors.neutral-variant'),
+            borderColor: theme('colors.base-50')
           }
         },
         '.colors-c': {
@@ -130,8 +133,12 @@ module.exports = {
             backgroundColor: theme('colors.neutral-variant'),
             color: theme('colors.base-50')
           },
+          '.sb-avatar': {
+            borderColor: theme('colors.primary')
+          },
           '.sb-card': {
-            backgroundColor: theme('colors.neutral-variant')
+            backgroundColor: theme('colors.neutral-variant'),
+            borderColor: theme('colors.primary')
           }
         },
         '.colors-d': {

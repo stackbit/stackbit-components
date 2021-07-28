@@ -25,7 +25,7 @@ module.exports = {
         'base-900':          '#333333',
       },
       fontFamily: {
-        sans: ['Rubik', ...defaultTheme.fontFamily.sans]
+        sans: ['Open Sans', ...defaultTheme.fontFamily.sans]
       },
       spacing: {
         '1/2': '50%',
@@ -45,15 +45,20 @@ module.exports = {
           fontWeight: theme('fontWeight.medium'),
           letterSpacing: theme('letterSpacing.wider'),
           padding: `${theme('spacing[0.5]')} ${theme('spacing.2')}`,
+          borderRadius: theme('borderRadius.md'),
           textTransform: 'uppercase'
         },
         '.sb-btn': {
           fontWeight: theme('fontWeight.normal'),
           letterSpacing: theme('letterSpacing.wider'),
-          padding: `${theme('spacing[2.5]')} ${theme('spacing.5')}`
+          padding: `${theme('spacing[2.5]')} ${theme('spacing.5')}`,
+          borderRadius: theme('borderRadius.md'),
+          boxShadow: theme('boxShadow.xl'),
+          textTransform: 'uppercase'
         },
         '.sb-card': {
-          boxShadow: theme('boxShadow.xl')
+          boxShadow: theme('boxShadow.xl'),
+          borderRadius: theme('borderRadius.md')
         },
         'a.sb-card': {
           transition: 'transform .3s',
@@ -63,6 +68,10 @@ module.exports = {
         },
         '.sb-highlight': {
           color: theme('colors.accent')
+        },
+        '.sb-avatar': {
+          boxShadow: theme('boxShadow.xl'),
+          borderRadius: theme('borderRadius.md')
         },
         '.colors-a': {
           backgroundColor: theme('colors.base-50'),

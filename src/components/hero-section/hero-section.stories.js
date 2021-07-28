@@ -54,7 +54,7 @@ const args = {
         }
     ],
     feature: {
-        type: 'image',
+        type: 'image_block',
         imageUrl: '/images/hero.png',
         imageAltText: 'Image alt text',
         imageCaption: 'Image caption'
@@ -81,7 +81,7 @@ HeroLeftVideo.args = {
         }
     ],
     feature: {
-        type: 'video',
+        type: 'video_block',
         videoUrl: '/videos/stackbit-for-marketers.mp4',
         posterUrl: '/images/stackbit-for-marketers.jpg',
         autoplay: true,
@@ -109,7 +109,7 @@ HeroBottomImage.args = {
         }
     ],
     feature: {
-        type: 'image',
+        type: 'image_block',
         imageUrl: '/images/hero-alt.png',
         imageAltText: 'Image alt text',
         imageCaption: 'Image caption'

@@ -5,13 +5,13 @@ import Button from '../button';
 import Link from '../link';
 
 export default function CTASection(props) {
-    const colorSchemeClass = props.colors || 'colors-a';
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
 
     return (
         <div
-            className={classNames(colorSchemeClass, 'py-16 lg:py-20', {
+            className={classNames(colors, 'py-16 lg:py-20', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',

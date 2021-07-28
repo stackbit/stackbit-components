@@ -4,14 +4,14 @@ import Link from 'next/link';
 import Badge from '../badge';
 
 export default function PostsSection(props) {
-    const colorSchemeClass = props.colors || 'colors-a';
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
     const alignHoriz = props.alignHoriz || 'left';
 
     return (
         <div
-            className={classNames(colorSchemeClass, 'py-16 lg:py-20', {
+            className={classNames(colors, 'py-16 lg:py-20', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',

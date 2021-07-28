@@ -2,13 +2,13 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 
 export default function TestimonialsSection(props) {
-    const colorSchemeClass = props.colors || 'colors-a';
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
 
     return (
         <div
-            className={classNames(colorSchemeClass, 'py-8 lg:py-12', {
+            className={classNames(colors, 'py-8 lg:py-12', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
@@ -55,7 +55,7 @@ function TestimonialsVariantA(props) {
                     {(testimonial.name || testimonial.title) && (
                         <footer className="mt-8 text-center text-sm">
                             {testimonial.imageUrl && (
-                                <img src={testimonial.imageUrl} alt={testimonial.imageAltText} className="mx-auto mb-4 rounded-full object-cover w-14 h-14" />
+                                <img src={testimonial.imageUrl} alt={testimonial.imageAltText} className="sb-avatar mx-auto mb-4 object-cover w-14 h-14" />
                             )}
                             <strong className="block mb-0.5 font-medium text-lg">{testimonial.name}</strong>
                             {testimonial.title}
@@ -81,7 +81,7 @@ function TestimonialsVariantB(props) {
                             <img
                                 src={testimonial.imageUrl}
                                 alt={testimonial.imageAltText}
-                                className="mx-auto mb-8 object-cover rounded-full w-36 h-36 sm:w-48 sm:h-48"
+                                className="sb-avatar mx-auto mb-8 object-cover w-36 h-36 sm:w-48 sm:h-48"
                             />
                         </div>
                     )}

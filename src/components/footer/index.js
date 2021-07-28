@@ -9,7 +9,7 @@ import Twitter from '../../svgs/twitter';
 
 
 export default function Index(props) {
-    const colorSchemeClass = props.colors || 'colors-a';
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const iconMap = {
         facebook: Facebook,
@@ -21,7 +21,7 @@ export default function Index(props) {
 
     return (
         <footer
-            className={classNames(colorSchemeClass, 'px-4 py-12 lg:px-8 lg:py-16', {
+            className={classNames(colors, 'px-4 py-12 lg:px-8 lg:py-16', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow'

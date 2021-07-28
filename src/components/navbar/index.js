@@ -6,13 +6,13 @@ import CloseIcon from '../../svgs/close';
 import HamburgerIcon from '../../svgs/hamburger';
 
 export default function Index(props) {
-    const primaryColorSchemeClass = props.primaryColors || 'colors-a';
+    const primaryColors = props.primaryColors || 'colors-a';
     const width = props.width || 'full';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
 
     return (
         <nav
-            className={classNames(primaryColorSchemeClass, 'px-4 py-5 lg:px-8', {
+            className={classNames(primaryColors, 'px-4 py-5 lg:px-8', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
@@ -101,7 +101,7 @@ function desktopNavVariants(props) {
 
 function mobileNavVariants(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const secondaryColorSchemeClass = props.secondaryColors || 'colors-a';
+    const secondaryColors = props.secondaryColors || 'colors-a';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
@@ -120,7 +120,7 @@ function mobileNavVariants(props) {
                 {isMenuOpen && (
                     <div className="absolute top-0 left-0 w-full z-10">
                         <div
-                            className={classNames(secondaryColorSchemeClass, 'p-5 shadow-lg')}
+                            className={classNames(secondaryColors, 'p-5 shadow-lg')}
                         >
                             <div className="flex items-center justify-between mb-6">
                                 {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
@@ -153,7 +153,7 @@ function mobileNavVariants(props) {
                             onClick={() => setIsMenuOpen(false)}
                         />
                         <div
-                            className={classNames(secondaryColorSchemeClass, 'fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto')}
+                            className={classNames(secondaryColors, 'fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto')}
                         >
                             <div className="flex items-center justify-between mb-6">
                                 {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}

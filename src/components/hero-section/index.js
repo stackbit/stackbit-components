@@ -2,19 +2,19 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 import Badge from '../badge';
 import Button from '../button';
-import Image from '../image';
+import ImageBlock from '../image-block';
 import Link from '../link';
-import Video from '../video';
+import VideoBlock from '../video-block';
 
 export default function HeroSection(props) {
-    const colorSchemeClass = props.colors || 'colors-a';
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'wide';
     const height = props.height || 'auto';
     const alignHoriz = props.alignHoriz || 'left';
 
     return (
         <div
-            className={classNames(colorSchemeClass, 'py-16 lg:py-20', {
+            className={classNames(colors, 'py-16 lg:py-20', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
@@ -121,10 +121,10 @@ function HeroFeature(feature, alignHoriz) {
         return null;
     }
     switch (feature.type) {
-        case 'image':
-            return <Image {...feature} className={classNames({ 'mx-auto': alignHoriz === 'center' })} />;
-        case 'video':
-            return <Video {...feature} />;
+        case 'image_block':
+            return <ImageBlock {...feature} className={classNames({ 'mx-auto': alignHoriz === 'center' })} />;
+        case 'video_block':
+            return <VideoBlock {...feature} />;
     }
     return null;
 }

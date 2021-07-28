@@ -3,13 +3,13 @@ import ReactMarkdown from 'react-markdown';
 import classNames from 'classnames';
 
 export default function ContactSection(props) {
-    const colorSchemeClass = props.colors || 'colors-a';
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';
 
     return (
         <div
-            className={classNames(colorSchemeClass, 'overflow-x-hidden relative', {
+            className={classNames(colors, 'overflow-x-hidden relative', {
                 'mx-auto': width !== 'full',
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',

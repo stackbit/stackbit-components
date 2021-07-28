@@ -1,5 +1,6 @@
 const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
+const { borderRadius } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
@@ -39,6 +40,9 @@ module.exports = {
   plugins: [
     function({ addComponents, theme }) {
       addComponents({
+        '.sb-avatar': {
+            borderRadius: theme('borderRadius.full')
+        },
         '.sb-badge': {
           backgroundColor: theme('colors.accent'),
           color: theme('colors.base-900'),

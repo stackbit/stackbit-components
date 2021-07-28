@@ -1,4 +1,4 @@
-export default function Image(props) {
+export default function ImageBlock(props) {
     const imageUrl = props.imageUrl;
     if (!imageUrl) {
         return null;

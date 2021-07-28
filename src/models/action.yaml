@@ -1,0 +1,33 @@
+name: action
+label: Action
+fields:
+  - type: string
+    name: label
+    label: Label
+  - type: string
+    name: url
+    label: URL
+    default: '#'
+  - type: string
+    name: alt
+    label: Title
+  - type: enum
+    name: type
+    label: Type
+    options:
+      - label: Link
+        value: link
+      - label: Button
+        value: button
+    default: link
+  - type: enum
+    name: icon
+    label: Icon
+    options:
+      - arrowRight
+      - cart
+      - facebook
+      - github
+      - instagram
+      - linkedin
+      - twitter

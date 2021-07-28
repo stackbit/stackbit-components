@@ -1,15 +1,15 @@
 import React from 'react';
-import Video from './index';
+import VideoBlock from './index';
 
 export default {
-    title: 'Atoms/Video',
-    component: Video
+    title: 'Atoms/Video Block',
+    component: VideoBlock
 };
 
-const Template = (args) => <Video {...args} />;
+const Template = (args) => <VideoBlock {...args} />;
 
 const args = {
-    type: 'video',
+    type: 'video_block',
     videoUrl: '/videos/stackbit-for-marketers.mp4',
     posterUrl: '/images/stackbit-for-marketers.jpg',
     controls: true

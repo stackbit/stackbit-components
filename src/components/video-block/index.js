@@ -1,9 +1,8 @@
-export default function Video(props) {
+export default function VideoBlock(props) {
     const videoUrl = props.videoUrl;
     if (!videoUrl) {
         return null;
     }
-
     return (
         <video
             {...(props.autoplay && { autoPlay: true })}

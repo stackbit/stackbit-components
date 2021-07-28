@@ -1,0 +1,15 @@
+name: image_block
+label: Image Block
+fields:
+  - type: image
+    name: imageUrl
+    label: Image URL
+    description: The URL of the image
+  - type: string
+    name: imageAltText
+    label: Alt text
+    description: The alt text of the image
+  - type: string
+    name: imageCaption
+    label: Caption
+    description: The caption of the image

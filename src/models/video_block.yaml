@@ -1,0 +1,25 @@
+name: video_feature
+label: Video Feature
+fields:
+  - type: string
+    name: videoUrl
+    label: Video URL (.mp4)
+  - type: image
+    name: posterUrl
+    label: Poster URL
+  - type: boolean
+    name: autoplay
+    label: Autoplay
+    default: false
+  - type: boolean
+    name: loop
+    label: Lopp
+    default: false
+  - type: boolean
+    name: muted
+    label: Muted
+    default: false
+  - type: boolean
+    name: controls
+    label: Controls
+    default: false

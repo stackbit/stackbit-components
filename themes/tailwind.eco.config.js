@@ -1,6 +1,5 @@
 const plugin = require('tailwindcss/plugin');
 const defaultTheme = require('tailwindcss/defaultTheme');
-const { borderRadius } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   mode: 'jit',
@@ -12,18 +11,18 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary':           '#FFC329',
-        'primary-variant':   '#FFD362',
-        'secondary':         '#FFF7E3',
-        'secondary-variant': '#FFECBC',
-        'accent':            '#EA5234',
-        'accent-variant':    '#E03817',
-        'neutral':           '#282828',
-        'neutral-variant':   '#3D404C',
+        'primary':           '#4bc2a1',
+        'primary-variant':   '#3aab8c',
+        'secondary':         '#d6c9bb',
+        'secondary-variant': '#c0ab96',
+        'accent':            '#C6D6D2',
+        'accent-variant':    '#AFC6C0',
+        'neutral':           '#4A4F59',
+        'neutral-variant':   '#383C44',
         'base-50':           '#FFFFFF',
         'base-100':          '#F5F5F5',
         'base-200':          '#E1E1E1',
-        'base-900':          '#0A0A0A',
+        'base-900':          '#333333',
       },
       fontFamily: {
         sans: ['Rubik', ...defaultTheme.fontFamily.sans]
@@ -40,9 +39,6 @@ module.exports = {
   plugins: [
     function({ addComponents, theme }) {
       addComponents({
-        '.sb-avatar': {
-            borderRadius: theme('borderRadius.full')
-        },
         '.sb-badge': {
           backgroundColor: theme('colors.accent'),
           color: theme('colors.base-900'),

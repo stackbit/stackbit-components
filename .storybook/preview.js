@@ -21,11 +21,13 @@ export const globalTypes = {
     theme: {
         name: 'Theme',
         description: 'Global theme for components',
-        defaultValue: 'light',
+        defaultValue: 'bold',
         toolbar: {
-            icon: 'photo',
+            icon: 'cog',
             items: [
-                { value: 'light', title: 'Light Theme' }
+                { value: 'bold', title: 'Bold Theme' },
+                { value: 'classic', title: 'Classic Theme' },
+                { value: 'eco', title: 'Eco Theme' }
             ]
         }
     }

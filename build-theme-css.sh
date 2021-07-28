@@ -1,7 +1,9 @@
 #!/bin/bash
 
 themes=(
-  "light"
+  "bold"
+  "classic"
+  "eco"
 )
 
 for theme in "${themes[@]}"; do

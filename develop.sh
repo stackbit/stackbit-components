@@ -1,7 +1,9 @@
 #!/bin/bash
 
 themes=(
-  "light"
+  "bold"
+  "classic"
+  "eco"
 )
 
 command=("./node_modules/.bin/concurrently" "--kill-others-on-fail" "--names")

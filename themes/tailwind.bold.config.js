@@ -131,7 +131,7 @@ module.exports = {
           },
           '.sb-btn': {
             backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50')
+            color: theme('colors.primary')
           },
           '.sb-avatar': {
             borderColor: theme('colors.primary')

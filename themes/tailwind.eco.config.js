@@ -118,7 +118,7 @@ module.exports = {
           },
           '.sb-btn': {
             backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50')
+            color: theme('colors.primary')
           },
           '.sb-card': {
             backgroundColor: theme('colors.neutral-variant')

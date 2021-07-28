@@ -46,7 +46,7 @@ module.exports = {
           letterSpacing: theme('letterSpacing.wider'),
           padding: `${theme('spacing[0.5]')} ${theme('spacing.2')}`,
           textTransform: 'uppercase',
-          "@apply rounded-full": {}
+          borderRadius: theme('borderRadius.full')
         },
         '.sb-btn': {
           fontWeight: theme('fontWeight.normal'),
@@ -80,7 +80,10 @@ module.exports = {
           },
           '.sb-btn': {
             backgroundColor: theme('colors.primary'),
-            color: theme('colors.base-900')
+            color: theme('colors.base-900'),
+            '&:hover': {
+              backgroundColor: theme('colors.primary-variant')
+            },
           },
           '.sb-card': {
             backgroundColor: theme('colors.secondary'),
@@ -97,7 +100,10 @@ module.exports = {
           },
           '.sb-btn': {
             backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50')
+            color: theme('colors.base-50'),
+            '&:hover': {
+              backgroundColor: theme('colors.base-900')
+            },
           },
           '.sb-card': {
             backgroundColor: theme('colors.neutral-variant')
@@ -114,7 +120,10 @@ module.exports = {
           },
           '.sb-btn': {
             backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.primary')
+            color: theme('colors.primary'),
+            '&:hover': {
+              backgroundColor: theme('colors.base-900')
+            },
           },
           '.sb-card': {
             backgroundColor: theme('colors.neutral-variant')
@@ -131,7 +140,10 @@ module.exports = {
           },
           '.sb-btn': {
             backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50')
+            color: theme('colors.base-50'),
+            '&:hover': {
+              backgroundColor: theme('colors.base-900')
+            },
           },
           '.sb-card': {
             backgroundColor: theme('colors.primary-variant')
@@ -148,7 +160,10 @@ module.exports = {
           },
           '.sb-btn': {
             backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50')
+            color: theme('colors.base-50'),
+            '&:hover': {
+              backgroundColor: theme('colors.base-900')
+            },
           },
           '.sb-card': {
             backgroundColor: theme('colors.secondary-variant')

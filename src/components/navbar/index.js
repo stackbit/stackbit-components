@@ -189,29 +189,27 @@ function siteLogoLink({ title, logo, logoAlt, isTitleVisible }) {
 function listOfLinks(links, inMenu = false) {
     return links.map((link, idx) => (
         <li key={idx}>
-            {link.style !== 'button' ? (
-                <Link href={link.url}>
-                    <a
-                        aria-label={link.alt}
-                        title={link.alt}
-                        className={
-                            !inMenu
-                                ? 'tracking-wide transition-opacity duration-200 hover:opacity-80'
-                                : 'tracking-wide transition-opacity duration-200 hover:opacity-70'
-                        }
-                    >
-                        {link.label}
-                    </a>
-                </Link>
-            ) : (
+            {(link.type === 'primary-button' || link.type === 'secondary-button') ? (
                 <Button
                     label={link.label}
                     url={link.url}
                     alt={link.alt}
+                    type={link.type}
+                    icon={link.icon}
                     className={classNames(
                         inMenu ? 'w-full' : ''
                     )}
                 />
+            ) : (
+                <Link href={link.url}>
+                    <a
+                        aria-label={link.alt}
+                        title={link.alt}
+                        className="tracking-wide transition-opacity duration-200 hover:opacity-80"
+                    >
+                        {link.label}
+                    </a>
+                </Link>
             )}
         </li>
     ));

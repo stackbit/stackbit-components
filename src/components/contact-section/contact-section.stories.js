@@ -22,7 +22,7 @@ export default {
             control: { type: 'select' }
         },
         alignHoriz: {
-            options: ['left', 'center'],
+            options: ['left', 'right', 'center'],
             control: { type: 'select' }
         }
     }
@@ -112,6 +112,18 @@ ContactRightImage.args = {
             label: 'Home address',
             defaultValue: 'Your home address',
             isRequired: true,
+            width: 'full'
+        },
+        {
+            inputType: 'select',
+            name: 'select-box',
+            label: 'Select example',
+            defaultValue: 'Please choose...',
+            isRequired: true,
+            options: [
+                'Option 1',
+                'Option 2'
+            ],
             width: 'full'
         },
         {

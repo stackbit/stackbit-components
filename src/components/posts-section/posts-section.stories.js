@@ -22,7 +22,7 @@ export default {
             control: { type: 'select' }
         },
         alignHoriz: {
-            options: ['left', 'center'],
+            options: ['left', 'right', 'center'],
             control: { type: 'select' }
         }
     }
@@ -36,6 +36,7 @@ const args = {
     colors: 'colors-d',
     width: 'wide',
     height: 'auto',
+    alignHoriz: 'center',
     badge: '',
     subtitle: '',
     posts: [
@@ -83,6 +84,6 @@ VariantB.args = {
     variant: 'variant-b',
     colors: 'colors-b',
     width: 'full',
-    alignHoriz: 'center',
+    alignHoriz: 'left',
     title: 'Latest from **the Blog**'
 };

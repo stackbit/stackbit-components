@@ -67,9 +67,16 @@ export default function Index(props) {
                                     }
                                     return (
                                         <li key={idx}>
-                                            <a href={link.url} className="transition-opacity duration-300 hover:opacity-70">
-                                                <IconComponent className="fill-current h-6 w-6" />
-                                            </a>
+                                            <Link href={link.url}>
+                                                <a
+                                                    aria-label={link.alt}
+                                                    title={link.alt}
+                                                    className="transition-opacity duration-300 hover:opacity-80"
+                                                >
+                                                    {link.label && <span className="sr-only">{link.label}</span>}
+                                                    <IconComponent className="fill-current h-6 w-6" />
+                                                </a>
+                                            </Link>
                                         </li>
                                     );
                                 })}

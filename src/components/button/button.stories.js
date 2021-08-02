@@ -11,13 +11,14 @@ const Template = (args) => <Button {...args} />;
 const args = {
     label: 'Stackbit',
     url: 'https://www.stackbit.com',
-    alt: 'Stackbit'
+    alt: 'Stackbit',
+    type: 'primary-button'
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Button';
+Primary.storyName = 'Primary button';
 Primary.args = { ...args };
 
 export const ButtonIcon = Template.bind({});
-ButtonIcon.storyName = 'Button with icon';
-ButtonIcon.args = { ...args, icon: 'cart' };
+ButtonIcon.storyName = 'Secondary button with icon';
+ButtonIcon.args = { ...args, type: 'secondary-button', icon: 'cart' };

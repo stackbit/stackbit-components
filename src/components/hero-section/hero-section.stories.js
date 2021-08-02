@@ -6,7 +6,7 @@ export default {
     component: HeroSection,
     argTypes: {
         variant: {
-            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d', 'variant-e'],
+            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
             control: { type: 'select' }
         },
         colors: {
@@ -22,7 +22,7 @@ export default {
             control: { type: 'select' }
         },
         alignHoriz: {
-            options: ['left', 'center'],
+            options: ['left', 'right', 'center'],
             control: { type: 'select' }
         }
     }
@@ -45,12 +45,12 @@ const args = {
         {
             url: '#',
             label: 'Apply Now',
-            type: 'button'
+            type: 'primary-button'
         },
         {
             url: '#',
             label: 'Learn more',
-            type: 'link'
+            type: 'secondary-button'
         }
     ],
     feature: {
@@ -77,7 +77,7 @@ HeroLeftVideo.args = {
         {
             url: '#',
             label: 'Get started',
-            type: 'button',
+            type: 'primary-button',
         }
     ],
     feature: {
@@ -105,7 +105,7 @@ HeroBottomImage.args = {
         {
             url: '#',
             label: 'Get started',
-            type: 'button',
+            type: 'primary-button',
         }
     ],
     feature: {
@@ -120,7 +120,7 @@ export const HeroTextOnly = Template.bind({});
 HeroTextOnly.storyName = 'Hero Section With Text Only';
 HeroTextOnly.args = {
     ...args,
-    variant: 'variant-e',
+    variant: 'variant-a',
     colors: 'colors-e',
     badge: null,
     title: 'The quick, brown fox jumps over **a lazy dog**',
@@ -128,7 +128,7 @@ HeroTextOnly.args = {
         {
             url: '#',
             label: 'Start Shopping',
-            type: 'button',
+            type: 'primary-button',
             icon: 'cart'
         },
         {

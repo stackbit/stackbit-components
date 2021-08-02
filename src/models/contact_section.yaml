@@ -50,6 +50,7 @@ fields:
     label: Horizontal alignment
     options:
       - left
+      - right
       - center
     default: left
   - type: string

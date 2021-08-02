@@ -8,7 +8,6 @@ export default function PostsSection(props) {
     const width = props.width || 'full';
     const height = props.height || 'auto';
     const alignHoriz = props.alignHoriz || 'left';
-
     return (
         <div
             className={classNames(colors, 'py-16 lg:py-20', {
@@ -23,21 +22,24 @@ export default function PostsSection(props) {
                     'xl:max-w-screen-xl': width !== 'narrow'
                 })}
             >
-                <div
-                    className={classNames('max-w-lg mb-10', {
-                        'mx-auto text-center': alignHoriz === 'center'
-                    })}
-                >
-                    {props.badge && <Badge label={props.badge} />}
-                    {props.title && (
-                        <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl">
-                            <ReactMarkdown allowedElements={['br', 'span', 'strong']} unwrapDisallowed={true} components={components}>
-                                {props.title}
-                            </ReactMarkdown>
-                        </h2>
-                    )}
-                    {props.subtitle && <p className="md:text-lg">{props.subtitle}</p>}
-                </div>
+                {(props.badge || props.title || props.subtitle) && (
+                    <div
+                        className={classNames('max-w-lg', {
+                            'mx-auto text-center': alignHoriz === 'center',
+                            'ml-auto text-right': alignHoriz === 'right'
+                        })}
+                    >
+                        {props.badge && <Badge label={props.badge} />}
+                        {props.title && (
+                            <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl">
+                                <ReactMarkdown allowedElements={['a', 'br', 'em', 'span', 'strong']} unwrapDisallowed={true} components={components}>
+                                    {props.title}
+                                </ReactMarkdown>
+                            </h2>
+                        )}
+                        {props.subtitle && <p className="md:text-lg">{props.subtitle}</p>}
+                    </div>
+                )}
                 <PostVariants {...props} />
             </div>
         </div>
@@ -61,7 +63,11 @@ function PostsVariantA(props) {
         return null;
     }
     return (
-        <div className="grid gap-4 md:grid-cols-3 lg:gap-8">
+        <div
+            className={classNames('grid gap-6 md:grid-cols-3 lg:gap-8', {
+                'mt-10': props.badge || props.title || props.subtitle
+            })}
+        >
             {posts.map((post, idx) => (
                 <Link key={idx} href={post.url}>
                     <a className="sb-card block">
@@ -89,9 +95,13 @@ function PostsVariantB(props) {
         return null;
     }
     return (
-        <div className="flex flex-wrap md:-mx-4">
+        <div
+            className={classNames('grid gap-x-8 gap-y-10 md:grid-cols-2', {
+                'mt-12': props.badge || props.title || props.subtitle
+            })}
+        >
             {posts.map((post, idx) => (
-                <article key={idx} className="mb-10 w-full sm:flex md:w-1/2 md:px-4">
+                <article key={idx} className="sm:flex">
                     {post.thumbImageUrl && (
                         <div className="mb-4 w-full sm:flex-shrink-0 sm:mb-0 sm:mr-6 sm:w-1/3">
                             <Link href={post.url}>

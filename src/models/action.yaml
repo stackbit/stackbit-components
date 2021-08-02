@@ -17,8 +17,10 @@ fields:
     options:
       - label: Link
         value: link
-      - label: Button
-        value: button
+      - label: Primary button
+        value: primary-button
+      - label: Secondary button
+        value: secondary-button
     default: link
   - type: enum
     name: icon

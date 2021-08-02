@@ -22,7 +22,7 @@ export default {
             control: { type: 'select' }
         },
         alignHoriz: {
-            options: ['left', 'center'],
+            options: ['left', 'right', 'center'],
             control: { type: 'select' }
         }
     }
@@ -38,12 +38,12 @@ const args = {
     height: 'auto',
     alignHoriz: 'center',
     title: "Let's do this",
-    text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen',
+    text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
     actions: [
         {
             url: '#',
             label: 'Get Started',
-            type: 'button'
+            type: 'primary-button'
         }
     ]
 };
@@ -57,5 +57,6 @@ CtaButtonsRight.storyName = 'CTA Section With Buttons on the Right';
 CtaButtonsRight.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-d'
+    colors: 'colors-d',
+    alignHoriz: 'left'
 };

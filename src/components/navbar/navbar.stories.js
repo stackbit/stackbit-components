@@ -66,14 +66,14 @@ const args = {
         {
             label: 'Sign in',
             url: '/',
-            style: 'link',
-            alt: 'Sign in'
+            alt: 'Sign in',
+            type: 'link'
         },
         {
             label: 'Sign up',
             url: '/',
-            style: 'button',
-            alt: 'Sign up'
+            alt: 'Sign up',
+            type: 'secondary-button'
         }
     ]
 };

@@ -11,7 +11,6 @@ export default function HeroSection(props) {
     const width = props.width || 'wide';
     const height = props.height || 'auto';
     const alignHoriz = props.alignHoriz || 'left';
-
     return (
         <div
             className={classNames(colors, 'py-16 lg:py-20', {
@@ -19,7 +18,8 @@ export default function HeroSection(props) {
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow',
                 'min-h-screen flex flex-col justify-center': height === 'viewport',
-                'text-center': alignHoriz === 'center'
+                'text-center': alignHoriz === 'center',
+                'text-right': alignHoriz === 'right'
             })}
         >
             <div
@@ -34,8 +34,8 @@ export default function HeroSection(props) {
     );
 }
 
-function HeroVariants({ variant, ...props }) {
-    variant = variant || 'variant-a';
+function HeroVariants(props) {
+    const variant = props.variant || 'variant-a';
     switch (variant) {
         case 'variant-a':
             return HeroFeatureRight(props);
@@ -45,35 +45,43 @@ function HeroVariants({ variant, ...props }) {
             return HeroFeatureTop(props);
         case 'variant-d':
             return HeroFeatureBottom(props);
-        case 'variant-e':
-            return HeroNoFeature(props);
     }
     return null;
 }
 
 function HeroFeatureRight(props) {
-    const alignHoriz = props.alignHoriz || 'left';
     return (
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
+        <div
+            className={classNames('grid gap-8 lg:items-center', {
+                'lg:grid-cols-2': props.feature
+            })}
+        >
+            <div className="max-w-3xl mx-auto">
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
-            <div>
-                {HeroFeature(props.feature, alignHoriz)}
-            </div>
+            {props.feature && (
+                <div>
+                    {HeroFeature(props.feature)}
+                </div>
+            )}
         </div>
     );
 }
 
 function HeroFeatureLeft(props) {
-    const alignHoriz = props.alignHoriz || 'left';
     return (
-        <div className="grid gap-8 lg:grid-cols-2 lg:items-center">
-            <div>
-                {HeroFeature(props.feature, alignHoriz)}
-            </div>
-            <div>
+        <div
+            className={classNames('grid gap-8 lg:items-center', {
+                'lg:grid-cols-2': props.feature
+            })}
+        >
+            {props.feature && (
+                <div>
+                    {HeroFeature(props.feature)}
+                </div>
+            )}
+            <div className="max-w-3xl mx-auto">
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
@@ -82,98 +90,86 @@ function HeroFeatureLeft(props) {
 }
 
 function HeroFeatureTop(props) {
-    const alignHoriz = props.alignHoriz || 'left';
     return (
         <>
-            <div className="mb-8 lg:mb-12">
-                {HeroFeature(props.feature, alignHoriz)}
+            {props.feature && (
+                <div className="mb-8 lg:mb-12">
+                    {HeroFeature(props.feature)}
+                </div>
+            )}
+            <div className="max-w-3xl mx-auto">
+                {HeroContent(props)}
+                {HeroActions(props)}
             </div>
-            {HeroContent(props)}
-            {HeroActions(props)}
         </>
     );
 }
 
 function HeroFeatureBottom(props) {
-    const alignHoriz = props.alignHoriz || 'left';
     return (
         <>
-            {HeroContent(props)}
-            {HeroActions(props)}
-            <div className="mt-8 lg:mt-12">
-                {HeroFeature(props.feature, alignHoriz)}
+            <div className="max-w-3xl mx-auto">
+                {HeroContent(props)}
+                {HeroActions(props)}
             </div>
+            {props.feature && (
+                <div className="mt-8 lg:mt-12">
+                    {HeroFeature(props.feature)}
+                </div>
+            )}
         </>
     );
 }
 
-function HeroNoFeature(props) {
-    return (
-        <>
-            {HeroContent(props)}
-            {HeroActions(props)}
-        </>
-    );
-}
-
-function HeroFeature(feature, alignHoriz) {
-    if (!feature) {
-        return null;
-    }
+function HeroFeature(feature) {
     switch (feature.type) {
         case 'image_block':
-            return <ImageBlock {...feature} className={classNames({ 'mx-auto': alignHoriz === 'center' })} />;
+            return <ImageBlock {...feature} className="mx-auto" />;
         case 'video_block':
-            return <VideoBlock {...feature} />;
+            return <VideoBlock {...feature} className="mx-auto" />;
     }
     return null;
 }
 
 function HeroContent(props) {
-    const alignHoriz = props.alignHoriz || 'left';
     return (
         <>
             {props.badge && <Badge label={props.badge} />}
             {props.title && (
                 <h1 className="font-medium font-sans text-4xl tracking-tight sm:text-5xl mb-6">
-                    <ReactMarkdown allowedElements={['br', 'span', 'strong']} unwrapDisallowed={true} components={components}>
+                    <ReactMarkdown allowedElements={['a', 'br', 'em', 'span', 'strong']} unwrapDisallowed={true} components={components}>
                         {props.title}
                     </ReactMarkdown>
                 </h1>
             )}
-            {props.text && <ReactMarkdown className={classNames('max-w-2xl md:text-lg', {
-                'mx-auto': alignHoriz === 'center'
-            })}>{props.text}</ReactMarkdown>}
+            {props.text && <ReactMarkdown className="md:text-lg">{props.text}</ReactMarkdown>}
         </>
     );
 }
 
 function HeroActions(props) {
+    const alignHoriz = props.alignHoriz || 'left';
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
     }
-    const alignHoriz = props.alignHoriz || 'left';
     return (
         <div
-            className={classNames('flex flex-wrap items-center', {
+            className={classNames('flex flex-wrap items-center -mx-2', {
+                'mt-8': props.badge || props.title || props.text,
                 'justify-center': alignHoriz === 'center',
-                'mt-8': props.badge || props.title || props.text
+                'justify-end': alignHoriz === 'right'
             })}
         >
             {props.actions.map((action, idx) =>
-                action.type === 'button' ? (
+                (action.type === 'primary-button' || action.type === 'secondary-button') ? (
                     <Button
                         key={idx}
                         {...action}
-                        className={classNames(
-                            'sb-btn',
-                            'mb-3',
-                            alignHoriz === 'left' ? 'mr-4' : 'mx-2'
-                        )}
+                        className="mb-3 mx-2 lg:whitespace-nowrap"
                     />
                 ) : (
-                    <Link key={idx} {...action} className={classNames('mb-3', alignHoriz === 'left' ? 'mr-4' : 'mx-2')} />
+                    <Link key={idx} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" />
                 )
             )}
         </div>

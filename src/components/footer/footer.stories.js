@@ -60,16 +60,19 @@ const args = {
     ],
     socialLinks: [
         {
-            icon: 'twitter',
-            url: '/'
+            label: 'Twitter',
+            url: '/',
+            icon: 'twitter'
         },
         {
+            label: 'Instagram',
+            url: '/',
             icon: 'instagram',
-            url: '/'
         },
         {
+            label: 'Facebook',
+            url: '/',
             icon: 'facebook',
-            url: '/'
         }
     ],
     legalLinks: [

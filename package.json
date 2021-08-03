@@ -32,7 +32,7 @@
   "bugs": {
     "url": "https://github.com/stackbit/components/issues"
   },
-  "homepage": "https://github.com/stackbit/components#readme",
+  "homepage": "https://components.stackbit.com/",
   "dependencies": {
     "classnames": "^2.3.1",
     "react-markdown": "^6.0.2"

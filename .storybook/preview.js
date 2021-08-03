@@ -4,7 +4,7 @@ export const parameters = {
     backgrounds: { disable: true },
     options: {
         storySort: {
-            order: ['Layouts', ['Landing'], 'Components', ['Navigation Bar', 'Footer', 'Hero Section', 'Team Section'], 'Atoms']
+            order: ['Layouts', ['Advanced'], 'Components', ['Navigation Bar', 'Footer', 'Contact Section', 'CTA Section', 'Hero Section', 'Posts Section', 'Testimonials Section'], 'Atoms']
         }
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -13,19 +13,21 @@ export const parameters = {
             color: /(background|color)$/i,
             date: /Date$/
         }
-    }
+    },
+    layout: 'fullscreen'
 };
 
 export const globalTypes = {
     theme: {
         name: 'Theme',
         description: 'Global theme for components',
-        defaultValue: 'light',
+        defaultValue: 'bold',
         toolbar: {
-            icon: 'photo',
+            icon: 'cog',
             items: [
-                { value: 'light', title: 'Light Theme' },
-                { value: 'dark', title: 'Dark Theme' }
+                { value: 'bold', title: 'Bold Theme' },
+                { value: 'classic', title: 'Classic Theme' },
+                { value: 'eco', title: 'Eco Theme' }
             ]
         }
     }

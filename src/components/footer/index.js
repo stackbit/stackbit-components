@@ -1,37 +1,100 @@
-import Link from 'next/link';
-import Logo from '../../svgs/logo';
-import Twitter from '../../svgs/twitter';
-import Instagram from '../../svgs/instagram';
-import Facebook from '../../svgs/facebook';
 import ReactMarkdown from 'react-markdown';
+import classNames from 'classnames';
+import Link from 'next/link';
+import Facebook from '../../svgs/facebook';
+import GitHub from '../../svgs/github';
+import Instagram from '../../svgs/instagram';
+import LinkedIn from '../../svgs/linkedin';
+import Twitter from '../../svgs/twitter';
 
-export default function Index(props) {
+
+export default function Footer(props) {
+    const colors = props.colors || 'colors-a';
+    const width = props.width || 'full';
+    const iconMap = {
+        facebook: Facebook,
+        github: GitHub,
+        instagram: Instagram,
+        linkedin: LinkedIn,
+        twitter: Twitter
+    };
+
     return (
-        <div className="px-4 pt-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8">
+        <footer
+            className={classNames(colors, 'px-4 py-12 lg:px-8 lg:py-16', {
+                'mx-auto': width !== 'full',
+                'max-w-screen-xl': width === 'wide',
+                'max-w-screen-lg': width === 'narrow'
+            })}
+        >
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-                <div className="sm:col-span-2">
-                    <Link href="/">
-                        <a aria-label="Go home" title={props.companyName} className="inline-flex items-center">
-                            <Logo className="text-primary" />
-                            <span className="ml-2 text-xl font-bold tracking-wide text-dark uppercase">{props.companyName}</span>
-                        </a>
-                    </Link>
-                    {props.companyInfo && (
-                        <div className="mt-6 lg:max-w-sm text-sm text-dark prose">
-                            <ReactMarkdown>{props.companyInfo}</ReactMarkdown>
-                        </div>
-                    )}
-                </div>
-                {props.companyContacts && <CompanyContacts {...props.companyContacts} />}
-                {props.companySocial && <CompanySocial {...props.companySocial} />}
+                {((props.title && props.isTitleVisible) || props.logoUrl) && (
+                    <div className="sm:col-span-2">
+                        <Link href="/">
+                            <a aria-label="Go home" title={props.title} className="">
+                                {props.logoUrl && <img src={props.logoUrl} alt={props.logoAltText} className="mb-2" />}
+                                {props.isTitleVisible && <div className="mb-2 font-medium text-2xl tracking-wide">{props.title}</div>}
+                            </a>
+                        </Link>
+                        {props.info && (
+                            <div className="mt-6 lg:max-w-sm">
+                                <ReactMarkdown>{props.info}</ReactMarkdown>
+                            </div>
+                        )}
+                    </div>
+                )}
+                {props.primaryLinks && props.primaryLinks.length > 0 && (
+                    <div>
+                        <ul className="space-y-6">
+                            {props.primaryLinks.map((link, idx) => (
+                                <li key={idx}>
+                                    <a key={idx} href={link.url} className="hover:underline">
+                                        {link.label}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
+                {((props.socialLinks && props.socialLinks.length > 0) || props.contacts) && (
+                    <div>
+                        {props.socialLinks && props.socialLinks.length > 0 && (
+                            <ul className="flex items-center mb-6 space-x-6">
+                                {props.socialLinks.map((link, idx) => {
+                                    const IconComponent = iconMap[link.icon];
+                                    if (!IconComponent) {
+                                        return null;
+                                    }
+                                    return (
+                                        <li key={idx}>
+                                            <Link href={link.url}>
+                                                <a
+                                                    aria-label={link.alt}
+                                                    title={link.alt}
+                                                    className="transition-opacity duration-300 hover:opacity-80"
+                                                >
+                                                    {link.label && <span className="sr-only">{link.label}</span>}
+                                                    <IconComponent className="fill-current h-6 w-6" />
+                                                </a>
+                                            </Link>
+                                        </li>
+                                    );
+                                })}
+                            </ul>
+                        )}
+                        {props.contacts && <Contacts {...props.contacts} />}
+                    </div>
+                )}
             </div>
-            <div className="flex flex-col-reverse justify-between pt-5 pb-10 border-t lg:flex-row">
-                {props.copyrightText && <p className="text-sm text-gray-600">{props.copyrightText}</p>}
+            <hr />
+            <div
+                className="flex flex-col-reverse justify-between pt-6 lg:flex-row">
+                {props.copyrightText && <p className="text-sm">{props.copyrightText}</p>}
                 {props.legalLinks && props.legalLinks.length > 0 && (
-                    <ul className="flex flex-col mb-3 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
+                    <ul className="flex flex-col mb-6 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
                         {props.legalLinks.map((link, idx) => (
                             <li key={idx}>
-                                <a key={idx} href={link.url} className="text-sm text-gray-600 transition-colors duration-300 hover:text-primary">
+                                <a href={link.url} className="text-sm hover:underline">
                                     {link.label}
                                 </a>
                             </li>
@@ -39,87 +102,40 @@ export default function Index(props) {
                     </ul>
                 )}
             </div>
-        </div>
+        </footer>
     );
 }
 
-function CompanyContacts(props) {
+function Contacts(props) {
     return (
-        <div className="space-y-2 text-sm">
-            {props.title && <p className="text-base font-bold tracking-wide text-gray-900">{props.title}</p>}
-            {props.phoneLabel && props.phoneNumber && (
-                <div className="flex">
-                    <p className="mr-1 text-dark">{props.phoneLabel}</p>
-                    <a
-                        href={`tel:${props.phoneNumber}`}
-                        aria-label={props.phoneAlt}
-                        title={props.phoneAlt}
-                        className="transition-colors duration-300 text-primary hover:text-primary-hover"
-                    >
+        <div className="space-y-4">
+            {props.phoneNumber && (
+                <p>
+                    <a href={`tel:${props.phoneNumber}`} aria-label={props.phoneAlt} title={props.phoneAlt} className="hover:underline">
                         {props.phoneNumber}
                     </a>
-                </div>
+                </p>
             )}
-            {props.emailLabel && props.email && (
-                <div className="flex">
-                    <p className="mr-1 text-dark">{props.emailLabel}</p>
-                    <a
-                        href={`mailto:${props.email}`}
-                        aria-label={props.emailAlt}
-                        title={props.emailAlt}
-                        className="transition-colors duration-300 text-primary hover:text-primary-hover"
-                    >
+            {props.email && (
+                <p>
+                    <a href={`mailto:${props.email}`} aria-label={props.emailAlt} title={props.emailAlt} className="hover:underline">
                         {props.email}
                     </a>
-                </div>
+                </p>
             )}
-            {props.addressLabel && props.address && (
-                <div className="flex">
-                    <p className="mr-1 text-dark">{props.addressLabel}</p>
+            {props.address && (
+                <p>
                     <a
                         href={`https://www.google.com/maps/search/${props.address}`}
                         target="_blank"
                         rel="noopener noreferrer"
                         aria-label={props.addressAlt}
                         title={props.addressAlt}
-                        className="transition-colors duration-300 text-primary hover:text-primary-hover"
+                        className="hover:underline"
                     >
                         {props.address}
                     </a>
-                </div>
-            )}
-        </div>
-    );
-}
-
-function CompanySocial(props) {
-    const iconMap = {
-        twitter: Twitter,
-        instagram: Instagram,
-        facebook: Facebook
-    };
-    return (
-        <div>
-            <span className="text-base font-bold tracking-wide text-gray-900">{props.title}</span>
-            {props.links && props.links.length > 0 && (
-                <div className="flex items-center mt-1 space-x-3">
-                    {props.links.map((link, idx) => {
-                        const IconComponent = iconMap[link.icon];
-                        if (!IconComponent) {
-                            return null;
-                        }
-                        return (
-                            <a key={idx} href={link.url} className="text-gray-500 transition-colors duration-300 hover:text-deep-purple-accent-400">
-                                <IconComponent />
-                            </a>
-                        );
-                    })}
-                </div>
-            )}
-            {props.description && (
-                <div className="mt-4 text-sm text-gray-500 prose">
-                    <ReactMarkdown>{props.description}</ReactMarkdown>
-                </div>
+                </p>
             )}
         </div>
     );

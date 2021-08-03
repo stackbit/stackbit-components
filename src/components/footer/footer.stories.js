@@ -4,70 +4,111 @@ import Footer from './index';
 export default {
     title: 'Components/Footer',
     component: Footer,
-    args: {
-        companyName: 'Stackbit',
-        companyInfo:
-            'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.\n' +
-            '\n' +
-            'Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-        companyContacts: {
-            title: 'Contacts',
-            phoneLabel: 'Phone:',
-            phoneAlt: 'Our phone',
-            phoneNumber: '850-123-5021',
-            emailLabel: 'Email:',
-            emailAlt: 'Our email',
-            email: 'info@lorem.mail',
-            addressLabel: 'Address:',
-            addressAlt: 'Our address',
-            address: '312 Lovely Street, NY'
+    argTypes: {
+        colors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            control: { type: 'select' }
         },
-        copyrightText: '© Copyright 2020 Lorem Inc. All rights reserved.',
-        companySocial: {
-            title: 'Social',
-            description: 'Bacon ipsum dolor amet short ribs pig sausage prosciutto chicken spare ribs salami.',
-            links: [
-                {
-                    icon: 'twitter',
-                    url: '/'
-                },
-                {
-                    icon: 'instagram',
-                    url: '/'
-                },
-                {
-                    icon: 'facebook',
-                    url: '/'
-                }
-            ]
-        },
-        legalLinks: [
-            {
-                label: 'F.A.Q',
-                url: '/'
-            },
-            {
-                label: 'Privacy Policy',
-                url: '/'
-            },
-            {
-                label: 'Terms & Conditions',
-                url: '/'
-            }
-        ]
+        width: {
+            options: ['narrow', 'wide', 'full'],
+            control: { type: 'select' }
+        }
     }
 };
 
 const Template = (args) => <Footer {...args} />;
 
+const args = {
+    colors: 'colors-d',
+    width: 'wide',
+    title: 'Fish_of_the_day',
+    isTitleVisible: true,
+    logoUrl: '/images/logo.svg',
+    logoAltText: 'Logo',
+    info:
+        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+    contacts: {
+        phoneAlt: 'Our phone',
+        phoneNumber: '850-123-5021',
+        emailAlt: 'Our email',
+        email: 'info@lorem.mail',
+        addressAlt: 'Our address',
+        address: '312 Lovely Street, NY'
+    },
+    copyrightText: '💖 powered by Stackbit',
+    primaryLinks: [
+        {
+            label: 'About us',
+            url: '/about',
+            alt: 'About us'
+        },
+        {
+            label: 'Product',
+            url: '/',
+            alt: 'Product'
+        },
+        {
+            label: 'Features',
+            url: '/',
+            alt: 'Features'
+        },
+        {
+            label: 'Pricing',
+            url: '/',
+            alt: 'Pricing'
+        }
+    ],
+    socialLinks: [
+        {
+            label: 'Twitter',
+            url: '/',
+            icon: 'twitter'
+        },
+        {
+            label: 'Instagram',
+            url: '/',
+            icon: 'instagram',
+        },
+        {
+            label: 'Facebook',
+            url: '/',
+            icon: 'facebook',
+        }
+    ],
+    legalLinks: [
+        {
+            label: 'F.A.Q',
+            url: '/'
+        },
+        {
+            label: 'Privacy Policy',
+            url: '/'
+        },
+        {
+            label: 'Terms & Conditions',
+            url: '/'
+        }
+    ]
+};
+
 export const Primary = Template.bind({});
 Primary.storyName = 'Footer';
+Primary.args = args;
 
 export const FooterNoContacts = Template.bind({});
-FooterNoContacts.storyName = 'Footer without contacts';
-FooterNoContacts.args = { companyContacts: undefined }
+FooterNoContacts.storyName = 'Footer Without Contacts';
+FooterNoContacts.args = {
+    ...args,
+    colors: 'colors-b',
+    width: 'full',
+    logoUrl: '/images/logo-alt.svg',
+    contacts: undefined
+};
 
-//👇 Each story then reuses that template
-export const FooterNoSocial = Template.bind({});
-FooterNoSocial.storyName = 'Footer without social';
-FooterNoSocial.args = { companySocial: undefined }
+export const FooterNoLegal = Template.bind({});
+FooterNoLegal.storyName = 'Footer Without Legal Links';
+FooterNoLegal.args = {
+    ...args,
+    colors: 'colors-e',
+    legalLinks: undefined
+};

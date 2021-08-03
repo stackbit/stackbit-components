@@ -1,131 +1,175 @@
 import ReactMarkdown from 'react-markdown';
+import classNames from 'classnames';
 import Badge from '../badge';
 import Button from '../button';
+import ImageBlock from '../image-block';
 import Link from '../link';
-import VideoPlay from '../../svgs/video-play';
-import Graph from '../../svgs/graph';
-import classNames from 'classnames';
+import VideoBlock from '../video-block';
 
-export default function HeroSection({ variant, ...props }) {
-    variant = variant || 'variant-a';
+export default function HeroSection(props) {
+    const colors = props.colors || 'colors-a';
+    const width = props.width || 'wide';
+    const height = props.height || 'auto';
+    const alignHoriz = props.alignHoriz || 'left';
+    return (
+        <div
+            className={classNames(colors, 'py-16 lg:py-20', {
+                'mx-auto': width !== 'full',
+                'max-w-screen-xl': width === 'wide',
+                'max-w-screen-lg': width === 'narrow',
+                'min-h-screen flex flex-col justify-center': height === 'viewport',
+                'text-center': alignHoriz === 'center',
+                'text-right': alignHoriz === 'right'
+            })}
+        >
+            <div
+                className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {
+                    'xl:max-w-screen-xl': width !== 'narrow',
+                    'w-full': height === 'viewport'
+                })}
+            >
+                <HeroVariants {...props} />
+            </div>
+        </div>
+    );
+}
+
+function HeroVariants(props) {
+    const variant = props.variant || 'variant-a';
     switch (variant) {
         case 'variant-a':
-            return HeroImageHorizontal(props);
+            return HeroFeatureRight(props);
         case 'variant-b':
-            return HeroImageVertical(props);
+            return HeroFeatureLeft(props);
         case 'variant-c':
-            return HeroVideo(props);
+            return HeroFeatureTop(props);
         case 'variant-d':
-            return HeroSVG(props);
+            return HeroFeatureBottom(props);
     }
     return null;
 }
 
-function HeroImageHorizontal(props) {
+function HeroFeatureRight(props) {
     return (
-        <div className="relative flex flex-col py-16 lg:pt-0 lg:flex-col lg:pb-0">
-            <div className="flex flex-col items-start w-full max-w-xl px-4 mx-auto lg:px-8 lg:max-w-screen-xl">
-                <div className="mb-16 lg:my-40 lg:max-w-lg lg:pr-5">
-                    {HeroContent(props)}
-                    {HeroActions(props)}
-                </div>
-            </div>
-            <div className="inset-y-0 right-0 w-full max-w-xl px-4 mx-auto lg:pl-8 lg:pr-0 lg:mb-0 lg:mx-0 lg:w-1/2 lg:max-w-full lg:absolute xl:px-0">
-                <img src={props.imageUrl} className="object-cover w-full h-56 rounded shadow-lg lg:rounded-none lg:shadow-none sm:h-96 lg:h-full" alt="" />
-            </div>
-        </div>
-    );
-}
-
-function HeroImageVertical(props) {
-    return (
-        <div className="flex flex-col justify-between max-w-xl px-4 mx-auto lg:pt-16 lg:flex-row md:px-8 lg:max-w-screen-xl">
-            <div className="pt-16 mb-16 lg:mb-0 lg:pt-32 lg:max-w-lg lg:pr-5">
+        <div
+            className={classNames('grid gap-8 lg:items-center', {
+                'lg:grid-cols-2': props.feature
+            })}
+        >
+            <div className="max-w-3xl mx-auto">
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
-            <div>
-                <img src={props.imageUrl} className="object-cover object-top w-full h-64 mx-auto lg:h-auto xl:mr-24 md:max-w-sm" alt="" />
+            {props.feature && (
+                <div>
+                    {HeroFeature(props.feature)}
+                </div>
+            )}
+        </div>
+    );
+}
+
+function HeroFeatureLeft(props) {
+    return (
+        <div
+            className={classNames('grid gap-8 lg:items-center', {
+                'lg:grid-cols-2': props.feature
+            })}
+        >
+            {props.feature && (
+                <div>
+                    {HeroFeature(props.feature)}
+                </div>
+            )}
+            <div className="max-w-3xl mx-auto">
+                {HeroContent(props)}
+                {HeroActions(props)}
             </div>
         </div>
     );
 }
 
-function HeroVideo(props) {
+function HeroFeatureTop(props) {
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div className="flex flex-col items-center justify-between lg:flex-row">
-                <div className="mb-10 lg:max-w-lg lg:pr-5 lg:mb-0">
-                    {HeroContent(props)}
-                    {HeroActions(props)}
+        <>
+            {props.feature && (
+                <div className="mb-8 lg:mb-12">
+                    {HeroFeature(props.feature)}
                 </div>
-                <div className="relative lg:w-1/2">
-                    <img className="object-cover w-full h-56 rounded shadow-lg sm:h-96" src={props.imageUrl} alt="" />
-                    <a
-                        href={props.videoUrl}
-                        aria-label="Play Video"
-                        className="absolute inset-0 flex items-center justify-center w-full h-full transition-colors duration-300 bg-gray-900 bg-opacity-50 group hover:bg-opacity-25"
-                    >
-                        <div className="flex items-center justify-center w-16 h-16 transition duration-300 transform bg-gray-100 rounded-full shadow-2xl group-hover:scale-110">
-                            <VideoPlay />
-                        </div>
-                    </a>
-                </div>
+            )}
+            <div className="max-w-3xl mx-auto">
+                {HeroContent(props)}
+                {HeroActions(props)}
             </div>
-        </div>
+        </>
     );
 }
 
-function HeroSVG(props) {
+function HeroFeatureBottom(props) {
     return (
-        <div className="px-4 py-16 mx-auto sm:max-w-xl md:max-w-full lg:max-w-screen-xl md:px-24 lg:px-8 lg:py-20">
-            <div className="grid gap-5 row-gap-8 lg:grid-cols-2">
-                <div className="flex flex-col justify-center">
-                    {HeroContent(props)}
-                    {HeroActions(props)}
-                </div>
-                <div className="relative">
-                    <Graph />
-                </div>
+        <>
+            <div className="max-w-3xl mx-auto">
+                {HeroContent(props)}
+                {HeroActions(props)}
             </div>
-        </div>
+            {props.feature && (
+                <div className="mt-8 lg:mt-12">
+                    {HeroFeature(props.feature)}
+                </div>
+            )}
+        </>
     );
+}
+
+function HeroFeature(feature) {
+    switch (feature.type) {
+        case 'image_block':
+            return <ImageBlock {...feature} className="mx-auto" />;
+        case 'video_block':
+            return <VideoBlock {...feature} className="mx-auto" />;
+    }
+    return null;
 }
 
 function HeroContent(props) {
     return (
-        <div className="max-w-xl mb-6">
-            {props.badge && (
-                <div>
-                    <Badge label={props.badge} />
-                </div>
+        <>
+            {props.badge && <Badge label={props.badge} />}
+            {props.title && (
+                <h1 className="font-medium font-sans text-4xl tracking-tight sm:text-5xl mb-6">
+                    <ReactMarkdown allowedElements={['a', 'br', 'em', 'span', 'strong']} unwrapDisallowed={true} components={components}>
+                        {props.title}
+                    </ReactMarkdown>
+                </h1>
             )}
-            <h2 className="header-2 max-w-lg mb-6">
-                <ReactMarkdown components={components}>{props.title}</ReactMarkdown>
-            </h2>
-            <p className="text-paragraph text-base md:text-lg">{props.description}</p>
-        </div>
+            {props.text && <ReactMarkdown className="md:text-lg">{props.text}</ReactMarkdown>}
+        </>
     );
 }
 
 function HeroActions(props) {
+    const alignHoriz = props.alignHoriz || 'left';
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
     }
     return (
-        <div className="flex flex-col items-center md:flex-row">
+        <div
+            className={classNames('flex flex-wrap items-center -mx-2', {
+                'mt-8': props.badge || props.title || props.text,
+                'justify-center': alignHoriz === 'center',
+                'justify-end': alignHoriz === 'right'
+            })}
+        >
             {props.actions.map((action, idx) =>
-                action.type === 'button' ? (
-                    <Button key={idx} {...action} className="w-full mb-3 md:w-auto md:mr-4 md:mb-0" />
-                ) : (
-                    <Link
+                (action.type === 'primary-button' || action.type === 'secondary-button') ? (
+                    <Button
                         key={idx}
                         {...action}
-                        className={classNames(
-                            action.primary ? 'text-primary hover:text-primary-hover' : 'text-dark hover:text-dark-hover'
-                        )}
+                        className="mb-3 mx-2 lg:whitespace-nowrap"
                     />
+                ) : (
+                    <Link key={idx} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" />
                 )
             )}
         </div>
@@ -134,6 +178,6 @@ function HeroActions(props) {
 
 const components = {
     strong({ children }) {
-        return <span className="inline-block text-primary">{children}</span>;
+        return <span className="sb-highlight inline-block">{children}</span>;
     }
 };

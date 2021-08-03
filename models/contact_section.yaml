@@ -1,0 +1,89 @@
+name: contact_section
+label: Contact section
+fields:
+  - type: enum
+    name: variant
+    label: Arrangement
+    options:
+      - label: Contact form with image on the left
+        value: variant-a
+      - label: Contact form with image on the right
+        value: variant-b
+    default: variant-a
+  - type: enum
+    name: colors
+    label: Colors
+    options:
+      - label: Dark text on light background
+        value: colors-a
+      - label: Light text on dark background
+        value: colors-b
+      - label: Primary text on dark background
+        value: colors-c
+      - label: Dark text on primary background
+        value: colors-d
+      - label: Dark text on secondary background
+        value: colors-e
+    default: colors-a
+  - type: enum
+    name: width
+    label: Width
+    options:
+      - label: Narrow
+        value: narrow
+      - label: Wide
+        value: wide
+      - label: Full
+        value: full
+    default: wide
+  - type: enum
+    name: height
+    label: Height
+    options:
+      - label: Auto
+        value: auto
+      - label: Viewport
+        value: viewport
+    default: auto
+  - type: enum
+    name: alignHoriz
+    label: Horizontal alignment
+    options:
+      - left
+      - right
+      - center
+    default: left
+  - type: string
+    name: badge
+    label: Badge
+  - type: string
+    name: title
+    label: Title
+  - type: markdown
+    name: text
+    label: Text
+  - type: image
+    name: imageUrl
+    label: Image URL
+  - type: string
+    name: imageAltText
+    label: Image alt text
+  - type: string
+    name: imageCaption
+    label: Image caption
+    description: The caption of the image
+  - type: string
+    name: formId
+    label: Form ID
+  - type: string
+    name: formAction
+    label: Form action
+  - type: list
+    name: formFields
+    label: Form fields
+    items:
+      type: model
+      models: [form_field]
+  - type: string
+    name: submitLabel
+    label: Submit button label

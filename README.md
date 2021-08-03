@@ -1,11 +1,11 @@
 # Stackbit Components Library
 
 
-## Run locally
+## Develop locally
 
 1. Clone the repo
 1. run `npm install`
-1. run `npm run develop`
+1. run `npm run develop` or `npm run develop-watch-themes` to watch for `themes/tailwind.{theme_name}.config.js` files and rebuild them.
 1. Navigate to http://localhost:6006/ to open Storybook
 
 
@@ -26,10 +26,20 @@ Where the `{theme_name}` is an ID of a theme.
 To build all tailwind configs run:
 
 ```shell
-npm run build-theme-css
+npm run build-themes
 ```
 
-The generated CSS files will be written to `public/css/tailwind.{theme_name}.css`. These CSS files are only used by Storybook. When importing this library from your project, import tailwind config of a particular theme directly.
+The generated CSS files will be written to `public/css/tailwind.{theme_name}.css`. These CSS files are only used by Storybook. When importing this library from your project, import tailwind config of a particular theme directly and use it as a preset:
+
+```js
+// tailwind.config.js
+module.exports = {
+  presets: [
+    require('@stackbit/components/themes/tailwind.classic.config.js')
+  ],
+  // ...
+}
+```
 
 
 ## Variants

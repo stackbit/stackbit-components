@@ -8,7 +8,7 @@ import LinkedIn from '../../svgs/linkedin';
 import Twitter from '../../svgs/twitter';
 
 
-export default function Index(props) {
+export default function Footer(props) {
     const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const iconMap = {

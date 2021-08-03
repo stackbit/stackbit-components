@@ -2,13 +2,25 @@
   "name": "@stackbit/components",
   "version": "0.1.0",
   "description": "Stackbit components library",
+  "keywords": [
+    "stackbit",
+    "components"
+  ],
+  "main": "dist/index.js",
+  "files": [
+    "src",
+    "dist",
+    "themes",
+    "models"
+  ],
   "scripts": {
-    "develop": "./develop.sh",
+    "develop-watch-themes": "./develop.sh",
+    "develop": "npm run build-themes && npm run build-storybook",
     "storybook": "start-storybook -s ./public -p 6006",
-    "build-theme-css": "./build-theme-css.sh",
+    "build-themes": "./build-themes.sh",
     "build-storybook": "build-storybook -s ./public",
-    "build": "npm run build-theme-css && npm run build-storybook",
-    "build-dist": "babel src -d dist",
+    "build": "npm run build-themes && npm run build-storybook",
+    "build-dist": "rm -rf dist && babel src -d dist",
     "pretty": "prettier --write src"
   },
   "repository": {
@@ -23,7 +35,6 @@
   "homepage": "https://github.com/stackbit/components#readme",
   "dependencies": {
     "classnames": "^2.3.1",
-    "react-helmet": "^6.1.0",
     "react-markdown": "^6.0.2"
   },
   "devDependencies": {
@@ -40,6 +51,7 @@
     "prettier": "2.3.0",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
     "tailwindcss": "^2.2.2"
   },
   "peerDependencies": {

@@ -5,7 +5,7 @@ import Button from '../button';
 import CloseIcon from '../../svgs/close';
 import HamburgerIcon from '../../svgs/hamburger';
 
-export default function Index(props) {
+export default function NavBar(props) {
     const primaryColors = props.primaryColors || 'colors-a';
     const width = props.width || 'full';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';

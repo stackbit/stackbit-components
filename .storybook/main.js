@@ -6,6 +6,7 @@ module.exports = {
     webpackFinal: async (config) => {
         config.resolve.alias['next/link'] = path.resolve(__dirname, '../src/utils/next-link');
         config.resolve.alias['next/head'] = path.resolve(__dirname, '../node_modules/react-helmet');
+        config.resolve.alias['next/dynamic'] = path.resolve(__dirname, '../src/utils/dynamic');
         return config;
     }
 };

@@ -1,6 +1,4 @@
-import React from 'react';
-
-import BaseLayout from '../base-layout/base-layout';
+import BaseLayout from '../base-layout';
 import ContactSection from '../../components/contact-section';
 import CTASection from '../../components/cta-section';
 import HeroSection from '../../components/hero-section';

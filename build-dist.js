@@ -19,7 +19,7 @@ const devDependenciesToRemove = ['react', 'react-dom'];
 const packageJSON = require('./package.json');
 delete packageJSON['private'];
 devDependenciesToRemove.forEach((dependency) => {
-    delete packageJSON[dependency];
+    delete packageJSON.devDependencies[dependency];
 })
 fs.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf8');
 

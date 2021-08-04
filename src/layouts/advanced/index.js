@@ -1,5 +1,5 @@
 import BaseLayout from '../base-layout';
-import components from '../../components/dynamic';
+import { getDynamicComponent } from '../../components-registry';
 
 export default function Advanced(props) {
     const siteConfig = props?.siteConfig ?? {};
@@ -15,7 +15,7 @@ export default function Advanced(props) {
                 if (!sectionType) {
                     throw new Error(`page section does not have the 'type' property, page: ${pageUrl}`);
                 }
-                const Component = components[sectionType];
+                const Component = getDynamicComponent(sectionType);
                 if (!Component) {
                     throw new Error(`no component matching the page section's type: ${sectionType}`);
                 }

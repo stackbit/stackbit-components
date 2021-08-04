@@ -1,5 +1,7 @@
 # Stackbit Components Library
 
+Check out the components at [https://components.stackbit.com/](https://components.stackbit.com/)
+
 
 ## Import Component Library into a Next.js theme
 

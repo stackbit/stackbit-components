@@ -7,6 +7,7 @@ module.exports = {
         config.resolve.alias['next/link'] = path.resolve(__dirname, '../src/utils/next-link');
         config.resolve.alias['next/head'] = path.resolve(__dirname, '../node_modules/react-helmet');
         config.resolve.alias['next/dynamic'] = path.resolve(__dirname, '../src/utils/dynamic');
+        config.resolve.alias[path.resolve(__dirname, '../src/components/dynamic')] = path.resolve(__dirname, '../src/components/components-by-model');
         return config;
     }
 };

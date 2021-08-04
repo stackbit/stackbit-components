@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 
 export default function TestimonialsSection(props) {
@@ -49,7 +49,7 @@ function TestimonialsVariantA(props) {
                     {testimonial.logoUrl && <img src={testimonial.logoUrl} alt={testimonial.logoAltText} className="mx-auto mb-10" />}
                     {testimonial.quote && (
                         <div className="text-center text-3xl sm:text-4xl">
-                            <ReactMarkdown>{testimonial.quote}</ReactMarkdown>
+                            <Markdown>{testimonial.quote}</Markdown>
                         </div>
                     )}
                     {(testimonial.name || testimonial.title) && (
@@ -88,7 +88,7 @@ function TestimonialsVariantB(props) {
                     <div className="sm:flex-grow">
                         {testimonial.quote && (
                             <div className="text-3xl sm:text-4xl">
-                                <ReactMarkdown>{testimonial.quote}</ReactMarkdown>
+                                <Markdown>{testimonial.quote}</Markdown>
                             </div>
                         )}
                         {(testimonial.name || testimonial.title) && (

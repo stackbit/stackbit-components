@@ -1,8 +1,10 @@
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Badge from '../badge';
 import Button from '../button';
 import Link from '../link';
+import React from 'react';
+import InlineMarkdown from '../inline-markdown';
 
 export default function CTASection(props) {
     const colors = props.colors || 'colors-a';
@@ -99,12 +101,10 @@ function CtaContent(props) {
             {props.badge && <Badge label={props.badge} />}
             {props.title && (
                 <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-6">
-                    <ReactMarkdown allowedElements={['a', 'br', 'em', 'span', 'strong']} unwrapDisallowed={true} components={components}>
-                        {props.title}
-                    </ReactMarkdown>
+                    <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.text && <ReactMarkdown className="md:text-lg">{props.text}</ReactMarkdown>}
+            {props.text && <Markdown className="md:text-lg">{props.text}</Markdown>}
         </>
     );
 }
@@ -124,9 +124,3 @@ function CtaActions(props) {
         )
     );
 }
-
-const components = {
-    strong({ children }) {
-        return <span className="sb-highlight inline-block">{children}</span>;
-    }
-};

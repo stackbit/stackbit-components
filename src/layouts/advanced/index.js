@@ -1,17 +1,5 @@
 import BaseLayout from '../base-layout';
-import ContactSection from '../../components/contact-section';
-import CTASection from '../../components/cta-section';
-import HeroSection from '../../components/hero-section';
-import PostsSection from '../../components/posts-section';
-import TestimonialsSection from '../../components/testimonials-section';
-
-const components = {
-    contact_section: ContactSection,
-    cta_section: CTASection,
-    hero_section: HeroSection,
-    posts_section: PostsSection,
-    testimonials_section: TestimonialsSection
-};
+import components from '../../components/dynamic';
 
 export default function Advanced(props) {
     const siteConfig = props?.siteConfig ?? {};

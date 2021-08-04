@@ -1,7 +1,8 @@
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Link from 'next/link';
 import Badge from '../badge';
+import InlineMarkdown from '../inline-markdown';
 
 export default function PostsSection(props) {
     const colors = props.colors || 'colors-a';
@@ -32,9 +33,7 @@ export default function PostsSection(props) {
                         {props.badge && <Badge label={props.badge} />}
                         {props.title && (
                             <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl">
-                                <ReactMarkdown allowedElements={['a', 'br', 'em', 'span', 'strong']} unwrapDisallowed={true} components={components}>
-                                    {props.title}
-                                </ReactMarkdown>
+                                <InlineMarkdown>{props.title}</InlineMarkdown>
                             </h2>
                         )}
                         {props.subtitle && <p className="md:text-lg">{props.subtitle}</p>}
@@ -79,7 +78,7 @@ function PostsVariantA(props) {
                             )}
                             <div className="px-4 py-6 sm:px-6 sm:pb-10">
                                 <h2 className="font-medium text-xl sm:text-2xl mb-3">{post.title}</h2>
-                                {post.excerpt && <ReactMarkdown>{post.excerpt}</ReactMarkdown>}
+                                {post.excerpt && <Markdown>{post.excerpt}</Markdown>}
                             </div>
                         </article>
                     </a>
@@ -117,16 +116,10 @@ function PostsVariantB(props) {
                                 <a>{post.title}</a>
                             </Link>
                         </h2>
-                        {post.excerpt && <ReactMarkdown>{post.excerpt}</ReactMarkdown>}
+                        {post.excerpt && <Markdown>{post.excerpt}</Markdown>}
                     </div>
                 </article>
             ))}
         </div>
     );
 }
-
-const components = {
-    strong({ children }) {
-        return <span className="sb-highlight inline-block">{children}</span>;
-    }
-};

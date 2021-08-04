@@ -1,10 +1,11 @@
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Badge from '../badge';
 import Button from '../button';
 import ImageBlock from '../image-block';
 import Link from '../link';
 import VideoBlock from '../video-block';
+import InlineMarkdown from '../inline-markdown';
 
 export default function HeroSection(props) {
     const colors = props.colors || 'colors-a';
@@ -137,12 +138,10 @@ function HeroContent(props) {
             {props.badge && <Badge label={props.badge} />}
             {props.title && (
                 <h1 className="font-medium font-sans text-4xl tracking-tight sm:text-5xl mb-6">
-                    <ReactMarkdown allowedElements={['a', 'br', 'em', 'span', 'strong']} unwrapDisallowed={true} components={components}>
-                        {props.title}
-                    </ReactMarkdown>
+                    <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h1>
             )}
-            {props.text && <ReactMarkdown className="md:text-lg">{props.text}</ReactMarkdown>}
+            {props.text && <Markdown className="md:text-lg">{props.text}</Markdown>}
         </>
     );
 }
@@ -175,9 +174,3 @@ function HeroActions(props) {
         </div>
     );
 }
-
-const components = {
-    strong({ children }) {
-        return <span className="sb-highlight inline-block">{children}</span>;
-    }
-};

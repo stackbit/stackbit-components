@@ -1,4 +1,4 @@
-import ReactMarkdown from 'react-markdown';
+import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Link from 'next/link';
 import Facebook from '../../svgs/facebook';
@@ -38,7 +38,7 @@ export default function Footer(props) {
                         </Link>
                         {props.info && (
                             <div className="mt-6 lg:max-w-sm">
-                                <ReactMarkdown>{props.info}</ReactMarkdown>
+                                <Markdown>{props.info}</Markdown>
                             </div>
                         )}
                     </div>

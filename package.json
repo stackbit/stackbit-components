@@ -16,7 +16,8 @@
     "build-dist": "./build-dist.js --clean",
     "pretty": "prettier --write src",
     "version-minor": "npm version minor -m \"bumped version to v%s\"",
-    "version-patch": "npm version patch -m \"bumped version to v%s\""
+    "version-patch": "npm version patch -m \"bumped version to v%s\"",
+    "publish": "npm publish dist"
   },
   "repository": {
     "type": "git",

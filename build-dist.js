@@ -21,6 +21,7 @@ delete packageJSON['private'];
 devDependenciesToRemove.forEach((dependency) => {
     delete packageJSON[dependency];
 })
+fs.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf8');
 
 console.log('copying files and folders...');
 childProcess.spawnSync('cp', '-r src dist'.split(' '));

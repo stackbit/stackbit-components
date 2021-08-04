@@ -14,13 +14,12 @@
     "models"
   ],
   "scripts": {
-    "develop-watch-themes": "./develop.sh",
-    "develop": "npm run build-themes && npm run build-storybook",
+    "develop": "./develop.sh",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-themes": "./build-themes.sh",
     "build-storybook": "build-storybook -s ./public",
     "build": "npm run build-themes && npm run build-storybook",
-    "build-dist": "rm -rf dist && babel src -d dist",
+    "build-dist": "rm -rf dist && babel --config-file ./babel.dist.config.json --out-dir dist src",
     "pretty": "prettier --write src"
   },
   "repository": {

@@ -3,10 +3,10 @@
 Check out the components at [https://components.stackbit.com/](https://components.stackbit.com/)
 
 
-## Import Component Library into a Next.js theme
+## Import Component Library into a Next.js site
 
-1. Use existing Next.js-Tailwind site or follow [these steps](https://tailwindcss.com/docs/guides/nextjs) to create new one.
-1. Install stackbit components library
+1. You can import this component library into existing Next.js site that uses Tailwind or follow [these steps](https://tailwindcss.com/docs/guides/nextjs) to create a new one.
+1. Install Stackbit components library by running
 
    ```shell
    npm install @stackbit/components
@@ -20,7 +20,26 @@ Check out the components at [https://components.stackbit.com/](https://component
      ...
    }
    ```
-1. Import and use components in your code
+
+1. Import and use components in your code. You can import specific component:
+
+   ```js
+   import Button from '@stackbit/components/components/button'
+   ```
+   
+   Or a full page layout with components in it:
+
+   ```js
+   import Advanced from '@stackbit/components/layouts/advanced'
+   ```
+   
+   You can also use destructing imports - if you do, make sure your build has tree-shaking enabled otherwise you might end up with bundling all library components:
+   
+   ```js
+   import { components, layouts } from '@stackbit/components'
+   ```
+
+For full list of components, and their props please visit  [https://components.stackbit.com/](https://components.stackbit.com/).
 
 
 ## Develop locally

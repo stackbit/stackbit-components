@@ -9,23 +9,21 @@
   "main": "index.js",
   "scripts": {
     "develop": "./develop.sh",
-    "storybook": "start-storybook -s ./public -p 6006",
-    "build-themes": "./build-themes.sh",
-    "build-storybook": "build-storybook -s ./public",
-    "build": "npm run build-themes && npm run build-storybook",
-    "build-dist": "./build-dist.js --clean",
-    "pretty": "prettier --write src",
+    "storybook": "./build-themes.sh && start-storybook -s ./public -p 6006",
+    "themes": "./build-themes.sh",
+    "build": "npm run themes && npm run build-storybook -s ./public",
+    "dist": "./build-dist.js --clean",
     "version-minor": "npm version minor -m \"bumped version to v%s\"",
     "version-patch": "npm version patch -m \"bumped version to v%s\""
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/stackbit/components.git"
+    "url": "git+https://github.com/stackbit/stackbit-components.git"
   },
   "author": "Stackbit Inc.",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/stackbit/components/issues"
+    "url": "https://github.com/stackbit/stackbit-components/issues"
   },
   "homepage": "https://components.stackbit.com/",
   "dependencies": {
@@ -50,6 +48,6 @@
     "tailwindcss": "^2.2.2"
   },
   "peerDependencies": {
-    "react": ">=16"
+    "react": ">=17"
   }
 }

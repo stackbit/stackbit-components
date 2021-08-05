@@ -70,7 +70,7 @@ const args = {
         {
             inputType: 'checkbox',
             name: 'updates',
-            label: 'Sign me up to recieve updates',
+            label: 'Sign me up to receive updates',
             width: 'full'
         }
     ],
@@ -129,7 +129,7 @@ ContactRightImage.args = {
         {
             inputType: 'checkbox',
             name: 'updates',
-            label: 'Sign me up to recieve updates',
+            label: 'Sign me up to receive updates',
             width: 'full'
         }
     ],

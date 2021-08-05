@@ -74,6 +74,16 @@ To build Storybook run `npm build`, the generated files will be written to `stor
    };
    ```
 
+1. Run babel in watch mode inside `stackbit-components`:
+   
+   ```
+   babel --watch --config-file ./babel.dist.config.json --out-dir dist src
+   ```
+
+1. Start Next.js by running `npm next dev`.
+1. You can now make changes in both repositories and see your changes appear immediately in browser.
+1. Note, some changes might require to stop Next.js, remove the `.next` folder, and start it again. 
+
 
 ## Themes
 

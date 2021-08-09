@@ -8,6 +8,12 @@
             }
         ]
     ],
-    "ignore": ["**/*.stories.js", "themes"],
-    "exclude": ["src/dynamic_components.js", "src/with-stackbit-components.js"]
+    "ignore": [
+        "**/*.stories.js",
+        "themes",
+        "src/utils/dynamic.js",
+        "src/utils/next-link.js",
+        "src/utils/theme-classes.js"
+    ],
+    "exclude": ["src/dynamic-components.js", "src/with-stackbit-components.js"]
 }

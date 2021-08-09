@@ -1,4 +1,4 @@
-export const dynamicComponents = {};
+import dynamicComponents from './dynamic-components';
 
 export function registerDynamicComponents(newComponents) {
     Object.assign(dynamicComponents, newComponents);

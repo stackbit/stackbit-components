@@ -12,7 +12,14 @@ if (args.includes('--clean')) {
 }
 
 console.log('runing babel...');
-childProcess.spawnSync('babel', '--config-file ./babel.dist.config.json --out-dir dist src'.split(' '));
+const babelResult = childProcess.spawnSync('babel', '--config-file ./babel.dist.config.json --out-dir dist src'.split(' '));
+
+if (babelResult.status === 0) {
+    console.log(String(babelResult.stdout));
+} else {
+    console.log(String(babelResult.stderr));
+    process.exit(1);
+}
 
 console.log('copy package.json and remove peerDependencies marked as devDependencies...');
 const devDependenciesToRemove = ['react', 'react-dom'];
@@ -25,6 +32,7 @@ fs.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf
 
 console.log('copying files and folders...');
 childProcess.spawnSync('cp', '-r src dist'.split(' '));
+childProcess.spawnSync('cp', '-r src/stackbit-components.json dist/stackbit-components.json'.split(' '));
 childProcess.spawnSync('cp', '-r models dist'.split(' '));
 childProcess.spawnSync('cp', '-r themes dist'.split(' '));
 childProcess.spawnSync('cp', 'README.md dist'.split(' '));

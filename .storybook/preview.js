@@ -1,5 +1,4 @@
 import React from 'react';
-import './register-components';
 
 export const parameters = {
     backgrounds: { disable: true },

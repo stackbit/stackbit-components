@@ -51,14 +51,14 @@ function getAliases(nextConfig) {
     const componentsMapRelFilePath = nextConfig?.stackbitComponentsMapPath ?? STACKBIT_COMPONENTS_MAP_DEFAULT_PATH;
     const componentsMapAbsFilePath = path.resolve(componentsMapRelFilePath);
     if (!fs.existsSync(componentsMapAbsFilePath)) {
-        console.log(`[withStackbitComponents] file '${componentsMapRelFilePath}' not found.`);
+        console.log(`[withStackbitComponents] Error: file '${componentsMapRelFilePath}' not found.`);
         return aliases;
     }
     let componentsMap;
     try {
         componentsMap = JSON.parse(fs.readFileSync(componentsMapAbsFilePath, 'utf-8'));
     } catch (e) {
-        console.error(`[withStackbitComponents] error loading ${componentsMapAbsFilePath}`);
+        console.error(`[withStackbitComponents] Error loading ${componentsMapAbsFilePath}`);
         return aliases;
     }
     const componentsMapDir = path.dirname(componentsMapAbsFilePath);
@@ -82,14 +82,18 @@ function getAliasesForComponents(componentMap, componentsPrefixDir, componentsMa
         try {
             const targetModulePath = require.resolve(absPath);
         } catch (e) {
-            console.error(`component specified in 'stackbit-components.json' was not found: ${componentRelPath}`)
+            console.error(`[withStackbitComponents] Error: component specified in 'stackbit-components.json' was not found: ${componentRelPath}`)
             continue;
         }
         try {
-            const stackbitComponentPath = path.resolve(__dirname, `${componentsPrefixDir}/${componentName}`);
-            aliases[stackbitComponentPath] = absPath;
+            const relStackbitComponentPath = `${componentsPrefixDir}/${componentName}`;
+            const stackbitComponentAbsPath = path.resolve(__dirname, relStackbitComponentPath);
+            const stackbitComponentImport = `@stackbit/components/${relStackbitComponentPath}`;
+            aliases[stackbitComponentAbsPath] = absPath;
+            aliases[stackbitComponentImport] = absPath;
+            console.log(`[withStackbitComponents] replaced ${stackbitComponentImport} with '${componentRelPath}'`);
         } catch (e) {
-            console.error(`component name '${componentName}' specified in 'stackbit-components.json' does not exist`);
+            console.error(`[withStackbitComponents] Error: component name '${componentName}' specified in 'stackbit-components.json' does not exist`);
         }
     }
     return aliases;

@@ -32,7 +32,8 @@ fs.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf
 
 console.log('copying files and folders...');
 childProcess.spawnSync('cp', '-r src dist'.split(' '));
-childProcess.spawnSync('cp', '-r src/stackbit-components.json dist/stackbit-components.json'.split(' '));
+childProcess.spawnSync('cp', '-r src/dynamic-components.js dist/dynamic-components.js'.split(' '));
+childProcess.spawnSync('cp', '-r src/components-map.json dist/components-map.json'.split(' '));
 childProcess.spawnSync('cp', '-r models dist'.split(' '));
 childProcess.spawnSync('cp', '-r themes dist'.split(' '));
 childProcess.spawnSync('cp', 'README.md dist'.split(' '));

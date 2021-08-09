@@ -17,5 +17,15 @@
         "posts-section": null,
         "testimonials-section": null,
         "video-block": null
+    },
+    "dynamic": {
+        "advanced": "@stackbit/components/layouts/advanced",
+        "contact_section": "@stackbit/components/components/contact-section",
+        "cta_section": "@stackbit/components/components/cta-section",
+        "hero_section": "@stackbit/components/components/hero-section",
+        "testimonials_section": "@stackbit/components/components/testimonials-section",
+        "posts_section": "@stackbit/components/components/posts-section",
+        "video_block": "@stackbit/components/components/video-block",
+        "image_block": "@stackbit/components/components/image-block"
     }
 }

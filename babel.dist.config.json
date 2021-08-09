@@ -13,7 +13,8 @@
         "themes",
         "src/utils/dynamic.js",
         "src/utils/next-link.js",
-        "src/utils/theme-classes.js"
+        "src/utils/theme-classes.js",
+        "src/dynamic-components.js"
     ],
-    "exclude": ["src/dynamic-components.js", "src/with-stackbit-components.js"]
+    "exclude": ["src/with-stackbit-components.js"]
 }

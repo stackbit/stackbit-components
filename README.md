@@ -68,41 +68,69 @@ To build Storybook run `npm build`, the generated files will be written to `stor
 
 ## Linking Component Library to a Next.js site locally.
 
+Use the local components library when developing components instead of having to publish to NPM every time.
+
+You have 2 ways to use the components library locally.
+
+
+## Npm Localpaths
+
 1. Put the component library and Next.js site in sibling folders:
 
-   ```
-   .
-   ├── stackbit-components
-   └── nextjs-site
-   ```
+```
+.
+├── stackbit-components
+└── nextjs-site
+```
+
+1. edit the `nextjs-site/package.json` and replace the package with a localpath
+
+```json
+"@stackbit/components": "file:../stackbit-components/dist"
+```
+
+1. edit the `nextjs-site/next.config.js` to use alias. This fixes the symlink problem.
+  
+```js
+  // next.config.js
+  module.exports = {
+  ...
+  webpack: (config, { webpack, isServer }) => {
+    config.resolve.alias['react'] = path.resolve('./node_modules/react');
+    config.resolve.alias['react-dom'] = path.resolve('./node_modules/react');
+    return config;
+  },
+    ...
+  };
+```
+
+### Npm Link
+
+1. Put the component library and Next.js site in sibling folders:
+
+```
+.
+├── stackbit-components
+└── nextjs-site
+```
 
 1. Follow the steps above to import the component library into a Next.js site
 1. Run `npm run build-dist` inside `stackbit-components`, this will build the component library and save the artifacts into the `dist` folder
 1. Run `npm link` inside `stackbit-components/dist`
 1. Run `npm link @stackbit/components` inside `nextjs-site`
-1. Configure your `next.config.js` to not follow symlinks:
+1. Edit the webpack config in the Next.js site `next.config.js` to not follow symlinks:
 
-   ```js
-   module.exports = {
-     ...
-     webpack: (config) => {
-         config.resolve.symlinks = false;
-         return config;
-     },
-     ...
-   };
-   ```
-
-1. Run babel in watch mode inside `stackbit-components`:
-   
-   ```
-   babel --watch --config-file ./babel.dist.config.json --out-dir dist src
-   ```
-
-1. Start Next.js by running `npm next dev`.
-1. You can now make changes in both repositories and see your changes appear immediately in browser.
-1. Note, some changes might require to stop Next.js, remove the `.next` folder, and start it again. 
-
+```js
+  // next.config.js
+  module.exports = {
+    ...
+    webpack: (config) => {
+        config.resolve.symlinks = false;
+        return config;
+    },
+    ...
+  };
+```
 
 ## Themes
 

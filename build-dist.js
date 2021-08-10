@@ -1,8 +1,9 @@
 #!/usr/bin/env node
 
 const fs = require('fs');
-const childProcess = require('child_process')
+const childProcess = require('child_process');
 const args = process.argv.slice(2);
+const generateDistComponentMap = require('./generate-components-map');
 
 console.log('Building components library');
 
@@ -10,6 +11,8 @@ if (args.includes('--clean')) {
     console.log('removing dist folder...');
     fs.rmdirSync('dist', { recursive: true });
 }
+
+generateDistComponentMap();
 
 console.log('runing babel...');
 const babelResult = childProcess.spawnSync('babel', '--config-file ./babel.dist.config.json --out-dir dist src'.split(' '));
@@ -27,13 +30,21 @@ const packageJSON = require('./package.json');
 delete packageJSON['private'];
 devDependenciesToRemove.forEach((dependency) => {
     delete packageJSON.devDependencies[dependency];
-})
+});
 fs.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf8');
 
 console.log('copying files and folders...');
-childProcess.spawnSync('cp', '-r src dist'.split(' '));
-childProcess.spawnSync('cp', '-r src/dynamic-components.js dist/dynamic-components.js'.split(' '));
-childProcess.spawnSync('cp', '-r src/components-map.json dist/components-map.json'.split(' '));
-childProcess.spawnSync('cp', '-r models dist'.split(' '));
-childProcess.spawnSync('cp', '-r themes dist'.split(' '));
-childProcess.spawnSync('cp', 'README.md dist'.split(' '));
+const folders = ['src', 'models', 'themes'];
+folders.forEach((folder) => {
+    childProcess.spawnSync('cp', ['-r', folder, 'dist']);
+});
+const files = [
+    'src/dynamic-components.js',
+    'src/with-stackbit-components.js',
+    'src/components-manifest.json',
+    'src/components-map.json',
+    'README.md'
+];
+files.forEach((file) => {
+    childProcess.spawnSync('cp', [file, 'dist']);
+});

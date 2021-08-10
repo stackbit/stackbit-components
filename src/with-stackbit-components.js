@@ -1,6 +1,7 @@
 const fse = require('fs-extra');
 const path = require('path');
 
+const componentsManifest = require('./components-manifest.json');
 const defaultComponentMap = require('./components-map.json');
 const COMPONENTS_MAP_DEFAULT_USER_PATH = '.stackbit/components-map.json';
 const DYNAMIC_COMPONENTS_DEFAULT_USER_PATH = '.stackbit/dynamic-components.js';
@@ -26,7 +27,6 @@ function copyComponentsJson(nextConfig) {
     }
     const newData = {
         README: defaultComponentMap.README,
-        layouts: Object.assign({}, defaultComponentMap.layouts, existingData.layouts),
         components: Object.assign({}, defaultComponentMap.components, existingData.components),
         dynamic: Object.assign({}, defaultComponentMap.dynamic, existingData.dynamic)
     };
@@ -85,14 +85,13 @@ function getDynamicComponentsAlias(nextConfig, wpOptions) {
 }
 
 function getAliases(nextConfig, wpOptions) {
-    let aliases = {};
     const componentsMapRelFilePath = nextConfig?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH;
     const componentsMapAbsFilePath = path.resolve(componentsMapRelFilePath);
     if (!fse.pathExistsSync(componentsMapAbsFilePath)) {
         if (wpOptions.isServer) {
             console.log(`[withStackbitComponents] Error: file '${componentsMapRelFilePath}' not found.`);
         }
-        return aliases;
+        return {};
     }
     let componentsMap;
     try {
@@ -101,25 +100,13 @@ function getAliases(nextConfig, wpOptions) {
         if (wpOptions.isServer) {
             console.error(`[withStackbitComponents] Error loading ${componentsMapAbsFilePath}`);
         }
-        return aliases;
+        return {};
     }
     const componentsMapDir = path.dirname(componentsMapAbsFilePath);
-    if (componentsMap.components) {
-        Object.assign(
-            aliases,
-            getAliasesForComponents(componentsMap.components, 'components', componentsMapDir, componentsMapRelFilePath, wpOptions)
-        );
-    }
-    if (componentsMap.layouts) {
-        Object.assign(
-            aliases,
-            getAliasesForComponents(componentsMap.layouts, 'layouts', componentsMapDir, componentsMapRelFilePath, wpOptions)
-        );
-    }
-    return aliases;
+    return getAliasesForComponents(componentsMap.components, componentsMapDir, componentsMapRelFilePath, wpOptions)
 }
 
-function getAliasesForComponents(componentMap, componentsPrefixDir, componentsMapDir, componentsMapRelFilePath, wpOptions) {
+function getAliasesForComponents(componentMap, componentsMapDir, componentsMapRelFilePath, wpOptions) {
     const aliases = {};
     for (const componentName in componentMap || {}) {
         const componentRelPath = componentMap[componentName];
@@ -137,9 +124,19 @@ function getAliasesForComponents(componentMap, componentsPrefixDir, componentsMa
             }
             continue;
         }
-        const relStackbitComponentPath = `${componentsPrefixDir}/${componentName}`;
-        const stackbitComponentAbsPath = path.resolve(__dirname, relStackbitComponentPath);
-        const stackbitComponentImport = `@stackbit/components/${relStackbitComponentPath}`;
+        const manifest = componentsManifest[componentName];
+
+        if (!manifest) {
+            if (wpOptions.isServer) {
+                console.error(
+                    `[withStackbitComponents] Error: component name '${componentName}' specified in '${componentsMapRelFilePath}' does not exist`
+                );
+            }
+            continue;
+        }
+
+        const stackbitComponentAbsPath = path.resolve(__dirname, manifest.path);
+        const stackbitComponentImport = `@stackbit/components/${manifest.path}`;
 
         try {
             require.resolve(stackbitComponentAbsPath);

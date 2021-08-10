@@ -1,0 +1,86 @@
+{
+    "badge": {
+        "path": "components/badge",
+        "className": "Badge",
+        "modelName": "badge",
+        "isDynamic": false
+    },
+    "button": {
+        "path": "components/button",
+        "className": "Button",
+        "modelName": "button",
+        "isDynamic": false
+    },
+    "contact-section": {
+        "path": "components/contact-section",
+        "className": "ContactSection",
+        "modelName": "contact_section",
+        "isDynamic": true
+    },
+    "cta-section": {
+        "path": "components/cta-section",
+        "className": "CTASection",
+        "modelName": "cta_section",
+        "isDynamic": true
+    },
+    "footer": {
+        "path": "components/footer",
+        "className": "Footer",
+        "modelName": "footer",
+        "isDynamic": false
+    },
+    "hero-section": {
+        "path": "components/hero-section",
+        "className": "HeroSection",
+        "modelName": "hero_section",
+        "isDynamic": true
+    },
+    "image-block": {
+        "path": "components/image-block",
+        "className": "ImageBlock",
+        "modelName": "image_block",
+        "isDynamic": true
+    },
+    "inline-markdown": {
+        "path": "components/inline-markdown",
+        "className": "InlineMarkdown",
+        "modelName": "inline_markdown",
+        "isDynamic": false
+    },
+    "link": {
+        "path": "components/link",
+        "className": "Link",
+        "modelName": "link",
+        "isDynamic": false
+    },
+    "navbar": {
+        "path": "components/navbar",
+        "className": "NavBar",
+        "modelName": "navbar",
+        "isDynamic": false
+    },
+    "posts-section": {
+        "path": "components/posts-section",
+        "className": "PostsSection",
+        "modelName": "posts_section",
+        "isDynamic": true
+    },
+    "testimonials-section": {
+        "path": "components/testimonials-section",
+        "className": "TestimonialsSection",
+        "modelName": "testimonials_section",
+        "isDynamic": true
+    },
+    "video-block": {
+        "path": "components/video-block",
+        "className": "VideoBlock",
+        "modelName": "video_block",
+        "isDynamic": true
+    },
+    "advanced": {
+        "path": "layouts/advanced",
+        "className": "Advanced",
+        "modelName": "advanced",
+        "isDynamic": true
+    }
+}

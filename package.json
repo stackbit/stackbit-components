@@ -9,10 +9,10 @@
   "main": "index.js",
   "scripts": {
     "develop": "./develop.sh",
-    "storybook": "start-storybook -s ./public -p 6006",
+    "storybook": "./generate-storybook-dynamic.js && start-storybook -s ./public -p 6006",
     "build-themes": "./build-themes.sh",
     "build-storybook": "build-storybook -s ./public",
-    "build": "npm run build-themes && npm run build-storybook",
+    "build": "npm run build-themes && ./generate-storybook-dynamic.js && npm run build-storybook",
     "build-dist": "./build-dist.js --clean",
     "pretty": "prettier --write src",
     "version-minor": "npm version minor -m \"bumped version to v%s\"",

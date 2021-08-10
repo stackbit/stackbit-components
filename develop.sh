@@ -1,5 +1,7 @@
 #!/bin/bash
 
+./generate-storybook-dynamic.js
+
 themes=(
   "bold"
   "classic"

@@ -8,6 +8,7 @@
   ],
   "main": "index.js",
   "scripts": {
+    "test": "stackbit validate",
     "develop": "./develop.sh",
     "storybook": "./generate-storybook-dynamic.js && start-storybook -s ./public -p 6006",
     "build-themes": "./build-themes.sh",
@@ -37,6 +38,7 @@
     "@babel/core": "^7.14.6",
     "@babel/preset-env": "^7.14.7",
     "@babel/preset-react": "^7.14.5",
+    "@stackbit/cli": "^0.1.14",
     "@storybook/addon-actions": "^6.2.9",
     "@storybook/addon-essentials": "^6.2.9",
     "@storybook/addon-links": "^6.2.9",

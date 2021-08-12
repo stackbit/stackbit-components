@@ -26,9 +26,9 @@ export default function TestimonialsSection(props) {
     );
 }
 
-function TestimonialVariants({ variant, ...props }) {
-    variant = variant || 'variant-a';
-    switch (variant) {
+function TestimonialVariants({ testimonialVariant, ...props }) {
+    testimonialVariant = testimonialVariant || 'variant-a';
+    switch (testimonialVariant) {
         case 'variant-a':
             return TestimonialsVariantA(props);
         case 'variant-b':
@@ -55,9 +55,11 @@ function TestimonialsVariantA(props) {
                     {(testimonial.name || testimonial.title) && (
                         <footer className="mt-8 text-center text-sm">
                             {testimonial.imageUrl && (
-                                <img src={testimonial.imageUrl} alt={testimonial.imageAltText} className="sb-avatar mx-auto mb-4 object-cover w-24 h-24" />
+                                <div className="sb-avatar mx-auto mb-4 w-24 h-24">
+                                    <img src={testimonial.imageUrl} alt={testimonial.imageAltText} />
+                                </div>
                             )}
-                            <strong className="block mb-0.5 font-medium text-lg">{testimonial.name}</strong>
+                            <strong className="block mb-0.5 text-lg">{testimonial.name}</strong>
                             {testimonial.title}
                         </footer>
                     )}
@@ -78,11 +80,9 @@ function TestimonialsVariantB(props) {
                 <blockquote key={idx} className="max-w-5xl mx-auto py-8 sm:flex">
                     {testimonial.imageUrl && (
                         <div className="mb-8 sm:flex-shrink-0 sm:mb-0 sm:mr-10">
-                            <img
-                                src={testimonial.imageUrl}
-                                alt={testimonial.imageAltText}
-                                className="sb-avatar mx-auto mb-8 object-cover w-36 h-36 sm:w-48 sm:h-48"
-                            />
+                            <div className="sb-avatar mx-auto w-36 h-36 sm:w-48 sm:h-48">
+                                <img src={testimonial.imageUrl} alt={testimonial.imageAltText} />
+                            </div>
                         </div>
                     )}
                     <div className="sm:flex-grow">
@@ -93,7 +93,7 @@ function TestimonialsVariantB(props) {
                         )}
                         {(testimonial.name || testimonial.title) && (
                             <footer className="mt-8 text-center text-sm sm:text-left">
-                                <strong className="block font-medium mb-0.5 text-lg">{testimonial.name}</strong>
+                                <strong className="block mb-0.5 text-lg">{testimonial.name}</strong>
                                 {testimonial.title}
                             </footer>
                         )}

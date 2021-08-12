@@ -26,8 +26,9 @@ export const globalTypes = {
             icon: 'cog',
             items: [
                 { value: 'bold', title: 'Bold Theme' },
-                { value: 'classic', title: 'Classic Theme' },
-                { value: 'eco', title: 'Eco Theme' }
+                { value: 'eco', title: 'Eco Theme' },
+                { value: 'modern', title: 'Modern Theme' },
+                { value: 'retro', title: 'Retro Theme' }
             ]
         }
     }

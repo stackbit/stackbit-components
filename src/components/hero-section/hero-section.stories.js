@@ -38,7 +38,7 @@ const args = {
     height: 'auto',
     alignHoriz: 'left',
     badge: 'New Collaboration',
-    title: 'The quick, brown fox  \njumps over **a lazy dog**',
+    title: 'The quick, brown fox jumps over **a lazy dog**',
     text:
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     actions: [

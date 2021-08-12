@@ -104,11 +104,11 @@ function ContactContent(props) {
             'text-right': alignHoriz === 'right',
             'text-center': alignHoriz === 'center'
         })}>
-            {props.badge && <Badge label={props.badge} />}
+            {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
             {props.title && (
-                <h1 className="font-medium font-sans text-4xl tracking-tight sm:text-5xl mb-6">
+                <h2 className="text-4xl tracking-tight sm:text-5xl mb-6">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
-                </h1>
+                </h2>
             )}
             {props.text && <Markdown className="md:text-lg">{props.text}</Markdown>}
         </div>
@@ -135,7 +135,7 @@ function ContactForm(props) {
             <div className="mt-4 sm:mt-8">
                 <button
                     type="submit"
-                    className="sb-btn sb-btn-primary inline-flex items-center justify-center transition duration-200 focus:outline-none"
+                    className="sb-btn sb-btn-primary"
                 >
                     {props.submitLabel}
                 </button>
@@ -163,26 +163,32 @@ function FormField(field) {
     switch (field.inputType) {
         case 'checkbox':
             return (
-                <div className={classNames('sb-checkbox', classes)}>
-                    <input type="checkbox" id={field.name} name={field.name} {...attr} />
+                <div className={classNames('sb-form-control flex items-center', classes)}>
+                    <input className="sb-checkbox" type="checkbox" id={field.name} name={field.name} {...attr} />
                     {field.label && (
-                        <label htmlFor={field.name} id={labelId} className="font-light lg:text-lg">
+                        <label htmlFor={field.name} id={labelId} className="sb-label ml-2">
                             {field.label}
                         </label>
                     )}
                 </div>
             );
         case 'select':
+            const fieldOptions = field.options || [];
             return (
-                <div className={classNames('sb-select', classes)}>
+                <div className={classNames('sb-form-control', classes)}>
                     {field.label && (
-                        <label htmlFor={field.name} id={field.labelId} className="sr-only">
+                        <label htmlFor={field.name} id={field.labelId} className="sb-label sr-only">
                             {field.label}
                         </label>
                     )}
-                    <select id={field.name} name={field.name} {...attr} className={classNames('bg-transparent font-light text-lg lg:text-xl border-b border-current w-full pb-2 focus:outline-none')}>
+                    <select
+                        id={field.name}
+                        name={field.name}
+                        {...attr}
+                        className={classNames('sb-select')}
+                    >
                         {field.defaultValue && <option value="">{field.defaultValue}</option>}
-                        {field.options.map((option, idx) =>
+                        {fieldOptions.length > 0 && fieldOptions.map((option, idx) =>
                             <option key={idx} value={option}>
                                 {option}
                             </option>
@@ -192,9 +198,9 @@ function FormField(field) {
             );
         case 'textarea':
             return (
-                <div className={classes}>
+                <div className={classNames('sb-form-control', classes)}>
                     {field.label && (
-                        <label htmlFor={field.name} id={field.labelId} className="sr-only">
+                        <label htmlFor={field.name} id={field.labelId} className="sb-label sr-only">
                             {field.label}
                         </label>
                     )}
@@ -204,17 +210,15 @@ function FormField(field) {
                         rows="5"
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
                         {...attr}
-                        className={classNames(
-                            'bg-transparent font-light text-lg lg:text-xl placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6'
-                        )}
+                        className="sb-textarea"
                     />
                 </div>
             );
         default:
             return (
-                <div className={classes}>
+                <div className={classNames('sb-form-control', classes)}>
                     {field.label && (
-                        <label htmlFor={field.name} id={field.labelId} className="sr-only">
+                        <label htmlFor={field.name} id={field.labelId} className="sb-label sr-only">
                             {field.label}
                         </label>
                     )}
@@ -224,9 +228,7 @@ function FormField(field) {
                         id={field.name}
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
                         {...attr}
-                        className={classNames(
-                            'bg-transparent text-lg lg:text-xl font-light placeholder-opacity-40 border-b w-full focus:outline-none pb-2 sm:pr-6'
-                        )}
+                        className="sb-input"
                     />
                 </div>
             );

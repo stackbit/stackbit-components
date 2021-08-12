@@ -4,8 +4,9 @@
 
 themes=(
   "bold"
-  "classic"
   "eco"
+  "modern"
+  "retro"
 )
 
 command=("./node_modules/.bin/concurrently" "--kill-others-on-fail" "--names")

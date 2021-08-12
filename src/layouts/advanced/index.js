@@ -7,9 +7,11 @@ export default function Advanced(props) {
     const sections = page?.sections ?? [];
     const urlPath = page?.__metadata?.urlPath ?? '';
     const pageUrl = '/' + urlPath.replace(/^\//, '');
+    const pageTitle = page?.title;
 
     return (
         <BaseLayout page={page} siteConfig={siteConfig}>
+            {pageTitle && <h1 className="sr-only">{pageTitle}</h1>}
             {sections.map((section, index) => {
                 const sectionType = section?.type;
                 if (!sectionType) {

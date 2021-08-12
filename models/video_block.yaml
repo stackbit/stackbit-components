@@ -1,4 +1,4 @@
-name: video_feature
+type: object
 label: Video Feature
 fields:
   - type: string

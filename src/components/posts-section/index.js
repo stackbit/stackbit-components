@@ -30,9 +30,9 @@ export default function PostsSection(props) {
                             'ml-auto text-right': alignHoriz === 'right'
                         })}
                     >
-                        {props.badge && <Badge label={props.badge} />}
+                        {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
                         {props.title && (
-                            <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl">
+                            <h2 className="text-3xl tracking-tight sm:text-4xl">
                                 <InlineMarkdown>{props.title}</InlineMarkdown>
                             </h2>
                         )}
@@ -45,9 +45,9 @@ export default function PostsSection(props) {
     );
 }
 
-function PostVariants({ variant, ...props }) {
-    variant = variant || 'variant-a';
-    switch (variant) {
+function PostVariants({ postVariant, ...props }) {
+    postVariant = postVariant || 'variant-a';
+    switch (postVariant) {
         case 'variant-a':
             return PostsVariantA(props);
         case 'variant-b':
@@ -77,7 +77,7 @@ function PostsVariantA(props) {
                                 </div>
                             )}
                             <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                                <h2 className="font-medium text-xl sm:text-2xl mb-3">{post.title}</h2>
+                                <h2 className="text-xl sm:text-2xl mb-3">{post.title}</h2>
                                 {post.excerpt && <Markdown>{post.excerpt}</Markdown>}
                             </div>
                         </article>
@@ -95,23 +95,23 @@ function PostsVariantB(props) {
     }
     return (
         <div
-            className={classNames('grid gap-x-8 gap-y-10 md:grid-cols-2', {
+            className={classNames('grid gap-x-8 gap-y-10 lg:grid-cols-2', {
                 'mt-12': props.badge || props.title || props.subtitle
             })}
         >
             {posts.map((post, idx) => (
-                <article key={idx} className="sm:flex">
+                <article key={idx} className="sb-card sm:flex">
                     {post.thumbImageUrl && (
-                        <div className="mb-4 w-full sm:flex-shrink-0 sm:mb-0 sm:mr-6 sm:w-1/3">
+                        <div className="w-full sm:flex-shrink-0 sm:h-full sm:w-1/3">
                             <Link href={post.url}>
-                                <a className="block group overflow-hidden pt-1/1 relative w-full">
-                                    <img src={post.thumbImageUrl} alt={post.thumbImageAltText} className="absolute left-0 top-0 h-full w-full object-cover scale-100 transition duration-300 group-hover:scale-105" />
+                                <a className="block h-0 w-full pt-1/2 relative sm:h-40 sm:min-h-full sm:pt-0">
+                                    <img src={post.thumbImageUrl} alt={post.thumbImageAltText} className="absolute left-0 top-0 h-full w-full object-cover" />
                                 </a>
                             </Link>
                         </div>
                     )}
-                    <div className="sm:flex-grow">
-                        <h2 className="font-medium mb-2 text-2xl md:text-xl">
+                    <div className="px-4 py-6 sm:px-6 sm:pb-10 sm:flex-grow">
+                        <h2 className="mb-2 text-2xl md:text-xl">
                             <Link href={post.url}>
                                 <a>{post.title}</a>
                             </Link>

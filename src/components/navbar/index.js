@@ -180,7 +180,7 @@ function siteLogoLink({ title, logo, logoAlt, isTitleVisible }) {
         <Link href="/">
             <a aria-label={title} title={title} className="inline-flex items-center">
                 {logo && <img src={logo} alt={logoAlt} className={classNames({ 'mr-2': isTitleVisible })} />}
-                {isTitleVisible && <span className="text-2xl font-medium tracking-wide">{title}</span>}
+                {isTitleVisible && <span className="text-2xl tracking-wide">{title}</span>}
             </a>
         </Link>
     );

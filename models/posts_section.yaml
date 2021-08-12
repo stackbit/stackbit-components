@@ -1,15 +1,6 @@
 type: object
-label: CTA section
+label: Posts section
 fields:
-  - type: enum
-    name: variant
-    label: Arrangement
-    options:
-      - label: CTA with buttons at the bottom
-        value: variant-a
-      - label: CTA with buttons on the right
-        value: variant-b
-    default: variant-a
   - type: enum
     name: colors
     label: Colors
@@ -45,26 +36,27 @@ fields:
       - label: Viewport
         value: viewport
     default: auto
-  - type: enum
-    name: alignHoriz
-    label: Horizontal alignment
-    options:
-      - left
-      - right
-      - center
-    default: left
   - type: string
     name: badge
     label: Badge
   - type: string
     name: title
     label: Title
-  - type: markdown
-    name: text
-    label: Text
+  - type: string
+    name: subtitle
+    label: Subtitle
+  - type: enum
+    name: postVariant
+    label: Post arrangement
+    options:
+      - label: Vertical post card with image at the top
+        value: variant-a
+      - label: Horizontal post card with image on the left
+        value: variant-b
+    default: variant-a
   - type: list
-    name: actions
-    label: Action buttons
+    name: posts
+    label: Posts
     items:
-      type: model
-      models: [action]
+      type: reference
+      models: [post]

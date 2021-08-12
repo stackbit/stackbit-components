@@ -11,21 +11,19 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary':           '#4bc2a1',
-        'primary-variant':   '#3aab8c',
-        'secondary':         '#d6c9bb',
-        'secondary-variant': '#c0ab96',
-        'accent':            '#C6D6D2',
-        'accent-variant':    '#AFC6C0',
-        'neutral':           '#4A4F59',
-        'neutral-variant':   '#383C44',
-        'base-50':           '#FFFFFF',
-        'base-100':          '#F5F5F5',
-        'base-200':          '#E1E1E1',
-        'base-900':          '#333333',
+        'primary':         '#5CDB94',
+        'primary-light':   '#92FFC5',
+        'secondary':       '#EDF5E0',
+        'secondary-light': '#F5FAEE',
+        'neutral':         '#05396B',
+        'neutral-light':   '#42639A',
+        'base':            '#263238',
+        'base-light':      '#7B888F',
+        'base-dark':       '#000A12',
+        'info':            '#DB5CA4',
       },
       fontFamily: {
-        sans: ['Open Sans', ...defaultTheme.fontFamily.sans]
+        sans: ['Lato', ...defaultTheme.fontFamily.sans]
       },
       spacing: {
         '1/1': '100%',
@@ -39,220 +37,146 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    function({ addComponents, theme }) {
+    plugin(function({ addBase, addComponents, theme }) {
+      addBase({
+        'h1,h2,h3,h4,h5,h6': {
+          '@apply font-sans font-bold': {}
+        },
+        'b,strong': {
+          '@apply font-bold': {}
+        }
+      })
       addComponents({
         '.sb-avatar': {
-          boxShadow: theme('boxShadow.xl'),
-          borderRadius: theme('borderRadius.md')
+          'img': {
+            '@apply h-full object-cover rounded-full w-full': {}
+          }
         },
         '.sb-badge': {
-          backgroundColor: theme('colors.accent'),
-          color: theme('colors.base-900'),
-          fontWeight: theme('fontWeight.medium'),
-          letterSpacing: theme('letterSpacing.wider'),
-          padding: `${theme('spacing[0.5]')} ${theme('spacing.2')}`,
-          borderRadius: theme('borderRadius.md'),
-          textTransform: 'uppercase'
+          '@apply bg-info font-normal px-3 py-0.5 rounded-full text-white tracking-wider': {}
         },
         '.sb-btn': {
-          fontWeight: theme('fontWeight.normal'),
-          letterSpacing: theme('letterSpacing.wider'),
-          padding: `${theme('spacing[2.5]')} ${theme('spacing.5')}`,
-          borderRadius: theme('borderRadius.md'),
-          boxShadow: theme('boxShadow.xl'),
-          textTransform: 'uppercase'
+          '@apply border font-normal inline-flex items-center justify-center no-underline px-5 py-2.5 rounded-full text-center transition duration-200 ease-in': {}
         },
         '.sb-card': {
-          boxShadow: theme('boxShadow.xl'),
-          borderRadius: theme('borderRadius.md')
+          '@apply overflow-hidden rounded': {}
         },
         'a.sb-card': {
-          transition: 'transform .3s',
+          '@apply transition transform duration-300': {},
           '&:hover': {
-            transform: 'translateY(-0.25rem)'
+            transform: 'scale(1.02)'
           }
         },
-        '.sb-checkbox': {
-          position: 'relative',
-          'input[type=checkbox]': {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            height: '1.25em',
-            width: '1.25em',
-            '-webkit-appearance': 'none',
-            '-moz-appearance': 'none',
-          },
-          'label' : {
-            alignItems: 'center',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            position: 'relative',
-            '&:before': {
-              border: '1px solid currentColor',
-              content: '""',
-              display: 'flex',
-              flexShrink: 0,
-              height: '1.25em',
-              marginRight: '1em',
-              pointerEvents: 'none',
-              width: '1.25em'
-            },
-            '&:after': {
-              borderStyle: 'solid',
-              borderColor: 'currentColor',
-              borderWidth: '0 2px 2px 0',
-              content: '""',
-              height: '0.75em',
-              left: '0.375em',
-              opacity: 0,
-              pointerEvents: 'none',
-              position: 'absolute',
-              top: '0.25em',
-              transform: 'rotate(45deg)',
-              transition: '0.25s ease',
-              width: '0.5em',
-            },
-          },
-          'input[type=checkbox]:checked + label:after': {
-            opacity: 1
-          }
+        '.sb-divider': {
+          '@apply flex items-center h-4 before:flex-grow before:h-px': {}
         },
         '.sb-highlight': {
-          color: theme('colors.accent')
+          '@apply text-info': {}
+        },
+        '.sb-label': {
+          '@apply font-normal': {}
+        },
+        '.sb-input,.sb-select': {
+          '@apply bg-white font-normal placeholder-base-light px-4 py-3 rounded-full text-base-dark w-full focus:outline-none': {}
+        },
+        '.sb-textarea': {
+          '@apply bg-white font-normal placeholder-base-light px-4 py-3 rounded text-base-dark w-full focus:outline-none': {}
+        },
+        '.sb-checkbox': {
+          '@apply align-middle appearance-none bg-origin-border bg-white cursor-pointer flex-shrink-0 inline-block h-5 rounded-full select-none w-5 checked:bg-center checked:bg-no-repeat': {},
+          '&:checked': {
+            backgroundImage: `radial-gradient(${theme('colors.base-light')} 50%, #fff 51%)`,
+            backgroundSize: '12px 12px'
+          }
         },
         '.sb-select': {
-          position: 'relative',
-          'select': {
-            paddingRight: '1.5em',
-            '-webkit-appearance': 'none',
-            '-moz-appearance': 'none',
-          },
-          '&:before': {
-            borderColor: 'currentColor',
-            borderStyle: 'solid',
-            borderWidth: '0 2px 2px 0',
-            boxSizing: 'border-box',
-            content: '""',
-            display: 'flex',
-            flexShrink: 0,
-            height: '0.75em',
-            marginTop: '-0.5em',
-            position: 'absolute',
-            right: '0.75em',
-            top: '50%',
-            transform: 'rotate(45deg)',
-            width: '0.75em',
-            zIndex: '1',
-          },
+          '@apply appearance-none bg-no-repeat cursor-pointer pr-6': {},
+          backgroundImage: `linear-gradient(45deg,transparent 50%, ${theme('colors.base-light')} 0),linear-gradient(135deg, ${theme('colors.base-light')} 50%,transparent 0)`,
+          backgroundPosition: 'calc(100% - 24px) 50%, calc(100% - 18px) 50%',
+          backgroundSize: '6px 6px, 6px 6px'
         },
         '.colors-a': {
-          backgroundColor: theme('colors.base-50'),
-          color: theme('colors.base-900'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.base-900')
+          '@apply bg-white text-base-dark': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border border-base-light': {}
           },
-          '::placeholder': {
-            color: theme('colors.base-900')
+          '.sb-checkbox': {
+            '@apply border border-base-light': {}
           },
-          '.sb-btn': {
-            backgroundColor: theme('colors.primary'),
-            color: theme('colors.white'),
-            '&:hover': {
-              color: theme('colors.white'),
-              backgroundColor: theme('colors.primary-variant'),
-              boxShadow: theme('boxShadow.none'),
-            },
+          '.sb-btn-primary': {
+            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {},
+          },
+          '.sb-btn-secondary': {
+            '@apply border-base-dark text-base-dark hover:border-base-light hover:text-base-light': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-base-dark': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.secondary')
+            '@apply bg-secondary': {}
           }
         },
         '.colors-b': {
-          backgroundColor: theme('colors.neutral'),
-          color: theme('colors.base-50'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.neutral-variant')
+          '@apply bg-neutral text-white': {},
+          '.sb-btn-primary': {
+            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {},
           },
-          '::placeholder': {
-            color: theme('colors.base-200')
+          '.sb-btn-secondary': {
+            '@apply border-white text-white hover:border-base-light hover:text-base-light': {}
           },
-          '.sb-btn': {
-            backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              backgroundColor: theme('colors.base-900'),
-              boxShadow: theme('boxShadow.none'),
-            },
+          '.sb-divider': {
+            '@apply before:bg-neutral-light': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.neutral-variant')
+            '@apply bg-neutral-light': {}
           }
         },
         '.colors-c': {
-          backgroundColor: theme('colors.neutral'),
-          color: theme('colors.primary'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.neutral-variant')
+          '@apply bg-neutral text-primary-light': {},
+          '.sb-btn-primary': {
+            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {},
           },
-          '::placeholder': {
-            color: theme('colors.primary')
+          '.sb-btn-secondary': {
+            '@apply border-white text-white hover:border-base-light hover:text-base-light': {}
           },
-          '.sb-btn': {
-            backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.primary'),
-            '&:hover': {
-              backgroundColor: theme('colors.base-900'),
-              boxShadow: theme('boxShadow.none')
-            },
+          '.sb-divider': {
+            '@apply before:bg-neutral-light': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.neutral-variant')
+            '@apply bg-neutral-light': {}
           }
         },
         '.colors-d': {
-          backgroundColor: theme('colors.primary'),
-          color: theme('colors.base-900'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.base-900')
+          '@apply bg-primary text-base-dark': {},
+          '.sb-btn-primary': {
+            '@apply bg-neutral border-neutral text-white hover:bg-neutral-light hover:border-neutral-light': {},
           },
-          '::placeholder': {
-            color: theme('colors.base-900')
+          '.sb-btn-secondary': {
+            '@apply border-neutral text-neutral hover:border-neutral-light hover:text-neutral-light': {}
           },
-          '.sb-btn': {
-            backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              backgroundColor: theme('colors.base-900'),
-              boxShadow: theme('boxShadow.none')
-            },
+          '.sb-divider': {
+            '@apply before:bg-base-dark': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.primary-variant')
+            '@apply bg-primary-light': {}
           }
         },
         '.colors-e': {
-          backgroundColor: theme('colors.secondary'),
-          color: theme('colors.base-900'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.base-900')
+          '@apply bg-secondary text-base-dark': {},
+          '.sb-btn-primary': {
+            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {},
           },
-          '::placeholder': {
-            color: theme('colors.base-900')
+          '.sb-btn-secondary': {
+            '@apply border-base-dark text-base-dark hover:border-base-light hover:text-base-light': {}
           },
-          '.sb-btn': {
-            backgroundColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              backgroundColor: theme('colors.base-900'),
-              boxShadow: theme('boxShadow.none')
-            },
+          '.sb-divider': {
+            '@apply before:bg-base-dark': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.secondary-variant')
+            '@apply bg-secondary-light': {}
           }
         }
       })
-    }
+    })
   ],
 };

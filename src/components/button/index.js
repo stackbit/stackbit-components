@@ -9,17 +9,15 @@ export default function Button({ label, url, icon, alt, type, className }) {
         cart: Cart
     };
     const IconComponent = icon ? iconMap[icon] : null;
-
-    console.log(type)
     return (
         <Link href={url}>
             <a
                 aria-label={alt}
                 title={alt}
                 className={classNames(
-                    'sb-btn inline-flex items-center justify-center text-center transition duration-200 focus:outline-none',
-                    className,
-                    type === 'primary-button' ? 'sb-btn-primary' : 'sb-btn-secondary'
+                    'sb-btn',
+                    type === 'primary-button' ? 'sb-btn-primary' : 'sb-btn-secondary',
+                    className
                 )}
             >
                 {label}

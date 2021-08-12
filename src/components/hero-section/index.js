@@ -7,6 +7,11 @@ import Link from '../link';
 import VideoBlock from '../video-block';
 import InlineMarkdown from '../inline-markdown';
 
+const features = {
+    image_block: ImageBlock,
+    video_block: VideoBlock
+};
+
 export default function HeroSection(props) {
     const colors = props.colors || 'colors-a';
     const width = props.width || 'wide';
@@ -123,23 +128,25 @@ function HeroFeatureBottom(props) {
 }
 
 function HeroFeature(feature) {
-    switch (feature.type) {
-        case 'image_block':
-            return <ImageBlock {...feature} className="mx-auto" />;
-        case 'video_block':
-            return <VideoBlock {...feature} className="mx-auto" />;
+    const featureType = feature.type;
+    if (!featureType) {
+        throw new Error(`hero section feature does not have the 'type' property, page: ${pageUrl}`);
     }
-    return null;
+    const Feature = features[featureType];
+    if (!Feature) {
+        throw new Error(`no component matching the hero section feature type: ${featureType}`);
+    }
+    return <Feature {...feature} className="mx-auto" />;
 }
 
 function HeroContent(props) {
     return (
         <>
-            {props.badge && <Badge label={props.badge} />}
+            {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
             {props.title && (
-                <h1 className="font-medium font-sans text-4xl tracking-tight sm:text-5xl mb-6">
+                <h2 className="text-4xl tracking-tight sm:text-5xl mb-6">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
-                </h1>
+                </h2>
             )}
             {props.text && <Markdown className="md:text-lg">{props.text}</Markdown>}
         </>

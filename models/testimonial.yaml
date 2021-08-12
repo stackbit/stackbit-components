@@ -1,4 +1,4 @@
-name: testimonial
+type: object
 label: Testimonial
 fields:
   - type: markdown

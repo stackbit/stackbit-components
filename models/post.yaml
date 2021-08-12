@@ -1,0 +1,19 @@
+type: page
+label: Post
+layout: post
+fields:
+  - type: string
+    name: title
+    label: Title
+  - type: date
+    name: date
+    label: Date
+  - type: string
+    name: excerpt
+    label: Excerpt
+  - type: image
+    name: thumbImageUrl
+    label: Thumbnail image
+  - type: string
+    name: thumbImageAltText
+    label: Thumbnail image alt text

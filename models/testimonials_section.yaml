@@ -1,15 +1,6 @@
-name: testimonials_section
+type: object
 label: Testimonials section
 fields:
-  - type: enum
-    name: variant
-    label: Arrangement
-    options:
-      - label: Testimonial with company logo and author image at the bottom
-        value: variant-a
-      - label: Testimonial with author image on the left
-        value: variant-b
-    default: variant-a
   - type: enum
     name: colors
     label: Colors
@@ -45,6 +36,15 @@ fields:
       - label: Viewport
         value: viewport
     default: auto
+  - type: enum
+    name: testimonialVariant
+    label: Testimonial arrangement
+    options:
+      - label: Testimonial with company logo and author image at the bottom
+        value: variant-a
+      - label: Testimonial with author image on the left
+        value: variant-b
+    default: variant-a
   - type: list
     name: testimonials
     label: Testimonials

@@ -12,7 +12,7 @@ export default function InlineMarkdown(props) {
 const overrides = {
     strong: {
         component: (props) => {
-            return <span className="sb-highlight inline-block">{props.children}</span>;
+            return <span className="sb-highlight">{props.children}</span>;
         }
     }
 };

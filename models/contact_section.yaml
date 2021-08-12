@@ -1,4 +1,4 @@
-name: contact_section
+type: object
 label: Contact section
 fields:
   - type: enum

@@ -33,7 +33,7 @@ export default function Footer(props) {
                         <Link href="/">
                             <a aria-label="Go home" title={props.title} className="">
                                 {props.logoUrl && <img src={props.logoUrl} alt={props.logoAltText} className="mb-2" />}
-                                {props.isTitleVisible && <div className="mb-2 font-medium text-2xl tracking-wide">{props.title}</div>}
+                                {props.isTitleVisible && <div className="mb-2 text-2xl tracking-wide">{props.title}</div>}
                             </a>
                         </Link>
                         {props.info && (
@@ -86,7 +86,7 @@ export default function Footer(props) {
                     </div>
                 )}
             </div>
-            <hr />
+            <div className="sb-divider" />
             <div
                 className="flex flex-col-reverse justify-between pt-6 lg:flex-row">
                 {props.copyrightText && <p className="text-sm">{props.copyrightText}</p>}

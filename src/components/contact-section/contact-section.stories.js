@@ -108,22 +108,28 @@ ContactRightImage.args = {
         },
         {
             inputType: 'text',
-            name: 'home-address',
-            label: 'Home address',
-            defaultValue: 'Your home address',
+            name: 'street-address',
+            label: 'Street address',
+            defaultValue: 'Your street address',
             isRequired: true,
             width: 'full'
         },
         {
             inputType: 'select',
-            name: 'select-box',
-            label: 'Select example',
+            name: 'city',
+            label: 'City',
             defaultValue: 'Please choose...',
             isRequired: true,
             options: [
-                'Option 1',
-                'Option 2'
+                'City 1',
+                'City 2'
             ],
+            width: 'full'
+        },
+        {
+            inputType: 'textarea',
+            name: 'message',
+            label: 'Message',
             width: 'full'
         },
         {

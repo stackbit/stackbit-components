@@ -11,18 +11,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        'primary':           '#FFC329',
-        'primary-variant':   '#FFD362',
-        'secondary':         '#FFF7E3',
-        'secondary-variant': '#FFECBC',
-        'accent':            '#EA5234',
-        'accent-variant':    '#E03817',
-        'neutral':           '#282828',
-        'neutral-variant':   '#3D404C',
-        'base-50':           '#FFFFFF',
-        'base-100':          '#F5F5F5',
-        'base-200':          '#E1E1E1',
-        'base-900':          '#0A0A0A',
+        'primary':         '#FFC329',
+        'primary-light':   '#FFD362',
+        'secondary':       '#FFF7E3',
+        'secondary-light': '#FFFFFF',
+        'neutral':         '#26262D',
+        'neutral-light':   '#4E4E56',
+        'base':            '#484848',
+        'base-light':      '#D2D2D2',
+        'base-dark':       '#332E40',
+        'info':            '#EA5234',
       },
       fontFamily: {
         sans: ['Rubik', ...defaultTheme.fontFamily.sans]
@@ -39,245 +37,146 @@ module.exports = {
     extend: {},
   },
   plugins: [
-    function({ addComponents, theme }) {
+    plugin(function({ addBase, addComponents, theme }) {
+      addBase({
+        'h1,h2,h3,h4,h5,h6': {
+          '@apply font-sans font-medium': {}
+        },
+        'b,strong': {
+          '@apply font-medium': {}
+        }
+      })
       addComponents({
         '.sb-avatar': {
-          border: `2px solid ${theme('colors.neutral-variant')}`,
+          'img': {
+            '@apply h-full object-cover w-full': {}
+          }
         },
         '.sb-badge': {
-          backgroundColor: theme('colors.accent'),
-          color: theme('colors.base-900'),
-          fontWeight: theme('fontWeight.medium'),
-          letterSpacing: theme('letterSpacing.wider'),
-          padding: `${theme('spacing[0.5]')} ${theme('spacing.2')}`
+          '@apply bg-info font-medium px-2 py-0.5 text-white tracking-wider': {}
         },
         '.sb-btn': {
-          borderWidth: '2px',
-          fontWeight: theme('fontWeight.normal'),
-          letterSpacing: theme('letterSpacing.wider'),
-          padding: `${theme('spacing[2.5]')} ${theme('spacing.5')}`
+          '@apply border-2 font-medium inline-flex items-center justify-center no-underline px-5 py-2.5 text-center tracking-wider transition duration-200 ease-in': {}
         },
         'a.sb-card': {
-          transition: 'transform .3s',
-          '&:hover': {
-            transform: 'translateY(-0.25rem)'
-          }
+          '@apply transition transform duration-300 hover:-translate-y-1': {}
         },
-        '.sb-checkbox': {
-          position: 'relative',
-          'input[type=checkbox]': {
-            position: 'absolute',
-            top: 0,
-            left: 0,
-            height: '1.25em',
-            width: '1.25em',
-            '-webkit-appearance': 'none',
-            '-moz-appearance': 'none',
-          },
-          'label' : {
-            alignItems: 'center',
-            display: 'flex',
-            justifyContent: 'flex-start',
-            position: 'relative',
-            '&:before': {
-              border: '1px solid currentColor',
-              content: '""',
-              display: 'flex',
-              flexShrink: 0,
-              height: '1.25em',
-              marginRight: '1em',
-              pointerEvents: 'none',
-              width: '1.25em'
-            },
-            '&:after': {
-              borderStyle: 'solid',
-              borderColor: 'currentColor',
-              borderWidth: '0 2px 2px 0',
-              content: '""',
-              height: '0.75em',
-              left: '0.375em',
-              opacity: 0,
-              pointerEvents: 'none',
-              position: 'absolute',
-              top: '0.25em',
-              transform: 'rotate(45deg)',
-              transition: '0.25s ease',
-              width: '0.5em',
-            },
-          },
-          'input[type=checkbox]:checked + label:after': {
-            opacity: 1
-          }
+        '.sb-divider': {
+          '@apply flex items-center h-4 before:flex-grow before:h-px': {}
         },
         '.sb-highlight': {
-          color: theme('colors.accent')
+          '@apply text-info': {}
+        },
+        '.sb-label': {
+          '@apply font-light': {}
+        },
+        '.sb-input,.sb-select,.sb-textarea': {
+          '@apply bg-transparent border-b font-light pb-1.5 text-lg w-full focus:outline-none md:text-xl': {}
+        },
+        '.sb-checkbox': {
+          '@apply align-middle appearance-none bg-origin-border border border-current cursor-pointer flex-shrink-0 inline-block h-4 select-none w-4 checked:bg-center checked:bg-no-repeat': {},
+          '&:checked': {
+            backgroundImage: 'linear-gradient(currentColor, currentColor)',
+            backgroundSize: '60% 60%'
+          }
         },
         '.sb-select': {
-          position: 'relative',
-          'select': {
-            paddingRight: '1.5em',
-            '-webkit-appearance': 'none',
-            '-moz-appearance': 'none',
-          },
-          '&:before': {
-            borderColor: 'currentColor',
-            borderStyle: 'solid',
-            borderWidth: '0 2px 2px 0',
-            boxSizing: 'border-box',
-            content: '""',
-            display: 'flex',
-            flexShrink: 0,
-            height: '0.75em',
-            marginTop: '-0.5em',
-            position: 'absolute',
-            right: '0.75em',
-            top: '50%',
-            transform: 'rotate(45deg)',
-            width: '0.75em',
-            zIndex: '1',
-          },
+          '@apply appearance-none bg-no-repeat cursor-pointer pr-6': {},
+          backgroundImage: 'linear-gradient(45deg,transparent 50%,currentColor 0),linear-gradient(135deg,currentColor 50%,transparent 0)',
+          backgroundPosition: 'calc(100% - 14px) 50%, calc(100% - 8px) 50%',
+          backgroundSize: '6px 6px, 6px 6px'
         },
         '.colors-a': {
-          backgroundColor: theme('colors.base-50'),
-          color: theme('colors.base-900'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.base-900')
-          },
-          '::placeholder': {
-            color: theme('colors.base-900')
+          '@apply bg-white text-base-dark': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-base-dark placeholder-base': {}
           },
           '.sb-btn-primary': {
-            backgroundColor: theme('colors.primary'),
-            borderColor: theme('colors.primary'),
-            color: theme('colors.base-900'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {},
           },
           '.sb-btn-secondary': {
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.neutral-variant'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply border-base-dark text-base-dark hover:border-base hover:text-base': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-base-dark': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.secondary')
+            '@apply bg-secondary': {}
           }
         },
         '.colors-b': {
-          backgroundColor: theme('colors.neutral'),
-          color: theme('colors.base-50'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.neutral-variant')
-          },
-          '::placeholder': {
-            color: theme('colors.base-200')
+          '@apply bg-neutral text-white': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-neutral-light placeholder-base': {}
           },
           '.sb-btn-primary': {
-            backgroundColor: theme('colors.neutral-variant'),
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {},
           },
           '.sb-btn-secondary': {
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply border-white text-white hover:border-base-light hover:text-base-light': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-base': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.neutral-variant'),
+            '@apply bg-neutral-light': {}
           }
         },
         '.colors-c': {
-          backgroundColor: theme('colors.neutral'),
-          color: theme('colors.secondary-variant'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.neutral-variant')
-          },
-          '::placeholder': {
-            color: theme('colors.primary')
+          '@apply bg-neutral text-primary-light': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-neutral-light placeholder-primary-light placeholder-opacity-50': {}
           },
           '.sb-btn-primary': {
-            backgroundColor: theme('colors.neutral-variant'),
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {},
           },
           '.sb-btn-secondary': {
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply border-white text-white hover:border-base-light hover:text-base-light': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-neutral-light': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.neutral-variant'),
+            '@apply bg-neutral-light': {}
           }
         },
         '.colors-d': {
-          backgroundColor: theme('colors.primary'),
-          color: theme('colors.base-900'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.base-900')
-          },
-          '::placeholder': {
-            color: theme('colors.base-900')
+          '@apply bg-primary text-base-dark': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-base-dark placeholder-base': {}
           },
           '.sb-btn-primary': {
-            backgroundColor: theme('colors.neutral-variant'),
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply bg-base-dark border-base-dark text-white hover:bg-base hover:border-base': {},
           },
           '.sb-btn-secondary': {
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.neutral-variant'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply border-base-dark text-base-dark hover:border-base hover:text-base': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-base-dark': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.primary-variant')
+            '@apply bg-primary-light': {}
           }
         },
         '.colors-e': {
-          backgroundColor: theme('colors.secondary'),
-          color: theme('colors.base-900'),
-          'input,textarea,select,hr': {
-            borderColor: theme('colors.base-900')
-          },
-          '::placeholder': {
-            color: theme('colors.base-900')
+          '@apply bg-secondary text-base-dark': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-base-dark placeholder-base': {}
           },
           '.sb-btn-primary': {
-            backgroundColor: theme('colors.neutral-variant'),
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.base-50'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {},
           },
           '.sb-btn-secondary': {
-            borderColor: theme('colors.neutral-variant'),
-            color: theme('colors.neutral-variant'),
-            '&:hover': {
-              opacity: '0.8'
-            },
+            '@apply border-base-dark text-base-dark hover:border-base hover:text-base': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-base-dark': {}
           },
           '.sb-card': {
-            backgroundColor: theme('colors.secondary-variant')
+            '@apply bg-secondary-light': {}
           }
         }
       })
-    }
+    })
   ],
 };

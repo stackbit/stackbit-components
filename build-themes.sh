@@ -2,8 +2,9 @@
 
 themes=(
   "bold"
-  "classic"
   "eco"
+  "modern"
+  "retro"
 )
 
 for theme in "${themes[@]}"; do

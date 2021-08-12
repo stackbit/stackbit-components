@@ -1,4 +1,4 @@
-name: hero_section
+type: object
 label: Hero section
 fields:
   - type: enum

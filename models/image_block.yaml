@@ -1,4 +1,4 @@
-name: image_block
+type: object
 label: Image Block
 fields:
   - type: image

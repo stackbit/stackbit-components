@@ -5,10 +5,6 @@ export default {
     title: 'Components/Posts Section',
     component: PostsSection,
     argTypes: {
-        variant: {
-            options: ['variant-a', 'variant-b'],
-            control: { type: 'select' }
-        },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
@@ -24,6 +20,10 @@ export default {
         alignHoriz: {
             options: ['left', 'right', 'center'],
             control: { type: 'select' }
+        },
+        postVariant: {
+            options: ['variant-a', 'variant-b'],
+            control: { type: 'select' }
         }
     }
 };
@@ -32,13 +32,13 @@ const Template = (args) => <PostsSection {...args} />;
 
 const args = {
     type: 'posts_section',
-    variant: 'variant-a',
     colors: 'colors-d',
     width: 'wide',
     height: 'auto',
     alignHoriz: 'center',
     badge: '',
     subtitle: '',
+    postVariant: 'variant-a',
     posts: [
         {
             title: 'Sustainability at it’s purest',
@@ -81,9 +81,9 @@ export const VariantB = Template.bind({});
 VariantB.storyName = 'Two Cols, Post Content to the Right of the Image';
 VariantB.args = {
     ...args,
-    variant: 'variant-b',
     colors: 'colors-b',
     width: 'full',
     alignHoriz: 'left',
-    title: 'Latest from **the Blog**'
+    title: 'Latest from **the Blog**',
+    postVariant: 'variant-b'
 };

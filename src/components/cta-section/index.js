@@ -98,9 +98,9 @@ function CtaButtonsRight(props) {
 function CtaContent(props) {
     return (
         <>
-            {props.badge && <Badge label={props.badge} />}
+            {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
             {props.title && (
-                <h2 className="font-medium font-sans text-3xl tracking-tight sm:text-4xl mb-6">
+                <h2 className="text-3xl tracking-tight sm:text-4xl mb-6">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}

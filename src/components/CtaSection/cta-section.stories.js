@@ -1,9 +1,9 @@
 import React from 'react';
-import CTASection from './index';
+import CtaSection from './index';
 
 export default {
     title: 'Components/CTA Section',
-    component: CTASection,
+    component: CtaSection,
     argTypes: {
         variant: {
             options: ['variant-a', 'variant-b'],
@@ -28,10 +28,10 @@ export default {
     }
 };
 
-const Template = (args) => <CTASection {...args} />;
+const Template = (args) => <CtaSection {...args} />;
 
 const args = {
-    type: 'cta_section',
+    type: 'CtaSection',
     variant: 'variant-a',
     colors: 'colors-b',
     width: 'wide',

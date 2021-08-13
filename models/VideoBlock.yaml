@@ -1,5 +1,5 @@
 type: object
-label: Video Feature
+label: Video block
 fields:
   - type: string
     name: videoUrl

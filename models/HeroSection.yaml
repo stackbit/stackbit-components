@@ -73,10 +73,10 @@ fields:
     label: Action buttons
     items:
       type: model
-      models: [action]
+      models: [Action]
   - type: model
     name: feature
     label: Feature
     models: 
-      - image_block
-      - video_block
+      - ImageBlock
+      - VideoBlock

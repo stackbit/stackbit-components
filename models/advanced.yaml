@@ -13,8 +13,8 @@ fields:
     items:
       type: model
       models:
-        - contact_section
-        - cta_section
-        - hero_section
-        - testimonials_section
-        - posts_section
+        - ContactSection
+        - CtaSection
+        - HeroSection
+        - TestimonialsSection
+        - PostsSection

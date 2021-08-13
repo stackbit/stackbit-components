@@ -1,9 +1,9 @@
-import Link from 'next/link';
+import NextLink from 'next/link';
 import classNames from 'classnames';
 import ArrowRight from '../../svgs/arrow-right';
 import Cart from '../../svgs/cart';
 
-export default function Button({ label, url, icon, altText, className }) {
+export default function Link({ label, url, icon, altText, className }) {
     const iconMap = {
         arrowRight: ArrowRight,
         cart: Cart
@@ -11,7 +11,7 @@ export default function Button({ label, url, icon, altText, className }) {
     const IconComponent = icon ? iconMap[icon] : null;
 
     return (
-        <Link href={url}>
+        <NextLink href={url}>
             <a
                 aria-label={altText}
                 title={altText}
@@ -20,6 +20,6 @@ export default function Button({ label, url, icon, altText, className }) {
                 {label}
                 {IconComponent && <IconComponent className="fill-current h-5 ml-2 w-5" />}
             </a>
-        </Link>
+        </NextLink>
     );
 }

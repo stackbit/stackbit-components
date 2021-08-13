@@ -1,13 +1,13 @@
 type: object
-label: CTA section
+label: Contact section
 fields:
   - type: enum
     name: variant
     label: Arrangement
     options:
-      - label: CTA with buttons at the bottom
+      - label: Contact form with image on the left
         value: variant-a
-      - label: CTA with buttons on the right
+      - label: Contact form with image on the right
         value: variant-b
     default: variant-a
   - type: enum
@@ -62,9 +62,28 @@ fields:
   - type: markdown
     name: text
     label: Text
+  - type: image
+    name: imageUrl
+    label: Image URL
+  - type: string
+    name: imageAltText
+    label: Image alt text
+  - type: string
+    name: imageCaption
+    label: Image caption
+    description: The caption of the image
+  - type: string
+    name: formId
+    label: Form ID
+  - type: string
+    name: formAction
+    label: Form action
   - type: list
-    name: actions
-    label: Action buttons
+    name: formFields
+    label: Form fields
     items:
       type: model
-      models: [action]
+      models: [FormField]
+  - type: string
+    name: submitLabel
+    label: Submit button label

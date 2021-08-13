@@ -9,7 +9,7 @@ export default {
 const Template = (args) => <VideoBlock {...args} />;
 
 const args = {
-    type: 'video_block',
+    type: 'VideoBlock',
     videoUrl: '/videos/stackbit-for-marketers.mp4',
     posterUrl: '/images/stackbit-for-marketers.jpg',
     controls: true

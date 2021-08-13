@@ -1,14 +1,14 @@
-import NavBar from './navbar';
-import Footer from './footer';
-import Badge from './badge';
-import Button from './button';
-import ContactSection from './contact-section';
-import CTASection from './cta-section';
-import HeroSection from './hero-section';
-import TestimonialsSection from './testimonials-section';
-import PostsSection from './posts-section';
-import VideoBlock from './video-block';
-import ImageBlock from './image-block';
+import NavBar from './NavBar';
+import Footer from './Footer';
+import Badge from './Badge';
+import Button from './Button';
+import ContactSection from './ContactSection';
+import CtaSection from './CtaSection';
+import HeroSection from './HeroSection';
+import TestimonialsSection from './TestimonialsSection';
+import PostsSection from './PostsSection';
+import VideoBlock from './VideoBlock';
+import ImageBlock from './ImageBlock';
 
 export {
     NavBar,
@@ -16,7 +16,7 @@ export {
     Badge,
     Button,
     ContactSection,
-    CTASection,
+    CtaSection,
     HeroSection,
     TestimonialsSection,
     PostsSection,

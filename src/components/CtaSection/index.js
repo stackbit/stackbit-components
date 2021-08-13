@@ -1,12 +1,12 @@
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import Badge from '../badge';
-import Button from '../button';
-import Link from '../link';
+import Badge from '../Badge';
+import Button from '../Button';
+import Link from '../Link';
 import React from 'react';
-import InlineMarkdown from '../inline-markdown';
+import InlineMarkdown from '../InlineMarkdown';
 
-export default function CTASection(props) {
+export default function CtaSection(props) {
     const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';

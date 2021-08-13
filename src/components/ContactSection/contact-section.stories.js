@@ -31,7 +31,7 @@ export default {
 const Template = (args) => <ContactSection {...args} />;
 
 const args = {
-    type: 'contact_section',
+    type: 'ContactSection',
     variant: 'variant-b',
     colors: 'colors-e',
     width: 'wide',

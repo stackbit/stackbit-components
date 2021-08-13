@@ -1,8 +1,8 @@
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Link from 'next/link';
-import Badge from '../badge';
-import InlineMarkdown from '../inline-markdown';
+import Badge from '../Badge';
+import InlineMarkdown from '../InlineMarkdown';
 
 export default function PostsSection(props) {
     const colors = props.colors || 'colors-a';

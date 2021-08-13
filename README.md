@@ -24,7 +24,7 @@ Check out the components at [https://components.stackbit.com/](https://component
 1. Import and use components in your code. You can import specific component:
 
    ```js
-   import Button from '@stackbit/components/components/button'
+   import Button from '@stackbit/components/components/Button'
    ```
    
    Or a full page layout with components in it:

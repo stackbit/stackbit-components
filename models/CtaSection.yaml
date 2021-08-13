@@ -1,6 +1,15 @@
 type: object
-label: Testimonials section
+label: CTA section
 fields:
+  - type: enum
+    name: variant
+    label: Arrangement
+    options:
+      - label: CTA with buttons at the bottom
+        value: variant-a
+      - label: CTA with buttons on the right
+        value: variant-b
+    default: variant-a
   - type: enum
     name: colors
     label: Colors
@@ -37,17 +46,25 @@ fields:
         value: viewport
     default: auto
   - type: enum
-    name: testimonialVariant
-    label: Testimonial arrangement
+    name: alignHoriz
+    label: Horizontal alignment
     options:
-      - label: Testimonial with company logo and author image at the bottom
-        value: variant-a
-      - label: Testimonial with author image on the left
-        value: variant-b
-    default: variant-a
+      - left
+      - right
+      - center
+    default: left
+  - type: string
+    name: badge
+    label: Badge
+  - type: string
+    name: title
+    label: Title
+  - type: markdown
+    name: text
+    label: Text
   - type: list
-    name: testimonials
-    label: Testimonials
+    name: actions
+    label: Action buttons
     items:
       type: model
-      models: [testimonial]
+      models: [Action]

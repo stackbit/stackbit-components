@@ -27,7 +27,7 @@ export default {
 const Template = (args) => <TestimonialsSection {...args} />;
 
 const args = {
-    type: 'testimonials_section',
+    type: 'TestimonialsSection',
     colors: 'colors-e',
     width: 'wide',
     height: 'auto',

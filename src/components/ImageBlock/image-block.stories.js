@@ -9,7 +9,7 @@ export default {
 const Template = (args) => <ImageBlock {...args} />;
 
 const args = {
-    type: 'image_block',
+    type: 'ImageBlock',
     imageUrl: '/images/fisherman.jpg',
     imageAltText: 'Image alt text',
     imageCaption: 'Image caption'

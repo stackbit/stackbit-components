@@ -1,8 +1,9 @@
 import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import ImageBlock from '../image-block';
-import InlineMarkdown from '../inline-markdown';
+import Badge from '../Badge';
+import ImageBlock from '../ImageBlock';
+import InlineMarkdown from '../InlineMarkdown';
 
 export default function ContactSection(props) {
     const colors = props.colors || 'colors-a';

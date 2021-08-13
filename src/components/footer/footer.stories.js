@@ -102,7 +102,7 @@ FooterNoContacts.args = {
     colors: 'colors-b',
     width: 'full',
     logoUrl: '/images/logo-alt.svg',
-    contacts: undefined
+    contacts: null
 };
 
 export const FooterNoLegal = Template.bind({});
@@ -110,5 +110,5 @@ FooterNoLegal.storyName = 'Footer Without Legal Links';
 FooterNoLegal.args = {
     ...args,
     colors: 'colors-e',
-    legalLinks: undefined
+    legalLinks: null
 };

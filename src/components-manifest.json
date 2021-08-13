@@ -1,80 +1,80 @@
 {
-    "badge": {
-        "path": "components/badge",
+    "Badge": {
+        "path": "components/Badge",
         "className": "Badge",
         "modelName": "badge",
         "isDynamic": false
     },
-    "button": {
-        "path": "components/button",
+    "Button": {
+        "path": "components/Button",
         "className": "Button",
         "modelName": "button",
         "isDynamic": false
     },
-    "contact-section": {
-        "path": "components/contact-section",
+    "ContactSection": {
+        "path": "components/ContactSection",
         "className": "ContactSection",
-        "modelName": "contact_section",
+        "modelName": "ContactSection",
         "isDynamic": true
     },
-    "cta-section": {
-        "path": "components/cta-section",
-        "className": "CTASection",
-        "modelName": "cta_section",
+    "CtaSection": {
+        "path": "components/CtaSection",
+        "className": "CtaSection",
+        "modelName": "CtaSection",
         "isDynamic": true
     },
-    "footer": {
-        "path": "components/footer",
+    "Footer": {
+        "path": "components/Footer",
         "className": "Footer",
-        "modelName": "footer",
+        "modelName": "Footer",
         "isDynamic": false
     },
-    "hero-section": {
-        "path": "components/hero-section",
+    "HeroSection": {
+        "path": "components/HeroSection",
         "className": "HeroSection",
-        "modelName": "hero_section",
+        "modelName": "HeroSection",
         "isDynamic": true
     },
-    "image-block": {
-        "path": "components/image-block",
+    "ImageBlock": {
+        "path": "components/ImageBlock",
         "className": "ImageBlock",
-        "modelName": "image_block",
+        "modelName": "ImageBlock",
         "isDynamic": true
     },
-    "inline-markdown": {
-        "path": "components/inline-markdown",
+    "InlineMarkdown": {
+        "path": "components/InlineMarkdown",
         "className": "InlineMarkdown",
-        "modelName": "inline_markdown",
+        "modelName": "InlineMarkdown",
         "isDynamic": false
     },
-    "link": {
-        "path": "components/link",
+    "Link": {
+        "path": "components/Link",
         "className": "Link",
-        "modelName": "link",
+        "modelName": "Link",
         "isDynamic": false
     },
-    "navbar": {
-        "path": "components/navbar",
+    "NavBar": {
+        "path": "components/NavBar",
         "className": "NavBar",
-        "modelName": "navbar",
+        "modelName": "NavBar",
         "isDynamic": false
     },
-    "posts-section": {
-        "path": "components/posts-section",
+    "PostsSection": {
+        "path": "components/PostsSection",
         "className": "PostsSection",
-        "modelName": "posts_section",
+        "modelName": "PostsSection",
         "isDynamic": true
     },
-    "testimonials-section": {
-        "path": "components/testimonials-section",
+    "TestimonialsSection": {
+        "path": "components/TestimonialsSection",
         "className": "TestimonialsSection",
-        "modelName": "testimonials_section",
+        "modelName": "TestimonialsSection",
         "isDynamic": true
     },
-    "video-block": {
-        "path": "components/video-block",
+    "VideoBlock": {
+        "path": "components/VideoBlock",
         "className": "VideoBlock",
-        "modelName": "video_block",
+        "modelName": "VideoBlock",
         "isDynamic": true
     },
     "advanced": {

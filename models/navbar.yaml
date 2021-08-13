@@ -81,10 +81,10 @@ fields:
     label: Primary navigation links
     items:
       type: model
-      models: [action]
+      models: [Action]
   - type: list
     name: secondaryLinks
     label: Secondary links
     items:
       type: model
-      models: [action]
+      models: [Action]

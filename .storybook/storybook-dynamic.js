@@ -4,13 +4,13 @@
 import { components, layouts } from '../src';
 
 const dynamicComponents = {
-    contact_section: components.ContactSection,
-    cta_section: components.CTASection,
-    hero_section: components.HeroSection,
-    image_block: components.ImageBlock,
-    posts_section: components.PostsSection,
-    testimonials_section: components.TestimonialsSection,
-    video_block: components.VideoBlock,
+    ContactSection: components.ContactSection,
+    CtaSection: components.CtaSection,
+    HeroSection: components.HeroSection,
+    ImageBlock: components.ImageBlock,
+    PostsSection: components.PostsSection,
+    TestimonialsSection: components.TestimonialsSection,
+    VideoBlock: components.VideoBlock,
     advanced: layouts.Advanced
 };
 

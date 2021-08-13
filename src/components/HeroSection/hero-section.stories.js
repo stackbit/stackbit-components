@@ -31,7 +31,7 @@ export default {
 const Template = (args) => <HeroSection {...args} />;
 
 const args = {
-    type: 'hero_section',
+    type: 'HeroSection',
     variant: 'variant-a',
     colors: 'colors-d',
     width: 'wide',
@@ -54,7 +54,7 @@ const args = {
         }
     ],
     feature: {
-        type: 'image_block',
+        type: 'ImageBlock',
         imageUrl: '/images/hero.png',
         imageAltText: 'Image alt text',
         imageCaption: 'Image caption'
@@ -81,7 +81,7 @@ HeroLeftVideo.args = {
         }
     ],
     feature: {
-        type: 'video_block',
+        type: 'VideoBlock',
         videoUrl: '/videos/stackbit-for-marketers.mp4',
         posterUrl: '/images/stackbit-for-marketers.jpg',
         autoplay: true,
@@ -109,7 +109,7 @@ HeroBottomImage.args = {
         }
     ],
     feature: {
-        type: 'image_block',
+        type: 'ImageBlock',
         imageUrl: '/images/hero-alt.png',
         imageAltText: 'Image alt text',
         imageCaption: 'Image caption'

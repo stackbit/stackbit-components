@@ -45,7 +45,7 @@ fields:
   - type: model
     name: contact
     label: Contact
-    models: [contact_block]
+    models: [ContactBlock]
   - type: markdown
     name: copyrightText
     label: Copyright text
@@ -54,16 +54,16 @@ fields:
     label: Primary navigation links
     items:
       type: model
-      models: [action]
+      models: [Action]
   - type: list
     name: socialLinks
     label: Social links
     items:
       type: model
-      models: [action]
+      models: [Action]
   - type: list
     name: legalLinks
     label: Legal navigation links
     items:
       type: model
-      models: [action]
+      models: [Action]

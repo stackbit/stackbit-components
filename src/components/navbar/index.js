@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import classNames from 'classnames';
-import Button from '../button';
+import Button from '../Button';
 import CloseIcon from '../../svgs/close';
 import HamburgerIcon from '../../svgs/hamburger';
 

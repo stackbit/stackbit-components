@@ -1,5 +1,5 @@
 type: object
-label: Image Block
+label: Image block
 fields:
   - type: image
     name: imageUrl

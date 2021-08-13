@@ -1,16 +1,10 @@
+import { getDynamicComponent } from '../../components-registry';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import Badge from '../badge';
-import Button from '../button';
-import ImageBlock from '../image-block';
-import Link from '../link';
-import VideoBlock from '../video-block';
-import InlineMarkdown from '../inline-markdown';
-
-const features = {
-    image_block: ImageBlock,
-    video_block: VideoBlock
-};
+import Badge from '../Badge';
+import Button from '../Button';
+import Link from '../Link';
+import InlineMarkdown from '../InlineMarkdown';
 
 export default function HeroSection(props) {
     const colors = props.colors || 'colors-a';
@@ -128,11 +122,11 @@ function HeroFeatureBottom(props) {
 }
 
 function HeroFeature(feature) {
-    const featureType = feature.type;
+    const featureType = feature?.type;
     if (!featureType) {
         throw new Error(`hero section feature does not have the 'type' property, page: ${pageUrl}`);
     }
-    const Feature = features[featureType];
+    const Feature = getDynamicComponent(featureType);
     if (!Feature) {
         throw new Error(`no component matching the hero section feature type: ${featureType}`);
     }

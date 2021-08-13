@@ -31,7 +31,7 @@ export default {
 const Template = (args) => <PostsSection {...args} />;
 
 const args = {
-    type: 'posts_section',
+    type: 'PostsSection',
     colors: 'colors-d',
     width: 'wide',
     height: 'auto',

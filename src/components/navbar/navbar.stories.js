@@ -44,35 +44,35 @@ const args = {
         {
             label: 'About us',
             url: '/about',
-            alt: 'About us'
+            altText: 'About us'
         },
         {
             label: 'Product',
             url: '/',
-            alt: 'Product'
+            altText: 'Product'
         },
         {
             label: 'Features',
             url: '/',
-            alt: 'Features'
+            altText: 'Features'
         },
         {
             label: 'Pricing',
             url: '/',
-            alt: 'Pricing'
+            altText: 'Pricing'
         }
     ],
     secondaryLinks: [
         {
             label: 'Sign in',
             url: '/',
-            alt: 'Sign in',
+            altText: 'Sign in',
             type: 'link'
         },
         {
             label: 'Sign up',
             url: '/',
-            alt: 'Sign up',
+            altText: 'Sign up',
             type: 'secondary-button'
         }
     ]

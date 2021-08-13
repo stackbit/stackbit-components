@@ -28,17 +28,19 @@ export default function Footer(props) {
             })}
         >
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-                {((props.title && props.isTitleVisible) || props.logoUrl) && (
+                {((props.title && props.isTitleVisible) || props.logoUrl || props.text) && (
                     <div className="sm:col-span-2">
-                        <Link href="/">
-                            <a aria-label="Go home" title={props.title} className="">
-                                {props.logoUrl && <img src={props.logoUrl} alt={props.logoAltText} className="mb-2" />}
-                                {props.isTitleVisible && <div className="mb-2 text-2xl tracking-wide">{props.title}</div>}
-                            </a>
-                        </Link>
-                        {props.info && (
-                            <div className="mt-6 lg:max-w-sm">
-                                <Markdown>{props.info}</Markdown>
+                        {((props.title && props.isTitleVisible) || props.logoUrl) && (
+                            <Link href="/">
+                                <a aria-label="Go home" title={props.title} className="inline-block mb-6">
+                                    {props.logoUrl && <img src={props.logoUrl} alt={props.logoAltText} className="mb-2" />}
+                                    {props.isTitleVisible && <div className="mb-2 text-2xl tracking-wide">{props.title}</div>}
+                                </a>
+                            </Link>
+                        )}
+                        {props.text && (
+                            <div className="lg:max-w-sm">
+                                <Markdown>{props.text}</Markdown>
                             </div>
                         )}
                     </div>
@@ -48,7 +50,7 @@ export default function Footer(props) {
                         <ul className="space-y-6">
                             {props.primaryLinks.map((link, idx) => (
                                 <li key={idx}>
-                                    <a key={idx} href={link.url} className="hover:underline">
+                                    <a key={idx} href={link.url}>
                                         {link.label}
                                     </a>
                                 </li>
@@ -94,7 +96,7 @@ export default function Footer(props) {
                     <ul className="flex flex-col mb-6 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row">
                         {props.legalLinks.map((link, idx) => (
                             <li key={idx}>
-                                <a href={link.url} className="text-sm hover:underline">
+                                <a href={link.url} className="text-sm">
                                     {link.label}
                                 </a>
                             </li>
@@ -111,14 +113,22 @@ function Contacts(props) {
         <div className="space-y-4">
             {props.phoneNumber && (
                 <p>
-                    <a href={`tel:${props.phoneNumber}`} aria-label={props.phoneAlt} title={props.phoneAlt} className="hover:underline">
+                    <a
+                        href={`tel:${props.phoneNumber}`}
+                        aria-label={props.phoneAltText}
+                        title={props.phoneAltText}
+                    >
                         {props.phoneNumber}
                     </a>
                 </p>
             )}
             {props.email && (
                 <p>
-                    <a href={`mailto:${props.email}`} aria-label={props.emailAlt} title={props.emailAlt} className="hover:underline">
+                    <a
+                        href={`mailto:${props.email}`}
+                        aria-label={props.emailAltText}
+                        title={props.emailAltText}
+                    >
                         {props.email}
                     </a>
                 </p>
@@ -127,11 +137,10 @@ function Contacts(props) {
                 <p>
                     <a
                         href={`https://www.google.com/maps/search/${props.address}`}
+                        aria-label={props.addressAltText}
+                        title={props.addressAltText}
                         target="_blank"
                         rel="noopener noreferrer"
-                        aria-label={props.addressAlt}
-                        title={props.addressAlt}
-                        className="hover:underline"
                     >
                         {props.address}
                     </a>

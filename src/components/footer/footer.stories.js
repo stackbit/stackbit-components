@@ -25,37 +25,37 @@ const args = {
     isTitleVisible: true,
     logoUrl: '/images/logo.svg',
     logoAltText: 'Logo',
-    info:
+    text:
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
     contacts: {
-        phoneAlt: 'Our phone',
         phoneNumber: '850-123-5021',
-        emailAlt: 'Our email',
+        phoneAltText: 'Our phone',
         email: 'info@lorem.mail',
-        addressAlt: 'Our address',
-        address: '312 Lovely Street, NY'
+        emailAltText: 'Our email',
+        address: '312 Lovely Street, NY',
+        addressAltText: 'Our address'
     },
     copyrightText: '💖 powered by Stackbit',
     primaryLinks: [
         {
             label: 'About us',
             url: '/about',
-            alt: 'About us'
+            altText: 'About us'
         },
         {
             label: 'Product',
             url: '/',
-            alt: 'Product'
+            altText: 'Product'
         },
         {
             label: 'Features',
             url: '/',
-            alt: 'Features'
+            altText: 'Features'
         },
         {
             label: 'Pricing',
             url: '/',
-            alt: 'Pricing'
+            altText: 'Pricing'
         }
     ],
     socialLinks: [

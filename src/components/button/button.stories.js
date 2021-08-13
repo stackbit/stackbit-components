@@ -11,7 +11,7 @@ const Template = (args) => <Button {...args} />;
 const args = {
     label: 'Stackbit',
     url: 'https://www.stackbit.com',
-    alt: 'Stackbit',
+    altText: 'Stackbit',
     type: 'primary-button'
 };
 

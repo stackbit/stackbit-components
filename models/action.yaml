@@ -9,7 +9,7 @@ fields:
     label: URL
     default: '#'
   - type: string
-    name: alt
+    name: altText
     label: Title
   - type: enum
     name: type

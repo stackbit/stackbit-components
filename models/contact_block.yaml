@@ -1,0 +1,21 @@
+type: object
+label: Contact
+fields:
+  - type: string
+    name: phoneNumber
+    label: Phone number
+  - type: string
+    name: phoneAltText
+    label: Phone alt text
+  - type: string
+    name: email
+    label: Email address
+  - type: string
+    name: emailAltText
+    label: Email address alt text
+  - type: string
+    name: address
+    label: Address
+  - type: string
+    name: addressAltText
+    label: Address alt text

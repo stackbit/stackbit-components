@@ -59,6 +59,7 @@ function CtaButtonsBottom(props) {
                         'justify-center': alignHoriz === 'center',
                         'justify-end': alignHoriz === 'right'
                     })}
+                    data-sb-field-path=".actions"
                 >
                     {CtaActions(props)}
                 </div>
@@ -88,6 +89,7 @@ function CtaButtonsRight(props) {
                         'items-center': alignHoriz === 'center',
                         'items-end lg:items-center': alignHoriz === 'right'
                     })}
+                    data-sb-field-path=".actions"
                 >
                     {CtaActions(props)}
                 </div>
@@ -101,11 +103,11 @@ function CtaContent(props) {
         <>
             {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
             {props.title && (
-                <h2 className="text-3xl tracking-tight sm:text-4xl mb-6">
+                <h2 className="text-3xl tracking-tight sm:text-4xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.text && <Markdown className="md:text-lg">{props.text}</Markdown>}
+            {props.text && <Markdown className="md:text-lg" data-sb-field-path=".text">{props.text}</Markdown>}
         </>
     );
 }
@@ -118,9 +120,15 @@ function CtaActions(props) {
                     key={idx}
                     {...action}
                     className="mb-3 mx-2 lg:whitespace-nowrap"
+                    annotationPrefix={`.${idx}`}
                 />
             ) : (
-                <Link key={idx} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" />
+                <Link
+                    key={idx}
+                    {...action}
+                    className="mb-3 mx-2 lg:whitespace-nowrap"
+                    annotationPrefix={`.${idx}`}
+                />
             )
         )
     );

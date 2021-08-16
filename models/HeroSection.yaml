@@ -77,6 +77,6 @@ fields:
   - type: model
     name: feature
     label: Feature
-    models: 
+    models:
       - ImageBlock
       - VideoBlock

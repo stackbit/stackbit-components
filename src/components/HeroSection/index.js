@@ -62,7 +62,7 @@ function HeroFeatureRight(props) {
                 {HeroActions(props)}
             </div>
             {props.feature && (
-                <div>
+                <div data-sb-field-path=".feature">
                     {HeroFeature(props.feature)}
                 </div>
             )}
@@ -78,7 +78,7 @@ function HeroFeatureLeft(props) {
             })}
         >
             {props.feature && (
-                <div>
+                <div data-sb-field-path=".feature">
                     {HeroFeature(props.feature)}
                 </div>
             )}
@@ -94,7 +94,7 @@ function HeroFeatureTop(props) {
     return (
         <>
             {props.feature && (
-                <div className="mb-8 lg:mb-12">
+                <div className="mb-8 lg:mb-12" data-sb-field-path=".feature">
                     {HeroFeature(props.feature)}
                 </div>
             )}
@@ -114,7 +114,7 @@ function HeroFeatureBottom(props) {
                 {HeroActions(props)}
             </div>
             {props.feature && (
-                <div className="mt-8 lg:mt-12">
+                <div className="mt-8 lg:mt-12" data-sb-field-path=".feature">
                     {HeroFeature(props.feature)}
                 </div>
             )}
@@ -139,11 +139,11 @@ function HeroContent(props) {
         <>
             {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
             {props.title && (
-                <h2 className="text-4xl tracking-tight sm:text-5xl mb-6">
+                <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.text && <Markdown className="md:text-lg">{props.text}</Markdown>}
+            {props.text && <Markdown className="md:text-lg" data-sb-field-path=".text">{props.text}</Markdown>}
         </>
     );
 }
@@ -161,6 +161,7 @@ function HeroActions(props) {
                 'justify-center': alignHoriz === 'center',
                 'justify-end': alignHoriz === 'right'
             })}
+            data-sb-field-path=".actions"
         >
             {props.actions.map((action, idx) =>
                 (action.type === 'primary-button' || action.type === 'secondary-button') ? (
@@ -168,9 +169,15 @@ function HeroActions(props) {
                         key={idx}
                         {...action}
                         className="mb-3 mx-2 lg:whitespace-nowrap"
+                        annotationPrefix={`.${idx}`}
                     />
                 ) : (
-                    <Link key={idx} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" />
+                    <Link
+                        key={idx}
+                        {...action}
+                        className="mb-3 mx-2 lg:whitespace-nowrap"
+                        annotationPrefix={`.${idx}`}
+                    />
                 )
             )}
         </div>

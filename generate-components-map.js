@@ -1,7 +1,4 @@
 #!/usr/bin/env node
-
-const path = require('path');
-const fse = require('fs-extra');
 const componentsManifest = require('./src/components-manifest.json');
 
 function generateDistComponentMap() {
@@ -20,12 +17,11 @@ function generateDistComponentMap() {
     componentsMap.dynamic = Object.entries(componentsManifest)
         .filter(([_, component]) => component.isDynamic)
         .reduce((map, [_, component]) => {
-            map[component.modelName] = '@stackbit/components/' + component.path;
+            map[component.className] = '@stackbit/components/' + component.path;
             return map;
         }, {});
 
-    fse.writeJsonSync(path.join(__dirname, 'src/components-map.json'), componentsMap, { spaces: 4 });
-    console.log('generated src/components-map.json');
+    return componentsMap;
 }
 
 module.exports = generateDistComponentMap;

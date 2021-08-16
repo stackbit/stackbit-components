@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
-const fs = require('fs');
+const path = require('path');
+const fse = require('fs-extra');
 const childProcess = require('child_process');
 const args = process.argv.slice(2);
 const generateDistComponentMap = require('./generate-components-map');
@@ -9,10 +10,10 @@ console.log('Building components library');
 
 if (args.includes('--clean')) {
     console.log('removing dist folder...');
-    fs.rmdirSync('dist', { recursive: true });
+    fse.rmdirSync('dist', { recursive: true });
 }
 
-generateDistComponentMap();
+
 
 console.log('runing babel...');
 const babelResult = childProcess.spawnSync('babel', '--config-file ./babel.dist.config.json --out-dir dist src'.split(' '));
@@ -31,7 +32,11 @@ delete packageJSON['private'];
 devDependenciesToRemove.forEach((dependency) => {
     delete packageJSON.devDependencies[dependency];
 });
-fs.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf8');
+fse.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf8');
+
+console.log('generating components-map.json ...');
+const componentsMap = generateDistComponentMap();
+fse.writeJsonSync(path.join(__dirname, 'dist/components-map.json'), componentsMap, { spaces: 4 });
 
 console.log('copying files and folders...');
 const folders = ['src', 'models', 'themes'];
@@ -42,7 +47,6 @@ const files = [
     'src/dynamic-components.js',
     'src/with-stackbit-components.js',
     'src/components-manifest.json',
-    'src/components-map.json',
     'README.md'
 ];
 files.forEach((file) => {

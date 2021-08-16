@@ -3,6 +3,7 @@ const path = require('path');
 
 const componentsManifest = require('./components-manifest.json');
 const defaultComponentMap = require('./components-map.json');
+const STACKBIT_FOLDER_DEFAULT_PATH = '.stackbit/';
 const COMPONENTS_MAP_DEFAULT_USER_PATH = '.stackbit/components-map.json';
 const DYNAMIC_COMPONENTS_DEFAULT_USER_PATH = '.stackbit/dynamic-components.js';
 
@@ -14,6 +15,7 @@ module.exports = function withStackbitComponents(nextConfig) {
 };
 
 function copyComponentsJson(nextConfig) {
+    fse.ensureDir(STACKBIT_FOLDER_DEFAULT_PATH);
     const targetRelFilePath = nextConfig?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH;
     const targetFilePath = path.resolve(targetRelFilePath);
     const targetExists = fse.pathExistsSync(targetFilePath);

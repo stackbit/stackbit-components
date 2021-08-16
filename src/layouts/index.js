@@ -1,7 +1,5 @@
-import Advanced from './advanced';
-import BaseLayout from './base-layout';
+import AdvancedLayout from './AdvancedLayout/AdvancedLayout';
 
 export {
-    Advanced,
-    BaseLayout
+  AdvancedLayout
 };

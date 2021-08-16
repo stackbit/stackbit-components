@@ -17,6 +17,10 @@ export default {
             options: ['auto', 'viewport'],
             control: { type: 'select' }
         },
+        alignHoriz: {
+            options: ['left', 'right', 'center'],
+            control: { type: 'select' }
+        },
         testimonialVariant: {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
@@ -55,5 +59,8 @@ VariantB.args = {
     ...args,
     colors: 'colors-a',
     width: 'narrow',
+    alignHoriz: 'center',
+    title: 'Testimonials',
+    subtitle: 'What our users say',
     testimonialVariant: 'variant-b',
 };

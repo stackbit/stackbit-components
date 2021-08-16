@@ -21,6 +21,7 @@ export default function HeroSection(props) {
                 'text-center': alignHoriz === 'center',
                 'text-right': alignHoriz === 'right'
             })}
+            data-sb-field-path={props.annotationPrefix}
         >
             <div
                 className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {

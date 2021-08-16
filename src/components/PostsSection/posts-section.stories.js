@@ -35,9 +35,6 @@ const args = {
     colors: 'colors-d',
     width: 'wide',
     height: 'auto',
-    alignHoriz: 'center',
-    badge: '',
-    subtitle: '',
     postVariant: 'variant-a',
     posts: [
         {

@@ -10,19 +10,23 @@ export default function Advanced(props) {
     const pageTitle = page?.title;
 
     return (
-        <BaseLayout page={page} siteConfig={siteConfig}>
-            {pageTitle && <h1 className="sr-only">{pageTitle}</h1>}
-            {sections.map((section, index) => {
-                const sectionType = section?.type;
-                if (!sectionType) {
-                    throw new Error(`page section does not have the 'type' property, page: ${pageUrl}`);
-                }
-                const Component = getDynamicComponent(sectionType);
-                if (!Component) {
-                    throw new Error(`no component matching the page section's type: ${sectionType}`);
-                }
-                return <Component key={index} {...section} />;
-            })}
+        <BaseLayout page={page} siteConfig={siteConfig} >
+            {pageTitle && <h1 className="sr-only" data-sb-field-path="title">{pageTitle}</h1>}
+            {sections.length > 0 && (
+                <div data-sb-field-path="sections">
+                    {sections.map((section, index) => {
+                        const sectionType = section?.type;
+                        if (!sectionType) {
+                            throw new Error(`page section does not have the 'type' property, page: ${pageUrl}`);
+                        }
+                        const Component = getDynamicComponent(sectionType);
+                        if (!Component) {
+                            throw new Error(`no component matching the page section's type: ${sectionType}`);
+                        }
+                        return <Component key={index} {...section} annotationPrefix={`sections.${index}`} />;
+                    })}
+                </div>
+            )}
         </BaseLayout>
     );
 }

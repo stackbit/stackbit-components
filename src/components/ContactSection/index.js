@@ -18,6 +18,7 @@ export default function ContactSection(props) {
                 'max-w-screen-lg': width === 'narrow',
                 'min-h-screen flex flex-col': height === 'viewport',
             })}
+            data-sb-field-path={props.annotationPrefix}
         >
             <div
                 className={classNames('mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg', {

@@ -36,6 +36,14 @@ fields:
       - label: Viewport
         value: viewport
     default: auto
+  - type: enum
+    name: alignHoriz
+    label: Horizontal alignment
+    options:
+      - left
+      - right
+      - center
+    default: left
   - type: string
     name: badge
     label: Badge

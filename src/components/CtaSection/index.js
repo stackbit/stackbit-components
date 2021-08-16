@@ -18,6 +18,7 @@ export default function CtaSection(props) {
                 'max-w-screen-lg': width === 'narrow',
                 'min-h-screen flex flex-col justify-center': height === 'viewport'
             })}
+            data-sb-field-path={props.annotationPrefix}
         >
             <div
                 className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {

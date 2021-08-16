@@ -37,6 +37,23 @@ fields:
         value: viewport
     default: auto
   - type: enum
+    name: alignHoriz
+    label: Horizontal alignment
+    options:
+      - left
+      - right
+      - center
+    default: left
+  - type: string
+    name: badge
+    label: Badge
+  - type: string
+    name: title
+    label: Title
+  - type: string
+    name: subtitle
+    label: Subtitle
+  - type: enum
     name: testimonialVariant
     label: Testimonial arrangement
     options:

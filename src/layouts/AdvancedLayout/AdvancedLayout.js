@@ -2,19 +2,17 @@ import { getDynamicComponent } from '../../components-registry';
 import DefaultBase from '../../base/DefaultBase/DefaultBase'
 
 export default function AdvancedLayout(props) {
-    const { page, siteConfig } = props;
+  const { page, siteConfig } = props;
 
-    let BaseLayout = DefaultBase
-    if (page.baseLayout) {
-      BaseLayout =  getDynamicComponent(page.baseLayout);
-    } else if (siteConfig.baseLayout) {
-      BaseLayout =  getDynamicComponent(siteConfig.baseLayout);
-    }
-    if (!BaseLayout) {
-      throw new Error(`no BaseLayout: ${page.baseLayout} or ${siteConfig.baseLayout}`);
+  let BaseLayout = DefaultBase
+  if (page.baseLayout) {
+    BaseLayout =  getDynamicComponent(page.baseLayout);
+  } else if (siteConfig.baseLayout) {
+    BaseLayout =  getDynamicComponent(siteConfig.baseLayout);
   }
-    console.log("BaseLayout", BaseLayout)
-
+  if (!BaseLayout) {
+    throw new Error(`no BaseLayout: ${page.baseLayout} or ${siteConfig.baseLayout}`);
+  }
     return (
       <>
         <BaseLayout page={page} siteConfig={siteConfig}>

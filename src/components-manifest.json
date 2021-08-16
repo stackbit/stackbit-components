@@ -88,5 +88,11 @@
       "className": "NormalBase",
       "modelName": "normal",
       "isDynamic": true
-  }
+    },
+    "BlankBase": {
+      "path": "base/BlankBase/BlankBase",
+      "className": "BlankBase",
+      "modelName": "blank",
+      "isDynamic": true
+    }
 }

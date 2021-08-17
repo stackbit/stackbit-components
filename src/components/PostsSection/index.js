@@ -31,13 +31,13 @@ export default function PostsSection(props) {
                             'ml-auto text-right': alignHoriz === 'right'
                         })}
                     >
-                        {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
+                        {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
                         {props.title && (
-                            <h2 className="text-3xl tracking-tight sm:text-4xl">
+                            <h2 className="text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
                                 <InlineMarkdown>{props.title}</InlineMarkdown>
                             </h2>
                         )}
-                        {props.subtitle && <p className="md:text-lg">{props.subtitle}</p>}
+                        {props.subtitle && <p className="md:text-lg" data-sb-field-path=".subtitle">{props.subtitle}</p>}
                     </div>
                 )}
                 <PostVariants {...props} />
@@ -68,6 +68,7 @@ function PostsVariantA(props) {
             className={classNames('grid gap-6 md:grid-cols-3 lg:gap-8', {
                 'mt-10': props.badge || props.title || props.subtitle
             })}
+            data-sb-field-path=".posts"
         >
             {posts.map((post, idx) => (
                 <Link key={idx} href={post.url}>
@@ -100,6 +101,7 @@ function PostsVariantB(props) {
             className={classNames('grid gap-x-8 gap-y-10 lg:grid-cols-2', {
                 'mt-12': props.badge || props.title || props.subtitle
             })}
+            data-sb-field-path=".posts"
         >
             {posts.map((post, idx) => (
                 <article key={idx} className="sb-card sm:flex">

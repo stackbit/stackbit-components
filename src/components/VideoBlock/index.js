@@ -12,8 +12,9 @@ export default function VideoBlock(props) {
             playsInline
             poster={props.posterUrl}
             className={props.className}
+            data-sb-field-path=".posterUrl#@poster"
         >
-            <source src={videoUrl} type="video/mp4" />
+            <source src={videoUrl} type="video/mp4" data-sb-field-path=".videoUrl" />
         </video>
     );
 }

@@ -42,7 +42,7 @@ const args = {
             name: 'Isabelle Parks',
             title: 'Head chef at The Cook',
             imageUrl: '/images/isabelle-parks.jpg',
-            //imageAltText: 'Photo of Isabelle Parks',
+            imageAltText: 'Photo of Isabelle Parks',
             logoUrl: '/images/the-cook-logo.svg',
             logoAltText: 'The Cook logo'
         }
@@ -62,5 +62,5 @@ VariantB.args = {
     alignHoriz: 'center',
     title: 'Testimonials',
     subtitle: 'What our users say',
-    testimonialVariant: 'variant-b',
+    testimonialVariant: 'variant-b'
 };

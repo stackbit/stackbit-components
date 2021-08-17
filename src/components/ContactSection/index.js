@@ -106,13 +106,13 @@ function ContactContent(props) {
             'text-right': alignHoriz === 'right',
             'text-center': alignHoriz === 'center'
         })}>
-            {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
+            {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
-                <h2 className="text-4xl tracking-tight sm:text-5xl mb-6">
+                <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.text && <Markdown className="md:text-lg">{props.text}</Markdown>}
+            {props.text && <Markdown className="md:text-lg" data-sb-field-path=".text">{props.text}</Markdown>}
         </div>
     );
 }
@@ -128,16 +128,18 @@ function ContactForm(props) {
             id={props.formId}
             {...(props.formAction ? { action: props.formAction } : null)}
             method="POST"
+            data-sb-field-path=".formId#@name .formId#@id .formAction#@action"
         >
-            <div className="flex flex-wrap -mx-2">
+            <div className="flex flex-wrap -mx-2" data-sb-field-path=".formFields">
                 {formFields.map((field, idx) => (
-                    <React.Fragment key={idx}>{FormField(field)}</React.Fragment>
+                    <React.Fragment key={idx}>{FormField(field, idx)}</React.Fragment>
                 ))}
             </div>
             <div className="mt-4 sm:mt-8">
                 <button
                     type="submit"
                     className="sb-btn sb-btn-primary"
+                    data-sb-field-path=".submitLabel"
                 >
                     {props.submitLabel}
                 </button>
@@ -146,29 +148,41 @@ function ContactForm(props) {
     );
 }
 
-function FormField(field) {
+function FormField(field, idx) {
     const labelId = `${field.name}-label`;
     const width = field.width || 'full';
-    const attr = {};
-    if (field.label) {
-        attr['aria-labelledby'] = labelId;
-    }
-    if (field.isRequired) {
-        attr.required = true;
-    }
-    const classes = classNames('mb-8', 'px-2', 'w-full', {
+    const formControlClasses = classNames('sb-form-control', 'mb-8', 'px-2', 'w-full', {
         'sm:w-1/2': width === '1/2',
         'sm:w-1/3': width === '1/3',
         'sm:w-2/3': width === '2/3',
     });
+    const fieldAttr = {};
+    if (field.label) {
+        fieldAttr['aria-labelledby'] = labelId;
+    }
+    if (field.isRequired) {
+        fieldAttr.required = true;
+    }
 
     switch (field.inputType) {
         case 'checkbox':
             return (
-                <div className={classNames('sb-form-control flex items-center', classes)}>
-                    <input className="sb-checkbox" type="checkbox" id={field.name} name={field.name} {...attr} />
+                <div className={classNames(formControlClasses, 'flex', 'items-center')} data-sb-field-path={`.${idx} .${idx}.inputType`}>
+                    <input
+                        id={field.name}
+                        className="sb-checkbox"
+                        type="checkbox"
+                        name={field.name}
+                        {...fieldAttr}
+                        data-sb-field-path=".name#@id .name#@name .isRequired#@required"
+                    />
                     {field.label && (
-                        <label htmlFor={field.name} id={labelId} className="sb-label ml-2">
+                        <label
+                            id={labelId}
+                            className="sb-label ml-2"
+                            htmlFor={field.name}
+                            data-sb-field-path=".label .name#@for"
+                        >
                             {field.label}
                         </label>
                     )}
@@ -177,21 +191,27 @@ function FormField(field) {
         case 'select':
             const fieldOptions = field.options || [];
             return (
-                <div className={classNames('sb-form-control', classes)}>
+                <div className={formControlClasses} data-sb-field-path={`.${idx} .${idx}.inputType`}>
                     {field.label && (
-                        <label htmlFor={field.name} id={field.labelId} className="sb-label sr-only">
+                        <label
+                            id={labelId}
+                            className="sb-label sr-only"
+                            htmlFor={field.name}
+                            data-sb-field-path=".label .name#@for"
+                        >
                             {field.label}
                         </label>
                     )}
                     <select
                         id={field.name}
+                        className="sb-select"
                         name={field.name}
-                        {...attr}
-                        className={classNames('sb-select')}
+                        {...fieldAttr}
+                        data-sb-field-path=".name#@id .name#@name .isRequired#@required .options"
                     >
-                        {field.defaultValue && <option value="">{field.defaultValue}</option>}
+                        {field.defaultValue && <option value="" data-sb-field-path=".defaultValue">{field.defaultValue}</option>}
                         {fieldOptions.length > 0 && fieldOptions.map((option, idx) =>
-                            <option key={idx} value={option}>
+                            <option key={idx} value={option} data-sb-field-path={`.${idx}`}>
                                 {option}
                             </option>
                         )}
@@ -200,37 +220,49 @@ function FormField(field) {
             );
         case 'textarea':
             return (
-                <div className={classNames('sb-form-control', classes)}>
+                <div className={formControlClasses} data-sb-field-path={`.${idx} .${idx}.inputType`}>
                     {field.label && (
-                        <label htmlFor={field.name} id={field.labelId} className="sb-label sr-only">
+                        <label
+                            id={labelId}
+                            className="sb-label sr-only"
+                            htmlFor={field.name}
+                            data-sb-field-path=".label .name#@for"
+                        >
                             {field.label}
                         </label>
                     )}
                     <textarea
-                        name={field.name}
                         id={field.name}
+                        className="sb-textarea"
+                        name={field.name}
                         rows="5"
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
-                        {...attr}
-                        className="sb-textarea"
+                        {...fieldAttr}
+                        data-sb-field-path=".name#@id .name#@name .isRequired#@required .defaultValue#@placeholder"
                     />
                 </div>
             );
         default:
             return (
-                <div className={classNames('sb-form-control', classes)}>
+                <div className={formControlClasses} data-sb-field-path={`.${idx} .${idx}.inputType`}>
                     {field.label && (
-                        <label htmlFor={field.name} id={field.labelId} className="sb-label sr-only">
+                        <label
+                            id={labelId}
+                            className="sb-label sr-only"
+                            htmlFor={field.name}
+                            data-sb-field-path=".label .name#@for"
+                        >
                             {field.label}
                         </label>
                     )}
                     <input
+                        id={field.name}
+                        className="sb-input"
                         type={field.inputType}
                         name={field.name}
-                        id={field.name}
                         {...(field.defaultValue ? { placeholder: field.defaultValue } : null)}
-                        {...attr}
-                        className="sb-input"
+                        {...fieldAttr}
+                        data-sb-field-path=".name#@id .name#@name .isRequired#@required .defaultValue#@placeholder"
                     />
                 </div>
             );

@@ -11,7 +11,8 @@ const dynamicComponents = {
     PostsSection: components.PostsSection,
     TestimonialsSection: components.TestimonialsSection,
     VideoBlock: components.VideoBlock,
-    advanced: layouts.AdvancedLayout
+    advanced: layouts.AdvancedLayout,
+    post: layouts.PostLayout
 };
 
 export default dynamicComponents;

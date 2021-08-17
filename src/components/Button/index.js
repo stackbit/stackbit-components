@@ -12,8 +12,8 @@ export default function Button({ label, url, icon, altText, type, className, ann
     const annotations = [
         `${annotationPrefix}`,
         `${annotationPrefix}.url#@href`,
+        `${annotationPrefix}.altText#@title`,
         `${annotationPrefix}.label${IconComponent ? '#text()[1]' : ''}`,
-        altText ? `${annotationPrefix}.altText#@title` : '',
         IconComponent ? `${annotationPrefix}.icon#svg[1]` : ''
     ];
 
@@ -27,7 +27,7 @@ export default function Button({ label, url, icon, altText, type, className, ann
                     type === 'primary-button' ? 'sb-btn-primary' : 'sb-btn-secondary',
                     className
                 )}
-                data-sb-field-path={annotations.join(' ')}
+                data-sb-field-path={annotations.join(' ').trim()}
             >
                 {label}
                 {IconComponent && <IconComponent className="fill-current h-5 ml-2 w-5" />}

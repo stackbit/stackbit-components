@@ -1,8 +1,6 @@
-import classNames from 'classnames';
-
-export default function Badge({ label, className }) {
+export default function Badge({ label, ...other }) {
     if (!label) {
         return null;
     }
-    return <p className={classNames('sb-badge', className)} data-sb-field-path=".badge">{label}</p>;
+    return <div {...other}>{label}</div>;
 }

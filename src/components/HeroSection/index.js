@@ -123,7 +123,7 @@ function HeroFeatureBottom(props) {
 }
 
 function HeroFeature(feature) {
-    const featureType = feature?.type;
+    const featureType = feature.type;
     if (!featureType) {
         throw new Error(`hero section feature does not have the 'type' property`);
     }
@@ -137,7 +137,7 @@ function HeroFeature(feature) {
 function HeroContent(props) {
     return (
         <>
-            {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
+            {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>

@@ -1,4 +1,4 @@
-import AdvancedLayout from './AdvancedLayout/AdvancedLayout';
+import AdvancedLayout from './AdvancedLayout';
 
 export {
   AdvancedLayout

@@ -1,5 +1,5 @@
 import React from 'react';
-import Advanced from './index';
+import AdvancedLayout from './index';
 
 import * as CtaSectionStories from '../../components/CtaSection/cta-section.stories';
 import * as NavBarStories from '../../components/NavBar/navbar.stories';
@@ -11,10 +11,10 @@ import * as TestimonialsSectionStories from '../../components/TestimonialsSectio
 
 export default {
     title: 'Layouts/Advanced Page',
-    component: Advanced
+    component: AdvancedLayout
 };
 
-const Template = (args) => <Advanced {...args} />;
+const Template = (args) => <AdvancedLayout {...args} />;
 
 export const Primary = Template.bind({});
 Primary.storyName = 'Advanced Page';

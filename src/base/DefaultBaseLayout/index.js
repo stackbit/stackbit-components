@@ -1,6 +1,9 @@
 import Head from 'next/head';
 
-export default function BlankBase(props) {
+import NavBar from '../../components/NavBar';
+import Footer from '../../components/Footer';
+
+export default function DefaultBaseLayout(props) {
     return (
         <div>
             <Head>
@@ -9,8 +12,9 @@ export default function BlankBase(props) {
                 <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
             </Head>
-            <h2>Blank Base</h2>
+            <NavBar {...props.siteConfig} />
             {props.children}
+            <Footer {...props.siteConfig} />
         </div>
     );
 }

@@ -78,21 +78,9 @@
         "isDynamic": true
     },
     "AdvancedLayout": {
-        "path": "layouts/AdvancedLayout/AdvancedLayout",
+        "path": "layouts/AdvancedLayout",
         "className": "AdvancedLayout",
         "modelName": "advanced",
         "isDynamic": true
-    },
-    "NormalBase": {
-      "path": "base/NormalBase/NormalBase",
-      "className": "NormalBase",
-      "modelName": "normal",
-      "isDynamic": true
-    },
-    "BlankBase": {
-      "path": "base/BlankBase/BlankBase",
-      "className": "BlankBase",
-      "modelName": "blank",
-      "isDynamic": true
     }
 }

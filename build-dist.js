@@ -13,8 +13,6 @@ if (args.includes('--clean')) {
     fse.rmdirSync('dist', { recursive: true });
 }
 
-
-
 console.log('runing babel...');
 const babelResult = childProcess.spawnSync('babel', '--config-file ./babel.dist.config.json --out-dir dist src'.split(' '));
 

@@ -125,7 +125,7 @@ function HeroFeatureBottom(props) {
 function HeroFeature(feature) {
     const featureType = feature?.type;
     if (!featureType) {
-        throw new Error(`hero section feature does not have the 'type' property, page: ${pageUrl}`);
+        throw new Error(`hero section feature does not have the 'type' property`);
     }
     const Feature = getDynamicComponent(featureType);
     if (!Feature) {

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-./generate-storybook-dynamic.js
+./scripts/generate-storybook-dynamic.js
 
 themes=(
   "bold"

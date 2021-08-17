@@ -25,7 +25,7 @@ if (babelResult.status === 0) {
 
 console.log('copy package.json and remove peerDependencies marked as devDependencies...');
 const devDependenciesToRemove = ['react', 'react-dom'];
-const packageJSON = require('./package.json');
+const packageJSON = require('../package.json');
 delete packageJSON['private'];
 devDependenciesToRemove.forEach((dependency) => {
     delete packageJSON.devDependencies[dependency];
@@ -34,7 +34,7 @@ fse.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'ut
 
 console.log('generating components-map.json ...');
 const componentsMap = generateDistComponentMap();
-fse.writeJsonSync(path.join(__dirname, 'dist/components-map.json'), componentsMap, { spaces: 4 });
+fse.writeJsonSync(path.join(process.cwd(), 'dist/components-map.json'), componentsMap, { spaces: 4 });
 
 console.log('copying files and folders...');
 const folders = ['src', 'models', 'themes'];

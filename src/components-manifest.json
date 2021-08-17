@@ -82,5 +82,11 @@
         "className": "AdvancedLayout",
         "modelName": "advanced",
         "isDynamic": true
-    }
+    },
+    "PostLayout": {
+      "path": "layouts/PostLayout",
+      "className": "PostLayout",
+      "modelName": "post",
+      "isDynamic": true
+  }
 }

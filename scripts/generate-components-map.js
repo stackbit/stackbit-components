@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const componentsManifest = require('./src/components-manifest.json');
+const componentsManifest = require('../src/components-manifest.json');
 
 function generateDistComponentMap() {
     console.log('generating src/components-map.json ...');

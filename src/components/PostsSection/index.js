@@ -59,6 +59,7 @@ function PostVariants({ postVariant, ...props }) {
 
 function PostsVariantA(props) {
     const posts = props.posts || [];
+    console.log(posts);
     if (posts.length === 0) {
         return null;
     }

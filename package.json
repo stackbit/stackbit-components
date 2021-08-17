@@ -7,30 +7,17 @@
     "components"
   ],
   "main": "index.js",
-  "watch": {
-    "build-dist": {
-      "patterns": [
-        "src/base/*.js",
-        "src/components/**/*.js",
-        "src/layouts/**/*.js"
-      ],
-      "extensions": "js,jsx",
-      "quiet": false,
-      "delay": 2500
-    }
-  },
   "scripts": {
-    "test": "stackbit validate",
     "develop": "./develop.sh",
-    "storybook": "./generate-storybook-dynamic.js && start-storybook -s ./public -p 6006",
-    "build-themes": "./build-themes.sh",
-    "build-storybook": "build-storybook -s ./public",
-    "build": "npm run build-themes && ./generate-storybook-dynamic.js && npm run build-storybook",
-    "build-dist": "./build-dist.js --clean",
+    "storybook": "./scripts/generate-storybook-dynamic.js && start-storybook -s ./public -p 6006",
+    "build-themes": "./scripts/build-themes.js",
+    "build-storybook": "./scripts/generate-storybook-dynamic.js && build-storybook -s ./public",
+    "build": "npm run build-themes && npm run build-storybook",
+    "build-dist": "./scripts/build-dist.js --clean",
+    "validate": "stackbit validate",
     "pretty": "prettier --write src",
     "version-minor": "npm version minor -m \"bumped version to v%s\"",
-    "version-patch": "npm version patch -m \"bumped version to v%s\"",
-    "watch": "npm-watch"
+    "version-patch": "npm version patch -m \"bumped version to v%s\""
   },
   "repository": {
     "type": "git",

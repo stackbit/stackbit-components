@@ -3,7 +3,7 @@ import Head from 'next/head';
 import NavBar from '../../components/NavBar';
 import Footer from '../../components/Footer';
 
-export default function BaseLayout(props) {
+export default function NormalBase(props) {
     return (
         <div>
             <Head>
@@ -13,6 +13,7 @@ export default function BaseLayout(props) {
                 <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
             </Head>
             <NavBar {...props.siteConfig} />
+            <h2>Normal Base</h2>
             {props.children}
             <Footer {...props.siteConfig} />
         </div>

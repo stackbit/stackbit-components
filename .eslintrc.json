@@ -1,7 +1,15 @@
 {
-    "env": {
-        "node" : true,
-        "es6": true
+  "parser": "@babel/eslint-parser",
+  "extends": ["eslint:recommended", "plugin:react/recommended", "prettier"],
+  "plugins": ["react", "react-hooks", "import", "jsx-a11y", "prettier"],
+  "env": {
+    "es6": true,
+    "browser": true,
+    "node": true
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+      "jsx": true
     },
     "extends": "eslint:recommended",
     "parserOptions": {
@@ -26,4 +34,31 @@
         ],
         "no-unused-vars": 0
     }
+  },
+  "rules": {
+    "prettier/prettier": "error",
+    "consistent-return": "warn",
+    "no-console": "warn",
+    "react/prop-types": "off",
+    "import/no-unresolved": "off",
+    "import/order": [
+      "error",
+      {
+        "pathGroups": [
+          {
+            "pattern": "*.scss",
+            "group": "object",
+            "patternOptions": { "matchBase": true },
+            "position": "after"
+          },
+          {
+            "pattern": "*.svg",
+            "group": "object",
+            "patternOptions": { "matchBase": true },
+            "position": "after"
+          }
+        ]
+      }
+    ]
+  }
 }

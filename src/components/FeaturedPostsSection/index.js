@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Badge from '../Badge';
 import InlineMarkdown from '../InlineMarkdown';
 
-export default function PostsSection(props) {
+export default function FeaturedPostsSection(props) {
     const colors = props.colors || 'colors-a';
     const width = props.width || 'full';
     const height = props.height || 'auto';

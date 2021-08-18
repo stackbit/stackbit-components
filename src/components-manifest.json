@@ -11,6 +11,12 @@
         "modelName": "button",
         "isDynamic": false
     },
+    "CheckboxFormControl": {
+        "path": "components/CheckboxFormControl",
+        "className": "CheckboxFormControl",
+        "modelName": "CheckboxFormControl",
+        "isDynamic": true
+    },
     "ContactSection": {
         "path": "components/ContactSection",
         "className": "ContactSection",
@@ -23,11 +29,29 @@
         "modelName": "CtaSection",
         "isDynamic": true
     },
+    "EmailFormControl": {
+        "path": "components/EmailFormControl",
+        "className": "EmailFormControl",
+        "modelName": "EmailFormControl",
+        "isDynamic": true
+    },
+    "FeaturedPostsSection": {
+        "path": "components/FeaturedPostsSection",
+        "className": "FeaturedPostsSection",
+        "modelName": "FeaturedPostsSection",
+        "isDynamic": true
+    },
     "Footer": {
         "path": "components/Footer",
         "className": "Footer",
         "modelName": "Footer",
         "isDynamic": false
+    },
+    "FormBlock": {
+        "path": "components/FormBlock",
+        "className": "FormBlock",
+        "modelName": "FormBlock",
+        "isDynamic": true
     },
     "HeroSection": {
         "path": "components/HeroSection",
@@ -59,16 +83,28 @@
         "modelName": "NavBar",
         "isDynamic": false
     },
-    "PostsSection": {
-        "path": "components/PostsSection",
-        "className": "PostsSection",
-        "modelName": "PostsSection",
+    "SelectFormControl": {
+        "path": "components/SelectFormControl",
+        "className": "SelectFormControl",
+        "modelName": "SelectFormControl",
         "isDynamic": true
     },
     "TestimonialsSection": {
         "path": "components/TestimonialsSection",
         "className": "TestimonialsSection",
         "modelName": "TestimonialsSection",
+        "isDynamic": true
+    },
+    "TextFormControl": {
+        "path": "components/TextFormControl",
+        "className": "TextFormControl",
+        "modelName": "TextFormControl",
+        "isDynamic": true
+    },
+    "TextareaFormControl": {
+        "path": "components/TextareaFormControl",
+        "className": "TextareaFormControl",
+        "modelName": "TextareaFormControl",
         "isDynamic": true
     },
     "VideoBlock": {

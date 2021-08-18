@@ -140,3 +140,44 @@ HeroTextOnly.args = {
     ],
     feature: null
 };
+
+export const HeroRightForm = Template.bind({});
+HeroRightForm.storyName = 'Hero Section With Form on the Right';
+HeroRightForm.args = {
+    ...args,
+    variant: 'variant-a',
+    colors: 'colors-e',
+    badge: null,
+    title: 'The quick, brown fox jumps over **a lazy dog**',
+    actions: [
+        {
+            url: '#',
+            label: 'Learn More',
+            type: 'link',
+            icon: 'arrowRight'
+        }
+    ],
+    feature: {
+        type: 'FormBlock',
+        idAttr: 'hero-form',
+        fields: [
+            {
+                type: 'TextFormControl',
+                name: 'name',
+                label: 'Name',
+                placeholder: 'John Doe',
+                isRequired: true,
+                width: 'full'
+            },
+            {
+                type: 'EmailFormControl',
+                name: 'email',
+                label: 'E-mail',
+                placeholder: 'john.doe@example.org',
+                isRequired: true,
+                width: 'full'
+            }
+        ],
+        submitLabel: 'Subscribe'
+    }
+};

@@ -1,9 +1,9 @@
 import React from 'react';
-import PostsSection from './index';
+import FeaturedPostsSection from './index';
 
 export default {
-    title: 'Components/Posts Section',
-    component: PostsSection,
+    title: 'Components/Featured Posts Section',
+    component: FeaturedPostsSection,
     argTypes: {
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
@@ -28,10 +28,10 @@ export default {
     }
 };
 
-const Template = (args) => <PostsSection {...args} />;
+const Template = (args) => <FeaturedPostsSection {...args} />;
 
 const args = {
-    type: 'PostsSection',
+    type: 'FeaturedPostsSection',
     colors: 'colors-d',
     width: 'wide',
     height: 'auto',

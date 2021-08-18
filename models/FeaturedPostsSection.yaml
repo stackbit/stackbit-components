@@ -1,6 +1,6 @@
 type: object
-name: PostsSection
-label: Posts section
+name: FeaturedPostsSection
+label: Featured posts section
 fields:
   - type: enum
     name: colors

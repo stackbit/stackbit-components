@@ -1,6 +1,6 @@
 type: object
 name: VideoBlock
-label: Video block
+label: Video
 fields:
   - type: string
     name: videoUrl
@@ -14,7 +14,7 @@ fields:
     default: false
   - type: boolean
     name: loop
-    label: Lopp
+    label: Loop
     default: false
   - type: boolean
     name: muted

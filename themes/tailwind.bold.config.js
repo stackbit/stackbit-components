@@ -68,6 +68,9 @@ module.exports = {
         '.sb-highlight': {
           '@apply text-info': {}
         },
+        '.sb-form-control': {
+          '@apply mb-8': {}
+        },
         '.sb-label': {
           '@apply font-light': {}
         },

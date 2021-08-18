@@ -10,12 +10,11 @@ fields:
   - type: list
     name: sections
     label: Sections
-    description: Sections
     items:
       type: model
       models:
         - ContactSection
         - CtaSection
+        - FeaturedPostsSection
         - HeroSection
         - TestimonialsSection
-        - PostsSection

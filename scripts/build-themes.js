@@ -1,14 +1,8 @@
 #!/usr/bin/env node
 const path = require('path');
-const fse = require('fs-extra');
 const childProcess = require('child_process');
 
-const themes = [
-  "bold",
-  "eco",
-  "modern",
-  "retro"
-]
+const themes = ['bold', 'eco', 'modern', 'retro'];
 
 themes.forEach((theme) => {
   const themeGlobal = path.join(process.cwd(), 'themes', 'global.css');

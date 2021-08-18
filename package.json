@@ -7,6 +7,25 @@
     "components"
   ],
   "main": "index.js",
+  "watch": {
+    "build-dist-local": {
+      "patterns": [
+        "src/base/**/*.js",
+        "src/components/**/*.js",
+        "src/layouts/**/*.js"
+      ],
+      "extensions": "js,jsx",
+      "quiet": false,
+      "delay": 2500
+    },
+    "build-themes": {
+      "patterns": [
+        "themes/**/*.js"
+      ],
+      "quiet": false,
+      "delay": 2500
+    }
+  },
   "scripts": {
     "develop": "./develop.sh",
     "storybook": "./scripts/generate-storybook-dynamic.js && start-storybook -s ./public -p 6006",
@@ -14,10 +33,12 @@
     "build-storybook": "./scripts/generate-storybook-dynamic.js && build-storybook -s ./public",
     "build": "npm run build-themes && npm run build-storybook",
     "build-dist": "./scripts/build-dist.js --clean",
+    "build-dist-local": "./scripts/build-dist.js --local",
     "validate": "stackbit validate",
     "pretty": "prettier --write src",
     "version-minor": "npm version minor -m \"bumped version to v%s\"",
-    "version-patch": "npm version patch -m \"bumped version to v%s\""
+    "version-patch": "npm version patch -m \"bumped version to v%s\"",
+    "watch": "npm-watch"
   },
   "repository": {
     "type": "git",
@@ -36,32 +57,33 @@
   "devDependencies": {
     "@babel/cli": "^7.14.8",
     "@babel/core": "^7.15.0",
+    "@babel/eslint-parser": "^7.15.0",
     "@babel/preset-env": "^7.15.0",
     "@babel/preset-react": "^7.14.5",
     "@stackbit/cli": "^0.1.14",
-    "@storybook/addon-actions": "^6.3.7",
-    "@storybook/addon-essentials": "^6.3.7",
-    "@storybook/addon-links": "^6.3.7",
+    "@storybook/addon-actions": "^6.2.9",
+    "@storybook/addon-essentials": "^6.2.9",
+    "@storybook/addon-links": "^6.2.9",
     "@storybook/addon-postcss": "^2.0.0",
     "@storybook/react": "^6.3.7",
     "concurrently": "^6.2.1",
-    "fs-extra": "^10.0.0",
-    "npm-watch": "^0.11.0",
-    "postcss": "^8.3.6",
-    "prettier": "2.3.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
-    "react-helmet": "^6.1.0",
-    "tailwindcss": "^2.2.7",
     "eslint": "^7.32.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.24.0",
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-prettier": "^3.4.0",
     "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0"
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "fs-extra": "^10.0.0",
+    "npm-watch": "^0.11.0",
+    "postcss": "^8.3.4",
+    "prettier": "2.3.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "react-helmet": "^6.1.0",
+    "tailwindcss": "^2.2.7"
   },
   "peerDependencies": {
-    "react": ">=17"
+    "react": ">=16"
   }
 }

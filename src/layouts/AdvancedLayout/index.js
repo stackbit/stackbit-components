@@ -1,20 +1,18 @@
 import React from 'react';
-import { getBaseLayoutComponent } from '../../utils/base-layout';
 import { getDynamicComponent } from '../../components-registry';
+import { getBaseLayoutComponent } from '../../utils/base-layout';
 
 export default function AdvancedLayout(props) {
-  const { page, siteConfig } = props;
-  const BaseLayout = getBaseLayoutComponent(page.baseLayout, siteConfig.baseLayout);
+  const { page, site } = props;
+  const BaseLayout = getBaseLayoutComponent(page.baseLayout, site.baseLayout);
 
   return (
     <>
-      <BaseLayout page={page} siteConfig={siteConfig}>
-        {page.title && <h1 className="sr-only">{page.title}</h1>}
+      <BaseLayout page={page} site={site}>
         {page.sections.map((section, index) => {
-          const sectionType = section.type;
-          const Component = getDynamicComponent(sectionType);
+          const Component = getDynamicComponent(section.type);
           if (!Component) {
-            throw new Error(`no component matching the page section's type: ${sectionType}`);
+            throw new Error(`no component matching the page section's type: ${section.type}`);
           }
           return <Component key={index} {...section} />;
         })}

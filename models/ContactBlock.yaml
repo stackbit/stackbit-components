@@ -1,4 +1,5 @@
 type: object
+name: ContactBlock
 label: Contact
 fields:
   - type: string

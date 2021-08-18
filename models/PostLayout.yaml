@@ -1,6 +1,7 @@
 type: page
+name: PostLayout
 label: Post
-layout: post
+layout: PostLayout
 fields:
   - type: string
     name: title

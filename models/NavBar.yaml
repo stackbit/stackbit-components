@@ -1,4 +1,5 @@
 type: object
+name: NavBar
 label: Navbar
 fields:
   - type: enum

@@ -1,4 +1,5 @@
 type: object
+name: HeroSection
 label: Hero section
 fields:
   - type: enum

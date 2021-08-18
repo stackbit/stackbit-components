@@ -1,4 +1,5 @@
 type: object
+name: Footer
 label: Footer
 fields:
   - type: enum

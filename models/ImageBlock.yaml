@@ -1,4 +1,5 @@
 type: object
+name: ImageBlock
 label: Image block
 fields:
   - type: image

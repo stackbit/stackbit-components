@@ -1,4 +1,5 @@
 type: object
+name: PostsSection
 label: Posts section
 fields:
   - type: enum

@@ -1,6 +1,7 @@
 type: page
+name: AdvancedLayout
 label: Advanced page
-layout: advanced
+layout: AdvancedLayout
 hideContent: true
 fields:
   - type: string

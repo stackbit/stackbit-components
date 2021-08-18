@@ -1,4 +1,5 @@
 type: object
+name: Action
 label: Action
 fields:
   - type: string

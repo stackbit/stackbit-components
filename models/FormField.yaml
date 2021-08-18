@@ -1,4 +1,5 @@
 type: object
+name: FormField
 label: Form field
 fields:
   - type: enum

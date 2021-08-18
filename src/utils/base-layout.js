@@ -1,7 +1,7 @@
 
 import * as base from '../base/'
 
-export default function getBaseLayoutComponent(pageBaseLayout, siteConfigBaseLayout) {
+export function getBaseLayoutComponent(pageBaseLayout, siteConfigBaseLayout) {
   let BaseLayout = base.DefaultBaseLayout
   if (pageBaseLayout) {
     BaseLayout = base[pageBaseLayout];

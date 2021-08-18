@@ -10,8 +10,8 @@ import * as PostsSectionStories from '../../components/PostsSection/posts-sectio
 import * as TestimonialsSectionStories from '../../components/TestimonialsSection/testimonials-section.stories';
 
 export default {
-    title: 'Layouts/Advanced Page',
-    component: AdvancedLayout
+  title: 'Layouts/Advanced Page',
+  component: AdvancedLayout
 };
 
 const Template = (args) => <AdvancedLayout {...args} />;
@@ -19,18 +19,18 @@ const Template = (args) => <AdvancedLayout {...args} />;
 export const Primary = Template.bind({});
 Primary.storyName = 'Advanced Page';
 Primary.args = {
-    page: {
-        title: 'Example Page',
-        sections: [
-            HeroSectionStories.Primary.args,
-            TestimonialsSectionStories.Primary.args,
-            PostsSectionStories.Primary.args,
-            CtaSectionStories.Primary.args,
-            ContactSectionStories.Primary.args
-        ]
-    },
-    siteConfig: {
-        ...NavBarStories.Primary.args,
-        ...FooterStories.Primary.args
-    }
+  page: {
+    title: 'Example Page',
+    sections: [
+      HeroSectionStories.Primary.args,
+      TestimonialsSectionStories.Primary.args,
+      PostsSectionStories.Primary.args,
+      CtaSectionStories.Primary.args,
+      ContactSectionStories.Primary.args
+    ]
+  },
+  siteConfig: {
+    ...NavBarStories.Primary.args,
+    ...FooterStories.Primary.args
+  }
 };

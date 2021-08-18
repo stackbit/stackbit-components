@@ -4,6 +4,7 @@ registerDynamicComponents({
     advanced: layouts.Advanced,
     CheckboxFormControl: components.CheckboxFormControl,
     ContactSection: components.ContactSection,
+    ContentSection: components.ContentSection,
     CtaSection: components.CtaSection,
     EmailFormControl: components.EmailFormControl,
     FeaturedPostsSection: components.FeaturedPostsSection,

@@ -23,6 +23,12 @@
         "modelName": "ContactSection",
         "isDynamic": true
     },
+    "ContentSection": {
+        "path": "components/ContentSection",
+        "className": "ContentSection",
+        "modelName": "ContentSection",
+        "isDynamic": true
+    },
     "CtaSection": {
         "path": "components/CtaSection",
         "className": "CtaSection",

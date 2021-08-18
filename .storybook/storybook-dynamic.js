@@ -6,6 +6,7 @@ import { components, layouts } from '../src';
 const dynamicComponents = {
     CheckboxFormControl: components.CheckboxFormControl,
     ContactSection: components.ContactSection,
+    ContentSection: components.ContentSection,
     CtaSection: components.CtaSection,
     EmailFormControl: components.EmailFormControl,
     FeaturedPostsSection: components.FeaturedPostsSection,

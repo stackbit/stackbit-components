@@ -41,3 +41,11 @@ const args = {
 export const Primary = Template.bind({});
 Primary.storyName = 'Content Section';
 Primary.args = args;
+
+export const Secondary = Template.bind({});
+Secondary.storyName = 'Centered Content Section';
+Secondary.args = {
+    ...args,
+    colors: 'colors-d',
+    alignHoriz: 'center'
+};

@@ -4,7 +4,7 @@ import Badge from '../Badge';
 import React from 'react';
 import InlineMarkdown from '../InlineMarkdown';
 
-export default function CtaSection(props) {
+export default function ContentSection(props) {
   const alignHoriz = props.alignHoriz || 'left';
   const colors = props.colors || 'colors-a';
   const width = props.width || 'full';
@@ -25,31 +25,31 @@ export default function CtaSection(props) {
           'w-full': height === 'viewport'
         })}
       >
-        <div className="max-w-3xl mx-auto lg:flex lg:items-center">
-          <div
-            className={classNames({
-              'text-center': alignHoriz === 'center',
-              'text-right': alignHoriz === 'right'
-            })}
-          >
+        <div
+          className={classNames('max-w-3xl mx-auto', {
+            'text-center': alignHoriz === 'center',
+            'text-right': alignHoriz === 'right'
+          })}
+        >
             {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
-              <h2 className="text-3xl tracking-tight sm:text-4xl mb-4" data-sb-field-path=".title">
+              <h2 className="text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
                 <InlineMarkdown>{props.title}</InlineMarkdown>
               </h2>
             )}
-            {props.subtitle && (
-              <div className="text-xl mb-3" data-sb-field-path=".subtitle">
-                <InlineMarkdown>{props.subtitle}</InlineMarkdown>
-              </div>
-            )}
+            {props.subtitle && <p className="md:text-lg" data-sb-field-path=".subtitle">{props.subtitle}</p>}
             {props.text && (
-              <Markdown className="md:text-lg" data-sb-field-path=".text">
+              <Markdown
+                options={{ forceBlock: true }}
+                className={classNames('md:text-lg', {
+                    'mt-6': props.badge || props.title || props.subtitle
+                })}
+                data-sb-field-path=".text"
+              >
                 {props.text}
               </Markdown>
             )}
           </div>
-        </div>
       </div>
     </div>
   );

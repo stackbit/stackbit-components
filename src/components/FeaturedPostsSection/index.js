@@ -1,4 +1,3 @@
-import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Link from 'next/link';
 import Badge from '../Badge';
@@ -81,7 +80,7 @@ function PostsVariantA(props) {
                             )}
                             <div className="px-4 py-6 sm:px-6 sm:pb-10">
                                 <h2 className="text-xl sm:text-2xl mb-3">{post.title}</h2>
-                                {post.excerpt && <Markdown>{post.excerpt}</Markdown>}
+                                {post.excerpt && <p>{post.excerpt}</p>}
                             </div>
                         </article>
                     </a>
@@ -120,7 +119,7 @@ function PostsVariantB(props) {
                                 <a>{post.title}</a>
                             </Link>
                         </h2>
-                        {post.excerpt && <Markdown>{post.excerpt}</Markdown>}
+                        {post.excerpt && <p>{post.excerpt}</p>}
                     </div>
                 </article>
             ))}

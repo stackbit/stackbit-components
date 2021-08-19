@@ -38,11 +38,7 @@ export default function Footer(props) {
                                 </a>
                             </Link>
                         )}
-                        {props.text && (
-                            <div className="lg:max-w-sm">
-                                <Markdown>{props.text}</Markdown>
-                            </div>
-                        )}
+                        {props.text && <Markdown options={{ forceBlock: true }} className="lg:max-w-sm">{props.text}</Markdown>}
                     </div>
                 )}
                 {props.primaryLinks && props.primaryLinks.length > 0 && (

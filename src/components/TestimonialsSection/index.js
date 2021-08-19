@@ -75,11 +75,7 @@ function TestimonialsVariantA(props) {
                     data-sb-field-path={`.${idx}`}
                 >
                     {testimonial.logoUrl && <img src={testimonial.logoUrl} alt={testimonial.logoAltText ?? ''} className="mx-auto mb-10" data-sb-field-path=".logoUrl#@src .logoAltText#@alt" />}
-                    {testimonial.quote && (
-                        <div className="text-center text-3xl sm:text-4xl" data-sb-field-path=".quote">
-                            <Markdown>{testimonial.quote}</Markdown>
-                        </div>
-                    )}
+                    {testimonial.quote && <Markdown options={{ forceBlock: true }} className="text-center text-3xl sm:text-4xl" data-sb-field-path=".quote">{testimonial.quote}</Markdown>}
                     {(testimonial.name || testimonial.title || testimonial.imageUrl) && (
                         <footer className="mt-8 text-center text-sm">
                             {testimonial.imageUrl && (
@@ -123,11 +119,7 @@ function TestimonialsVariantB(props) {
                         </div>
                     )}
                     <div className="sm:flex-grow">
-                        {testimonial.quote && (
-                            <div className="text-3xl sm:text-4xl" data-sb-field-path=".quote">
-                                <Markdown>{testimonial.quote}</Markdown>
-                            </div>
-                        )}
+                        {testimonial.quote && <Markdown options={{ forceBlock: true }} className="text-3xl sm:text-4xl" data-sb-field-path=".quote">{testimonial.quote}</Markdown>}
                         {(testimonial.name || testimonial.title) && (
                             <footer className="mt-8 text-center text-sm sm:text-left">
                                 {testimonial.name && <strong className="block mb-0.5 text-lg" data-sb-field-path=".name">{testimonial.name}</strong>}

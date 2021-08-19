@@ -56,8 +56,10 @@ module.exports = {
           '@apply bg-info font-medium px-2 py-0.5 text-white tracking-wider': {}
         },
         '.sb-btn': {
-          '@apply border-2 font-medium inline-flex items-center justify-center no-underline px-5 py-2.5 text-center tracking-wider transition duration-200 ease-in':
-            {}
+          '@apply border-2 font-medium inline-flex items-center justify-center no-underline px-5 py-2.5 text-center tracking-wider transition duration-200 ease-in': {}
+        },
+        '.sb-link': {
+          '@apply inline-flex items-center justify-center no-underline hover:underline': {}
         },
         'a.sb-card': {
           '@apply transition transform duration-300 hover:-translate-y-1': {}

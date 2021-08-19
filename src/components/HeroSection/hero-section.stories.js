@@ -43,14 +43,16 @@ const args = {
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Apply Now',
-            type: 'primary-button'
+            style: 'primary'
         },
         {
+            type: 'Button',
             url: '#',
             label: 'Learn more',
-            type: 'secondary-button'
+            style: 'secondary'
         }
     ],
     feature: {
@@ -75,9 +77,10 @@ HeroLeftVideo.args = {
     badge: 'Brand new',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Get started',
-            type: 'primary-button',
+            style: 'primary',
         }
     ],
     feature: {
@@ -103,9 +106,10 @@ HeroBottomImage.args = {
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Get started',
-            type: 'primary-button',
+            style: 'primary',
         }
     ],
     feature: {
@@ -126,15 +130,17 @@ HeroTextOnly.args = {
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Start Shopping',
-            type: 'primary-button',
+            style: 'primary',
             icon: 'cart'
         },
         {
+            type: 'Link',
             url: '#',
             label: 'Get 15% discount',
-            type: 'link',
+            style: 'link',
             icon: 'arrowRight'
         }
     ],
@@ -151,9 +157,10 @@ HeroRightForm.args = {
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
+            type: 'Link',
             url: '#',
             label: 'Learn More',
-            type: 'link',
+            style: 'link',
             icon: 'arrowRight'
         }
     ],

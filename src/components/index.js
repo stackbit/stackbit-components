@@ -1,5 +1,5 @@
+import Action from './Action';
 import Badge from './Badge';
-import Button from './Button';
 import CheckboxFormControl from './CheckboxFormControl';
 import ContactSection from './ContactSection';
 import CtaSection from './CtaSection';
@@ -17,8 +17,8 @@ import SelectFormControl from './SelectFormControl';
 import VideoBlock from './VideoBlock';
 
 export {
+    Action,
     Badge,
-    Button,
     CheckboxFormControl,
     ContactSection,
     CtaSection,

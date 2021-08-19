@@ -55,16 +55,22 @@ fields:
     label: Primary navigation links
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link
   - type: list
     name: socialLinks
     label: Social links
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link
   - type: list
     name: legalLinks
     label: Legal navigation links
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link

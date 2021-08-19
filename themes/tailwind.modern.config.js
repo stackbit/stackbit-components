@@ -61,6 +61,9 @@ module.exports = {
         '.sb-btn': {
           '@apply border-2 font-medium inline-flex items-center justify-center no-underline px-5 py-2.5 rounded text-center tracking-wider transition duration-200 ease-in': {}
         },
+        '.sb-link': {
+          '@apply inline-flex items-center justify-center no-underline transition-opacity duration-300 hover:opacity-80': {}
+        },
         '.sb-card': {
           '@apply rounded': {}
         },

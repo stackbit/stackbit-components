@@ -68,6 +68,9 @@ module.exports = {
         '.sb-btn': {
           '@apply border-2 font-normal inline-flex items-center justify-center no-underline px-5 py-2.5 relative text-center uppercase': {}
         },
+        '.sb-link': {
+          '@apply inline-flex items-center justify-center no-underline hover:underline': {}
+        },
         '.sb-divider': {
           '@apply flex items-center h-4': {},
           '&:before': {

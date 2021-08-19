@@ -1,8 +1,7 @@
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Badge from '../Badge';
-import Button from '../Button';
-import Link from '../Link';
+import Action from '../Action';
 import React from 'react';
 import InlineMarkdown from '../InlineMarkdown';
 
@@ -114,22 +113,13 @@ function CtaContent(props) {
 
 function CtaActions(props) {
     return (
-        props.actions.map((action, idx) =>
-            (action.type === 'primary-button' || action.type === 'secondary-button') ? (
-                <Button
-                    key={idx}
-                    {...action}
-                    className="mb-3 mx-2 lg:whitespace-nowrap"
-                    annotationPrefix={`.${idx}`}
-                />
-            ) : (
-                <Link
-                    key={idx}
-                    {...action}
-                    className="mb-3 mx-2 lg:whitespace-nowrap"
-                    annotationPrefix={`.${idx}`}
-                />
-            )
+        props.actions.map((action, index) =>
+            <Action
+                key={index}
+                {...action}
+                className="mb-3 mx-2 lg:whitespace-nowrap"
+                annotationPrefix={`.${index}`}
+            />
         )
     );
 }

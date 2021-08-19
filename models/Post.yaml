@@ -1,5 +1,5 @@
 type: page
-name: PostLayout
+name: Post
 label: Post
 layout: PostLayout
 fields:

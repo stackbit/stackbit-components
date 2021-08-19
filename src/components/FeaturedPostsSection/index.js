@@ -75,7 +75,7 @@ function PostsVariantA(props) {
                         <article>
                             {post.thumbImageUrl && (
                                 <div className="h-0 w-full pt-1/2 relative">
-                                    <img src={post.thumbImageUrl} alt={post.thumbImageAltText} className="absolute left-0 top-0 h-full w-full object-cover" />
+                                    <img src={post.thumbImageUrl} alt={post.thumbImageAltText || ''} className="absolute left-0 top-0 h-full w-full object-cover" />
                                 </div>
                             )}
                             <div className="px-4 py-6 sm:px-6 sm:pb-10">
@@ -108,7 +108,7 @@ function PostsVariantB(props) {
                         <div className="w-full sm:flex-shrink-0 sm:h-full sm:w-1/3">
                             <Link href={post.url}>
                                 <a className="block h-0 w-full pt-1/2 relative sm:h-40 sm:min-h-full sm:pt-0">
-                                    <img src={post.thumbImageUrl} alt={post.thumbImageAltText} className="absolute left-0 top-0 h-full w-full object-cover" />
+                                    <img src={post.thumbImageUrl} alt={post.thumbImageAltText || ''} className="absolute left-0 top-0 h-full w-full object-cover" />
                                 </a>
                             </Link>
                         </div>

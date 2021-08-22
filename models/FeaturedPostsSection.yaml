@@ -68,4 +68,4 @@ fields:
     label: Posts
     items:
       type: reference
-      models: [Post]
+      models: [PostLayout]

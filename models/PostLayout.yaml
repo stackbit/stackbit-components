@@ -25,6 +25,7 @@ fields:
       type: model
       models:
         - ContactSection
+        - ContentSection
         - CtaSection
         - FeaturedPostsSection
         - HeroSection
@@ -36,6 +37,7 @@ fields:
       type: model
       models:
         - ContactSection
+        - ContentSection
         - CtaSection
         - FeaturedPostsSection
         - HeroSection

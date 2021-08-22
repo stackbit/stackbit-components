@@ -19,8 +19,8 @@ const dynamicComponents = {
     TextareaFormControl: components.TextareaFormControl,
     VideoBlock: components.VideoBlock,
     FeatureSection: components.FeatureSection,
-    advanced: layouts.AdvancedLayout,
-    post: layouts.PostLayout
+    AdvancedLayout: layouts.AdvancedLayout,
+    PostLayout: layouts.PostLayout
 };
 
 export default dynamicComponents;

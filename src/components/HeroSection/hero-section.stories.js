@@ -188,3 +188,29 @@ HeroRightForm.args = {
         submitLabel: 'Subscribe'
     }
 };
+
+export const HeroBottomForm = Template.bind({});
+HeroBottomForm.storyName = 'Hero Section With Form at the Bottom';
+HeroBottomForm.args = {
+    ...args,
+    variant: 'variant-d',
+    colors: 'colors-a',
+    badge: null,
+    title: 'Join our newsletter',
+    actions: null,
+    feature: {
+        type: 'FormBlock',
+        idAttr: 'hero-form',
+        fields: [
+            {
+                type: 'EmailFormControl',
+                name: 'email',
+                label: 'E-mail',
+                placeholder: 'john.doe@example.org',
+                isRequired: true,
+                width: 'full'
+            }
+        ],
+        submitLabel: 'Subscribe'
+    }
+};

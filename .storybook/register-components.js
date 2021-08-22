@@ -1,7 +1,7 @@
 import { registerDynamicComponents, components, layouts } from '../src';
 
 registerDynamicComponents({
-    advanced: layouts.Advanced,
+    AdvancedLayout: layouts.AdvancedLayout,
     CheckboxFormControl: components.CheckboxFormControl,
     ContactSection: components.ContactSection,
     ContentSection: components.ContentSection,
@@ -11,6 +11,7 @@ registerDynamicComponents({
     FormBlock: components.FormBlock,
     HeroSection: components.HeroSection,
     ImageBlock: components.ImageBlock,
+    PostLayout: layouts.PostLayout,
     SelectFormControl: components.SelectFormControl,
     TestimonialsSection: components.TestimonialsSection,
     TextFormControl: components.TextFormControl,

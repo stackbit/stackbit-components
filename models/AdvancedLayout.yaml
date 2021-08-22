@@ -1,5 +1,5 @@
 type: page
-name: Advanced
+name: AdvancedLayout
 label: Advanced page
 layout: AdvancedLayout
 hideContent: true

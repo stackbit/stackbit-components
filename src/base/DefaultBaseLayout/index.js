@@ -5,7 +5,7 @@ import Footer from '../../components/Footer';
 
 export default function DefaultBaseLayout(props) {
     const { page, site } = props;
-    const { title } = page;console.log(site)
+    const { title } = page;
     return (
         <div>
             <Head>

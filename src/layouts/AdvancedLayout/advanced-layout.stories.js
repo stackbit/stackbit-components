@@ -30,7 +30,7 @@ Primary.args = {
     ]
   },
   site: {
-    ...NavBarStories.Primary.args,
-    ...FooterStories.Primary.args
+    navBar: NavBarStories.Primary.args,
+    footer: FooterStories.Primary.args
   }
 };

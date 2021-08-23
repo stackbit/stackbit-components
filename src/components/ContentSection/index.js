@@ -7,7 +7,7 @@ import InlineMarkdown from '../InlineMarkdown';
 export default function ContentSection(props) {
   const alignHoriz = props.alignHoriz || 'left';
   const colors = props.colors || 'colors-a';
-  const width = props.width || 'full';
+  const width = props.width || 'wide';
   const height = props.height || 'auto';
   return (
     <div

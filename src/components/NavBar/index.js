@@ -7,7 +7,7 @@ import HamburgerIcon from '../../svgs/hamburger';
 
 export default function NavBar(props) {
     const primaryColors = props.primaryColors || 'colors-a';
-    const width = props.width || 'full';
+    const width = props.width || 'wide';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
 
     return (

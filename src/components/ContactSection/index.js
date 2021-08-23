@@ -8,7 +8,7 @@ import InlineMarkdown from '../InlineMarkdown';
 
 export default function ContactSection(props) {
     const colors = props.colors || 'colors-a';
-    const width = props.width || 'full';
+    const width = props.width || 'wide';
     const height = props.height || 'auto';
 
     return (

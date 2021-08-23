@@ -5,7 +5,7 @@ import InlineMarkdown from '../InlineMarkdown';
 
 export default function FeaturedPostsSection(props) {
     const colors = props.colors || 'colors-a';
-    const width = props.width || 'full';
+    const width = props.width || 'wide';
     const height = props.height || 'auto';
     const alignHoriz = props.alignHoriz || 'left';
     return (

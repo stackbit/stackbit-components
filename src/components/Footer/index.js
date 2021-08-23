@@ -10,7 +10,7 @@ import Twitter from '../../svgs/twitter';
 
 export default function Footer(props) {
     const colors = props.colors || 'colors-a';
-    const width = props.width || 'full';
+    const width = props.width || 'wide';
     const iconMap = {
         facebook: Facebook,
         github: GitHub,

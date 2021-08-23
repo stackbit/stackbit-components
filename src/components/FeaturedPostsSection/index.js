@@ -45,9 +45,9 @@ export default function FeaturedPostsSection(props) {
     );
 }
 
-function PostVariants({ postVariant, ...props }) {
-    postVariant = postVariant || 'variant-a';
-    switch (postVariant) {
+function PostVariants({ variant, ...props }) {
+    variant = variant || 'variant-a';
+    switch (variant) {
         case 'variant-a':
             return PostsVariantA(props);
         case 'variant-b':
@@ -58,7 +58,6 @@ function PostVariants({ postVariant, ...props }) {
 
 function PostsVariantA(props) {
     const posts = props.posts || [];
-    console.log(posts);
     if (posts.length === 0) {
         return null;
     }

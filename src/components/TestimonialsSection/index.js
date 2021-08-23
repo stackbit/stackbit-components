@@ -50,9 +50,9 @@ export default function TestimonialsSection(props) {
     );
 }
 
-function TestimonialVariants({ testimonialVariant, ...props }) {
-    testimonialVariant = testimonialVariant || 'variant-a';
-    switch (testimonialVariant) {
+function TestimonialVariants({ variant, ...props }) {
+    variant = variant || 'variant-a';
+    switch (variant) {
         case 'variant-a':
             return TestimonialsVariantA(props);
         case 'variant-b':

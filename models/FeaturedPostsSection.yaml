@@ -3,6 +3,15 @@ name: FeaturedPostsSection
 label: Featured posts section
 fields:
   - type: enum
+    name: variant
+    label: Arrangement
+    options:
+      - label: Vertical post card with image at the top
+        value: variant-a
+      - label: Horizontal post card with image on the left
+        value: variant-b
+    default: variant-a
+  - type: enum
     name: colors
     label: Colors
     options:
@@ -54,15 +63,6 @@ fields:
   - type: string
     name: subtitle
     label: Subtitle
-  - type: enum
-    name: postVariant
-    label: Post arrangement
-    options:
-      - label: Vertical post card with image at the top
-        value: variant-a
-      - label: Horizontal post card with image on the left
-        value: variant-b
-    default: variant-a
   - type: list
     name: posts
     label: Posts

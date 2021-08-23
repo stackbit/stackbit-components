@@ -5,6 +5,10 @@ export default {
     title: 'Components/Featured Posts Section',
     component: FeaturedPostsSection,
     argTypes: {
+        variant: {
+            options: ['variant-a', 'variant-b'],
+            control: { type: 'select' }
+        },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
             control: { type: 'select' }
@@ -20,10 +24,6 @@ export default {
         alignHoriz: {
             options: ['left', 'right', 'center'],
             control: { type: 'select' }
-        },
-        postVariant: {
-            options: ['variant-a', 'variant-b'],
-            control: { type: 'select' }
         }
     }
 };
@@ -32,10 +32,10 @@ const Template = (args) => <FeaturedPostsSection {...args} />;
 
 const args = {
     type: 'FeaturedPostsSection',
+    variant: 'variant-a',
     colors: 'colors-d',
     width: 'wide',
     height: 'auto',
-    postVariant: 'variant-a',
     posts: [
         {
             title: 'Sustainability at it’s purest',
@@ -79,8 +79,8 @@ VariantB.storyName = 'Two Cols, Post Content to the Right of the Image';
 VariantB.args = {
     ...args,
     colors: 'colors-b',
+    variant: 'variant-b',
     width: 'full',
     alignHoriz: 'left',
-    title: 'Latest from **the Blog**',
-    postVariant: 'variant-b'
+    title: 'Latest from **the Blog**'
 };

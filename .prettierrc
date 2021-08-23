@@ -1,4 +1,6 @@
-tabWidth: 4
-singleQuote: true
-trailingComma: none
-printWidth: 140
+{
+  "printWidth": 160,
+  "singleQuote": true,
+  "trailingComma": "none",
+  "tabWidth": 4
+}

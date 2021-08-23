@@ -1,4 +1,5 @@
 type: object
+name: NavBar
 label: Navbar
 fields:
   - type: enum
@@ -81,10 +82,14 @@ fields:
     label: Primary navigation links
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link
   - type: list
     name: secondaryLinks
     label: Secondary links
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link

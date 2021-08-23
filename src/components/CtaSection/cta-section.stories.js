@@ -41,9 +41,10 @@ const args = {
     text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Get Started',
-            type: 'primary-button'
+            style: 'primary'
         }
     ]
 };

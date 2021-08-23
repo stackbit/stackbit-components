@@ -1,4 +1,5 @@
 type: object
+name: CtaSection
 label: CTA section
 fields:
   - type: enum
@@ -64,7 +65,9 @@ fields:
     label: Text
   - type: list
     name: actions
-    label: Action buttons
+    label: Actions
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link

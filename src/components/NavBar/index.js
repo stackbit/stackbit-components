@@ -1,13 +1,13 @@
 import { useState } from 'react';
-import Link from 'next/link';
 import classNames from 'classnames';
-import Button from '../Button';
+import Action from '../Action';
+import Link from '../../utils/link';
 import CloseIcon from '../../svgs/close';
 import HamburgerIcon from '../../svgs/hamburger';
 
 export default function NavBar(props) {
     const primaryColors = props.primaryColors || 'colors-a';
-    const width = props.width || 'full';
+    const width = props.width || 'wide';
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
 
     return (
@@ -18,10 +18,9 @@ export default function NavBar(props) {
                 'max-w-screen-lg': width === 'narrow',
                 relative: mobileNavVariant === 'variant-b'
             })}
+            data-sb-field-path=""
         >
-            <Link href="#content">
-                <a className="sr-only">Skip to main content</a>
-            </Link>
+            <Link href="#content" className="sr-only">Skip to main content</Link>
             <div
                 className={classNames('flex items-center', {
                     relative: mobileNavVariant === 'variant-a'
@@ -47,10 +46,10 @@ function desktopNavVariants(props) {
             <>
                 <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
                 {primaryLinks && primaryLinks.length > 0 && (
-                    <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks)}</ul>
+                    <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks">{listOfLinks(primaryLinks)}</ul>
                 )}
                 {secondaryLinks && secondaryLinks.length > 0 && (
-                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks)}</ul>
+                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
                 )}
                 {mobileNavVariants(props)}
             </>
@@ -60,12 +59,12 @@ function desktopNavVariants(props) {
             <>
                 <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
                 {primaryLinks && primaryLinks.length > 0 && (
-                    <ul className="hidden absolute space-x-8 left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto lg:flex lg:items-center">
+                    <ul className="hidden absolute space-x-8 left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto lg:flex lg:items-center" data-sb-field-path=".primaryLinks">
                         {listOfLinks(primaryLinks)}
                     </ul>
                 )}
                 {secondaryLinks && secondaryLinks.length > 0 && (
-                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks)}</ul>
+                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
                 )}
                 {mobileNavVariants(props)}
             </>
@@ -76,7 +75,7 @@ function desktopNavVariants(props) {
             <>
                 <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
                 {links.length > 0 && (
-                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks.concat(secondaryLinks))}</ul>
+                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks .secondaryLinks">{listOfLinks(primaryLinks.concat(secondaryLinks))}</ul>
                 )}
                 {mobileNavVariants(props)}
             </>
@@ -88,10 +87,10 @@ function desktopNavVariants(props) {
                     {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
                 </div>
                 {primaryLinks && primaryLinks.length > 0 && (
-                    <ul className="hidden space-x-8 lg:flex lg:items-center">{listOfLinks(primaryLinks)}</ul>
+                    <ul className="hidden space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks">{listOfLinks(primaryLinks)}</ul>
                 )}
                 {secondaryLinks && secondaryLinks.length > 0 && (
-                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center">{listOfLinks(secondaryLinks)}</ul>
+                    <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
                 )}
                 {mobileNavVariants(props)}
             </>
@@ -133,7 +132,7 @@ function mobileNavVariants(props) {
                                     <CloseIcon className="fill-current h-6 w-6" />
                                 </button>
                             </div>
-                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), true)}</ul>
+                            <ul className="space-y-5" data-sb-field-path=".primaryLinks .secondaryLinks">{listOfLinks(primaryLinks.concat(secondaryLinks), true)}</ul>
                         </div>
                     </div>
                 )}
@@ -166,7 +165,7 @@ function mobileNavVariants(props) {
                                     <CloseIcon className="fill-current h-6 w-6" />
                                 </button>
                             </div>
-                            <ul className="space-y-5">{listOfLinks(primaryLinks.concat(secondaryLinks), true)}</ul>
+                            <ul className="space-y-5" data-sb-field-path=".primaryLinks .secondaryLinks">{listOfLinks(primaryLinks.concat(secondaryLinks), true)}</ul>
                         </div>
                     </div>
                 )}
@@ -177,40 +176,26 @@ function mobileNavVariants(props) {
 
 function siteLogoLink({ title, logo, logoAlt, isTitleVisible }) {
     return (
-        <Link href="/">
-            <a aria-label={title} title={title} className="inline-flex items-center">
-                {logo && <img src={logo} alt={logoAlt} className={classNames({ 'mr-2': isTitleVisible })} />}
-                {isTitleVisible && <span className="text-2xl tracking-wide">{title}</span>}
-            </a>
+        <Link href="/" aria-label={title} title={title} className="inline-flex items-center" data-sb-field-path=".title#@title">
+            {logo && <img src={logo} alt={logoAlt} className={classNames({ 'mr-2': isTitleVisible })} data-sb-field-path=".logoUrl#@src .logoAltText#@alt" />}
+            {isTitleVisible && <span className="text-2xl tracking-wide" data-sb-field-path=".title">{title}</span>}
         </Link>
     );
 }
 
 function listOfLinks(links, inMenu = false) {
-    return links.map((link, idx) => (
-        <li key={idx}>
-            {(link.type === 'primary-button' || link.type === 'secondary-button') ? (
-                <Button
-                    label={link.label}
-                    url={link.url}
-                    alt={link.alt}
-                    type={link.type}
-                    icon={link.icon}
+    return links.map((link, index) => {
+        const defaultStyle = (link.type === 'Link') ? 'link' : 'secondary';
+        const style = link.style || defaultStyle;
+        return (
+            <li key={index} data-sb-field-path={`.${index}`}>
+                <Action
+                    {...link}
                     className={classNames(
-                        inMenu ? 'w-full' : ''
+                        (inMenu && style !== 'link') ? 'w-full' : ''
                     )}
                 />
-            ) : (
-                <Link href={link.url}>
-                    <a
-                        aria-label={link.alt}
-                        title={link.alt}
-                        className="tracking-wide transition-opacity duration-200 hover:opacity-80"
-                    >
-                        {link.label}
-                    </a>
-                </Link>
-            )}
-        </li>
-    ));
+            </li>
+        );
+    });
 }

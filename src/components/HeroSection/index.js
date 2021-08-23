@@ -2,8 +2,7 @@ import { getDynamicComponent } from '../../components-registry';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Badge from '../Badge';
-import Button from '../Button';
-import Link from '../Link';
+import Action from '../Action';
 import InlineMarkdown from '../InlineMarkdown';
 
 export default function HeroSection(props) {
@@ -123,7 +122,7 @@ function HeroFeatureBottom(props) {
 }
 
 function HeroFeature(feature) {
-    const featureType = feature?.type;
+    const featureType = feature.type;
     if (!featureType) {
         throw new Error(`hero section feature does not have the 'type' property`);
     }
@@ -137,13 +136,13 @@ function HeroFeature(feature) {
 function HeroContent(props) {
     return (
         <>
-            {props.badge && <Badge label={props.badge} className="inline-block mb-4 text-xs" />}
+            {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.text && <Markdown className="md:text-lg" data-sb-field-path=".text">{props.text}</Markdown>}
+            {props.text && <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">{props.text}</Markdown>}
         </>
     );
 }
@@ -163,22 +162,13 @@ function HeroActions(props) {
             })}
             data-sb-field-path=".actions"
         >
-            {props.actions.map((action, idx) =>
-                (action.type === 'primary-button' || action.type === 'secondary-button') ? (
-                    <Button
-                        key={idx}
-                        {...action}
-                        className="mb-3 mx-2 lg:whitespace-nowrap"
-                        annotationPrefix={`.${idx}`}
-                    />
-                ) : (
-                    <Link
-                        key={idx}
-                        {...action}
-                        className="mb-3 mx-2 lg:whitespace-nowrap"
-                        annotationPrefix={`.${idx}`}
-                    />
-                )
+            {props.actions.map((action, index) =>
+                <Action
+                    key={index}
+                    {...action}
+                    className="mb-3 mx-2 lg:whitespace-nowrap"
+                    annotationPrefix={`.${index}`}
+                />
             )}
         </div>
     );

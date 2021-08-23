@@ -42,21 +42,25 @@ const args = {
     logoAltText: 'Logo',
     primaryLinks: [
         {
+            type: 'Link',
             label: 'About us',
             url: '/about',
             altText: 'About us'
         },
         {
+            type: 'Link',
             label: 'Product',
             url: '/',
             altText: 'Product'
         },
         {
+            type: 'Link',
             label: 'Features',
             url: '/',
             altText: 'Features'
         },
         {
+            type: 'Link',
             label: 'Pricing',
             url: '/',
             altText: 'Pricing'
@@ -64,16 +68,17 @@ const args = {
     ],
     secondaryLinks: [
         {
+            type: 'Link',
             label: 'Sign in',
             url: '/',
-            altText: 'Sign in',
-            type: 'link'
+            altText: 'Sign in'
         },
         {
+            type: 'Button',
             label: 'Sign up',
             url: '/',
             altText: 'Sign up',
-            type: 'secondary-button'
+            style: 'secondary'
         }
     ]
 };

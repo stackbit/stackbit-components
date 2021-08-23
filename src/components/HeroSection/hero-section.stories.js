@@ -43,14 +43,16 @@ const args = {
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Apply Now',
-            type: 'primary-button'
+            style: 'primary'
         },
         {
+            type: 'Button',
             url: '#',
             label: 'Learn more',
-            type: 'secondary-button'
+            style: 'secondary'
         }
     ],
     feature: {
@@ -75,9 +77,10 @@ HeroLeftVideo.args = {
     badge: 'Brand new',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Get started',
-            type: 'primary-button',
+            style: 'primary',
         }
     ],
     feature: {
@@ -103,9 +106,10 @@ HeroBottomImage.args = {
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Get started',
-            type: 'primary-button',
+            style: 'primary',
         }
     ],
     feature: {
@@ -126,17 +130,87 @@ HeroTextOnly.args = {
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
+            type: 'Button',
             url: '#',
             label: 'Start Shopping',
-            type: 'primary-button',
+            style: 'primary',
             icon: 'cart'
         },
         {
+            type: 'Link',
             url: '#',
             label: 'Get 15% discount',
-            type: 'link',
+            style: 'link',
             icon: 'arrowRight'
         }
     ],
     feature: null
+};
+
+export const HeroRightForm = Template.bind({});
+HeroRightForm.storyName = 'Hero Section With Form on the Right';
+HeroRightForm.args = {
+    ...args,
+    variant: 'variant-a',
+    colors: 'colors-e',
+    badge: null,
+    title: 'The quick, brown fox jumps over **a lazy dog**',
+    actions: [
+        {
+            type: 'Link',
+            url: '#',
+            label: 'Learn More',
+            style: 'link',
+            icon: 'arrowRight'
+        }
+    ],
+    feature: {
+        type: 'FormBlock',
+        idAttr: 'hero-form',
+        fields: [
+            {
+                type: 'TextFormControl',
+                name: 'name',
+                label: 'Name',
+                placeholder: 'John Doe',
+                isRequired: true,
+                width: 'full'
+            },
+            {
+                type: 'EmailFormControl',
+                name: 'email',
+                label: 'E-mail',
+                placeholder: 'john.doe@example.org',
+                isRequired: true,
+                width: 'full'
+            }
+        ],
+        submitLabel: 'Subscribe'
+    }
+};
+
+export const HeroBottomForm = Template.bind({});
+HeroBottomForm.storyName = 'Hero Section With Form at the Bottom';
+HeroBottomForm.args = {
+    ...args,
+    variant: 'variant-d',
+    colors: 'colors-a',
+    badge: null,
+    title: 'Join our newsletter',
+    actions: null,
+    feature: {
+        type: 'FormBlock',
+        idAttr: 'hero-form',
+        fields: [
+            {
+                type: 'EmailFormControl',
+                name: 'email',
+                label: 'E-mail',
+                placeholder: 'john.doe@example.org',
+                isRequired: true,
+                width: 'full'
+            }
+        ],
+        submitLabel: 'Subscribe'
+    }
 };

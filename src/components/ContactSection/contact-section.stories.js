@@ -39,42 +39,48 @@ const args = {
     alignHoriz: 'left',
     title: 'Join our club',
     text: 'We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.',
-    imageUrl: '/images/lobster.jpg',
-    imageAltText: 'Fisherman holding lobster',
-    formId: 'contact-form',
-    formFields: [
-        {
-            inputType: 'text',
-            name: 'name',
-            label: 'Name',
-            defaultValue: 'Your name',
-            isRequired: true,
-            width: '1/2'
-        },
-        {
-            inputType: 'email',
-            name: 'email',
-            label: 'Email',
-            defaultValue: 'Your email',
-            isRequired: true,
-            width: '1/2'
-        },
-        {
-            inputType: 'text',
-            name: 'home-address',
-            label: 'Home address',
-            defaultValue: 'Your home address',
-            isRequired: true,
-            width: 'full'
-        },
-        {
-            inputType: 'checkbox',
-            name: 'updates',
-            label: 'Sign me up to receive updates',
-            width: 'full'
-        }
-    ],
-    submitLabel: 'Send Message'
+    image: {
+        type: 'ImageBlock',
+        imageUrl: '/images/lobster.jpg',
+        imageAltText: 'Fisherman holding lobster'
+    },
+    form: {
+        type: 'FormBlock',
+        idAttr: 'contact-form',
+        fields: [
+            {
+                type: 'TextFormControl',
+                name: 'name',
+                label: 'Name',
+                placeholder: 'Your name',
+                isRequired: true,
+                width: '1/2'
+            },
+            {
+                type: 'EmailFormControl',
+                name: 'email',
+                label: 'Email',
+                placeholder: 'Your email',
+                isRequired: true,
+                width: '1/2'
+            },
+            {
+                type: 'TextFormControl',
+                name: 'home-address',
+                label: 'Home address',
+                placeholder: 'Your home address',
+                isRequired: true,
+                width: 'full'
+            },
+            {
+                type: 'CheckboxFormControl',
+                name: 'updates',
+                label: 'Sign me up to receive updates',
+                width: 'full'
+            }
+        ],
+        submitLabel: 'Send Message'
+    }
 };
 
 export const Primary = Template.bind({});
@@ -89,54 +95,59 @@ ContactRightImage.args = {
     colors: 'colors-b',
     alignHoriz: 'center',
     title: 'Join our **club**',
-    formFields: [
-        {
-            inputType: 'text',
-            name: 'name',
-            label: 'Name',
-            defaultValue: 'Your name',
-            isRequired: true,
-            width: 'full'
-        },
-        {
-            inputType: 'email',
-            name: 'email',
-            label: 'Email',
-            defaultValue: 'Your email',
-            isRequired: true,
-            width: 'full'
-        },
-        {
-            inputType: 'text',
-            name: 'street-address',
-            label: 'Street address',
-            defaultValue: 'Your street address',
-            isRequired: true,
-            width: 'full'
-        },
-        {
-            inputType: 'select',
-            name: 'city',
-            label: 'City',
-            defaultValue: 'Please choose...',
-            isRequired: true,
-            options: [
-                'City 1',
-                'City 2'
-            ],
-            width: 'full'
-        },
-        {
-            inputType: 'textarea',
-            name: 'message',
-            label: 'Message',
-            width: 'full'
-        },
-        {
-            inputType: 'checkbox',
-            name: 'updates',
-            label: 'Sign me up to receive updates',
-            width: 'full'
-        }
-    ],
+    form: {
+        type: 'FormBlock',
+        idAttr: 'contact-form',
+        fields: [
+            {
+                type: 'TextFormControl',
+                name: 'name',
+                label: 'Name',
+                placeholder: 'Your name',
+                isRequired: true,
+                width: 'full'
+            },
+            {
+                type: 'EmailFormControl',
+                name: 'email',
+                label: 'Email',
+                placeholder: 'Your email',
+                isRequired: true,
+                width: 'full'
+            },
+            {
+                type: 'TextFormControl',
+                name: 'street-address',
+                label: 'Street address',
+                placeholder: 'Your street address',
+                isRequired: true,
+                width: 'full'
+            },
+            {
+                type: 'SelectFormControl',
+                name: 'city',
+                label: 'City',
+                defaultValue: 'Please choose...',
+                isRequired: true,
+                options: [
+                    'City 1',
+                    'City 2'
+                ],
+                width: 'full'
+            },
+            {
+                type: 'TextareaFormControl',
+                name: 'message',
+                label: 'Message',
+                width: 'full'
+            },
+            {
+                type: 'CheckboxFormControl',
+                name: 'updates',
+                label: 'Sign me up to receive updates',
+                width: 'full'
+            }
+        ],
+        submitLabel: 'Send Message'
+    }
 };

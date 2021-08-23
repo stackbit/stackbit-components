@@ -1,6 +1,7 @@
 type: page
+name: AdvancedLayout
 label: Advanced page
-layout: advanced
+layout: AdvancedLayout
 hideContent: true
 fields:
   - type: string
@@ -9,12 +10,12 @@ fields:
   - type: list
     name: sections
     label: Sections
-    description: Sections
     items:
       type: model
       models:
         - ContactSection
+        - ContentSection
         - CtaSection
+        - FeaturedPostsSection
         - HeroSection
         - TestimonialsSection
-        - PostsSection

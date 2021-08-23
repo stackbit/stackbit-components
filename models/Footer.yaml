@@ -1,4 +1,5 @@
 type: object
+name: Footer
 label: Footer
 fields:
   - type: enum
@@ -43,8 +44,8 @@ fields:
     name: text
     label: Text
   - type: model
-    name: contact
-    label: Contact
+    name: contacts
+    label: Contacts
     models: [ContactBlock]
   - type: markdown
     name: copyrightText
@@ -54,16 +55,22 @@ fields:
     label: Primary navigation links
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link
   - type: list
     name: socialLinks
     label: Social links
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link
   - type: list
     name: legalLinks
     label: Legal navigation links
     items:
       type: model
-      models: [Action]
+      models:
+        - Button
+        - Link

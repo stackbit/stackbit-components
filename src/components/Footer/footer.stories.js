@@ -38,21 +38,25 @@ const args = {
     copyrightText: '💖 powered by Stackbit',
     primaryLinks: [
         {
+            type: 'Link',
             label: 'About us',
             url: '/about',
             altText: 'About us'
         },
         {
+            type: 'Link',
             label: 'Product',
             url: '/',
             altText: 'Product'
         },
         {
+            type: 'Link',
             label: 'Features',
             url: '/',
             altText: 'Features'
         },
         {
+            type: 'Link',
             label: 'Pricing',
             url: '/',
             altText: 'Pricing'
@@ -60,16 +64,19 @@ const args = {
     ],
     socialLinks: [
         {
+            type: 'Link',
             label: 'Twitter',
             url: '/',
             icon: 'twitter'
         },
         {
+            type: 'Link',
             label: 'Instagram',
             url: '/',
             icon: 'instagram',
         },
         {
+            type: 'Link',
             label: 'Facebook',
             url: '/',
             icon: 'facebook',
@@ -77,14 +84,17 @@ const args = {
     ],
     legalLinks: [
         {
+            type: 'Link',
             label: 'F.A.Q',
             url: '/'
         },
         {
+            type: 'Link',
             label: 'Privacy Policy',
             url: '/'
         },
         {
+            type: 'Link',
             label: 'Terms & Conditions',
             url: '/'
         }

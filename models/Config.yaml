@@ -1,96 +1,13 @@
 type: data
 name: Config
-label: Config
+label: Site configuration
 file: 'config.json'
 fields:
-  - type: enum
-    name: desktopNavVariant
-    label: Desktop navigation arrangement
-    options:
-      - label: Navbar with logo and primary links on the left
-        value: variant-a
-      - label: Navbar with logo on the left and primary links centered
-        value: variant-b
-      - label: Navbar with logo on the left and primary links on the right
-        value: variant-c
-      - label: Navbar with logo centered and primary links on the left
-        value: variant-d
-    default: variant-a
-  - type: enum
-    name: mobileNavVariant
-    label: Mobile navigation arrangement
-    options:
-      - label: Full-width mobile navigation
-        value: variant-a
-      - label: Full-height mobile navigation
-        value: variant-b
-    default: variant-a
-  - type: enum
-    name: primaryColors
-    label: Primary colors (navbar)
-    options:
-      - label: Dark text on light background
-        value: colors-a
-      - label: Light text on dark background
-        value: colors-b
-      - label: Primary text on dark background
-        value: colors-c
-      - label: Dark text on primary background
-        value: colors-d
-      - label: Dark text on secondary background
-        value: colors-e
-    default: colors-a
-  - type: enum
-    name: secondaryColors
-    label: Secondary colors (mobile navigation)
-    options:
-      - label: Dark text on light background
-        value: colors-a
-      - label: Light text on dark background
-        value: colors-b
-      - label: Primary text on dark background
-        value: colors-c
-      - label: Dark text on primary background
-        value: colors-d
-      - label: Dark text on secondary background
-        value: colors-e
-    default: colors-a
-  - type: enum
-    name: width
-    label: Width
-    options:
-      - label: Narrow
-        value: narrow
-      - label: Wide
-        value: wide
-      - label: Full
-        value: full
-    default: wide
-  - type: string
-    name: title
-    label: Title
-  - type: boolean
-    name: isTitleVisible
-    label: Display title
-  - type: image
-    name: logoUrl
-    label: Logo URL
-  - type: string
-    name: logoAltText
-    label: Logo alt text
-  - type: list
-    name: primaryLinks
-    label: Primary navigation links
-    items:
-      type: model
-      models:
-        - Button
-        - Link
-  - type: list
-    name: secondaryLinks
-    label: Secondary links
-    items:
-      type: model
-      models:
-        - Button
-        - Link
+  - type: model
+    name: navBar
+    label: Navbar configuration
+    models: [NavBar]
+  - type: model
+    name: footer
+    label: Footer configuration
+    models: [Footer]

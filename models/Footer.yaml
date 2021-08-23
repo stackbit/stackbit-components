@@ -44,8 +44,8 @@ fields:
     name: text
     label: Text
   - type: model
-    name: contact
-    label: Contact
+    name: contacts
+    label: Contacts
     models: [ContactBlock]
   - type: markdown
     name: copyrightText

@@ -24,7 +24,7 @@ const dynamicComponents = {
 
 export default dynamicComponents;
 `;
-    fse.writeFileSync(path.join(process.cwd(), '.storybook/storybook-dynamic.js'), result, 'utf8');
+    fse.writeFileSync(path.join(__dirname, '../.storybook/storybook-dynamic.js'), result, 'utf8');
     console.log('generated .storybook/storybook-dynamic.js');
 }
 

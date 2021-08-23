@@ -1,8 +1,11 @@
 #!/usr/bin/env node
+
+const path = require('path');
+const fse = require('fs-extra');
 const componentsManifest = require('../src/components-manifest.json');
 
 function generateDistComponentMap() {
-    console.log('generating src/components-map.json ...');
+    console.log('generating dist/components-map.json ...');
     const componentsMap = {
         README: "Components set to 'null' will be loaded from @stackbit/components library. To override a component, set it to relative paths of your component",
         components: {},
@@ -21,7 +24,8 @@ function generateDistComponentMap() {
             return map;
         }, {});
 
-    return componentsMap;
+    fse.writeJsonSync(path.join(__dirname, '../dist/components-map.json'), componentsMap, { spaces: 4 });
+    console.log('generated dist/components-map.json');
 }
 
 module.exports = generateDistComponentMap;

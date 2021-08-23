@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-const path = require('path');
 const childProcess = require('child_process');
 const fse = require('fs-extra');
 const args = process.argv.slice(2);
@@ -33,8 +32,7 @@ devDependenciesToRemove.forEach((dependency) => {
 fse.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf8');
 
 console.log('generating components-map.json ...');
-const componentsMap = generateDistComponentMap();
-fse.writeJsonSync(path.join(process.cwd(), 'dist/components-map.json'), componentsMap, { spaces: 4 });
+generateDistComponentMap();
 
 console.log('copying files and folders...');
 const folders = ['src', 'models', 'themes'];
@@ -46,7 +44,3 @@ const files = ['src/dynamic-components.js', 'src/with-stackbit-components.js', '
 files.forEach((file) => {
   childProcess.spawnSync('cp', [file, 'dist']);
 });
-
-if (args.includes('--local')) {
-  childProcess.spawnSync('cp', ['-r', 'dist', '../stackbit-nextjs-v2/node_modules/@stackbit/']);
-}

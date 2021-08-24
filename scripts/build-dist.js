@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-
+const path = require('path');
 const childProcess = require('child_process');
 const fse = require('fs-extra');
 const args = process.argv.slice(2);
@@ -27,13 +27,14 @@ if (args.includes('--clean')) {
 runBabel();
 
 if (process.env.SOURCEMAP_COMMAND) {
+  console.log('running sourcemap generation...');
   const cmdParts = process.env.SOURCEMAP_COMMAND.split(' ');
   const tempSrcDir = path.resolve('src');
-  const annotationResult = childProcess.spawnSync(cmdParts[0], [cmdParts.slice(1).join(' ') + ` ${tempSrcDir} ${tempSrcDir} node_modules/@stackbit/components`], {
+  const sourcemapResult = childProcess.spawnSync(cmdParts[0], [cmdParts.slice(1).join(' ') + ` ${tempSrcDir} ${tempSrcDir} node_modules/@stackbit/components`], {
     shell: true
   });
-  console.log(String(annotationResult.stdout));
-  console.log(String(annotationResult.stderr));
+  console.log(String(sourcemapResult.stdout));
+  console.log(String(sourcemapResult.stderr));
   runBabel('src', 'temp-dist');
   // apply using: patch -p1 -i sourcemap.patch
   childProcess.spawnSync('diff', ['-rc', 'dist temp-dist > dist/sourcemap.patch'], {

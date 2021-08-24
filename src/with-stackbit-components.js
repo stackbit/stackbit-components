@@ -6,11 +6,12 @@ const defaultComponentMap = require('./components-map.json');
 const STACKBIT_FOLDER_DEFAULT_PATH = '.stackbit/';
 const COMPONENTS_MAP_DEFAULT_USER_PATH = '.stackbit/components-map.json';
 const DYNAMIC_COMPONENTS_DEFAULT_USER_PATH = '.stackbit/dynamic-components.js';
+const DYNAMIC_COMPONENTS_INTERNAL_PATH = path.resolve(__dirname, 'dynamic-components.js');
 
 module.exports = function withStackbitComponents(nextConfig) {
     copyComponentsJson(nextConfig);
     generateDynamicComponents(nextConfig);
-    updateResolveAliases(nextConfig);
+    configureWebpack(nextConfig);
     return nextConfig;
 };
 
@@ -36,7 +37,6 @@ function copyComponentsJson(nextConfig) {
 }
 
 function generateDynamicComponents(nextConfig) {
-    const sourceFilePath = path.join(__dirname, 'dynamic-components.js');
     const componentsMapPath = path.resolve(nextConfig?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH);
     const targetFilePath = path.resolve(nextConfig?.dynamicComponentsPath ?? DYNAMIC_COMPONENTS_DEFAULT_USER_PATH);
     const componentsMapDir = path.dirname(componentsMapPath);
@@ -55,26 +55,55 @@ function generateDynamicComponents(nextConfig) {
             return `'${key}': dynamic(() => import('${importString}'))`;
         })
         .join(',\n  ');
-    const data = fse.readFileSync(sourceFilePath, 'utf-8');
+    const data = fse.readFileSync(DYNAMIC_COMPONENTS_INTERNAL_PATH, 'utf-8');
     const replaced = data.replace('//__COMPONENTS_TOKEN__', componentsString);
     fse.writeFileSync(targetFilePath, replaced, 'utf-8');
 }
 
-function updateResolveAliases(nextConfig) {
+function configureWebpack(nextConfig) {
     const origWebpack = nextConfig.webpack;
     nextConfig.webpack = (wpConfig, wpOptions) => {
-        const componentAliases = getAliases(nextConfig, wpOptions);
-        const dynamicComponentsAlias = getDynamicComponentsAlias(nextConfig, wpOptions);
-        wpConfig.resolve.alias = Object.assign(wpConfig.resolve.alias || {}, componentAliases, dynamicComponentsAlias);
+        const userComponentsMap = resolveUserComponentsMap(nextConfig, wpConfig, wpOptions);
+        const dynamicComponentsMap = getDynamicComponentsAlias(nextConfig, wpConfig, wpOptions);
+        const componentsMap = Object.assign({}, userComponentsMap, dynamicComponentsMap);
+
+        console.log(`componentsMap, isServer: ${wpOptions.isServer}`, componentsMap);
+
+        resolveWithAlias(wpConfig, componentsMap);
+        // resolverWithPlugin(wpConfig, wpOptions, componentsMap);
+
         return origWebpack ? origWebpack(wpConfig, wpOptions) : wpConfig;
     };
 }
 
-function getDynamicComponentsAlias(nextConfig, wpOptions) {
+function resolveWithAlias(wpConfig, componentsMap) {
+    // webpack alias keys should not contain extension
+    // https://webpack.js.org/configuration/resolve/#resolvealias
+    componentsMap = Object.entries(componentsMap).reduce((result, [target, source]) => {
+        const pathObject = path.parse(target);
+        target = path.join(pathObject.dir, pathObject.name);
+        result[target] = source;
+        return result;
+    }, {});
+    wpConfig.resolve.alias = Object.assign(wpConfig.resolve.alias || {}, componentsMap);
+}
+
+function resolverWithPlugin(wpConfig, wpOptions, componentsMap) {
+    wpConfig.resolve.plugins.push(
+        new StackbitComponentsResolverPlugin({
+            componentsRoot: path.join(wpConfig.context, 'node_modules/@stackbit/components'),
+            isServer: wpOptions.isServer,
+            componentsMap
+        })
+    );
+}
+
+function getDynamicComponentsAlias(nextConfig, wpConfig, wpOptions) {
     const dynamicComponentsRelPath = nextConfig?.dynamicComponentsPath ?? DYNAMIC_COMPONENTS_DEFAULT_USER_PATH;
-    const dynamicComponentsAbsPath = path.resolve(dynamicComponentsRelPath);
+    const dynamicComponentsAbsPath = path.resolve(wpConfig.context, dynamicComponentsRelPath);
+    let resolvedDynamicComponentsPath;
     try {
-        require.resolve(dynamicComponentsAbsPath);
+        resolvedDynamicComponentsPath = require.resolve(dynamicComponentsAbsPath);
     } catch (e) {
         if (wpOptions.isServer) {
             console.error(`[withStackbitComponents] Error: '${dynamicComponentsRelPath}' was not found. Will not load custom dynamic imports.`);
@@ -82,16 +111,16 @@ function getDynamicComponentsAlias(nextConfig, wpOptions) {
         return {};
     }
     return {
-        [path.resolve(__dirname, 'dynamic-components')]: dynamicComponentsAbsPath
+        [DYNAMIC_COMPONENTS_INTERNAL_PATH]: resolvedDynamicComponentsPath
     };
 }
 
-function getAliases(nextConfig, wpOptions) {
-    const componentsMapRelFilePath = nextConfig?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH;
-    const componentsMapAbsFilePath = path.resolve(componentsMapRelFilePath);
+function resolveUserComponentsMap(nextConfig, wpConfig, wpOptions) {
+    const componentsMapPath = nextConfig?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH;
+    const componentsMapAbsFilePath = path.resolve(wpConfig.context, componentsMapPath);
     if (!fse.pathExistsSync(componentsMapAbsFilePath)) {
         if (wpOptions.isServer) {
-            console.log(`[withStackbitComponents] Error: file '${componentsMapRelFilePath}' not found.`);
+            console.log(`[withStackbitComponents] Error: file '${componentsMapPath}' not found.`);
         }
         return {};
     }
@@ -105,57 +134,99 @@ function getAliases(nextConfig, wpOptions) {
         return {};
     }
     const componentsMapDir = path.dirname(componentsMapAbsFilePath);
-    return getAliasesForComponents(componentsMap.components, componentsMapDir, componentsMapRelFilePath, wpOptions)
-}
+    const componentMap = componentsMap?.components || {};
 
-function getAliasesForComponents(componentMap, componentsMapDir, componentsMapRelFilePath, wpOptions) {
-    const aliases = {};
-    for (const componentName in componentMap || {}) {
-        const componentRelPath = componentMap[componentName];
-        if (!componentRelPath) {
-            continue;
+    return Object.entries(componentMap).reduce((result, [componentName, userComponentPath]) => {
+        if (!userComponentPath) {
+            return result;
         }
-        const absPath = path.join(componentsMapDir, componentRelPath);
+        let resolvedUserComponentPath;
         try {
-            require.resolve(absPath);
-        } catch (e) {
+            resolvedUserComponentPath = require.resolve(path.join(componentsMapDir, userComponentPath));
+        } catch (error) {
             if (wpOptions.isServer) {
-                console.error(
-                    `[withStackbitComponents] Error: component '${componentRelPath}' specified in '${componentsMapRelFilePath}' was not found.`
-                );
+                console.error(`[withStackbitComponents] Error: component '${userComponentPath}' specified in '${componentsMapPath}' was not found.`);
             }
-            continue;
-        }
-        const manifest = componentsManifest[componentName];
-
-        if (!manifest) {
-            if (wpOptions.isServer) {
-                console.error(
-                    `[withStackbitComponents] Error: component name '${componentName}' specified in '${componentsMapRelFilePath}' does not exist`
-                );
-            }
-            continue;
+            return result;
         }
 
-        const stackbitComponentAbsPath = path.resolve(__dirname, manifest.path);
-        const stackbitComponentImport = `@stackbit/components/${manifest.path}`;
+        const componentManifestInfo = componentsManifest[componentName];
+        if (!componentManifestInfo) {
+            if (wpOptions.isServer) {
+                console.error(`[withStackbitComponents] Error: component name '${componentName}' specified in '${componentsMapPath}' does not exist`);
+            }
+            return result;
+        }
 
+        const stackbitComponentImport = `@stackbit/components/${componentManifestInfo.path}`;
+        let resolvedStackbitComponentPath;
         try {
-            require.resolve(stackbitComponentAbsPath);
-        } catch (e) {
+            resolvedStackbitComponentPath = require.resolve(path.resolve(__dirname, componentManifestInfo.path));
+        } catch (error) {
             if (wpOptions.isServer) {
-                console.error(
-                    `[withStackbitComponents] Error: component name '${componentName}' specified in '${componentsMapRelFilePath}' does not exist`
-                );
+                console.error(`[withStackbitComponents] Error: component name '${componentName}' specified in '${componentsMapPath}' does not exist`);
             }
-            continue;
+            return result;
         }
 
-        aliases[stackbitComponentAbsPath] = absPath;
-        aliases[stackbitComponentImport] = absPath;
+        result[resolvedStackbitComponentPath] = resolvedUserComponentPath;
         if (wpOptions.isServer) {
-            console.log(`[withStackbitComponents] replaced '${stackbitComponentImport}' with '${componentRelPath}'`);
+            const rootUserComponentPath = path.relative(wpConfig.context, resolvedUserComponentPath);
+            console.log(`[withStackbitComponents] mapped '${stackbitComponentImport}' to '${rootUserComponentPath}'`);
         }
-    }
-    return aliases;
+
+        return result;
+    }, {});
 }
+
+class StackbitComponentsResolverPlugin {
+    constructor({ componentsRoot, isServer, componentsMap }) {
+        console.log(`[withStackbitComponents] StackbitComponentsResolverPlugin, isServer: ${isServer}, componentsRoot: ${componentsRoot}`);
+        this.isServer = isServer;
+        this.componentsRoot = componentsRoot;
+        this.componentsMap = componentsMap;
+    }
+
+    apply(resolver) {
+        // This hook is executed very early and captures the original file name
+        resolver.getHook('resolve').tapAsync('StackbitComponentsResolverPlugin', (request, stack, callback) => {
+            if (!request._originalRequestPath) {
+                request._originalRequestPath = request.request;
+            }
+            return callback();
+        });
+
+        // This is where the magic really happens
+        resolver.getHook('before-resolved').tapAsync('StackbitComponentsResolverPlugin', (request, stack, callback) => {
+            const requestPath = request.path;
+            const originalRequestPath = request._originalRequestPath;
+            const issuer = request.context?.issuer;
+
+            // only consider paths inside the components dir
+            if (!requestPath.startsWith(__dirname)) {
+                return callback();
+            }
+
+            // only consider paths that need to be resolved
+            if (!this.componentsMap[requestPath]) {
+                return callback();
+            }
+
+            const newPath = this.componentsMap[requestPath];
+
+            if (issuer === newPath) {
+                console.log('[withStackbitComponents] cyclic resolve, skipping resolve', { isServer: this.isServer, issuer: issuer, path: requestPath, newPath, originalRequestPath });
+                return callback();
+            }
+
+            console.log(`[withStackbitComponents] isServer: ${this.isServer},  resolve ${requestPath} to ${newPath}, issuer: ${issuer}, required path: ${originalRequestPath}`);
+            return resolver.doResolve(
+                resolver.hooks.describedRelative,
+                { ...request, path: newPath },
+                null,
+                {},
+                callback
+            );
+        });
+    }
+};

@@ -58,6 +58,9 @@ module.exports = {
         '.sb-btn': {
           '@apply border font-normal inline-flex items-center justify-center no-underline px-5 py-2.5 rounded-full text-center transition duration-200 ease-in': {}
         },
+        '.sb-link': {
+          '@apply inline-flex items-center justify-center no-underline transition-opacity duration-300 hover:opacity-80': {}
+        },
         '.sb-card': {
           '@apply overflow-hidden rounded': {}
         },
@@ -72,6 +75,9 @@ module.exports = {
         },
         '.sb-highlight': {
           '@apply text-info': {}
+        },
+        '.sb-form-control': {
+          '@apply mb-6': {}
         },
         '.sb-label': {
           '@apply font-normal': {}

@@ -1,0 +1,44 @@
+type: page
+name: PostLayout
+label: Post
+layout: PostLayout
+fields:
+  - type: string
+    name: title
+    label: Title
+  - type: date
+    name: date
+    label: Date
+  - type: string
+    name: excerpt
+    label: Excerpt
+  - type: image
+    name: thumbImageUrl
+    label: Thumbnail image
+  - type: string
+    name: thumbImageAltText
+    label: Thumbnail image alt text
+  - type: list
+    name: topSections
+    label: Top sections
+    items:
+      type: model
+      models:
+        - ContactSection
+        - ContentSection
+        - CtaSection
+        - FeaturedPostsSection
+        - HeroSection
+        - TestimonialsSection
+  - type: list
+    name: bottomSections
+    label: Bottom sections
+    items:
+      type: model
+      models:
+        - ContactSection
+        - ContentSection
+        - CtaSection
+        - FeaturedPostsSection
+        - HeroSection
+        - TestimonialsSection

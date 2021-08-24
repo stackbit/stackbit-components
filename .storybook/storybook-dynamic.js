@@ -4,16 +4,23 @@
 import { components, layouts } from '../src';
 
 const dynamicComponents = {
+    CheckboxFormControl: components.CheckboxFormControl,
     ContactSection: components.ContactSection,
+    ContentSection: components.ContentSection,
     CtaSection: components.CtaSection,
+    EmailFormControl: components.EmailFormControl,
+    FeaturedPostsSection: components.FeaturedPostsSection,
+    FormBlock: components.FormBlock,
     HeroSection: components.HeroSection,
     ImageBlock: components.ImageBlock,
-    PostsSection: components.PostsSection,
+    SelectFormControl: components.SelectFormControl,
     TestimonialsSection: components.TestimonialsSection,
+    TextFormControl: components.TextFormControl,
+    TextareaFormControl: components.TextareaFormControl,
     VideoBlock: components.VideoBlock,
     FeatureSection: components.FeatureSection,
-    advanced: layouts.AdvancedLayout,
-    post: layouts.PostLayout
+    AdvancedLayout: layouts.AdvancedLayout,
+    PostLayout: layouts.PostLayout
 };
 
 export default dynamicComponents;

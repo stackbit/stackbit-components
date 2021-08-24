@@ -1,0 +1,13 @@
+type: data
+name: Config
+label: Site configuration
+file: 'config.json'
+fields:
+  - type: model
+    name: navBar
+    label: Navbar configuration
+    models: [NavBar]
+  - type: model
+    name: footer
+    label: Footer configuration
+    models: [Footer]

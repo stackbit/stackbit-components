@@ -1,4 +1,5 @@
 type: object
+name: ContactSection
 label: Contact section
 fields:
   - type: enum
@@ -62,28 +63,11 @@ fields:
   - type: markdown
     name: text
     label: Text
-  - type: image
-    name: imageUrl
-    label: Image URL
-  - type: string
-    name: imageAltText
-    label: Image alt text
-  - type: string
-    name: imageCaption
-    label: Image caption
-    description: The caption of the image
-  - type: string
-    name: formId
-    label: Form ID
-  - type: string
-    name: formAction
-    label: Form action
-  - type: list
-    name: formFields
-    label: Form fields
-    items:
-      type: model
-      models: [FormField]
-  - type: string
-    name: submitLabel
-    label: Submit button label
+  - type: model
+    name: image
+    label: Image
+    models: [ImageBlock]
+  - type: model
+    name: form
+    label: Form
+    models: [FormBlock]

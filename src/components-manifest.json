@@ -1,20 +1,32 @@
 {
+    "Action": {
+        "path": "components/Action",
+        "className": "Action",
+        "modelName": "button",
+        "isDynamic": false
+    },
     "Badge": {
         "path": "components/Badge",
         "className": "Badge",
         "modelName": "badge",
         "isDynamic": false
     },
-    "Button": {
-        "path": "components/Button",
-        "className": "Button",
-        "modelName": "button",
-        "isDynamic": false
+    "CheckboxFormControl": {
+        "path": "components/CheckboxFormControl",
+        "className": "CheckboxFormControl",
+        "modelName": "CheckboxFormControl",
+        "isDynamic": true
     },
     "ContactSection": {
         "path": "components/ContactSection",
         "className": "ContactSection",
         "modelName": "ContactSection",
+        "isDynamic": true
+    },
+    "ContentSection": {
+        "path": "components/ContentSection",
+        "className": "ContentSection",
+        "modelName": "ContentSection",
         "isDynamic": true
     },
     "CtaSection": {
@@ -23,11 +35,29 @@
         "modelName": "CtaSection",
         "isDynamic": true
     },
+    "EmailFormControl": {
+        "path": "components/EmailFormControl",
+        "className": "EmailFormControl",
+        "modelName": "EmailFormControl",
+        "isDynamic": true
+    },
+    "FeaturedPostsSection": {
+        "path": "components/FeaturedPostsSection",
+        "className": "FeaturedPostsSection",
+        "modelName": "FeaturedPostsSection",
+        "isDynamic": true
+    },
     "Footer": {
         "path": "components/Footer",
         "className": "Footer",
         "modelName": "Footer",
         "isDynamic": false
+    },
+    "FormBlock": {
+        "path": "components/FormBlock",
+        "className": "FormBlock",
+        "modelName": "FormBlock",
+        "isDynamic": true
     },
     "HeroSection": {
         "path": "components/HeroSection",
@@ -47,28 +77,34 @@
         "modelName": "InlineMarkdown",
         "isDynamic": false
     },
-    "Link": {
-        "path": "components/Link",
-        "className": "Link",
-        "modelName": "Link",
-        "isDynamic": false
-    },
     "NavBar": {
         "path": "components/NavBar",
         "className": "NavBar",
         "modelName": "NavBar",
         "isDynamic": false
     },
-    "PostsSection": {
-        "path": "components/PostsSection",
-        "className": "PostsSection",
-        "modelName": "PostsSection",
+    "SelectFormControl": {
+        "path": "components/SelectFormControl",
+        "className": "SelectFormControl",
+        "modelName": "SelectFormControl",
         "isDynamic": true
     },
     "TestimonialsSection": {
         "path": "components/TestimonialsSection",
         "className": "TestimonialsSection",
         "modelName": "TestimonialsSection",
+        "isDynamic": true
+    },
+    "TextFormControl": {
+        "path": "components/TextFormControl",
+        "className": "TextFormControl",
+        "modelName": "TextFormControl",
+        "isDynamic": true
+    },
+    "TextareaFormControl": {
+        "path": "components/TextareaFormControl",
+        "className": "TextareaFormControl",
+        "modelName": "TextareaFormControl",
         "isDynamic": true
     },
     "VideoBlock": {
@@ -86,13 +122,13 @@
     "AdvancedLayout": {
         "path": "layouts/AdvancedLayout",
         "className": "AdvancedLayout",
-        "modelName": "advanced",
+        "modelName": "AdvancedLayout",
         "isDynamic": true
     },
     "PostLayout": {
       "path": "layouts/PostLayout",
       "className": "PostLayout",
-      "modelName": "post",
+      "modelName": "PostLayout",
       "isDynamic": true
   }
 }

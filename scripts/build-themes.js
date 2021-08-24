@@ -3,11 +3,11 @@ const path = require('path');
 const childProcess = require('child_process');
 
 const themes = ['bold', 'eco', 'modern', 'retro'];
+const themeGlobal = path.join(__dirname, '../themes/global.css');
 
 themes.forEach((theme) => {
-  const themeGlobal = path.join(process.cwd(), 'themes', 'global.css');
-  const themeConfig = path.join(process.cwd(), 'themes', `tailwind.${theme}.config.js`);
-  const themeOutput = path.join(process.cwd(), 'public', 'css', `tailwind.${theme}.css`);
+  const themeConfig = path.join(__dirname, `../themes/tailwind.${theme}.config.js`);
+  const themeOutput = path.join(__dirname, `../public/css/tailwind.${theme}.css`);
   console.log(`Building CSS for ${theme} theme...`);
   childProcess.execSync(`npx tailwindcss build --minify -i "${themeGlobal}" --config "${themeConfig}" --output "${themeOutput}"`);
 });

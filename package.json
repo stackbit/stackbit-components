@@ -1,7 +1,8 @@
 {
   "name": "@stackbit/components",
-  "version": "0.1.2",
+  "version": "0.1.4",
   "description": "Stackbit components library",
+  "private": true,
   "keywords": [
     "stackbit",
     "components"
@@ -33,7 +34,6 @@
     "build-storybook": "./scripts/generate-storybook-dynamic.js && build-storybook -s ./public",
     "build": "npm run build-themes && npm run build-storybook",
     "build-dist": "./scripts/build-dist.js --clean",
-    "build-dist-local": "./scripts/build-dist.js --local",
     "validate": "stackbit validate",
     "pretty": "prettier --write src",
     "version-minor": "npm version minor -m \"bumped version to v%s\"",

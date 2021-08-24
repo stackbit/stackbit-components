@@ -1,0 +1,25 @@
+type: object
+name: Testimonial
+label: Testimonial
+fields:
+  - type: markdown
+    name: quote
+    label: Quote
+  - type: string
+    name: name
+    label: Author name
+  - type: string
+    name: title
+    label: Author title
+  - type: image
+    name: imageUrl
+    label: Author image
+  - type: string
+    name: imageAltText
+    label: Author image alt text
+  - type: image
+    name: logoUrl
+    label: Company logo
+  - type: string
+    name: logoAltText
+    label: Company logo alt text

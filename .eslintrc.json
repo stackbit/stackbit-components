@@ -7,34 +7,6 @@
     "browser": true,
     "node": true
   },
-  "parserOptions": {
-    "ecmaFeatures": {
-      "jsx": true
-    },
-    "extends": "eslint:recommended",
-    "parserOptions": {
-        "ecmaVersion": 2018
-    },
-    "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "single"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
-        "no-unused-vars": 0
-    }
-  },
   "rules": {
     "prettier/prettier": "error",
     "consistent-return": "warn",

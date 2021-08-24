@@ -9,19 +9,39 @@ const generateDistComponentMap = require('./generate-components-map');
 
 console.log('Building components library');
 
+function runBabel(inputDir='src', outputDir='dist') {
+  console.log('running babel...');
+  const babelResult = childProcess.spawnSync('./node_modules/.bin/babel', ['--config-file', './babel.dist.config.json', '--out-dir', outputDir, inputDir]);
+  if (babelResult.status === 0) {
+    console.log(String(babelResult.stdout));
+  } else {
+    console.log(String(babelResult.stderr));
+    process.exit(1);
+  }
+}
+
 if (args.includes('--clean')) {
   console.log('removing dist folder...');
   fse.rmdirSync('dist', { recursive: true });
 }
 
-console.log('runing babel...');
-const babelResult = childProcess.spawnSync('babel', '--config-file ./babel.dist.config.json --out-dir dist src'.split(' '));
+runBabel();
 
-if (babelResult.status === 0) {
-  console.log(String(babelResult.stdout));
-} else {
-  console.log(String(babelResult.stderr));
-  process.exit(1);
+if (process.env.SOURCEMAP_COMMAND) {
+  const cmdParts = process.env.SOURCEMAP_COMMAND.split(' ');
+  const tempSrcDir = path.resolve('src');
+  const annotationResult = childProcess.spawnSync(cmdParts[0], [cmdParts.slice(1).join(' ') + ` ${tempSrcDir} ${tempSrcDir} node_modules/@stackbit/components`], {
+    shell: true
+  });
+  console.log(String(annotationResult.stdout));
+  console.log(String(annotationResult.stderr));
+  runBabel('src', 'temp-dist');
+  // apply using: patch -p1 -i sourcemap.patch
+  childProcess.spawnSync('diff', ['-rc', 'dist temp-dist > dist/sourcemap.patch'], {
+    shell: true
+  });
+  childProcess.spawnSync('git', ['checkout', '--', 'src']);
+  fse.rmdirSync('temp-dist', { recursive: true });
 }
 
 console.log('copy package.json and remove peerDependencies marked as devDependencies...');

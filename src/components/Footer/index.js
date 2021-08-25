@@ -1,3 +1,4 @@
+import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Action from '../Action';

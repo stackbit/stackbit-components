@@ -1,3 +1,4 @@
+import React from 'react';
 import classNames from 'classnames';
 import Link from '../../utils/link';
 import ArrowRight from '../../svgs/arrow-right';

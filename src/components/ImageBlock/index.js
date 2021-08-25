@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function ImageBlock(props) {
     const imageUrl = props.imageUrl;
     if (!imageUrl) {

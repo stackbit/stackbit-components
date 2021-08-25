@@ -1,6 +1,7 @@
-import { getDynamicComponent } from '../../components-registry';
+import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
+import { getDynamicComponent } from '../../components-registry';
 import Badge from '../Badge';
 import Action from '../Action';
 import InlineMarkdown from '../InlineMarkdown';

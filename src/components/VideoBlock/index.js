@@ -1,3 +1,5 @@
+import React from 'react';
+
 export default function VideoBlock(props) {
     const videoUrl = props.videoUrl;
     if (!videoUrl) {

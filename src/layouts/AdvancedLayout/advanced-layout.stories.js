@@ -30,6 +30,7 @@ Primary.args = {
     ]
   },
   site: {
+    backgroundColor: 'bg-primary',
     navBar: NavBarStories.Primary.args,
     footer: FooterStories.Primary.args
   }

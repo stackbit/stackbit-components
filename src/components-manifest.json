@@ -41,6 +41,12 @@
         "modelName": "EmailFormControl",
         "isDynamic": true
     },
+    "FeaturedPeopleSection": {
+        "path": "components/FeaturedPeopleSection",
+        "className": "FeaturedPeopleSection",
+        "modelName": "FeaturedPeopleSection",
+        "isDynamic": true
+    },
     "FeaturedPostsSection": {
         "path": "components/FeaturedPostsSection",
         "className": "FeaturedPostsSection",

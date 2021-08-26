@@ -1,9 +1,9 @@
 import React from 'react';
 import classNames from 'classnames';
-import Link from 'next/link';
 import Badge from '../Badge';
 import InlineMarkdown from '../InlineMarkdown';
 import getPageUrlPath from '../../utils/get-page-url-path';
+import Link from '../../utils/link';
 
 export default function FeaturedPostsSection(props) {
     const colors = props.colors || 'colors-a';
@@ -71,20 +71,18 @@ function PostsVariantA(props) {
             data-sb-field-path=".posts"
         >
             {posts.map((post, idx) => (
-                <Link key={idx} href={getPageUrlPath(post)}>
-                    <a className="sb-card block">
-                        <article>
-                            {post.thumbImageUrl && (
-                                <div className="h-0 w-full pt-1/2 relative">
-                                    <img src={post.thumbImageUrl} alt={post.thumbImageAltText || ''} className="absolute left-0 top-0 h-full w-full object-cover" />
-                                </div>
-                            )}
-                            <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                                <h2 className="text-xl sm:text-2xl mb-3">{post.title}</h2>
-                                {post.excerpt && <p>{post.excerpt}</p>}
+                <Link key={idx} href={getPageUrlPath(post)} className="sb-card block">
+                    <article>
+                        {post.thumbImageUrl && (
+                            <div className="h-0 w-full pt-1/2 relative">
+                                <img src={post.thumbImageUrl} alt={post.thumbImageAltText || ''} className="absolute left-0 top-0 h-full w-full object-cover" />
                             </div>
-                        </article>
-                    </a>
+                        )}
+                        <div className="px-4 py-6 sm:px-6 sm:pb-10">
+                            <h2 className="text-xl sm:text-2xl mb-3">{post.title}</h2>
+                            {post.excerpt && <p>{post.excerpt}</p>}
+                       </div>
+                    </article>
                 </Link>
             ))}
         </div>
@@ -107,19 +105,13 @@ function PostsVariantB(props) {
                 <article key={idx} className="sb-card sm:flex">
                     {post.thumbImageUrl && (
                         <div className="w-full sm:flex-shrink-0 sm:h-full sm:w-1/3">
-                            <Link href={getPageUrlPath(post)}>
-                                <a className="block h-0 w-full pt-1/2 relative sm:h-40 sm:min-h-full sm:pt-0">
-                                    <img src={post.thumbImageUrl} alt={post.thumbImageAltText || ''} className="absolute left-0 top-0 h-full w-full object-cover" />
-                                </a>
+                            <Link href={getPageUrlPath(post)} className="block h-0 w-full pt-1/2 relative sm:h-40 sm:min-h-full sm:pt-0">
+                                <img src={post.thumbImageUrl} alt={post.thumbImageAltText || ''} className="absolute left-0 top-0 h-full w-full object-cover" />
                             </Link>
                         </div>
                     )}
                     <div className="px-4 py-6 sm:px-6 sm:pb-10 sm:flex-grow">
-                        <h2 className="mb-2 text-2xl md:text-xl">
-                            <Link href={getPageUrlPath(post)}>
-                                <a>{post.title}</a>
-                            </Link>
-                        </h2>
+                        <h2 className="mb-2 text-2xl md:text-xl"><Link href={getPageUrlPath(post)}>{post.title}</Link></h2>
                         {post.excerpt && <p>{post.excerpt}</p>}
                     </div>
                 </article>

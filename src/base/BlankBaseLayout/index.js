@@ -5,7 +5,7 @@ export default function BlankBaseLayout(props) {
   const { page, site } = props;
   const { title } = page;
   return (
-    <div>
+    <div className={site.backgroundColor || 'bg-white'}>
       <Head>
         <title>{title}</title>
         <meta name="description" content="Stackbit Components Library" />

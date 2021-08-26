@@ -9,6 +9,7 @@ const dynamicComponents = {
     ContentSection: components.ContentSection,
     CtaSection: components.CtaSection,
     EmailFormControl: components.EmailFormControl,
+    FeaturedPeopleSection: components.FeaturedPeopleSection,
     FeaturedPostsSection: components.FeaturedPostsSection,
     FormBlock: components.FormBlock,
     HeroSection: components.HeroSection,

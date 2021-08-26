@@ -4,6 +4,7 @@ const path = require('path');
 const componentsManifest = require('./components-manifest.json');
 const defaultComponentMap = require('./components-map.json');
 const STACKBIT_FOLDER_DEFAULT_PATH = '.stackbit/';
+const STACKBIT_COMPONENTS_PACKAGE_NAME = '@stackbit/components';
 const COMPONENTS_MAP_DEFAULT_USER_PATH = '.stackbit/components-map.json';
 const DYNAMIC_COMPONENTS_DEFAULT_USER_PATH = '.stackbit/dynamic-components.js';
 const DYNAMIC_COMPONENTS_INTERNAL_PATH = path.resolve(__dirname, 'dynamic-components.js');
@@ -67,13 +68,61 @@ function configureWebpack(nextConfig) {
         const dynamicComponentsMap = getDynamicComponentsAlias(nextConfig, wpConfig, wpOptions);
         const componentsMap = Object.assign({}, userComponentsMap, dynamicComponentsMap);
 
-        console.log(`componentsMap, isServer: ${wpOptions.isServer}`, componentsMap);
+        // console.log(`componentsMap, isServer: ${wpOptions.isServer}`, componentsMap);
 
-        resolveWithAlias(wpConfig, componentsMap);
-        // resolverWithPlugin(wpConfig, wpOptions, componentsMap);
+        patchExternals(wpConfig, wpOptions);
+
+        // resolveWithAlias(wpConfig, componentsMap);
+        resolverWithPlugin(wpConfig, wpOptions, componentsMap);
 
         return origWebpack ? origWebpack(wpConfig, wpOptions) : wpConfig;
     };
+}
+
+function patchExternals(wpConfig, wpOptions) {
+    // if `isServer: true` and webpack config has a function in externals[0]
+    // then wrap this function and ensure that example-lib is not treated as external
+    if (wpOptions.isServer && Array.isArray(wpConfig.externals) && wpConfig.externals.length > 0 && typeof wpConfig.externals[0] === 'function') {
+        const origExternals = wpConfig.externals[0];
+        const regExp = new RegExp(STACKBIT_COMPONENTS_PACKAGE_NAME);
+
+        const isStackbitComponents = (context, request) => {
+            // return true for any @stackbit/component required from outside
+            // and also any relative require from within @stackbit/components
+            // but not external require from @stackbit/components
+            // OK: "src/page.js" => "node_modules/@stackbit/components/components/Button"
+            // OK: "node_modules/@stackbit/components/components/HeroSection" => "../Button"
+            // NO: "node_modules/@stackbit/components/components/HeroSection" => "react"
+            return !!(regExp.test(context) && request.startsWith('.') || regExp.test(request));
+        };
+
+        // the externals function interface is different between webpack v4 and webpack v5
+        wpConfig.externals[0] = isWebpack5(wpOptions) ? (options) => {
+            const { context, request } = options;
+            if (isStackbitComponents(context, request)) {
+                return Promise.resolve();
+            }
+            return origExternals(options);
+        } : (context, request, callback) => {
+            if (isStackbitComponents(context, request)){
+                return callback();
+            }
+            return origExternals(context, request, callback);
+        };
+    }
+}
+
+function isWebpack5(wpOptions) {
+    const webpackVersion = wpOptions.webpack.version;
+    if (!webpackVersion) {
+        return true;
+    }
+    const majorVersionMatch = webpackVersion.match(/^\d+/);
+    if (!majorVersionMatch) {
+        return true;
+    }
+    const version = parseInt(majorVersionMatch[0], 10);
+    return version >= 5;
 }
 
 function resolveWithAlias(wpConfig, componentsMap) {
@@ -91,7 +140,7 @@ function resolveWithAlias(wpConfig, componentsMap) {
 function resolverWithPlugin(wpConfig, wpOptions, componentsMap) {
     wpConfig.resolve.plugins.push(
         new StackbitComponentsResolverPlugin({
-            componentsRoot: path.join(wpConfig.context, 'node_modules/@stackbit/components'),
+            componentsRoot: path.join(wpConfig.context, `node_modules/${STACKBIT_COMPONENTS_PACKAGE_NAME}`),
             isServer: wpOptions.isServer,
             componentsMap
         })
@@ -158,7 +207,7 @@ function resolveUserComponentsMap(nextConfig, wpConfig, wpOptions) {
             return result;
         }
 
-        const stackbitComponentImport = `@stackbit/components/${componentManifestInfo.path}`;
+        const stackbitComponentImport = `${STACKBIT_COMPONENTS_PACKAGE_NAME}/${componentManifestInfo.path}`;
         let resolvedStackbitComponentPath;
         try {
             resolvedStackbitComponentPath = require.resolve(path.resolve(__dirname, componentManifestInfo.path));
@@ -181,7 +230,7 @@ function resolveUserComponentsMap(nextConfig, wpConfig, wpOptions) {
 
 class StackbitComponentsResolverPlugin {
     constructor({ componentsRoot, isServer, componentsMap }) {
-        console.log(`[withStackbitComponents] StackbitComponentsResolverPlugin, isServer: ${isServer}, componentsRoot: ${componentsRoot}`);
+        // console.log(`[withStackbitComponents] StackbitComponentsResolverPlugin, isServer: ${isServer}, componentsRoot: ${componentsRoot}`);
         this.isServer = isServer;
         this.componentsRoot = componentsRoot;
         this.componentsMap = componentsMap;
@@ -219,7 +268,7 @@ class StackbitComponentsResolverPlugin {
                 return callback();
             }
 
-            console.log(`[withStackbitComponents] isServer: ${this.isServer},  resolve ${requestPath} to ${newPath}, issuer: ${issuer}, required path: ${originalRequestPath}`);
+            // console.log(`[withStackbitComponents] isServer: ${this.isServer}, resolve ${requestPath} to ${newPath}, issuer: ${issuer}, required path: ${originalRequestPath}`);
             return resolver.doResolve(
                 resolver.hooks.describedRelative,
                 { ...request, path: newPath },

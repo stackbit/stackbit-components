@@ -3,6 +3,19 @@ name: Config
 label: Site configuration
 file: 'config.json'
 fields:
+  - type: enum
+    name: backgroundColor
+    label: Background color
+    options:
+      - label: White
+        value: bg-white
+      - label: Primary
+        value: bg-primary
+      - label: Secondary
+        value: bg-secondary
+      - label: Neutral
+        value: bg-neutral
+    default: bg-white
   - type: model
     name: navBar
     label: Navbar configuration

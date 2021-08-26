@@ -4,6 +4,7 @@ import CheckboxFormControl from './CheckboxFormControl';
 import ContactSection from './ContactSection';
 import CtaSection from './CtaSection';
 import EmailFormControl from './EmailFormControl';
+import FeaturedPeopleSection from './FeaturedPeopleSection';
 import FeaturedPostsSection from './FeaturedPostsSection';
 import Footer from './Footer';
 import FormBlock from './FormBlock';
@@ -23,6 +24,7 @@ export {
     ContactSection,
     CtaSection,
     EmailFormControl,
+    FeaturedPeopleSection,
     FeaturedPostsSection,
     Footer,
     FormBlock,

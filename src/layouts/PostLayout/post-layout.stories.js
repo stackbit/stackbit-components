@@ -19,7 +19,7 @@ export default {
 const Template = (args) => <PostLayout {...args} />;
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Post';
+Primary.storyName = 'Post Layout';
 Primary.args = {
     page: {
         title: 'Sustainability at it’s purest',

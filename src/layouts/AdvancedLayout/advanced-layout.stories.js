@@ -22,10 +22,11 @@ export default {
 const Template = (args) => <AdvancedLayout {...args} />;
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Advanced Page';
+Primary.storyName = 'Advanced Layout';
 Primary.args = {
     page: {
         title: 'Example Page',
+        layout: 'AdvancedLayout',
         sections: [
             HeroSectionStories.Primary.args,
             TestimonialsSectionStories.Primary.args,

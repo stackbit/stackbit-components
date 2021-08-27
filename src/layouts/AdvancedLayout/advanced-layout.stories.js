@@ -10,7 +10,7 @@ import * as TestimonialsSectionStories from '../../components/TestimonialsSectio
 import AdvancedLayout from './index';
 
 export default {
-    title: 'Layouts/Advanced Page',
+    title: 'Layouts/AdvancedLayout',
     component: AdvancedLayout,
     parameters: {
         argsYaml: {
@@ -22,7 +22,7 @@ export default {
 const Template = (args) => <AdvancedLayout {...args} />;
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Advanced Layout';
+Primary.storyName = 'Layout';
 Primary.args = {
     page: {
         title: 'Example Page',

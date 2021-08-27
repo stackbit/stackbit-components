@@ -7,7 +7,7 @@ import * as HeroSectionStories from '../../components/HeroSection/hero-section.s
 import PostLayout from './index';
 
 export default {
-    title: 'Layouts/Post',
+    title: 'Layouts/PostLayout',
     component: PostLayout,
     parameters: {
         argsYaml: {
@@ -19,10 +19,11 @@ export default {
 const Template = (args) => <PostLayout {...args} />;
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Post Layout';
+Primary.storyName = 'Layout';
 Primary.args = {
     page: {
         title: 'Sustainability at it’s purest',
+        layout: 'PostLayout',
         date: '2021-07-03',
         excerpt: 'We’re local, seasonal fisherman, supporting fishing restrictions. We fish what the sea has to offer, nothing more, and no cheating.',
         thumbImageUrl: '/images/fisherman.jpg',

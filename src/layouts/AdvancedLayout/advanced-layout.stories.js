@@ -25,6 +25,7 @@ export const Primary = Template.bind({});
 Primary.storyName = 'Layout';
 Primary.args = {
     page: {
+        __metadata: {},
         title: 'Example Page',
         layout: 'AdvancedLayout',
         sections: [
@@ -36,6 +37,7 @@ Primary.args = {
         ]
     },
     site: {
+        __metadata: {},
         backgroundColor: 'bg-primary',
         navBar: NavBarStories.Primary.args,
         footer: FooterStories.Primary.args

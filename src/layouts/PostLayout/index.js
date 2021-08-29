@@ -1,5 +1,6 @@
 import React from 'react';
 import Markdown from 'markdown-to-jsx';
+import ImageBlock from '../../components/ImageBlock';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
 import { getDynamicComponent } from '../../components-registry';
 
@@ -23,16 +24,16 @@ export default function PostLayout(props) {
                         })}
                     </div>
                 )}
-                <article className="py-16 lg:py-20 mx-auto max-w-screen-lg" data-sb-field-path="">
+                <article className="py-16 lg:py-20 mx-auto max-w-screen-lg">
                     <div className="mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8">
-                        {page.title && <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-3xl mx-auto">{page.title}</h1>}
-                        {page.thumbImageUrl && (
-                            <div className="h-0 w-full pt-1/2 mb-6 relative">
-                                <img src={page.thumbImageUrl} alt={page.thumbImageAltText || ''} className="absolute left-0 top-0 h-full w-full object-cover" />
+                        {page.title && <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-3xl mx-auto" data-sb-field-path="title">{page.title}</h1>}
+                        {page.thumbImage && (
+                            <div className="h-0 w-full pt-1/2 mb-6 relative" data-sb-field-path="thumbImage">
+                                <ImageBlock {...page.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
                             </div>
                         )}
                         {page.markdown_content && (
-                            <Markdown options={{ forceBlock: true }} className="max-w-3xl mx-auto md:text-lg">
+                            <Markdown options={{ forceBlock: true }} className="max-w-3xl mx-auto md:text-lg" data-sb-field-path="markdown_content">
                                 {page.markdown_content}
                             </Markdown>
                         )}

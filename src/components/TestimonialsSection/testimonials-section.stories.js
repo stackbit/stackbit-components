@@ -41,10 +41,16 @@ const args = {
             quote: '“It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”',
             name: 'Isabelle Parks',
             title: 'Head chef at The Cook',
-            imageUrl: '/images/isabelle-parks.jpg',
-            imageAltText: 'Photo of Isabelle Parks',
-            logoUrl: '/images/the-cook-logo.svg',
-            logoAltText: 'The Cook logo'
+            image: {
+                type: 'ImageBlock',
+                url: '/images/isabelle-parks.jpg',
+                altText: 'Photo of Isabelle Parks',
+            },
+            logo: {
+                type: 'ImageBlock',
+                url: '/images/the-cook-logo.svg',
+                altText: 'The Cook logo'
+            }
         }
     ]
 };

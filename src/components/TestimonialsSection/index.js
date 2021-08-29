@@ -2,6 +2,7 @@ import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Badge from '../Badge';
+import ImageBlock from '../ImageBlock';
 import InlineMarkdown from '../InlineMarkdown';
 
 export default function TestimonialsSection(props) {
@@ -73,30 +74,23 @@ function TestimonialsVariantA(props) {
             })}
             data-sb-field-path=".testimonials"
         >
-            {testimonials.map((testimonial, idx) => (
-                <blockquote key={idx} className="max-w-5xl mx-auto py-8" data-sb-field-path={`.${idx}`}>
-                    {testimonial.logoUrl && (
-                        <img
-                            src={testimonial.logoUrl}
-                            alt={testimonial.logoAltText || ''}
-                            className="mx-auto mb-10"
-                            data-sb-field-path=".logoUrl#@src .logoAltText#@alt"
-                        />
+            {testimonials.map((testimonial, index) => (
+                <blockquote key={index} className="max-w-5xl mx-auto py-8" data-sb-field-path={`.${index}`}>
+                    {testimonial.logo && (
+                        <div className="mb-10" data-sb-field-path=".logo">
+                            <ImageBlock {...testimonial.logo} className="mx-auto" />
+                        </div>
                     )}
                     {testimonial.quote && (
                         <Markdown options={{ forceBlock: true }} className="text-center text-3xl sm:text-4xl" data-sb-field-path=".quote">
                             {testimonial.quote}
                         </Markdown>
                     )}
-                    {(testimonial.name || testimonial.title || testimonial.imageUrl) && (
+                    {(testimonial.name || testimonial.title || testimonial.image) && (
                         <footer className="mt-8 text-center text-sm">
-                            {testimonial.imageUrl && (
-                                <div className="sb-avatar mx-auto mb-4 w-24 h-24">
-                                    <img
-                                        src={testimonial.imageUrl}
-                                        alt={testimonial.imageAltText || ''}
-                                        data-sb-field-path=".imageUrl#@src .imageAltText#@alt"
-                                    />
+                            {testimonial.image && (
+                                <div className="sb-avatar mx-auto mb-4 w-24 h-24" data-sb-field-path=".image">
+                                    <ImageBlock {...testimonial.image} />
                                 </div>
                             )}
                             {testimonial.name && (
@@ -125,12 +119,12 @@ function TestimonialsVariantB(props) {
             })}
             data-sb-field-path=".testimonials"
         >
-            {testimonials.map((testimonial, idx) => (
-                <blockquote key={idx} className="max-w-5xl mx-auto py-8 sm:flex" data-sb-field-path={`.${idx}`}>
-                    {testimonial.imageUrl && (
+            {testimonials.map((testimonial, index) => (
+                <blockquote key={index} className="max-w-5xl mx-auto py-8 sm:flex" data-sb-field-path={`.${index}`}>
+                    {testimonial.image && (
                         <div className="mb-8 sm:flex-shrink-0 sm:mb-0 sm:mr-10">
-                            <div className="sb-avatar mx-auto w-36 h-36 sm:w-48 sm:h-48">
-                                <img src={testimonial.imageUrl} alt={testimonial.imageAltText || ''} data-sb-field-path=".imageUrl#@src .imageAltText#@alt" />
+                            <div className="sb-avatar mx-auto w-36 h-36 sm:w-48 sm:h-48" data-sb-field-path=".image">
+                                <ImageBlock {...testimonial.image} />
                             </div>
                         </div>
                     )}

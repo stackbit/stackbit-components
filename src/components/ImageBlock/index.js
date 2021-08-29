@@ -1,18 +1,17 @@
 import React from 'react';
 
 export default function ImageBlock(props) {
-    const imageUrl = props.imageUrl;
+    const imageUrl = props.url;
     if (!imageUrl) {
         return null;
     }
-    const imageAltText = props.imageAltText || '';
     return (
         <img
             className={props.className}
             src={imageUrl}
-            alt={imageAltText}
-            title={props.imageCaption}
-            data-sb-field-path=".imageUrl#@src .imageAltText#@alt .imageCaption#@title"
+            alt={props.altText || ''}
+            title={props.caption}
+            data-sb-field-path=".url#@src .altText#@alt .caption#@title"
         />
     );
 }

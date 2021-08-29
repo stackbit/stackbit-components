@@ -10,9 +10,9 @@ const Template = (args) => <ImageBlock {...args} />;
 
 const args = {
     type: 'ImageBlock',
-    imageUrl: '/images/fisherman.jpg',
-    imageAltText: 'Image alt text',
-    imageCaption: 'Image caption'
+    url: '/images/fisherman.jpg',
+    altText: 'Image alt text',
+    caption: 'Image caption'
 };
 
 export const Primary = Template.bind({});

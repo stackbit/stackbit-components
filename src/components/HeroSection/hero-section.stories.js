@@ -57,9 +57,9 @@ const args = {
     ],
     feature: {
         type: 'ImageBlock',
-        imageUrl: '/images/hero.png',
-        imageAltText: 'Image alt text',
-        imageCaption: 'Image caption'
+        url: '/images/hero.png',
+        altText: 'Image alt text',
+        caption: 'Image caption'
     }
 };
 
@@ -114,9 +114,9 @@ HeroBottomImage.args = {
     ],
     feature: {
         type: 'ImageBlock',
-        imageUrl: '/images/hero-alt.png',
-        imageAltText: 'Image alt text',
-        imageCaption: 'Image caption'
+        url: '/images/hero-alt.png',
+        altText: 'Image alt text',
+        caption: 'Image caption'
     }
 };
 

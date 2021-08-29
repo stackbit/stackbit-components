@@ -2,6 +2,7 @@ import React from 'react';
 import { useState } from 'react';
 import classNames from 'classnames';
 import Action from '../Action';
+import ImageBlock from '../ImageBlock';
 import Link from '../../utils/link';
 import CloseIcon from '../../svgs/close';
 import HamburgerIcon from '../../svgs/hamburger';
@@ -19,7 +20,7 @@ export default function NavBar(props) {
                 'max-w-screen-lg': width === 'narrow',
                 relative: mobileNavVariant === 'variant-b'
             })}
-            data-sb-field-path=""
+            data-sb-field-path={`${props.annotationPrefix}:NavBar`}
         >
             <Link href="#content" className="sr-only">Skip to main content</Link>
             <div
@@ -37,15 +38,14 @@ function desktopNavVariants(props) {
     const desktopNavVariant = props.desktopNavVariant || 'variant-a';
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
-    const logo = props.logoUrl;
-    const logoAlt = props.logoAltText || '';
+    const logo = props.logo;
     const primaryLinks = props.primaryLinks;
     const secondaryLinks = props.secondaryLinks;
 
     if (desktopNavVariant === 'variant-a') {
         return (
             <>
-                <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
+                <div>{siteLogoLink({ title, isTitleVisible, logo })}</div>
                 {primaryLinks && primaryLinks.length > 0 && (
                     <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks">{listOfLinks(primaryLinks)}</ul>
                 )}
@@ -58,7 +58,7 @@ function desktopNavVariants(props) {
     } else if (desktopNavVariant === 'variant-b') {
         return (
             <>
-                <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
+                <div>{siteLogoLink({ title, isTitleVisible, logo })}</div>
                 {primaryLinks && primaryLinks.length > 0 && (
                     <ul className="hidden absolute space-x-8 left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto lg:flex lg:items-center" data-sb-field-path=".primaryLinks">
                         {listOfLinks(primaryLinks)}
@@ -74,7 +74,7 @@ function desktopNavVariants(props) {
         const links = (primaryLinks || []).concat(secondaryLinks || []);
         return (
             <>
-                <div>{siteLogoLink({ title, logo, logoAlt, isTitleVisible })}</div>
+                <div>{siteLogoLink({ title, isTitleVisible, logo })}</div>
                 {links.length > 0 && (
                     <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks .secondaryLinks">{listOfLinks(primaryLinks.concat(secondaryLinks))}</ul>
                 )}
@@ -85,7 +85,7 @@ function desktopNavVariants(props) {
         return (
             <>
                 <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-1/2">
-                    {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
+                    {siteLogoLink({ title, isTitleVisible, logo })}
                 </div>
                 {primaryLinks && primaryLinks.length > 0 && (
                     <ul className="hidden space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks">{listOfLinks(primaryLinks)}</ul>
@@ -105,8 +105,7 @@ function mobileNavVariants(props) {
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
-    const logo = props.logoUrl;
-    const logoAlt = props.logoAltText || '';
+    const logo = props.logo;
     const primaryLinks = props.primaryLinks;
     const secondaryLinks = props.secondaryLinks;
 
@@ -123,7 +122,7 @@ function mobileNavVariants(props) {
                             className={classNames(secondaryColors, 'p-5 shadow-lg')}
                         >
                             <div className="flex items-center justify-between mb-6">
-                                {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
+                                {siteLogoLink({ title, isTitleVisible, logo })}
                                 <button
                                     aria-label="Close Menu"
                                     title="Close Menu"
@@ -156,7 +155,7 @@ function mobileNavVariants(props) {
                             className={classNames(secondaryColors, 'fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto')}
                         >
                             <div className="flex items-center justify-between mb-6">
-                                {siteLogoLink({ title, logo, logoAlt, isTitleVisible })}
+                                {siteLogoLink({ title, isTitleVisible, logo })}
                                 <button
                                     aria-label="Close Menu"
                                     title="Close Menu"
@@ -175,10 +174,10 @@ function mobileNavVariants(props) {
     }
 }
 
-function siteLogoLink({ title, logo, logoAlt, isTitleVisible }) {
+function siteLogoLink({ title, isTitleVisible, logo }) {
     return (
-        <Link href="/" aria-label={title} title={title} className="inline-flex items-center" data-sb-field-path=".title#@title">
-            {logo && <img src={logo} alt={logoAlt} className={classNames({ 'mr-2': isTitleVisible })} data-sb-field-path=".logoUrl#@src .logoAltText#@alt" />}
+        <Link href="/" aria-label={title} title={title} className="inline-flex items-center" data-sb-field-path=".title#@title .logo">
+            {logo && <ImageBlock {...logo} className={classNames({ 'mr-2': isTitleVisible })} />}
             {isTitleVisible && <span className="text-2xl tracking-wide" data-sb-field-path=".title">{title}</span>}
         </Link>
     );

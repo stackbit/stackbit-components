@@ -12,12 +12,10 @@ fields:
   - type: string
     name: excerpt
     label: Excerpt
-  - type: image
-    name: thumbImageUrl
+  - type: model
+    name: thumbImage
     label: Thumbnail image
-  - type: string
-    name: thumbImageAltText
-    label: Thumbnail image alt text
+    models: [ImageBlock]
   - type: list
     name: topSections
     label: Top sections

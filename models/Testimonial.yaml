@@ -11,15 +11,11 @@ fields:
   - type: string
     name: title
     label: Author title
-  - type: image
-    name: imageUrl
+  - type: model
+    name: image
     label: Author image
-  - type: string
-    name: imageAltText
-    label: Author image alt text
-  - type: image
-    name: logoUrl
+    models: [ImageBlock]
+  - type: model
+    name: logo
     label: Company logo
-  - type: string
-    name: logoAltText
-    label: Company logo alt text
+    models: [ImageBlock]

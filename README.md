@@ -60,11 +60,10 @@ To build Storybook run `npm build`, the generated files will be written to `stor
 ## Building and Publishing Component Library
 
 1. Check that all files are committed and there are no outstanding git changes.
+1. Make sure you are on the `main` branch
 1. Run `npm run version-patch` to update the patch `v0.1.0` => `v0.1.1` or run `npm run version-minor` to update the minor `v0.1.1` => `v0.2.0`. This script updates the versions of `package.json` and `package-lock.json`, commits the changes and applies a git tag with new version.
-1. Run `npm run build-dist`. This scripts builds the component library and puts it into the `dist` folder.
-1. Run `cd dist` and then run `npm publish` to publish the package.
-1. Push changes to `main` branch
-
+1. Run `git push --tags` to push the changes to the main branch along with the tag
+1. Internal Stackbit’s CI/CD pipeline will publish the npm
 
 ## Linking Component Library to a Next.js site locally.
 

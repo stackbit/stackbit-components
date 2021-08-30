@@ -70,8 +70,8 @@ function PeopleVariantA(props) {
             })}
             data-sb-field-path=".people"
         >
-            {people.map((person, idx) => (
-                <article key={idx}>
+            {people.map((person, index) => (
+                <article key={index} data-sb-field-path={`.${index}`}>
                     {person.image && (
                         <div className="h-0 w-full pt-1/1 relative" data-sb-field-path=".image">
                             <ImageBlock {...person.image} className="absolute left-0 h-full object-cover top-0 w-full" />
@@ -103,8 +103,8 @@ function PeopleVariantB(props) {
             })}
             data-sb-field-path=".people"
         >
-            {people.map((person, idx) => (
-                <article key={idx} className="sm:flex">
+            {people.map((person, index) => (
+                <article key={index} className="sm:flex" data-sb-field-path={`.${index}`}>
                     {person.image && (
                         <div className="w-full sm:flex-shrink-0 sm:h-full sm:w-1/3">
                             <div className="block h-0 w-full pt-1/1 relative" data-sb-field-path=".image">

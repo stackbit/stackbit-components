@@ -38,8 +38,11 @@ const args = {
     width: 'wide',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
-    logoUrl: '/images/logo.svg',
-    logoAltText: 'Logo',
+    logo: {
+        type: 'ImageBlock',
+        url: '/images/logo.svg',
+        altText: 'Logo'
+    },
     primaryLinks: [
         {
             type: 'Link',
@@ -105,7 +108,7 @@ VariantC.args = {
     primaryColors: 'colors-b',
     secondaryColors: 'colors-e',
     width: 'full',
-    logoUrl: undefined
+    logo: null
 };
 
 export const VariantD = Template.bind({});
@@ -116,6 +119,10 @@ VariantD.args = {
     mobileNavVariant: 'variant-b',
     primaryColors: 'colors-b',
     secondaryColors: 'colors-b',
-    logoUrl: '/images/logo-alt.svg',
+    logo: {
+        type: 'ImageBlock',
+        url: '/images/logo-alt.svg',
+        altText: 'The Cook logo'
+    },
     isTitleVisible: false
 };

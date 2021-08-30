@@ -48,8 +48,8 @@ const args = {
             bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
             image: {
                 type: 'ImageBlock',
-                imageUrl: '/images/desmond-eagle.jpg',
-                imageAltText: 'Photo of Desmond Eagle'
+                url: '/images/desmond-eagle.jpg',
+                altText: 'Photo of Desmond Eagle'
             }
         },
         {
@@ -59,8 +59,8 @@ const args = {
             bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
             image: {
                 type: 'ImageBlock',
-                imageUrl: '/images/dianne-ameter.jpg',
-                imageAltText: 'Photo of Dianne Ameter'
+                url: '/images/dianne-ameter.jpg',
+                altText: 'Photo of Dianne Ameter'
             }
         },
         {
@@ -70,8 +70,8 @@ const args = {
             bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
             image: {
                 type: 'ImageBlock',
-                imageUrl: '/images/hilary-ouse.jpg',
-                imageAltText: 'Photo of Hilary Ouse'
+                url: '/images/hilary-ouse.jpg',
+                altText: 'Photo of Hilary Ouse'
             }
         },
         {
@@ -81,8 +81,8 @@ const args = {
             bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
             image: {
                 type: 'ImageBlock',
-                imageUrl: '/images/hugh-saturation.jpg',
-                imageAltText: 'Photo of Hugh Saturation'
+                url: '/images/hugh-saturation.jpg',
+                altText: 'Photo of Hugh Saturation'
             }
         }
     ]

@@ -107,3 +107,4 @@ dist
 .idea
 storybook-static
 public/css
+.storybook/storybook-dynamic.js

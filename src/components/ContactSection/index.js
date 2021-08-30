@@ -54,11 +54,11 @@ function ContactImageRight(props) {
                 'flex flex-col flex-grow justify-center lg:flex-grow-0': height === 'viewport'
             })}>
                 {ContactContent(props)}
-                {props.form && <FormBlock {...props.form} />}
+                {props.form && <div data-sb-field-path=".form"><FormBlock {...props.form} /></div>}
             </div>
             {props.image && (
                 <div className="max-w-none ml-1/2 transform -translate-x-1/2 w-screen lg:absolute lg:inset-y-0 lg:max-w-full lg:ml-0 lg:pl-4 lg:right-0 lg:transform-none lg:w-1/2">
-                    <div className="h-0 pt-2/3 relative lg:h-full lg:pt-0">
+                    <div className="h-0 pt-2/3 relative lg:h-full lg:pt-0" data-sb-field-path=".image">
                         <ImageBlock {...props.image} className="absolute left-0 h-full object-cover top-0 w-full" />
                     </div>
                 </div>
@@ -75,7 +75,7 @@ function ContactImageLeft(props) {
         })}>
             {props.image && (
                 <div className="max-w-none ml-1/2 transform -translate-x-1/2 w-screen lg:absolute lg:inset-y-0 lg:left-0 lg:max-w-full lg:ml-0 lg:pr-4 lg:transform-none lg:w-1/2">
-                    <div className="h-0 pt-2/3 relative lg:h-full lg:pt-0">
+                    <div className="h-0 pt-2/3 relative lg:h-full lg:pt-0" data-sb-field-path=".image">
                         <ImageBlock {...props.image} className="absolute left-0 h-full object-cover top-0 w-full" />
                     </div>
                 </div>
@@ -84,7 +84,7 @@ function ContactImageLeft(props) {
                 'flex flex-col flex-grow justify-center lg:flex-grow-0': height === 'viewport'
             })}>
                 {ContactContent(props)}
-                {props.form && <FormBlock {...props.form} />}
+                {props.form && <div data-sb-field-path=".form"><FormBlock {...props.form} /></div>}
             </div>
         </div>
     );

@@ -23,8 +23,11 @@ const args = {
     width: 'wide',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
-    logoUrl: '/images/logo.svg',
-    logoAltText: 'Logo',
+    logo: {
+        type: 'ImageBlock',
+        url: '/images/logo.svg',
+        altText: 'Logo'
+    },
     text:
         'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
     contacts: {
@@ -111,7 +114,11 @@ FooterNoContacts.args = {
     ...args,
     colors: 'colors-b',
     width: 'full',
-    logoUrl: '/images/logo-alt.svg',
+    logo: {
+        type: 'ImageBlock',
+        url: '/images/logo-alt.svg',
+        altText: 'Logo'
+    },
     contacts: null
 };
 

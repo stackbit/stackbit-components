@@ -71,12 +71,10 @@ fields:
   - type: boolean
     name: isTitleVisible
     label: Display title
-  - type: image
-    name: logoUrl
-    label: Logo URL
-  - type: string
-    name: logoAltText
-    label: Logo alt text
+  - type: model
+    name: logo
+    label: Logo
+    models: [ImageBlock]
   - type: list
     name: primaryLinks
     label: Primary navigation links

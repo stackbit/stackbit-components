@@ -5,7 +5,7 @@ export default function BlankBaseLayout(props) {
   const { page, site } = props;
   const { title } = page;
   return (
-    <div className={site.backgroundColor || 'bg-white'}>
+    <div className={site.backgroundColor || 'bg-white'} data-sb-object-id={page.__metadata.id}>
       <Head>
         <title>{title}</title>
         <meta name="description" content="Stackbit Components Library" />

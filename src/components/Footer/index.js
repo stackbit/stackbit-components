@@ -2,6 +2,7 @@ import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Action from '../Action';
+import ImageBlock from '../ImageBlock';
 import Link from '../../utils/link';
 import Facebook from '../../svgs/facebook';
 import GitHub from '../../svgs/github';
@@ -27,20 +28,20 @@ export default function Footer(props) {
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow'
             })}
-            data-sb-field-path=""
+            data-sb-field-path={`${props.annotationPrefix}:Footer`}
         >
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
-                {((props.title && props.isTitleVisible) || props.logoUrl || props.text) && (
+                {((props.title && props.isTitleVisible) || props.logo || props.text) && (
                     <div className="sm:col-span-2">
-                        {((props.title && props.isTitleVisible) || props.logoUrl) && (
+                        {((props.title && props.isTitleVisible) || props.logo) && (
                             <Link
                                 href="/"
                                 aria-label={props.title}
                                 title={props.title}
                                 className="inline-block mb-6"
-                                data-sb-field-path=".title#@title"
+                                data-sb-field-path=".title#@title .logo"
                             >
-                                {props.logoUrl && <img src={props.logoUrl} alt={props.logoAltText || ''} className="mb-2" data-sb-field-path=".logoUrl#@src .logoAltText#@alt" />}
+                                {props.logo && <ImageBlock {...props.logo} className="mb-2" />}
                                 {props.isTitleVisible && <div className="mb-2 text-2xl tracking-wide" data-sb-field-path=".title">{props.title}</div>}
                             </Link>
                         )}

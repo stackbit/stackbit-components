@@ -1,0 +1,15 @@
+.ay {
+    padding: 20px;
+}
+button {
+    background-image: linear-gradient(to bottom, #fff, transparent); 
+    background-color: #DDD;
+    border: 1px #DDD solid;
+    padding: 5px 10px;
+}
+button:active {
+    background-image: none;
+}
+code {
+    border: 1px solid #DDD;
+}

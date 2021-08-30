@@ -3,14 +3,14 @@ name: ImageBlock
 label: Image
 fields:
   - type: image
-    name: imageUrl
-    label: Image URL
+    name: url
+    label: URL
     description: The URL of the image
   - type: string
-    name: imageAltText
+    name: altText
     label: Alt text
     description: The alt text of the image
   - type: string
-    name: imageCaption
+    name: caption
     label: Caption
     description: The caption of the image

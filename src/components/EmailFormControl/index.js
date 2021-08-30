@@ -19,12 +19,7 @@ export default function EmailFormControl(props) {
             data-sb-field-path={props.annotationPrefix}
         >
             {props.label && (
-                <label
-                    id={labelId}
-                    className="sb-label"
-                    htmlFor={props.name}
-                    data-sb-field-path=".label .name#@for"
-                >
+                <label id={labelId} className="sb-label" htmlFor={props.name} data-sb-field-path=".label .name#@for">
                     {props.label}
                 </label>
             )}

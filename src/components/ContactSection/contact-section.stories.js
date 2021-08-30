@@ -2,9 +2,10 @@ import React from 'react';
 import ContactSection from './index';
 
 export default {
-    title: 'Components/Contact Section',
+    title: 'Components/ContactSection',
     component: ContactSection,
     argTypes: {
+        type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
@@ -129,10 +130,7 @@ ContactRightImage.args = {
                 label: 'City',
                 defaultValue: 'Please choose...',
                 isRequired: true,
-                options: [
-                    'City 1',
-                    'City 2'
-                ],
+                options: ['City 1', 'City 2'],
                 width: 'full'
             },
             {

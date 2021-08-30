@@ -61,11 +61,7 @@ function HeroFeatureRight(props) {
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
-            {props.feature && (
-                <div data-sb-field-path=".feature">
-                    {HeroFeature(props.feature)}
-                </div>
-            )}
+            {props.feature && <div data-sb-field-path=".feature">{HeroFeature(props.feature)}</div>}
         </div>
     );
 }
@@ -77,11 +73,7 @@ function HeroFeatureLeft(props) {
                 'lg:grid-cols-2': props.feature
             })}
         >
-            {props.feature && (
-                <div data-sb-field-path=".feature">
-                    {HeroFeature(props.feature)}
-                </div>
-            )}
+            {props.feature && <div data-sb-field-path=".feature">{HeroFeature(props.feature)}</div>}
             <div className="max-w-3xl mx-auto">
                 {HeroContent(props)}
                 {HeroActions(props)}
@@ -143,7 +135,11 @@ function HeroContent(props) {
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.text && <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">{props.text}</Markdown>}
+            {props.text && (
+                <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">
+                    {props.text}
+                </Markdown>
+            )}
         </>
     );
 }
@@ -163,14 +159,9 @@ function HeroActions(props) {
             })}
             data-sb-field-path=".actions"
         >
-            {props.actions.map((action, index) =>
-                <Action
-                    key={index}
-                    {...action}
-                    className="mb-3 mx-2 lg:whitespace-nowrap"
-                    annotationPrefix={`.${index}`}
-                />
-            )}
+            {props.actions.map((action, index) => (
+                <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
+            ))}
         </div>
     );
 }

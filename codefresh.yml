@@ -28,7 +28,7 @@ steps:
     stage: "build"
 
   publish:
-    title: "Running test"
+    title: "Running publish"
     type: "freestyle" # Run any command
     image: "node:14" # The image in which command will be executed
     working_directory: "${{clone}}" # Running command where code cloned

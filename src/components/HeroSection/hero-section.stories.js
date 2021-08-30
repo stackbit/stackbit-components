@@ -96,6 +96,7 @@ export default {
         }
     },
     parameters: {
+        controls: { expanded: false },
         docs: {
             page: () => (
                 <>

@@ -5,8 +5,8 @@ import Footer from '../../components/Footer';
 
 export default function DefaultBaseLayout(props) {
     const { page, site } = props;
-    const siteMeta = site?.__metadata?.id || {};
-    const pageMeta = page?.__metadata?.id || {};
+    const siteMeta = site?.__metadata || {};
+    const pageMeta = page?.__metadata || {};
     return (
         <div className={site.backgroundColor || 'bg-white'} data-sb-object-id={pageMeta.id}>
             <Head>

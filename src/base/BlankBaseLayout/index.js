@@ -3,8 +3,8 @@ import Head from 'next/head';
 
 export default function BlankBaseLayout(props) {
     const { page, site } = props;
-    const siteMeta = site?.__metadata?.id || null;
-    const pageMeta = page?.__metadata?.id || null;
+    const siteMeta = site?.__metadata || {};
+    const pageMeta = page?.__metadata || {};
     return (
         <div className={site.backgroundColor || 'bg-white'} data-sb-object-id={pageMeta.id}>
             <Head>

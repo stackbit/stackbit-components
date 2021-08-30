@@ -1,46 +1,18 @@
 import React from 'react';
+import { Title, Subtitle, Description, Primary as PrimaryStory, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import ArgsYaml from '../../../addons/args-yaml/src/ArgsYaml';
 import HeroSection from './index';
-
-export default {
-    title: 'Components/Hero Section',
-    component: HeroSection,
-    argTypes: {
-        variant: {
-            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
-            control: { type: 'select' }
-        },
-        colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
-            control: { type: 'select' }
-        },
-        width: {
-            options: ['narrow', 'wide', 'full'],
-            control: { type: 'select' }
-        },
-        height: {
-            options: ['auto', 'viewport'],
-            control: { type: 'select' }
-        },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
-            control: { type: 'select' }
-        }
-    }
-};
-
-const Template = (args) => <HeroSection {...args} />;
 
 const args = {
     type: 'HeroSection',
     variant: 'variant-a',
-    colors: 'colors-d',
+    colors: 'colors-a',
     width: 'wide',
     height: 'auto',
     alignHoriz: 'left',
     badge: 'New Collaboration',
     title: 'The quick, brown fox jumps over **a lazy dog**',
-    text:
-        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     actions: [
         {
             type: 'Button',
@@ -63,6 +35,85 @@ const args = {
     }
 };
 
+export default {
+    title: 'Components/HeroSection',
+    component: HeroSection,
+    argTypes: {
+        type: { table: { disable: true } },
+        variant: {
+            description: null,
+            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
+            control: { type: 'select' },
+            type: {
+                required: true
+            },
+            table: {
+                type: {
+                    summary: null,
+                    detail: null
+                },
+                defaultValue: {
+                    summary: 'variant-a',
+                    detail: null
+                }
+            }
+        },
+        colors: {
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            control: { type: 'select' },
+            table: {
+                defaultValue: {
+                    summary: 'colors-a'
+                }
+            }
+        },
+        width: {
+            options: ['narrow', 'wide', 'full'],
+            control: { type: 'select' },
+            table: {
+                defaultValue: {
+                    summary: 'wide'
+                }
+            }
+        },
+        height: {
+            options: ['auto', 'viewport'],
+            control: { type: 'select' },
+            table: {
+                defaultValue: {
+                    summary: 'auto'
+                }
+            }
+        },
+        alignHoriz: {
+            options: ['left', 'right', 'center'],
+            control: { type: 'select' },
+            table: {
+                defaultValue: {
+                    summary: 'left'
+                }
+            }
+        }
+    },
+    parameters: {
+        docs: {
+            page: () => (
+                <>
+                    <h1 className="normal-case text-3xl">{args.type}</h1>
+                    <Subtitle />
+                    <Description />
+                    <PrimaryStory />
+                    <ArgsTable story={PRIMARY_STORY} />
+                    <ArgsYaml args={args} title="Frontmatter" docsPage={true} />
+                    <Stories />
+                </>
+            )
+        }
+    }
+};
+
+const Template = (args) => <HeroSection {...args} />;
+
 export const Primary = Template.bind({});
 Primary.storyName = 'Hero Section With Image on the Right';
 Primary.args = args;
@@ -80,7 +131,7 @@ HeroLeftVideo.args = {
             type: 'Button',
             url: '#',
             label: 'Get started',
-            style: 'primary',
+            style: 'primary'
         }
     ],
     feature: {
@@ -109,7 +160,7 @@ HeroBottomImage.args = {
             type: 'Button',
             url: '#',
             label: 'Get started',
-            style: 'primary',
+            style: 'primary'
         }
     ],
     feature: {

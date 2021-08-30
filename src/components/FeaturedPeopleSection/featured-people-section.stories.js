@@ -2,9 +2,10 @@ import React from 'react';
 import FeaturedPeopleSection from './index';
 
 export default {
-    title: 'Components/Featured People Section',
+    title: 'Components/FeaturedPeopleSection',
     component: FeaturedPeopleSection,
     argTypes: {
+        type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }

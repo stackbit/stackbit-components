@@ -12,6 +12,7 @@
     "consistent-return": "warn",
     "no-console": "warn",
     "react/prop-types": "off",
+    "react/display-name": "off",
     "import/no-unresolved": "off",
     "import/order": [
       "error",

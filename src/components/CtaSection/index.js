@@ -46,10 +46,12 @@ function CtaButtonsBottom(props) {
     const alignHoriz = props.alignHoriz || 'left';
     const actions = props.actions || [];
     return (
-        <div className={classNames('max-w-3xl mx-auto', {
-            'text-center': alignHoriz === 'center',
-            'text-right': alignHoriz === 'right'
-        })}>
+        <div
+            className={classNames('max-w-3xl mx-auto', {
+                'text-center': alignHoriz === 'center',
+                'text-right': alignHoriz === 'right'
+            })}
+        >
             {CtaContent(props)}
             {actions.length > 0 && (
                 <div
@@ -73,10 +75,12 @@ function CtaButtonsRight(props) {
     return (
         <div className="max-w-3xl mx-auto lg:flex lg:items-center">
             {(props.badge || props.title || props.text) && (
-                <div className={classNames({
-                    'text-center': alignHoriz === 'center',
-                    'text-right': alignHoriz === 'right'
-                })}>
+                <div
+                    className={classNames({
+                        'text-center': alignHoriz === 'center',
+                        'text-right': alignHoriz === 'right'
+                    })}
+                >
                     {CtaContent(props)}
                 </div>
             )}
@@ -106,20 +110,15 @@ function CtaContent(props) {
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.text && <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">{props.text}</Markdown>}
+            {props.text && (
+                <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">
+                    {props.text}
+                </Markdown>
+            )}
         </>
     );
 }
 
 function CtaActions(props) {
-    return (
-        props.actions.map((action, index) =>
-            <Action
-                key={index}
-                {...action}
-                className="mb-3 mx-2 lg:whitespace-nowrap"
-                annotationPrefix={`.${index}`}
-            />
-        )
-    );
+    return props.actions.map((action, index) => <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />);
 }

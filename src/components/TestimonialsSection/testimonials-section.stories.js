@@ -2,9 +2,10 @@ import React from 'react';
 import TestimonialsSection from './index';
 
 export default {
-    title: 'Components/Testimonials Section',
+    title: 'Components/TestimonialsSection',
     component: TestimonialsSection,
     argTypes: {
+        type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }
@@ -44,7 +45,7 @@ const args = {
             image: {
                 type: 'ImageBlock',
                 url: '/images/isabelle-parks.jpg',
-                altText: 'Photo of Isabelle Parks',
+                altText: 'Photo of Isabelle Parks'
             },
             logo: {
                 type: 'ImageBlock',

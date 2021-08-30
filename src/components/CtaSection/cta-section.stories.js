@@ -2,9 +2,10 @@ import React from 'react';
 import CtaSection from './index';
 
 export default {
-    title: 'Components/CTA Section',
+    title: 'Components/CtaSection',
     component: CtaSection,
     argTypes: {
+        type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }

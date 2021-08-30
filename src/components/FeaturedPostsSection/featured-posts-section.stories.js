@@ -2,9 +2,10 @@ import React from 'react';
 import FeaturedPostsSection from './index';
 
 export default {
-    title: 'Components/Featured Posts Section',
+    title: 'Components/FeaturedPostsSection',
     component: FeaturedPostsSection,
     argTypes: {
+        type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
             control: { type: 'select' }

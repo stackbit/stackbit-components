@@ -2,54 +2,22 @@
 
 Check out the components at [https://components.stackbit.com/](https://components.stackbit.com/)
 
-
-## Import Component Library into a Next.js site
-
-1. You can import this component library into existing Next.js site that uses Tailwind or follow [these steps](https://tailwindcss.com/docs/guides/nextjs) to create a new one.
-1. Install Stackbit components library by running
-
-   ```shell
-   npm install @stackbit/components
-   ```
-
-1. Add one of the Stackbit component tailwind presets into your `tailwind.config.js`:
-
-   ```js
-   module.exports = {
-     presets: [require('@stackbit/components/themes/tailwind.bold.config')],
-     ...
-   }
-   ```
-
-1. Import and use components in your code. You can import specific component:
-
-   ```js
-   import Button from '@stackbit/components/components/Button'
-   ```
-   
-   Or a full page layout with components in it:
-
-   ```js
-   import Advanced from '@stackbit/components/layouts/advanced'
-   ```
-   
-   You can also use destructing imports - if you do, make sure your build has tree-shaking enabled otherwise you might end up with bundling all library components:
-   
-   ```js
-   import { components, layouts } from '@stackbit/components'
-   ```
-
-For full list of components, and their props please visit  [https://components.stackbit.com/](https://components.stackbit.com/).
-
-
 ## Develop locally
 
-1. Clone the repo
 1. run `npm install`
-1. run `npm run storybook` or `npm run develop` to watch for `themes/tailwind.{theme_name}.config.js` files and rebuild them.
+1. run `npm run develop`
 1. Navigate to http://localhost:6006/ to open Storybook
 
-If you run `npm run storybook`, you will need to run `npm run build-themes` every time you change one of the tailwind configs inside `themes`.
+**Sync with local NextJs theme (optional)**
+
+1. Clone the `stackbit-nextjs-v2` repo into a sibling folder
+1. Edit `stackbit-nextjs-v2/package.json` and use npm localpaths
+```json
+"@stackbit/components": "file:../stackbit-components/dist"
+```
+1. In `stackbit-nextjs-v2` run `npm install`
+1. In `stackbit-nextjs-v2` run `npm run dev`
+1. In `stackbit-components` run `npm run watch` and `npm run develop` in separate terminal windows. This will sync theme, component and model changes with the NextJs themes dev server.
 
 
 ## Building Storybook
@@ -59,11 +27,11 @@ To build Storybook run `npm build`, the generated files will be written to `stor
 
 ## Building and Publishing Component Library
 
-1. Check that all files are committed and there are no outstanding git changes.
 1. Make sure you are on the `main` branch
+1. Check that all files are committed and there are no outstanding git changes.
 1. Run `npm run version-patch` to update the patch `v0.1.0` => `v0.1.1` or run `npm run version-minor` to update the minor `v0.1.1` => `v0.2.0`. This script updates the versions of `package.json` and `package-lock.json`, commits the changes and applies a git tag with new version.
-1. Run `git push --tags` to push the changes to the main branch along with the tag
-1. Internal Stackbit’s CI/CD pipeline will publish the npm
+1. Run `git push origin main --tags`
+1. Internal Stackbit CI/CD pipeline will publish the NPM package
 
 ## Linking Component Library to a Next.js site locally.
 
@@ -169,3 +137,41 @@ module.exports = {
 Some components might have several variants. To switch the variant, change the value of the component property responsible for the variant:
 
 ![Change theme](docs/changing-variants.png)
+
+## Import Component Library into a Next.js site
+
+1. You can import this component library into existing Next.js site that uses Tailwind or follow [these steps](https://tailwindcss.com/docs/guides/nextjs) to create a new one.
+1. Install Stackbit components library by running
+
+   ```shell
+   npm install @stackbit/components
+   ```
+
+1. Add one of the Stackbit component tailwind presets into your `tailwind.config.js`:
+
+   ```js
+   module.exports = {
+     presets: [require('@stackbit/components/themes/tailwind.bold.config')],
+     ...
+   }
+   ```
+
+1. Import and use components in your code. You can import specific component:
+
+   ```js
+   import Button from '@stackbit/components/components/Button'
+   ```
+   
+   Or a full page layout with components in it:
+
+   ```js
+   import Advanced from '@stackbit/components/layouts/advanced'
+   ```
+   
+   You can also use destructing imports - if you do, make sure your build has tree-shaking enabled otherwise you might end up with bundling all library components:
+   
+   ```js
+   import { components, layouts } from '@stackbit/components'
+   ```
+
+For full list of components, and their props please visit  [https://components.stackbit.com/](https://components.stackbit.com/).

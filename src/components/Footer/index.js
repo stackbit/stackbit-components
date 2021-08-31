@@ -28,7 +28,7 @@ export default function Footer(props) {
                 'max-w-screen-xl': width === 'wide',
                 'max-w-screen-lg': width === 'narrow'
             })}
-            data-sb-field-path={`${props.annotationPrefix}:Footer`}
+            data-sb-field-path={`${props.annotationPrefix}:footer`}
         >
             <div className="grid gap-10 row-gap-6 mb-8 sm:grid-cols-2 lg:grid-cols-4">
                 {((props.title && props.isTitleVisible) || props.logo || props.text) && (
@@ -45,7 +45,7 @@ export default function Footer(props) {
                                 {props.isTitleVisible && <div className="mb-2 text-2xl tracking-wide" data-sb-field-path=".title">{props.title}</div>}
                             </Link>
                         )}
-                        {props.text && <Markdown options={{ forceBlock: true }} className="lg:max-w-sm">{props.text}</Markdown>}
+                        {props.text && <Markdown options={{ forceBlock: true }} className="lg:max-w-sm" data-sb-field-path=".text">{props.text}</Markdown>}
                     </div>
                 )}
                 {props.primaryLinks && props.primaryLinks.length > 0 && (

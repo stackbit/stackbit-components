@@ -1,7 +1,6 @@
 type: data
 name: Person
 label: Person
-folder: people
 fields:
   - type: string
     name: id

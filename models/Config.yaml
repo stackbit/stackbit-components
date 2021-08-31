@@ -1,7 +1,6 @@
 type: data
 name: Config
 label: Site configuration
-file: 'config.json'
 fields:
   - type: enum
     name: backgroundColor

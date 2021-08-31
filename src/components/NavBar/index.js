@@ -20,7 +20,7 @@ export default function NavBar(props) {
                 'max-w-screen-lg': width === 'narrow',
                 relative: mobileNavVariant === 'variant-b'
             })}
-            data-sb-field-path={`${props.annotationPrefix}:NavBar`}
+            data-sb-field-path={`${props.annotationPrefix}:navBar`}
         >
             <Link href="#content" className="sr-only">Skip to main content</Link>
             <div

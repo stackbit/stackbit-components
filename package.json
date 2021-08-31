@@ -26,6 +26,7 @@
     "storybook": "./scripts/generate-storybook-dynamic.js && start-storybook -s ./public -p 6006",
     "build-themes": "./scripts/build-themes.js",
     "build-storybook": "./scripts/generate-storybook-dynamic.js && build-storybook -s ./public",
+    "build-models": "./scripts/build-models.js",
     "build": "npm run build-themes && npm run build-storybook",
     "build-dist": "./scripts/build-dist.js --clean",
     "build-dist-local": "./scripts/build-dist.js && ./scripts/build-models.js --local",

@@ -13,16 +13,10 @@
       "patterns": [
         "src/base/**/*.js",
         "src/components/**/*.js",
-        "src/layouts/**/*.js"
-      ],
-      "extensions": "js,jsx",
-      "quiet": false,
-      "delay": 2500
-    },
-    "build-themes": {
-      "patterns": [
+        "src/layouts/**/*.js",
         "themes/**/*.js"
       ],
+      "extensions": "js,jsx",
       "quiet": false,
       "delay": 2500
     }
@@ -34,6 +28,7 @@
     "build-storybook": "./scripts/generate-storybook-dynamic.js && build-storybook -s ./public",
     "build": "npm run build-themes && npm run build-storybook",
     "build-dist": "./scripts/build-dist.js --clean",
+    "build-dist-local": "./scripts/build-dist.js && ./scripts/build-models.js --local",
     "validate": "stackbit validate",
     "pretty": "prettier --write src",
     "version-minor": "npm version minor -m \"bumped version to v%s\"",

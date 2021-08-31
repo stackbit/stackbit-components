@@ -108,3 +108,4 @@ dist
 storybook-static
 public/css
 .storybook/storybook-dynamic.js
+stackbit-theme.yaml

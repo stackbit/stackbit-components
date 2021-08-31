@@ -61,6 +61,11 @@ folders.forEach((folder) => {
   childProcess.spawnSync('cp', ['-r', folder, 'dist']);
 });
 
+const srcFolders = ['models', 'themes'];
+srcFolders.forEach((folder) => {
+  childProcess.spawnSync('cp', ['-r', folder, 'dist/src']);
+});
+
 const files = ['src/dynamic-components.js', 'src/with-stackbit-components.js', 'src/components-manifest.json', 'README.md'];
 files.forEach((file) => {
   childProcess.spawnSync('cp', [file, 'dist']);

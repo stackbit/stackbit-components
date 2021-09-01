@@ -11,7 +11,7 @@ const dest = path.join(__dirname, '../stackbit-theme.yaml');
 console.log(`Merging models from ${modelsFolder}`);
 
 const models = {
-    stackbitVersion: '~0.3.0',
+    stackbitVersion: '~0.4.0',
     ssgName: 'nextjs',
     nodeVersion: 14,
     cmsName: 'git',

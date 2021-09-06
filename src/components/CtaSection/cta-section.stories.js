@@ -8,22 +8,37 @@ export default {
         type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
+            defaultValue: 'short',
+            control: { type: 'select' }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
+            control: { type: 'select' }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
             control: { type: 'select' }
         },
         alignHoriz: {
             options: ['left', 'right', 'center'],
+            defaultValue: 'left',
             control: { type: 'select' }
         }
     }
@@ -36,7 +51,7 @@ const args = {
     variant: 'variant-a',
     colors: 'colors-b',
     width: 'wide',
-    height: 'auto',
+    height: 'short',
     alignHoriz: 'center',
     title: "Let's do this",
     text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
@@ -47,7 +62,14 @@ const args = {
             label: 'Get Started',
             style: 'primary'
         }
-    ]
+    ],
+    backgroundImage: {
+        type: 'ImageBlock',
+        url: 'https://images.unsplash.com/photo-1483004406427-6acb078d1f2d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+        altText: 'Water',
+        caption: '',
+        opacity: 50
+    }
 };
 
 export const Primary = Template.bind({});

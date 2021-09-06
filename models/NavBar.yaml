@@ -74,12 +74,8 @@ fields:
     name: width
     label: Width
     options:
-      - label: Narrow
-        value: narrow
-      - label: Wide
-        value: wide
-      - label: Full
-        value: full
+      - wide
+      - full
     default: wide
   - type: string
     name: title

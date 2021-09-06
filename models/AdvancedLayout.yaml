@@ -16,6 +16,8 @@ fields:
         - ContactSection
         - ContentSection
         - CtaSection
+        - FeaturedPeopleSection
         - FeaturedPostsSection
         - HeroSection
         - TestimonialsSection
+        - QuoteSection

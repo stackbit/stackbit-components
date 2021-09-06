@@ -89,6 +89,12 @@
         "modelName": "NavBar",
         "isDynamic": false
     },
+    "QuoteSection": {
+        "path": "components/QuoteSection",
+        "className": "QuoteSection",
+        "modelName": "QuoteSection",
+        "isDynamic": true
+    },
     "SelectFormControl": {
         "path": "components/SelectFormControl",
         "className": "SelectFormControl",

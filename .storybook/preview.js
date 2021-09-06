@@ -25,10 +25,7 @@ export const globalTypes = {
         toolbar: {
             icon: 'cog',
             items: [
-                { value: 'bold', title: 'Bold Theme' },
-                { value: 'eco', title: 'Eco Theme' },
-                { value: 'modern', title: 'Modern Theme' },
-                { value: 'retro', title: 'Retro Theme' }
+                { value: 'bold', title: 'Bold Theme' }
             ]
         }
     }

@@ -40,7 +40,7 @@ const args = {
         address: '312 Lovely Street, NY',
         addressAltText: 'Our address'
     },
-    copyrightText: '💖 powered by Stackbit',
+    copyrightText: 'Powered by Stackbit',
     primaryLinks: [
         {
             type: 'Link',

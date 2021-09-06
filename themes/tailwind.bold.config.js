@@ -12,18 +12,14 @@ module.exports = {
     extend: {
       colors: {
         primary: '#FFC329',
-        'primary-light': '#FFD362',
         secondary: '#FFF7E3',
-        'secondary-light': '#FFFFFF',
-        neutral: '#26262D',
-        'neutral-light': '#4E4E56',
-        base: '#484848',
-        'base-light': '#D2D2D2',
-        'base-dark': '#332E40',
+        base: '#262626',
+        'complimentary-1': '#e8f3ee',
+        'complimentary-2': '#e2e4ff',
         info: '#EA5234'
       },
       fontFamily: {
-        sans: ['Rubik', ...defaultTheme.fontFamily.sans]
+        serif: ['PT Serif', ...defaultTheme.fontFamily.serif],
       },
       spacing: {
         '1/1': '100%',
@@ -40,7 +36,7 @@ module.exports = {
     plugin(function ({ addBase, addComponents, theme }) {
       addBase({
         'h1,h2,h3,h4,h5,h6': {
-          '@apply font-sans font-medium': {}
+          '@apply font-serif font-bold': {}
         },
         'b,strong': {
           '@apply font-medium': {}
@@ -94,93 +90,165 @@ module.exports = {
           backgroundSize: '6px 6px, 6px 6px'
         },
         '.colors-a': {
-          '@apply bg-white text-base-dark': {},
+          '@apply bg-white text-base': {},
           '.sb-input,.sb-select,.sb-textarea': {
-            '@apply border-base-dark placeholder-base': {}
+            '@apply border-base placeholder-base': {}
           },
           '.sb-btn-primary': {
-            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {}
+            '@apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70': {}
           },
           '.sb-btn-secondary': {
-            '@apply border-base-dark text-base-dark hover:border-base hover:text-base': {}
+            '@apply border-base text-base hover:border-opacity-70 hover:text-base': {}
           },
           '.sb-divider': {
-            '@apply before:bg-base-dark': {}
+            '@apply before:bg-base': {}
           },
           '.sb-card': {
             '@apply bg-secondary': {}
           }
         },
         '.colors-b': {
-          '@apply bg-neutral text-white': {},
+          '@apply bg-white text-primary': {},
           '.sb-input,.sb-select,.sb-textarea': {
-            '@apply border-neutral-light placeholder-base': {}
+            '@apply border-primary placeholder-primary': {}
           },
           '.sb-btn-primary': {
-            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {}
+            '@apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70': {}
           },
           '.sb-btn-secondary': {
-            '@apply border-white text-white hover:border-base-light hover:text-base-light': {}
+            '@apply border-base text-base hover:border-opacity-70 hover:text-base': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-primary': {}
+          },
+          '.sb-card': {
+            '@apply bg-secondary': {}
+          }
+        },
+        '.colors-c': {
+          '@apply bg-base text-white': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-white placeholder-white placeholder-opacity-50': {}
+          },
+          '.sb-btn-primary': {
+            '@apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70': {}
+          },
+          '.sb-btn-secondary': {
+            '@apply border-white text-white hover:border-opacity-70 hover:text-white': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-white': {}
+          },
+          '.sb-card': {
+            '@apply bg-base': {}
+          }
+        },
+        '.colors-d': {
+          '@apply bg-base text-primary': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-primary placeholder-primary placeholder-opacity-50': {}
+          },
+          '.sb-btn-primary': {
+            '@apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70': {}
+          },
+          '.sb-btn-secondary': {
+            '@apply border-white text-white hover:bg-opacity-70 hover:border-opacity-70': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-primary': {}
+          },
+          '.sb-card': {
+            '@apply bg-base': {}
+          }
+        },
+        '.colors-e': {
+          '@apply bg-primary text-base': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-base placeholder-base': {}
+          },
+          '.sb-btn-primary': {
+            '@apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70': {}
+          },
+          '.sb-btn-secondary': {
+            '@apply border-base text-base hover:border-opacity-60 hover:text-base': {}
           },
           '.sb-divider': {
             '@apply before:bg-base': {}
           },
           '.sb-card': {
-            '@apply bg-neutral-light': {}
+            '@apply bg-secondary': {}
           }
         },
-        '.colors-c': {
-          '@apply bg-neutral text-primary-light': {},
+        '.colors-f': {
+          '@apply bg-secondary text-base': {},
           '.sb-input,.sb-select,.sb-textarea': {
-            '@apply border-neutral-light placeholder-primary-light placeholder-opacity-50': {}
+            '@apply border-base placeholder-base': {}
           },
           '.sb-btn-primary': {
-            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {}
+            '@apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70': {}
           },
           '.sb-btn-secondary': {
-            '@apply border-white text-white hover:border-base-light hover:text-base-light': {}
+            '@apply border-base text-base hover:border-opacity-70 hover:text-base': {}
           },
           '.sb-divider': {
-            '@apply before:bg-neutral-light': {}
+            '@apply before:bg-base': {}
           },
           '.sb-card': {
-            '@apply bg-neutral-light': {}
+            '@apply bg-secondary': {}
           }
         },
-        '.colors-d': {
-          '@apply bg-primary text-base-dark': {},
+        '.colors-g': {
+          '@apply bg-secondary text-primary': {},
           '.sb-input,.sb-select,.sb-textarea': {
-            '@apply border-base-dark placeholder-base': {}
+            '@apply border-primary placeholder-primary': {}
           },
           '.sb-btn-primary': {
-            '@apply bg-base-dark border-base-dark text-white hover:bg-base hover:border-base': {}
+            '@apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70': {}
           },
           '.sb-btn-secondary': {
-            '@apply border-base-dark text-base-dark hover:border-base hover:text-base': {}
+            '@apply border-base text-base hover:border-opacity-70 hover:text-base': {}
           },
           '.sb-divider': {
-            '@apply before:bg-base-dark': {}
+            '@apply before:bg-primary': {}
           },
           '.sb-card': {
-            '@apply bg-primary-light': {}
+            '@apply bg-secondary': {}
           }
         },
-        '.colors-e': {
-          '@apply bg-secondary text-base-dark': {},
+        '.colors-h': {
+          '@apply bg-complimentary-1 text-base': {},
           '.sb-input,.sb-select,.sb-textarea': {
-            '@apply border-base-dark placeholder-base': {}
+            '@apply border-base placeholder-base': {}
           },
           '.sb-btn-primary': {
-            '@apply bg-primary border-primary text-base-dark hover:bg-primary-light hover:border-primary-light': {}
+            '@apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70': {}
           },
           '.sb-btn-secondary': {
-            '@apply border-base-dark text-base-dark hover:border-base hover:text-base': {}
+            '@apply border-base text-base hover:border-opacity-70 hover:text-base': {}
           },
           '.sb-divider': {
-            '@apply before:bg-base-dark': {}
+            '@apply before:bg-base': {}
           },
           '.sb-card': {
-            '@apply bg-secondary-light': {}
+            '@apply bg-primary': {}
+          }
+        },
+        '.colors-i': {
+          '@apply bg-complimentary-2 text-base': {},
+          '.sb-input,.sb-select,.sb-textarea': {
+            '@apply border-base placeholder-base': {}
+          },
+          '.sb-btn-primary': {
+            '@apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70': {}
+          },
+          '.sb-btn-secondary': {
+            '@apply border-base text-base hover:border-opacity-70 hover:text-base': {}
+          },
+          '.sb-divider': {
+            '@apply before:bg-base': {}
+          },
+          '.sb-card': {
+            '@apply bg-secondary': {}
           }
         }
       });

@@ -7,25 +7,79 @@ import Action from '../Action';
 import InlineMarkdown from '../InlineMarkdown';
 
 export default function HeroSection(props) {
-    const colors = props.colors || 'colors-a';
     const width = props.width || 'wide';
-    const height = props.height || 'auto';
+    switch (width) {
+        case 'wide':
+            return HeroSectionWide(props);
+        case 'full':
+            return HeroSectionFull(props);
+    }
+    return null;
+}
+
+function HeroSectionWide(props) {
+    const colors = props.colors || 'colors-a';
+    const height = props.height || 'short';
+    const topGap = props.topGap || 'small';
+    const bottomGap = props.bottomGap || 'small';
     const alignHoriz = props.alignHoriz || 'left';
+    const alignVert = props.alignVert || 'middle';
     return (
         <div
-            className={classNames(colors, 'py-16 lg:py-20', {
-                'mx-auto': width !== 'full',
-                'max-w-screen-xl': width === 'wide',
-                'max-w-screen-lg': width === 'narrow',
-                'min-h-screen flex flex-col justify-center': height === 'viewport',
+            className="px-4 sm:px-6"
+            data-sb-field-path={props.annotationPrefix}
+        >
+            <div
+                className={classNames(colors, 'max-w-screen-xl', 'mx-auto', 'px-4', 'relative', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
+                    'min-h-screen flex flex-col': height === 'viewport',
+                    'justify-center': height === 'viewport' && alignVert === 'middle',
+                    'justify-end': height === 'viewport' && alignVert === 'bottom',
+                    'mt-10': topGap === 'small',
+                    'mt-20': topGap === 'large',
+                    'mb-10': bottomGap === 'small',
+                    'mb-20': bottomGap === 'large',
+                    'text-center': alignHoriz === 'center',
+                    'text-right': alignHoriz === 'right'
+                })}
+            >
+                {props.backgroundImage && HeroBackgroundImage(props.backgroundImage)}
+                <div
+                    className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
+                        'w-full': height === 'viewport'
+                    })}
+                >
+                    <HeroVariants {...props} />
+                </div>
+            </div>
+        </div>
+    );
+}
+
+function HeroSectionFull(props) {
+    const colors = props.colors || 'colors-a';
+    const height = props.height || 'short';
+    const topGap = props.topGap || 'small';
+    const bottomGap = props.bottomGap || 'small';
+    const alignHoriz = props.alignHoriz || 'left';
+    const alignVert = props.alignVert || 'middle';
+    return (
+        <div
+            className={classNames(colors, 'px-4', 'relative', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
+                'min-h-screen flex flex-col': height === 'viewport',
+                'justify-center': height === 'viewport' && alignVert === 'middle',
+                'justify-end': height === 'viewport' && alignVert === 'bottom',
+                'mt-10': topGap === 'small',
+                'mt-20': topGap === 'large',
+                'mb-10': bottomGap === 'small',
+                'mb-20': bottomGap === 'large',
                 'text-center': alignHoriz === 'center',
                 'text-right': alignHoriz === 'right'
             })}
             data-sb-field-path={props.annotationPrefix}
         >
+            {props.backgroundImage && HeroBackgroundImage(props.backgroundImage)}
             <div
-                className={classNames('mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8', {
-                    'xl:max-w-screen-xl': width !== 'narrow',
+                className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
                     'w-full': height === 'viewport'
                 })}
             >
@@ -51,13 +105,16 @@ function HeroVariants(props) {
 }
 
 function HeroFeatureRight(props) {
+    const alignVert = props.alignVert || 'middle';
     return (
         <div
-            className={classNames('grid gap-8 lg:items-center', {
-                'lg:grid-cols-2': props.feature
+            className={classNames('grid gap-8', {
+                'lg:grid-cols-2': props.feature,
+                'lg:items-center': alignVert === 'middle',
+                'lg:items-end': alignVert === 'bottom'
             })}
         >
-            <div className="max-w-3xl mx-auto">
+            <div>
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
@@ -67,14 +124,17 @@ function HeroFeatureRight(props) {
 }
 
 function HeroFeatureLeft(props) {
+    const alignVert = props.alignVert || 'middle';
     return (
         <div
-            className={classNames('grid gap-8 lg:items-center', {
-                'lg:grid-cols-2': props.feature
+            className={classNames('grid gap-8', {
+                'lg:grid-cols-2': props.feature,
+                'lg:items-center': alignVert === 'middle',
+                'lg:items-end': alignVert === 'bottom'
             })}
         >
             {props.feature && <div data-sb-field-path=".feature">{HeroFeature(props.feature)}</div>}
-            <div className="max-w-3xl mx-auto">
+            <div>
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
@@ -90,7 +150,7 @@ function HeroFeatureTop(props) {
                     {HeroFeature(props.feature)}
                 </div>
             )}
-            <div className="max-w-3xl mx-auto">
+            <div>
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
@@ -101,7 +161,7 @@ function HeroFeatureTop(props) {
 function HeroFeatureBottom(props) {
     return (
         <>
-            <div className="max-w-3xl mx-auto">
+            <div>
                 {HeroContent(props)}
                 {HeroActions(props)}
             </div>
@@ -124,6 +184,26 @@ function HeroFeature(feature) {
         throw new Error(`no component matching the hero section feature type: ${featureType}`);
     }
     return <Feature {...feature} className="mx-auto" />;
+}
+
+function HeroBackgroundImage(image) {
+    const imageUrl = image.url;
+    if (!imageUrl) {
+        return null;
+    }
+    const imageOpacity = (image.opacity || 1) * 0.01;
+
+    return (
+        <span
+            className="bg-cover block absolute inset-0"
+            style={{
+                backgroundImage: `url('${imageUrl}')`,
+                opacity: imageOpacity
+            }}
+            aria-label={image.altText}
+            data-sb-field-path=".backgroundImage.url#@style .backgroundImage.opacity#@style .backgroundImage.altText#@aria-label"
+        />
+    );
 }
 
 function HeroContent(props) {

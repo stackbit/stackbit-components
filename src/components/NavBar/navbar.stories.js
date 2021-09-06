@@ -7,22 +7,27 @@ export default {
     argTypes: {
         desktopNavVariant: {
             options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         mobileNavVariant: {
             options: ['variant-a', 'variant-b'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         primaryColors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         secondaryColors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         }
     }
@@ -33,9 +38,9 @@ const Template = (args) => <NavBar {...args} />;
 const args = {
     desktopNavVariant: 'variant-a',
     mobileNavVariant: 'variant-a',
-    primaryColors: 'colors-d',
+    primaryColors: 'colors-a',
     secondaryColors: 'colors-a',
-    width: 'wide',
+    width: 'full',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
     logo: {
@@ -70,12 +75,6 @@ const args = {
         }
     ],
     secondaryLinks: [
-        {
-            type: 'Link',
-            label: 'Sign in',
-            url: '/',
-            altText: 'Sign in'
-        },
         {
             type: 'Button',
             label: 'Sign up',

@@ -8,22 +8,42 @@ export default {
         type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
+            defaultValue: 'short',
+            control: { type: 'select' }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
+            control: { type: 'select' }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
             control: { type: 'select' }
         },
         alignHoriz: {
             options: ['left', 'right', 'center'],
+            defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        alignVert: {
+            options: ['top', 'middle', 'bottom'],
+            defaultValue: 'middle',
             control: { type: 'select' }
         }
     }
@@ -36,11 +56,11 @@ const args = {
     variant: 'variant-b',
     colors: 'colors-e',
     width: 'wide',
-    height: 'auto',
+    height: 'tall',
     alignHoriz: 'left',
     title: 'Join our club',
     text: 'We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.',
-    image: {
+    feature: {
         type: 'ImageBlock',
         url: '/images/lobster.jpg',
         altText: 'Fisherman holding lobster'
@@ -106,7 +126,7 @@ ContactRightImage.args = {
                 label: 'Name',
                 placeholder: 'Your name',
                 isRequired: true,
-                width: 'full'
+                width: '1/2'
             },
             {
                 type: 'EmailFormControl',
@@ -114,7 +134,7 @@ ContactRightImage.args = {
                 label: 'Email',
                 placeholder: 'Your email',
                 isRequired: true,
-                width: 'full'
+                width: '1/2'
             },
             {
                 type: 'TextFormControl',
@@ -122,7 +142,7 @@ ContactRightImage.args = {
                 label: 'Street address',
                 placeholder: 'Your street address',
                 isRequired: true,
-                width: 'full'
+                width: '1/2'
             },
             {
                 type: 'SelectFormControl',
@@ -131,7 +151,7 @@ ContactRightImage.args = {
                 defaultValue: 'Please choose...',
                 isRequired: true,
                 options: ['City 1', 'City 2'],
-                width: 'full'
+                width: '1/2'
             },
             {
                 type: 'TextareaFormControl',

@@ -7,23 +7,38 @@ export default {
     argTypes: {
         type: { table: { disable: true } },
         variant: {
-            options: ['variant-a', 'variant-b'],
+            options: ['variant-a', 'variant-b', 'variant-c'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
+            defaultValue: 'short',
+            control: { type: 'select' }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
+            control: { type: 'select' }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
             control: { type: 'select' }
         },
         alignHoriz: {
             options: ['left', 'right', 'center'],
+            defaultValue: 'left',
             control: { type: 'select' }
         }
     }
@@ -36,11 +51,19 @@ const args = {
     variant: 'variant-a',
     colors: 'colors-d',
     width: 'wide',
-    height: 'auto',
+    height: 'short',
     alignHoriz: 'center',
     badge: 'Know Our Team',
     title: 'The Team',
     subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
+    actions: [
+        {
+            type: 'Button',
+            url: '#',
+            label: 'View More',
+            style: 'primary'
+        }
+    ],
     people: [
         {
             firstName: 'Desmond',
@@ -90,7 +113,7 @@ const args = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Three Cols, Info Under the Image';
+Primary.storyName = 'Four Cols, Info Under the Image';
 Primary.args = args;
 
 export const VariantB = Template.bind({});
@@ -100,4 +123,13 @@ VariantB.args = {
     colors: 'colors-b',
     variant: 'variant-b',
     alignHoriz: 'left'
+};
+
+export const VariantC = Template.bind({});
+VariantC.storyName = 'Two Cols, Info Under the Image';
+VariantC.args = {
+    ...args,
+    colors: 'colors-b',
+    variant: 'variant-c',
+    alignHoriz: 'center'
 };

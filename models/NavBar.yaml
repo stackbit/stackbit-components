@@ -28,31 +28,47 @@ fields:
     name: primaryColors
     label: Primary colors (navbar)
     options:
-      - label: Dark text on light background
+      - label: Base foreground on white background
         value: colors-a
-      - label: Light text on dark background
+      - label: Primary foreground on white background
         value: colors-b
-      - label: Primary text on dark background
+      - label: White foreground on base background
         value: colors-c
-      - label: Dark text on primary background
+      - label: Primary foreground on base background
         value: colors-d
-      - label: Dark text on secondary background
+      - label: Base foreground on primary background
         value: colors-e
+      - label: Base foreground on secondary background
+        value: colors-f
+      - label: Primary foreground on secondary background
+        value: colors-g
+      - label: Base foreground on complimentary 1 background
+        value: colors-h
+      - label: Base foreground on complimentary 2 background
+        value: colors-i
     default: colors-a
   - type: enum
     name: secondaryColors
     label: Secondary colors (mobile navigation)
     options:
-      - label: Dark text on light background
+      - label: Base foreground on white background
         value: colors-a
-      - label: Light text on dark background
+      - label: Primary foreground on white background
         value: colors-b
-      - label: Primary text on dark background
+      - label: White foreground on base background
         value: colors-c
-      - label: Dark text on primary background
+      - label: Primary foreground on base background
         value: colors-d
-      - label: Dark text on secondary background
+      - label: Base foreground on primary background
         value: colors-e
+      - label: Base foreground on secondary background
+        value: colors-f
+      - label: Primary foreground on secondary background
+        value: colors-g
+      - label: Base foreground on complimentary 1 background
+        value: colors-h
+      - label: Base foreground on complimentary 2 background
+        value: colors-i
     default: colors-a
   - type: enum
     name: width

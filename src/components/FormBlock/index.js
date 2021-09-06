@@ -8,6 +8,7 @@ export default function FormBlock(props) {
     }
     return (
         <form
+            className={props.className}
             name={props.idAttr}
             id={props.idAttr}
             {...(props.action ? { action: props.action } : null)}

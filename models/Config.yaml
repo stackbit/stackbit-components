@@ -8,12 +8,16 @@ fields:
     options:
       - label: White
         value: bg-white
+      - label: Base
+        value: bg-base
       - label: Primary
         value: bg-primary
       - label: Secondary
         value: bg-secondary
-      - label: Neutral
-        value: bg-neutral
+      - label: Complimentary 1
+        value: bg-complimentary-1
+      - label: Complimentary 2
+        value: bg-complimentary-2
     default: bg-white
   - type: model
     name: navBar

@@ -47,6 +47,7 @@
   },
   "homepage": "https://components.stackbit.com/",
   "dependencies": {
+    "axios": "^0.21.1",
     "classnames": "^2.3.1",
     "markdown-to-jsx": "^7.1.3"
   },

@@ -25,9 +25,11 @@ fields:
         - ContactSection
         - ContentSection
         - CtaSection
+        - FeaturedPeopleSection
         - FeaturedPostsSection
         - HeroSection
         - TestimonialsSection
+        - QuoteSection
   - type: list
     name: bottomSections
     label: Bottom sections
@@ -37,6 +39,8 @@ fields:
         - ContactSection
         - ContentSection
         - CtaSection
+        - FeaturedPeopleSection
         - FeaturedPostsSection
         - HeroSection
         - TestimonialsSection
+        - QuoteSection

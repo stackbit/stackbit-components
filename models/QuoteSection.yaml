@@ -1,18 +1,7 @@
 type: object
-name: FeaturedPeopleSection
-label: Featured people section
+name: QuoteSection
+label: Quote section
 fields:
-  - type: enum
-    name: variant
-    label: Arrangement
-    options:
-      - label: Four columns, person info with image at the top
-        value: variant-a
-      - label: Two columns, person info with image on the left
-        value: variant-b
-      - label: Two columns, person info with image at the top
-        value: variant-c
-    default: variant-a
   - type: enum
     name: colors
     label: Colors
@@ -75,26 +64,16 @@ fields:
       - right
       - center
     default: left
+  - type: markdown
+    name: quote
+    label: Quote
   - type: string
-    name: badge
-    label: Badge
+    name: name
+    label: Author name
   - type: string
     name: title
-    label: Title
-  - type: string
-    name: subtitle
-    label: Subtitle
-  - type: list
-    name: actions
-    label: Actions
-    items:
-      type: model
-      models:
-        - Button
-        - Link
-  - type: list
-    name: people
-    label: People
-    items:
-      type: reference
-      models: [Person]
+    label: Author title
+  - type: model
+    name: backgroundImage
+    label: Background image
+    models: [ImageBlock]

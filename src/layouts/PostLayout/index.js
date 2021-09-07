@@ -1,4 +1,5 @@
 import React from 'react';
+import dayjs from 'dayjs';
 import Markdown from 'markdown-to-jsx';
 import ImageBlock from '../../components/ImageBlock';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
@@ -9,6 +10,8 @@ export default function PostLayout(props) {
     const BaseLayout = getBaseLayoutComponent(page.baseLayout, site.baseLayout);
     const topSections = page.topSections || [];
     const bottomSections = page.bottomSections || [];
+    const dateTimeAttr = dayjs(page.date).format('YYYY-MM-DD HH:mm:ss');
+    const formattedDate = dayjs(page.date).format('MMMM D, YYYY');
 
     return (
         <>
@@ -24,16 +27,19 @@ export default function PostLayout(props) {
                         })}
                     </div>
                 )}
-                <article className="py-16 lg:py-20 mx-auto max-w-screen-lg">
-                    <div className="mx-auto px-4 sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg lg:px-8">
-                        {page.title && <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-3xl mx-auto" data-sb-field-path="title">{page.title}</h1>}
+                <article className="px-4 sm:px-6 py-14 lg:py-20">
+                    <div className="mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
+                        <header className="mb-12 text-center">
+                            {page.title && <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-3xl mx-auto" data-sb-field-path="title">{page.title}</h1>}
+                            <div className="text-lg"><time dateTime={dateTimeAttr} data-sb-field-path="date">{formattedDate}</time></div>
+                        </header>
                         {page.thumbImage && (
-                            <div className="h-0 w-full pt-1/2 mb-6 relative" data-sb-field-path="thumbImage">
+                            <figure className="h-0 w-full pt-1/2 mb-8 relative" data-sb-field-path="thumbImage">
                                 <ImageBlock {...page.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                            </div>
+                            </figure>
                         )}
                         {page.markdown_content && (
-                            <Markdown options={{ forceBlock: true }} className="max-w-3xl mx-auto md:text-lg" data-sb-field-path="markdown_content">
+                            <Markdown options={{ forceBlock: true }} className="sb-prose max-w-prose mx-auto md:text-lg" data-sb-field-path="markdown_content">
                                 {page.markdown_content}
                             </Markdown>
                         )}

@@ -1,9 +1,9 @@
 import React from 'react';
-import ContentSection from './index';
+import QuoteSection from './index';
 
 export default {
-    title: 'Components/ContentSection',
-    component: ContentSection,
+    title: 'Components/QuoteSection',
+    component: QuoteSection,
     argTypes: {
         type: { table: { disable: true } },
         colors: {
@@ -39,29 +39,37 @@ export default {
     }
 };
 
-const Template = (args) => <ContentSection {...args} />;
+const Template = (args) => <QuoteSection {...args} />;
 
 const args = {
-    type: 'ContentSection',
-    colors: 'colors-a',
+    type: 'QuoteSection',
+    colors: 'colors-c',
     width: 'wide',
     height: 'short',
     alignHoriz: 'left',
-    badge: 'Small text',
-    title: 'The Section Title',
-    subtitle: 'The section subtitle',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    quote: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+    name: 'Isabelle Parks',
+    title: 'Head chef at The Cook',
+    backgroundImage: {
+        type: 'ImageBlock',
+        url: '/images/water.jpg',
+        altText: 'Water',
+        caption: '',
+        opacity: 40
+    }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Content Section';
+Primary.storyName = 'Quote Section';
 Primary.args = args;
 
 export const Secondary = Template.bind({});
-Secondary.storyName = 'Centered Content Section';
+Secondary.storyName = 'Centered Quote Section';
 Secondary.args = {
     ...args,
-    colors: 'colors-c',
+    colors: 'colors-d',
     width: 'full',
-    alignHoriz: 'center'
+    height: 'viewport',
+    alignHoriz: 'center',
+    backgroundImage: null
 };

@@ -8,22 +8,37 @@ export default {
         type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
+            defaultValue: 'short',
+            control: { type: 'select' }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
+            control: { type: 'select' }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
             control: { type: 'select' }
         },
         alignHoriz: {
             options: ['left', 'right', 'center'],
+            defaultValue: 'left',
             control: { type: 'select' }
         }
     }
@@ -34,9 +49,11 @@ const Template = (args) => <CtaSection {...args} />;
 const args = {
     type: 'CtaSection',
     variant: 'variant-a',
-    colors: 'colors-b',
+    colors: 'colors-h',
     width: 'wide',
-    height: 'auto',
+    height: 'short',
+    topGap: 'none',
+    bottomGap: 'none',
     alignHoriz: 'center',
     title: "Let's do this",
     text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
@@ -59,6 +76,14 @@ CtaButtonsRight.storyName = 'CTA Section With Buttons on the Right';
 CtaButtonsRight.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-d',
-    alignHoriz: 'left'
+    colors: 'colors-c',
+    width: 'full',
+    alignHoriz: 'left',
+    backgroundImage: {
+        type: 'ImageBlock',
+        url: '/images/water.jpg',
+        altText: 'Water',
+        caption: '',
+        opacity: 50
+    }
 };

@@ -7,23 +7,38 @@ export default {
     argTypes: {
         type: { table: { disable: true } },
         variant: {
-            options: ['variant-a', 'variant-b'],
+            options: ['variant-a', 'variant-b', 'variant-c'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
+            defaultValue: 'short',
+            control: { type: 'select' }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
+            control: { type: 'select' }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
             control: { type: 'select' }
         },
         alignHoriz: {
             options: ['left', 'right', 'center'],
+            defaultValue: 'left',
             control: { type: 'select' }
         }
     }
@@ -34,9 +49,9 @@ const Template = (args) => <FeaturedPeopleSection {...args} />;
 const args = {
     type: 'FeaturedPeopleSection',
     variant: 'variant-a',
-    colors: 'colors-d',
+    colors: 'colors-a',
     width: 'wide',
-    height: 'auto',
+    height: 'short',
     alignHoriz: 'center',
     badge: 'Know Our Team',
     title: 'The Team',
@@ -90,14 +105,32 @@ const args = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Three Cols, Info Under the Image';
+Primary.storyName = 'Four Cols, Info Under the Image';
 Primary.args = args;
 
 export const VariantB = Template.bind({});
 VariantB.storyName = 'Two Cols, Info to the Right of the Image';
 VariantB.args = {
     ...args,
-    colors: 'colors-b',
     variant: 'variant-b',
-    alignHoriz: 'left'
+    colors: 'colors-c',
+    width: 'full',
+    alignHoriz: 'left',
+    actions: [
+        {
+            type: 'Button',
+            url: '#',
+            label: 'View More',
+            style: 'primary'
+        }
+    ]
+};
+
+export const VariantC = Template.bind({});
+VariantC.storyName = 'Two Cols, Info Under the Image';
+VariantC.args = {
+    ...args,
+    variant: 'variant-c',
+    colors: 'colors-i',
+    alignHoriz: 'center'
 };

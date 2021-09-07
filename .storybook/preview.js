@@ -4,7 +4,7 @@ export const parameters = {
     backgrounds: { disable: true },
     options: {
         storySort: {
-            order: ['Layouts', ['AdvancedLayout', 'PostLayout'], 'Components', ['NavBar', 'Footer', 'ContactSection', 'ContentSection', 'CtaSection', 'FeaturedPeopleSection', 'FeaturedPostsSection', 'HeroSection', 'TestimonialsSection'], 'Atoms']
+            order: ['Layouts', ['AdvancedLayout', 'PostLayout'], 'Components', ['NavBar', 'Footer', 'ContactSection', 'ContentSection', 'CtaSection', 'FeaturedPeopleSection', 'FeaturedPostsSection', 'HeroSection', 'QuoteSection', 'TestimonialsSection'], 'Atoms']
         }
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -25,10 +25,7 @@ export const globalTypes = {
         toolbar: {
             icon: 'cog',
             items: [
-                { value: 'bold', title: 'Bold Theme' },
-                { value: 'eco', title: 'Eco Theme' },
-                { value: 'modern', title: 'Modern Theme' },
-                { value: 'retro', title: 'Retro Theme' }
+                { value: 'bold', title: 'Bold Theme' }
             ]
         }
     }

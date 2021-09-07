@@ -1,21 +1,19 @@
 import React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import Badge from '../Badge';
-import InlineMarkdown from '../InlineMarkdown';
 
-export default function ContentSection(props) {
+export default function QuoteSection(props) {
     const width = props.width || 'wide';
     switch (width) {
         case 'wide':
-            return contentSectionWide(props);
+            return quoteSectionWide(props);
         case 'full':
-            return contentSectionFull(props);
+            return quoteSectionFull(props);
     }
     return null;
 }
 
-function contentSectionWide(props) {
+function quoteSectionWide(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -34,19 +32,20 @@ function contentSectionWide(props) {
                     'mb-20': bottomGap === 'large'
                 })}
             >
+                {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
                 <div
                     className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
                         'w-full': height === 'viewport'
                     })}
                 >
-                    {contentBody(props)}
+                    {quoteContent(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function contentSectionFull(props) {
+function quoteSectionFull(props) {
   const colors = props.colors || 'colors-a';
   const height = props.height || 'short';
   const topGap = props.topGap || 'small';
@@ -62,44 +61,62 @@ function contentSectionFull(props) {
             })}
             data-sb-field-path={props.annotationPrefix}
         >
+            {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
                     'w-full': height === 'viewport'
                 })}
             >
-                {contentBody(props)}
+                {quoteContent(props)}
             </div>
         </div>
     );
 }
 
-function contentBody(props) {
+function quoteBackgroundImage(image) {
+    const imageUrl = image.url;
+    if (!imageUrl) {
+        return null;
+    }
+    const imageOpacity = (image.opacity || 1) * 0.01;
+
+    return (
+        <span
+            className="bg-cover bg-center block absolute inset-0"
+            style={{
+                backgroundImage: `url('${imageUrl}')`,
+                opacity: imageOpacity
+            }}
+            aria-label={image.altText}
+            data-sb-field-path=".backgroundImage.url#@style .backgroundImage.opacity#@style .backgroundImage.altText#@aria-label"
+        />
+    );
+}
+
+function quoteContent(props) {
     const alignHoriz = props.alignHoriz || 'left';
     return (
-        <div
+        <blockquote
             className={classNames({
               'text-center': alignHoriz === 'center',
               'text-right': alignHoriz === 'right'
             })}
-            >
-                {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
-                {props.title && (
-                    <h2 className="text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
-                    <InlineMarkdown>{props.title}</InlineMarkdown>
-                    </h2>
-                )}
-                {props.subtitle && <p className="md:text-lg" data-sb-field-path=".subtitle">{props.subtitle}</p>}
-                {props.text && (
-                    <Markdown
-                    options={{ forceBlock: true }}
-                    className={classNames('md:text-lg', {
-                        'mt-6': props.badge || props.title || props.subtitle
-                    })}
-                    data-sb-field-path=".text"
-                    >
-                    {props.text}
-                    </Markdown>
-                )}
-        </div>
+        >
+            {props.quote && (
+                <Markdown options={{ forceBlock: true }} className="text-3xl sm:text-4xl" data-sb-field-path=".quote">
+                    {props.quote}
+                </Markdown>
+            )}
+            {(props.name || props.title) && (
+                <footer className="mt-8 sm:mt-12">
+                    {props.name && (
+                        <strong className="block font-normal mb-1 text-3xl sm:text-4xl" data-sb-field-path=".name">
+                            {props.name}
+                        </strong>
+                    )}
+                    {props.title && <span className="text-large" data-sb-field-path=".title">{props.title}</span>}
+                </footer>
+            )}
+        </blockquote>
     );
 }

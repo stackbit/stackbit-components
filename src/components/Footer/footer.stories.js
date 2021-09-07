@@ -6,11 +6,13 @@ export default {
     component: Footer,
     argTypes: {
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         }
     }
@@ -19,8 +21,8 @@ export default {
 const Template = (args) => <Footer {...args} />;
 
 const args = {
-    colors: 'colors-d',
-    width: 'wide',
+    colors: 'colors-a',
+    width: 'full',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
     logo: {
@@ -38,7 +40,7 @@ const args = {
         address: '312 Lovely Street, NY',
         addressAltText: 'Our address'
     },
-    copyrightText: '💖 powered by Stackbit',
+    copyrightText: 'Powered by Stackbit',
     primaryLinks: [
         {
             type: 'Link',
@@ -112,7 +114,7 @@ export const FooterNoContacts = Template.bind({});
 FooterNoContacts.storyName = 'Footer Without Contacts';
 FooterNoContacts.args = {
     ...args,
-    colors: 'colors-b',
+    colors: 'colors-c',
     width: 'full',
     logo: {
         type: 'ImageBlock',

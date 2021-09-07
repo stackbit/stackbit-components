@@ -25,6 +25,7 @@ export default function FormBlock(props) {
     const formHoneypotName = `${props.idAttr}-bot-field`;
     return (
         <form
+            className={props.className}
             name={props.idAttr}
             id={props.idAttr}
             onSubmit={(e) => handleSubmit(e, props.action)}
@@ -40,11 +41,11 @@ export default function FormBlock(props) {
                     if (!fieldType) {
                         throw new Error(`form field does not have the 'type' property`);
                     }
-                    const Component = getDynamicComponent(fieldType);
-                    if (!Component) {
+                    const FormControl = getDynamicComponent(fieldType);
+                    if (!FormControl) {
                         throw new Error(`no component matching the form field type: ${fieldType}`);
                     }
-                    return <Component key={index} {...field} annotationPrefix={`.${index}`} />;
+                    return <FormControl key={index} {...field} annotationPrefix={`.${index}`} />;
                 })}
             </div>
             <div className="mt-4 sm:mt-8">

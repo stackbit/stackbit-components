@@ -7,22 +7,27 @@ export default {
     argTypes: {
         desktopNavVariant: {
             options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         mobileNavVariant: {
             options: ['variant-a', 'variant-b'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         primaryColors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         secondaryColors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         }
     }
@@ -33,9 +38,9 @@ const Template = (args) => <NavBar {...args} />;
 const args = {
     desktopNavVariant: 'variant-a',
     mobileNavVariant: 'variant-a',
-    primaryColors: 'colors-d',
+    primaryColors: 'colors-a',
     secondaryColors: 'colors-a',
-    width: 'wide',
+    width: 'full',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
     logo: {
@@ -71,12 +76,6 @@ const args = {
     ],
     secondaryLinks: [
         {
-            type: 'Link',
-            label: 'Sign in',
-            url: '/',
-            altText: 'Sign in'
-        },
-        {
             type: 'Button',
             label: 'Sign up',
             url: '/',
@@ -94,9 +93,7 @@ export const VariantB = Template.bind({});
 VariantB.storyName = 'Navbar With Logo on the Left and Primary Links Centered';
 VariantB.args = {
     ...args,
-    desktopNavVariant: 'variant-b',
-    primaryColors: 'colors-a',
-    secondaryColors: 'colors-e'
+    desktopNavVariant: 'variant-b'
 };
 
 export const VariantC = Template.bind({});
@@ -105,8 +102,8 @@ VariantC.args = {
     ...args,
     desktopNavVariant: 'variant-c',
     mobileNavVariant: 'variant-b',
-    primaryColors: 'colors-b',
-    secondaryColors: 'colors-e',
+    primaryColors: 'colors-c',
+    secondaryColors: 'colors-a',
     width: 'full',
     logo: null
 };
@@ -117,8 +114,8 @@ VariantD.args = {
     ...args,
     desktopNavVariant: 'variant-d',
     mobileNavVariant: 'variant-b',
-    primaryColors: 'colors-b',
-    secondaryColors: 'colors-b',
+    primaryColors: 'colors-c',
+    secondaryColors: 'colors-c',
     logo: {
         type: 'ImageBlock',
         url: '/images/logo-alt.svg',

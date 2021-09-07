@@ -11,10 +11,11 @@ import FormBlock from './FormBlock';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
 import NavBar from './NavBar';
+import QuoteSection from './QuoteSection';
+import SelectFormControl from './SelectFormControl';
 import TestimonialsSection from './TestimonialsSection';
 import TextFormControl from './TextFormControl';
 import TextareaFormControl from './TextareaFormControl';
-import SelectFormControl from './SelectFormControl';
 import VideoBlock from './VideoBlock';
 
 export {
@@ -31,6 +32,7 @@ export {
     HeroSection,
     ImageBlock,
     NavBar,
+    QuoteSection,
     SelectFormControl,
     TestimonialsSection,
     TextFormControl,

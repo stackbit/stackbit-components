@@ -8,8 +8,11 @@ const args = {
     variant: 'variant-a',
     colors: 'colors-a',
     width: 'wide',
-    height: 'auto',
+    height: 'short',
+    topGap: 'none',
+    bottomGap: 'small',
     alignHoriz: 'left',
+    alignVert: 'bottom',
     badge: 'New Collaboration',
     title: 'The quick, brown fox jumps over **a lazy dog**',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
@@ -29,7 +32,7 @@ const args = {
     ],
     feature: {
         type: 'ImageBlock',
-        url: '/images/hero.png',
+        url: '/images/fishing.jpg',
         altText: 'Image alt text',
         caption: 'Image caption'
     }
@@ -59,7 +62,7 @@ export default {
             }
         },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             control: { type: 'select' },
             table: {
                 defaultValue: {
@@ -68,7 +71,7 @@ export default {
             }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
             control: { type: 'select' },
             table: {
                 defaultValue: {
@@ -77,11 +80,29 @@ export default {
             }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
             control: { type: 'select' },
             table: {
                 defaultValue: {
-                    summary: 'auto'
+                    summary: 'short'
+                }
+            }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            control: { type: 'select' },
+            table: {
+                defaultValue: {
+                    summary: 'small'
+                }
+            }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            control: { type: 'select' },
+            table: {
+                defaultValue: {
+                    summary: 'small'
                 }
             }
         },
@@ -91,6 +112,15 @@ export default {
             table: {
                 defaultValue: {
                     summary: 'left'
+                }
+            }
+        },
+        alignVert: {
+            options: ['top', 'middle', 'bottom'],
+            control: { type: 'select' },
+            table: {
+                defaultValue: {
+                    summary: 'middle'
                 }
             }
         }
@@ -124,7 +154,7 @@ HeroLeftVideo.storyName = 'Hero Section With Video on the Left';
 HeroLeftVideo.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-b',
+    colors: 'colors-e',
     width: 'full',
     badge: 'Brand new',
     actions: [
@@ -151,7 +181,7 @@ HeroBottomImage.storyName = 'Hero Section With Image at the Bottom';
 HeroBottomImage.args = {
     ...args,
     variant: 'variant-d',
-    colors: 'colors-b',
+    colors: 'colors-c',
     width: 'full',
     alignHoriz: 'center',
     badge: 'Brand new',
@@ -177,7 +207,8 @@ HeroTextOnly.storyName = 'Hero Section With Text Only';
 HeroTextOnly.args = {
     ...args,
     variant: 'variant-a',
-    colors: 'colors-e',
+    colors: 'colors-c',
+    width: 'full',
     badge: null,
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
@@ -196,7 +227,14 @@ HeroTextOnly.args = {
             icon: 'arrowRight'
         }
     ],
-    feature: null
+    feature: null,
+    backgroundImage: {
+        type: 'ImageBlock',
+        url: 'https://images.unsplash.com/photo-1483004406427-6acb078d1f2d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
+        altText: 'Water',
+        caption: '',
+        opacity: 50
+    }
 };
 
 export const HeroRightForm = Template.bind({});
@@ -204,7 +242,7 @@ HeroRightForm.storyName = 'Hero Section With Form on the Right';
 HeroRightForm.args = {
     ...args,
     variant: 'variant-a',
-    colors: 'colors-e',
+    colors: 'colors-f',
     badge: null,
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
@@ -246,7 +284,7 @@ HeroBottomForm.storyName = 'Hero Section With Form at the Bottom';
 HeroBottomForm.args = {
     ...args,
     variant: 'variant-d',
-    colors: 'colors-a',
+    colors: 'colors-i',
     badge: null,
     title: 'Join our newsletter',
     actions: null,

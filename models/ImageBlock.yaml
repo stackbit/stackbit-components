@@ -14,3 +14,7 @@ fields:
     name: caption
     label: Caption
     description: The caption of the image
+  - type: number
+    name: opacity
+    label: Opacity
+    description: The opacity of the image

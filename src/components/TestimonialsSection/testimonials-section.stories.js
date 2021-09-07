@@ -8,22 +8,37 @@ export default {
         type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
+            defaultValue: 'short',
+            control: { type: 'select' }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
+            control: { type: 'select' }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
             control: { type: 'select' }
         },
         alignHoriz: {
             options: ['left', 'right', 'center'],
+            defaultValue: 'left',
             control: { type: 'select' }
         }
     }
@@ -36,7 +51,7 @@ const args = {
     variant: 'variant-a',
     colors: 'colors-e',
     width: 'wide',
-    height: 'auto',
+    height: 'short',
     testimonials: [
         {
             quote: '“It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”',
@@ -57,7 +72,7 @@ const args = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Quote Under Image';
+Primary.storyName = 'Quote Above Image';
 Primary.args = args;
 
 export const VariantB = Template.bind({});
@@ -65,8 +80,8 @@ VariantB.storyName = 'Quote to the Right of the Image';
 VariantB.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-a',
-    width: 'narrow',
+    colors: 'colors-f',
+    width: 'full',
     alignHoriz: 'center',
     title: 'Testimonials',
     subtitle: 'What our users say'

@@ -35,7 +35,7 @@ function ctaSectionWide(props) {
                     'mb-20': bottomGap === 'large'
                 })}
             >
-                {props.backgroundImage && CtaBackgroundImage(props.backgroundImage)}
+                {props.backgroundImage && ctaBackgroundImage(props.backgroundImage)}
                 <div
                     className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
                         'w-full': height === 'viewport'

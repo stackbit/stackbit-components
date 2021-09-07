@@ -195,7 +195,7 @@ function heroBackgroundImage(image) {
 
     return (
         <span
-            className="bg-cover block absolute inset-0"
+            className="bg-cover bg-center block absolute inset-0"
             style={{
                 backgroundImage: `url('${imageUrl}')`,
                 opacity: imageOpacity

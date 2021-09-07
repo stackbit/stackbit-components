@@ -124,7 +124,7 @@ function ctaButtonsRight(props) {
     const alignHoriz = props.alignHoriz || 'left';
     const actions = props.actions || [];
     return (
-        <div className="lg:flex">
+        <div className="lg:flex lg:justify-between">
             {(props.badge || props.title || props.text) && (
                 <div
                     className={classNames({
@@ -160,7 +160,7 @@ function ctaBackgroundImage(image) {
     const imageOpacity = (image.opacity || 1) * 0.01;
     return (
         <span
-            className="bg-cover block absolute inset-0"
+            className="bg-cover bg-center block absolute inset-0"
             style={{
                 backgroundImage: `url('${imageUrl}')`,
                 opacity: imageOpacity

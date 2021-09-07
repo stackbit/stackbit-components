@@ -19,7 +19,7 @@ module.exports = {
         info: '#EA5234'
       },
       fontFamily: {
-        serif: ['PT Serif', ...defaultTheme.fontFamily.serif],
+        sans: ['Poppins', ...defaultTheme.fontFamily.serif]
       },
       spacing: {
         '1/1': '100%',
@@ -35,8 +35,11 @@ module.exports = {
   plugins: [
     plugin(function ({ addBase, addComponents, theme }) {
       addBase({
+        'body': {
+          '@apply font-sans': {}
+        },
         'h1,h2,h3,h4,h5,h6': {
-          '@apply font-serif font-bold': {}
+          '@apply font-medium': {}
         },
         'b,strong': {
           '@apply font-medium': {}
@@ -76,8 +79,7 @@ module.exports = {
           '@apply bg-transparent border-b font-light pb-1.5 text-lg w-full focus:outline-none md:text-xl': {}
         },
         '.sb-checkbox': {
-          '@apply align-middle appearance-none bg-origin-border border border-current cursor-pointer flex-shrink-0 inline-block h-4 select-none w-4 checked:bg-center checked:bg-no-repeat':
-            {},
+          '@apply align-middle appearance-none bg-origin-border border border-current cursor-pointer flex-shrink-0 inline-block h-5 select-none w-5 checked:bg-center checked:bg-no-repeat': {},
           '&:checked': {
             backgroundImage: 'linear-gradient(currentColor, currentColor)',
             backgroundSize: '60% 60%'

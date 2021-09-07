@@ -8,22 +8,37 @@ export default {
         type: { table: { disable: true } },
         variant: {
             options: ['variant-a', 'variant-b'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
+            defaultValue: 'short',
+            control: { type: 'select' }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
+            control: { type: 'select' }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
             control: { type: 'select' }
         },
         alignHoriz: {
             options: ['left', 'right', 'center'],
+            defaultValue: 'left',
             control: { type: 'select' }
         }
     }
@@ -34,9 +49,18 @@ const Template = (args) => <FeaturedPostsSection {...args} />;
 const args = {
     type: 'FeaturedPostsSection',
     variant: 'variant-a',
-    colors: 'colors-d',
+    colors: 'colors-a',
     width: 'wide',
-    height: 'auto',
+    height: 'short',
+    alignHoriz: 'center',
+    actions: [
+        {
+            type: 'Button',
+            url: '#',
+            label: 'View More',
+            style: 'primary'
+        }
+    ],
     posts: [
         {
             __metadata: {},
@@ -88,9 +112,10 @@ export const VariantB = Template.bind({});
 VariantB.storyName = 'Two Cols, Post Content to the Right of the Image';
 VariantB.args = {
     ...args,
-    colors: 'colors-b',
     variant: 'variant-b',
+    colors: 'colors-c',
     width: 'full',
     alignHoriz: 'left',
-    title: 'Latest from **the Blog**'
+    title: 'Latest from **the Blog**',
+    actions: null
 };

@@ -10,14 +10,14 @@ export default function FeaturedPeopleSection(props) {
     const width = props.width || 'wide';
     switch (width) {
         case 'wide':
-            return FeaturedPeopleSectionWide(props);
+            return featuredPeopleSectionWide(props);
         case 'full':
-            return FeaturedPeopleSectionFull(props);
+            return featuredPeopleSectionFull(props);
     }
     return null;
 }
 
-function FeaturedPeopleSectionWide(props) {
+function featuredPeopleSectionWide(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -41,16 +41,16 @@ function FeaturedPeopleSectionWide(props) {
                         'w-full': height === 'viewport'
                     })}
                 >
-                    {FeaturedPeopleContent(props)}
-                    {FeaturedPeopleVariants(props)}
-                    {FeaturedPeopleActions(props)}
+                    {featuredPeopleHeader(props)}
+                    {featuredPeopleVariants(props)}
+                    {featuredPeopleActions(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function FeaturedPeopleSectionFull(props) {
+function featuredPeopleSectionFull(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -71,15 +71,15 @@ function FeaturedPeopleSectionFull(props) {
                     'w-full': height === 'viewport'
                 })}
             >
-                {FeaturedPeopleContent(props)}
-                {FeaturedPeopleVariants(props)}
-                {FeaturedPeopleActions(props)}
+                {featuredPeopleHeader(props)}
+                {featuredPeopleVariants(props)}
+                {featuredPeopleActions(props)}
             </div>
         </div>
     );
 }
 
-function FeaturedPeopleContent(props) {
+function featuredPeopleHeader(props) {
     if (!props.badge && !props.title && !props.subtitle) {
         return null;
     }
@@ -102,7 +102,7 @@ function FeaturedPeopleContent(props) {
     );
 }
 
-function FeaturedPeopleActions(props) {
+function featuredPeopleActions(props) {
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
@@ -123,20 +123,20 @@ function FeaturedPeopleActions(props) {
     );
 }
 
-function FeaturedPeopleVariants(props) {
+function featuredPeopleVariants(props) {
     const variant = props.variant || 'variant-a';
     switch (variant) {
         case 'variant-a':
-            return PeopleVariantA(props);
+            return peopleVariantA(props);
         case 'variant-b':
-            return PeopleVariantB(props);
+            return peopleVariantB(props);
         case 'variant-c':
-            return PeopleVariantC(props);
+            return peopleVariantC(props);
     }
     return null;
 }
 
-function PeopleVariantA(props) {
+function peopleVariantA(props) {
     const people = props.people || [];
     if (people.length === 0) {
         return null;
@@ -169,7 +169,7 @@ function PeopleVariantA(props) {
     );
 }
 
-function PeopleVariantB(props) {
+function peopleVariantB(props) {
     const people = props.people || [];
     if (people.length === 0) {
         return null;
@@ -215,7 +215,7 @@ function PeopleVariantB(props) {
     );
 }
 
-function PeopleVariantC(props) {
+function peopleVariantC(props) {
     const people = props.people || [];
     if (people.length === 0) {
         return null;
@@ -235,19 +235,19 @@ function PeopleVariantC(props) {
         >
             {peopleLeft.length > 0 && (
                 <div className="sm:mt-32">
-                    {PeopleListVariantC(peopleLeft)}
+                    {peopleListVariantC(peopleLeft)}
                 </div>
             )}
             {peopleRight.length > 0 && (
                 <div>
-                    {PeopleListVariantC(peopleRight, middleIndex)}
+                    {peopleListVariantC(peopleRight, middleIndex)}
                 </div>
             )}
         </div>
     );
 }
 
-function PeopleListVariantC(people, annotIndexStart = 0) {
+function peopleListVariantC(people, annotIndexStart = 0) {
     return people.map((person, index, arr) => (
         <article
             key={index}

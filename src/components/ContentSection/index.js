@@ -8,14 +8,14 @@ export default function ContentSection(props) {
     const width = props.width || 'wide';
     switch (width) {
         case 'wide':
-            return ContentSectionWide(props);
+            return contentSectionWide(props);
         case 'full':
-            return ContentSectionFull(props);
+            return contentSectionFull(props);
     }
     return null;
 }
 
-function ContentSectionWide(props) {
+function contentSectionWide(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -39,14 +39,14 @@ function ContentSectionWide(props) {
                         'w-full': height === 'viewport'
                     })}
                 >
-                    {ContentBody(props)}
+                    {contentBody(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function ContentSectionFull(props) {
+function contentSectionFull(props) {
   const colors = props.colors || 'colors-a';
   const height = props.height || 'short';
   const topGap = props.topGap || 'small';
@@ -67,13 +67,13 @@ function ContentSectionFull(props) {
                     'w-full': height === 'viewport'
                 })}
             >
-                {ContentBody(props)}
+                {contentBody(props)}
             </div>
         </div>
     );
 }
 
-function ContentBody(props) {
+function contentBody(props) {
     const alignHoriz = props.alignHoriz || 'left';
     return (
         <div

@@ -49,21 +49,13 @@ const Template = (args) => <FeaturedPeopleSection {...args} />;
 const args = {
     type: 'FeaturedPeopleSection',
     variant: 'variant-a',
-    colors: 'colors-d',
+    colors: 'colors-a',
     width: 'wide',
     height: 'short',
     alignHoriz: 'center',
     badge: 'Know Our Team',
     title: 'The Team',
     subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
-    actions: [
-        {
-            type: 'Button',
-            url: '#',
-            label: 'View More',
-            style: 'primary'
-        }
-    ],
     people: [
         {
             firstName: 'Desmond',
@@ -120,16 +112,25 @@ export const VariantB = Template.bind({});
 VariantB.storyName = 'Two Cols, Info to the Right of the Image';
 VariantB.args = {
     ...args,
-    colors: 'colors-b',
     variant: 'variant-b',
-    alignHoriz: 'left'
+    colors: 'colors-c',
+    width: 'full',
+    alignHoriz: 'left',
+    actions: [
+        {
+            type: 'Button',
+            url: '#',
+            label: 'View More',
+            style: 'primary'
+        }
+    ]
 };
 
 export const VariantC = Template.bind({});
 VariantC.storyName = 'Two Cols, Info Under the Image';
 VariantC.args = {
     ...args,
-    colors: 'colors-b',
     variant: 'variant-c',
+    colors: 'colors-i',
     alignHoriz: 'center'
 };

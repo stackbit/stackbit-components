@@ -10,14 +10,14 @@ export default function ContactSection(props) {
     const width = props.width || 'wide';
     switch (width) {
         case 'wide':
-            return ContactSectionWide(props);
+            return contactSectionWide(props);
         case 'full':
-            return ContactSectionFull(props);
+            return contactSectionFull(props);
     }
     return null;
 }
 
-function ContactSectionWide(props) {
+function contactSectionWide(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -44,14 +44,14 @@ function ContactSectionWide(props) {
                         'w-full': height === 'viewport'
                     })}
                 >
-                    <ContactVariants {...props} />
+                    {contactVariants(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function ContactSectionFull(props) {
+function contactSectionFull(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -75,24 +75,24 @@ function ContactSectionFull(props) {
                     'w-full': height === 'viewport'
                 })}
             >
-                <ContactVariants {...props} />
+                {contactVariants(props)}
             </div>
         </div>
     );
 }
 
-function ContactVariants({ variant, ...props }) {
-    variant = variant || 'variant-a';
+function contactVariants(props) {
+    const variant = props.variant || 'variant-a';
     switch (variant) {
         case 'variant-a':
-            return ContactFeatureRight(props);
+            return contactFeatureRight(props);
         case 'variant-b':
-            return ContactFeatureLeft(props);
+            return contactFeatureLeft(props);
     }
     return null;
 }
 
-function ContactFeatureRight(props) {
+function contactFeatureRight(props) {
     const alignVert = props.alignVert || 'middle';
     return (
         <div
@@ -103,19 +103,19 @@ function ContactFeatureRight(props) {
             })}
         >
             <div>
-                {ContactContent(props)}
+                {contactContent(props)}
                 {props.form && <div data-sb-field-path=".form"><FormBlock {...props.form} /></div>}
             </div>
             {props.feature && (
                 <div data-sb-field-path=".feature">
-                    {ContactFeature(props.feature)}
+                    {contactFeature(props.feature)}
                 </div>
             )}
         </div>
     );
 }
 
-function ContactFeatureLeft(props) {
+function contactFeatureLeft(props) {
     const alignVert = props.alignVert || 'middle';
     return (
         <div
@@ -127,18 +127,18 @@ function ContactFeatureLeft(props) {
         >
             {props.feature && (
                 <div data-sb-field-path=".image">
-                    {ContactFeature(props.feature)}
+                    {contactFeature(props.feature)}
                 </div>
             )}
             <div>
-                {ContactContent(props)}
+                {contactContent(props)}
                 {props.form && <div data-sb-field-path=".form"><FormBlock {...props.form} /></div>}
             </div>
         </div>
     );
 }
 
-function ContactFeature(feature) {
+function contactFeature(feature) {
     const featureType = feature.type;
     if (!featureType) {
         throw new Error(`contact section feature does not have the 'type' property`);
@@ -150,7 +150,7 @@ function ContactFeature(feature) {
     return <Feature {...feature} className="mx-auto" />;
 }
 
-function ContactContent(props) {
+function contactContent(props) {
     const alignHoriz = props.alignHoriz || 'left';
     return (
         <div className={classNames('mb-12', {

@@ -21,7 +21,7 @@ export default {
 const Template = (args) => <Footer {...args} />;
 
 const args = {
-    colors: 'colors-d',
+    colors: 'colors-a',
     width: 'wide',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
@@ -114,7 +114,7 @@ export const FooterNoContacts = Template.bind({});
 FooterNoContacts.storyName = 'Footer Without Contacts';
 FooterNoContacts.args = {
     ...args,
-    colors: 'colors-b',
+    colors: 'colors-c',
     width: 'full',
     logo: {
         type: 'ImageBlock',

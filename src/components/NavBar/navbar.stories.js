@@ -93,9 +93,7 @@ export const VariantB = Template.bind({});
 VariantB.storyName = 'Navbar With Logo on the Left and Primary Links Centered';
 VariantB.args = {
     ...args,
-    desktopNavVariant: 'variant-b',
-    primaryColors: 'colors-a',
-    secondaryColors: 'colors-e'
+    desktopNavVariant: 'variant-b'
 };
 
 export const VariantC = Template.bind({});
@@ -104,8 +102,8 @@ VariantC.args = {
     ...args,
     desktopNavVariant: 'variant-c',
     mobileNavVariant: 'variant-b',
-    primaryColors: 'colors-b',
-    secondaryColors: 'colors-e',
+    primaryColors: 'colors-c',
+    secondaryColors: 'colors-a',
     width: 'full',
     logo: null
 };
@@ -116,8 +114,8 @@ VariantD.args = {
     ...args,
     desktopNavVariant: 'variant-d',
     mobileNavVariant: 'variant-b',
-    primaryColors: 'colors-b',
-    secondaryColors: 'colors-b',
+    primaryColors: 'colors-c',
+    secondaryColors: 'colors-c',
     logo: {
         type: 'ImageBlock',
         url: '/images/logo-alt.svg',

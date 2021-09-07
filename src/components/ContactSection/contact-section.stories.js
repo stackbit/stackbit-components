@@ -56,7 +56,9 @@ const args = {
     variant: 'variant-b',
     colors: 'colors-e',
     width: 'wide',
-    height: 'tall',
+    height: 'short',
+    topGap: 'none',
+    bottomGap: 'none',
     alignHoriz: 'left',
     title: 'Join our club',
     text: 'We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.',
@@ -113,7 +115,7 @@ ContactRightImage.storyName = 'Contact Section With Right Image';
 ContactRightImage.args = {
     ...args,
     variant: 'variant-a',
-    colors: 'colors-b',
+    colors: 'colors-h',
     alignHoriz: 'center',
     title: 'Join our **club**',
     form: {

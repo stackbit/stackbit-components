@@ -49,9 +49,11 @@ const Template = (args) => <CtaSection {...args} />;
 const args = {
     type: 'CtaSection',
     variant: 'variant-a',
-    colors: 'colors-b',
+    colors: 'colors-h',
     width: 'wide',
     height: 'short',
+    topGap: 'none',
+    bottomGap: 'none',
     alignHoriz: 'center',
     title: "Let's do this",
     text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
@@ -62,14 +64,7 @@ const args = {
             label: 'Get Started',
             style: 'primary'
         }
-    ],
-    backgroundImage: {
-        type: 'ImageBlock',
-        url: 'https://images.unsplash.com/photo-1483004406427-6acb078d1f2d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
-        altText: 'Water',
-        caption: '',
-        opacity: 50
-    }
+    ]
 };
 
 export const Primary = Template.bind({});
@@ -81,6 +76,14 @@ CtaButtonsRight.storyName = 'CTA Section With Buttons on the Right';
 CtaButtonsRight.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-d',
-    alignHoriz: 'left'
+    colors: 'colors-c',
+    width: 'full',
+    alignHoriz: 'left',
+    backgroundImage: {
+        type: 'ImageBlock',
+        url: '/images/water.jpg',
+        altText: 'Water',
+        caption: '',
+        opacity: 50
+    }
 };

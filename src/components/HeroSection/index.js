@@ -10,14 +10,14 @@ export default function HeroSection(props) {
     const width = props.width || 'wide';
     switch (width) {
         case 'wide':
-            return HeroSectionWide(props);
+            return heroSectionWide(props);
         case 'full':
-            return HeroSectionFull(props);
+            return heroSectionFull(props);
     }
     return null;
 }
 
-function HeroSectionWide(props) {
+function heroSectionWide(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -42,20 +42,20 @@ function HeroSectionWide(props) {
                     'text-right': alignHoriz === 'right'
                 })}
             >
-                {props.backgroundImage && HeroBackgroundImage(props.backgroundImage)}
+                {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
                 <div
                     className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
                         'w-full': height === 'viewport'
                     })}
                 >
-                    <HeroVariants {...props} />
+                    {heroVariants(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function HeroSectionFull(props) {
+function heroSectionFull(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -77,34 +77,34 @@ function HeroSectionFull(props) {
             })}
             data-sb-field-path={props.annotationPrefix}
         >
-            {props.backgroundImage && HeroBackgroundImage(props.backgroundImage)}
+            {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
                     'w-full': height === 'viewport'
                 })}
             >
-                <HeroVariants {...props} />
+                {heroVariants(props)}
             </div>
         </div>
     );
 }
 
-function HeroVariants(props) {
+function heroVariants(props) {
     const variant = props.variant || 'variant-a';
     switch (variant) {
         case 'variant-a':
-            return HeroFeatureRight(props);
+            return heroFeatureRight(props);
         case 'variant-b':
-            return HeroFeatureLeft(props);
+            return heroFeatureLeft(props);
         case 'variant-c':
-            return HeroFeatureTop(props);
+            return heroFeatureTop(props);
         case 'variant-d':
-            return HeroFeatureBottom(props);
+            return heroFeatureBottom(props);
     }
     return null;
 }
 
-function HeroFeatureRight(props) {
+function heroFeatureRight(props) {
     const alignVert = props.alignVert || 'middle';
     return (
         <div
@@ -115,15 +115,15 @@ function HeroFeatureRight(props) {
             })}
         >
             <div>
-                {HeroContent(props)}
-                {HeroActions(props)}
+                {heroContent(props)}
+                {heroActions(props)}
             </div>
-            {props.feature && <div data-sb-field-path=".feature">{HeroFeature(props.feature)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
         </div>
     );
 }
 
-function HeroFeatureLeft(props) {
+function heroFeatureLeft(props) {
     const alignVert = props.alignVert || 'middle';
     return (
         <div
@@ -133,48 +133,48 @@ function HeroFeatureLeft(props) {
                 'lg:items-end': alignVert === 'bottom'
             })}
         >
-            {props.feature && <div data-sb-field-path=".feature">{HeroFeature(props.feature)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
             <div>
-                {HeroContent(props)}
-                {HeroActions(props)}
+                {heroContent(props)}
+                {heroActions(props)}
             </div>
         </div>
     );
 }
 
-function HeroFeatureTop(props) {
+function heroFeatureTop(props) {
     return (
         <>
             {props.feature && (
                 <div className="mb-8 lg:mb-12" data-sb-field-path=".feature">
-                    {HeroFeature(props.feature)}
+                    {heroFeature(props.feature)}
                 </div>
             )}
             <div>
-                {HeroContent(props)}
-                {HeroActions(props)}
+                {heroContent(props)}
+                {heroActions(props)}
             </div>
         </>
     );
 }
 
-function HeroFeatureBottom(props) {
+function heroFeatureBottom(props) {
     return (
         <>
             <div>
-                {HeroContent(props)}
-                {HeroActions(props)}
+                {heroContent(props)}
+                {heroActions(props)}
             </div>
             {props.feature && (
                 <div className="mt-8 lg:mt-12" data-sb-field-path=".feature">
-                    {HeroFeature(props.feature)}
+                    {heroFeature(props.feature)}
                 </div>
             )}
         </>
     );
 }
 
-function HeroFeature(feature) {
+function heroFeature(feature) {
     const featureType = feature.type;
     if (!featureType) {
         throw new Error(`hero section feature does not have the 'type' property`);
@@ -186,7 +186,7 @@ function HeroFeature(feature) {
     return <Feature {...feature} className="mx-auto" />;
 }
 
-function HeroBackgroundImage(image) {
+function heroBackgroundImage(image) {
     const imageUrl = image.url;
     if (!imageUrl) {
         return null;
@@ -206,7 +206,7 @@ function HeroBackgroundImage(image) {
     );
 }
 
-function HeroContent(props) {
+function heroContent(props) {
     return (
         <>
             {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
@@ -224,7 +224,7 @@ function HeroContent(props) {
     );
 }
 
-function HeroActions(props) {
+function heroActions(props) {
     const alignHoriz = props.alignHoriz || 'left';
     const actions = props.actions || [];
     if (actions.length === 0) {

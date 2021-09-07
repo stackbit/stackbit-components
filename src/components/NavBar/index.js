@@ -19,29 +19,29 @@ export default function NavBar(props) {
             <div className={classNames(width === 'wide' ? `${primaryColors} py-5 px-4`: '', 'max-w-screen-xl', 'mx-auto')}>
                 <Link href="#content" className="sr-only">Skip to main content</Link>
                 <div className={classNames('flex items-center', mobileNavVariant === 'variant-a' ? 'relative': 'lg:relative')}>
-                    <DesktopNavVariants {...props} />
+                    {desktopNavVariants(props)}
                 </div>
             </div>
         </nav>
     );
 }
 
-function DesktopNavVariants(props) {
+function desktopNavVariants(props) {
     const desktopNavVariant = props.desktopNavVariant || 'variant-a';
     switch (desktopNavVariant) {
         case 'variant-a':
-            return DesktopNavVariantA(props);
+            return desktopNavVariantA(props);
         case 'variant-b':
-            return DesktopNavVariantB(props);
+            return desktopNavVariantB(props);
         case 'variant-c':
-            return DesktopNavVariantC(props);
+            return desktopNavVariantC(props);
         case 'variant-d':
-            return DesktopNavVariantD(props);
+            return desktopNavVariantD(props);
     }
     return null;
 }
 
-function DesktopNavVariantA(props) {
+function desktopNavVariantA(props) {
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
     const logo = props.logo;
@@ -56,12 +56,12 @@ function DesktopNavVariantA(props) {
             {secondaryLinks.length > 0 && (
                 <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
             )}
-            <MobileNavVariants {...props} />
+            {mobileNavVariants(props)}
         </>
     );
 }
 
-function DesktopNavVariantB(props) {
+function desktopNavVariantB(props) {
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
     const logo = props.logo;
@@ -78,12 +78,12 @@ function DesktopNavVariantB(props) {
             {secondaryLinks.length > 0 && (
                 <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
             )}
-            <MobileNavVariants {...props} />
+            {mobileNavVariants(props)}
         </>
     );
 }
 
-function DesktopNavVariantC(props) {
+function desktopNavVariantC(props) {
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
     const logo = props.logo;
@@ -96,12 +96,12 @@ function DesktopNavVariantC(props) {
             {links.length > 0 && (
                 <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks .secondaryLinks">{listOfLinks(primaryLinks.concat(secondaryLinks))}</ul>
             )}
-            <MobileNavVariants {...props} />
+            {mobileNavVariants(props)}
         </>
     );
 }
 
-function DesktopNavVariantD(props) {
+function desktopNavVariantD(props) {
     const title = props.title;
     const isTitleVisible = props.isTitleVisible;
     const logo = props.logo;
@@ -118,23 +118,23 @@ function DesktopNavVariantD(props) {
             {secondaryLinks.length > 0 && (
                 <ul className="hidden ml-auto space-x-4 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
             )}
-            <MobileNavVariants {...props} />
+            {mobileNavVariants(props)}
         </>
     );
 }
 
-function MobileNavVariants(props) {
+function mobileNavVariants(props) {
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
     switch (mobileNavVariant) {
         case 'variant-a':
-            return MobileNavVariantA(props);
+            return mobileNavVariantA(props);
         case 'variant-b':
-            return MobileNavVariantB(props);
+            return mobileNavVariantB(props);
     }
     return null;
 }
 
-function MobileNavVariantA(props) {
+function mobileNavVariantA(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const secondaryColors = props.secondaryColors || 'colors-a';
     const title = props.title;
@@ -171,7 +171,7 @@ function MobileNavVariantA(props) {
     );
 }
 
-function MobileNavVariantB(props) {
+function mobileNavVariantB(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const secondaryColors = props.secondaryColors || 'colors-a';
     const title = props.title;

@@ -43,7 +43,7 @@ const Template = (args) => <ContentSection {...args} />;
 
 const args = {
     type: 'ContentSection',
-    colors: 'colors-b',
+    colors: 'colors-a',
     width: 'wide',
     height: 'short',
     alignHoriz: 'left',
@@ -61,8 +61,7 @@ export const Secondary = Template.bind({});
 Secondary.storyName = 'Centered Content Section';
 Secondary.args = {
     ...args,
-    colors: 'colors-d',
+    colors: 'colors-c',
     width: 'full',
-    height: 'viewport',
     alignHoriz: 'center'
 };

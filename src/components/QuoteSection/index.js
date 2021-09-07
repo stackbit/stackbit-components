@@ -6,14 +6,14 @@ export default function QuoteSection(props) {
     const width = props.width || 'wide';
     switch (width) {
         case 'wide':
-            return QuoteSectionWide(props);
+            return quoteSectionWide(props);
         case 'full':
-            return QuoteSectionFull(props);
+            return quoteSectionFull(props);
     }
     return null;
 }
 
-function QuoteSectionWide(props) {
+function quoteSectionWide(props) {
     const colors = props.colors || 'colors-a';
     const height = props.height || 'short';
     const topGap = props.topGap || 'small';
@@ -32,20 +32,20 @@ function QuoteSectionWide(props) {
                     'mb-20': bottomGap === 'large'
                 })}
             >
-                {props.backgroundImage && QuoteBackgroundImage(props.backgroundImage)}
+                {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
                 <div
                     className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
                         'w-full': height === 'viewport'
                     })}
                 >
-                    {QuoteContent(props)}
+                    {quoteContent(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function QuoteSectionFull(props) {
+function quoteSectionFull(props) {
   const colors = props.colors || 'colors-a';
   const height = props.height || 'short';
   const topGap = props.topGap || 'small';
@@ -61,19 +61,19 @@ function QuoteSectionFull(props) {
             })}
             data-sb-field-path={props.annotationPrefix}
         >
-            {props.backgroundImage && QuoteBackgroundImage(props.backgroundImage)}
+            {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
                     'w-full': height === 'viewport'
                 })}
             >
-                {QuoteContent(props)}
+                {quoteContent(props)}
             </div>
         </div>
     );
 }
 
-function QuoteBackgroundImage(image) {
+function quoteBackgroundImage(image) {
     const imageUrl = image.url;
     if (!imageUrl) {
         return null;
@@ -93,7 +93,7 @@ function QuoteBackgroundImage(image) {
     );
 }
 
-function QuoteContent(props) {
+function quoteContent(props) {
     const alignHoriz = props.alignHoriz || 'left';
     return (
         <blockquote

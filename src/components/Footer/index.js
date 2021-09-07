@@ -47,7 +47,7 @@ export default function Footer(props) {
                     </div>
                 )}
                 {(primaryLinks.length > 0 || socialLinks.length > 0 || props.contacts) && (
-                    <div className="sm:flex sm:justify-between">
+                    <div className="sm:flex sm:justify-between sm:items-end">
                         {primaryLinks.length > 0 && (
                             <div className="mb-12">
                                 <ul className="space-y-6 text-lg" data-sb-field-path=".primaryLinks">

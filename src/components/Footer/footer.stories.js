@@ -22,7 +22,7 @@ const Template = (args) => <Footer {...args} />;
 
 const args = {
     colors: 'colors-a',
-    width: 'wide',
+    width: 'full',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
     logo: {

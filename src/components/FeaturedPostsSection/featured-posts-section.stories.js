@@ -50,7 +50,7 @@ const args = {
     type: 'FeaturedPostsSection',
     variant: 'variant-a',
     colors: 'colors-a',
-    width: 'wide',
+    width: 'full',
     height: 'short',
     alignHoriz: 'center',
     actions: [

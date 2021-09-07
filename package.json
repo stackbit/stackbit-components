@@ -48,6 +48,7 @@
   "homepage": "https://components.stackbit.com/",
   "dependencies": {
     "classnames": "^2.3.1",
+    "dayjs": "^1.10.6",
     "markdown-to-jsx": "^7.1.3"
   },
   "devDependencies": {

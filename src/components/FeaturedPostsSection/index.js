@@ -1,5 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
+import dayjs from 'dayjs';
 import Badge from '../Badge';
 import Action from '../Action';
 import ImageBlock from '../ImageBlock';
@@ -147,21 +148,26 @@ function postsVariantA(props) {
             })}
             data-sb-field-path=".posts"
         >
-            {posts.map((post, index) => (
-                <Link key={index} href={getPageUrlPath(post)} className="sb-card block" data-sb-object-id={post.__metadata.id}>
-                    <article>
-                        {post.thumbImage && (
-                            <div className="h-0 w-full pt-1/2 relative" data-sb-field-path="thumbImage">
-                                <ImageBlock {...post.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                            </div>
-                        )}
-                        <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                            <h2 className="text-xl sm:text-2xl mb-3" data-sb-field-path="title">{post.title}</h2>
-                            {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
-                       </div>
-                    </article>
-                </Link>
-            ))}
+            {posts.map((post, index) => {
+                const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
+                const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
+                return (
+                    <Link key={index} href={getPageUrlPath(post)} className="sb-card block" data-sb-object-id={post.__metadata.id}>
+                        <article>
+                            {post.thumbImage && (
+                                <div className="h-0 w-full pt-1/2 relative" data-sb-field-path="thumbImage">
+                                    <ImageBlock {...post.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                                </div>
+                            )}
+                            <div className="px-4 py-6 sm:px-6 sm:pb-10">
+                                <h2 className="text-xl sm:text-2xl mb-1" data-sb-field-path="title">{post.title}</h2>
+                                <div className="text-sm mb-3"><time dateTime={dateTimeAttr} data-sb-field-path="date">{formattedDate}</time></div>
+                                {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
+                        </div>
+                        </article>
+                    </Link>
+                );
+            })}
         </div>
     );
 }
@@ -178,21 +184,26 @@ function postsVariantB(props) {
             })}
             data-sb-field-path=".posts"
         >
-            {posts.map((post, index) => (
-                <article key={index} className="sb-card sm:flex" data-sb-object-id={post.__metadata.id}>
-                    {post.thumbImage && (
-                        <div className="w-full sm:flex-shrink-0 sm:h-full sm:w-1/3">
-                            <Link href={getPageUrlPath(post)} className="block h-0 w-full pt-1/2 relative sm:h-40 sm:min-h-full sm:pt-0" data-sb-field-path="thumbImage">
-                                <ImageBlock {...post.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                            </Link>
+            {posts.map((post, index) => {
+                const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
+                const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
+                return (
+                    <article key={index} className="sb-card sm:flex" data-sb-object-id={post.__metadata.id}>
+                        {post.thumbImage && (
+                            <div className="w-full sm:flex-shrink-0 sm:h-full sm:w-1/3">
+                                <Link href={getPageUrlPath(post)} className="block h-0 w-full pt-1/2 relative sm:h-40 sm:min-h-full sm:pt-0" data-sb-field-path="thumbImage">
+                                    <ImageBlock {...post.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                                </Link>
+                            </div>
+                        )}
+                        <div className="px-4 py-6 sm:px-6 sm:pb-10 sm:flex-grow">
+                            <h2 className="mb-1 text-2xl md:text-xl"><Link href={getPageUrlPath(post)} data-sb-field-path="title">{post.title}</Link></h2>
+                            <div className="text-sm mb-3"><time dateTime={dateTimeAttr} data-sb-field-path="date">{formattedDate}</time></div>
+                            {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
                         </div>
-                    )}
-                    <div className="px-4 py-6 sm:px-6 sm:pb-10 sm:flex-grow">
-                        <h2 className="mb-2 text-2xl md:text-xl"><Link href={getPageUrlPath(post)} data-sb-field-path="title">{post.title}</Link></h2>
-                        {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
-                    </div>
-                </article>
-            ))}
+                    </article>
+                );
+            })}
         </div>
     );
 }

@@ -2,14 +2,14 @@ import React from 'react';
 import { addons, types } from '@storybook/addons';
 import { AddonPanel } from '@storybook/components';
 import { useParameter, useArgs } from '@storybook/api';
-import ArgsYaml from './ArgsYaml';
+import StackbitFrontmatter from './StackbitFrontmatter';
 import './style.css';
 
-const ADDON_ID = 'argsYaml';
+const ADDON_ID = 'StackbitFrontmatter';
 const PANEL_ID = `${ADDON_ID}/panel`;
-const PARAM_KEY = 'argsYaml';
+const PARAM_KEY = 'StackbitFrontmatter';
 
-const PanelArgsYaml = () => {
+const PanelStackbitFrontmatter = () => {
     const [args, updateArgs, resetArgs] = useArgs();
     let data = args;
     const param = useParameter(PARAM_KEY, null);
@@ -18,7 +18,7 @@ const PanelArgsYaml = () => {
     }
     return (
         <div className="args-yaml-panel">
-            <ArgsYaml args={data} />
+            <StackbitFrontmatter args={data} />
         </div>
     );
 };
@@ -29,7 +29,7 @@ addons.register(ADDON_ID, (api) => {
         title: 'Frontmatter',
         render: ({ active, key }) => (
             <AddonPanel active={active} key={key}>
-                <PanelArgsYaml />
+                <PanelStackbitFrontmatter />
             </AddonPanel>
         )
     });

@@ -1,0 +1,23 @@
+type: data
+name: Person
+label: Person
+fields:
+  - type: string
+    name: id
+    label: ID
+  - type: string
+    name: firstName
+    label: First name
+  - type: string
+    name: lastName
+    label: Last name
+  - type: string
+    name: role
+    label: Role
+  - type: markdown
+    name: bio
+    label: Bio
+  - type: model
+    name: image
+    label: Image
+    models: [ImageBlock]

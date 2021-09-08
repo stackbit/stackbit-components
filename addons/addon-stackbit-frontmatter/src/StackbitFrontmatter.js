@@ -3,7 +3,7 @@ import yaml from 'js-yaml';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import './style.css';
 
-const ArgsYaml = (props) => {
+const StackbitFrontmatter = (props) => {
     const { args, title, docsPage } = props;
     const yamlObject = yaml.dump(args);
     const [copied, setCopied] = useState(false);
@@ -26,4 +26,4 @@ const ArgsYaml = (props) => {
     );
 };
 
-export default ArgsYaml;
+export default StackbitFrontmatter;

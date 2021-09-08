@@ -1,0 +1,29 @@
+type: data
+name: Config
+label: Site configuration
+fields:
+  - type: enum
+    name: backgroundColor
+    label: Background color
+    options:
+      - label: White
+        value: bg-white
+      - label: Base
+        value: bg-base
+      - label: Primary
+        value: bg-primary
+      - label: Secondary
+        value: bg-secondary
+      - label: Complimentary 1
+        value: bg-complimentary-1
+      - label: Complimentary 2
+        value: bg-complimentary-2
+    default: bg-white
+  - type: model
+    name: navBar
+    label: Navbar configuration
+    models: [NavBar]
+  - type: model
+    name: footer
+    label: Footer configuration
+    models: [Footer]

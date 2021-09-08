@@ -1,6 +1,9 @@
 import React from 'react';
 import { Title, Subtitle, Description, Primary as PrimaryStory, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
-import ArgsYaml from '../../../addons/args-yaml/src/ArgsYaml';
+import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
+import 'react-tabs/style/react-tabs.css';
+import StackbitFrontmatter from '../../../addons/addon-stackbit-frontmatter/src/StackbitFrontmatter';
+import StackbitModels from '../../../addons/addon-stackbit-models/src/StackbitModels';
 import HeroSection from './index';
 
 const args = {
@@ -134,8 +137,25 @@ export default {
                     <Subtitle />
                     <Description />
                     <PrimaryStory />
-                    <ArgsTable story={PRIMARY_STORY} />
-                    <ArgsYaml args={args} title="Frontmatter" docsPage={true} />
+
+                    <Tabs>
+                        <TabList>
+                            <Tab>Props</Tab>
+                            <Tab>Frontmatter</Tab>
+                            <Tab>Model</Tab>
+                        </TabList>
+
+                        <TabPanel>
+                            <ArgsTable story={PRIMARY_STORY} />
+                        </TabPanel>
+                        <TabPanel>
+                            <StackbitFrontmatter args={args} title="Frontmatter" docsPage={true} />
+                        </TabPanel>
+                        <TabPanel>
+                            <StackbitModels args={args} title="models" docsPage={true} />
+                        </TabPanel>
+                    </Tabs>
+
                     <Stories />
                 </>
             )

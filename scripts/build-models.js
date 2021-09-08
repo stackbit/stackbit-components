@@ -41,6 +41,8 @@ console.log(`Writing stackbit.yaml to ${dest}`);
 
 fs.writeFileSync(path.join(__dirname, '../stackbit-theme.yaml'), stackbitYaml);
 
+fs.copy(path.join(__dirname, '../models'), path.join(__dirname, '../public/models'));
+
 if (args.includes('--local')) {
     fs.writeFileSync(path.join(__dirname, '../../stackbit-nextjs-v2/stackbit.yaml'), stackbitYaml);
 }

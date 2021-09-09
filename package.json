@@ -19,31 +19,41 @@
             "extensions": "js,jsx",
             "quiet": false,
             "delay": 2500
+        },
+        "build-themes": {
+            "patterns": [
+                "themes/**/*.js"
+            ],
+            "extensions": "js"
+        },
+        "build-models": {
+            "patterns": [
+                "models/**/*.yml"
+            ],
+            "extensions": "yml"
         }
     },
     "scripts": {
-        "develop": "./develop.sh",
-        "storybook": "./scripts/generate-storybook-dynamic.js && start-storybook -s ./public -p 6006",
+        "develop": "npm run build-themes && npm run build-models && npm run build-storybook && start-storybook -s ./public -p 6006",
         "build-themes": "./scripts/build-themes.js",
-        "build-storybook": "./scripts/generate-storybook-dynamic.js && build-storybook -s ./public",
+        "build-storybook": "./scripts/build-storybook.js",
         "build-models": "./scripts/build-models.js",
-        "build": "npm run build-themes && npm run build-models && npm run build-storybook",
+        "build": "npm run build-themes && npm run build-models && npm run build-storybook && build-storybook -s ./public",
         "build-dist": "./scripts/build-dist.js --clean",
-        "build-dist-local": "./scripts/build-dist.js && ./scripts/build-models.js --local",
+        "build-dist-local": "./scripts/build-dist.js",
         "validate": "stackbit validate",
-        "pretty": "prettier --write src",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
         "version-patch": "npm version patch -m \"bumped version to v%s\"",
         "watch": "npm-watch"
     },
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/stackbit/components.git"
+        "url": "git+https://github.com/stackbit/stackbit-components.git"
     },
     "author": "Stackbit Inc.",
     "license": "MIT",
     "bugs": {
-        "url": "https://github.com/stackbit/components/issues"
+        "url": "https://github.com/stackbit/stackbit-components/issues"
     },
     "homepage": "https://components.stackbit.com/",
     "dependencies": {

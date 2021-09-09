@@ -1,11 +1,11 @@
-tbody.docblock-argstable-body {
-    box-shadow: none !important;
-}
 .react-tabs {
     -webkit-tap-highlight-color: transparent;
     font-family: 'Nunito Sans', -apple-system, '.SFNSText-Regular', 'San Francisco', BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Helvetica, Arial,
         sans-serif;
     margin-bottom: 40px;
+    tbody.docblock-argstable-body {
+        box-shadow: none !important;
+    }
 }
 
 .react-tabs__tab-list {

@@ -22,7 +22,7 @@
 import dynamic from 'next/dynamic';
 
 const components = {
-  //__COMPONENTS_TOKEN__
+    //__COMPONENTS_TOKEN__
 };
 
 export default components;

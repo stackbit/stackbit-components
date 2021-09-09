@@ -13,7 +13,7 @@ console.log(`Merging models from ${modelsFolder}`);
 const models = {
     stackbitVersion: '~0.4.0',
     ssgName: 'nextjs',
-    nodeVersion: 14,
+    nodeVersion: '14',
     cmsName: 'git',
     assets: {
         referenceType: 'static',
@@ -24,6 +24,7 @@ const models = {
     dataDir: 'content/data',
     pagesDir: 'content/pages',
     pageLayoutKey: 'layout',
+    objectTypeKey: 'type',
     models: {}
 };
 

@@ -13,7 +13,10 @@ export default {
     title: 'Layouts/AdvancedLayout',
     component: AdvancedLayout,
     parameters: {
-        argsYaml: {
+        StackbitFrontmatter: {
+            root: 'page'
+        },
+        StackbitModels: {
             root: 'page'
         }
     }

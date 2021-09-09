@@ -20,8 +20,9 @@ const StackbitModels = (props) => {
     const [yamlObject, setYamlObject] = useState(null);
 
     useEffect(async () => {
-        if (args.type) {
-            const modelType = componentsManifest[args.type];
+        const type = args.type || args.layout;
+        if (type) {
+            const modelType = componentsManifest[type];
             const modelName = modelType.modelName;
             if (modelName) {
                 const result = await getModel(modelName);

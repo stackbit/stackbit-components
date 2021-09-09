@@ -1,5 +1,5 @@
-const fse = require('fs-extra');
 const path = require('path');
+const fse = require('fs-extra');
 
 const componentsManifest = require('./components-manifest.json');
 const defaultComponentMap = require('./components-map.json');
@@ -34,7 +34,7 @@ function copyComponentsJson(nextConfig) {
         components: Object.assign({}, defaultComponentMap.components, existingData.components),
         dynamic: Object.assign({}, defaultComponentMap.dynamic, existingData.dynamic)
     };
-    fse.writeJsonSync(targetFilePath, newData, { spaces: 4 });
+    fse.writeJsonSync(targetFilePath, newData, { spaces: 2 });
 }
 
 function generateDynamicComponents(nextConfig) {
@@ -93,22 +93,24 @@ function patchExternals(wpConfig, wpOptions) {
             // OK: "src/page.js" => "node_modules/@stackbit/components/components/Button"
             // OK: "node_modules/@stackbit/components/components/HeroSection" => "../Button"
             // NO: "node_modules/@stackbit/components/components/HeroSection" => "react"
-            return !!(regExp.test(context) && request.startsWith('.') || regExp.test(request));
+            return !!((regExp.test(context) && request.startsWith('.')) || regExp.test(request));
         };
 
         // the externals function interface is different between webpack v4 and webpack v5
-        wpConfig.externals[0] = isWebpack5(wpOptions) ? (options) => {
-            const { context, request } = options;
-            if (isStackbitComponents(context, request)) {
-                return Promise.resolve();
-            }
-            return origExternals(options);
-        } : (context, request, callback) => {
-            if (isStackbitComponents(context, request)){
-                return callback();
-            }
-            return origExternals(context, request, callback);
-        };
+        wpConfig.externals[0] = isWebpack5(wpOptions)
+            ? (options) => {
+                  const { context, request } = options;
+                  if (isStackbitComponents(context, request)) {
+                      return Promise.resolve();
+                  }
+                  return origExternals(options);
+              }
+            : (context, request, callback) => {
+                  if (isStackbitComponents(context, request)) {
+                      return callback();
+                  }
+                  return origExternals(context, request, callback);
+              };
     }
 }
 
@@ -264,18 +266,18 @@ class StackbitComponentsResolverPlugin {
             const newPath = this.componentsMap[requestPath];
 
             if (issuer === newPath) {
-                console.log('[withStackbitComponents] cyclic resolve, skipping resolve', { isServer: this.isServer, issuer: issuer, path: requestPath, newPath, originalRequestPath });
+                console.log('[withStackbitComponents] cyclic resolve, skipping resolve', {
+                    isServer: this.isServer,
+                    issuer: issuer,
+                    path: requestPath,
+                    newPath,
+                    originalRequestPath
+                });
                 return callback();
             }
 
             // console.log(`[withStackbitComponents] isServer: ${this.isServer}, resolve ${requestPath} to ${newPath}, issuer: ${issuer}, required path: ${originalRequestPath}`);
-            return resolver.doResolve(
-                resolver.hooks.describedRelative,
-                { ...request, path: newPath },
-                null,
-                {},
-                callback
-            );
+            return resolver.doResolve(resolver.hooks.describedRelative, { ...request, path: newPath }, null, {}, callback);
         });
     }
-};
+}

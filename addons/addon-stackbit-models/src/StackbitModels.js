@@ -2,6 +2,8 @@ import React, { useState, useEffect } from 'react';
 import yaml from 'js-yaml';
 import axios from 'axios';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import Highlight, { defaultProps } from 'prism-react-renderer';
+import github from 'prism-react-renderer/themes/github';
 import componentsManifest from '../../../src/components-manifest.json';
 import './style.css';
 
@@ -18,27 +20,42 @@ const StackbitModels = (props) => {
     const [yamlObject, setYamlObject] = useState(null);
 
     useEffect(async () => {
-        const modelType = componentsManifest[args.type];
-        const modelName = modelType.modelName;
-        const result = await getModel(modelName);
-        setYamlObject(result);
-    }, []);
+        if (args.type) {
+            const modelType = componentsManifest[args.type];
+            const modelName = modelType.modelName;
+            if (modelName) {
+                const result = await getModel(modelName);
+                setYamlObject(result);
+            }
+        }
+    }, [args]);
 
     return (
-        <div className="args-yaml" id="#models">
-            <a id="Bar" />
+        <div className="sb-models">
             {title && <h2>{title}</h2>}
-            <div className={docsPage ? 'args-yaml-docs' : ''}>
-                <div className="args-yaml-copy">
+            <div className={docsPage ? 'sb-models-docs' : ''}>
+                <div className="sb-models-copy">
                     <CopyToClipboard text={yamlObject} onCopy={() => setCopied(true)}>
-                        <button className="args-yaml-button">Copy Code</button>
+                        <button className="sb-models-button">Copy Code</button>
                     </CopyToClipboard>
                 </div>
-                <div className="args-yaml-code">
-                    <code>
-                        <pre>{yamlObject}</pre>
-                    </code>
-                </div>
+                {yamlObject && (
+                    <div className="sb-models-code">
+                        <Highlight {...defaultProps} code={yamlObject} theme={github} language="yml">
+                            {({ className, style, tokens, getLineProps, getTokenProps }) => (
+                                <pre className={className} style={style}>
+                                    {tokens.map((line, i) => (
+                                        <div {...getLineProps({ line, key: i })}>
+                                            {line.map((token, key) => (
+                                                <span {...getTokenProps({ token, key })} />
+                                            ))}
+                                        </div>
+                                    ))}
+                                </pre>
+                            )}
+                        </Highlight>
+                    </div>
+                )}
             </div>
         </div>
     );

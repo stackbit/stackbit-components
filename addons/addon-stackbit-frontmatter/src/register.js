@@ -17,7 +17,7 @@ const PanelStackbitFrontmatter = () => {
         data = args[param.root];
     }
     return (
-        <div className="args-yaml-panel">
+        <div className="sb-frontmatter-panel">
             <StackbitFrontmatter args={data} />
         </div>
     );

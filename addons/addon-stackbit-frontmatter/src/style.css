@@ -1,39 +1,41 @@
-.args-yaml-panel {
-    padding: 20px;
+.sb-frontmatter-panel {
 }
-.args-yaml-code {
-    background: #f6f9fc;
-    font-size: 14px;
-    color: #333;
-    padding: 20px;
-    border-radius: 4px;
-    overflow: hidden;
+.sb-frontmatter-addon {
+    margin-bottom: 40px;
 }
-.args-yaml-copy {
-    margin-bottom: 20px;
+.sb-frontmatter-code {
+    font-size: 12px;
+    pre {
+        padding: 20px;
+    }
 }
-.args-yaml-docs {
-    padding: 20px;
-    border: 1px #DDD solid;
-    position: relative;
-    overflow: hidden;
-    margin: 25px 0 40px;
-    border-radius: 4px;
-    background: #FFFFFF;
-    box-shadow: rgb(0 0 0 / 10%) 0 1px 3px 0;
-    border: 1px solid rgba(0,0,0,.1);
+.sb-frontmatter-copy {
 }
-.args-yaml-button {
-    border-radius: 4px;
-    border: 1px solid rgba(0,0,0,.1);
-    padding: 5px 10px;
+.sb-frontmatter-docs {
+}
+.sb-frontmatter-button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
     cursor: pointer;
-    font-family: "Nunito Sans",-apple-system,".SFNSText-Regular","San Francisco",BlinkMacSystemFont,"Segoe UI","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-weight: 700;
+    outline: inherit;
+    border-radius: 4px;
+    border: none;
+    padding: 6px 11px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Nunito Sans', -apple-system, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+    float: right;
+    margin: 20px;
+    background: #dde5ec;
 }
-.args-yaml-button:hover {
-    background: #f6f9fc;
+.sb-frontmatter-button:hover {
+    background: #bdcad6;
 }
-.args-yaml-button:active {
-    background: #9debc0;
+.sb-frontmatter-button:active {
+    background: #bdcad6;
 }

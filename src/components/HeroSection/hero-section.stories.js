@@ -1,7 +1,6 @@
 import React from 'react';
 import { Title, Subtitle, Description, Primary as PrimaryStory, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import 'react-tabs/style/react-tabs.css';
 import StackbitFrontmatter from '../../../addons/addon-stackbit-frontmatter/src/StackbitFrontmatter';
 import StackbitModels from '../../../addons/addon-stackbit-models/src/StackbitModels';
 import HeroSection from './index';
@@ -149,10 +148,10 @@ export default {
                             <ArgsTable story={PRIMARY_STORY} />
                         </TabPanel>
                         <TabPanel>
-                            <StackbitFrontmatter args={args} title="Frontmatter" docsPage={true} />
+                            <StackbitFrontmatter args={args} />
                         </TabPanel>
                         <TabPanel>
-                            <StackbitModels args={args} title="models" docsPage={true} />
+                            <StackbitModels args={args} />
                         </TabPanel>
                     </Tabs>
 

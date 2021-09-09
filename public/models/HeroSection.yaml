@@ -14,8 +14,6 @@ fields:
         value: variant-c
       - label: Hero with feature at the bottom
         value: variant-d
-      - label: Hero with text only
-        value: variant-e
     default: variant-a
   - type: enum
     name: colors

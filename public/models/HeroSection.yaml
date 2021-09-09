@@ -1,0 +1,115 @@
+type: object
+name: HeroSection
+label: Hero section
+fields:
+  - type: enum
+    name: variant
+    label: Arrangement
+    options:
+      - label: Hero with feature on the right
+        value: variant-a
+      - label: Hero with feature on the left
+        value: variant-b
+      - label: Hero with feature at the top
+        value: variant-c
+      - label: Hero with feature at the bottom
+        value: variant-d
+    default: variant-a
+  - type: enum
+    name: colors
+    label: Colors
+    options:
+      - label: Base foreground on white background
+        value: colors-a
+      - label: Primary foreground on white background
+        value: colors-b
+      - label: White foreground on base background
+        value: colors-c
+      - label: Primary foreground on base background
+        value: colors-d
+      - label: Base foreground on primary background
+        value: colors-e
+      - label: Base foreground on secondary background
+        value: colors-f
+      - label: Primary foreground on secondary background
+        value: colors-g
+      - label: Base foreground on complimentary 1 background
+        value: colors-h
+      - label: Base foreground on complimentary 2 background
+        value: colors-i
+    default: colors-a
+  - type: enum
+    name: width
+    label: Width
+    options:
+      - wide
+      - full
+    default: wide
+  - type: enum
+    name: height
+    label: Height
+    options:
+      - short
+      - tall
+      - viewport
+    default: short
+  - type: enum
+    name: topGap
+    label: Top gap
+    options:
+      - none
+      - small
+      - large
+    default: small
+  - type: enum
+    name: bottomGap
+    label: Bottom gap
+    options:
+      - none
+      - small
+      - large
+    default: small
+  - type: enum
+    name: alignHoriz
+    label: Horizontal alignment
+    options:
+      - left
+      - right
+      - center
+    default: left
+  - type: enum
+    name: alignVert
+    label: Vertical alignment
+    options:
+      - top
+      - middle
+      - bottom
+    default: middle
+  - type: string
+    name: badge
+    label: Badge
+  - type: string
+    name: title
+    label: Title
+  - type: markdown
+    name: text
+    label: Text
+  - type: list
+    name: actions
+    label: Actions
+    items:
+      type: model
+      models:
+        - Button
+        - Link
+  - type: model
+    name: feature
+    label: Feature
+    models:
+      - FormBlock
+      - ImageBlock
+      - VideoBlock
+  - type: model
+    name: backgroundImage
+    label: Background image
+    models: [ImageBlock]

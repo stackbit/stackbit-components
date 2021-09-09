@@ -1,0 +1,20 @@
+type: object
+name: ImageBlock
+label: Image
+fields:
+  - type: image
+    name: url
+    label: URL
+    description: The URL of the image
+  - type: string
+    name: altText
+    label: Alt text
+    description: The alt text of the image
+  - type: string
+    name: caption
+    label: Caption
+    description: The caption of the image
+  - type: number
+    name: opacity
+    label: Opacity
+    description: The opacity of the image

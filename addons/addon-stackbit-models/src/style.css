@@ -1,0 +1,40 @@
+.sb-models-panel {
+}
+.sb-models-addon {
+}
+.sb-models-code {
+    font-size: 12px;
+    pre {
+        padding: 20px;
+    }
+}
+.sb-models-copy {
+}
+.sb-models-docs {
+}
+.sb-models-button {
+    background: none;
+    color: inherit;
+    border: none;
+    padding: 0;
+    font: inherit;
+    cursor: pointer;
+    outline: inherit;
+    border-radius: 4px;
+    border: none;
+    padding: 6px 11px;
+    cursor: pointer;
+    font-size: 14px;
+    font-family: 'Nunito Sans', -apple-system, Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    margin-bottom: 20px;
+    float: right;
+    margin: 20px;
+    background: #dde5ec;
+}
+.sb-models-button:hover {
+    background: #bdcad6;
+}
+.sb-models-button:active {
+    background: #bdcad6;
+}

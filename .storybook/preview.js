@@ -1,10 +1,27 @@
 import React from 'react';
-
+import './style.css';
 export const parameters = {
     backgrounds: { disable: true },
     options: {
         storySort: {
-            order: ['Layouts', ['AdvancedLayout', 'PostLayout'], 'Components', ['NavBar', 'Footer', 'ContactSection', 'ContentSection', 'CtaSection', 'FeaturedPeopleSection', 'FeaturedPostsSection', 'HeroSection', 'QuoteSection', 'TestimonialsSection'], 'Atoms']
+            order: [
+                'Layouts',
+                ['AdvancedLayout', 'PostLayout'],
+                'Components',
+                [
+                    'NavBar',
+                    'Footer',
+                    'ContactSection',
+                    'ContentSection',
+                    'CtaSection',
+                    'FeaturedPeopleSection',
+                    'FeaturedPostsSection',
+                    'HeroSection',
+                    'QuoteSection',
+                    'TestimonialsSection'
+                ],
+                'Atoms'
+            ]
         }
     },
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -24,9 +41,7 @@ export const globalTypes = {
         defaultValue: 'bold',
         toolbar: {
             icon: 'cog',
-            items: [
-                { value: 'bold', title: 'Bold Theme' }
-            ]
+            items: [{ value: 'bold', title: 'Bold Theme' }]
         }
     }
 };

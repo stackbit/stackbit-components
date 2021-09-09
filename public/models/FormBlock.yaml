@@ -1,0 +1,27 @@
+type: object
+name: FormBlock
+label: Form
+fields:
+  - type: string
+    name: idAttr
+    label: ID (used for id and name attributes)
+  - type: string
+    name: action
+    label: Action (form submission URL)
+  - type: string
+    name: destination
+    label: Destination (email to redirect responses)
+  - type: list
+    name: fields
+    label: Fields
+    items:
+      type: model
+      models:
+        - TextFormControl
+        - EmailFormControl
+        - TextareaFormControl
+        - CheckboxFormControl
+        - SelectFormControl
+  - type: string
+    name: submitLabel
+    label: Submit button label

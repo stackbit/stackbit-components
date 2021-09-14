@@ -34,7 +34,7 @@ function copyComponentsJson(nextConfig) {
         components: Object.assign({}, defaultComponentMap.components, existingData.components),
         dynamic: Object.assign({}, defaultComponentMap.dynamic, existingData.dynamic)
     };
-    fse.writeJsonSync(targetFilePath, newData, { spaces: 2 });
+    fse.writeJsonSync(targetFilePath, newData, { spaces: 4 });
 }
 
 function generateDynamicComponents(nextConfig) {

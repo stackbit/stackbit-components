@@ -2,7 +2,6 @@ import React from 'react';
 import classNames from 'classnames';
 
 export default function ImageBlock(props) {
-    console.log(props);
     const { url, altText, caption } = props;
     const classes = props.className || null;
 

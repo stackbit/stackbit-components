@@ -146,7 +146,6 @@ function contactFeatureLeft(props) {
 
 function contactFeature(feature) {
     const featureType = feature.type;
-    console.log(featureType);
     if (!featureType) {
         throw new Error(`contact section feature does not have the 'type' property`);
     }

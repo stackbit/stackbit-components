@@ -35,7 +35,7 @@ export default {
             options: ['left', 'right', 'center'],
             defaultValue: 'left',
             control: { type: 'select' }
-        },
+        }
     }
 };
 

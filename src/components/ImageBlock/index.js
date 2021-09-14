@@ -1,16 +1,20 @@
 import React from 'react';
+import classNames from 'classnames';
 
 export default function ImageBlock(props) {
-    const imageUrl = props.url;
-    if (!imageUrl) {
+    const { url, altText, caption } = props;
+    const classes = props.className || null;
+
+    if (!url) {
         return null;
     }
+
     return (
         <img
-            className={props.className}
-            src={imageUrl}
-            alt={props.altText || ''}
-            title={props.caption}
+            className={classNames('component', 'component-block', 'component-image-block', classes)}
+            src={url}
+            alt={altText || ''}
+            title={caption}
             data-sb-field-path=".url#@src .altText#@alt .caption#@title"
         />
     );

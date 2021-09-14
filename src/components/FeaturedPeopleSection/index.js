@@ -23,10 +23,7 @@ function featuredPeopleSectionWide(props) {
     const topGap = props.topGap || 'small';
     const bottomGap = props.bottomGap || 'small';
     return (
-        <div
-            className="px-4 sm:px-6"
-            data-sb-field-path={props.annotationPrefix}
-        >
+        <div className="component component-section component-featured-people-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
             <div
                 className={classNames(colors, 'max-w-screen-xl', 'mx-auto', 'px-4', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
                     'min-h-screen flex flex-col justify-center': height === 'viewport',
@@ -57,13 +54,23 @@ function featuredPeopleSectionFull(props) {
     const bottomGap = props.bottomGap || 'small';
     return (
         <div
-            className={classNames(colors, 'px-4', 'relative', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
-                'min-h-screen flex flex-col justify-center': height === 'viewport',
-                'mt-10': topGap === 'small',
-                'mt-20': topGap === 'large',
-                'mb-10': bottomGap === 'small',
-                'mb-20': bottomGap === 'large'
-            })}
+            className={classNames(
+                'component',
+                'component-section',
+                'component-featured-people-section',
+                colors,
+                'px-4',
+                'relative',
+                'sm:px-6',
+                height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
+                {
+                    'min-h-screen flex flex-col justify-center': height === 'viewport',
+                    'mt-10': topGap === 'small',
+                    'mt-20': topGap === 'large',
+                    'mb-10': bottomGap === 'small',
+                    'mb-20': bottomGap === 'large'
+                }
+            )}
             data-sb-field-path={props.annotationPrefix}
         >
             <div
@@ -97,7 +104,11 @@ function featuredPeopleHeader(props) {
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.subtitle && <p className="md:text-lg" data-sb-field-path=".subtitle">{props.subtitle}</p>}
+            {props.subtitle && (
+                <p className="md:text-lg" data-sb-field-path=".subtitle">
+                    {props.subtitle}
+                </p>
+            )}
         </div>
     );
 }
@@ -160,7 +171,12 @@ function peopleVariantA(props) {
                             'pt-6': person.image
                         })}
                     >
-                        {(person.firstName || person.lastName) && <h2 className="text-xl sm:text-2xl">{person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>} {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}</h2>}
+                        {(person.firstName || person.lastName) && (
+                            <h2 className="text-xl sm:text-2xl">
+                                {person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>}{' '}
+                                {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}
+                            </h2>
+                        )}
                         {person.role && <p data-sb-field-path=".role">{person.role}</p>}
                     </div>
                 </article>
@@ -195,7 +211,12 @@ function peopleVariantB(props) {
                             'pt-6 sm:pt-0 sm:pl-6': person.image
                         })}
                     >
-                        {(person.firstName || person.lastName) && <h2 className="text-xl sm:text-2xl">{person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>} {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}</h2>}
+                        {(person.firstName || person.lastName) && (
+                            <h2 className="text-xl sm:text-2xl">
+                                {person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>}{' '}
+                                {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}
+                            </h2>
+                        )}
                         {person.role && <p data-sb-field-path=".role">{person.role}</p>}
                         {person.bio && (
                             <Markdown
@@ -221,7 +242,7 @@ function peopleVariantC(props) {
         return null;
     }
     const alignHoriz = props.alignHoriz || 'left';
-    const middleIndex = Math.floor(people.length/2);
+    const middleIndex = Math.floor(people.length / 2);
     const peopleLeft = people.slice(0, middleIndex);
     const peopleRight = people.slice(-middleIndex);
     return (
@@ -233,27 +254,15 @@ function peopleVariantC(props) {
             })}
             data-sb-field-path=".people"
         >
-            {peopleLeft.length > 0 && (
-                <div className="sm:mt-32">
-                    {peopleListVariantC(peopleLeft)}
-                </div>
-            )}
-            {peopleRight.length > 0 && (
-                <div>
-                    {peopleListVariantC(peopleRight, middleIndex)}
-                </div>
-            )}
+            {peopleLeft.length > 0 && <div className="sm:mt-32">{peopleListVariantC(peopleLeft)}</div>}
+            {peopleRight.length > 0 && <div>{peopleListVariantC(peopleRight, middleIndex)}</div>}
         </div>
     );
 }
 
 function peopleListVariantC(people, annotIndexStart = 0) {
     return people.map((person, index, arr) => (
-        <article
-            key={index}
-            className={classNames(arr.length - 1 === index ? '' : 'mb-12')}
-            data-sb-field-path={`.${annotIndexStart + index}`}
-        >
+        <article key={index} className={classNames(arr.length - 1 === index ? '' : 'mb-12')} data-sb-field-path={`.${annotIndexStart + index}`}>
             {person.image && (
                 <div data-sb-field-path=".image">
                     <ImageBlock {...person.image} className="w-full" />
@@ -261,7 +270,12 @@ function peopleListVariantC(people, annotIndexStart = 0) {
             )}
             <div className={classNames(person.image ? 'mt-6' : '')}>
                 {(person.firstName || person.lastName || person.role) && (
-                    <h2 className={classNames('text-xl sm:text-2xl', person.bio ? 'mb-3' : '')}>{person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>} {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>} {(person.firstName || person.lastName) && person.role && <span className="mx-1">|</span>} {person.role && <span data-sb-field-path=".role">{person.role}</span>}</h2>
+                    <h2 className={classNames('text-xl sm:text-2xl', person.bio ? 'mb-3' : '')}>
+                        {person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>}{' '}
+                        {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}{' '}
+                        {(person.firstName || person.lastName) && person.role && <span className="mx-1">|</span>}{' '}
+                        {person.role && <span data-sb-field-path=".role">{person.role}</span>}
+                    </h2>
                 )}
                 {person.bio && (
                     <Markdown options={{ forceBlock: true }} data-sb-field-path=".bio">

@@ -25,22 +25,28 @@ function heroSectionWide(props) {
     const alignHoriz = props.alignHoriz || 'left';
     const alignVert = props.alignVert || 'middle';
     return (
-        <div
-            className="px-4 sm:px-6"
-            data-sb-field-path={props.annotationPrefix}
-        >
+        <div className="component component-section component-hero-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
             <div
-                className={classNames(colors, 'max-w-screen-xl', 'mx-auto', 'px-4', 'relative', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
-                    'min-h-screen flex flex-col': height === 'viewport',
-                    'justify-center': height === 'viewport' && alignVert === 'middle',
-                    'justify-end': height === 'viewport' && alignVert === 'bottom',
-                    'mt-10': topGap === 'small',
-                    'mt-20': topGap === 'large',
-                    'mb-10': bottomGap === 'small',
-                    'mb-20': bottomGap === 'large',
-                    'text-center': alignHoriz === 'center',
-                    'text-right': alignHoriz === 'right'
-                })}
+                className={classNames(
+                    colors,
+                    'max-w-screen-xl',
+                    'mx-auto',
+                    'px-4',
+                    'relative',
+                    'sm:px-6',
+                    height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
+                    {
+                        'min-h-screen flex flex-col': height === 'viewport',
+                        'justify-center': height === 'viewport' && alignVert === 'middle',
+                        'justify-end': height === 'viewport' && alignVert === 'bottom',
+                        'mt-10': topGap === 'small',
+                        'mt-20': topGap === 'large',
+                        'mb-10': bottomGap === 'small',
+                        'mb-20': bottomGap === 'large',
+                        'text-center': alignHoriz === 'center',
+                        'text-right': alignHoriz === 'right'
+                    }
+                )}
             >
                 {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
                 <div
@@ -63,27 +69,28 @@ function heroSectionFull(props) {
     const alignHoriz = props.alignHoriz || 'left';
     const alignVert = props.alignVert || 'middle';
     return (
-        <div
-            className={classNames(colors, 'px-4', 'relative', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
-                'min-h-screen flex flex-col': height === 'viewport',
-                'justify-center': height === 'viewport' && alignVert === 'middle',
-                'justify-end': height === 'viewport' && alignVert === 'bottom',
-                'mt-10': topGap === 'small',
-                'mt-20': topGap === 'large',
-                'mb-10': bottomGap === 'small',
-                'mb-20': bottomGap === 'large',
-                'text-center': alignHoriz === 'center',
-                'text-right': alignHoriz === 'right'
-            })}
-            data-sb-field-path={props.annotationPrefix}
-        >
-            {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
+        <div className="component component-section component-hero-section" data-sb-field-path={props.annotationPrefix}>
             <div
-                className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
-                    'w-full': height === 'viewport'
+                className={classNames(colors, 'px-4', 'relative', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
+                    'min-h-screen flex flex-col': height === 'viewport',
+                    'justify-center': height === 'viewport' && alignVert === 'middle',
+                    'justify-end': height === 'viewport' && alignVert === 'bottom',
+                    'mt-10': topGap === 'small',
+                    'mt-20': topGap === 'large',
+                    'mb-10': bottomGap === 'small',
+                    'mb-20': bottomGap === 'large',
+                    'text-center': alignHoriz === 'center',
+                    'text-right': alignHoriz === 'right'
                 })}
             >
-                {heroVariants(props)}
+                {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
+                <div
+                    className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
+                        'w-full': height === 'viewport'
+                    })}
+                >
+                    {heroVariants(props)}
+                </div>
             </div>
         </div>
     );

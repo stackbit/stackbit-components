@@ -24,10 +24,7 @@ function contactSectionWide(props) {
     const bottomGap = props.bottomGap || 'small';
     const alignVert = props.alignVert || 'middle';
     return (
-        <div
-            className="px-4 sm:px-6"
-            data-sb-field-path={props.annotationPrefix}
-        >
+        <div className="component component-section component-contact-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
             <div
                 className={classNames(colors, 'max-w-screen-xl', 'mx-auto', 'px-4', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
                     'min-h-screen flex flex-col': height === 'viewport',
@@ -59,15 +56,24 @@ function contactSectionFull(props) {
     const alignVert = props.alignVert || 'middle';
     return (
         <div
-            className={classNames(colors, 'px-4', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
-                'min-h-screen flex flex-col': height === 'viewport',
-                'justify-center': height === 'viewport' && alignVert === 'middle',
-                'justify-end': height === 'viewport' && alignVert === 'bottom',
-                'mt-10': topGap === 'small',
-                'mt-20': topGap === 'large',
-                'mb-10': bottomGap === 'small',
-                'mb-20': bottomGap === 'large'
-            })}
+            className={classNames(
+                'component',
+                'component-section',
+                'component-contact-section',
+                colors,
+                'px-4',
+                'sm:px-6',
+                height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
+                {
+                    'min-h-screen flex flex-col': height === 'viewport',
+                    'justify-center': height === 'viewport' && alignVert === 'middle',
+                    'justify-end': height === 'viewport' && alignVert === 'bottom',
+                    'mt-10': topGap === 'small',
+                    'mt-20': topGap === 'large',
+                    'mb-10': bottomGap === 'small',
+                    'mb-20': bottomGap === 'large'
+                }
+            )}
             data-sb-field-path={props.annotationPrefix}
         >
             <div
@@ -104,13 +110,13 @@ function contactFeatureRight(props) {
         >
             <div>
                 {contactContent(props)}
-                {props.form && <div data-sb-field-path=".form"><FormBlock {...props.form} /></div>}
+                {props.form && (
+                    <div data-sb-field-path=".form">
+                        <FormBlock {...props.form} />
+                    </div>
+                )}
             </div>
-            {props.feature && (
-                <div data-sb-field-path=".feature">
-                    {contactFeature(props.feature)}
-                </div>
-            )}
+            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature)}</div>}
         </div>
     );
 }
@@ -125,14 +131,14 @@ function contactFeatureLeft(props) {
                 'lg:items-end': alignVert === 'bottom'
             })}
         >
-            {props.feature && (
-                <div data-sb-field-path=".image">
-                    {contactFeature(props.feature)}
-                </div>
-            )}
+            {props.feature && <div data-sb-field-path=".image">{contactFeature(props.feature)}</div>}
             <div>
                 {contactContent(props)}
-                {props.form && <div data-sb-field-path=".form"><FormBlock {...props.form} /></div>}
+                {props.form && (
+                    <div data-sb-field-path=".form">
+                        <FormBlock {...props.form} />
+                    </div>
+                )}
             </div>
         </div>
     );
@@ -153,17 +159,23 @@ function contactFeature(feature) {
 function contactContent(props) {
     const alignHoriz = props.alignHoriz || 'left';
     return (
-        <div className={classNames('mb-12', {
-            'text-right': alignHoriz === 'right',
-            'text-center': alignHoriz === 'center'
-        })}>
+        <div
+            className={classNames('mb-12', {
+                'text-right': alignHoriz === 'right',
+                'text-center': alignHoriz === 'center'
+            })}
+        >
             {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}
-            {props.text && <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">{props.text}</Markdown>}
+            {props.text && (
+                <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">
+                    {props.text}
+                </Markdown>
+            )}
         </div>
     );
 }

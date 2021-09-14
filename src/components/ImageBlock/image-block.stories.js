@@ -2,7 +2,7 @@ import React from 'react';
 import ImageBlock from './index';
 
 export default {
-    title: 'Atoms/Image Block',
+    title: 'Atoms/ImageBlock',
     component: ImageBlock
 };
 

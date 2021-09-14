@@ -13,12 +13,14 @@ export default function NavBar(props) {
     const width = props.width || 'wide';
     return (
         <nav
-            className={classNames(width === 'full' ? `${primaryColors} py-5`: '', 'px-4', 'sm:px-6')}
+            className={classNames('component', 'component-nav-bar', width === 'full' ? `${primaryColors} py-5` : '', 'px-4', 'sm:px-6')}
             data-sb-field-path={`${props.annotationPrefix}:navBar`}
         >
-            <div className={classNames(width === 'wide' ? `${primaryColors} py-5 px-4`: '', 'max-w-screen-xl', 'mx-auto')}>
-                <Link href="#content" className="sr-only">Skip to main content</Link>
-                <div className={classNames('flex items-center', mobileNavVariant === 'variant-a' ? 'relative': 'lg:relative')}>
+            <div className={classNames(width === 'wide' ? `${primaryColors} py-5 px-4` : '', 'max-w-screen-xl', 'mx-auto')}>
+                <Link href="#content" className="sr-only">
+                    Skip to main content
+                </Link>
+                <div className={classNames('flex items-center', mobileNavVariant === 'variant-a' ? 'relative' : 'lg:relative')}>
                     {desktopNavVariants(props)}
                 </div>
             </div>
@@ -51,10 +53,14 @@ function desktopNavVariantA(props) {
         <>
             <div>{siteLogoLink({ title, isTitleVisible, logo })}</div>
             {primaryLinks.length > 0 && (
-                <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks">{listOfLinks(primaryLinks)}</ul>
+                <ul className="hidden ml-8 space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks">
+                    {listOfLinks(primaryLinks)}
+                </ul>
             )}
             {secondaryLinks.length > 0 && (
-                <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
+                <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">
+                    {listOfLinks(secondaryLinks)}
+                </ul>
             )}
             {mobileNavVariants(props)}
         </>
@@ -71,12 +77,17 @@ function desktopNavVariantB(props) {
         <>
             <div>{siteLogoLink({ title, isTitleVisible, logo })}</div>
             {primaryLinks.length > 0 && (
-                <ul className="hidden absolute space-x-8 left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto lg:flex lg:items-center" data-sb-field-path=".primaryLinks">
+                <ul
+                    className="hidden absolute space-x-8 left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto lg:flex lg:items-center"
+                    data-sb-field-path=".primaryLinks"
+                >
                     {listOfLinks(primaryLinks)}
                 </ul>
             )}
             {secondaryLinks.length > 0 && (
-                <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
+                <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">
+                    {listOfLinks(secondaryLinks)}
+                </ul>
             )}
             {mobileNavVariants(props)}
         </>
@@ -94,7 +105,9 @@ function desktopNavVariantC(props) {
         <>
             <div>{siteLogoLink({ title, isTitleVisible, logo })}</div>
             {links.length > 0 && (
-                <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks .secondaryLinks">{listOfLinks(primaryLinks.concat(secondaryLinks))}</ul>
+                <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks .secondaryLinks">
+                    {listOfLinks(primaryLinks.concat(secondaryLinks))}
+                </ul>
             )}
             {mobileNavVariants(props)}
         </>
@@ -113,10 +126,14 @@ function desktopNavVariantD(props) {
                 {siteLogoLink({ title, isTitleVisible, logo })}
             </div>
             {primaryLinks.length > 0 && (
-                <ul className="hidden space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks">{listOfLinks(primaryLinks)}</ul>
+                <ul className="hidden space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks">
+                    {listOfLinks(primaryLinks)}
+                </ul>
             )}
             {secondaryLinks.length > 0 && (
-                <ul className="hidden ml-auto space-x-4 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks)}</ul>
+                <ul className="hidden ml-auto space-x-4 lg:flex lg:items-center" data-sb-field-path=".secondaryLinks">
+                    {listOfLinks(secondaryLinks)}
+                </ul>
             )}
             {mobileNavVariants(props)}
         </>
@@ -163,7 +180,9 @@ function mobileNavVariantA(props) {
                                 <CloseIcon className="fill-current h-6 w-6" />
                             </button>
                         </div>
-                        <ul className="space-y-5" data-sb-field-path=".primaryLinks .secondaryLinks">{listOfLinks(links, true)}</ul>
+                        <ul className="space-y-5" data-sb-field-path=".primaryLinks .secondaryLinks">
+                            {listOfLinks(links, true)}
+                        </ul>
                     </div>
                 </div>
             )}
@@ -187,13 +206,8 @@ function mobileNavVariantB(props) {
             </button>
             {isMenuOpen && (
                 <div>
-                    <div
-                        className="sb-overlay fixed inset-0"
-                        onClick={() => setIsMenuOpen(false)}
-                    />
-                    <div
-                        className={classNames(secondaryColors, 'fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto')}
-                    >
+                    <div className="sb-overlay fixed inset-0" onClick={() => setIsMenuOpen(false)} />
+                    <div className={classNames(secondaryColors, 'fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto')}>
                         <div className="flex items-center justify-between mb-6">
                             {siteLogoLink({ title, isTitleVisible, logo })}
                             <button
@@ -206,10 +220,14 @@ function mobileNavVariantB(props) {
                             </button>
                         </div>
                         {primaryLinks.length > 0 && (
-                            <ul className="mb-5 space-y-5" data-sb-field-path=".primaryLinks">{listOfLinks(primaryLinks, true)}</ul>
+                            <ul className="mb-5 space-y-5" data-sb-field-path=".primaryLinks">
+                                {listOfLinks(primaryLinks, true)}
+                            </ul>
                         )}
                         {secondaryLinks.length > 0 && (
-                            <ul className="mt-auto space-y-5" data-sb-field-path=".secondaryLinks">{listOfLinks(secondaryLinks, true)}</ul>
+                            <ul className="mt-auto space-y-5" data-sb-field-path=".secondaryLinks">
+                                {listOfLinks(secondaryLinks, true)}
+                            </ul>
                         )}
                     </div>
                 </div>
@@ -222,23 +240,22 @@ function siteLogoLink({ title, isTitleVisible, logo }) {
     return (
         <Link href="/" aria-label={title} title={title} className="inline-flex items-center" data-sb-field-path=".title#@title .logo">
             {logo && <ImageBlock {...logo} className={classNames({ 'mr-2': isTitleVisible })} />}
-            {isTitleVisible && <span className="text-2xl tracking-wide" data-sb-field-path=".title">{title}</span>}
+            {isTitleVisible && (
+                <span className="text-2xl tracking-wide" data-sb-field-path=".title">
+                    {title}
+                </span>
+            )}
         </Link>
     );
 }
 
 function listOfLinks(links, inMenu = false) {
     return links.map((link, index) => {
-        const defaultStyle = (link.type === 'Link') ? 'link' : 'secondary';
+        const defaultStyle = link.type === 'Link' ? 'link' : 'secondary';
         const style = link.style || defaultStyle;
         return (
             <li key={index} data-sb-field-path={`.${index}`}>
-                <Action
-                    {...link}
-                    className={classNames(
-                        (inMenu && style !== 'link') ? 'w-full' : ''
-                    )}
-                />
+                <Action {...link} className={classNames(inMenu && style !== 'link' ? 'w-full' : '')} />
             </li>
         );
     });

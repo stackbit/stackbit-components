@@ -1,12 +1,13 @@
 import React from 'react';
 import Head from 'next/head';
+import classNames from 'classnames';
 
 export default function BlankBaseLayout(props) {
     const { page, site } = props;
     const siteMeta = site?.__metadata || {};
     const pageMeta = page?.__metadata || {};
     return (
-        <div className={site.backgroundColor || 'bg-white'} data-sb-object-id={pageMeta.id}>
+        <div className={classNames('page', pageMeta.pageCssClasses)} data-sb-object-id={pageMeta.id}>
             <Head>
                 <title>{page.title}</title>
                 <meta name="description" content="Stackbit Components Library" />

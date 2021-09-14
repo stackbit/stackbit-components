@@ -34,7 +34,7 @@
         }
     },
     "scripts": {
-        "develop": "npm run build-themes && npm run build-models && npm run build-storybook && start-storybook -s ./public -p 6006",
+        "dev": "npm run build-themes && npm run build-models && npm run build-storybook && start-storybook -s ./public -p 6006",
         "build-themes": "./scripts/build-themes.js",
         "build-storybook": "./scripts/build-storybook.js",
         "build-models": "./scripts/build-models.js",

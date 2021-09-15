@@ -9,7 +9,7 @@
     ],
     "main": "index.js",
     "watch": {
-        "build-dist-local": {
+        "dist-local": {
             "patterns": [
                 "src/base/**/*.js",
                 "src/components/**/*.js",
@@ -17,26 +17,17 @@
                 "themes/**/*.js",
                 "themes/**/*.css"
             ],
-            "extensions": "js,jsx",
+            "extensions": "js,jsx,css",
             "quiet": false,
             "delay": 2500
-        },
-        "build-models": {
-            "patterns": [
-                "models/**/*.yml"
-            ],
-            "extensions": "yml"
         }
     },
     "scripts": {
-        "dev": "npm run build-models && npm run build-storybook && start-storybook -s ./public -p 6006",
-        "build-themes": "./scripts/build-themes.js",
-        "build-storybook": "./scripts/build-storybook.js",
-        "build-models": "./scripts/build-models.js",
-        "build": "npm run build-themes && npm run build-models && npm run build-storybook && build-storybook -s ./public",
-        "build-dist": "./scripts/build-dist.js --clean",
-        "build-dist-local": "./scripts/build-dist.js",
-        "validate": "stackbit validate",
+        "dev": "npm run prepare-storybook && start-storybook -s ./public -p 6006",
+        "build": "npm run prepare-storybook && build-storybook -s ./public",
+        "dist": "./scripts/build-dist.js --clean",
+        "dist-local": "./scripts/build-dist.js --local",
+        "prepare-storybook": "node ./scripts/build-storybook.js",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
         "version-patch": "npm version patch -m \"bumped version to v%s\"",
         "watch": "npm-watch",

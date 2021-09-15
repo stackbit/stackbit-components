@@ -93,3 +93,7 @@ const files = ['src/dynamic-components.js', 'src/with-stackbit-components.js', '
 files.forEach((file) => {
     childProcess.spawnSync('cp', [file, 'dist']);
 });
+if (args.includes('--local')) {
+    console.log('copy local');
+    childProcess.spawnSync('cp', ['-r', 'dist', '../stackbit-nextjs-v2/node_modules/@stackbit/components']);
+}

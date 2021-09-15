@@ -14,17 +14,12 @@
                 "src/base/**/*.js",
                 "src/components/**/*.js",
                 "src/layouts/**/*.js",
-                "themes/**/*.js"
+                "themes/**/*.js",
+                "themes/**/*.css"
             ],
             "extensions": "js,jsx",
             "quiet": false,
             "delay": 2500
-        },
-        "build-themes": {
-            "patterns": [
-                "themes/**/*.js"
-            ],
-            "extensions": "js"
         },
         "build-models": {
             "patterns": [
@@ -34,7 +29,7 @@
         }
     },
     "scripts": {
-        "dev": "npm run build-themes && npm run build-models && npm run build-storybook && start-storybook -s ./public -p 6006",
+        "dev": "npm run build-models && npm run build-storybook && start-storybook -s ./public -p 6006",
         "build-themes": "./scripts/build-themes.js",
         "build-storybook": "./scripts/build-storybook.js",
         "build-models": "./scripts/build-models.js",
@@ -44,7 +39,8 @@
         "validate": "stackbit validate",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
         "version-patch": "npm version patch -m \"bumped version to v%s\"",
-        "watch": "npm-watch"
+        "watch": "npm-watch",
+        "local": "concurrently \"npm-watch\" \"npm run dev\""
     },
     "repository": {
         "type": "git",

@@ -1,5 +1,7 @@
 import React from 'react';
-import './style.css';
+import './storybook.css';
+import '../themes/default/theme.css';
+
 export const parameters = {
     backgrounds: { disable: true },
     options: {
@@ -33,22 +35,3 @@ export const parameters = {
     },
     layout: 'fullscreen'
 };
-
-export const globalTypes = {
-    theme: {
-        name: 'Theme',
-        description: 'Global theme for components',
-        defaultValue: 'bold',
-        toolbar: {
-            icon: 'cog',
-            items: [{ value: 'bold', title: 'Bold Theme' }]
-        }
-    }
-};
-
-function withThemeProvider(Story, context) {
-    setThemeCSS(context.globals.theme);
-    return <Story {...context} />;
-}
-
-export const decorators = [withThemeProvider];

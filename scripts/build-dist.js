@@ -79,12 +79,12 @@ fse.writeJsonSync(path.join(__dirname, '../dist/components-map.json'), component
 console.log('generated dist/components-map.json');
 
 console.log('copying files and folders...');
-const folders = ['src', 'models', 'themes'];
+const folders = ['src', 'models', 'styles'];
 folders.forEach((folder) => {
     childProcess.spawnSync('cp', ['-r', folder, 'dist']);
 });
 
-const srcFolders = ['models', 'themes'];
+const srcFolders = ['models', 'styles'];
 srcFolders.forEach((folder) => {
     childProcess.spawnSync('cp', ['-r', folder, 'dist/src']);
 });

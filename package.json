@@ -14,8 +14,8 @@
                 "src/base/**/*.js",
                 "src/components/**/*.js",
                 "src/layouts/**/*.js",
-                "themes/**/*.js",
-                "themes/**/*.css"
+                "styles/**/*.js",
+                "styles/**/*.css"
             ],
             "extensions": "js,jsx,css",
             "quiet": false,

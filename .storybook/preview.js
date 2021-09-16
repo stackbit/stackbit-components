@@ -1,6 +1,6 @@
 import React from 'react';
 import './storybook.css';
-import '../themes/default/theme.css';
+import '../styles/default/theme.css';
 
 export const parameters = {
     backgrounds: { disable: true },

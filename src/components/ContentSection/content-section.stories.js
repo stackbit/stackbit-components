@@ -11,6 +11,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
+        elementId: {
+            defaultValue: ''
+        },
         width: {
             options: ['wide', 'full'],
             defaultValue: 'wide',
@@ -44,6 +47,7 @@ const Template = (args) => <ContentSection {...args} />;
 const args = {
     type: 'ContentSection',
     colors: 'colors-a',
+    elementId: '',
     width: 'wide',
     height: 'short',
     alignHoriz: 'left',
@@ -56,12 +60,3 @@ const args = {
 export const Primary = Template.bind({});
 Primary.storyName = 'Content Section';
 Primary.args = args;
-
-export const Secondary = Template.bind({});
-Secondary.storyName = 'Centered Content Section';
-Secondary.args = {
-    ...args,
-    colors: 'colors-c',
-    width: 'full',
-    alignHoriz: 'center'
-};

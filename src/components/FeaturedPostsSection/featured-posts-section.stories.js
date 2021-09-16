@@ -16,6 +16,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
+        elementId: {
+            defaultValue: ''
+        },
         width: {
             options: ['wide', 'full'],
             defaultValue: 'wide',
@@ -50,6 +53,7 @@ const args = {
     type: 'FeaturedPostsSection',
     variant: 'variant-a',
     colors: 'colors-a',
+    elementId: '',
     width: 'full',
     height: 'short',
     alignHoriz: 'center',

@@ -3,10 +3,16 @@ import classNames from 'classnames';
 
 export default function Badge(props) {
     const { label } = props;
-    const classes = props.className || null;
+    const cssClasses = props.className || null;
+    const cssId = props.elementId || null;
 
     if (!label) {
         return null;
     }
-    return <div className={classNames('component', 'component-block', 'component-badge', classes)}>{label}</div>;
+
+    return (
+        <div id={cssId} className={classNames('component', 'component-block', 'component-badge', cssClasses)}>
+            {label}
+        </div>
+    );
 }

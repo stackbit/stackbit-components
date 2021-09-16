@@ -100,3 +100,5 @@ fields:
     name: form
     label: Form
     models: [FormBlock]
+  - type: string
+    name: elementId

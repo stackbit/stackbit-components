@@ -96,3 +96,5 @@ fields:
     items:
       type: reference
       models: [PostLayout]
+  - type: string
+    name: elementId

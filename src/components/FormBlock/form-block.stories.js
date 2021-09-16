@@ -2,7 +2,7 @@ import React from 'react';
 import FormBlock from './index';
 
 export default {
-    title: 'Atoms/Form Block',
+    title: 'Blocks/FormBlock',
     component: FormBlock
 };
 

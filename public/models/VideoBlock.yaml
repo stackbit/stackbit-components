@@ -24,3 +24,5 @@ fields:
     name: controls
     label: Controls
     default: false
+  - type: string
+    name: elementId

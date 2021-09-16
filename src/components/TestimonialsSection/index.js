@@ -22,26 +22,19 @@ function testimonialsSectionWide(props) {
     const topGap = props.topGap || 'small';
     const bottomGap = props.bottomGap || 'small';
     return (
-        <div className="component component-section component-testimonials-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
+        <div
+            id={props.elementId}
+            className="component component-section component-testimonials-section px-4 sm:px-6"
+            data-sb-field-path={props.annotationPrefix}
+        >
             <div
-                className={classNames(
-                    'component',
-                    'component-section',
-                    'component-testimonials-section',
-                    colors,
-                    'max-w-screen-xl',
-                    'mx-auto',
-                    'px-4',
-                    'sm:px-6',
-                    height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
-                    {
-                        'min-h-screen flex flex-col justify-center': height === 'viewport',
-                        'mt-10': topGap === 'small',
-                        'mt-20': topGap === 'large',
-                        'mb-10': bottomGap === 'small',
-                        'mb-20': bottomGap === 'large'
-                    }
-                )}
+                className={classNames(colors, 'max-w-screen-xl', 'mx-auto', 'px-4', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
+                    'min-h-screen flex flex-col justify-center': height === 'viewport',
+                    'mt-10': topGap === 'small',
+                    'mt-20': topGap === 'large',
+                    'mb-10': bottomGap === 'small',
+                    'mb-20': bottomGap === 'large'
+                })}
             >
                 <div
                     className={classNames('mx-auto', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
@@ -63,6 +56,7 @@ function testimonialsSectionFull(props) {
     const bottomGap = props.bottomGap || 'small';
     return (
         <div
+            id={props.elementId}
             className={classNames(
                 'component',
                 'component-section',

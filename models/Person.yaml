@@ -21,3 +21,5 @@ fields:
     name: image
     label: Image
     models: [ImageBlock]
+  - type: string
+    name: elementId

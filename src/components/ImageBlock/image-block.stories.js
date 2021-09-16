@@ -2,7 +2,7 @@ import React from 'react';
 import ImageBlock from './index';
 
 export default {
-    title: 'Atoms/ImageBlock',
+    title: 'Blocks/ImageBlock',
     component: ImageBlock
 };
 
@@ -12,7 +12,8 @@ const args = {
     type: 'ImageBlock',
     url: '/images/fisherman.jpg',
     altText: 'Image alt text',
-    caption: 'Image caption'
+    caption: 'Image caption',
+    elementId: ''
 };
 
 export const Primary = Template.bind({});

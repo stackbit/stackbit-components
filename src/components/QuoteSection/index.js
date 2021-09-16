@@ -19,7 +19,7 @@ function quoteSectionWide(props) {
     const topGap = props.topGap || 'small';
     const bottomGap = props.bottomGap || 'small';
     return (
-        <div className="component component-section component-quote-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
+        <div id={props.elementId} className="component component-section component-quote-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
             <div
                 className={classNames(
                     colors,
@@ -58,6 +58,7 @@ function quoteSectionFull(props) {
     const bottomGap = props.bottomGap || 'small';
     return (
         <div
+            id={props.elementId}
             className={classNames(
                 'component',
                 'component-section',

@@ -98,3 +98,5 @@ fields:
     items:
       type: reference
       models: [Person]
+  - type: string
+    name: elementId

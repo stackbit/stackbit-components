@@ -19,3 +19,5 @@ fields:
     name: logo
     label: Company logo
     models: [ImageBlock]
+  - type: string
+    name: elementId

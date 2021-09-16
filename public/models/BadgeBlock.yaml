@@ -1,0 +1,10 @@
+type: object
+name: BadgeBlock
+label: Badge
+fields:
+  - type: string
+    name: label
+    label: Label
+    description: The text in the badge
+  - type: string
+    name: elementId

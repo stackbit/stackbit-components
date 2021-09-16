@@ -20,3 +20,5 @@ fields:
   - type: string
     name: addressAltText
     label: Address alt text
+  - type: string
+    name: elementId

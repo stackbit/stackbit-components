@@ -11,6 +11,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
+        elementId: {
+            defaultValue: ''
+        },
         width: {
             options: ['wide', 'full'],
             defaultValue: 'wide',
@@ -35,7 +38,7 @@ export default {
             options: ['left', 'right', 'center'],
             defaultValue: 'left',
             control: { type: 'select' }
-        },
+        }
     }
 };
 
@@ -44,6 +47,7 @@ const Template = (args) => <QuoteSection {...args} />;
 const args = {
     type: 'QuoteSection',
     colors: 'colors-c',
+    elementId: '',
     width: 'wide',
     height: 'short',
     alignHoriz: 'left',

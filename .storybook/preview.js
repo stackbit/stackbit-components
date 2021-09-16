@@ -20,7 +20,7 @@ export const parameters = {
                     'QuoteSection',
                     'TestimonialsSection'
                 ],
-                'Atoms'
+                'Blocks'
             ]
         }
     },

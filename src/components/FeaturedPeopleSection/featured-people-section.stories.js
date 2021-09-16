@@ -16,6 +16,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
+        elementId: {
+            defaultValue: ''
+        },
         width: {
             options: ['wide', 'full'],
             defaultValue: 'wide',
@@ -114,6 +117,7 @@ VariantB.args = {
     ...args,
     variant: 'variant-b',
     colors: 'colors-c',
+    elementId: '',
     width: 'full',
     alignHoriz: 'left',
     actions: [

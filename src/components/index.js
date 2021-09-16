@@ -2,6 +2,7 @@ import Action from './Action';
 import Badge from './Badge';
 import CheckboxFormControl from './CheckboxFormControl';
 import ContactSection from './ContactSection';
+import ContentSection from './ContentSection';
 import CtaSection from './CtaSection';
 import EmailFormControl from './EmailFormControl';
 import FeaturedPeopleSection from './FeaturedPeopleSection';
@@ -11,10 +12,11 @@ import FormBlock from './FormBlock';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
 import NavBar from './NavBar';
+import QuoteSection from './QuoteSection';
+import SelectFormControl from './SelectFormControl';
 import TestimonialsSection from './TestimonialsSection';
 import TextFormControl from './TextFormControl';
 import TextareaFormControl from './TextareaFormControl';
-import SelectFormControl from './SelectFormControl';
 import VideoBlock from './VideoBlock';
 
 export {
@@ -22,6 +24,7 @@ export {
     Badge,
     CheckboxFormControl,
     ContactSection,
+    ContentSection,
     CtaSection,
     EmailFormControl,
     FeaturedPeopleSection,
@@ -31,6 +34,7 @@ export {
     HeroSection,
     ImageBlock,
     NavBar,
+    QuoteSection,
     SelectFormControl,
     TestimonialsSection,
     TextFormControl,

@@ -10,22 +10,24 @@ export default function AdvancedLayout(props) {
     return (
         <>
             <BaseLayout page={page} site={site}>
-                {page.title && (
-                    <h1 className="sr-only" data-sb-field-path="title">
-                        {page.title}
-                    </h1>
-                )}
-                {sections.length > 0 && (
-                    <div data-sb-field-path="sections">
-                        {sections.map((section, index) => {
-                            const Component = getDynamicComponent(section.type);
-                            if (!Component) {
-                                throw new Error(`no component matching the page section's type: ${section.type}`);
-                            }
-                            return <Component key={index} {...section} annotationPrefix={`sections.${index}`} />;
-                        })}
-                    </div>
-                )}
+                <div className="layout advanced-layout">
+                    {page.title && (
+                        <h1 className="sr-only" data-sb-field-path="title">
+                            {page.title}
+                        </h1>
+                    )}
+                    {sections.length > 0 && (
+                        <div className="sections" data-sb-field-path="sections">
+                            {sections.map((section, index) => {
+                                const Component = getDynamicComponent(section.type);
+                                if (!Component) {
+                                    throw new Error(`no component matching the page section's type: ${section.type}`);
+                                }
+                                return <Component key={index} {...section} annotationPrefix={`sections.${index}`} />;
+                            })}
+                        </div>
+                    )}
+                </div>
             </BaseLayout>
         </>
     );

@@ -26,7 +26,7 @@ export default class FormBlock extends React.Component {
             error: null
         });
 
-        formHandler(value, formAction)
+        this.formHandler(value, formAction)
             .catch(() => {
                 this.setState({
                     error: 'Error submitting form'
@@ -39,7 +39,7 @@ export default class FormBlock extends React.Component {
             });
     }
 
-    render({ fields = [], idAttr, action, destination, submitLabel }) {
+    render({ fields = [], idAttr, action, destination, submitLabel, className }) {
         if (fields.length === 0) {
             return null;
         }

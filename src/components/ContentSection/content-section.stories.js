@@ -7,19 +7,36 @@ export default {
     argTypes: {
         type: { table: { disable: true } },
         colors: {
-            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e'],
+            options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
+            defaultValue: 'colors-a',
             control: { type: 'select' }
         },
+        elementId: {
+            defaultValue: ''
+        },
         width: {
-            options: ['narrow', 'wide', 'full'],
+            options: ['wide', 'full'],
+            defaultValue: 'wide',
             control: { type: 'select' }
         },
         height: {
-            options: ['auto', 'viewport'],
+            options: ['short', 'tall', 'viewport'],
+            defaultValue: 'short',
+            control: { type: 'select' }
+        },
+        topGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
+            control: { type: 'select' }
+        },
+        bottomGap: {
+            options: ['none', 'small', 'large'],
+            defaultValue: 'small',
             control: { type: 'select' }
         },
         alignHoriz: {
             options: ['left', 'right', 'center'],
+            defaultValue: 'left',
             control: { type: 'select' }
         }
     }
@@ -29,9 +46,10 @@ const Template = (args) => <ContentSection {...args} />;
 
 const args = {
     type: 'ContentSection',
-    colors: 'colors-b',
+    colors: 'colors-a',
+    elementId: '',
     width: 'wide',
-    height: 'auto',
+    height: 'short',
     alignHoriz: 'left',
     badge: 'Small text',
     title: 'The Section Title',
@@ -42,11 +60,3 @@ const args = {
 export const Primary = Template.bind({});
 Primary.storyName = 'Content Section';
 Primary.args = args;
-
-export const Secondary = Template.bind({});
-Secondary.storyName = 'Centered Content Section';
-Secondary.args = {
-    ...args,
-    colors: 'colors-d',
-    alignHoriz: 'center'
-};

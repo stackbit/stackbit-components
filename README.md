@@ -5,7 +5,7 @@ Check out the components at [https://components.stackbit.com/](https://component
 ## Develop locally
 
 1. run `npm install`
-1. run `npm run develop`
+1. run `npm run dev`
 1. Navigate to http://localhost:6006/ to open Storybook
 
 **Sync with local NextJs theme (optional)**
@@ -17,7 +17,7 @@ Check out the components at [https://components.stackbit.com/](https://component
 ```
 1. In `stackbit-nextjs-v2` run `npm install`
 1. In `stackbit-nextjs-v2` run `npm run dev`
-1. In `stackbit-components` run `npm run watch` and `npm run develop` in separate terminal windows. This will sync theme, component and model changes with the NextJs themes dev server.
+1. In `stackbit-components` run `npm run dev` and `npm run watch` in separate terminal windows. This will sync theme, component and model changes with the NextJs themes dev server.
 
 
 ## Building Storybook

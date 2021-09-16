@@ -1,0 +1,26 @@
+type: object
+name: TextFormControl
+label: Text
+fields:
+  - type: string
+    name: name
+    label: Name
+  - type: string
+    name: label
+    label: Label
+  - type: string
+    name: placeholder
+    label: Placeholder text
+  - type: boolean
+    name: isRequired
+    label: Is the field required?
+    default: false
+  - type: enum
+    name: width
+    label: Width
+    options:
+      - label: Full
+        value: full
+      - label: 'One half'
+        value: '1/2'
+    default: full

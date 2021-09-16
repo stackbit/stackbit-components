@@ -13,7 +13,7 @@ console.log(`Merging models from ${modelsFolder}`);
 const models = {
     stackbitVersion: '~0.4.0',
     ssgName: 'nextjs',
-    nodeVersion: 14,
+    nodeVersion: '14',
     cmsName: 'git',
     assets: {
         referenceType: 'static',
@@ -24,6 +24,7 @@ const models = {
     dataDir: 'content/data',
     pagesDir: 'content/pages',
     pageLayoutKey: 'layout',
+    objectTypeKey: 'type',
     models: {}
 };
 
@@ -40,6 +41,8 @@ fs.writeFileSync(dest, stackbitYaml);
 console.log(`Writing stackbit.yaml to ${dest}`);
 
 fs.writeFileSync(path.join(__dirname, '../stackbit-theme.yaml'), stackbitYaml);
+
+fs.copy(path.join(__dirname, '../models'), path.join(__dirname, '../public/models'));
 
 if (args.includes('--local')) {
     fs.writeFileSync(path.join(__dirname, '../../stackbit-nextjs-v2/stackbit.yaml'), stackbitYaml);

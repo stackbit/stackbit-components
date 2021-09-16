@@ -1,8 +1,6 @@
 node_modules
 cypress
-src/stackbit-api.d.ts
 package-lock.json
 .prettierrc
 .eslintrc.json
-.editorconfig
 package.json

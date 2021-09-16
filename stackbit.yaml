@@ -1,7 +1,7 @@
 # The purpose of this stackbit.yaml is to point allow validating the models using @stackbit/cli
 # To validate models, run `npm install @stackbit/cli -g` and then run `stackbit validate`
 # The validator will read models from the `models` directory and validate their structure
-stackbitVersion: 0.3.0
+stackbitVersion: 0.4.0
 pagesDir: null
 dataDir: null
 modelsSource:

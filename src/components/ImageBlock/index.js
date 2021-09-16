@@ -11,6 +11,7 @@ export default function ImageBlock(props) {
 
     return (
         <img
+            id={props.elementId}
             className={classNames('component', 'component-block', 'component-image-block', classes)}
             src={url}
             alt={altText || ''}

@@ -2,7 +2,7 @@ import React from 'react';
 import VideoBlock from './index';
 
 export default {
-    title: 'Atoms/Video Block',
+    title: 'Blocks/VideoBlock',
     component: VideoBlock
 };
 
@@ -12,7 +12,8 @@ const args = {
     type: 'VideoBlock',
     videoUrl: '/videos/stackbit-for-marketers.mp4',
     posterUrl: '/images/stackbit-for-marketers.jpg',
-    controls: true
+    controls: true,
+    elementId: ''
 };
 
 export const Primary = Template.bind({});

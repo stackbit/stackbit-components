@@ -34,3 +34,5 @@ fields:
       - instagram
       - linkedin
       - twitter
+  - type: string
+    name: elementId

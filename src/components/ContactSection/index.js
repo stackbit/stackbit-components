@@ -24,7 +24,7 @@ function contactSectionWide(props) {
     const bottomGap = props.bottomGap || 'small';
     const alignVert = props.alignVert || 'middle';
     return (
-        <div className="component component-section component-contact-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
+        <div id={props.elementId} className="component component-section component-contact-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
             <div
                 className={classNames(colors, 'max-w-screen-xl', 'mx-auto', 'px-4', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
                     'min-h-screen flex flex-col': height === 'viewport',
@@ -56,6 +56,7 @@ function contactSectionFull(props) {
     const alignVert = props.alignVert || 'middle';
     return (
         <div
+            id={props.elementId}
             className={classNames(
                 'component',
                 'component-section',

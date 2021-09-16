@@ -76,3 +76,5 @@ fields:
   - type: markdown
     name: text
     label: Text
+  - type: string
+    name: elementId

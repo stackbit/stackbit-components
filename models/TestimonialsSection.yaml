@@ -88,3 +88,5 @@ fields:
     items:
       type: model
       models: [Testimonial]
+  - type: string
+    name: elementId

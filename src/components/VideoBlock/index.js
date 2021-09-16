@@ -11,6 +11,7 @@ export default function VideoBlock(props) {
 
     return (
         <video
+            id={props.elementId}
             {...(props.autoplay && { autoPlay: true })}
             {...(props.loop && { loop: true })}
             {...(props.muted && { muted: true })}

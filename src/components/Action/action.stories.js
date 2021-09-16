@@ -2,7 +2,7 @@ import React from 'react';
 import Action from './index';
 
 export default {
-    title: 'Atoms/Action',
+    title: 'Blocks/ActionBlock',
     component: Action
 };
 
@@ -13,7 +13,8 @@ const args = {
     label: 'Stackbit',
     url: 'https://www.stackbit.com',
     altText: 'Stackbit',
-    style: 'primary'
+    style: 'primary',
+    elementId: ''
 };
 
 export const Primary = Template.bind({});

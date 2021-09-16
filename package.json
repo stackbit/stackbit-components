@@ -85,6 +85,6 @@
         "tailwindcss": "^2.2.7"
     },
     "peerDependencies": {
-        "react": ">=16"
+        "react": ">=17"
     }
 }

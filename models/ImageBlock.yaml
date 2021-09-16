@@ -18,3 +18,5 @@ fields:
     name: opacity
     label: Opacity
     description: The opacity of the image
+  - type: string
+    name: elementId

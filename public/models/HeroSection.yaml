@@ -38,6 +38,8 @@ fields:
       - label: Base foreground on complimentary 2 background
         value: colors-i
     default: colors-a
+  - type: string
+    name: elementId
   - type: enum
     name: width
     label: Width
@@ -85,9 +87,11 @@ fields:
       - middle
       - bottom
     default: middle
-  - type: string
+  - type: model
     name: badge
     label: Badge
+    models:
+      - BadgeBlock
   - type: string
     name: title
     label: Title

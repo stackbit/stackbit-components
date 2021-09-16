@@ -16,6 +16,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
+        elementId: {
+            defaultValue: ''
+        },
         width: {
             options: ['wide', 'full'],
             defaultValue: 'wide',
@@ -55,6 +58,7 @@ const args = {
     type: 'ContactSection',
     variant: 'variant-b',
     colors: 'colors-e',
+    elementId: '',
     width: 'wide',
     height: 'short',
     topGap: 'none',
@@ -117,57 +121,5 @@ ContactRightImage.args = {
     variant: 'variant-a',
     colors: 'colors-h',
     alignHoriz: 'center',
-    title: 'Join our **club**',
-    form: {
-        type: 'FormBlock',
-        idAttr: 'contact-form',
-        fields: [
-            {
-                type: 'TextFormControl',
-                name: 'name',
-                label: 'Name',
-                placeholder: 'Your name',
-                isRequired: true,
-                width: '1/2'
-            },
-            {
-                type: 'EmailFormControl',
-                name: 'email',
-                label: 'Email',
-                placeholder: 'Your email',
-                isRequired: true,
-                width: '1/2'
-            },
-            {
-                type: 'TextFormControl',
-                name: 'street-address',
-                label: 'Street address',
-                placeholder: 'Your street address',
-                isRequired: true,
-                width: '1/2'
-            },
-            {
-                type: 'SelectFormControl',
-                name: 'city',
-                label: 'City',
-                defaultValue: 'Please choose...',
-                isRequired: true,
-                options: ['City 1', 'City 2'],
-                width: '1/2'
-            },
-            {
-                type: 'TextareaFormControl',
-                name: 'message',
-                label: 'Message',
-                width: 'full'
-            },
-            {
-                type: 'CheckboxFormControl',
-                name: 'updates',
-                label: 'Sign me up to receive updates',
-                width: 'full'
-            }
-        ],
-        submitLabel: 'Send Message'
-    }
+    title: 'Join our **club**'
 };

@@ -9,7 +9,8 @@ import Instagram from '../../svgs/instagram';
 import LinkedIn from '../../svgs/linkedin';
 import Twitter from '../../svgs/twitter';
 
-export default function Action({ type, label, url, icon, altText, style, className, annotationPrefix = '' }) {
+export default function Action(props) {
+    const { type, label, url, icon, altText, style, annotationPrefix = '' } = props;
     const iconMap = {
         arrowRight: ArrowRight,
         cart: Cart,
@@ -28,17 +29,21 @@ export default function Action({ type, label, url, icon, altText, style, classNa
         IconComponent ? `${annotationPrefix}.icon#svg[1]` : ''
     ];
 
-    const defaultStyle = type === 'Link' ? 'link' : 'secondary';
-    style = style || defaultStyle;
+    const defaultLinkStyle = type === 'Link' ? 'link' : 'secondary';
+    const linkStyle = style || defaultLinkStyle;
+
+    const cssClasses = props.className || null;
+    const cssId = props.elementId || null;
 
     return (
         <Link
             href={url}
             aria-label={altText}
             title={altText}
-            className={classNames('component', 'component-block', 'component-action', style === 'link' ? 'sb-link' : 'sb-btn', className, {
-                'sb-btn-primary': style === 'primary',
-                'sb-btn-secondary': style === 'secondary'
+            id={cssId}
+            className={classNames('component', 'component-block', 'component-action', linkStyle === 'link' ? 'sb-link' : 'sb-btn', cssClasses, {
+                'sb-btn-primary': linkStyle === 'primary',
+                'sb-btn-secondary': linkStyle === 'secondary'
             })}
             data-sb-field-path={annotations.join(' ').trim()}
         >

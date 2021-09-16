@@ -25,7 +25,7 @@ function heroSectionWide(props) {
     const alignHoriz = props.alignHoriz || 'left';
     const alignVert = props.alignVert || 'middle';
     return (
-        <div className="component component-section component-hero-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
+        <div id={props.elementId} className="component component-section component-hero-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
             <div
                 className={classNames(
                     colors,
@@ -69,7 +69,7 @@ function heroSectionFull(props) {
     const alignHoriz = props.alignHoriz || 'left';
     const alignVert = props.alignVert || 'middle';
     return (
-        <div className="component component-section component-hero-section" data-sb-field-path={props.annotationPrefix}>
+        <div id={props.elementId} className="component component-section component-hero-section" data-sb-field-path={props.annotationPrefix}>
             <div
                 className={classNames(colors, 'px-4', 'relative', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
                     'min-h-screen flex flex-col': height === 'viewport',
@@ -216,7 +216,7 @@ function heroBackgroundImage(image) {
 function heroContent(props) {
     return (
         <>
-            {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
+            {props.badge && <Badge {...props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>

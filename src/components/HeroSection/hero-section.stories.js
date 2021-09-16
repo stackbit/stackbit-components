@@ -9,6 +9,7 @@ const args = {
     type: 'HeroSection',
     variant: 'variant-a',
     colors: 'colors-a',
+    elementId: '',
     width: 'wide',
     height: 'short',
     topGap: 'none',

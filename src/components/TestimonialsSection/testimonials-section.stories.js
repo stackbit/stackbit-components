@@ -16,6 +16,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
+        elementId: {
+            defaultValue: ''
+        },
         width: {
             options: ['wide', 'full'],
             defaultValue: 'wide',
@@ -50,6 +53,7 @@ const args = {
     type: 'TestimonialsSection',
     variant: 'variant-a',
     colors: 'colors-e',
+    elementId: '',
     width: 'wide',
     height: 'short',
     testimonials: [

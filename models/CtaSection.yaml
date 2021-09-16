@@ -94,3 +94,5 @@ fields:
     name: backgroundImage
     label: Background image
     models: [ImageBlock]
+  - type: string
+    name: elementId

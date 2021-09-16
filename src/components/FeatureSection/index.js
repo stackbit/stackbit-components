@@ -41,6 +41,7 @@ export default function FeatureSection(props) {
 
     return (
         <div
+            id={props.elementId}
             className={classNames('component', 'component-section', 'component-feature-section', 'py-16 lg:py-20', {
                 'mx-auto': fields.width !== 'full',
                 'max-w-screen-xl': fields.width === 'wide',

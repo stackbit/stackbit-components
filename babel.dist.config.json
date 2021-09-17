@@ -10,7 +10,7 @@
     ],
     "ignore": [
         "**/*.stories.js",
-        "themes",
+        "styles",
         "src/utils/dynamic.js",
         "src/utils/next-link.js",
         "src/utils/theme-classes.js",

@@ -24,7 +24,7 @@ steps:
     commands:
       - "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc"
       - "npm install"
-      - "npm run build-dist"
+      - "npm run dist"
     stage: "build"
 
   publish:

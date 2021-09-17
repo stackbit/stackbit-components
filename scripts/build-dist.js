@@ -79,12 +79,12 @@ fse.writeJsonSync(path.join(__dirname, '../dist/components-map.json'), component
 console.log('generated dist/components-map.json');
 
 console.log('copying files and folders...');
-const folders = ['src', 'models', 'themes'];
+const folders = ['src', 'models', 'styles'];
 folders.forEach((folder) => {
     childProcess.spawnSync('cp', ['-r', folder, 'dist']);
 });
 
-const srcFolders = ['models', 'themes'];
+const srcFolders = ['models', 'styles'];
 srcFolders.forEach((folder) => {
     childProcess.spawnSync('cp', ['-r', folder, 'dist/src']);
 });
@@ -93,3 +93,7 @@ const files = ['src/dynamic-components.js', 'src/with-stackbit-components.js', '
 files.forEach((file) => {
     childProcess.spawnSync('cp', [file, 'dist']);
 });
+if (args.includes('--local')) {
+    console.log('copy local');
+    childProcess.spawnSync('cp', ['-r', 'dist', '../stackbit-nextjs-v2/node_modules/@stackbit/components']);
+}

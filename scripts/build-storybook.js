@@ -23,5 +23,6 @@ const dynamicComponents = {
 
 export default dynamicComponents;
 `;
+fse.copy(path.join(__dirname, '../models'), path.join(__dirname, '../public/models'));
 fse.writeFileSync(path.join(__dirname, '../.storybook/storybook-dynamic.js'), result, 'utf8');
 console.log('generated .storybook/storybook-dynamic.js');

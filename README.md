@@ -82,7 +82,7 @@ You have 2 ways to use the components library locally.
 ```
 
 1. Follow the steps above to import the component library into a Next.js site
-1. Run `npm run build-dist` inside `stackbit-components`, this will build the component library and save the artifacts into the `dist` folder
+1. Run `npm run dist` inside `stackbit-components`, this will build the component library and save the artifacts into the `dist` folder
 1. Run `npm link` inside `stackbit-components/dist`
 1. Run `npm link @stackbit/components` inside `nextjs-site`
 1. Edit the webpack config in the Next.js site `next.config.js` to not follow symlinks:

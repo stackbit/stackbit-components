@@ -8,30 +8,13 @@
         "components"
     ],
     "main": "index.js",
-    "watch": {
-        "dist-local": {
-            "patterns": [
-                "src/base/**/*.js",
-                "src/components/**/*.js",
-                "src/layouts/**/*.js",
-                "styles/**/*.js",
-                "styles/**/*.css"
-            ],
-            "extensions": "js,jsx,css",
-            "quiet": false,
-            "delay": 2500
-        }
-    },
     "scripts": {
         "dev": "npm run prepare-storybook && start-storybook -s ./public -p 6006",
         "build": "npm run prepare-storybook && build-storybook -s ./public",
         "dist": "./scripts/build-dist.js --clean",
-        "dist-local": "./scripts/build-dist.js --local",
         "prepare-storybook": "node ./scripts/build-storybook.js",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
-        "version-patch": "npm version patch -m \"bumped version to v%s\"",
-        "watch": "npm-watch",
-        "local": "concurrently \"npm-watch\" \"npm run dev\""
+        "version-patch": "npm version patch -m \"bumped version to v%s\""
     },
     "repository": {
         "type": "git",

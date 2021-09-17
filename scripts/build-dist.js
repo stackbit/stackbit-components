@@ -8,9 +8,13 @@ const componentsManifest = require('../src/components-manifest.json');
 
 console.log('Building components library');
 
-function runBabel(inputDir = 'src', outputDir = 'dist') {
+function runBabel() {
     console.log('running babel...');
-    const babelResult = childProcess.spawnSync('./node_modules/.bin/babel', ['--config-file', './babel.dist.config.json', '--out-dir', outputDir, inputDir]);
+    const babelBin = path.join(__dirname, '../node_modules/.bin/babel');
+    const babelConfig = path.join(__dirname, '../babel.dist.config.json');
+    const inputDir = path.join(__dirname, '../src');
+    const outputDir = path.join(__dirname, '../dist');
+    const babelResult = childProcess.spawnSync(babelBin, ['--config-file', babelConfig, '--out-dir', outputDir, inputDir]);
     if (babelResult.status === 0) {
         console.log(String(babelResult.stdout));
     } else {
@@ -54,7 +58,7 @@ delete packageJSON['private'];
 devDependenciesToRemove.forEach((dependency) => {
     delete packageJSON.devDependencies[dependency];
 });
-fse.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf8');
+fse.writeFileSync(path.join(__dirname, '../dist/package.json'), JSON.stringify(packageJSON, null, 2), 'utf8');
 
 console.log('generating dist/components-map.json ...');
 const componentsMap = {
@@ -81,19 +85,24 @@ console.log('generated dist/components-map.json');
 console.log('copying files and folders...');
 const folders = ['src', 'models', 'styles'];
 folders.forEach((folder) => {
-    childProcess.spawnSync('cp', ['-r', folder, 'dist']);
+    const folderPath = path.join(__dirname, '../', folder);
+    console.log(folderPath);
+    childProcess.spawnSync('cp', ['-r', folderPath, path.join(__dirname, '../dist')]);
 });
 
 const srcFolders = ['models', 'styles'];
 srcFolders.forEach((folder) => {
-    childProcess.spawnSync('cp', ['-r', folder, 'dist/src']);
+    const folderPath = path.join(__dirname, '../', folder);
+    childProcess.spawnSync('cp', ['-r', folderPath, path.join(__dirname, '../dist/src')]);
 });
 
 const files = ['src/dynamic-components.js', 'src/with-stackbit-components.js', 'src/components-manifest.json', 'README.md'];
 files.forEach((file) => {
-    childProcess.spawnSync('cp', [file, 'dist']);
+    const filePath = path.join(__dirname, '../', file);
+    childProcess.spawnSync('cp', [filePath, path.join(__dirname, '../dist')]);
 });
+
 if (args.includes('--local')) {
     console.log('copy local');
-    childProcess.spawnSync('cp', ['-r', 'dist', '../stackbit-nextjs-v2/node_modules/@stackbit/components']);
+    childProcess.spawnSync('cp', ['-r', path.join(__dirname, '../dist'), path.join(__dirname, '../stackbit-nextjs-v2/node_modules/@stackbit/components')]);
 }

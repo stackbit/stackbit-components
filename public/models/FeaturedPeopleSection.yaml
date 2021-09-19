@@ -1,6 +1,8 @@
 type: object
 name: FeaturedPeopleSection
 label: Featured people section
+extends:
+  - Section
 fields:
   - type: enum
     name: variant
@@ -13,71 +15,11 @@ fields:
       - label: Two columns, person info with image at the top
         value: variant-c
     default: variant-a
-  - type: enum
-    name: colors
-    label: Colors
-    options:
-      - label: Base foreground on white background
-        value: colors-a
-      - label: Primary foreground on white background
-        value: colors-b
-      - label: White foreground on base background
-        value: colors-c
-      - label: Primary foreground on base background
-        value: colors-d
-      - label: Base foreground on primary background
-        value: colors-e
-      - label: Base foreground on secondary background
-        value: colors-f
-      - label: Primary foreground on secondary background
-        value: colors-g
-      - label: Base foreground on complimentary 1 background
-        value: colors-h
-      - label: Base foreground on complimentary 2 background
-        value: colors-i
-    default: colors-a
-  - type: enum
-    name: width
-    label: Width
-    options:
-      - wide
-      - full
-    default: wide
-  - type: enum
-    name: height
-    label: Height
-    options:
-      - short
-      - tall
-      - viewport
-    default: short
-  - type: enum
-    name: topGap
-    label: Top gap
-    options:
-      - none
-      - small
-      - large
-    default: small
-  - type: enum
-    name: bottomGap
-    label: Bottom gap
-    options:
-      - none
-      - small
-      - large
-    default: small
-  - type: enum
-    name: alignHoriz
-    label: Horizontal alignment
-    options:
-      - left
-      - right
-      - center
-    default: left
-  - type: string
+  - type: model
     name: badge
     label: Badge
+    models:
+      - Badge
   - type: string
     name: title
     label: Title
@@ -97,6 +39,5 @@ fields:
     label: People
     items:
       type: reference
-      models: [Person]
-  - type: string
-    name: elementId
+      models:
+        - Person

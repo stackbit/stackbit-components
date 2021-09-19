@@ -7,16 +7,18 @@ import HeroSection from './index';
 
 const args = {
     type: 'HeroSection',
+    elementId: '',
     variant: 'variant-a',
     colors: 'colors-a',
-    elementId: '',
     width: 'wide',
     height: 'short',
     topGap: 'none',
     bottomGap: 'small',
-    alignHoriz: 'left',
-    alignVert: 'bottom',
-    badge: 'New Collaboration',
+    contentAlignVert: 'bottom',
+    badge: {
+        type: 'Badge',
+        label: 'Brand new'
+    },
     title: 'The quick, brown fox jumps over **a lazy dog**',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     actions: [
@@ -46,86 +48,58 @@ export default {
     component: HeroSection,
     argTypes: {
         type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
         variant: {
-            description: null,
             options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
-            control: { type: 'select' },
-            type: {
-                required: true
-            },
-            table: {
-                type: {
-                    summary: null,
-                    detail: null
-                },
-                defaultValue: {
-                    summary: 'variant-a',
-                    detail: null
-                }
-            }
+            defaultValue: 'variant-a',
+            control: { type: 'select' }
         },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'colors-a'
-                }
-            }
+            defaultValue: 'colors-a',
+            control: { type: 'select' }
         },
         width: {
             options: ['wide', 'full'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'wide'
-                }
-            }
+            defaultValue: 'wide',
+            control: { type: 'select' }
         },
         height: {
             options: ['short', 'tall', 'viewport'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'short'
-                }
-            }
+            defaultValue: 'short',
+            control: { type: 'select' }
         },
         topGap: {
-            options: ['none', 'small', 'large'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'small'
-                }
-            }
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
+            control: { type: 'select' }
         },
         bottomGap: {
-            options: ['none', 'small', 'large'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'small'
-                }
-            }
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
+            control: { type: 'select' }
         },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'left'
-                }
-            }
+        contentWidth: {
+            options: ['small', 'medium', 'large'],
+            defaultValue: 'large',
+            control: { type: 'select' }
         },
-        alignVert: {
+        contentAlignHoriz: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        contentAlignVert: {
             options: ['top', 'middle', 'bottom'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'middle'
-                }
-            }
+            defaultValue: 'middle',
+            control: { type: 'select' }
+        },
+        textAlign: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
         }
     },
     parameters: {
@@ -176,7 +150,10 @@ HeroLeftVideo.args = {
     variant: 'variant-b',
     colors: 'colors-e',
     width: 'full',
-    badge: 'Brand new',
+    badge: {
+        type: 'Badge',
+        label: 'Brand new'
+    },
     actions: [
         {
             type: 'Button',
@@ -203,8 +180,11 @@ HeroBottomImage.args = {
     variant: 'variant-d',
     colors: 'colors-c',
     width: 'full',
-    alignHoriz: 'center',
-    badge: 'Brand new',
+    textAlign: 'center',
+    badge: {
+        type: 'Badge',
+        label: 'Brand new'
+    },
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
@@ -236,15 +216,17 @@ HeroTextOnly.args = {
             type: 'Button',
             url: '#',
             label: 'Start Shopping',
-            style: 'primary',
-            icon: 'cart'
+            showIcon: true,
+            icon: 'cart',
+            style: 'primary'
         },
         {
             type: 'Link',
             url: '#',
             label: 'Get 15% discount',
-            style: 'link',
-            icon: 'arrowRight'
+            showIcon: true,
+            icon: 'arrowRight',
+            style: 'link'
         }
     ],
     feature: null,
@@ -270,8 +252,9 @@ HeroRightForm.args = {
             type: 'Link',
             url: '#',
             label: 'Learn More',
-            style: 'link',
-            icon: 'arrowRight'
+            showIcon: true,
+            icon: 'arrowRight',
+            style: 'link'
         }
     ],
     feature: {

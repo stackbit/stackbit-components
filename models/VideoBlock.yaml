@@ -3,6 +3,11 @@ name: VideoBlock
 label: Video
 fields:
   - type: string
+    name: elementId
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''
+  - type: string
     name: videoUrl
     label: Video URL (.mp4)
   - type: image
@@ -24,5 +29,3 @@ fields:
     name: controls
     label: Controls
     default: false
-  - type: string
-    name: elementId

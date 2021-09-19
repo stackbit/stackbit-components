@@ -14,13 +14,13 @@ export const parameters = {
                     'NavBar',
                     'Footer',
                     'ContactSection',
-                    'ContentSection',
                     'CtaSection',
                     'FeaturedPeopleSection',
                     'FeaturedPostsSection',
                     'HeroSection',
                     'QuoteSection',
-                    'TestimonialsSection'
+                    'TestimonialsSection',
+                    'TextSection'
                 ],
                 'Blocks'
             ]

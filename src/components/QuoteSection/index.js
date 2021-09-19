@@ -95,7 +95,7 @@ function quoteBackgroundImage(image) {
     if (!imageUrl) {
         return null;
     }
-    const imageOpacity = (image.opacity || 1) * 0.01;
+    const imageOpacity = (image.opacity || 100) * 0.01;
 
     return (
         <span

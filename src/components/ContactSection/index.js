@@ -166,7 +166,7 @@ function contactContent(props) {
                 'text-center': alignHoriz === 'center'
             })}
         >
-            {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
+            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>

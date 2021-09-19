@@ -1,10 +1,16 @@
 type: object
-name: ContentSection
-label: Content section
+name: Section
+label: Section
 fields:
+  - type: string
+    name: elementId
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''
   - type: enum
     name: colors
     label: Colors
+    description: The color theme of the section
     options:
       - label: Base foreground on white background
         value: colors-a
@@ -28,6 +34,7 @@ fields:
   - type: enum
     name: width
     label: Width
+    description: The width of the section
     options:
       - wide
       - full
@@ -35,46 +42,65 @@ fields:
   - type: enum
     name: height
     label: Height
+    description: The height of the section
     options:
       - short
       - tall
       - viewport
-    default: short
+    default: tall
   - type: enum
     name: topGap
     label: Top gap
+    description: The margin area on the top of the section
     options:
       - none
       - small
+      - medium
       - large
-    default: small
+    default: medium
   - type: enum
     name: bottomGap
     label: Bottom gap
+    description: The margin area on the bottom of the section
     options:
       - none
       - small
+      - medium
       - large
-    default: small
+    default: medium
   - type: enum
-    name: alignHoriz
-    label: Horizontal alignment
+    name: contentWidth
+    label: Content width
+    description: The width of the section content
+    options:
+      - small
+      - medium
+      - large
+    default: large
+  - type: enum
+    name: contentAlignHoriz
+    label: Content horizontal alignment
+    description: The horizontal position of the section content relative to the section container
     options:
       - left
-      - right
       - center
+      - right
     default: left
-  - type: string
-    name: badge
-    label: Badge
-  - type: string
-    name: title
-    label: Title
-  - type: string
-    name: subtitle
-    label: Subtitle
-  - type: markdown
-    name: text
-    label: Text
-  - type: string
-    name: elementId
+  - type: enum
+    name: contentAlignVert
+    label: Content vertical alignment
+    description: The vertical position of the section content relative to the section container
+    options:
+      - top
+      - middle
+      - bottom
+    default: middle
+  - type: enum
+    name: textAlign
+    label: Text alignment
+    description: The horizontal alignment of the section text
+    options:
+      - left
+      - center
+      - right
+    default: left

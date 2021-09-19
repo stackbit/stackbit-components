@@ -174,7 +174,7 @@ function ctaBackgroundImage(image) {
     if (!imageUrl) {
         return null;
     }
-    const imageOpacity = (image.opacity || 1) * 0.01;
+    const imageOpacity = (image.opacity || 100) * 0.01;
     return (
         <span
             className="bg-cover bg-center block absolute inset-0"
@@ -191,7 +191,7 @@ function ctaBackgroundImage(image) {
 function ctaContent(props) {
     return (
         <>
-            {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
+            {props.badge && <Badge {...props.badge} className="inline-block inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-3xl tracking-tight sm:text-4xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>

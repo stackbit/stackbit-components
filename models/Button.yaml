@@ -3,15 +3,45 @@ name: Button
 label: Button
 fields:
   - type: string
+    name: elementId
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''
+  - type: string
     name: label
     label: Label
+  - type: string
+    name: altText
+    label: Alt text
+    description: The alternative text for screen readers
   - type: string
     name: url
     label: URL
     default: '#'
-  - type: string
-    name: altText
-    label: Title attribute
+  - type: boolean
+    name: showIcon
+    label: Show icon
+    default: false
+  - type: enum
+    name: icon
+    label: Icon
+    options:
+      - arrowLeft
+      - arrowRight
+      - cart
+      - facebook
+      - github
+      - instagram
+      - linkedin
+      - twitter
+    default: arrowLeft
+  - type: enum
+    name: iconPosition
+    label: Icon position
+    options:
+      - left
+      - right
+    default: right
   - type: enum
     name: style
     label: Style
@@ -23,16 +53,3 @@ fields:
       - label: Secondary
         value: secondary
     default: secondary
-  - type: enum
-    name: icon
-    label: Icon
-    options:
-      - arrowRight
-      - cart
-      - facebook
-      - github
-      - instagram
-      - linkedin
-      - twitter
-  - type: string
-    name: elementId

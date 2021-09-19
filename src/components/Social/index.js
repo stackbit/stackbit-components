@@ -1,9 +1,6 @@
 import React from 'react';
 import classNames from 'classnames';
 import Link from '../../utils/link';
-import ArrowLeft from '../../svgs/arrow-left';
-import ArrowRight from '../../svgs/arrow-right';
-import Cart from '../../svgs/cart';
 import Facebook from '../../svgs/facebook';
 import GitHub from '../../svgs/github';
 import Instagram from '../../svgs/instagram';
@@ -11,9 +8,6 @@ import LinkedIn from '../../svgs/linkedin';
 import Twitter from '../../svgs/twitter';
 
 const iconMap = {
-    arrowLeft: ArrowLeft,
-    arrowRight: ArrowRight,
-    cart: Cart,
     facebook: Facebook,
     github: GitHub,
     instagram: Instagram,
@@ -21,10 +15,9 @@ const iconMap = {
     twitter: Twitter
 };
 
-export default function Action(props) {
-    const { type, label, altText, url, showIcon } = props;
-    const icon = props.icon || 'arrowLeft';
-    const iconPosition = props.iconPosition || 'right';
+export default function Social(props) {
+    const { label, altText, url, showIcon } = props;
+    const icon = props.icon || 'facebook';
     const IconComponent = iconMap[icon];
     const annotationPrefix = props.annotationPrefix || '';
     const annotations = [
@@ -34,8 +27,7 @@ export default function Action(props) {
         `${annotationPrefix}.label${(showIcon && IconComponent) ? '#text()[1]' : ''}`,
         (showIcon && IconComponent) ? `${annotationPrefix}.icon#svg[1]` : ''
     ];
-    const defaultStyle = type === 'Link' ? 'link' : 'secondary';
-    const style = props.style || defaultStyle;
+    const style = props.style || 'link';
     const cssClasses = props.className || null;
     const cssId = props.elementId || null;
 
@@ -52,13 +44,7 @@ export default function Action(props) {
         >
             {label}
             {showIcon && IconComponent && (
-                <IconComponent
-                    className={classNames('fill-current h-5 w-5', {
-                        'order-first': iconPosition === 'left',
-                        'mr-1.5': label && iconPosition === 'left',
-                        'ml-1.5': label && iconPosition === 'right'
-                    })}
-                />
+                <IconComponent className={classNames('fill-current h-5 w-5', label ? 'mr-1.5 order-first' : '')} />
             )}
         </Link>
     );

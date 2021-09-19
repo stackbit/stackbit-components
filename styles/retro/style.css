@@ -28,13 +28,13 @@
             @apply h-full object-cover w-full;
         }
     }
-    .sb-badge {
+    .sb-component-badge {
         @apply bg-info font-medium px-2 py-0.5 text-white tracking-wider;
     }
-    .sb-btn {
+    .sb-component-btn {
         @apply border-2 font-medium inline-flex items-center justify-center no-underline px-5 py-2.5 text-center tracking-wider transition duration-200 ease-in;
     }
-    .sb-link {
+    .sb-component-link {
         @apply inline-flex items-center justify-center no-underline hover:underline;
     }
     a.sb-card {
@@ -77,10 +77,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -97,10 +97,10 @@
         .sb-textarea {
             @apply border-primary placeholder-primary;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -117,10 +117,10 @@
         .sb-textarea {
             @apply border-white placeholder-white placeholder-opacity-50;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-white text-white hover:border-opacity-70 hover:text-white;
         }
         .sb-divider {
@@ -137,10 +137,10 @@
         .sb-textarea {
             @apply border-primary placeholder-primary placeholder-opacity-50;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-white text-white hover:bg-opacity-70 hover:border-opacity-70;
         }
         .sb-divider {
@@ -157,10 +157,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-base text-base hover:border-opacity-60 hover:text-base;
         }
         .sb-divider {
@@ -177,10 +177,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -197,10 +197,10 @@
         .sb-textarea {
             @apply border-primary placeholder-primary;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -217,10 +217,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -237,10 +237,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-btn-primary {
+        .sb-component-btn-primary {
             @apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-btn-secondary {
+        .sb-component-btn-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {

@@ -2,13 +2,13 @@
     "Action": {
         "path": "components/Action",
         "className": "Action",
-        "modelName": "button",
+        "modelName": null,
         "isDynamic": false
     },
     "Badge": {
         "path": "components/Badge",
         "className": "Badge",
-        "modelName": "badge",
+        "modelName": "Badge",
         "isDynamic": false
     },
     "CheckboxFormControl": {
@@ -21,12 +21,6 @@
         "path": "components/ContactSection",
         "className": "ContactSection",
         "modelName": "ContactSection",
-        "isDynamic": true
-    },
-    "ContentSection": {
-        "path": "components/ContentSection",
-        "className": "ContentSection",
-        "modelName": "ContentSection",
         "isDynamic": true
     },
     "CtaSection": {
@@ -101,10 +95,22 @@
         "modelName": "SelectFormControl",
         "isDynamic": true
     },
+    "Social": {
+        "path": "components/Social",
+        "className": "Social",
+        "modelName": "Social",
+        "isDynamic": false
+    },
     "TestimonialsSection": {
         "path": "components/TestimonialsSection",
         "className": "TestimonialsSection",
         "modelName": "TestimonialsSection",
+        "isDynamic": true
+    },
+    "TextareaFormControl": {
+        "path": "components/TextareaFormControl",
+        "className": "TextareaFormControl",
+        "modelName": "TextareaFormControl",
         "isDynamic": true
     },
     "TextFormControl": {
@@ -113,10 +119,10 @@
         "modelName": "TextFormControl",
         "isDynamic": true
     },
-    "TextareaFormControl": {
-        "path": "components/TextareaFormControl",
-        "className": "TextareaFormControl",
-        "modelName": "TextareaFormControl",
+    "TextSection": {
+        "path": "components/TextSection",
+        "className": "TextSection",
+        "modelName": "TextSection",
         "isDynamic": true
     },
     "VideoBlock": {

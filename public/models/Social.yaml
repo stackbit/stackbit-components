@@ -1,6 +1,6 @@
 type: object
-name: Link
-label: Link
+name: Social
+label: Social
 fields:
   - type: string
     name: elementId
@@ -26,22 +26,12 @@ fields:
     name: icon
     label: Icon
     options:
-      - arrowLeft
-      - arrowRight
-      - cart
       - facebook
       - github
       - instagram
       - linkedin
       - twitter
-    default: arrowLeft
-  - type: enum
-    name: iconPosition
-    label: Icon position
-    options:
-      - left
-      - right
-    default: right
+    default: facebook
   - type: enum
     name: style
     label: Style
@@ -52,4 +42,4 @@ fields:
         value: primary
       - label: Secondary
         value: secondary
-    default: link
+    default: secondary

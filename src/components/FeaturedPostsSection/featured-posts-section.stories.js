@@ -51,9 +51,9 @@ const Template = (args) => <FeaturedPostsSection {...args} />;
 
 const args = {
     type: 'FeaturedPostsSection',
+    elementId: '',
     variant: 'variant-a',
     colors: 'colors-a',
-    elementId: '',
     width: 'full',
     height: 'short',
     alignHoriz: 'center',

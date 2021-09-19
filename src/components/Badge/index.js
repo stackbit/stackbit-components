@@ -11,7 +11,7 @@ export default function Badge(props) {
     }
 
     return (
-        <div id={cssId} className={classNames('component', 'component-block', 'component-badge', cssClasses)}>
+        <div id={cssId} className={classNames('sb-component', 'sb-component-block', 'sb-component-badge', cssClasses)}>
             {label}
         </div>
     );

@@ -5,44 +5,6 @@ import StackbitFrontmatter from '../../../addons/addon-stackbit-frontmatter/src/
 import StackbitModels from '../../../addons/addon-stackbit-models/src/StackbitModels';
 import HeroSection from './index';
 
-const args = {
-    type: 'HeroSection',
-    elementId: '',
-    variant: 'variant-a',
-    colors: 'colors-a',
-    width: 'wide',
-    height: 'short',
-    topGap: 'none',
-    bottomGap: 'small',
-    contentAlignVert: 'bottom',
-    badge: {
-        type: 'Badge',
-        label: 'Brand new'
-    },
-    title: 'The quick, brown fox jumps over **a lazy dog**',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
-    actions: [
-        {
-            type: 'Button',
-            url: '#',
-            label: 'Apply Now',
-            style: 'primary'
-        },
-        {
-            type: 'Button',
-            url: '#',
-            label: 'Learn more',
-            style: 'secondary'
-        }
-    ],
-    feature: {
-        type: 'ImageBlock',
-        url: '/images/fishing.jpg',
-        altText: 'Image alt text',
-        caption: 'Image caption'
-    }
-};
-
 export default {
     title: 'Components/HeroSection',
     component: HeroSection,
@@ -139,6 +101,47 @@ export default {
 
 const Template = (args) => <HeroSection {...args} />;
 
+const args = {
+    type: 'HeroSection',
+    elementId: '',
+    variant: 'variant-a',
+    colors: 'colors-a',
+    width: 'wide',
+    height: 'short',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'left',
+    badge: {
+        type: 'Badge',
+        label: 'Brand new'
+    },
+    title: 'The quick, brown fox jumps over **a lazy dog**',
+    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+    actions: [
+        {
+            type: 'Button',
+            url: '#',
+            label: 'Apply Now',
+            style: 'primary'
+        },
+        {
+            type: 'Button',
+            url: '#',
+            label: 'Learn more',
+            style: 'secondary'
+        }
+    ],
+    feature: {
+        type: 'ImageBlock',
+        url: '/images/fishing.jpg',
+        altText: 'Image alt text',
+        caption: 'Image caption'
+    }
+};
+
 export const Primary = Template.bind({});
 Primary.storyName = 'Hero Section With Image on the Right';
 Primary.args = args;
@@ -148,8 +151,9 @@ HeroLeftVideo.storyName = 'Hero Section With Video on the Left';
 HeroLeftVideo.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-e',
+    colors: 'colors-c',
     width: 'full',
+    height: 'tall',
     badge: {
         type: 'Badge',
         label: 'Brand new'
@@ -180,6 +184,7 @@ HeroBottomImage.args = {
     variant: 'variant-d',
     colors: 'colors-c',
     width: 'full',
+    contentWidth: 'small',
     textAlign: 'center',
     badge: {
         type: 'Badge',
@@ -209,6 +214,10 @@ HeroTextOnly.args = {
     variant: 'variant-a',
     colors: 'colors-c',
     width: 'full',
+    height: 'tall',
+    contentWidth: 'small',
+    contentAlignHoriz: 'left',
+    contentAlignVert: 'bottom',
     badge: null,
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
@@ -245,6 +254,7 @@ HeroRightForm.args = {
     ...args,
     variant: 'variant-a',
     colors: 'colors-f',
+    contentWidth: 'medium',
     badge: null,
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
@@ -288,6 +298,8 @@ HeroBottomForm.args = {
     ...args,
     variant: 'variant-d',
     colors: 'colors-i',
+    contentWidth: 'small',
+    contentAlignHoriz: 'center',
     badge: null,
     title: 'Join our newsletter',
     actions: null,

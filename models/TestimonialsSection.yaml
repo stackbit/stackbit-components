@@ -1,6 +1,8 @@
 type: object
 name: TestimonialsSection
 label: Testimonials section
+extends:
+  - Section
 fields:
   - type: enum
     name: variant

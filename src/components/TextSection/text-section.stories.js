@@ -62,10 +62,15 @@ const Template = (args) => <TextSection {...args} />;
 const args = {
     type: 'TextSection',
     elementId: '',
-    colors: 'colors-a',
+    colors: 'colors-e',
     width: 'wide',
     height: 'short',
-    textAlign: 'left',
+    topGap: 'medium',
+    bottomGap: 'medium',
+    contentWidth: 'small',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'center',
     badge: {
         type: 'Badge',
         label: 'Small text'
@@ -76,5 +81,35 @@ const args = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Text Section';
+Primary.storyName = 'Wide Short Text Section';
 Primary.args = args;
+
+export const Secondary = Template.bind({});
+Secondary.storyName = 'Full Bleed Tall Text Section';
+Secondary.args = {
+    ...args,
+    colors: 'colors-i',
+    width: 'full',
+    height: 'tall',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'medium',
+    contentAlignHoriz: 'left',
+    contentAlignVert: 'bottom',
+    textAlign: 'left'
+}
+
+export const Tertiary = Template.bind({});
+Tertiary.storyName = 'Full Bleed Viewport Height Text Section';
+Tertiary.args = {
+    ...args,
+    colors: 'colors-h',
+    width: 'full',
+    height: 'viewport',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'small',
+    contentAlignHoriz: 'right',
+    contentAlignVert: 'top',
+    textAlign: 'left'
+}

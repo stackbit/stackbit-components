@@ -1,6 +1,8 @@
 type: object
 name: QuoteSection
 label: Quote section
+extends:
+  - Section
 fields:
   - type: markdown
     name: quote

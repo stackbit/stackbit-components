@@ -14,10 +14,28 @@ export default function Footer(props) {
     const legalLinks = props.legalLinks || [];
     return (
         <footer
-            className={classNames('component', 'component-footer', width === 'full' ? `${colors} py-14 lg:py-20` : '', 'px-4', 'sm:px-6')}
+            className={classNames(
+                'component',
+                'component-footer',
+                width === 'full' ? colors : '',
+                'px-4',
+                'sm:px-6'
+            )}
             data-sb-field-path={`${props.annotationPrefix}:footer`}
         >
-            <div className={classNames(width === 'wide' ? `${colors} py-14 lg:py-20 px-4` : '', 'max-w-screen-xl', 'mx-auto')}>
+            <div
+                className={classNames(
+                    width === 'wide' ? colors : '',
+                    'max-w-screen-2xl',
+                    'mx-auto',
+                    'px-4',
+                    'sm:px-8',
+                    'md:px-12',
+                    'lg:px-16',
+                    'py-10',
+                    'md:py-20'
+                )}
+            >
                 {((props.title && props.isTitleVisible) || props.logo || props.text) && (
                     <div className="mb-12">
                         {((props.title && props.isTitleVisible) || props.logo) && (

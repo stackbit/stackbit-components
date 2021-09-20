@@ -20,7 +20,7 @@ export default function TextSection(props) {
             className={classNames(
                 'component',
                 'component-section',
-                'component-content-section',
+                'component-text-section',
                 width === 'full' ? colors : '',
                 'px-4',
                 'sm:px-6',

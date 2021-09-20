@@ -21,8 +21,8 @@ export default {
 const Template = (args) => <Footer {...args} />;
 
 const args = {
-    colors: 'colors-a',
-    width: 'full',
+    colors: 'colors-c',
+    width: 'wide',
     title: 'Fish_of_the_day',
     isTitleVisible: true,
     logo: {

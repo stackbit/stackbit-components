@@ -6,61 +6,15 @@ import Action from '../Action';
 import InlineMarkdown from '../InlineMarkdown';
 
 export default function CtaSection(props) {
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'wide';
-    switch (width) {
-        case 'wide':
-            return ctaSectionWide(props);
-        case 'full':
-            return ctaSectionFull(props);
-    }
-    return null;
-}
+    const height = props.height || 'tall';
+    const topGap = props.topGap || 'medium';
+    const bottomGap = props.bottomGap || 'medium';
+    const contentWidth = props.contentWidth || 'large';
+    const contentAlignHoriz = props.contentAlignHoriz || 'left';
+    const contentAlignVert = props.contentAlignVert || 'middle';
 
-function ctaSectionWide(props) {
-    const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
-    return (
-        <div id={props.elementId} className="component component-section component-cta-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
-            <div
-                className={classNames(
-                    colors,
-                    'max-w-screen-xl',
-                    'mx-auto',
-                    'px-4',
-                    'relative',
-                    'sm:px-6',
-                    height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
-                    {
-                        'min-h-screen flex flex-col justify-center': height === 'viewport',
-                        'mt-10': topGap === 'small',
-                        'mt-20': topGap === 'large',
-                        'mb-10': bottomGap === 'small',
-                        'mb-20': bottomGap === 'large'
-                    }
-                )}
-            >
-                {props.backgroundImage && ctaBackgroundImage(props.backgroundImage)}
-                <div
-                    className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
-                        'w-full': height === 'viewport'
-                    })}
-                >
-                    {ctaVariants(props)}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function ctaSectionFull(props) {
-    const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
-    const alignHoriz = props.alignHoriz || 'left';
-    const alignVert = props.alignVert || 'middle';
     return (
         <div
             id={props.elementId}
@@ -68,32 +22,60 @@ function ctaSectionFull(props) {
                 'component',
                 'component-section',
                 'component-cta-section',
-                colors,
+                width === 'full' ? colors : '',
                 'px-4',
-                'relative',
                 'sm:px-6',
-                height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
+                'relative',
                 {
-                    'min-h-screen flex flex-col': height === 'viewport',
-                    'justify-center': height === 'viewport' && alignVert === 'middle',
-                    'justify-end': height === 'viewport' && alignVert === 'bottom',
-                    'mt-10': topGap === 'small',
-                    'mt-20': topGap === 'large',
-                    'mb-10': bottomGap === 'small',
-                    'mb-20': bottomGap === 'large',
-                    'text-center': alignHoriz === 'center',
-                    'text-right': alignHoriz === 'right'
+                    'mt-4 sm:mt-6': topGap === 'small',
+                    'mt-6 sm:mt-10': topGap === 'medium',
+                    'mt-10 sm:mt-16': topGap === 'large',
+                    'mb-4 sm:mb-6': bottomGap === 'small',
+                    'mb-6 sm:mb-10': bottomGap === 'medium',
+                    'mb-10 sm:mb-16': bottomGap === 'large'
                 }
             )}
             data-sb-field-path={props.annotationPrefix}
         >
-            {props.backgroundImage && ctaBackgroundImage(props.backgroundImage)}
+            {(width === 'full') && props.backgroundImage && ctaBackgroundImage(props.backgroundImage)}
             <div
-                className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
-                    'w-full': height === 'viewport'
-                })}
+                className={classNames(
+                    width === 'wide' ? colors : '',
+                    'flex',
+                    'flex-col',
+                    'max-w-screen-2xl',
+                    'mx-auto',
+                    'px-4',
+                    'sm:px-8',
+                    'md:px-12',
+                    'lg:px-16',
+                    'py-10',
+                    'md:py-20',
+                    'relative',
+                    {
+                        'min-h-2/3-screen': height === 'tall',
+                        'min-h-screen': height === 'viewport',
+                        'justify-center': contentAlignVert === 'middle',
+                        'justify-end': contentAlignVert === 'bottom'
+                    }
+                )}
             >
-                {ctaVariants(props)}
+                {(width === 'wide') && props.backgroundImage && ctaBackgroundImage(props.backgroundImage)}
+                <div
+                    className={classNames(
+                        'relative',
+                        'w-full',
+                        {
+                            'max-w-3xl': contentWidth === 'small',
+                            'max-w-5xl': contentWidth === 'medium',
+                            'max-w-7xl': contentWidth === 'large',
+                            'mx-auto': contentAlignHoriz === 'center',
+                            'ml-auto': contentAlignHoriz === 'right'
+                        }
+                    )}
+                >
+                    {ctaVariants(props)}
+                </div>
             </div>
         </div>
     );
@@ -111,13 +93,13 @@ function ctaVariants(props) {
 }
 
 function ctaButtonsBottom(props) {
-    const alignHoriz = props.alignHoriz || 'left';
+    const textAlign = props.textAlign || 'left';
     const actions = props.actions || [];
     return (
         <div
             className={classNames({
-                'text-center': alignHoriz === 'center',
-                'text-right': alignHoriz === 'right'
+                'text-center': textAlign === 'center',
+                'text-right': textAlign === 'right'
             })}
         >
             {ctaContent(props)}
@@ -125,8 +107,8 @@ function ctaButtonsBottom(props) {
                 <div
                     className={classNames('flex flex-wrap items-center -mx-2', {
                         'mt-8': props.badge || props.title || props.text,
-                        'justify-center': alignHoriz === 'center',
-                        'justify-end': alignHoriz === 'right'
+                        'justify-center': textAlign === 'center',
+                        'justify-end': textAlign === 'right'
                     })}
                     data-sb-field-path=".actions"
                 >
@@ -138,15 +120,15 @@ function ctaButtonsBottom(props) {
 }
 
 function ctaButtonsRight(props) {
-    const alignHoriz = props.alignHoriz || 'left';
+    const textAlign = props.textAlign || 'left';
     const actions = props.actions || [];
     return (
         <div className="lg:flex lg:justify-between">
             {(props.badge || props.title || props.text) && (
                 <div
                     className={classNames({
-                        'text-center': alignHoriz === 'center',
-                        'text-right': alignHoriz === 'right'
+                        'text-center': textAlign === 'center',
+                        'text-right': textAlign === 'right'
                     })}
                 >
                     {ctaContent(props)}
@@ -156,9 +138,9 @@ function ctaButtonsRight(props) {
                 <div
                     className={classNames('flex flex-col -mx-2 lg:pl-12', {
                         'mt-10 lg:mt-0': props.badge || props.title || props.text,
-                        'items-start lg:items-center': alignHoriz === 'left',
-                        'items-center': alignHoriz === 'center',
-                        'items-end lg:items-center': alignHoriz === 'right'
+                        'items-start lg:items-center': textAlign === 'left',
+                        'items-center': textAlign === 'center',
+                        'items-end lg:items-center': textAlign === 'right'
                     })}
                     data-sb-field-path=".actions"
                 >

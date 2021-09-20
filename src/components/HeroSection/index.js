@@ -99,6 +99,7 @@ function heroVariants(props) {
 
 function heroFeatureRight(props) {
     const contentAlignVert = props.contentAlignVert || 'middle';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-8', {
@@ -111,13 +112,14 @@ function heroFeatureRight(props) {
                 {heroBody(props)}
                 {heroActions(props)}
             </div>
-            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature, textAlign)}</div>}
         </div>
     );
 }
 
 function heroFeatureLeft(props) {
     const contentAlignVert = props.contentAlignVert || 'middle';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-8', {
@@ -126,7 +128,7 @@ function heroFeatureLeft(props) {
                 'lg:items-end': contentAlignVert === 'bottom'
             })}
         >
-            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature, textAlign)}</div>}
             <div>
                 {heroBody(props)}
                 {heroActions(props)}
@@ -136,11 +138,12 @@ function heroFeatureLeft(props) {
 }
 
 function heroFeatureTop(props) {
+    const textAlign = props.textAlign || 'left';
     return (
         <>
             {props.feature && (
                 <div className="mb-8 lg:mb-12" data-sb-field-path=".feature">
-                    {heroFeature(props.feature)}
+                    {heroFeature(props.feature, textAlign)}
                 </div>
             )}
             <div>
@@ -152,6 +155,7 @@ function heroFeatureTop(props) {
 }
 
 function heroFeatureBottom(props) {
+    const textAlign = props.textAlign || 'left';
     return (
         <>
             <div>
@@ -160,14 +164,14 @@ function heroFeatureBottom(props) {
             </div>
             {props.feature && (
                 <div className="mt-8 lg:mt-12" data-sb-field-path=".feature">
-                    {heroFeature(props.feature)}
+                    {heroFeature(props.feature, textAlign)}
                 </div>
             )}
         </>
     );
 }
 
-function heroFeature(feature) {
+function heroFeature(feature, align) {
     const featureType = feature.type;
     if (!featureType) {
         throw new Error(`hero section feature does not have the 'type' property`);
@@ -176,7 +180,15 @@ function heroFeature(feature) {
     if (!Feature) {
         throw new Error(`no component matching the hero section feature type: ${featureType}`);
     }
-    return <Feature {...feature} className="mx-auto" />;
+    return (
+        <Feature
+            {...feature}
+            className={classNames({
+                'ml-auto': align === 'right',
+                'mx-auto': align === 'center'
+            })}
+        />
+    );
 }
 
 function heroBackgroundImage(image) {

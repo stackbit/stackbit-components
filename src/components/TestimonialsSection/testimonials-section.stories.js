@@ -71,6 +71,12 @@ const args = {
     colors: 'colors-e',
     width: 'wide',
     height: 'short',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'left',
     testimonials: [
         {
             quote: '“It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”',

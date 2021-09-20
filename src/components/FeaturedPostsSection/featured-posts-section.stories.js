@@ -6,6 +6,9 @@ export default {
     component: FeaturedPostsSection,
     argTypes: {
         type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
         variant: {
             options: ['variant-a', 'variant-b'],
             defaultValue: 'variant-a',
@@ -15,9 +18,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        elementId: {
-            defaultValue: ''
         },
         width: {
             options: ['wide', 'full'],
@@ -30,17 +30,32 @@ export default {
             control: { type: 'select' }
         },
         topGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
         bottomGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
+        contentWidth: {
+            options: ['small', 'medium', 'large'],
+            defaultValue: 'large',
+            control: { type: 'select' }
+        },
+        contentAlignHoriz: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        contentAlignVert: {
+            options: ['top', 'middle', 'bottom'],
+            defaultValue: 'middle',
+            control: { type: 'select' }
+        },
+        textAlign: {
+            options: ['left', 'center', 'right'],
             defaultValue: 'left',
             control: { type: 'select' }
         }
@@ -54,9 +69,14 @@ const args = {
     elementId: '',
     variant: 'variant-a',
     colors: 'colors-a',
-    width: 'full',
+    width: 'wide',
     height: 'short',
-    alignHoriz: 'center',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'center',
     actions: [
         {
             type: 'Button',
@@ -119,7 +139,7 @@ VariantB.args = {
     variant: 'variant-b',
     colors: 'colors-c',
     width: 'full',
-    alignHoriz: 'left',
+    textAlign: 'left',
     title: 'Latest from **the Blog**',
     actions: null
 };

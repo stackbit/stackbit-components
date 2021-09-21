@@ -75,7 +75,7 @@ componentsMap.components = Object.entries(componentsManifest).reduce((map, [comp
 componentsMap.dynamic = Object.entries(componentsManifest)
     .filter(([_, component]) => component.isDynamic)
     .reduce((map, [_, component]) => {
-        map[component.className] = '@stackbit/components/' + component.path;
+        map[component.modelName] = '@stackbit/components/' + component.path;
         return map;
     }, {});
 

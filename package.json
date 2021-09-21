@@ -9,10 +9,9 @@
     ],
     "main": "index.js",
     "scripts": {
-        "dev": "npm run prepare-storybook && start-storybook -s ./public -p 6006",
-        "build": "npm run prepare-storybook && build-storybook -s ./public",
+        "dev": "node ./scripts/build-storybook.js && start-storybook -s ./public -p 6006",
+        "build": "node ./scripts/build-storybook.js && build-storybook -s ./public",
         "dist": "./scripts/build-dist.js --clean",
-        "prepare-storybook": "node ./scripts/build-storybook.js",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
         "version-patch": "npm version patch -m \"bumped version to v%s\""
     },

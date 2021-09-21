@@ -6,14 +6,14 @@ const args = process.argv.slice(2);
 const packageJSON = require('../package.json');
 const componentsManifest = require('../src/components-manifest.json');
 
+// This script is also run as a child process from other repos such as `stackbit-theme-utils`
+
 console.log('Building components library');
 
-function runBabel() {
+function runBabel(inputDir, outputDir) {
     console.log('running babel...');
     const babelBin = path.join(__dirname, '../node_modules/.bin/babel');
     const babelConfig = path.join(__dirname, '../babel.dist.config.json');
-    const inputDir = path.join(__dirname, '../src');
-    const outputDir = path.join(__dirname, '../dist');
     const babelResult = childProcess.spawnSync(babelBin, ['--config-file', babelConfig, '--out-dir', outputDir, inputDir]);
     if (babelResult.status === 0) {
         console.log(String(babelResult.stdout));
@@ -28,28 +28,26 @@ if (args.includes('--clean')) {
     fse.rmdirSync('dist', { recursive: true });
 }
 
-runBabel();
+runBabel(path.join(__dirname, '../src'), path.join(__dirname, '../dist'));
 
 if (process.env.SOURCEMAP_COMMAND) {
     console.log('running sourcemap generation...');
     const cmdParts = process.env.SOURCEMAP_COMMAND.split(' ');
-    const tempSrcDir = path.resolve('src');
-    const sourcemapResult = childProcess.spawnSync(
-        cmdParts[0],
-        [cmdParts.slice(1).join(' ') + ` ${tempSrcDir} ${tempSrcDir} node_modules/@stackbit/components`],
-        {
-            shell: true
-        }
-    );
-    console.log(String(sourcemapResult.stdout));
-    console.log(String(sourcemapResult.stderr));
-    runBabel('src', 'temp-dist');
-    // apply using: patch -p1 -i sourcemap.patch
-    childProcess.spawnSync('diff', ['-rc', 'dist temp-dist > dist/sourcemap.patch'], {
+    const srcDir = path.join(__dirname, '../src');
+    const distDir = path.resolve(__dirname, '../dist');
+    const tempDistDir = path.resolve(__dirname, '../temp-dist');
+    const sourcemapResult = childProcess.spawnSync(cmdParts[0], [cmdParts.slice(1).join(' ') + ` ${srcDir} ${srcDir} node_modules/@stackbit/components`], {
         shell: true
     });
-    childProcess.spawnSync('git', ['checkout', '--', 'src']);
-    fse.rmdirSync('temp-dist', { recursive: true });
+    console.log(String(sourcemapResult.stdout));
+    console.log(String(sourcemapResult.stderr));
+    runBabel(srcDir, tempDistDir);
+    // apply using: patch -p1 -i sourcemap.patch
+    childProcess.spawnSync('diff', ['-rc', `${distDir} ${tempDistDir} > ${distDir}/sourcemap.patch`], {
+        shell: true
+    });
+    childProcess.spawnSync('git', ['checkout', '--', srcDir]);
+    fse.rmdirSync(tempDistDir, { recursive: true });
 }
 
 console.log('copy package.json and remove peerDependencies marked as devDependencies...');
@@ -83,6 +81,7 @@ fse.writeJsonSync(path.join(__dirname, '../dist/components-map.json'), component
 console.log('generated dist/components-map.json');
 
 console.log('copying files and folders...');
+
 const folders = ['src', 'models', 'styles'];
 folders.forEach((folder) => {
     const folderPath = path.join(__dirname, '../', folder);

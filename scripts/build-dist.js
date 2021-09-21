@@ -96,7 +96,7 @@ srcFolders.forEach((folder) => {
     childProcess.spawnSync('cp', ['-r', folderPath, path.join(__dirname, '../dist/src')]);
 });
 
-const files = ['src/dynamic-components.js', 'src/with-stackbit-components.js', 'src/components-manifest.json', 'README.md'];
+const files = ['src/dynamic-components.js', 'src/next-stackbit-components.js', 'src/components-manifest.json', 'README.md'];
 files.forEach((file) => {
     const filePath = path.join(__dirname, '../', file);
     childProcess.spawnSync('cp', [filePath, path.join(__dirname, '../dist')]);

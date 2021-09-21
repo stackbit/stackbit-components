@@ -15,6 +15,6 @@
         "src/utils/next-link.js",
         "src/utils/theme-classes.js",
         "src/dynamic-components.js",
-        "src/with-stackbit-components.js"
+        "src/next-stackbit-components.js"
     ]
 }

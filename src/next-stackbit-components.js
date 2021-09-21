@@ -9,16 +9,16 @@ const COMPONENTS_MAP_DEFAULT_USER_PATH = '.stackbit/components-map.json';
 const DYNAMIC_COMPONENTS_DEFAULT_USER_PATH = '.stackbit/dynamic-components.js';
 const DYNAMIC_COMPONENTS_INTERNAL_PATH = path.resolve(__dirname, 'dynamic-components.js');
 
-module.exports = function withStackbitComponents(nextConfig) {
-    copyComponentsJson(nextConfig);
-    generateDynamicComponents(nextConfig);
-    configureWebpack(nextConfig);
+module.exports = (pluginOptions = {}) => function withStackbitComponents(nextConfig) {
+    copyComponentsJson(pluginOptions);
+    generateDynamicComponents(pluginOptions);
+    configureWebpack(pluginOptions, nextConfig);
     return nextConfig;
 };
 
-function copyComponentsJson(nextConfig) {
+function copyComponentsJson(pluginOptions) {
     fse.ensureDir(STACKBIT_FOLDER_DEFAULT_PATH);
-    const targetRelFilePath = nextConfig?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH;
+    const targetRelFilePath = pluginOptions?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH;
     const targetFilePath = path.resolve(targetRelFilePath);
     const targetExists = fse.pathExistsSync(targetFilePath);
     let existingData = {};
@@ -37,9 +37,9 @@ function copyComponentsJson(nextConfig) {
     fse.writeJsonSync(targetFilePath, newData, { spaces: 4 });
 }
 
-function generateDynamicComponents(nextConfig) {
-    const componentsMapPath = path.resolve(nextConfig?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH);
-    const targetFilePath = path.resolve(nextConfig?.dynamicComponentsPath ?? DYNAMIC_COMPONENTS_DEFAULT_USER_PATH);
+function generateDynamicComponents(pluginOptions) {
+    const componentsMapPath = path.resolve(pluginOptions?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH);
+    const targetFilePath = path.resolve(pluginOptions?.dynamicComponentsPath ?? DYNAMIC_COMPONENTS_DEFAULT_USER_PATH);
     const componentsMapDir = path.dirname(componentsMapPath);
     const targetDir = path.dirname(targetFilePath);
     const componentMap = fse.readJsonSync(componentsMapPath);
@@ -61,11 +61,11 @@ function generateDynamicComponents(nextConfig) {
     fse.writeFileSync(targetFilePath, replaced, 'utf-8');
 }
 
-function configureWebpack(nextConfig) {
+function configureWebpack(pluginOptions, nextConfig) {
     const origWebpack = nextConfig.webpack;
     nextConfig.webpack = (wpConfig, wpOptions) => {
-        const userComponentsMap = resolveUserComponentsMap(nextConfig, wpConfig, wpOptions);
-        const dynamicComponentsMap = getDynamicComponentsAlias(nextConfig, wpConfig, wpOptions);
+        const userComponentsMap = resolveUserComponentsMap(pluginOptions, wpConfig, wpOptions);
+        const dynamicComponentsMap = getDynamicComponentsAlias(pluginOptions, wpConfig, wpOptions);
         const componentsMap = Object.assign({}, userComponentsMap, dynamicComponentsMap);
 
         // console.log(`componentsMap, isServer: ${wpOptions.isServer}`, componentsMap);
@@ -149,8 +149,8 @@ function resolverWithPlugin(wpConfig, wpOptions, componentsMap) {
     );
 }
 
-function getDynamicComponentsAlias(nextConfig, wpConfig, wpOptions) {
-    const dynamicComponentsRelPath = nextConfig?.dynamicComponentsPath ?? DYNAMIC_COMPONENTS_DEFAULT_USER_PATH;
+function getDynamicComponentsAlias(pluginOptions, wpConfig, wpOptions) {
+    const dynamicComponentsRelPath = pluginOptions?.dynamicComponentsPath ?? DYNAMIC_COMPONENTS_DEFAULT_USER_PATH;
     const dynamicComponentsAbsPath = path.resolve(wpConfig.context, dynamicComponentsRelPath);
     let resolvedDynamicComponentsPath;
     try {
@@ -166,8 +166,8 @@ function getDynamicComponentsAlias(nextConfig, wpConfig, wpOptions) {
     };
 }
 
-function resolveUserComponentsMap(nextConfig, wpConfig, wpOptions) {
-    const componentsMapPath = nextConfig?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH;
+function resolveUserComponentsMap(pluginOptions, wpConfig, wpOptions) {
+    const componentsMapPath = pluginOptions?.componentsMapPath ?? COMPONENTS_MAP_DEFAULT_USER_PATH;
     const componentsMapAbsFilePath = path.resolve(wpConfig.context, componentsMapPath);
     if (!fse.pathExistsSync(componentsMapAbsFilePath)) {
         if (wpOptions.isServer) {

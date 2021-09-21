@@ -7,53 +7,15 @@ import FormBlock from '../FormBlock';
 import InlineMarkdown from '../InlineMarkdown';
 
 export default function ContactSection(props) {
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'wide';
-    switch (width) {
-        case 'wide':
-            return contactSectionWide(props);
-        case 'full':
-            return contactSectionFull(props);
-    }
-    return null;
-}
-
-function contactSectionWide(props) {
-    const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
-    const alignVert = props.alignVert || 'middle';
-    return (
-        <div id={props.elementId} className="component component-section component-contact-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
-            <div
-                className={classNames(colors, 'max-w-screen-xl', 'mx-auto', 'px-4', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
-                    'min-h-screen flex flex-col': height === 'viewport',
-                    'justify-center': height === 'viewport' && alignVert === 'middle',
-                    'justify-end': height === 'viewport' && alignVert === 'bottom',
-                    'mt-10': topGap === 'small',
-                    'mt-20': topGap === 'large',
-                    'mb-10': bottomGap === 'small',
-                    'mb-20': bottomGap === 'large'
-                })}
-            >
-                <div
-                    className={classNames('mx-auto', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
-                        'w-full': height === 'viewport'
-                    })}
-                >
-                    {contactVariants(props)}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function contactSectionFull(props) {
-    const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
-    const alignVert = props.alignVert || 'middle';
+    const height = props.height || 'tall';
+    const topGap = props.topGap || 'medium';
+    const bottomGap = props.bottomGap || 'medium';
+    const contentWidth = props.contentWidth || 'large';
+    const contentAlignHoriz = props.contentAlignHoriz || 'left';
+    const contentAlignVert = props.contentAlignVert || 'middle';
+    
     return (
         <div
             id={props.elementId}
@@ -61,28 +23,58 @@ function contactSectionFull(props) {
                 'component',
                 'component-section',
                 'component-contact-section',
-                colors,
+                width === 'full' ? colors : '',
                 'px-4',
                 'sm:px-6',
-                height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
+                'relative',
                 {
-                    'min-h-screen flex flex-col': height === 'viewport',
-                    'justify-center': height === 'viewport' && alignVert === 'middle',
-                    'justify-end': height === 'viewport' && alignVert === 'bottom',
-                    'mt-10': topGap === 'small',
-                    'mt-20': topGap === 'large',
-                    'mb-10': bottomGap === 'small',
-                    'mb-20': bottomGap === 'large'
+                    'mt-4 sm:mt-6': topGap === 'small',
+                    'mt-6 sm:mt-10': topGap === 'medium',
+                    'mt-10 sm:mt-16': topGap === 'large',
+                    'mb-4 sm:mb-6': bottomGap === 'small',
+                    'mb-6 sm:mb-10': bottomGap === 'medium',
+                    'mb-10 sm:mb-16': bottomGap === 'large'
                 }
             )}
             data-sb-field-path={props.annotationPrefix}
         >
             <div
-                className={classNames('mx-auto', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
-                    'w-full': height === 'viewport'
-                })}
+                className={classNames(
+                    width === 'wide' ? colors : '',
+                    'flex',
+                    'flex-col',
+                    'max-w-screen-2xl',
+                    'mx-auto',
+                    'px-4',
+                    'sm:px-8',
+                    'md:px-12',
+                    'lg:px-16',
+                    'py-10',
+                    'md:py-20',
+                    'relative',
+                    {
+                        'min-h-2/3-screen': height === 'tall',
+                        'min-h-screen': height === 'viewport',
+                        'justify-center': contentAlignVert === 'middle',
+                        'justify-end': contentAlignVert === 'bottom'
+                    }
+                )}
             >
-                {contactVariants(props)}
+                <div
+                    className={classNames(
+                        'relative',
+                        'w-full',
+                        {
+                            'max-w-3xl': contentWidth === 'small',
+                            'max-w-5xl': contentWidth === 'medium',
+                            'max-w-7xl': contentWidth === 'large',
+                            'mx-auto': contentAlignHoriz === 'center',
+                            'ml-auto': contentAlignHoriz === 'right'
+                        }
+                    )}
+                >
+                    {contactVariants(props)}
+                </div>
             </div>
         </div>
     );
@@ -100,13 +92,14 @@ function contactVariants(props) {
 }
 
 function contactFeatureRight(props) {
-    const alignVert = props.alignVert || 'middle';
+    const contentAlignVert = props.contentAlignVert || 'middle';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-y-8', {
                 'gap-x-12 lg:grid-cols-2': props.feature,
-                'lg:items-center': alignVert === 'middle',
-                'lg:items-end': alignVert === 'bottom'
+                'lg:items-center': contentAlignVert === 'middle',
+                'lg:items-end': contentAlignVert === 'bottom'
             })}
         >
             <div>
@@ -117,22 +110,23 @@ function contactFeatureRight(props) {
                     </div>
                 )}
             </div>
-            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature, textAlign)}</div>}
         </div>
     );
 }
 
 function contactFeatureLeft(props) {
-    const alignVert = props.alignVert || 'middle';
+    const contentAlignVert = props.contentAlignVert || 'middle';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-y-8', {
                 'gap-x-12 lg:grid-cols-2': props.feature,
-                'lg:items-center': alignVert === 'middle',
-                'lg:items-end': alignVert === 'bottom'
+                'lg:items-center': contentAlignVert === 'middle',
+                'lg:items-end': contentAlignVert === 'bottom'
             })}
         >
-            {props.feature && <div data-sb-field-path=".image">{contactFeature(props.feature)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature, textAlign)}</div>}
             <div>
                 {contactContent(props)}
                 {props.form && (
@@ -145,7 +139,7 @@ function contactFeatureLeft(props) {
     );
 }
 
-function contactFeature(feature) {
+function contactFeature(feature, align) {
     const featureType = feature.type;
     if (!featureType) {
         throw new Error(`contact section feature does not have the 'type' property`);
@@ -154,19 +148,27 @@ function contactFeature(feature) {
     if (!Feature) {
         throw new Error(`no component matching the contact section feature type: ${featureType}`);
     }
-    return <Feature {...feature} className="mx-auto" />;
+    return (
+        <Feature
+            {...feature}
+            className={classNames({
+                'ml-auto': align === 'right',
+                'mx-auto': align === 'center'
+            })}
+        />
+    );
 }
 
 function contactContent(props) {
-    const alignHoriz = props.alignHoriz || 'left';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('mb-12', {
-                'text-right': alignHoriz === 'right',
-                'text-center': alignHoriz === 'center'
+                'text-right': textAlign === 'right',
+                'text-center': textAlign === 'center'
             })}
         >
-            {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
+            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>

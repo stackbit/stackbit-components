@@ -1,6 +1,7 @@
 import React from 'react';
 import classNames from 'classnames';
 import Link from '../../utils/link';
+import ArrowLeft from '../../svgs/arrow-left';
 import ArrowRight from '../../svgs/arrow-right';
 import Cart from '../../svgs/cart';
 import Facebook from '../../svgs/facebook';
@@ -9,29 +10,32 @@ import Instagram from '../../svgs/instagram';
 import LinkedIn from '../../svgs/linkedin';
 import Twitter from '../../svgs/twitter';
 
+const iconMap = {
+    arrowLeft: ArrowLeft,
+    arrowRight: ArrowRight,
+    cart: Cart,
+    facebook: Facebook,
+    github: GitHub,
+    instagram: Instagram,
+    linkedin: LinkedIn,
+    twitter: Twitter
+};
+
 export default function Action(props) {
-    const { type, label, url, icon, altText, style, annotationPrefix = '' } = props;
-    const iconMap = {
-        arrowRight: ArrowRight,
-        cart: Cart,
-        facebook: Facebook,
-        github: GitHub,
-        instagram: Instagram,
-        linkedin: LinkedIn,
-        twitter: Twitter
-    };
-    const IconComponent = icon ? iconMap[icon] : null;
+    const { type, label, altText, url, showIcon } = props;
+    const icon = props.icon || 'arrowLeft';
+    const iconPosition = props.iconPosition || 'right';
+    const IconComponent = iconMap[icon];
+    const annotationPrefix = props.annotationPrefix || '';
     const annotations = [
         `${annotationPrefix}`,
         `${annotationPrefix}.url#@href`,
-        `${annotationPrefix}.altText#@title`,
-        `${annotationPrefix}.label${IconComponent ? '#text()[1]' : ''}`,
-        IconComponent ? `${annotationPrefix}.icon#svg[1]` : ''
+        `${annotationPrefix}.altText#@aria-label`,
+        `${annotationPrefix}.label${(showIcon && IconComponent) ? '#text()[1]' : ''}`,
+        (showIcon && IconComponent) ? `${annotationPrefix}.icon#svg[1]` : ''
     ];
-
-    const defaultLinkStyle = type === 'Link' ? 'link' : 'secondary';
-    const linkStyle = style || defaultLinkStyle;
-
+    const defaultStyle = type === 'Link' ? 'link' : 'secondary';
+    const style = props.style || defaultStyle;
     const cssClasses = props.className || null;
     const cssId = props.elementId || null;
 
@@ -39,16 +43,23 @@ export default function Action(props) {
         <Link
             href={url}
             aria-label={altText}
-            title={altText}
             id={cssId}
-            className={classNames('component', 'component-block', 'component-action', linkStyle === 'link' ? 'sb-link' : 'sb-btn', cssClasses, {
-                'sb-btn-primary': linkStyle === 'primary',
-                'sb-btn-secondary': linkStyle === 'secondary'
+            className={classNames('sb-component', 'sb-component-block', style === 'link' ? 'sb-component-link' : 'sb-component-btn', cssClasses, {
+                'sb-component-btn-primary': style === 'primary',
+                'sb-component-btn-secondary': style === 'secondary'
             })}
             data-sb-field-path={annotations.join(' ').trim()}
         >
             {label}
-            {IconComponent && <IconComponent className="fill-current h-5 ml-2 w-5" />}
+            {showIcon && IconComponent && (
+                <IconComponent
+                    className={classNames('fill-current h-5 w-5', {
+                        'order-first': iconPosition === 'left',
+                        'mr-1.5': label && iconPosition === 'left',
+                        'ml-1.5': label && iconPosition === 'right'
+                    })}
+                />
+            )}
         </Link>
     );
 }

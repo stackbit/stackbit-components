@@ -49,7 +49,7 @@ export default function FormBlock(props) {
                 })}
             </div>
             <div className="mt-4 sm:mt-8">
-                <button type="submit" className="sb-btn sb-btn-primary" data-sb-field-path=".submitLabel">
+                <button type="submit" className="sb-component sb-component-block sb-component-btn sb-component-btn-primary" data-sb-field-path=".submitLabel">
                     {props.submitLabel}
                 </button>
             </div>

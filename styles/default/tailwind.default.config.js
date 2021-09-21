@@ -12,12 +12,12 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: '#FFC329',
-                secondary: '#FFF7E3',
-                base: '#262626',
-                'complimentary-1': '#e8f3ee',
-                'complimentary-2': '#e2e4ff',
-                info: '#EA5234'
+                primary: '#28aaff',
+                secondary: '#dfe3e7',
+                base: '#282f36',
+                'complimentary-1': '#e9f6ff',
+                'complimentary-2': '#fffde2',
+                info: '#ffa928'
             },
             fontFamily: {
                 sans: ['Poppins', ...defaultTheme.fontFamily.serif]
@@ -27,6 +27,9 @@ module.exports = {
                 '1/3': '33.333%',
                 '1/2': '50%',
                 '2/3': '66.667%'
+            },
+            minHeight: {
+                '2/3-screen': '66vh',
             }
         }
     },

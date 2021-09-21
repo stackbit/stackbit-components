@@ -6,6 +6,9 @@ export default {
     component: FeaturedPeopleSection,
     argTypes: {
         type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
         variant: {
             options: ['variant-a', 'variant-b', 'variant-c'],
             defaultValue: 'variant-a',
@@ -15,9 +18,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        elementId: {
-            defaultValue: ''
         },
         width: {
             options: ['wide', 'full'],
@@ -30,17 +30,32 @@ export default {
             control: { type: 'select' }
         },
         topGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
         bottomGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
+        contentWidth: {
+            options: ['small', 'medium', 'large'],
+            defaultValue: 'large',
+            control: { type: 'select' }
+        },
+        contentAlignHoriz: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        contentAlignVert: {
+            options: ['top', 'middle', 'bottom'],
+            defaultValue: 'middle',
+            control: { type: 'select' }
+        },
+        textAlign: {
+            options: ['left', 'center', 'right'],
             defaultValue: 'left',
             control: { type: 'select' }
         }
@@ -51,12 +66,21 @@ const Template = (args) => <FeaturedPeopleSection {...args} />;
 
 const args = {
     type: 'FeaturedPeopleSection',
+    elementId: '',
     variant: 'variant-a',
-    colors: 'colors-a',
+    colors: 'colors-f',
     width: 'wide',
     height: 'short',
-    alignHoriz: 'center',
-    badge: 'Know Our Team',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'center',
+    badge: {
+        type: 'Badge',
+        label: 'Know Our Team'
+    },
     title: 'The Team',
     subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
     people: [
@@ -117,9 +141,8 @@ VariantB.args = {
     ...args,
     variant: 'variant-b',
     colors: 'colors-c',
-    elementId: '',
     width: 'full',
-    alignHoriz: 'left',
+    textAlign: 'left',
     actions: [
         {
             type: 'Button',
@@ -135,6 +158,5 @@ VariantC.storyName = 'Two Cols, Info Under the Image';
 VariantC.args = {
     ...args,
     variant: 'variant-c',
-    colors: 'colors-i',
-    alignHoriz: 'center'
+    colors: 'colors-i'
 };

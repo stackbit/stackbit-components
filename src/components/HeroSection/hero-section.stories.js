@@ -5,127 +5,63 @@ import StackbitFrontmatter from '../../../addons/addon-stackbit-frontmatter/src/
 import StackbitModels from '../../../addons/addon-stackbit-models/src/StackbitModels';
 import HeroSection from './index';
 
-const args = {
-    type: 'HeroSection',
-    variant: 'variant-a',
-    colors: 'colors-a',
-    elementId: '',
-    width: 'wide',
-    height: 'short',
-    topGap: 'none',
-    bottomGap: 'small',
-    alignHoriz: 'left',
-    alignVert: 'bottom',
-    badge: 'New Collaboration',
-    title: 'The quick, brown fox jumps over **a lazy dog**',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
-    actions: [
-        {
-            type: 'Button',
-            url: '#',
-            label: 'Apply Now',
-            style: 'primary'
-        },
-        {
-            type: 'Button',
-            url: '#',
-            label: 'Learn more',
-            style: 'secondary'
-        }
-    ],
-    feature: {
-        type: 'ImageBlock',
-        url: '/images/fishing.jpg',
-        altText: 'Image alt text',
-        caption: 'Image caption'
-    }
-};
-
 export default {
     title: 'Components/HeroSection',
     component: HeroSection,
     argTypes: {
         type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
         variant: {
-            description: null,
             options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
-            control: { type: 'select' },
-            type: {
-                required: true
-            },
-            table: {
-                type: {
-                    summary: null,
-                    detail: null
-                },
-                defaultValue: {
-                    summary: 'variant-a',
-                    detail: null
-                }
-            }
+            defaultValue: 'variant-a',
+            control: { type: 'select' }
         },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'colors-a'
-                }
-            }
+            defaultValue: 'colors-a',
+            control: { type: 'select' }
         },
         width: {
             options: ['wide', 'full'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'wide'
-                }
-            }
+            defaultValue: 'wide',
+            control: { type: 'select' }
         },
         height: {
             options: ['short', 'tall', 'viewport'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'short'
-                }
-            }
+            defaultValue: 'short',
+            control: { type: 'select' }
         },
         topGap: {
-            options: ['none', 'small', 'large'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'small'
-                }
-            }
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
+            control: { type: 'select' }
         },
         bottomGap: {
-            options: ['none', 'small', 'large'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'small'
-                }
-            }
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
+            control: { type: 'select' }
         },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'left'
-                }
-            }
+        contentWidth: {
+            options: ['small', 'medium', 'large'],
+            defaultValue: 'large',
+            control: { type: 'select' }
         },
-        alignVert: {
+        contentAlignHoriz: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        contentAlignVert: {
             options: ['top', 'middle', 'bottom'],
-            control: { type: 'select' },
-            table: {
-                defaultValue: {
-                    summary: 'middle'
-                }
-            }
+            defaultValue: 'middle',
+            control: { type: 'select' }
+        },
+        textAlign: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
         }
     },
     parameters: {
@@ -165,6 +101,47 @@ export default {
 
 const Template = (args) => <HeroSection {...args} />;
 
+const args = {
+    type: 'HeroSection',
+    elementId: '',
+    variant: 'variant-a',
+    colors: 'colors-a',
+    width: 'wide',
+    height: 'short',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'left',
+    badge: {
+        type: 'Badge',
+        label: 'Brand new'
+    },
+    title: 'The quick, brown fox jumps over **a lazy dog**',
+    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+    actions: [
+        {
+            type: 'Button',
+            url: '#',
+            label: 'Apply Now',
+            style: 'primary'
+        },
+        {
+            type: 'Button',
+            url: '#',
+            label: 'Learn more',
+            style: 'secondary'
+        }
+    ],
+    feature: {
+        type: 'ImageBlock',
+        url: '/images/hero.png',
+        altText: 'Image alt text',
+        caption: 'Image caption'
+    }
+};
+
 export const Primary = Template.bind({});
 Primary.storyName = 'Hero Section With Image on the Right';
 Primary.args = args;
@@ -174,9 +151,13 @@ HeroLeftVideo.storyName = 'Hero Section With Video on the Left';
 HeroLeftVideo.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-e',
+    colors: 'colors-c',
     width: 'full',
-    badge: 'Brand new',
+    height: 'tall',
+    badge: {
+        type: 'Badge',
+        label: 'Brand new'
+    },
     actions: [
         {
             type: 'Button',
@@ -188,7 +169,7 @@ HeroLeftVideo.args = {
     feature: {
         type: 'VideoBlock',
         videoUrl: '/videos/stackbit-for-marketers.mp4',
-        posterUrl: '/images/stackbit-for-marketers.jpg',
+        posterUrl: '/images/stackbit-for-marketers.jpeg',
         autoplay: true,
         loop: true,
         muted: true,
@@ -203,8 +184,12 @@ HeroBottomImage.args = {
     variant: 'variant-d',
     colors: 'colors-c',
     width: 'full',
-    alignHoriz: 'center',
-    badge: 'Brand new',
+    contentWidth: 'small',
+    textAlign: 'center',
+    badge: {
+        type: 'Badge',
+        label: 'Brand new'
+    },
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
@@ -216,7 +201,7 @@ HeroBottomImage.args = {
     ],
     feature: {
         type: 'ImageBlock',
-        url: '/images/hero-alt.png',
+        url: '/images/hero.png',
         altText: 'Image alt text',
         caption: 'Image caption'
     }
@@ -229,6 +214,10 @@ HeroTextOnly.args = {
     variant: 'variant-a',
     colors: 'colors-c',
     width: 'full',
+    height: 'tall',
+    contentWidth: 'small',
+    contentAlignHoriz: 'left',
+    contentAlignVert: 'bottom',
     badge: null,
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
@@ -236,22 +225,24 @@ HeroTextOnly.args = {
             type: 'Button',
             url: '#',
             label: 'Start Shopping',
-            style: 'primary',
-            icon: 'cart'
+            showIcon: true,
+            icon: 'cart',
+            style: 'primary'
         },
         {
             type: 'Link',
             url: '#',
             label: 'Get 15% discount',
-            style: 'link',
-            icon: 'arrowRight'
+            showIcon: true,
+            icon: 'arrowRight',
+            style: 'link'
         }
     ],
     feature: null,
     backgroundImage: {
         type: 'ImageBlock',
-        url: 'https://images.unsplash.com/photo-1483004406427-6acb078d1f2d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
-        altText: 'Water',
+        url: '/images/bg.jpg',
+        altText: 'Hero Image',
         caption: '',
         opacity: 50
     }
@@ -263,6 +254,7 @@ HeroRightForm.args = {
     ...args,
     variant: 'variant-a',
     colors: 'colors-f',
+    contentWidth: 'medium',
     badge: null,
     title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
@@ -270,8 +262,9 @@ HeroRightForm.args = {
             type: 'Link',
             url: '#',
             label: 'Learn More',
-            style: 'link',
-            icon: 'arrowRight'
+            showIcon: true,
+            icon: 'arrowRight',
+            style: 'link'
         }
     ],
     feature: {
@@ -305,6 +298,8 @@ HeroBottomForm.args = {
     ...args,
     variant: 'variant-d',
     colors: 'colors-i',
+    contentWidth: 'small',
+    contentAlignHoriz: 'center',
     badge: null,
     title: 'Join our newsletter',
     actions: null,

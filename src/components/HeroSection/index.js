@@ -7,87 +7,73 @@ import Action from '../Action';
 import InlineMarkdown from '../InlineMarkdown';
 
 export default function HeroSection(props) {
-    const width = props.width || 'wide';
-    switch (width) {
-        case 'wide':
-            return heroSectionWide(props);
-        case 'full':
-            return heroSectionFull(props);
-    }
-    return null;
-}
-
-function heroSectionWide(props) {
     const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
-    const alignHoriz = props.alignHoriz || 'left';
-    const alignVert = props.alignVert || 'middle';
+    const width = props.width || 'wide';
+    const height = props.height || 'tall';
+    const topGap = props.topGap || 'medium';
+    const bottomGap = props.bottomGap || 'medium';
+    const contentWidth = props.contentWidth || 'large';
+    const contentAlignHoriz = props.contentAlignHoriz || 'left';
+    const contentAlignVert = props.contentAlignVert || 'middle';
+
     return (
-        <div id={props.elementId} className="component component-section component-hero-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
+        <div
+            id={props.elementId}
+            className={classNames(
+                'component',
+                'component-section',
+                'component-hero-section',
+                width === 'full' ? colors : '',
+                'px-4',
+                'sm:px-6',
+                'relative',
+                {
+                    'mt-4 sm:mt-6': topGap === 'small',
+                    'mt-6 sm:mt-10': topGap === 'medium',
+                    'mt-10 sm:mt-16': topGap === 'large',
+                    'mb-4 sm:mb-6': bottomGap === 'small',
+                    'mb-6 sm:mb-10': bottomGap === 'medium',
+                    'mb-10 sm:mb-16': bottomGap === 'large'
+                }
+            )}
+            data-sb-field-path={props.annotationPrefix}
+        >
+            {(width === 'full') && props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames(
-                    colors,
-                    'max-w-screen-xl',
+                    width === 'wide' ? colors : '',
+                    'flex',
+                    'flex-col',
+                    'max-w-screen-2xl',
                     'mx-auto',
                     'px-4',
+                    'sm:px-8',
+                    'md:px-12',
+                    'lg:px-16',
+                    'py-10',
+                    'md:py-20',
                     'relative',
-                    'sm:px-6',
-                    height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
                     {
-                        'min-h-screen flex flex-col': height === 'viewport',
-                        'justify-center': height === 'viewport' && alignVert === 'middle',
-                        'justify-end': height === 'viewport' && alignVert === 'bottom',
-                        'mt-10': topGap === 'small',
-                        'mt-20': topGap === 'large',
-                        'mb-10': bottomGap === 'small',
-                        'mb-20': bottomGap === 'large',
-                        'text-center': alignHoriz === 'center',
-                        'text-right': alignHoriz === 'right'
+                        'min-h-2/3-screen': height === 'tall',
+                        'min-h-screen': height === 'viewport',
+                        'justify-center': contentAlignVert === 'middle',
+                        'justify-end': contentAlignVert === 'bottom'
                     }
                 )}
             >
-                {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
+                {(width === 'wide') && props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
                 <div
-                    className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
-                        'w-full': height === 'viewport'
-                    })}
-                >
-                    {heroVariants(props)}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function heroSectionFull(props) {
-    const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
-    const alignHoriz = props.alignHoriz || 'left';
-    const alignVert = props.alignVert || 'middle';
-    return (
-        <div id={props.elementId} className="component component-section component-hero-section" data-sb-field-path={props.annotationPrefix}>
-            <div
-                className={classNames(colors, 'px-4', 'relative', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
-                    'min-h-screen flex flex-col': height === 'viewport',
-                    'justify-center': height === 'viewport' && alignVert === 'middle',
-                    'justify-end': height === 'viewport' && alignVert === 'bottom',
-                    'mt-10': topGap === 'small',
-                    'mt-20': topGap === 'large',
-                    'mb-10': bottomGap === 'small',
-                    'mb-20': bottomGap === 'large',
-                    'text-center': alignHoriz === 'center',
-                    'text-right': alignHoriz === 'right'
-                })}
-            >
-                {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
-                <div
-                    className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
-                        'w-full': height === 'viewport'
-                    })}
+                    className={classNames(
+                        'relative',
+                        'w-full',
+                        {
+                            'max-w-3xl': contentWidth === 'small',
+                            'max-w-5xl': contentWidth === 'medium',
+                            'max-w-7xl': contentWidth === 'large',
+                            'mx-auto': contentAlignHoriz === 'center',
+                            'ml-auto': contentAlignHoriz === 'right'
+                        }
+                    )}
                 >
                     {heroVariants(props)}
                 </div>
@@ -112,37 +98,39 @@ function heroVariants(props) {
 }
 
 function heroFeatureRight(props) {
-    const alignVert = props.alignVert || 'middle';
+    const contentAlignVert = props.contentAlignVert || 'middle';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-8', {
                 'lg:grid-cols-2': props.feature,
-                'lg:items-center': alignVert === 'middle',
-                'lg:items-end': alignVert === 'bottom'
+                'lg:items-center': contentAlignVert === 'middle',
+                'lg:items-end': contentAlignVert === 'bottom'
             })}
         >
             <div>
-                {heroContent(props)}
+                {heroBody(props)}
                 {heroActions(props)}
             </div>
-            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature, textAlign)}</div>}
         </div>
     );
 }
 
 function heroFeatureLeft(props) {
-    const alignVert = props.alignVert || 'middle';
+    const contentAlignVert = props.contentAlignVert || 'middle';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-8', {
                 'lg:grid-cols-2': props.feature,
-                'lg:items-center': alignVert === 'middle',
-                'lg:items-end': alignVert === 'bottom'
+                'lg:items-center': contentAlignVert === 'middle',
+                'lg:items-end': contentAlignVert === 'bottom'
             })}
         >
-            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature, textAlign)}</div>}
             <div>
-                {heroContent(props)}
+                {heroBody(props)}
                 {heroActions(props)}
             </div>
         </div>
@@ -150,15 +138,16 @@ function heroFeatureLeft(props) {
 }
 
 function heroFeatureTop(props) {
+    const textAlign = props.textAlign || 'left';
     return (
         <>
             {props.feature && (
                 <div className="mb-8 lg:mb-12" data-sb-field-path=".feature">
-                    {heroFeature(props.feature)}
+                    {heroFeature(props.feature, textAlign)}
                 </div>
             )}
             <div>
-                {heroContent(props)}
+                {heroBody(props)}
                 {heroActions(props)}
             </div>
         </>
@@ -166,22 +155,23 @@ function heroFeatureTop(props) {
 }
 
 function heroFeatureBottom(props) {
+    const textAlign = props.textAlign || 'left';
     return (
         <>
             <div>
-                {heroContent(props)}
+                {heroBody(props)}
                 {heroActions(props)}
             </div>
             {props.feature && (
                 <div className="mt-8 lg:mt-12" data-sb-field-path=".feature">
-                    {heroFeature(props.feature)}
+                    {heroFeature(props.feature, textAlign)}
                 </div>
             )}
         </>
     );
 }
 
-function heroFeature(feature) {
+function heroFeature(feature, align) {
     const featureType = feature.type;
     if (!featureType) {
         throw new Error(`hero section feature does not have the 'type' property`);
@@ -190,7 +180,15 @@ function heroFeature(feature) {
     if (!Feature) {
         throw new Error(`no component matching the hero section feature type: ${featureType}`);
     }
-    return <Feature {...feature} className="mx-auto" />;
+    return (
+        <Feature
+            {...feature}
+            className={classNames({
+                'ml-auto': align === 'right',
+                'mx-auto': align === 'center'
+            })}
+        />
+    );
 }
 
 function heroBackgroundImage(image) {
@@ -198,7 +196,7 @@ function heroBackgroundImage(image) {
     if (!imageUrl) {
         return null;
     }
-    const imageOpacity = (image.opacity || 1) * 0.01;
+    const imageOpacity = (image.opacity || 100) * 0.01;
 
     return (
         <span
@@ -213,10 +211,16 @@ function heroBackgroundImage(image) {
     );
 }
 
-function heroContent(props) {
+function heroBody(props) {
+    const textAlign = props.textAlign || 'left';
     return (
-        <>
-            {props.badge && <Badge {...props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
+        <div
+            className={classNames({
+                'text-center': textAlign === 'center',
+                'text-right': textAlign === 'right'
+            })}
+        >
+            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
@@ -227,12 +231,12 @@ function heroContent(props) {
                     {props.text}
                 </Markdown>
             )}
-        </>
+        </div>
     );
 }
 
 function heroActions(props) {
-    const alignHoriz = props.alignHoriz || 'left';
+    const textAlign = props.textAlign || 'left';
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
@@ -241,12 +245,12 @@ function heroActions(props) {
         <div
             className={classNames('flex flex-wrap items-center -mx-2', {
                 'mt-8': props.badge || props.title || props.text,
-                'justify-center': alignHoriz === 'center',
-                'justify-end': alignHoriz === 'right'
+                'justify-center': textAlign === 'center',
+                'justify-end': textAlign === 'right'
             })}
             data-sb-field-path=".actions"
         >
-            {props.actions.map((action, index) => (
+            {actions.map((action, index) => (
                 <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
             ))}
         </div>

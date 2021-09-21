@@ -9,40 +9,71 @@ import getPageUrlPath from '../../utils/get-page-url-path';
 import Link from '../../utils/link';
 
 export default function FeaturedPostsSection(props) {
-    const width = props.width || 'wide';
-    switch (width) {
-        case 'wide':
-            return featuredPostsSectionWide(props);
-        case 'full':
-            return featuredPostsSectionFull(props);
-    }
-    return null;
-}
-
-function featuredPostsSectionWide(props) {
     const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
+    const width = props.width || 'wide';
+    const height = props.height || 'tall';
+    const topGap = props.topGap || 'medium';
+    const bottomGap = props.bottomGap || 'medium';
+    const contentWidth = props.contentWidth || 'large';
+    const contentAlignHoriz = props.contentAlignHoriz || 'left';
+    const contentAlignVert = props.contentAlignVert || 'middle';
+
     return (
         <div
             id={props.elementId}
-            className="component component-section component-featured-posts-section px-4 sm:px-6"
+            className={classNames(
+                'component',
+                'component-section',
+                'component-featured-posts-section',
+                width === 'full' ? colors : '',
+                'px-4',
+                'sm:px-6',
+                'relative',
+                {
+                    'mt-4 sm:mt-6': topGap === 'small',
+                    'mt-6 sm:mt-10': topGap === 'medium',
+                    'mt-10 sm:mt-16': topGap === 'large',
+                    'mb-4 sm:mb-6': bottomGap === 'small',
+                    'mb-6 sm:mb-10': bottomGap === 'medium',
+                    'mb-10 sm:mb-16': bottomGap === 'large'
+                }
+            )}
             data-sb-field-path={props.annotationPrefix}
         >
             <div
-                className={classNames(colors, 'max-w-screen-xl', 'mx-auto', 'px-4', 'sm:px-6', height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20', {
-                    'min-h-screen flex flex-col justify-center': height === 'viewport',
-                    'mt-10': topGap === 'small',
-                    'mt-20': topGap === 'large',
-                    'mb-10': bottomGap === 'small',
-                    'mb-20': bottomGap === 'large'
-                })}
+                className={classNames(
+                    width === 'wide' ? colors : '',
+                    'flex',
+                    'flex-col',
+                    'max-w-screen-2xl',
+                    'mx-auto',
+                    'px-4',
+                    'sm:px-8',
+                    'md:px-12',
+                    'lg:px-16',
+                    'py-10',
+                    'md:py-20',
+                    'relative',
+                    {
+                        'min-h-2/3-screen': height === 'tall',
+                        'min-h-screen': height === 'viewport',
+                        'justify-center': contentAlignVert === 'middle',
+                        'justify-end': contentAlignVert === 'bottom'
+                    }
+                )}
             >
                 <div
-                    className={classNames('mx-auto', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
-                        'w-full': height === 'viewport'
-                    })}
+                    className={classNames(
+                        'relative',
+                        'w-full',
+                        {
+                            'max-w-3xl': contentWidth === 'small',
+                            'max-w-5xl': contentWidth === 'medium',
+                            'max-w-7xl': contentWidth === 'large',
+                            'mx-auto': contentAlignHoriz === 'center',
+                            'ml-auto': contentAlignHoriz === 'right'
+                        }
+                    )}
                 >
                     {featuredPostsHeader(props)}
                     {featuredPostsVariants(props)}
@@ -53,59 +84,19 @@ function featuredPostsSectionWide(props) {
     );
 }
 
-function featuredPostsSectionFull(props) {
-    const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
-    return (
-        <div
-            id={props.elementId}
-            className={classNames(
-                'component',
-                'component-section',
-                'component-featured-posts-section',
-                colors,
-                'px-4',
-                'relative',
-                'sm:px-6',
-                height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
-                {
-                    'min-h-screen flex flex-col justify-center': height === 'viewport',
-                    'mt-10': topGap === 'small',
-                    'mt-20': topGap === 'large',
-                    'mb-10': bottomGap === 'small',
-                    'mb-20': bottomGap === 'large'
-                }
-            )}
-            data-sb-field-path={props.annotationPrefix}
-        >
-            <div
-                className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
-                    'w-full': height === 'viewport'
-                })}
-            >
-                {featuredPostsHeader(props)}
-                {featuredPostsVariants(props)}
-                {featuredPostsActions(props)}
-            </div>
-        </div>
-    );
-}
-
 function featuredPostsHeader(props) {
     if (!props.badge && !props.title && !props.subtitle) {
         return null;
     }
-    const alignHoriz = props.alignHoriz || 'left';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames({
-                'mx-auto text-center': alignHoriz === 'center',
-                'ml-auto text-right': alignHoriz === 'right'
+                'mx-auto text-center': textAlign === 'center',
+                'ml-auto text-right': textAlign === 'right'
             })}
         >
-            {props.badge && <Badge label={props.badge} className="sb-badge inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
+            {props.badge && <Badge {...props.badge} className="inline-block inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
             {props.title && (
                 <h2 className="text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
@@ -125,12 +116,12 @@ function featuredPostsActions(props) {
     if (actions.length === 0) {
         return null;
     }
-    const alignHoriz = props.alignHoriz || 'left';
+    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('flex flex-wrap items-center mt-12 -mx-2', {
-                'justify-center': alignHoriz === 'center',
-                'justify-end': alignHoriz === 'right'
+                'justify-center': textAlign === 'center',
+                'justify-end': textAlign === 'right'
             })}
             data-sb-field-path=".actions"
         >

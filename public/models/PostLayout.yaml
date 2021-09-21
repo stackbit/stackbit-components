@@ -23,13 +23,13 @@ fields:
       type: model
       models:
         - ContactSection
-        - ContentSection
         - CtaSection
         - FeaturedPeopleSection
         - FeaturedPostsSection
         - HeroSection
-        - TestimonialsSection
         - QuoteSection
+        - TestimonialsSection
+        - TextSection
   - type: list
     name: bottomSections
     label: Bottom sections
@@ -37,10 +37,10 @@ fields:
       type: model
       models:
         - ContactSection
-        - ContentSection
         - CtaSection
         - FeaturedPeopleSection
         - FeaturedPostsSection
         - HeroSection
-        - TestimonialsSection
         - QuoteSection
+        - TestimonialsSection
+        - TextSection

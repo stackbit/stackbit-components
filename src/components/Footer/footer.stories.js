@@ -21,13 +21,13 @@ export default {
 const Template = (args) => <Footer {...args} />;
 
 const args = {
-    colors: 'colors-a',
-    width: 'full',
-    title: 'Fish_of_the_day',
+    colors: 'colors-c',
+    width: 'wide',
+    title: 'Starter',
     isTitleVisible: true,
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo.svg',
+        url: '/images/logo-alt.svg',
         altText: 'Logo'
     },
     text:
@@ -45,46 +45,45 @@ const args = {
         {
             type: 'Link',
             label: 'About us',
-            url: '/about',
-            altText: 'About us'
+            url: '/about'
         },
         {
             type: 'Link',
             label: 'Product',
-            url: '/',
-            altText: 'Product'
+            url: '/'
         },
         {
             type: 'Link',
             label: 'Features',
-            url: '/',
-            altText: 'Features'
+            url: '/'
         },
         {
             type: 'Link',
             label: 'Pricing',
-            url: '/',
-            altText: 'Pricing'
+            url: '/'
         }
     ],
     socialLinks: [
         {
-            type: 'Link',
-            label: 'Twitter',
+            type: 'Social',
+            altText: 'Twitter',
             url: '/',
+            showIcon: true,
             icon: 'twitter'
         },
         {
-            type: 'Link',
-            label: 'Instagram',
+            type: 'Social',
+            altText: 'Instagram',
             url: '/',
-            icon: 'instagram',
+            showIcon: true,
+            icon: 'instagram'
         },
         {
-            type: 'Link',
-            label: 'Facebook',
+            type: 'Social',
+            altText: 'Facebook',
             url: '/',
-            icon: 'facebook',
+            showIcon: true,
+            icon: 'facebook'
         }
     ],
     legalLinks: [
@@ -129,5 +128,10 @@ FooterNoLegal.storyName = 'Footer Without Legal Links';
 FooterNoLegal.args = {
     ...args,
     colors: 'colors-e',
+    logo: {
+        type: 'ImageBlock',
+        url: '/images/logo.svg',
+        altText: 'Logo'
+    },
     legalLinks: null
 };

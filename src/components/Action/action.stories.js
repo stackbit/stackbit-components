@@ -10,11 +10,11 @@ const Template = (args) => <Action {...args} />;
 
 const args = {
     type: 'Button',
+    elementId: '',
     label: 'Stackbit',
-    url: 'https://www.stackbit.com',
     altText: 'Stackbit',
-    style: 'primary',
-    elementId: ''
+    url: 'https://www.stackbit.com',
+    style: 'primary'
 };
 
 export const Primary = Template.bind({});
@@ -22,9 +22,33 @@ Primary.storyName = 'Primary button';
 Primary.args = { ...args };
 
 export const ButtonIcon = Template.bind({});
-ButtonIcon.storyName = 'Secondary button with icon';
-ButtonIcon.args = { ...args, style: 'secondary', icon: 'cart' };
+ButtonIcon.storyName = 'Primary button with icon';
+ButtonIcon.args = {
+    ...args,
+    showIcon: true,
+    icon: 'arrowRight',
+    iconPosition: 'right'
+};
+
+export const ButtonIconOnly = Template.bind({});
+ButtonIconOnly.storyName = 'Secondary button with icon only';
+ButtonIconOnly.args = {
+    ...args,
+    label: null,
+    altText: 'Cart',
+    showIcon: true,
+    icon: 'cart',
+    iconPosition: 'right',
+    style: 'secondary'
+};
 
 export const LinkIcon = Template.bind({});
 LinkIcon.storyName = 'Link with icon';
-LinkIcon.args = { ...args, type: 'Link', style: 'link', icon: 'arrowRight' };
+LinkIcon.args = {
+    ...args,
+    type: 'Link',
+    showIcon: true,
+    icon: 'arrowLeft',
+    iconPosition: 'left',
+    style: 'link',
+};

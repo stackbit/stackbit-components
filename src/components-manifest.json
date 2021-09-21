@@ -2,13 +2,13 @@
     "Action": {
         "path": "components/Action",
         "className": "Action",
-        "modelName": "button",
+        "modelName": "Button",
         "isDynamic": false
     },
     "Badge": {
         "path": "components/Badge",
         "className": "Badge",
-        "modelName": "badge",
+        "modelName": null,
         "isDynamic": false
     },
     "CheckboxFormControl": {
@@ -80,7 +80,7 @@
     "InlineMarkdown": {
         "path": "components/InlineMarkdown",
         "className": "InlineMarkdown",
-        "modelName": "InlineMarkdown",
+        "modelName": null,
         "isDynamic": false
     },
     "NavBar": {

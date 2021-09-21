@@ -81,8 +81,8 @@ const args = {
     text: 'We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.',
     feature: {
         type: 'ImageBlock',
-        url: '/images/lobster.jpg',
-        altText: 'Fisherman holding lobster'
+        url: '/images/contact.png',
+        altText: 'Contact Image'
     },
     form: {
         type: 'FormBlock',

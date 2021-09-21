@@ -103,8 +103,8 @@ CtaButtonsRight.args = {
     textAlign: 'left',
     backgroundImage: {
         type: 'ImageBlock',
-        url: '/images/water.jpg',
-        altText: 'Water',
+        url: '/images/bg.jpg',
+        altText: 'Background image',
         caption: '',
         opacity: 50
     }

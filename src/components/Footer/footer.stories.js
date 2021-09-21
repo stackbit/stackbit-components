@@ -23,11 +23,11 @@ const Template = (args) => <Footer {...args} />;
 const args = {
     colors: 'colors-c',
     width: 'wide',
-    title: 'Fish_of_the_day',
+    title: 'Starter',
     isTitleVisible: true,
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo.svg',
+        url: '/images/logo-alt.svg',
         altText: 'Logo'
     },
     text:
@@ -128,5 +128,10 @@ FooterNoLegal.storyName = 'Footer Without Legal Links';
 FooterNoLegal.args = {
     ...args,
     colors: 'colors-e',
+    logo: {
+        type: 'ImageBlock',
+        url: '/images/logo.svg',
+        altText: 'Logo'
+    },
     legalLinks: null
 };

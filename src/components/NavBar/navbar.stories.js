@@ -41,7 +41,7 @@ const args = {
     primaryColors: 'colors-a',
     secondaryColors: 'colors-a',
     width: 'wide',
-    title: 'Fish_of_the_day',
+    title: 'Starter',
     isTitleVisible: true,
     logo: {
         type: 'ImageBlock',

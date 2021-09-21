@@ -136,7 +136,7 @@ const args = {
     ],
     feature: {
         type: 'ImageBlock',
-        url: '/images/fishing.jpg',
+        url: '/images/hero.png',
         altText: 'Image alt text',
         caption: 'Image caption'
     }
@@ -169,7 +169,7 @@ HeroLeftVideo.args = {
     feature: {
         type: 'VideoBlock',
         videoUrl: '/videos/stackbit-for-marketers.mp4',
-        posterUrl: '/images/stackbit-for-marketers.jpg',
+        posterUrl: '/images/stackbit-for-marketers.jpeg',
         autoplay: true,
         loop: true,
         muted: true,
@@ -201,7 +201,7 @@ HeroBottomImage.args = {
     ],
     feature: {
         type: 'ImageBlock',
-        url: '/images/hero-alt.png',
+        url: '/images/hero.png',
         altText: 'Image alt text',
         caption: 'Image caption'
     }
@@ -241,8 +241,8 @@ HeroTextOnly.args = {
     feature: null,
     backgroundImage: {
         type: 'ImageBlock',
-        url: 'https://images.unsplash.com/photo-1483004406427-6acb078d1f2d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80',
-        altText: 'Water',
+        url: '/images/bg.jpg',
+        altText: 'Hero Image',
         caption: '',
         opacity: 50
     }

@@ -79,9 +79,9 @@ const args = {
     textAlign: 'left',
     testimonials: [
         {
-            quote: '“It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”',
+            quote: '“Stackbit is fast! Themes are always up to date. It’s easy to use across the organization, and collaboration is easy.”',
             name: 'Isabelle Parks',
-            title: 'Head chef at The Cook',
+            title: 'Design Manager at Retro',
             image: {
                 type: 'ImageBlock',
                 url: '/images/isabelle-parks.jpg',
@@ -89,8 +89,8 @@ const args = {
             },
             logo: {
                 type: 'ImageBlock',
-                url: '/images/the-cook-logo.svg',
-                altText: 'The Cook logo'
+                url: '/images/the-logo.svg',
+                altText: 'The logo'
             }
         }
     ]

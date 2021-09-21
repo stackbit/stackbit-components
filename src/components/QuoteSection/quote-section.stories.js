@@ -71,13 +71,13 @@ const args = {
     contentAlignHoriz: 'left',
     contentAlignVert: 'bottom',
     textAlign: 'left',
-    quote: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
-    name: 'Isabelle Parks',
-    title: 'Head chef at The Cook',
+    quote: '“A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away”',
+    name: 'Antoine de Saint-Exupéry',
+    title: 'Writer',
     backgroundImage: {
         type: 'ImageBlock',
-        url: '/images/water.jpg',
-        altText: 'Water',
+        url: '/images/bg.jpg',
+        altText: 'Background Image',
         caption: '',
         opacity: 40
     }

@@ -14,13 +14,11 @@ This repository contains the **components** and **styles** used by Stackbit them
 
 You can edit components and styles and view the changes in Storybook. 
 
-
-> To see local component changes in a theme without having to to publish to NPM every time use this repo: https://github.com/stackbit/stackbit-theme-utils
+> To use components locally with a theme without having to to publish to NPM every time use this repo: https://github.com/stackbit/stackbit-theme-utils
 
 ## Building Storybook
 
 To build Storybook run `npm build`
-
 
 ## Building and Publishing Component Library
 

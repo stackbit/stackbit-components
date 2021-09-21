@@ -74,7 +74,7 @@
     "InlineMarkdown": {
         "path": "components/InlineMarkdown",
         "className": "InlineMarkdown",
-        "modelName": "InlineMarkdown",
+        "modelName": null,
         "isDynamic": false
     },
     "NavBar": {

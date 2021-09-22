@@ -12,10 +12,10 @@ fields:
     options:
       - label: CTA with buttons at the bottom
         value: variant-a
-        thumbnail: './images/placeholder.png'
+        thumbnail: './images/CtaSection/CTA Section With Button at the Bottom.png'
       - label: CTA with buttons on the right
         value: variant-b
-        thumbnail: './images/placeholder.png'
+        thumbnail: './images/CtaSection/CTA Section With Buttons on the Right.png'
     default: variant-a
   - type: model
     name: badge

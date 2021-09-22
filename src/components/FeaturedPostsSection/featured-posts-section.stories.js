@@ -6,6 +6,9 @@ export default {
     component: FeaturedPostsSection,
     argTypes: {
         type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
         variant: {
             options: ['variant-a', 'variant-b'],
             defaultValue: 'variant-a',
@@ -15,9 +18,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        elementId: {
-            defaultValue: ''
         },
         width: {
             options: ['wide', 'full'],
@@ -30,17 +30,32 @@ export default {
             control: { type: 'select' }
         },
         topGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
         bottomGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
+        contentWidth: {
+            options: ['small', 'medium', 'large'],
+            defaultValue: 'large',
+            control: { type: 'select' }
+        },
+        contentAlignHoriz: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        contentAlignVert: {
+            options: ['top', 'middle', 'bottom'],
+            defaultValue: 'middle',
+            control: { type: 'select' }
+        },
+        textAlign: {
+            options: ['left', 'center', 'right'],
             defaultValue: 'left',
             control: { type: 'select' }
         }
@@ -51,12 +66,17 @@ const Template = (args) => <FeaturedPostsSection {...args} />;
 
 const args = {
     type: 'FeaturedPostsSection',
+    elementId: '',
     variant: 'variant-a',
     colors: 'colors-a',
-    elementId: '',
-    width: 'full',
+    width: 'wide',
     height: 'short',
-    alignHoriz: 'center',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'center',
     actions: [
         {
             type: 'Button',
@@ -68,39 +88,39 @@ const args = {
     posts: [
         {
             __metadata: {},
-            title: 'Sustainability at it’s purest',
+            title: 'Post Title Three',
             date: '2021-07-03',
-            excerpt: 'We’re local, seasonal fisherman, supporting fishing restrictions. We fish what the sea has to offer, nothing more, and no cheating.',
+            excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
             thumbImage: {
                 type: 'ImageBlock',
-                url: '/images/fisherman.jpg',
-                altText: 'Fisherman'
+                url: '/images/post-3.jpeg',
+                altText: 'Post Image'
             },
             markdown_content:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ea mala virtuti magnitudine obruebantur. Duo Reges: constructio interrete. An hoc usque quaque, aliter in vita? Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Itaque hoc frequenter dici solet a vobis, non intellegere nos, quam dicat Epicurus voluptatem. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret.\n\n## Sed Ille, UT Dixi, Vitiose\n\nUtrum igitur tibi litteram videor an totas paginas commovere? Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Ne in odium veniam, si amicum destitero tueri. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Quid ergo aliud intellegetur nisi uti ne quae pars naturae neglegatur? Quis istud, quaeso, nesciebat? Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam aut expetendam. Et ille ridens: Video, inquit, quid agas; In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.\n\n'
         },
         {
             __metadata: {},
-            title: 'As fresh as it gets',
+            title: 'Post Title Two',
             date: '2021-07-01',
-            excerpt: 'Same day delivery, cleaned, on ice, ready to be eaten.',
+            excerpt: 'otius inflammat, ut coercendi magis quam dedocendi esse videantur.',
             thumbImage: {
                 type: 'ImageBlock',
-                url: '/images/mackerels.jpg',
-                altText: 'Mackerels'
+                url: '/images/post-2.jpeg',
+                altText: 'Post Image'
             },
             markdown_content:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ea mala virtuti magnitudine obruebantur. Duo Reges: constructio interrete. An hoc usque quaque, aliter in vita? Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Itaque hoc frequenter dici solet a vobis, non intellegere nos, quam dicat Epicurus voluptatem. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret.\n\n## Sed Ille, UT Dixi, Vitiose\n\nUtrum igitur tibi litteram videor an totas paginas commovere? Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Ne in odium veniam, si amicum destitero tueri. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Quid ergo aliud intellegetur nisi uti ne quae pars naturae neglegatur? Quis istud, quaeso, nesciebat? Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam aut expetendam. Et ille ridens: Video, inquit, quid agas; In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.\n\n'
         },
         {
             __metadata: {},
-            title: 'Bi-weekly subscription',
+            title: 'Post Title One',
             date: '2021-06-28',
-            excerpt: 'This feature is the thing you were missing in your workflow, thank god we have it for you to use.',
+            excerpt: 'Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis.',
             thumbImage: {
                 type: 'ImageBlock',
-                url: '/images/fish-lemon.jpg',
-                altText: 'Raw fish, spices, lemon'
+                url: '/images/post-1.jpeg',
+                altText: 'Post Image'
             },
             markdown_content:
                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ea mala virtuti magnitudine obruebantur. Duo Reges: constructio interrete. An hoc usque quaque, aliter in vita? Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Itaque hoc frequenter dici solet a vobis, non intellegere nos, quam dicat Epicurus voluptatem. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret.\n\n## Sed Ille, UT Dixi, Vitiose\n\nUtrum igitur tibi litteram videor an totas paginas commovere? Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Ne in odium veniam, si amicum destitero tueri. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Quid ergo aliud intellegetur nisi uti ne quae pars naturae neglegatur? Quis istud, quaeso, nesciebat? Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam aut expetendam. Et ille ridens: Video, inquit, quid agas; In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.\n\n'
@@ -119,7 +139,7 @@ VariantB.args = {
     variant: 'variant-b',
     colors: 'colors-c',
     width: 'full',
-    alignHoriz: 'left',
+    textAlign: 'left',
     title: 'Latest from **the Blog**',
     actions: null
 };

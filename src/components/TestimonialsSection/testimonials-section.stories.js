@@ -6,6 +6,9 @@ export default {
     component: TestimonialsSection,
     argTypes: {
         type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
         variant: {
             options: ['variant-a', 'variant-b'],
             defaultValue: 'variant-a',
@@ -15,9 +18,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        elementId: {
-            defaultValue: ''
         },
         width: {
             options: ['wide', 'full'],
@@ -30,17 +30,32 @@ export default {
             control: { type: 'select' }
         },
         topGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
         bottomGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
+        contentWidth: {
+            options: ['small', 'medium', 'large'],
+            defaultValue: 'large',
+            control: { type: 'select' }
+        },
+        contentAlignHoriz: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        contentAlignVert: {
+            options: ['top', 'middle', 'bottom'],
+            defaultValue: 'middle',
+            control: { type: 'select' }
+        },
+        textAlign: {
+            options: ['left', 'center', 'right'],
             defaultValue: 'left',
             control: { type: 'select' }
         }
@@ -51,16 +66,22 @@ const Template = (args) => <TestimonialsSection {...args} />;
 
 const args = {
     type: 'TestimonialsSection',
+    elementId: '',
     variant: 'variant-a',
     colors: 'colors-e',
-    elementId: '',
     width: 'wide',
     height: 'short',
+    topGap: 'none',
+    bottomGap: 'none',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'left',
     testimonials: [
         {
-            quote: '“It’s great to see someone taking action while still maintaining a sustainable fish supply to home cooks.”',
+            quote: '“Stackbit is fast! Themes are always up to date. It’s easy to use across the organization, and collaboration is easy.”',
             name: 'Isabelle Parks',
-            title: 'Head chef at The Cook',
+            title: 'Design Manager at Retro',
             image: {
                 type: 'ImageBlock',
                 url: '/images/isabelle-parks.jpg',
@@ -68,8 +89,8 @@ const args = {
             },
             logo: {
                 type: 'ImageBlock',
-                url: '/images/the-cook-logo.svg',
-                altText: 'The Cook logo'
+                url: '/images/the-logo.svg',
+                altText: 'The logo'
             }
         }
     ]
@@ -86,7 +107,7 @@ VariantB.args = {
     variant: 'variant-b',
     colors: 'colors-f',
     width: 'full',
-    alignHoriz: 'center',
+    textAlign: 'center',
     title: 'Testimonials',
     subtitle: 'What our users say'
 };

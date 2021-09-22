@@ -78,15 +78,19 @@ export default class FormBlock extends React.Component {
                         if (!fieldType) {
                             throw new Error(`form field does not have the 'type' property`);
                         }
-                        const Component = getDynamicComponent(fieldType);
-                        if (!Component) {
+                        const FormControl = getDynamicComponent(fieldType);
+                        if (!FormControl) {
                             throw new Error(`no component matching the form field type: ${fieldType}`);
                         }
-                        return <Component key={index} {...field} annotationPrefix={`.${index}`} />;
+                        return <FormControl key={index} {...field} annotationPrefix={`.${index}`} />;
                     })}
                 </div>
                 <div className="mt-4 sm:mt-8">
-                    <button type="submit" className="sb-btn sb-btn-primary" data-sb-field-path=".submitLabel">
+                    <button
+                        type="submit"
+                        className="sb-component sb-component-block sb-component-btn sb-component-btn-primary"
+                        data-sb-field-path=".submitLabel"
+                    >
                         {submitLabel}
                     </button>
                     {this.state.submitted && <span className="ml-8">Thank you, your message was sent.</span>}

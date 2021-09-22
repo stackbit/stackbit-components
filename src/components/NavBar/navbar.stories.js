@@ -40,8 +40,8 @@ const args = {
     mobileNavVariant: 'variant-a',
     primaryColors: 'colors-a',
     secondaryColors: 'colors-a',
-    width: 'full',
-    title: 'Fish_of_the_day',
+    width: 'wide',
+    title: 'Starter',
     isTitleVisible: true,
     logo: {
         type: 'ImageBlock',

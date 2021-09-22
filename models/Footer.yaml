@@ -66,8 +66,7 @@ fields:
     items:
       type: model
       models:
-        - Button
-        - Link
+        - Social
   - type: list
     name: legalLinks
     label: Legal navigation links

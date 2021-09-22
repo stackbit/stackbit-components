@@ -6,6 +6,9 @@ export default {
     component: ContactSection,
     argTypes: {
         type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
         variant: {
             options: ['variant-a', 'variant-b'],
             defaultValue: 'variant-a',
@@ -15,9 +18,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        elementId: {
-            defaultValue: ''
         },
         width: {
             options: ['wide', 'full'],
@@ -30,23 +30,33 @@ export default {
             control: { type: 'select' }
         },
         topGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
         bottomGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
+        contentWidth: {
+            options: ['small', 'medium', 'large'],
+            defaultValue: 'large',
+            control: { type: 'select' }
+        },
+        contentAlignHoriz: {
+            options: ['left', 'center', 'right'],
             defaultValue: 'left',
             control: { type: 'select' }
         },
-        alignVert: {
+        contentAlignVert: {
             options: ['top', 'middle', 'bottom'],
             defaultValue: 'middle',
+            control: { type: 'select' }
+        },
+        textAlign: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
             control: { type: 'select' }
         }
     }
@@ -56,20 +66,23 @@ const Template = (args) => <ContactSection {...args} />;
 
 const args = {
     type: 'ContactSection',
+    elementId: '',
     variant: 'variant-b',
     colors: 'colors-e',
-    elementId: '',
     width: 'wide',
     height: 'short',
     topGap: 'none',
     bottomGap: 'none',
-    alignHoriz: 'left',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'left',
     title: 'Join our club',
     text: 'We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.',
     feature: {
         type: 'ImageBlock',
-        url: '/images/lobster.jpg',
-        altText: 'Fisherman holding lobster'
+        url: '/images/contact.png',
+        altText: 'Contact Image'
     },
     form: {
         type: 'FormBlock',
@@ -120,6 +133,6 @@ ContactRightImage.args = {
     ...args,
     variant: 'variant-a',
     colors: 'colors-h',
-    alignHoriz: 'center',
+    textAlign: 'center',
     title: 'Join our **club**'
 };

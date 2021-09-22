@@ -6,18 +6,13 @@ export default {
     component: CtaSection,
     argTypes: {
         type: { table: { disable: true } },
-        variant: {
-            options: ['variant-a', 'variant-b'],
-            defaultValue: 'variant-a',
-            control: { type: 'select' }
+        elementId: {
+            defaultValue: ''
         },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        elementId: {
-            defaultValue: ''
         },
         width: {
             options: ['wide', 'full'],
@@ -30,18 +25,38 @@ export default {
             control: { type: 'select' }
         },
         topGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
         bottomGap: {
-            options: ['none', 'small', 'large'],
-            defaultValue: 'small',
+            options: ['none', 'small', 'medium', 'large'],
+            defaultValue: 'medium',
             control: { type: 'select' }
         },
-        alignHoriz: {
-            options: ['left', 'right', 'center'],
+        contentWidth: {
+            options: ['small', 'medium', 'large'],
+            defaultValue: 'large',
+            control: { type: 'select' }
+        },
+        contentAlignHoriz: {
+            options: ['left', 'center', 'right'],
             defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        contentAlignVert: {
+            options: ['top', 'middle', 'bottom'],
+            defaultValue: 'middle',
+            control: { type: 'select' }
+        },
+        textAlign: {
+            options: ['left', 'center', 'right'],
+            defaultValue: 'left',
+            control: { type: 'select' }
+        },
+        variant: {
+            options: ['variant-a', 'variant-b'],
+            defaultValue: 'variant-a',
             control: { type: 'select' }
         }
     }
@@ -51,14 +66,16 @@ const Template = (args) => <CtaSection {...args} />;
 
 const args = {
     type: 'CtaSection',
+    elementId: '',
     variant: 'variant-a',
     colors: 'colors-h',
-    elementId: '',
-    width: 'wide',
     height: 'short',
     topGap: 'none',
     bottomGap: 'none',
-    alignHoriz: 'center',
+    contentWidth: 'large',
+    contentAlignHoriz: 'center',
+    contentAlignVert: 'middle',
+    textAlign: 'center',
     title: "Let's do this",
     text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
     actions: [
@@ -82,11 +99,12 @@ CtaButtonsRight.args = {
     variant: 'variant-b',
     colors: 'colors-c',
     width: 'full',
-    alignHoriz: 'left',
+    contentWidth: 'medium',
+    textAlign: 'left',
     backgroundImage: {
         type: 'ImageBlock',
-        url: '/images/water.jpg',
-        altText: 'Water',
+        url: '/images/bg.jpg',
+        altText: 'Background image',
         caption: '',
         opacity: 50
     }

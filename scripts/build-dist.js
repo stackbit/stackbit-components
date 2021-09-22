@@ -8,9 +8,13 @@ const componentsManifest = require('../src/components-manifest.json');
 
 console.log('Building components library');
 
-function runBabel(inputDir = 'src', outputDir = 'dist') {
+function runBabel(inputDir='src', outputDir='dist') {
     console.log('running babel...');
-    const babelResult = childProcess.spawnSync('./node_modules/.bin/babel', ['--config-file', './babel.dist.config.json', '--out-dir', outputDir, inputDir]);
+    const babelBin = path.resolve(__dirname, '../node_modules/.bin/babel');
+    const babelConfig = path.resolve(__dirname, '../babel.dist.config.json');
+    const inputDirPath = path.resolve(__dirname, '../', inputDir);
+    const outputDirPath = path.resolve(__dirname, '../', outputDir);
+    const babelResult = childProcess.spawnSync(babelBin, ['--config-file', babelConfig, '--out-dir', outputDirPath, inputDirPath]);
     if (babelResult.status === 0) {
         console.log(String(babelResult.stdout));
     } else {
@@ -29,10 +33,10 @@ runBabel();
 if (process.env.SOURCEMAP_COMMAND) {
     console.log('running sourcemap generation...');
     const cmdParts = process.env.SOURCEMAP_COMMAND.split(' ');
-    const tempSrcDir = path.resolve('src');
+    const srcDirPath = path.resolve(__dirname, '../src');
     const sourcemapResult = childProcess.spawnSync(
         cmdParts[0],
-        [cmdParts.slice(1).join(' ') + ` ${tempSrcDir} ${tempSrcDir} node_modules/@stackbit/components`],
+        [cmdParts.slice(1).join(' ') + ` ${srcDirPath} ${srcDirPath} node_modules/@stackbit/components`],
         {
             shell: true
         }
@@ -42,7 +46,8 @@ if (process.env.SOURCEMAP_COMMAND) {
     runBabel('src', 'temp-dist');
     // apply using: patch -p1 -i sourcemap.patch
     childProcess.spawnSync('diff', ['-rc', 'dist temp-dist > dist/sourcemap.patch'], {
-        shell: true
+        shell: true, 
+        cwd: path.resolve(__dirname, '../')
     });
     childProcess.spawnSync('git', ['checkout', '--', 'src']);
     fse.rmdirSync('temp-dist', { recursive: true });
@@ -54,7 +59,7 @@ delete packageJSON['private'];
 devDependenciesToRemove.forEach((dependency) => {
     delete packageJSON.devDependencies[dependency];
 });
-fse.writeFileSync('dist/package.json', JSON.stringify(packageJSON, null, 2), 'utf8');
+fse.writeFileSync(path.join(__dirname, '../dist/package.json'), JSON.stringify(packageJSON, null, 2), 'utf8');
 
 console.log('generating dist/components-map.json ...');
 const componentsMap = {
@@ -71,7 +76,7 @@ componentsMap.components = Object.entries(componentsManifest).reduce((map, [comp
 componentsMap.dynamic = Object.entries(componentsManifest)
     .filter(([_, component]) => component.isDynamic)
     .reduce((map, [_, component]) => {
-        map[component.className] = '@stackbit/components/' + component.path;
+        map[component.modelName] = '@stackbit/components/' + component.path;
         return map;
     }, {});
 
@@ -79,17 +84,26 @@ fse.writeJsonSync(path.join(__dirname, '../dist/components-map.json'), component
 console.log('generated dist/components-map.json');
 
 console.log('copying files and folders...');
-const folders = ['src', 'models', 'themes'];
+const folders = ['src', 'models', 'styles'];
 folders.forEach((folder) => {
-    childProcess.spawnSync('cp', ['-r', folder, 'dist']);
+    const folderPath = path.join(__dirname, '../', folder);
+    console.log(folderPath);
+    childProcess.spawnSync('cp', ['-r', folderPath, path.join(__dirname, '../dist')]);
 });
 
-const srcFolders = ['models', 'themes'];
+const srcFolders = ['models', 'styles'];
 srcFolders.forEach((folder) => {
-    childProcess.spawnSync('cp', ['-r', folder, 'dist/src']);
+    const folderPath = path.join(__dirname, '../', folder);
+    childProcess.spawnSync('cp', ['-r', folderPath, path.join(__dirname, '../dist/src')]);
 });
 
-const files = ['src/dynamic-components.js', 'src/with-stackbit-components.js', 'src/components-manifest.json', 'README.md'];
+const files = ['src/dynamic-components.js', 'src/next-stackbit-components.js', 'src/components-manifest.json', 'README.md'];
 files.forEach((file) => {
-    childProcess.spawnSync('cp', [file, 'dist']);
+    const filePath = path.join(__dirname, '../', file);
+    childProcess.spawnSync('cp', [filePath, path.join(__dirname, '../dist')]);
 });
+
+if (args.includes('--local')) {
+    console.log('copy local');
+    childProcess.spawnSync('cp', ['-r', path.join(__dirname, '../dist'), path.join(__dirname, '../stackbit-nextjs-v2/node_modules/@stackbit/components')]);
+}

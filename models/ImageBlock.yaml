@@ -2,6 +2,11 @@ type: object
 name: ImageBlock
 label: Image
 fields:
+  - type: string
+    name: elementId
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''
   - type: image
     name: url
     label: URL
@@ -18,5 +23,4 @@ fields:
     name: opacity
     label: Opacity
     description: The opacity of the image
-  - type: string
-    name: elementId
+    default: 100

@@ -13,10 +13,21 @@ export default function NavBar(props) {
     const width = props.width || 'wide';
     return (
         <nav
-            className={classNames('component', 'component-nav-bar', width === 'full' ? `${primaryColors} py-5` : '', 'px-4', 'sm:px-6')}
+            className={classNames(
+                'component',
+                'component-nav-bar',
+                width === 'full' ? primaryColors : '',
+                'px-4',
+                'sm:px-6'
+            )}
             data-sb-field-path={`${props.annotationPrefix}:navBar`}
         >
-            <div className={classNames(width === 'wide' ? `${primaryColors} py-5 px-4` : '', 'max-w-screen-xl', 'mx-auto')}>
+            <div
+                className={classNames(
+                    width === 'wide' ? `${primaryColors} max-w-screen-2xl mx-auto px-4` : '',
+                    'py-5'
+                )}
+            >
                 <Link href="#content" className="sr-only">
                     Skip to main content
                 </Link>
@@ -207,7 +218,7 @@ function mobileNavVariantB(props) {
             {isMenuOpen && (
                 <div>
                     <div className="sb-overlay fixed inset-0" onClick={() => setIsMenuOpen(false)} />
-                    <div className={classNames(secondaryColors, 'fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-8 overflow-y-auto')}>
+                    <div className={classNames(secondaryColors, 'fixed top-0 left-0 bottom-0 flex flex-col w-full max-w-md px-4 py-5 overflow-y-auto z-10')}>
                         <div className="flex items-center justify-between mb-6">
                             {siteLogoLink({ title, isTitleVisible, logo })}
                             <button

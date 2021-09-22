@@ -7,8 +7,8 @@ const componentsManifest = require('../src/components-manifest.json');
 console.log('generating .storybook/storybook-dynamic.js ...');
 const joined = Object.entries(componentsManifest)
     .filter(([_, component]) => component.isDynamic)
-    .map(([_, component]) => {
-        return `${component.modelName}: ${component.path.split('/')[0]}.${component.className}`;
+    .map(([componentName, component]) => {
+        return `${component.modelName}: ${component.path.split('/')[0]}.${componentName}`;
     })
     .join(',\n    ');
 
@@ -23,5 +23,6 @@ const dynamicComponents = {
 
 export default dynamicComponents;
 `;
+fse.copy(path.join(__dirname, '../models'), path.join(__dirname, '../public/models'));
 fse.writeFileSync(path.join(__dirname, '../.storybook/storybook-dynamic.js'), result, 'utf8');
 console.log('generated .storybook/storybook-dynamic.js');

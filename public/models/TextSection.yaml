@@ -1,0 +1,20 @@
+type: object
+name: TextSection
+label: Text section
+extends:
+  - Section
+fields:
+  - type: model
+    name: badge
+    label: Badge
+    models:
+      - Badge
+  - type: string
+    name: title
+    label: Title
+  - type: string
+    name: subtitle
+    label: Subtitle
+  - type: markdown
+    name: text
+    label: Text

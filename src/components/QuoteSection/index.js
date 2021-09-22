@@ -3,59 +3,15 @@ import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 
 export default function QuoteSection(props) {
+    const colors = props.colors || 'colors-a';
     const width = props.width || 'wide';
-    switch (width) {
-        case 'wide':
-            return quoteSectionWide(props);
-        case 'full':
-            return quoteSectionFull(props);
-    }
-    return null;
-}
+    const height = props.height || 'tall';
+    const topGap = props.topGap || 'medium';
+    const bottomGap = props.bottomGap || 'medium';
+    const contentWidth = props.contentWidth || 'large';
+    const contentAlignHoriz = props.contentAlignHoriz || 'left';
+    const contentAlignVert = props.contentAlignVert || 'middle';
 
-function quoteSectionWide(props) {
-    const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
-    return (
-        <div id={props.elementId} className="component component-section component-quote-section px-4 sm:px-6" data-sb-field-path={props.annotationPrefix}>
-            <div
-                className={classNames(
-                    colors,
-                    'max-w-screen-xl',
-                    'mx-auto',
-                    'px-4',
-                    'relative',
-                    'sm:px-6',
-                    height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
-                    {
-                        'min-h-screen flex flex-col justify-center': height === 'viewport',
-                        'mt-10': topGap === 'small',
-                        'mt-20': topGap === 'large',
-                        'mb-10': bottomGap === 'small',
-                        'mb-20': bottomGap === 'large'
-                    }
-                )}
-            >
-                {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
-                <div
-                    className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', {
-                        'w-full': height === 'viewport'
-                    })}
-                >
-                    {quoteContent(props)}
-                </div>
-            </div>
-        </div>
-    );
-}
-
-function quoteSectionFull(props) {
-    const colors = props.colors || 'colors-a';
-    const height = props.height || 'short';
-    const topGap = props.topGap || 'small';
-    const bottomGap = props.bottomGap || 'small';
     return (
         <div
             id={props.elementId}
@@ -63,28 +19,60 @@ function quoteSectionFull(props) {
                 'component',
                 'component-section',
                 'component-quote-section',
-                colors,
+                width === 'full' ? colors : '',
                 'px-4',
-                'relative',
                 'sm:px-6',
-                height === 'tall' ? 'py-40 lg:py-60' : 'py-14 lg:py-20',
+                'relative',
                 {
-                    'min-h-screen flex flex-col justify-center': height === 'viewport',
-                    'mt-10': topGap === 'small',
-                    'mt-20': topGap === 'large',
-                    'mb-10': bottomGap === 'small',
-                    'mb-20': bottomGap === 'large'
+                    'mt-4 sm:mt-6': topGap === 'small',
+                    'mt-6 sm:mt-10': topGap === 'medium',
+                    'mt-10 sm:mt-16': topGap === 'large',
+                    'mb-4 sm:mb-6': bottomGap === 'small',
+                    'mb-6 sm:mb-10': bottomGap === 'medium',
+                    'mb-10 sm:mb-16': bottomGap === 'large'
                 }
             )}
             data-sb-field-path={props.annotationPrefix}
         >
-            {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
+            {(width === 'full') && props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
             <div
-                className={classNames('mx-auto', 'relative', 'sm:max-w-screen-sm', 'md:max-w-screen-md', 'lg:max-w-screen-lg', 'xl:max-w-screen-xl', {
-                    'w-full': height === 'viewport'
-                })}
+                className={classNames(
+                    width === 'wide' ? colors : '',
+                    'flex',
+                    'flex-col',
+                    'max-w-screen-2xl',
+                    'mx-auto',
+                    'px-4',
+                    'sm:px-8',
+                    'md:px-12',
+                    'lg:px-16',
+                    'py-10',
+                    'md:py-20',
+                    'relative',
+                    {
+                        'min-h-2/3-screen': height === 'tall',
+                        'min-h-screen': height === 'viewport',
+                        'justify-center': contentAlignVert === 'middle',
+                        'justify-end': contentAlignVert === 'bottom'
+                    }
+                )}
             >
-                {quoteContent(props)}
+                {(width === 'wide') && props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
+                <div
+                    className={classNames(
+                        'relative',
+                        'w-full',
+                        {
+                            'max-w-3xl': contentWidth === 'small',
+                            'max-w-5xl': contentWidth === 'medium',
+                            'max-w-7xl': contentWidth === 'large',
+                            'mx-auto': contentAlignHoriz === 'center',
+                            'ml-auto': contentAlignHoriz === 'right'
+                        }
+                    )}
+                >
+                    {quoteContent(props)}
+                </div>
             </div>
         </div>
     );
@@ -95,7 +83,7 @@ function quoteBackgroundImage(image) {
     if (!imageUrl) {
         return null;
     }
-    const imageOpacity = (image.opacity || 1) * 0.01;
+    const imageOpacity = (image.opacity || 100) * 0.01;
 
     return (
         <span
@@ -111,12 +99,12 @@ function quoteBackgroundImage(image) {
 }
 
 function quoteContent(props) {
-    const alignHoriz = props.alignHoriz || 'left';
+    const textAlign = props.textAlign || 'left';
     return (
         <blockquote
             className={classNames({
-                'text-center': alignHoriz === 'center',
-                'text-right': alignHoriz === 'right'
+                'text-center': textAlign === 'center',
+                'text-right': textAlign === 'right'
             })}
         >
             {props.quote && (

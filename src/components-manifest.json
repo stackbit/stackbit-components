@@ -1,145 +1,126 @@
 {
     "Action": {
         "path": "components/Action",
-        "className": "Action",
-        "modelName": "button",
+        "modelName": null,
         "isDynamic": false
     },
     "Badge": {
         "path": "components/Badge",
-        "className": "Badge",
-        "modelName": "badge",
+        "modelName": "Badge",
         "isDynamic": false
     },
     "CheckboxFormControl": {
         "path": "components/CheckboxFormControl",
-        "className": "CheckboxFormControl",
         "modelName": "CheckboxFormControl",
         "isDynamic": true
     },
     "ContactSection": {
         "path": "components/ContactSection",
-        "className": "ContactSection",
         "modelName": "ContactSection",
-        "isDynamic": true
-    },
-    "ContentSection": {
-        "path": "components/ContentSection",
-        "className": "ContentSection",
-        "modelName": "ContentSection",
         "isDynamic": true
     },
     "CtaSection": {
         "path": "components/CtaSection",
-        "className": "CtaSection",
         "modelName": "CtaSection",
         "isDynamic": true
     },
     "EmailFormControl": {
         "path": "components/EmailFormControl",
-        "className": "EmailFormControl",
         "modelName": "EmailFormControl",
         "isDynamic": true
     },
     "FeaturedPeopleSection": {
         "path": "components/FeaturedPeopleSection",
-        "className": "FeaturedPeopleSection",
         "modelName": "FeaturedPeopleSection",
         "isDynamic": true
     },
     "FeaturedPostsSection": {
         "path": "components/FeaturedPostsSection",
-        "className": "FeaturedPostsSection",
         "modelName": "FeaturedPostsSection",
         "isDynamic": true
     },
     "Footer": {
         "path": "components/Footer",
-        "className": "Footer",
         "modelName": "Footer",
         "isDynamic": false
     },
     "FormBlock": {
         "path": "components/FormBlock",
-        "className": "FormBlock",
         "modelName": "FormBlock",
         "isDynamic": true
     },
     "HeroSection": {
         "path": "components/HeroSection",
-        "className": "HeroSection",
         "modelName": "HeroSection",
         "isDynamic": true
     },
     "ImageBlock": {
         "path": "components/ImageBlock",
-        "className": "ImageBlock",
         "modelName": "ImageBlock",
         "isDynamic": true
     },
     "InlineMarkdown": {
         "path": "components/InlineMarkdown",
-        "className": "InlineMarkdown",
-        "modelName": "InlineMarkdown",
+        "modelName": null,
         "isDynamic": false
     },
     "NavBar": {
         "path": "components/NavBar",
-        "className": "NavBar",
         "modelName": "NavBar",
         "isDynamic": false
     },
     "QuoteSection": {
         "path": "components/QuoteSection",
-        "className": "QuoteSection",
         "modelName": "QuoteSection",
         "isDynamic": true
     },
     "SelectFormControl": {
         "path": "components/SelectFormControl",
-        "className": "SelectFormControl",
         "modelName": "SelectFormControl",
         "isDynamic": true
     },
+    "Social": {
+        "path": "components/Social",
+        "modelName": "Social",
+        "isDynamic": false
+    },
     "TestimonialsSection": {
         "path": "components/TestimonialsSection",
-        "className": "TestimonialsSection",
         "modelName": "TestimonialsSection",
-        "isDynamic": true
-    },
-    "TextFormControl": {
-        "path": "components/TextFormControl",
-        "className": "TextFormControl",
-        "modelName": "TextFormControl",
         "isDynamic": true
     },
     "TextareaFormControl": {
         "path": "components/TextareaFormControl",
-        "className": "TextareaFormControl",
         "modelName": "TextareaFormControl",
+        "isDynamic": true
+    },
+    "TextFormControl": {
+        "path": "components/TextFormControl",
+        "modelName": "TextFormControl",
+        "isDynamic": true
+    },
+    "TextSection": {
+        "path": "components/TextSection",
+        "modelName": "TextSection",
         "isDynamic": true
     },
     "VideoBlock": {
         "path": "components/VideoBlock",
-        "className": "VideoBlock",
         "modelName": "VideoBlock",
         "isDynamic": true
     },
     "FeatureSection": {
       "path": "components/FeatureSection",
-      "className": "FeatureSection",
       "modelName": "FeatureSection",
       "isDynamic": true
     },
     "AdvancedLayout": {
         "path": "layouts/AdvancedLayout",
-        "className": "AdvancedLayout",
         "modelName": "AdvancedLayout",
         "isDynamic": true
     },
     "PostLayout": {
       "path": "layouts/PostLayout",
-      "className": "PostLayout",
       "modelName": "PostLayout",
       "isDynamic": true
   }

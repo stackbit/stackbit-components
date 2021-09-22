@@ -1,19 +1,24 @@
 type: object
 name: FeaturedPeopleSection
 label: Featured people section
+variantField: variant
 extends:
   - Section
 fields:
   - type: enum
     name: variant
     label: Arrangement
+    controlType: thumbnails
     options:
       - label: Four columns, person info with image at the top
         value: variant-a
+        thumbnail: './images/placeholder.png'
       - label: Two columns, person info with image on the left
         value: variant-b
+        thumbnail: './images/placeholder.png'
       - label: Two columns, person info with image at the top
         value: variant-c
+        thumbnail: './images/placeholder.png'
     default: variant-a
   - type: model
     name: badge

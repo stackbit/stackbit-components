@@ -1,17 +1,21 @@
 type: object
 name: CtaSection
 label: CTA section
+variantField: variant
 extends:
   - Section
 fields:
   - type: enum
     name: variant
     label: Arrangement
+    controlType: thumbnails
     options:
       - label: CTA with buttons at the bottom
         value: variant-a
+        thumbnail: './images/placeholder.png'
       - label: CTA with buttons on the right
         value: variant-b
+        thumbnail: './images/placeholder.png'
     default: variant-a
   - type: model
     name: badge

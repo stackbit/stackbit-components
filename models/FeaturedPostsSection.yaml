@@ -1,17 +1,21 @@
 type: object
 name: FeaturedPostsSection
 label: Featured posts section
+variantField: variant
 extends:
   - Section
 fields:
   - type: enum
     name: variant
     label: Arrangement
+    controlType: thumbnails
     options:
       - label: Three columns, post thumbnail at the top
         value: variant-a
+        thumbnail: './images/placeholder.png'
       - label: Two columns, post thumbnail on the left
         value: variant-b
+        thumbnail: './images/placeholder.png'
     default: variant-a
   - type: model
     name: badge

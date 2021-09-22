@@ -1,17 +1,21 @@
 type: object
 name: TestimonialsSection
 label: Testimonials section
+variantField: variant
 extends:
   - Section
 fields:
   - type: enum
     name: variant
     label: Arrangement
+    controlType: thumbnails
     options:
       - label: Testimonial with author image at the bottom
         value: variant-a
+        thumbnail: './images/placeholder.png'
       - label: Testimonial with author image on the left
         value: variant-b
+        thumbnail: './images/placeholder.png'
     default: variant-a
   - type: model
     name: badge

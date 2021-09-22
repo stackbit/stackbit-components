@@ -8,13 +8,13 @@ const componentsManifest = require('../src/components-manifest.json');
 
 console.log('Building components library');
 
-function runBabel() {
+function runBabel(inputDir='src', outputDir='dist') {
     console.log('running babel...');
-    const babelBin = path.join(__dirname, '../node_modules/.bin/babel');
-    const babelConfig = path.join(__dirname, '../babel.dist.config.json');
-    const inputDir = path.join(__dirname, '../src');
-    const outputDir = path.join(__dirname, '../dist');
-    const babelResult = childProcess.spawnSync(babelBin, ['--config-file', babelConfig, '--out-dir', outputDir, inputDir]);
+    const babelBin = path.resolve(__dirname, '../node_modules/.bin/babel');
+    const babelConfig = path.resolve(__dirname, '../babel.dist.config.json');
+    const inputDirPath = path.resolve(__dirname, '../', inputDir);
+    const outputDirPath = path.resolve(__dirname, '../', outputDir);
+    const babelResult = childProcess.spawnSync(babelBin, ['--config-file', babelConfig, '--out-dir', outputDirPath, inputDirPath]);
     if (babelResult.status === 0) {
         console.log(String(babelResult.stdout));
     } else {
@@ -33,10 +33,10 @@ runBabel();
 if (process.env.SOURCEMAP_COMMAND) {
     console.log('running sourcemap generation...');
     const cmdParts = process.env.SOURCEMAP_COMMAND.split(' ');
-    const tempSrcDir = path.resolve('src');
+    const srcDirPath = path.resolve(__dirname, '../src');
     const sourcemapResult = childProcess.spawnSync(
         cmdParts[0],
-        [cmdParts.slice(1).join(' ') + ` ${tempSrcDir} ${tempSrcDir} node_modules/@stackbit/components`],
+        [cmdParts.slice(1).join(' ') + ` ${srcDirPath} ${srcDirPath} node_modules/@stackbit/components`],
         {
             shell: true
         }
@@ -46,7 +46,8 @@ if (process.env.SOURCEMAP_COMMAND) {
     runBabel('src', 'temp-dist');
     // apply using: patch -p1 -i sourcemap.patch
     childProcess.spawnSync('diff', ['-rc', 'dist temp-dist > dist/sourcemap.patch'], {
-        shell: true
+        shell: true, 
+        cwd: path.resolve(__dirname, '../')
     });
     childProcess.spawnSync('git', ['checkout', '--', 'src']);
     fse.rmdirSync('temp-dist', { recursive: true });

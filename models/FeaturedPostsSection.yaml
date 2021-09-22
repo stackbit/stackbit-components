@@ -12,10 +12,10 @@ fields:
     options:
       - label: Three columns, post thumbnail at the top
         value: variant-a
-        thumbnail: './images/placeholder.png'
+        thumbnail: './images/FeaturedPostsSection/Three Cols, Post Content Below Image.png'
       - label: Two columns, post thumbnail on the left
         value: variant-b
-        thumbnail: './images/placeholder.png'
+        thumbnail: './images/FeaturedPostsSection/Two Cols, Post Content to the Right of the Image.png'
     default: variant-a
   - type: model
     name: badge

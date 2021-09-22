@@ -38,7 +38,7 @@ export default class FormBlock extends React.Component {
             })
             .catch(() => {
                 this.setState({
-                    error: 'Server error of handling form submission'
+                    error: true
                 });
             });
     }
@@ -89,8 +89,8 @@ export default class FormBlock extends React.Component {
                     <button type="submit" className="sb-btn sb-btn-primary" data-sb-field-path=".submitLabel">
                         {submitLabel}
                     </button>
-                    {this.state.submitted && <span className="ml-8">Form successfully submitted</span>}
-                    {this.state.error && <span className="ml-8 text-info">Server error of handling form submission</span>}
+                    {this.state.submitted && <span className="ml-8">Thank you, your message was sent.</span>}
+                    {this.state.error && <span className="ml-8 text-info">Something went wrong, please try again.</span>}
                 </div>
             </form>
         );

@@ -12,6 +12,7 @@ import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
 import NavBar from './NavBar';
 import QuoteSection from './QuoteSection';
+import Social from './Social';
 import SelectFormControl from './SelectFormControl';
 import TestimonialsSection from './TestimonialsSection';
 import TextareaFormControl from './TextareaFormControl';
@@ -34,6 +35,7 @@ export {
     ImageBlock,
     NavBar,
     QuoteSection,
+    Social,
     SelectFormControl,
     TestimonialsSection,
     TextareaFormControl,

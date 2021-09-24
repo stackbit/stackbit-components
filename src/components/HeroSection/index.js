@@ -220,7 +220,7 @@ function heroBody(props) {
                 'text-right': textAlign === 'right'
             })}
         >
-            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
+            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
                 <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>

@@ -96,7 +96,7 @@ function featuredPostsHeader(props) {
                 'ml-auto text-right': textAlign === 'right'
             })}
         >
-            {props.badge && <Badge {...props.badge} className="inline-block inline-block mb-4 text-xs" data-sb-field-path=".badge" />}
+            {props.badge && <Badge {...props.badge} className="inline-block inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
                 <h2 className="text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>

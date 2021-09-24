@@ -6,7 +6,7 @@ module.exports = {
     purge: {
         enabled: false,
         content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/@stackbit/components/{base,layouts,components}/**/*.{js,ts,jsx,tsx}'],
-        safelist: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f']
+        safelist: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i']
     },
     darkMode: false,
     theme: {
@@ -15,8 +15,8 @@ module.exports = {
                 primary: '#28aaff',
                 secondary: '#dfe3e7',
                 base: '#282f36',
-                'complimentary-1': '#e9f6ff',
-                'complimentary-2': '#fffde2',
+                'complementary-1': '#e9f6ff',
+                'complementary-2': '#fffde2',
                 info: '#ffa928'
             },
             fontFamily: {

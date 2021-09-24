@@ -109,11 +109,6 @@
         "modelName": "VideoBlock",
         "isDynamic": true
     },
-    "FeatureSection": {
-      "path": "components/FeatureSection",
-      "modelName": "FeatureSection",
-      "isDynamic": true
-    },
     "AdvancedLayout": {
         "path": "layouts/AdvancedLayout",
         "modelName": "AdvancedLayout",

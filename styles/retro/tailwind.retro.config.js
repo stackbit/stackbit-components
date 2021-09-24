@@ -5,7 +5,7 @@ module.exports = {
     purge: {
         enabled: false,
         content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/@stackbit/components/{base,layouts,components}/**/*.{js,ts,jsx,tsx}'],
-        safelist: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f']
+        safelist: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i']
     },
     darkMode: false,
     theme: {
@@ -14,8 +14,8 @@ module.exports = {
                 primary: '#512D6D',
                 secondary: '#F8485E',
                 base: '#EEEEEE',
-                'complimentary-1': '#e8f3ee',
-                'complimentary-2': '#e2e4ff',
+                'complementary-1': '#e8f3ee',
+                'complementary-2': '#e2e4ff',
                 info: '#00C1D4'
             },
             fontFamily: {
@@ -26,6 +26,9 @@ module.exports = {
                 '1/3': '33.333%',
                 '1/2': '50%',
                 '2/3': '66.667%'
+            },
+            minHeight: {
+                '2/3-screen': '66vh',
             }
         }
     },

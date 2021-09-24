@@ -211,7 +211,7 @@
         }
     }
     .colors-h {
-        @apply bg-complimentary-1 text-base;
+        @apply bg-complementary-1 text-base;
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -231,7 +231,7 @@
         }
     }
     .colors-i {
-        @apply bg-complimentary-2 text-base;
+        @apply bg-complementary-2 text-base;
         .sb-input,
         .sb-select,
         .sb-textarea {

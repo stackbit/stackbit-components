@@ -59,7 +59,7 @@ export default function Footer(props) {
                     <div className="sm:flex sm:justify-between sm:items-end">
                         {primaryLinks.length > 0 && (
                             <div className="mb-6">
-                                <ul className="mb-6 space-y-6 text-lg" data-sb-field-path=".primaryLinks">
+                                <ul className="flex flex-col items-start mb-6 space-y-6 text-lg" data-sb-field-path=".primaryLinks">
                                     {primaryLinks.map((link, index) => (
                                         <li key={index} data-sb-field-path={`.${index}`}>
                                             <Action {...link} />

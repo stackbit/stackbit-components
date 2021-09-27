@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 
 export default function InlineMarkdown(props) {

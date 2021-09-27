@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import classNames from 'classnames';
 import Link from '../../utils/link';
 import ArrowLeft from '../../svgs/arrow-left';
@@ -31,8 +31,9 @@ export default function Action(props) {
         `${annotationPrefix}`,
         `${annotationPrefix}.url#@href`,
         `${annotationPrefix}.altText#@aria-label`,
-        `${annotationPrefix}.label${(showIcon && IconComponent) ? '#text()[1]' : ''}`,
-        (showIcon && IconComponent) ? `${annotationPrefix}.icon#svg[1]` : ''
+        `${annotationPrefix}.elementId#@id`,
+        `${annotationPrefix}.label#span[1]`,
+        `${annotationPrefix}.icon#svg[1]`
     ];
     const defaultStyle = type === 'Link' ? 'link' : 'secondary';
     const style = props.style || defaultStyle;
@@ -50,7 +51,7 @@ export default function Action(props) {
             })}
             data-sb-field-path={annotations.join(' ').trim()}
         >
-            {label}
+            {label && <span>{label}</span>}
             {showIcon && IconComponent && (
                 <IconComponent
                     className={classNames('fill-current h-5 w-5', {

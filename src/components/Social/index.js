@@ -24,8 +24,9 @@ export default function Social(props) {
         `${annotationPrefix}`,
         `${annotationPrefix}.url#@href`,
         `${annotationPrefix}.altText#@aria-label`,
-        `${annotationPrefix}.label${(showIcon && IconComponent) ? '#text()[1]' : ''}`,
-        (showIcon && IconComponent) ? `${annotationPrefix}.icon#svg[1]` : ''
+        `${annotationPrefix}.elementId#@id`,
+        `${annotationPrefix}.label#span[1]`,
+        `${annotationPrefix}.icon#svg[1]`
     ];
     const style = props.style || 'link';
     const cssClasses = props.className || null;
@@ -42,7 +43,7 @@ export default function Social(props) {
             })}
             data-sb-field-path={annotations.join(' ').trim()}
         >
-            {label}
+            {label && <span>{label}</span>}
             {showIcon && IconComponent && (
                 <IconComponent className={classNames('fill-current h-5 w-5', label ? 'mr-1.5 order-first' : '')} />
             )}

@@ -2,24 +2,24 @@ import React from 'react';
 import classNames from 'classnames';
 
 export default function VideoBlock(props) {
-    const videoUrl = props.videoUrl;
-    const classes = props.className || null;
-
+    const { videoUrl, posterUrl, autoplay, loop, muted, controls } = props;
     if (!videoUrl) {
         return null;
     }
+    const cssClasses = props.className || null;
+    const cssId = props.elementId || null;
 
     return (
         <video
-            id={props.elementId}
-            {...(props.autoplay && { autoPlay: true })}
-            {...(props.loop && { loop: true })}
-            {...(props.muted && { muted: true })}
-            {...(props.controls && { controls: true })}
+            id={cssId}
+            {...(autoplay && { autoPlay: true })}
+            {...(loop && { loop: true })}
+            {...(muted && { muted: true })}
+            {...(controls && { controls: true })}
             playsInline
-            poster={props.posterUrl}
-            className={classNames('component', 'component-block', 'component-video-block', classes)}
-            data-sb-field-path=".posterUrl#@poster"
+            poster={posterUrl}
+            className={classNames('component', 'component-block', 'component-video-block', cssClasses)}
+            data-sb-field-path=".elementId#@id .posterUrl#@poster"
         >
             <source src={videoUrl} type="video/mp4" data-sb-field-path=".videoUrl" />
         </video>

@@ -1,4 +1,4 @@
-import AdvancedLayout from './AdvancedLayout';
+import PageLayout from './PageLayout';
 import PostLayout from './PostLayout';
 
-export { AdvancedLayout, PostLayout };
+export { PageLayout, PostLayout };

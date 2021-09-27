@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import { getDynamicComponent } from '../../components-registry';
@@ -15,7 +15,7 @@ export default function ContactSection(props) {
     const contentWidth = props.contentWidth || 'large';
     const contentAlignHoriz = props.contentAlignHoriz || 'left';
     const contentAlignVert = props.contentAlignVert || 'middle';
-    
+
     return (
         <div
             id={props.elementId}

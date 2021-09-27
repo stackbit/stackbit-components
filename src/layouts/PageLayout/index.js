@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 import { getDynamicComponent } from '../../components-registry';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
 

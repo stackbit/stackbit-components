@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 // Simulate next/link behavior
 export default function Link(props) {

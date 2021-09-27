@@ -8,7 +8,7 @@ export const parameters = {
         storySort: {
             order: [
                 'Layouts',
-                ['AdvancedLayout', 'PostLayout'],
+                ['PageLayout', 'PostLayout'],
                 'Components',
                 [
                     'NavBar',

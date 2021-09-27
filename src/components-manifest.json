@@ -109,9 +109,9 @@
         "modelName": "VideoBlock",
         "isDynamic": true
     },
-    "AdvancedLayout": {
-        "path": "layouts/AdvancedLayout",
-        "modelName": "AdvancedLayout",
+    "PageLayout": {
+        "path": "layouts/PageLayout",
+        "modelName": "PageLayout",
         "isDynamic": true
     },
     "PostLayout": {

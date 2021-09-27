@@ -2,7 +2,7 @@ import React from 'react';
 import { getDynamicComponent } from '../../components-registry';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
 
-export default function AdvancedLayout(props) {
+export default function PageLayout(props) {
     const { page, site } = props;
     const BaseLayout = getBaseLayoutComponent(page.baseLayout, site.baseLayout);
     const sections = page.sections || [];
@@ -10,7 +10,7 @@ export default function AdvancedLayout(props) {
     return (
         <>
             <BaseLayout page={page} site={site}>
-                <div className="layout advanced-layout">
+                <div className="layout page-layout">
                     {page.title && (
                         <h1 className="sr-only" data-sb-field-path="title">
                             {page.title}

@@ -11,11 +11,11 @@ import * as QuoteSectionStories from '../../components/QuoteSection/quote-sectio
 import * as TestimonialsSectionStories from '../../components/TestimonialsSection/testimonials-section.stories';
 import * as TextSectionStories from '../../components/TextSection/text-section.stories';
 
-import AdvancedLayout from './index';
+import PageLayout from './index';
 
 export default {
-    title: 'Layouts/AdvancedLayout',
-    component: AdvancedLayout,
+    title: 'Layouts/PageLayout',
+    component: PageLayout,
     parameters: {
         StackbitFrontmatter: {
             root: 'page'
@@ -26,14 +26,14 @@ export default {
     }
 };
 
-const Template = (args) => <AdvancedLayout {...args} />;
+const Template = (args) => <PageLayout {...args} />;
 
 export const Primary = Template.bind({});
 Primary.storyName = 'Layout';
 Primary.args = {
     page: {
         title: 'Example Page',
-        layout: 'AdvancedLayout',
+        layout: 'PageLayout',
         sections: [
             ContactSectionStories.Primary.args,
             CtaSectionStories.Primary.args,

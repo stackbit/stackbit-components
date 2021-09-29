@@ -3,6 +3,8 @@ name: TextSection
 label: Text section
 extends:
   - Section
+groups:
+  - sectionComponent
 fields:
   - type: model
     name: badge

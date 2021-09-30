@@ -3,6 +3,8 @@ name: QuoteSection
 label: Quote section
 extends:
   - Section
+groups:
+  - sectionComponent
 fields:
   - type: markdown
     name: quote

@@ -4,6 +4,8 @@ label: Featured posts section
 variantField: variant
 extends:
   - Section
+groups:
+  - sectionComponent
 fields:
   - type: enum
     name: variant

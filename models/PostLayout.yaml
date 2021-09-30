@@ -21,26 +21,12 @@ fields:
     label: Top sections
     items:
       type: model
-      models:
-        - ContactSection
-        - CtaSection
-        - FeaturedPeopleSection
-        - FeaturedPostsSection
-        - HeroSection
-        - QuoteSection
-        - TestimonialsSection
-        - TextSection
+      groups:
+        - sectionComponent
   - type: list
     name: bottomSections
     label: Bottom sections
     items:
       type: model
-      models:
-        - ContactSection
-        - CtaSection
-        - FeaturedPeopleSection
-        - FeaturedPostsSection
-        - HeroSection
-        - QuoteSection
-        - TestimonialsSection
-        - TextSection
+      groups:
+        - sectionComponent

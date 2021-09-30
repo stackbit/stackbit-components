@@ -12,12 +12,5 @@ fields:
     label: Sections
     items:
       type: model
-      models:
-        - ContactSection
-        - CtaSection
-        - FeaturedPeopleSection
-        - FeaturedPostsSection
-        - HeroSection
-        - QuoteSection
-        - TestimonialsSection
-        - TextSection
+      groups:
+        - sectionComponent

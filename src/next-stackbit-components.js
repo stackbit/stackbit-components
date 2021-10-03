@@ -35,6 +35,7 @@ function copyComponentsJson(pluginOptions) {
         dynamic: Object.assign({}, defaultComponentMap.dynamic, existingData.dynamic)
     };
     fse.writeJsonSync(targetFilePath, newData, { spaces: 4 });
+    fse.chmodSync(targetFilePath, 0o755);
 }
 
 function generateDynamicComponents(pluginOptions) {

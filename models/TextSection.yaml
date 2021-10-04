@@ -20,3 +20,22 @@ fields:
   - type: markdown
     name: text
     label: Text
+default:
+  title: The Section Title
+  subtitle: The section subtitle
+  text: >-
+    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+    doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo
+    inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium
+    doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo
+    inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+  colors: colors-f
+  width: wide
+  height: tall
+  contentWidth: small
+  contentAlignHoriz: center
+  contentAlignVert: middle
+  bottomGap: none
+  topGap: none
+  textAlign: center

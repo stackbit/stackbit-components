@@ -94,7 +94,7 @@ function testimonialsHeader(props) {
         >
             {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
-                <h2 className="text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
+                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
             )}

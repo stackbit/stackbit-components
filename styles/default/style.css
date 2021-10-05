@@ -43,7 +43,7 @@
     .sb-divider {
         @apply flex items-center h-4 before:flex-grow before:h-px;
     }
-    .sb-highlight {
+    .component-section-title strong {
         @apply text-info;
     }
     .sb-form-control {

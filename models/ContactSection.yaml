@@ -7,6 +7,24 @@ extends:
 groups:
   - sectionComponent
 fields:
+  - name: colors
+    default: colors-h
+  - name: width
+    default: wide
+  - name: height
+    default: tall
+  - name: contentWidth
+    default: large
+  - name: contentAlignHoriz
+    default: center
+  - name: contentAlignVert
+    default: middle
+  - name: topGap
+    default: none
+  - name: bottomGap
+    default: none
+  - name: textAlign
+    default: left
   - type: enum
     name: variant
     label: Arrangement
@@ -18,7 +36,7 @@ fields:
       - label: Contact form with feature on the right
         value: variant-b
         thumbnail: './images/ContactSection/Contact Section With Right Image.png'
-    default: variant-a
+    default: variant-b
   - type: model
     name: badge
     label: Badge
@@ -35,52 +53,42 @@ fields:
     label: Form
     models:
       - FormBlock
+    default:
+      type: FormBlock
+      idAttr: contact-form
+      action: /.netlify/functions/submission_created
+      destination: ''
+      fields:
+        - type: TextFormControl
+          name: name
+          label: Name
+          placeholder: Your name
+          isRequired: true
+          width: 1/2
+        - type: EmailFormControl
+          name: email
+          label: Email
+          placeholder: Your email
+          isRequired: true
+          width: 1/2
+        - type: TextFormControl
+          name: home-address
+          label: Home address
+          placeholder: Your home address
+          isRequired: true
+          width: full
+        - type: CheckboxFormControl
+          name: updates
+          label: Sign me up to receive updates
+          width: full
+      submitLabel: Send Message
   - type: model
     name: feature
     label: Feature
     models:
       - ImageBlock
       - VideoBlock
-default:
-  variant: variant-b
-  colors: colors-h
-  width: wide
-  height: tall
-  textAlign: left
-  title: Contact us
-  text: Fill out the form below and we will get in touch within 1 business day.
-  bottomGap: none
-  topGap: none
-  form:
-    type: FormBlock
-    idAttr: contact-form
-    destination: ''
-    action: /.netlify/functions/submission_created
-    fields:
-      - type: TextFormControl
-        name: name
-        label: Name
-        placeholder: Your name
-        isRequired: true
-        width: 1/2
-      - type: EmailFormControl
-        name: email
-        label: Email
-        placeholder: Your email
-        isRequired: true
-        width: 1/2
-      - type: TextFormControl
-        name: home-address
-        label: Home address
-        placeholder: Your home address
-        isRequired: true
-        width: full
-      - type: CheckboxFormControl
-        name: updates
-        label: Sign me up to receive updates
-        width: full
-    submitLabel: Send Message
-  feature:
-    type: ImageBlock
-    url: /images/contact.png
-    altText: Contact form image
+    default:
+      type: ImageBlock
+      url: /images/contact.png
+      altText: Contact form image

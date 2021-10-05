@@ -8,9 +8,11 @@ fields:
   - type: string
     name: label
     label: Label
+    default: Description
   - type: string
     name: placeholder
     label: Placeholder text
+    default: Please describe
   - type: boolean
     name: isRequired
     label: Is the field required?

@@ -5,9 +5,11 @@ fields:
   - type: string
     name: name
     label: Name
+    default: 'Checkbox'
   - type: string
     name: label
     label: Label
+    default: 'Sign me up to receive updates'
   - type: boolean
     name: isRequired
     label: Is the field required?

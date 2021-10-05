@@ -8,9 +8,11 @@ fields:
   - type: string
     name: label
     label: Label
+    default: Home address
   - type: string
     name: placeholder
     label: Placeholder text
+    default: Your home address
   - type: boolean
     name: isRequired
     label: Is the field required?

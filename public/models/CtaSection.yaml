@@ -4,6 +4,8 @@ label: CTA section
 variantField: variant
 extends:
   - Section
+groups:
+  - sectionComponent
 fields:
   - type: enum
     name: variant
@@ -16,7 +18,7 @@ fields:
       - label: CTA with buttons on the right
         value: variant-b
         thumbnail: './images/CtaSection/CTA Section With Buttons on the Right.png'
-    default: variant-a
+    default: variant-b
   - type: model
     name: badge
     label: Badge
@@ -25,9 +27,11 @@ fields:
   - type: string
     name: title
     label: Title
+    default: "Let's do this"
   - type: markdown
     name: text
     label: Text
+    default: "The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen."
   - type: list
     name: actions
     label: Actions
@@ -36,6 +40,11 @@ fields:
       models:
         - Button
         - Link
+    default:
+      - type: Button
+        label: Try it now
+        url: '/about'
+        style: primary
   - type: model
     name: backgroundImage
     label: Background image

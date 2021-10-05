@@ -8,18 +8,25 @@ fields:
   - type: string
     name: firstName
     label: First name
+    default: Johnna
   - type: string
     name: lastName
     label: Last name
+    default: Doe
   - type: string
     name: role
     label: Role
+    default: Product Marketing Manager
   - type: markdown
     name: bio
     label: Bio
+    default: With over 10 years in both public and private sectors, Johnna has experience in management consultation, team building, professional development, strategic implementation, and company collaboration.
   - type: model
     name: image
     label: Image
     models: [ImageBlock]
+    default:
+      url: /images/dianne-ameter.jpg
+      altText: Product Marketing Manager
   - type: string
     name: elementId

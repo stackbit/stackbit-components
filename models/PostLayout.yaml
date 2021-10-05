@@ -6,16 +6,23 @@ fields:
   - type: string
     name: title
     label: Title
+    default: Post Title
   - type: date
     name: date
     label: Date
   - type: string
     name: excerpt
     label: Excerpt
+    default: This is the excerpt of your blog post visible in the post feed or featured posts.
   - type: model
     name: thumbImage
     label: Thumbnail image
-    models: [ImageBlock]
+    models:
+      - ImageBlock
+    default:
+      type: ImageBlock
+      url: /images/post-1.jpeg
+      altText: Post thumbnail image
   - type: list
     name: topSections
     label: Top sections
@@ -30,9 +37,3 @@ fields:
       type: model
       groups:
         - sectionComponent
-default:
-  title: Post Title 1
-  excerpt: This is the first paragraph of your blog post. 
-  thumbImage:
-    url: /images/post-1.jpeg
-    altText: Post 1 thumbnail image

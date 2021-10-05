@@ -14,13 +14,10 @@ fields:
     options:
       - label: Four columns, person info with image at the top
         value: variant-a
-        thumbnail: './images/FeaturedPeopleSection/Four Cols, Info Under the Image.png'
       - label: Two columns, person info with image on the left
         value: variant-b
-        thumbnail: './images/FeaturedPeopleSection/Two Cols, Info to the Right of the Image.png'
       - label: Two columns, person info with image at the top
         value: variant-c
-        thumbnail: './images/FeaturedPeopleSection/Two Cols, Info Under the Image.png'
     default: variant-a
   - type: model
     name: badge

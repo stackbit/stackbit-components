@@ -32,16 +32,12 @@ fields:
     options:
       - label: Hero with feature on the right
         value: variant-a
-        thumbnail: './images/HeroSection/Hero Section With Form on the Right.png'
       - label: Hero with feature on the left
         value: variant-b
-        thumbnail: './images/HeroSection/Hero Section With Image on the Right.png'
       - label: Hero with feature at the top
         value: variant-c
-        thumbnail: './images/HeroSection/Hero Section With Image at the Bottom.png'
       - label: Hero with feature at the bottom
         value: variant-d
-        thumbnail: './images/HeroSection/Hero Section With Form at the Bottom.png'
     default: variant-a
   - type: model
     name: badge

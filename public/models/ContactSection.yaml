@@ -32,10 +32,8 @@ fields:
     options:
       - label: Contact form with feature on the left
         value: variant-a
-        thumbnail: './images/ContactSection/Contact Section With Left Image.png'
       - label: Contact form with feature on the right
         value: variant-b
-        thumbnail: './images/ContactSection/Contact Section With Right Image.png'
     default: variant-b
   - type: model
     name: badge

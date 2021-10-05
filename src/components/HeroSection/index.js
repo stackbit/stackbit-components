@@ -222,9 +222,14 @@ function heroBody(props) {
         >
             {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
-                <h2 className="text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
+                <h2 className="component-section-title text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
                     <InlineMarkdown>{props.title}</InlineMarkdown>
                 </h2>
+            )}
+            {props.subtitle && (
+                <p className="text-2xl mb-3" data-sb-field-path=".subtitle">
+                    {props.subtitle}
+                </p>
             )}
             {props.text && (
                 <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">

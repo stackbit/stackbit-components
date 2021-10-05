@@ -10,7 +10,6 @@ fields:
   - type: enum
     name: variant
     label: Arrangement
-    controlType: thumbnails
     options:
       - label: Four columns, person info with image at the top
         value: variant-a

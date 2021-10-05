@@ -114,6 +114,8 @@ const args = {
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
     textAlign: 'left',
+    title: 'The quick, brown fox jumps over **a lazy dog**',
+    subtitle: 'Section subtitle',
     badge: {
         type: 'Badge',
         label: 'Brand new'
@@ -154,10 +156,6 @@ HeroLeftVideo.args = {
     colors: 'colors-c',
     width: 'full',
     height: 'tall',
-    badge: {
-        type: 'Badge',
-        label: 'Brand new'
-    },
     actions: [
         {
             type: 'Button',
@@ -186,11 +184,6 @@ HeroBottomImage.args = {
     width: 'full',
     contentWidth: 'small',
     textAlign: 'center',
-    badge: {
-        type: 'Badge',
-        label: 'Brand new'
-    },
-    title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
             type: 'Button',
@@ -219,7 +212,6 @@ HeroTextOnly.args = {
     contentAlignHoriz: 'left',
     contentAlignVert: 'bottom',
     badge: null,
-    title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
             type: 'Button',
@@ -256,7 +248,6 @@ HeroRightForm.args = {
     colors: 'colors-f',
     contentWidth: 'medium',
     badge: null,
-    title: 'The quick, brown fox jumps over **a lazy dog**',
     actions: [
         {
             type: 'Link',

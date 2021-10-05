@@ -7,6 +7,24 @@ extends:
 groups:
   - sectionComponent
 fields:
+  - name: colors
+    default: colors-h
+  - name: width
+    default: wide
+  - name: height
+    default: short
+  - name: contentWidth
+    default: large
+  - name: contentAlignHoriz
+    default: center
+  - name: contentAlignVert
+    default: middle
+  - name: topGap
+    default: none
+  - name: bottomGap
+    default: none
+  - name: textAlign
+    default: left
   - type: enum
     name: variant
     label: Arrangement
@@ -18,7 +36,7 @@ fields:
       - label: Testimonial with author image on the left
         value: variant-b
         thumbnail: './images/TestimonialsSection/Quote to the Right of the Image.png'
-    default: variant-a
+    default: variant-b
   - type: model
     name: badge
     label: Badge
@@ -37,3 +55,14 @@ fields:
       type: model
       models:
         - Testimonial
+    default:
+      - type: Testimonial
+        quote: >-
+          “It’s great to see someone taking action while still maintaining a
+          sustainable fish supply to home cooks.”
+        name: Johnna Doe
+        title: Product Marketing Manager at Acme
+        image:
+          type: ImageBlock
+          url: /images/dianne-ameter.jpg
+          altText: Product Marketing Manager

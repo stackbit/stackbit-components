@@ -7,6 +7,7 @@ fields:
   - type: string
     name: title
     label: Title
+    default: This is a new page
   - type: list
     name: sections
     label: Sections
@@ -14,3 +15,6 @@ fields:
       type: model
       groups:
         - sectionComponent
+    default:
+      - HeroSection
+      - CtaSection

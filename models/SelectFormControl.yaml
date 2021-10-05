@@ -8,12 +8,17 @@ fields:
   - type: string
     name: label
     label: Label
+    default: City
   - type: string
     name: defaultValue
     label: Default value
+    default: Please choose...
   - type: list
     name: options
     label: Options
+    default:
+      - New York
+      - San Francisco
   - type: boolean
     name: isRequired
     label: Is the field required?

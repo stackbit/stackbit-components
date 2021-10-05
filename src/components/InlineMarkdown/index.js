@@ -3,16 +3,21 @@ import Markdown from 'markdown-to-jsx';
 
 export default function InlineMarkdown(props) {
     return (
-        <Markdown options={{ forceInline: true, overrides }}>
+        <Markdown options={{ wrapper: React.Fragment, overrides }}>
             {props.children}
         </Markdown>
     );
 }
 
 const overrides = {
-    strong: {
+    div: {
         component: (props) => {
-            return <span className="sb-highlight">{props.children}</span>;
+            return props.children;
+        }
+    },
+    p: {
+        component: (props) => {
+            return props.children;
         }
     }
 };

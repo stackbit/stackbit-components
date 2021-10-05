@@ -28,7 +28,6 @@ fields:
   - type: enum
     name: variant
     label: Arrangement
-    controlType: thumbnails
     options:
       - label: Testimonial with author image at the bottom
         value: variant-a

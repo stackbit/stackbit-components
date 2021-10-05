@@ -28,7 +28,6 @@ fields:
   - type: enum
     name: variant
     label: Arrangement
-    controlType: thumbnails
     options:
       - label: Hero with feature on the right
         value: variant-a
@@ -48,6 +47,10 @@ fields:
     name: title
     label: Title
     default: This Is A Big Hero Headline
+  - type: string
+    name: subtitle
+    label: Subtitle
+    default: This Is Subtitle
   - type: markdown
     name: text
     label: Text

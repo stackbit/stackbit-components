@@ -28,7 +28,6 @@ fields:
   - type: enum
     name: variant
     label: Arrangement
-    controlType: thumbnails
     options:
       - label: Contact form with feature on the left
         value: variant-a

@@ -10,7 +10,6 @@ fields:
   - type: enum
     name: variant
     label: Arrangement
-    controlType: thumbnails
     options:
       - label: Three columns, post thumbnail at the top
         value: variant-a
@@ -53,4 +52,4 @@ fields:
     default:
         - content/pages/blog/post-three.md
         - content/pages/blog/post-two.md
-        - content/pages/blog/post-one.md     
+        - content/pages/blog/post-one.md

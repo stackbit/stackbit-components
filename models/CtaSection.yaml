@@ -10,7 +10,6 @@ fields:
   - type: enum
     name: variant
     label: Arrangement
-    controlType: thumbnails
     options:
       - label: CTA with buttons at the bottom
         value: variant-a

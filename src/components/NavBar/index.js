@@ -258,7 +258,7 @@ function siteLogoLink({ title, isTitleVisible, logo }) {
         <Link href="/" aria-label={title} className="inline-flex items-center" data-sb-field-path=".title#@aria-label .logo">
             {logo && <ImageBlock {...logo} className={classNames({ 'mr-2': isTitleVisible })} />}
             {isTitleVisible && (
-                <span className="text-2xl tracking-wide" data-sb-field-path="navbar.title">
+                <span className="text-2xl tracking-wide" data-sb-field-path="navBar.title">
                     {title}
                 </span>
             )}

@@ -10,7 +10,7 @@ const Template = (args) => <ImageBlock {...args} />;
 
 const args = {
     type: 'ImageBlock',
-    url: '/images/fisherman.jpg',
+    url: '/images/post-1.jpeg',
     altText: 'Image alt text',
     caption: 'Image caption',
     elementId: ''

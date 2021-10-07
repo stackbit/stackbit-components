@@ -10,10 +10,12 @@ const Template = (args) => <VideoBlock {...args} />;
 
 const args = {
     type: 'VideoBlock',
-    videoUrl: '/videos/stackbit-for-marketers.mp4',
-    posterUrl: '/images/stackbit-for-marketers.jpg',
-    controls: true,
-    elementId: ''
+    url: '/videos/stackbit-for-marketers.mp4',
+    thumbnailUrl: '/images/stackbit-for-marketers.jpeg',
+    autoplay: true,
+    loop: true,
+    muted: true,
+    controls: false
 };
 
 export const Primary = Template.bind({});

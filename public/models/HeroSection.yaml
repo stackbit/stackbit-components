@@ -90,6 +90,8 @@ fields:
       altText: Hero section image
   - type: model
     name: backgroundImage
+    group: styles
     label: Background image
     models:
       - ImageBlock
+  

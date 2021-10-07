@@ -1,14 +1,21 @@
 type: object
 name: Section
 label: Section
+fieldGroups:
+  - name: settings
+    label: Settings
+  - name: styles
+    label: Styles
 fields:
   - type: string
     name: elementId
+    group: settings
     label: Element ID
     description: The unique ID for an HTML element, must not contain whitespace
     default: ''
   - type: enum
     name: colors
+    group: styles
     label: Colors
     description: The color theme of the section
     options:
@@ -33,6 +40,7 @@ fields:
     default: colors-a
   - type: enum
     name: width
+    group: styles
     label: Width
     description: The width of the section
     options:
@@ -41,6 +49,7 @@ fields:
     default: wide
   - type: enum
     name: height
+    group: styles
     label: Height
     description: The height of the section
     options:
@@ -50,6 +59,7 @@ fields:
     default: tall
   - type: enum
     name: topGap
+    group: styles
     label: Top gap
     description: The margin area on the top of the section
     options:
@@ -60,6 +70,7 @@ fields:
     default: medium
   - type: enum
     name: bottomGap
+    group: styles
     label: Bottom gap
     description: The margin area on the bottom of the section
     options:
@@ -70,6 +81,7 @@ fields:
     default: medium
   - type: enum
     name: contentWidth
+    group: styles
     label: Content width
     description: The width of the section content
     options:
@@ -79,6 +91,7 @@ fields:
     default: large
   - type: enum
     name: contentAlignHoriz
+    group: styles
     label: Content horizontal alignment
     description: The horizontal position of the section content relative to the section container
     options:
@@ -88,6 +101,7 @@ fields:
     default: left
   - type: enum
     name: contentAlignVert
+    group: styles
     label: Content vertical alignment
     description: The vertical position of the section content relative to the section container
     options:
@@ -97,6 +111,7 @@ fields:
     default: middle
   - type: enum
     name: textAlign
+    group: styles
     label: Text alignment
     description: The horizontal alignment of the section text
     options:

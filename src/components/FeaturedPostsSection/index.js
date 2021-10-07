@@ -1,5 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
+import Markdown from 'markdown-to-jsx';
 import dayjs from 'dayjs';
 import Badge from '../Badge';
 import Action from '../Action';

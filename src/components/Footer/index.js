@@ -16,13 +16,21 @@ export default function Footer(props) {
         <footer
             className={classNames(
                 'component',
-                'component-footer',
-                width === 'full' ? colors : '',
-                'px-4',
-                'sm:px-6'
+                'component-footer'
             )}
-            data-sb-field-path={`${props.annotationPrefix}:footer`}
+            data-sb-object-id={props.annotationPrefix}
         >
+            <div
+                className={classNames(
+                    'component',
+                    'component-footer',
+                    width === 'full' ? colors : '',
+                    'px-4',
+                    'sm:px-6'
+                )}
+                data-sb-field-path="footer"
+            >
+            </div>
             <div
                 className={classNames(
                     width === 'wide' ? colors : '',
@@ -39,10 +47,10 @@ export default function Footer(props) {
                 {((props.title && props.isTitleVisible) || props.logo || props.text) && (
                     <div className="mb-12">
                         {((props.title && props.isTitleVisible) || props.logo) && (
-                            <Link href="/" aria-label={props.title} title={props.title} className="inline-block mb-4" data-sb-field-path=".title#@title .logo">
+                            <Link href="/" aria-label={props.title} className="inline-block mb-4" data-sb-field-path=".title#@aria-label .logo">
                                 {props.logo && <ImageBlock {...props.logo} className="mb-2" />}
                                 {props.isTitleVisible && (
-                                    <div className="mb-2 text-2xl tracking-wide" data-sb-field-path=".title">
+                                    <div className="mb-2 text-2xl tracking-wide" data-sb-field-path="footer.title">
                                         {props.title}
                                     </div>
                                 )}

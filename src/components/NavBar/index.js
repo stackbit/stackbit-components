@@ -15,24 +15,30 @@ export default function NavBar(props) {
         <nav
             className={classNames(
                 'component',
-                'component-nav-bar',
-                width === 'full' ? primaryColors : '',
-                'px-4',
-                'sm:px-6'
+                'component-nav-bar'
             )}
-            data-sb-field-path={`${props.annotationPrefix}:navBar`}
+            data-sb-object-id={props.annotationPrefix}
         >
             <div
                 className={classNames(
-                    width === 'wide' ? `${primaryColors} max-w-screen-2xl mx-auto px-4` : '',
-                    'py-5'
+                    width === 'full' ? primaryColors : '',
+                    'px-4',
+                    'sm:px-6'
                 )}
+                data-sb-field-path="navBar"
             >
-                <Link href="#content" className="sr-only">
-                    Skip to main content
-                </Link>
-                <div className={classNames('flex items-center', mobileNavVariant === 'variant-a' ? 'relative' : 'lg:relative')}>
-                    {desktopNavVariants(props)}
+                <div
+                    className={classNames(
+                        width === 'wide' ? `${primaryColors} max-w-screen-2xl mx-auto px-4` : '',
+                        'py-5'
+                    )}
+                >
+                    <Link href="#content" className="sr-only">
+                        Skip to main content
+                    </Link>
+                    <div className={classNames('flex items-center', mobileNavVariant === 'variant-a' ? 'relative' : 'lg:relative')}>
+                        {desktopNavVariants(props)}
+                    </div>
                 </div>
             </div>
         </nav>
@@ -117,7 +123,7 @@ function desktopNavVariantC(props) {
             <div>{siteLogoLink({ title, isTitleVisible, logo })}</div>
             {links.length > 0 && (
                 <ul className="hidden ml-auto space-x-8 lg:flex lg:items-center" data-sb-field-path=".primaryLinks .secondaryLinks">
-                    {listOfLinks(primaryLinks.concat(secondaryLinks))}
+                    {listOfLinks(links)}
                 </ul>
             )}
             {mobileNavVariants(props)}
@@ -249,10 +255,10 @@ function mobileNavVariantB(props) {
 
 function siteLogoLink({ title, isTitleVisible, logo }) {
     return (
-        <Link href="/" aria-label={title} title={title} className="inline-flex items-center" data-sb-field-path=".title#@title .logo">
+        <Link href="/" aria-label={title} className="inline-flex items-center" data-sb-field-path=".title#@aria-label .logo">
             {logo && <ImageBlock {...logo} className={classNames({ 'mr-2': isTitleVisible })} />}
             {isTitleVisible && (
-                <span className="text-2xl tracking-wide" data-sb-field-path=".title">
+                <span className="text-2xl tracking-wide" data-sb-field-path="navbar.title">
                     {title}
                 </span>
             )}

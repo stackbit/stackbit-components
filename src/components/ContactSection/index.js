@@ -4,7 +4,6 @@ import classNames from 'classnames';
 import { getDynamicComponent } from '../../components-registry';
 import Badge from '../Badge';
 import FormBlock from '../FormBlock';
-import InlineMarkdown from '../InlineMarkdown';
 
 export default function ContactSection(props) {
     const colors = props.colors || 'colors-a';
@@ -170,8 +169,8 @@ function contactContent(props) {
         >
             {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
-                <h2 className="component-section-title text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
-                    <InlineMarkdown>{props.title}</InlineMarkdown>
+                <h2 className="component-section-title text-4xl tracking-tight sm:text-5xl mb-6">
+                    <Markdown options={{ forceInline: true }} data-sb-field-path=".title">{props.title}</Markdown>
                 </h2>
             )}
             {props.text && (

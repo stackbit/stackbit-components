@@ -8,11 +8,13 @@ fields:
     description: The unique ID for an HTML element, must not contain whitespace
     default: ''
   - type: string
-    name: videoUrl
-    label: Video URL (.mp4)
+    name: url
+    label: Video
+    description: The URL of the video (.mp4)
   - type: image
-    name: posterUrl
-    label: Poster URL
+    name: thumbnailUrl
+    label: Video thumbnail
+    description: The URL of the video thumbnail
   - type: boolean
     name: autoplay
     label: Autoplay

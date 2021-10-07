@@ -9,7 +9,7 @@ fields:
     default: ''
   - type: image
     name: url
-    label: URL
+    label: Image
     description: The URL of the image
   - type: string
     name: altText
@@ -23,4 +23,9 @@ fields:
     name: opacity
     label: Opacity
     description: The opacity of the image
+    controlType: 'slider'
+    min: 0
+    max: 100
+    step: 1
+    unit: '%'
     default: 100

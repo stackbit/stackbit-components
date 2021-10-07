@@ -4,6 +4,7 @@ fields:
   - type: string
     name: id
     label: ID
+    default: johnna-doe
   - type: string
     name: firstName
     label: First name
@@ -27,5 +28,3 @@ fields:
     default:
       url: /images/dianne-ameter.jpg
       altText: Product Marketing Manager
-  - type: string
-    name: elementId

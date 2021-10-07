@@ -2,7 +2,6 @@ import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Badge from '../Badge';
-import InlineMarkdown from '../InlineMarkdown';
 
 export default function TextSection(props) {
     const colors = props.colors || 'colors-a';
@@ -86,8 +85,8 @@ function textSectionBody(props) {
         >
             {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
-                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
-                    <InlineMarkdown>{props.title}</InlineMarkdown>
+                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl">
+                    <Markdown options={{ forceInline: true }} data-sb-field-path=".title">{props.title}</Markdown>
                 </h2>
             )}
             {props.subtitle && (

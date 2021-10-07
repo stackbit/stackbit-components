@@ -3,7 +3,6 @@ import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import Badge from '../Badge';
 import Action from '../Action';
-import InlineMarkdown from '../InlineMarkdown';
 
 export default function CtaSection(props) {
     const colors = props.colors || 'colors-a';
@@ -175,8 +174,8 @@ function ctaContent(props) {
         <>
             {props.badge && <Badge {...props.badge} className="inline-block inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
-                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl mb-6" data-sb-field-path=".title">
-                    <InlineMarkdown>{props.title}</InlineMarkdown>
+                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl mb-6">
+                    <Markdown options={{ forceInline: true }} data-sb-field-path=".title">{props.title}</Markdown>
                 </h2>
             )}
             {props.text && (

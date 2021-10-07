@@ -9,10 +9,12 @@ fields:
     default: ''
   - type: string
     name: videoUrl
-    label: Video URL (.mp4)
+    label: Video
+    description: The URL of the video (.mp4)
   - type: image
-    name: posterUrl
-    label: Poster URL
+    name: videoThumbnailUrl
+    label: Video thumbnail
+    description: The URL of the video thumbnail
   - type: boolean
     name: autoplay
     label: Autoplay

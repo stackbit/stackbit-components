@@ -167,7 +167,7 @@ HeroLeftVideo.args = {
     feature: {
         type: 'VideoBlock',
         videoUrl: '/videos/stackbit-for-marketers.mp4',
-        posterUrl: '/images/stackbit-for-marketers.jpeg',
+        videoThumbnailUrl: '/images/stackbit-for-marketers.jpeg',
         autoplay: true,
         loop: true,
         muted: true,

@@ -133,6 +133,5 @@ ContactRightImage.args = {
     ...args,
     variant: 'variant-a',
     colors: 'colors-h',
-    textAlign: 'center',
-    title: 'Join our **club**'
+    textAlign: 'center'
 };

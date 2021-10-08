@@ -140,6 +140,6 @@ VariantB.args = {
     colors: 'colors-c',
     width: 'full',
     textAlign: 'left',
-    title: 'Latest from **the Blog**',
+    title: 'Latest from the Blog',
     actions: null
 };

@@ -40,6 +40,7 @@ export default function PostLayout(props) {
                                     <time dateTime={dateTimeAttr} data-sb-field-path="date">
                                         {formattedDate}
                                     </time>
+                                    {page.author && postAuthor(page.author)}
                                 </div>
                             </header>
                             {page.thumbImage && (
@@ -72,5 +73,14 @@ export default function PostLayout(props) {
                 </div>
             </BaseLayout>
         </>
+    );
+}
+
+function postAuthor(author) {
+    return (
+        <div data-sb-field-path={'.author'}>
+            {author.firstName && <span data-sb-field-path=".firstName">{author.firstName}</span>}{' '}
+            {author.lastName && <span data-sb-field-path=".lastName">{author.lastName}</span>}
+        </div>
     );
 }

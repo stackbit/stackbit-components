@@ -114,13 +114,12 @@ const args = {
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
     textAlign: 'left',
-    title: 'The quick, brown fox jumps over **a lazy dog**',
-    subtitle: 'Section subtitle',
     badge: {
         type: 'Badge',
         label: 'Brand new'
     },
-    title: 'The quick, brown fox jumps over **a lazy dog**',
+    title: 'The quick, brown fox jumps over a lazy dog',
+    subtitle: 'Section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     actions: [
         {

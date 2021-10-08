@@ -4,7 +4,7 @@
 
 @layer base {
     body {
-        @apply font-sans;
+        @apply font-body;
     }
 
     h1,
@@ -13,7 +13,7 @@
     h4,
     h5,
     h6 {
-        @apply font-medium;
+        @apply font-heading font-medium;
     }
 
     b,
@@ -31,7 +31,7 @@
     .sb-component-badge {
         @apply bg-info font-medium px-2 py-0.5 text-white tracking-wider;
     }
-    .sb-component-btn {
+    .sb-component-button {
         @apply border-2 font-medium inline-flex items-center justify-center no-underline px-5 py-2.5 text-center tracking-wider transition duration-200 ease-in;
     }
     .sb-component-link {
@@ -55,14 +55,14 @@
     .sb-input,
     .sb-select,
     .sb-textarea {
-        @apply bg-transparent border-b font-light pb-1.5 text-lg w-full focus:outline-none md:text-xl;
+        @apply bg-transparent border font-light p-2 text-lg w-full focus:outline-none md:text-xl;
     }
     .sb-checkbox {
-        @apply align-middle appearance-none bg-origin-border border border-current cursor-pointer flex-shrink-0 inline-block h-5 select-none w-5 checked:bg-center checked:bg-no-repeat;
-        &:checked {
-            backgroundimage: linear-gradient(currentColor, currentColor);
-            backgroundsize: 60% 0%;
-        }
+        @apply align-middle appearance-none bg-origin-border border border-current cursor-pointer flex-shrink-0 inline-block h-5 select-none w-5 checked:bg-center checked:bg-no-repeat checked:bg-current;
+    }
+    .sb-checkbox:checked {
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        background-size: 100%;
     }
     .sb-select {
         @apply appearance-none bg-no-repeat cursor-pointer pr-6;
@@ -77,10 +77,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-component-btn-primary {
+        .sb-component-button-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -97,10 +97,10 @@
         .sb-textarea {
             @apply border-primary placeholder-primary;
         }
-        .sb-component-btn-primary {
+        .sb-component-button-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -117,10 +117,13 @@
         .sb-textarea {
             @apply border-white placeholder-white placeholder-opacity-50;
         }
-        .sb-component-btn-primary {
+        .sb-checkbox:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        }
+        .sb-component-button-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-white text-white hover:border-opacity-70 hover:text-white;
         }
         .sb-divider {
@@ -137,10 +140,13 @@
         .sb-textarea {
             @apply border-primary placeholder-primary placeholder-opacity-50;
         }
-        .sb-component-btn-primary {
+        .sb-checkbox:checked {
+            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        }
+        .sb-component-button-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-white text-white hover:bg-opacity-70 hover:border-opacity-70;
         }
         .sb-divider {
@@ -157,10 +163,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-component-btn-primary {
+        .sb-component-button-primary {
             @apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-base text-base hover:border-opacity-60 hover:text-base;
         }
         .sb-divider {
@@ -177,10 +183,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-component-btn-primary {
+        .sb-component-button-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -197,10 +203,10 @@
         .sb-textarea {
             @apply border-primary placeholder-primary;
         }
-        .sb-component-btn-primary {
+        .sb-component-button-primary {
             @apply bg-primary border-primary text-base hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -217,10 +223,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-component-btn-primary {
+        .sb-component-button-primary {
             @apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {
@@ -237,10 +243,10 @@
         .sb-textarea {
             @apply border-base placeholder-base;
         }
-        .sb-component-btn-primary {
+        .sb-component-button-primary {
             @apply bg-base border-base text-white hover:bg-opacity-70 hover:border-opacity-70;
         }
-        .sb-component-btn-secondary {
+        .sb-component-button-secondary {
             @apply border-base text-base hover:border-opacity-70 hover:text-base;
         }
         .sb-divider {

@@ -85,10 +85,10 @@ export default class FormBlock extends React.Component {
                         return <FormControl key={index} {...field} annotationPrefix={`.${index}`} />;
                     })}
                 </div>
-                <div className="mt-4 sm:mt-8">
+                <div className="mt-4">
                     <button
                         type="submit"
-                        className="sb-component sb-component-block sb-component-btn sb-component-btn-primary"
+                        className="sb-component sb-component-block sb-component-button sb-component-button-primary"
                         data-sb-field-path=".submitLabel"
                     >
                         {submitLabel}

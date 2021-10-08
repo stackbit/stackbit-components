@@ -11,15 +11,16 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: '#512D6D',
-                secondary: '#F8485E',
-                base: '#EEEEEE',
-                'complementary-1': '#e8f3ee',
-                'complementary-2': '#e2e4ff',
-                info: '#00C1D4'
+                primary: '#9BC1BC',
+                secondary: '#F4F1BB',
+                base: '#332E40',
+                'complementary-1': '#8A8499',
+                'complementary-2': '#DCE3D4',
+                info: '#ED6A5A'
             },
             fontFamily: {
-                sans: ['Poppins', ...defaultTheme.fontFamily.serif]
+                heading: ['ui-sans-serif', 'system-ui', '-apple-system', 'Helvetica Neue', 'sans-serif'],
+                body: ['ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'serif']
             },
             spacing: {
                 '1/1': '100%',

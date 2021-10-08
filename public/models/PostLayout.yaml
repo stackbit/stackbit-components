@@ -9,6 +9,11 @@ fields:
   - type: date
     name: date
     label: Date
+  - type: reference
+    name: author
+    label: Author
+    models:
+      - Person
   - type: string
     name: excerpt
     label: Excerpt

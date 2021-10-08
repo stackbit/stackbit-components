@@ -29,6 +29,17 @@ Primary.args = {
         title: 'Post Title',
         layout: 'PostLayout',
         date: '2021-07-03',
+        author: {
+            firstName: 'Desmond',
+            lastName: 'Eagle',
+            role: 'Product Manager',
+            bio: 'Nullam rhoncus tellus nec felis ullamcorper mattis. Cras convallis, velit in tincidunt posuere, nulla ipsum consequat metus, convallis lacinia ex eros eget leo.',
+            image: {
+                type: 'ImageBlock',
+                url: '/images/desmond-eagle.jpg',
+                altText: 'Photo of Desmond Eagle'
+            }
+        },
         excerpt: 'Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio.',
         thumbImage: {
             type: 'ImageBlock',

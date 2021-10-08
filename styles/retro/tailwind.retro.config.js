@@ -19,8 +19,8 @@ module.exports = {
                 info: '#ED6A5A'
             },
             fontFamily: {
-                heading: ['ui-sans-serif', 'system-ui', '-apple-system', 'Helvetica Neue', 'sans-serif'],
-                body: ['ui-serif', 'Georgia', 'Cambria', 'Times New Roman', 'serif']
+                heading: ['Poppins', 'Frutiger', 'Frutiger Linotype', 'Univers', 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
+                body: ['Constantia', 'Lucida Bright', 'Lucidabright', 'Lucida', 'Liberation Serif', 'Georgia', 'serif'],
             },
             spacing: {
                 '1/1': '100%',

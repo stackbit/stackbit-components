@@ -1,7 +1,6 @@
 type: object
 name: CtaSection
 label: CTA section
-variantField: variant
 extends:
   - Section
 groups:

@@ -1,7 +1,6 @@
 type: object
 name: HeroSection
 label: Hero section
-variantField: variant
 extends:
   - Section
 groups:

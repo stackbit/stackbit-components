@@ -1,7 +1,6 @@
 type: object
 name: FeaturedPostsSection
 label: Featured posts section
-variantField: variant
 extends:
   - Section
 groups:

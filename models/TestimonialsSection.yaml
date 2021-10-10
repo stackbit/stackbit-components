@@ -1,7 +1,6 @@
 type: object
 name: TestimonialsSection
 label: Testimonials section
-variantField: variant
 extends:
   - Section
 groups:

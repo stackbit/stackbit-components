@@ -2,6 +2,7 @@ import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import { getDynamicComponent } from '../../components-registry';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import Badge from '../Badge';
 import Action from '../Action';
 
@@ -98,7 +99,6 @@ function heroVariants(props) {
 
 function heroFeatureRight(props) {
     const contentAlignVert = props.contentAlignVert || 'middle';
-    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-8', {
@@ -111,14 +111,13 @@ function heroFeatureRight(props) {
                 {heroBody(props)}
                 {heroActions(props)}
             </div>
-            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature, textAlign)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
         </div>
     );
 }
 
 function heroFeatureLeft(props) {
     const contentAlignVert = props.contentAlignVert || 'middle';
-    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-8', {
@@ -127,7 +126,7 @@ function heroFeatureLeft(props) {
                 'lg:items-end': contentAlignVert === 'bottom'
             })}
         >
-            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature, textAlign)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
             <div>
                 {heroBody(props)}
                 {heroActions(props)}
@@ -137,12 +136,11 @@ function heroFeatureLeft(props) {
 }
 
 function heroFeatureTop(props) {
-    const textAlign = props.textAlign || 'left';
     return (
         <>
             {props.feature && (
                 <div className="mb-8 lg:mb-12" data-sb-field-path=".feature">
-                    {heroFeature(props.feature, textAlign)}
+                    {heroFeature(props.feature)}
                 </div>
             )}
             <div>
@@ -154,7 +152,6 @@ function heroFeatureTop(props) {
 }
 
 function heroFeatureBottom(props) {
-    const textAlign = props.textAlign || 'left';
     return (
         <>
             <div>
@@ -163,14 +160,14 @@ function heroFeatureBottom(props) {
             </div>
             {props.feature && (
                 <div className="mt-8 lg:mt-12" data-sb-field-path=".feature">
-                    {heroFeature(props.feature, textAlign)}
+                    {heroFeature(props.feature)}
                 </div>
             )}
         </>
     );
 }
 
-function heroFeature(feature, align) {
+function heroFeature(feature) {
     const featureType = feature.type;
     if (!featureType) {
         throw new Error(`hero section feature does not have the 'type' property`);
@@ -180,13 +177,7 @@ function heroFeature(feature, align) {
         throw new Error(`no component matching the hero section feature type: ${featureType}`);
     }
     return (
-        <Feature
-            {...feature}
-            className={classNames({
-                'ml-auto': align === 'right',
-                'mx-auto': align === 'center'
-            })}
-        />
+        <Feature {...feature} />
     );
 }
 
@@ -211,27 +202,55 @@ function heroBackgroundImage(image) {
 }
 
 function heroBody(props) {
-    const textAlign = props.textAlign || 'left';
+    
     return (
-        <div
-            className={classNames({
-                'text-center': textAlign === 'center',
-                'text-right': textAlign === 'right'
-            })}
-        >
-            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
+        <div>
+            {props.badge && (
+                <div
+                    className={classNames(
+                        'component-section-badge',
+                        'mb-4',
+                        mapStyles(props.styles.badge))
+                    }
+                    data-sb-field-path=".badge"
+                >
+                    <Badge {...props.badge} className="inline-block" annotationPrefix=".badge" />
+                </div>
+            )}
             {props.title && (
-                <h2 className="component-section-title text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
+                <h2
+                    className={classNames(
+                        'component-section-title',
+                        'mb-6',
+                        mapStyles(props.styles.title))
+                    }
+                    data-sb-field-path=".title"
+                >
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className="text-2xl mb-3" data-sb-field-path=".subtitle">
+                <p
+                    className={classNames(
+                        'component-section-subtitle',
+                        'mb-3',
+                        mapStyles(props.styles.subtitle))
+                    }
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
             {props.text && (
-                <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">
+                <Markdown
+                    options={{ forceBlock: true }}
+                    className={classNames(
+                        'component-section-text',
+                        'mb-3',
+                        mapStyles(props.styles.text))
+                    }
+                    data-sb-field-path=".text"
+                >
                     {props.text}
                 </Markdown>
             )}
@@ -240,18 +259,20 @@ function heroBody(props) {
 }
 
 function heroActions(props) {
-    const textAlign = props.textAlign || 'left';
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
     }
     return (
         <div
-            className={classNames('flex flex-wrap items-center -mx-2', {
-                'mt-8': props.badge || props.title || props.text,
-                'justify-center': textAlign === 'center',
-                'justify-end': textAlign === 'right'
-            })}
+            className={classNames(
+                'flex',
+                'flex-wrap',
+                'items-center',
+                'mt-8',
+                '-mx-2',
+                mapStyles(props.styles.actions)
+            )}
             data-sb-field-path=".actions"
         >
             {actions.map((action, index) => (

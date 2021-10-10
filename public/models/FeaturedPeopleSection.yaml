@@ -1,7 +1,6 @@
 type: object
 name: FeaturedPeopleSection
 label: Featured people section
-variantField: variant
 extends:
   - Section
 groups:

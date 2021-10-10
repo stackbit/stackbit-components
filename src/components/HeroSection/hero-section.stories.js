@@ -140,6 +140,31 @@ const args = {
         url: '/images/hero.png',
         altText: 'Image alt text',
         caption: 'Image caption'
+    },
+    styles: {
+        badge: {
+            fontSize: 'x-small',
+            fontWeight: '400',
+            textAlign: 'left'
+        },
+        title: {
+            fontSize: 'xxxx-large',
+            fontWeight: '500',
+            textAlign: 'left'
+        },
+        subtitle: {
+            fontSize: 'xx-large',
+            fontWeight: '300',
+            textAlign: 'left'
+        },
+        text: {
+            fontSize: 'large',
+            fontWeight: '400',
+            textAlign: 'left'
+        },
+        actions: {
+            justifyContent: 'start'
+        }
     }
 };
 

@@ -148,7 +148,7 @@ const args = {
             textAlign: 'left'
         },
         title: {
-            fontSize: 'xxxx-large',
+            fontSize: 'xxx-large',
             fontWeight: '500',
             textAlign: 'left'
         },
@@ -161,9 +161,6 @@ const args = {
             fontSize: 'large',
             fontWeight: '400',
             textAlign: 'left'
-        },
-        actions: {
-            justifyContent: 'start'
         }
     }
 };

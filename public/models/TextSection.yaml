@@ -5,6 +5,11 @@ extends:
   - Section
 groups:
   - sectionComponent
+fieldGroups:
+  - name: settings
+    label: Settings
+  - name: styles
+    label: Styles
 fields:
   - name: colors
     default: colors-f

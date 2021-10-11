@@ -202,7 +202,7 @@ function heroBackgroundImage(image) {
 }
 
 function heroBody(props) {
-    
+
     return (
         <div>
             {props.badge && (
@@ -270,8 +270,7 @@ function heroActions(props) {
                 'flex-wrap',
                 'items-center',
                 'mt-8',
-                '-mx-2',
-                mapStyles(props.styles.actions)
+                '-mx-2'
             )}
             data-sb-field-path=".actions"
         >

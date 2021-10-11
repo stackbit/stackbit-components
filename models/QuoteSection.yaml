@@ -5,6 +5,11 @@ extends:
   - Section
 groups:
   - sectionComponent
+fieldGroups:
+  - name: settings
+    label: Settings
+  - name: styles
+    label: Styles
 fields:
   - type: markdown
     name: quote
@@ -25,6 +30,6 @@ fields:
     label: Background image
     models:
       - ImageBlock
-    default: 
+    default:
       url: /images/dianne-ameter.jpg
       altText: Product Marketing Manager

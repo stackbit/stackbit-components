@@ -5,6 +5,11 @@ extends:
   - Section
 groups:
   - sectionComponent
+fieldGroups:
+  - name: settings
+    label: Settings
+  - name: styles
+    label: Styles
 fields:
   - name: colors
     default: colors-f
@@ -98,19 +103,17 @@ fields:
     styles:
       badge:
         fontSize: ['x-small', 'small', 'medium', 'large']
-        fontWeight: [300, 400, 500]
+        fontWeight: ['300', '400', '500']
         textAlign: ['left', 'center', 'right']
       title:
-        fontSize: ['xx-large', 'xxx-large', 'xxxx-large']
-        fontWeight: [300, 400, 500]
+        fontSize: ['x-large', 'xx-large', 'xxx-large']
+        fontWeight: ['300', '400', '500']
         textAlign: ['left', 'center', 'right']
       subtitle:
         fontSize: ['small', 'medium', 'large', 'x-large', 'xx-large']
-        fontWeight: [300, 400, 500]
+        fontWeight: ['300', '400', '500']
         textAlign: ['left', 'center', 'right']
       text:
         fontSize: ['small', 'medium', 'large', 'x-large']
-        fontWeight: [300, 400, 500]
+        fontWeight: ['300', '400', '500']
         textAlign: ['left', 'center', 'right']
-      actions:
-        justifyContent: ['start', 'center', 'end']

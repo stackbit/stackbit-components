@@ -6,8 +6,7 @@ const TAILWIND_MAP = {
         'large': 'text-lg',
         'x-large': 'text-xl',
         'xx-large': 'text-2xl',
-        'xxx-large': 'text-3xl',
-        'xxxx-large': 'text-4xl'
+        'xxx-large': 'text-3xl'
     },
     fontWeight: {
         '100': 'font-thin',
@@ -18,12 +17,6 @@ const TAILWIND_MAP = {
         '600': 'font-semibold',
         '700': 'font-bold',
         '800': 'font-extrabold'
-    },
-    justifyContent: {
-        'start': 'justify-start',
-        'end': 'justify-end',
-        'center': 'justify-center',
-        'between': 'justify-between'
     },
     textAlign: {
         left: 'text-left',

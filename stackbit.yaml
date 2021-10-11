@@ -4,6 +4,15 @@
 stackbitVersion: 0.4.0
 pagesDir: null
 dataDir: null
+
+contentModels:
+  PageLayout:
+    isPage: true
+  PostLayout:
+    isPage: true
+  Person:
+    isPage: false
+
 modelsSource:
   type: files
   modelDirs: ['models']

@@ -6,10 +6,10 @@ extends:
 groups:
   - sectionComponent
 fieldGroups:
-  - name: settings
-    label: Settings
   - name: styles
     label: Styles
+  - name: settings
+    label: Settings
 fields:
   - type: enum
     name: variant

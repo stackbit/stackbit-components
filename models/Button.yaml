@@ -3,11 +3,6 @@ name: Button
 label: Button
 fields:
   - type: string
-    name: elementId
-    label: Element ID
-    description: The unique ID for an HTML element, must not contain whitespace
-    default: ''
-  - type: string
     name: label
     label: Label
     default: Learn more
@@ -55,3 +50,8 @@ fields:
       - label: Secondary
         value: secondary
     default: secondary
+  - type: string
+    name: elementId
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''

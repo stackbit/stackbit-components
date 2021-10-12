@@ -6,14 +6,15 @@ extends:
 groups:
   - sectionComponent
 fieldGroups:
-  - name: settings
-    label: Settings
   - name: styles
     label: Styles
+  - name: settings
+    label: Settings
 fields:
   - type: enum
     name: variant
     label: Arrangement
+    group: styles
     options:
       - label: Three columns, post thumbnail at the top
         value: variant-a
@@ -23,6 +24,7 @@ fields:
   - type: model
     name: badge
     label: Badge
+    group: styles
     models:
       - Badge
   - type: string

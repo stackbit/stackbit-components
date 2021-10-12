@@ -2,17 +2,11 @@ type: object
 name: Section
 label: Section
 fieldGroups:
-  - name: settings
-    label: Settings
   - name: styles
     label: Styles
+  - name: settings
+    label: Settings
 fields:
-  - type: string
-    name: elementId
-    group: settings
-    label: Element ID
-    description: The unique ID for an HTML element, must not contain whitespace
-    default: ''
   - type: enum
     name: colors
     group: styles
@@ -119,3 +113,9 @@ fields:
       - center
       - right
     default: left
+   - type: string
+    name: elementId
+    group: settings
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''

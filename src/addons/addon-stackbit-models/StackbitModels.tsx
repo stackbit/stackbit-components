@@ -4,7 +4,7 @@ import axios from 'axios';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import Highlight, { defaultProps } from 'prism-react-renderer';
 import github from 'prism-react-renderer/themes/github';
-import componentsManifest from '../../../src/components-manifest.json';
+import componentsManifest from '../../components-manifest.json';
 import './style.css';
 
 const getModel = async (modelName) => {
@@ -19,14 +19,13 @@ const StackbitModels = (props) => {
     const [copied, setCopied] = useState(false);
     const [yamlObject, setYamlObject] = useState(null);
 
-    useEffect(async () => {
+    useEffect(() => {
         const type = args.type || args.layout;
         if (type) {
             const modelType = componentsManifest[type];
             const modelName = modelType.modelName;
             if (modelName) {
-                const result = await getModel(modelName);
-                setYamlObject(result);
+                getModel(modelName).then(setYamlObject);
             }
         }
     }, [args]);
@@ -42,7 +41,7 @@ const StackbitModels = (props) => {
                 </div>
                 {yamlObject && (
                     <div className="sb-models-code">
-                        <Highlight {...defaultProps} code={yamlObject} theme={github} language="yml">
+                        <Highlight {...defaultProps} code={yamlObject} theme={github as any} language="yaml">
                             {({ className, style, tokens, getLineProps, getTokenProps }) => (
                                 <pre className={className} style={style}>
                                     {tokens.map((line, i) => (

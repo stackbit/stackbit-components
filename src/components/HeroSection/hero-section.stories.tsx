@@ -1,8 +1,8 @@
 import React from 'react';
 import { Title, Subtitle, Description, Primary as PrimaryStory, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import StackbitFrontmatter from '../../../addons/addon-stackbit-frontmatter/src/StackbitFrontmatter';
-import StackbitModels from '../../../addons/addon-stackbit-models/src/StackbitModels';
+import StackbitFrontmatter from '../../addons/addon-stackbit-frontmatter/StackbitFrontmatter';
+import StackbitModels from '../../addons/addon-stackbit-models/StackbitModels';
 import HeroSection from './index';
 
 export default {
@@ -64,7 +64,7 @@ export default {
         docs: {
             page: () => (
                 <>
-                    <h1 className="normal-case text-3xl">{args.type}</h1>
+                    <h1 className="text-3xl normal-case">{args.type}</h1>
                     <Subtitle />
                     <Description />
                     <PrimaryStory />

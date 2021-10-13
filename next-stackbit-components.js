@@ -1,13 +1,13 @@
 const path = require('path');
 const fse = require('fs-extra');
 
-const componentsManifest = require('./components-manifest.json');
+const componentsManifest = require('./src/components-manifest.json');
 const defaultComponentMap = require('./components-map.json');
 const STACKBIT_FOLDER_DEFAULT_PATH = '.stackbit/';
 const STACKBIT_COMPONENTS_PACKAGE_NAME = '@stackbit/components';
 const COMPONENTS_MAP_DEFAULT_USER_PATH = '.stackbit/components-map.json';
 const DYNAMIC_COMPONENTS_DEFAULT_USER_PATH = '.stackbit/dynamic-components.js';
-const DYNAMIC_COMPONENTS_INTERNAL_PATH = path.resolve(__dirname, 'dynamic-components.js');
+const DYNAMIC_COMPONENTS_INTERNAL_PATH = path.resolve(__dirname, 'dist/dynamic-components.js');
 
 module.exports = (pluginOptions = {}) => function withStackbitComponents(nextConfig) {
     copyComponentsJson(pluginOptions);

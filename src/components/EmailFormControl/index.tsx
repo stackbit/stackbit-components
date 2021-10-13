@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-export default function TextareaFormControl(props) {
+export default function EmailFormControl(props) {
     const width = props.width || 'full';
     const labelId = `${props.name}-label`;
-    const attr = {};
+    const attr: any = {};
     if (props.label) {
         attr['aria-labelledby'] = labelId;
     }
@@ -19,20 +19,15 @@ export default function TextareaFormControl(props) {
             data-sb-field-path={props.annotationPrefix}
         >
             {props.label && (
-                <label
-                    id={labelId}
-                    className="sb-label"
-                    htmlFor={props.name}
-                    data-sb-field-path=".label .name#@for"
-                >
+                <label id={labelId} className="sb-label" htmlFor={props.name} data-sb-field-path=".label .name#@for">
                     {props.label}
                 </label>
             )}
-            <textarea
+            <input
                 id={props.name}
-                className="sb-textarea"
+                className="sb-input"
+                type="email"
                 name={props.name}
-                rows="5"
                 {...(props.placeholder ? { placeholder: props.placeholder } : null)}
                 {...attr}
                 data-sb-field-path=".name#@id .name#@name .isRequired#@required .placeholder#@placeholder"

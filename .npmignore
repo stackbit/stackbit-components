@@ -1,0 +1,8 @@
+**/*.stories.{js|tsx|d.ts}
+**/addons
+dist/.tsbuildinfo
+.storybook
+public
+storybook-static
+.idea
+.vscode

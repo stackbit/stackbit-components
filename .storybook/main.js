@@ -6,9 +6,11 @@ module.exports = {
         '@storybook/addon-links',
         '@storybook/addon-essentials',
         '@storybook/addon-docs',
-        '@storybook/addon-postcss',
-        '../addons/addon-stackbit-frontmatter/src/preset.js',
-        '../addons/addon-stackbit-models/src/preset.js'
+        '@storybook/addon-postcss'
+    ],
+    managerEntries: [
+        '../src/addons/addon-stackbit-frontmatter/register',
+        '../src/addons/addon-stackbit-models/register'
     ],
     webpackFinal: async (config) => {
         config.resolve.alias['next/link'] = path.resolve(__dirname, '../src/utils/next-link');

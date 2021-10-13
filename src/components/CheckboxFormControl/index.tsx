@@ -4,7 +4,8 @@ import classNames from 'classnames';
 export default function CheckboxFormControl(props) {
     const width = props.width || 'full';
     const labelId = `${props.name}-label`;
-    const attr = {};
+    // TODO
+    const attr: any = {};
     if (props.label) {
         attr['aria-labelledby'] = labelId;
     }

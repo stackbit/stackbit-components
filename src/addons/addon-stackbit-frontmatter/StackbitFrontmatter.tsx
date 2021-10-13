@@ -20,7 +20,7 @@ const StackbitFrontmatter = (props) => {
                     </CopyToClipboard>
                 </div>
                 <div className="sb-frontmatter-code">
-                    <Highlight {...defaultProps} code={yamlObject} theme={github} language="yml">
+                    <Highlight {...defaultProps} code={yamlObject} theme={github as any} language="yaml">
                         {({ className, style, tokens, getLineProps, getTokenProps }) => (
                             <pre className={className} style={style}>
                                 {tokens.map((line, i) => (

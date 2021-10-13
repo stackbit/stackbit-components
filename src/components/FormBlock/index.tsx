@@ -2,13 +2,13 @@ import * as React from 'react';
 import axios from 'axios';
 import { getDynamicComponent } from '../../components-registry';
 
-export default class FormBlock extends React.Component {
+export default class FormBlock extends React.Component<any> {
     state = {
         submitted: false,
         error: false
     };
 
-    formRef = React.createRef();
+    formRef = React.createRef<HTMLFormElement>();
 
     formHandler(data, url) {
         return axios({

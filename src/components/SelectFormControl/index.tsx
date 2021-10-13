@@ -1,10 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 
-export default function TextFormControl(props) {
+export default function SelectFormControl(props) {
     const width = props.width || 'full';
     const labelId = `${props.name}-label`;
-    const attr = {};
+    const options = props.options || [];
+    const attr: any = {};
     if (props.label) {
         attr['aria-labelledby'] = labelId;
     }
@@ -28,15 +29,18 @@ export default function TextFormControl(props) {
                     {props.label}
                 </label>
             )}
-            <input
+            <select
                 id={props.name}
-                className="sb-input"
-                type="text"
+                className="sb-select"
                 name={props.name}
-                {...(props.placeholder ? { placeholder: props.placeholder } : null)}
                 {...attr}
-                data-sb-field-path=".name#@id .name#@name .isRequired#@required .placeholder#@placeholder"
-            />
+                data-sb-field-path=".name#@id .name#@name .isRequired#@required .options"
+            >
+                {props.defaultValue && <option value="" data-sb-field-path=".defaultValue">{props.defaultValue}</option>}
+                {options.length > 0 && options.map((option, index) =>
+                    <option key={index} value={option} data-sb-field-path={`.${index}`}>{option}</option>
+                )}
+            </select>
         </div>
     );
 }

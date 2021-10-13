@@ -10,12 +10,7 @@ export default function DefaultBaseLayout(props) {
     const pageMeta = page?.__metadata || {};
     return (
         <div className={classNames('page', pageMeta.pageCssClasses)} data-sb-object-id={pageMeta.id}>
-            <div
-                className={classNames('base default-base-layout', {
-                    [`${site.backgroundColor}`]: site.backgroundColor,
-                    'bg-white': !!site.backgroundColor
-                })}
-            >
+            <div className="base default-base-layout">
                 <Head>
                     <title>{page.title}</title>
                     <meta name="description" content="Stackbit Components Library" />

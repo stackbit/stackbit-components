@@ -1,9 +1,15 @@
 type: object
 name: NavBar
 label: Navbar
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
 fields:
   - type: enum
     name: desktopNavVariant
+    group: styles
     label: Desktop navigation arrangement
     options:
       - label: Navbar with logo and primary links on the left
@@ -17,6 +23,7 @@ fields:
     default: variant-a
   - type: enum
     name: mobileNavVariant
+    group: styles
     label: Mobile navigation arrangement
     options:
       - label: Full-width mobile navigation
@@ -26,6 +33,7 @@ fields:
     default: variant-a
   - type: enum
     name: primaryColors
+    group: styles
     label: Primary colors (navbar)
     options:
       - label: Base foreground on white background
@@ -49,6 +57,7 @@ fields:
     default: colors-a
   - type: enum
     name: secondaryColors
+    group: styles
     label: Secondary colors (mobile navigation)
     options:
       - label: Base foreground on white background
@@ -72,6 +81,7 @@ fields:
     default: colors-a
   - type: enum
     name: width
+    group: styles
     label: Width
     options:
       - wide

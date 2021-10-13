@@ -43,20 +43,30 @@ export default function Footer(props) {
                         'md:py-20'
                     )}
                 >
-                    {((props.title && props.isTitleVisible) || props.logo || props.text) && (
+                    {(props.logo || props.title || props.text) && (
                         <div className="mb-12">
-                            {((props.title && props.isTitleVisible) || props.logo) && (
-                                <Link href="/" aria-label={props.title} className="inline-block mb-4" data-sb-field-path=".title#@aria-label .logo">
-                                    {props.logo && <ImageBlock {...props.logo} className="mb-2" />}
-                                    {props.isTitleVisible && (
-                                        <div className="mb-2 text-2xl tracking-wide" data-sb-field-path="footer.title">
-                                            {props.title}
-                                        </div>
-                                    )}
+                            {props.logo && (
+                                <Link
+                                    href="/"
+                                    className="inline-block mb-4" data-sb-field-path=".logo"
+                                >
+                                    {props.logo && <ImageBlock {...props.logo} />}
                                 </Link>
                             )}
+                            {props.title && (
+                                <div
+                                    className="mb-2 text-2xl tracking-wide"
+                                    data-sb-field-path="footer.title"
+                                >
+                                    {props.title}
+                                </div>
+                            )}
                             {props.text && (
-                                <Markdown options={{ forceBlock: true }} className="max-w-xl" data-sb-field-path=".text">
+                                <Markdown
+                                    options={{ forceBlock: true }}
+                                    className="max-w-xl"
+                                    data-sb-field-path=".text"
+                                >
                                     {props.text}
                                 </Markdown>
                             )}

@@ -86,7 +86,7 @@ const args = {
     },
     form: {
         type: 'FormBlock',
-        idAttr: 'contact-form',
+        elementId: 'contact-form',
         fields: [
             {
                 type: 'TextFormControl',

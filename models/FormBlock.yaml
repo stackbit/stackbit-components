@@ -1,16 +1,10 @@
 type: object
 name: FormBlock
 label: Form
+fieldGroups:
+  - name: settings
+    label: Settings
 fields:
-  - type: string
-    name: idAttr
-    label: ID (used for id and name attributes)
-  - type: string
-    name: action
-    label: Action (form submission URL)
-  - type: string
-    name: destination
-    label: Destination (email to redirect responses)
   - type: list
     name: fields
     label: Fields
@@ -25,3 +19,16 @@ fields:
   - type: string
     name: submitLabel
     label: Submit button label
+  - type: string
+    name: elementId
+    group: settings
+    label: Element ID
+    description: The unique ID used for id and name attributes, must not contain whitespace
+  - type: string
+    name: action
+    group: settings
+    label: Action (form submission URL)
+  - type: string
+    name: destination
+    group: settings
+    label: Destination (email to redirect responses)

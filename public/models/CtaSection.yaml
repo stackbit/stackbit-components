@@ -6,10 +6,10 @@ extends:
 groups:
   - sectionComponent
 fieldGroups:
-  - name: settings
-    label: Settings
   - name: styles
     label: Styles
+  - name: settings
+    label: Settings
 fields:
   - type: enum
     name: variant
@@ -22,6 +22,7 @@ fields:
     default: variant-b
   - type: model
     name: badge
+    group: styles
     label: Badge
     models:
       - Badge

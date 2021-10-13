@@ -6,10 +6,10 @@ extends:
 groups:
   - sectionComponent
 fieldGroups:
-  - name: settings
-    label: Settings
   - name: styles
     label: Styles
+  - name: settings
+    label: Settings
 fields:
   - name: colors
     default: colors-f
@@ -31,6 +31,7 @@ fields:
     default: center
   - type: model
     name: badge
+    group: styles
     label: Badge
     models:
       - Badge

@@ -1,6 +1,9 @@
 type: object
 name: TextFormControl
 label: Text
+fieldGroups:
+  - name: styles
+    label: Styles
 fields:
   - type: string
     name: name
@@ -19,6 +22,7 @@ fields:
     default: false
   - type: enum
     name: width
+    group: styles
     label: Width
     options:
       - label: Full

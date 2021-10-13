@@ -10,7 +10,7 @@ const Template = (args) => <FormBlock {...args} />;
 
 const args = {
     type: 'FormBlock',
-    idAttr: 'contact-form',
+    elementId: 'contact-form',
     fields: [
         {
             type: 'TextFormControl',

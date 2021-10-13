@@ -19,8 +19,8 @@ fields:
     label: Excerpt
     default: This is the excerpt of your blog post visible in the post feed or featured posts.
   - type: model
-    name: thumbImage
-    label: Thumbnail image
+    name: featuredImage
+    label: Featured image
     models:
       - ImageBlock
     default:
@@ -28,15 +28,8 @@ fields:
       url: /images/post-1.jpeg
       altText: Post thumbnail image
   - type: list
-    name: topSections
-    label: Top sections
-    items:
-      type: model
-      groups:
-        - sectionComponent
-  - type: list
     name: bottomSections
-    label: Bottom sections
+    label: Sections
     items:
       type: model
       groups:

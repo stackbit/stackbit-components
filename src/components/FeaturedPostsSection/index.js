@@ -160,9 +160,9 @@ function postsVariantA(props) {
                 return (
                     <Link key={index} href={getPageUrlPath(post)} className="sb-card block" data-sb-object-id={post.__metadata.id}>
                         <article>
-                            {post.thumbImage && (
-                                <div className="h-0 w-full pt-1/2 relative" data-sb-field-path="thumbImage">
-                                    <ImageBlock {...post.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                            {post.featuredImage && (
+                                <div className="h-0 w-full pt-1/2 relative" data-sb-field-path="featuredImage">
+                                    <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
                                 </div>
                             )}
                             <div className="px-4 py-6 sm:px-6 sm:pb-10">
@@ -201,14 +201,14 @@ function postsVariantB(props) {
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
                 return (
                     <article key={index} className="sb-card sm:flex" data-sb-object-id={post.__metadata.id}>
-                        {post.thumbImage && (
+                        {post.featuredImage && (
                             <div className="w-full sm:flex-shrink-0 sm:h-full sm:w-1/3">
                                 <Link
                                     href={getPageUrlPath(post)}
                                     className="block h-0 w-full pt-1/2 relative sm:h-40 sm:min-h-full sm:pt-0"
-                                    data-sb-field-path="thumbImage"
+                                    data-sb-field-path="featuredImage"
                                 >
-                                    <ImageBlock {...post.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                                    <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
                                 </Link>
                             </div>
                         )}

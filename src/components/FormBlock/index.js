@@ -54,24 +54,24 @@ export default class FormBlock extends React.Component {
     }
 
     render() {
-        const { fields = [], idAttr, action, destination, submitLabel, className } = this.props;
+        const { fields = [], elementId, action, destination, submitLabel, className } = this.props;
         if (fields.length === 0) {
             return null;
         }
-        const formHoneypotName = `${idAttr}-bot-field`;
+        const formHoneypotName = `${elementId}-bot-field`;
         return (
             <form
                 className={className}
-                name={idAttr}
-                id={idAttr}
+                name={elementId}
+                id={elementId}
                 onSubmit={(e) => this.handleSubmit(e, action)}
                 data-netlify="true"
                 ref={this.formRef}
                 data-netlify-honeypot={formHoneypotName}
-                data-sb-field-path=".idAttr#@name .idAttr#@id .action#@action"
+                data-sb-field-path=".elementId#@name .elementId#@id .action#@action"
             >
                 <div className="flex flex-wrap -mx-2" data-sb-field-path=".fields">
-                    <input type="hidden" name="form-name" value={idAttr} />
+                    <input type="hidden" name="form-name" value={elementId} />
                     <input type="hidden" name="form-destination" value={destination} />
                     {fields.map((field, index) => {
                         const fieldType = field.type;

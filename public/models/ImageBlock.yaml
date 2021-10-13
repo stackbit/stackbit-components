@@ -1,12 +1,12 @@
 type: object
 name: ImageBlock
 label: Image
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
 fields:
-  - type: string
-    name: elementId
-    label: Element ID
-    description: The unique ID for an HTML element, must not contain whitespace
-    default: ''
   - type: image
     name: url
     label: Image
@@ -21,6 +21,7 @@ fields:
     description: The caption of the image
   - type: number
     name: opacity
+    group: styles
     label: Opacity
     description: The opacity of the image
     controlType: 'slider'
@@ -29,3 +30,9 @@ fields:
     step: 1
     unit: '%'
     default: 100
+  - type: string
+    name: elementId
+    group: settings
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''

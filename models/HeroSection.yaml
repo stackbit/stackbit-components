@@ -6,10 +6,10 @@ extends:
 groups:
   - sectionComponent
 fieldGroups:
-  - name: settings
-    label: Settings
   - name: styles
     label: Styles
+  - name: settings
+    label: Settings
 fields:
   - name: colors
     default: colors-f
@@ -29,21 +29,9 @@ fields:
     default: none
   - name: textAlign
     default: left
-  - type: enum
-    name: variant
-    label: Arrangement
-    options:
-      - label: Hero with feature on the right
-        value: variant-a
-      - label: Hero with feature on the left
-        value: variant-b
-      - label: Hero with feature at the top
-        value: variant-c
-      - label: Hero with feature at the bottom
-        value: variant-d
-    default: variant-a
   - type: model
     name: badge
+    group: styles
     label: Badge
     models:
       - Badge
@@ -92,6 +80,15 @@ fields:
       type: ImageBlock
       url: /images/hero.png
       altText: Hero section image
+  - type: enum
+    name: featurePosition
+    label: Feature position
+    options:
+      - right
+      - left
+      - top
+      - bottom
+    default: right
   - type: model
     name: backgroundImage
     group: styles

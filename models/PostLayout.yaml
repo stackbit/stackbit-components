@@ -1,11 +1,6 @@
 name: PostLayout
 label: Post
 layout: PostLayout
-fieldGroups:
-  - name: settings
-    label: Settings
-  - name: seo
-    label: SEO
 fields:
   - type: string
     name: title
@@ -39,13 +34,3 @@ fields:
       type: model
       groups:
         - sectionComponent
-  - type: boolean
-    name: draft
-    group: settings
-    label: Draft
-    default: false
-  - type: model
-    name: seo
-    group: seo
-    models:
-      - stackbit_page_meta

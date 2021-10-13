@@ -156,7 +156,6 @@ function heroBackgroundImage(image) {
 }
 
 function heroBody(props) {
-
     return (
         <div>
             {props.badge && (
@@ -164,8 +163,8 @@ function heroBody(props) {
                     className={classNames(
                         'component-section-badge',
                         'mb-4',
-                        mapStyles(props.styles.badge))
-                    }
+                        mapStyles(props.styles.badge)
+                    )}
                     data-sb-field-path=".badge"
                 >
                     <Badge {...props.badge} className="inline-block" annotationPrefix=".badge" />
@@ -176,8 +175,8 @@ function heroBody(props) {
                     className={classNames(
                         'component-section-title',
                         'mb-6',
-                        mapStyles(props.styles.title))
-                    }
+                        mapStyles(props.styles.title)
+                    )}
                     data-sb-field-path=".title"
                 >
                     {props.title}
@@ -188,8 +187,8 @@ function heroBody(props) {
                     className={classNames(
                         'component-section-subtitle',
                         'mb-3',
-                        mapStyles(props.styles.subtitle))
-                    }
+                        mapStyles(props.styles.subtitle)
+                    )}
                     data-sb-field-path=".subtitle"
                 >
                     {props.subtitle}
@@ -201,8 +200,8 @@ function heroBody(props) {
                     className={classNames(
                         'component-section-text',
                         'mb-3',
-                        mapStyles(props.styles.text))
-                    }
+                        mapStyles(props.styles.text)
+                    )}
                     data-sb-field-path=".text"
                 >
                     {props.text}

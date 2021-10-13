@@ -15,6 +15,7 @@ export default function HeroSection(props) {
     const contentWidth = props.contentWidth || 'large';
     const contentAlignHoriz = props.contentAlignHoriz || 'left';
     const contentAlignVert = props.contentAlignVert || 'middle';
+    const featurePosition = props.featurePosition || 'right';
 
     return (
         <div
@@ -23,10 +24,9 @@ export default function HeroSection(props) {
                 'component',
                 'component-section',
                 'component-hero-section',
-                width === 'full' ? colors : '',
+                width === 'full' ? `${colors} relative` : '',
                 'px-4',
                 'sm:px-6',
-                'relative',
                 {
                     'mt-4 sm:mt-6': topGap === 'small',
                     'mt-6 sm:mt-10': topGap === 'medium',
@@ -38,30 +38,29 @@ export default function HeroSection(props) {
             )}
             data-sb-field-path={props.annotationPrefix}
         >
-            {(width === 'full') && props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames(
-                    width === 'wide' ? colors : '',
+                    width === 'wide' ? `${colors} relative` : '',
                     'flex',
                     'flex-col',
                     'max-w-screen-2xl',
                     'mx-auto',
                     'px-4',
                     'sm:px-8',
-                    'md:px-12',
-                    'lg:px-16',
-                    'py-10',
-                    'md:py-20',
-                    'relative',
+                    'md:px-16',
+                    'py-8',
+                    'sm:py-16',
                     {
                         'min-h-2/3-screen': height === 'tall',
                         'min-h-screen': height === 'viewport',
                         'justify-center': contentAlignVert === 'middle',
-                        'justify-end': contentAlignVert === 'bottom'
+                        'justify-end': contentAlignVert === 'bottom',
+                        'items-center': contentAlignHoriz === 'center',
+                        'items-end': contentAlignHoriz === 'right'
                     }
                 )}
             >
-                {(width === 'wide') && props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
+                {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
                 <div
                     className={classNames(
                         'relative',
@@ -69,101 +68,56 @@ export default function HeroSection(props) {
                         {
                             'max-w-3xl': contentWidth === 'small',
                             'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large',
-                            'mx-auto': contentAlignHoriz === 'center',
-                            'ml-auto': contentAlignHoriz === 'right'
+                            'max-w-7xl': contentWidth === 'large'
                         }
                     )}
                 >
-                    {heroVariants(props)}
+                    <div
+                        className={classNames(
+                            'flex',
+                            '-mx-4',
+                            {
+                                'flex-col lg:flex-row': featurePosition === 'right',
+                                'flex-col-reverse lg:flex-row-reverse': featurePosition === 'left',
+                                'flex-col-reverse': featurePosition === 'top',
+                                'flex-col': featurePosition === 'bottom'
+                            }
+                        )}
+                    >
+                        <div
+                            className={classNames(
+                                'my-3',
+                                'flex-1',
+                                'px-4',
+                                'w-full',{
+                                    'self-center': contentAlignVert === 'middle',
+                                    'self-end': contentAlignVert === 'bottom'
+                                }
+                            )}
+                        >
+                            {heroBody(props)}
+                            {heroActions(props)}
+                        </div>
+                        {props.feature && (
+                            <div
+                                className={classNames(
+                                    'my-3',
+                                    'flex-1',
+                                    'px-4',
+                                    'w-full',{
+                                        'self-center': contentAlignVert === 'middle',
+                                        'self-end': contentAlignVert === 'bottom'
+                                    }
+                                )}
+                                data-sb-field-path=".feature"
+                            >
+                                {heroFeature(props.feature)}
+                            </div>
+                        )}
+                    </div>
                 </div>
             </div>
         </div>
-    );
-}
-
-function heroVariants(props) {
-    const variant = props.variant || 'variant-a';
-    switch (variant) {
-        case 'variant-a':
-            return heroFeatureRight(props);
-        case 'variant-b':
-            return heroFeatureLeft(props);
-        case 'variant-c':
-            return heroFeatureTop(props);
-        case 'variant-d':
-            return heroFeatureBottom(props);
-    }
-    return null;
-}
-
-function heroFeatureRight(props) {
-    const contentAlignVert = props.contentAlignVert || 'middle';
-    return (
-        <div
-            className={classNames('grid gap-8', {
-                'lg:grid-cols-2': props.feature,
-                'lg:items-center': contentAlignVert === 'middle',
-                'lg:items-end': contentAlignVert === 'bottom'
-            })}
-        >
-            <div>
-                {heroBody(props)}
-                {heroActions(props)}
-            </div>
-            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
-        </div>
-    );
-}
-
-function heroFeatureLeft(props) {
-    const contentAlignVert = props.contentAlignVert || 'middle';
-    return (
-        <div
-            className={classNames('grid gap-8', {
-                'lg:grid-cols-2': props.feature,
-                'lg:items-center': contentAlignVert === 'middle',
-                'lg:items-end': contentAlignVert === 'bottom'
-            })}
-        >
-            {props.feature && <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>}
-            <div>
-                {heroBody(props)}
-                {heroActions(props)}
-            </div>
-        </div>
-    );
-}
-
-function heroFeatureTop(props) {
-    return (
-        <>
-            {props.feature && (
-                <div className="mb-8 lg:mb-12" data-sb-field-path=".feature">
-                    {heroFeature(props.feature)}
-                </div>
-            )}
-            <div>
-                {heroBody(props)}
-                {heroActions(props)}
-            </div>
-        </>
-    );
-}
-
-function heroFeatureBottom(props) {
-    return (
-        <>
-            <div>
-                {heroBody(props)}
-                {heroActions(props)}
-            </div>
-            {props.feature && (
-                <div className="mt-8 lg:mt-12" data-sb-field-path=".feature">
-                    {heroFeature(props.feature)}
-                </div>
-            )}
-        </>
     );
 }
 

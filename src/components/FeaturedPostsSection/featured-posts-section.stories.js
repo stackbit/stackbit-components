@@ -91,7 +91,7 @@ const args = {
             title: 'Post Title Three',
             date: '2021-07-03',
             excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
-            thumbImage: {
+            featuredImage: {
                 type: 'ImageBlock',
                 url: '/images/post-3.jpeg',
                 altText: 'Post Image'
@@ -104,7 +104,7 @@ const args = {
             title: 'Post Title Two',
             date: '2021-07-01',
             excerpt: 'otius inflammat, ut coercendi magis quam dedocendi esse videantur.',
-            thumbImage: {
+            featuredImage: {
                 type: 'ImageBlock',
                 url: '/images/post-2.jpeg',
                 altText: 'Post Image'
@@ -117,7 +117,7 @@ const args = {
             title: 'Post Title One',
             date: '2021-06-28',
             excerpt: 'Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis.',
-            thumbImage: {
+            featuredImage: {
                 type: 'ImageBlock',
                 url: '/images/post-1.jpeg',
                 altText: 'Post Image'

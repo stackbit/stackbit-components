@@ -31,8 +31,8 @@ fields:
     default: center
   - type: model
     name: badge
-    label: Badge
     group: styles
+    label: Badge
     models:
       - Badge
   - type: string

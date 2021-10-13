@@ -1,6 +1,9 @@
 type: object
 name: Testimonial
 label: Testimonial
+fieldGroups:
+  - name: settings
+    label: Settings
 fields:
   - type: markdown
     name: quote
@@ -20,7 +23,7 @@ fields:
     name: image
     label: Author image
     models: [ImageBlock]
-    default: 
+    default:
       url: /images/dianne-ameter.jpg
       altText: Product Marketing Manager
   - type: model
@@ -29,3 +32,7 @@ fields:
     models: [ImageBlock]
   - type: string
     name: elementId
+    group: settings
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''

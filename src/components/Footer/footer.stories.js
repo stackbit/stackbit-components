@@ -24,7 +24,6 @@ const args = {
     colors: 'colors-c',
     width: 'wide',
     title: 'Starter',
-    isTitleVisible: true,
     logo: {
         type: 'ImageBlock',
         url: '/images/logo-alt.svg',

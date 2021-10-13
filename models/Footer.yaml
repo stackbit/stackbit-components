@@ -1,9 +1,15 @@
 type: object
 name: Footer
 label: Footer
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
 fields:
   - type: enum
     name: colors
+    group: styles
     label: Colors
     options:
       - label: Base foreground on white background
@@ -27,21 +33,19 @@ fields:
     default: colors-a
   - type: enum
     name: width
+    group: styles
     label: Width
     options:
       - wide
       - full
     default: wide
-  - type: string
-    name: title
-    label: Title
-  - type: boolean
-    name: isTitleVisible
-    label: Display title
   - type: model
     name: logo
     label: Logo
     models: [ImageBlock]
+  - type: string
+    name: title
+    label: Title
   - type: markdown
     name: text
     label: Text

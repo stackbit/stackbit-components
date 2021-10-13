@@ -41,7 +41,7 @@ Primary.args = {
             }
         },
         excerpt: 'Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio.',
-        thumbImage: {
+        featuredImage: {
             type: 'ImageBlock',
             url: '/images/post-1.jpeg',
             altText: 'Post Image'
@@ -51,8 +51,6 @@ Primary.args = {
         bottomSections: [FeaturedPostsSectionStories.Primary.args, CtaSectionStories.Primary.args]
     },
     site: {
-        __metadata: {},
-        backgroundColor: 'bg-white',
         navBar: NavBarStories.Primary.args,
         footer: FooterStories.Primary.args
     }

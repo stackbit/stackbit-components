@@ -22,6 +22,7 @@ fields:
     default: variant-b
   - type: model
     name: badge
+    group: styles
     label: Badge
     models:
       - Badge

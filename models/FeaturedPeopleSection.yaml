@@ -13,8 +13,8 @@ fieldGroups:
 fields:
   - type: enum
     name: variant
-    label: Arrangement
     group: styles
+    label: Arrangement
     options:
       - label: Four columns, person info with image at the top
         value: variant-a
@@ -25,8 +25,8 @@ fields:
     default: variant-a
   - type: model
     name: badge
-    label: Badge
     group: styles
+    label: Badge
     models:
       - Badge
   - type: string

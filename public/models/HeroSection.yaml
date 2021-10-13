@@ -6,10 +6,10 @@ extends:
 groups:
   - sectionComponent
 fieldGroups:
-  - name: settings
-    label: Settings
   - name: styles
     label: Styles
+  - name: settings
+    label: Settings
 fields:
   - name: colors
     default: colors-f
@@ -32,6 +32,7 @@ fields:
   - type: enum
     name: variant
     label: Arrangement
+    group: styles
     options:
       - label: Hero with feature on the right
         value: variant-a
@@ -44,6 +45,7 @@ fields:
     default: variant-a
   - type: model
     name: badge
+    group: styles
     label: Badge
     models:
       - Badge

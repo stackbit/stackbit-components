@@ -13,11 +13,6 @@ export default {
         elementId: {
             defaultValue: ''
         },
-        variant: {
-            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
-            defaultValue: 'variant-a',
-            control: { type: 'select' }
-        },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
@@ -62,6 +57,11 @@ export default {
             options: ['left', 'center', 'right'],
             defaultValue: 'left',
             control: { type: 'select' }
+        },
+        featurePosition: {
+            options: ['right', 'left', 'top', 'bottom'],
+            defaultValue: 'right',
+            control: { type: 'select' }
         }
     },
     parameters: {
@@ -104,7 +104,6 @@ const Template = (args) => <HeroSection {...args} />;
 const args = {
     type: 'HeroSection',
     elementId: '',
-    variant: 'variant-a',
     colors: 'colors-a',
     width: 'wide',
     height: 'short',
@@ -141,6 +140,7 @@ const args = {
         altText: 'Image alt text',
         caption: 'Image caption'
     },
+    featurePosition: 'right',
     styles: {
         badge: {
             fontSize: 'x-small',
@@ -173,7 +173,6 @@ export const HeroLeftVideo = Template.bind({});
 HeroLeftVideo.storyName = 'Hero Section With Video on the Left';
 HeroLeftVideo.args = {
     ...args,
-    variant: 'variant-b',
     colors: 'colors-c',
     width: 'full',
     height: 'tall',
@@ -200,7 +199,6 @@ export const HeroBottomImage = Template.bind({});
 HeroBottomImage.storyName = 'Hero Section With Image at the Bottom';
 HeroBottomImage.args = {
     ...args,
-    variant: 'variant-d',
     colors: 'colors-c',
     width: 'full',
     contentWidth: 'small',
@@ -225,7 +223,6 @@ export const HeroTextOnly = Template.bind({});
 HeroTextOnly.storyName = 'Hero Section With Text Only';
 HeroTextOnly.args = {
     ...args,
-    variant: 'variant-a',
     colors: 'colors-c',
     width: 'full',
     height: 'tall',
@@ -265,7 +262,6 @@ export const HeroRightForm = Template.bind({});
 HeroRightForm.storyName = 'Hero Section With Form on the Right';
 HeroRightForm.args = {
     ...args,
-    variant: 'variant-a',
     colors: 'colors-f',
     contentWidth: 'medium',
     badge: null,
@@ -281,7 +277,7 @@ HeroRightForm.args = {
     ],
     feature: {
         type: 'FormBlock',
-        idAttr: 'hero-form',
+        elementId: 'hero-form',
         fields: [
             {
                 type: 'TextFormControl',
@@ -308,7 +304,6 @@ export const HeroBottomForm = Template.bind({});
 HeroBottomForm.storyName = 'Hero Section With Form at the Bottom';
 HeroBottomForm.args = {
     ...args,
-    variant: 'variant-d',
     colors: 'colors-i',
     contentWidth: 'small',
     contentAlignHoriz: 'center',
@@ -317,7 +312,7 @@ HeroBottomForm.args = {
     actions: null,
     feature: {
         type: 'FormBlock',
-        idAttr: 'hero-form',
+        elementId: 'hero-form',
         fields: [
             {
                 type: 'EmailFormControl',

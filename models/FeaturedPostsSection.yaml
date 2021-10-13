@@ -13,8 +13,8 @@ fieldGroups:
 fields:
   - type: enum
     name: variant
-    label: Arrangement
     group: styles
+    label: Arrangement
     options:
       - label: Three columns, post thumbnail at the top
         value: variant-a
@@ -23,8 +23,8 @@ fields:
     default: variant-b
   - type: model
     name: badge
-    label: Badge
     group: styles
+    label: Badge
     models:
       - Badge
   - type: string

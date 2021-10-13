@@ -27,6 +27,7 @@ fields:
     default: Product Marketing Manager at Acme
   - type: model
     name: backgroundImage
+    group: styles
     label: Background image
     models:
       - ImageBlock

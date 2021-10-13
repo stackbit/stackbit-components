@@ -2,23 +2,6 @@ type: data
 name: Config
 label: Site configuration
 fields:
-  - type: enum
-    name: backgroundColor
-    label: Background color
-    options:
-      - label: White
-        value: bg-white
-      - label: Base
-        value: bg-base
-      - label: Primary
-        value: bg-primary
-      - label: Secondary
-        value: bg-secondary
-      - label: Complementary 1
-        value: bg-complementary-1
-      - label: Complementary 2
-        value: bg-complementary-2
-    default: bg-white
   - type: model
     name: navBar
     label: Navbar configuration

@@ -29,24 +29,10 @@ fields:
     default: none
   - name: textAlign
     default: left
-  - type: enum
-    name: variant
-    label: Arrangement
-    group: styles
-    options:
-      - label: Hero with feature on the right
-        value: variant-a
-      - label: Hero with feature on the left
-        value: variant-b
-      - label: Hero with feature at the top
-        value: variant-c
-      - label: Hero with feature at the bottom
-        value: variant-d
-    default: variant-a
   - type: model
     name: badge
-    label: Badge
     group: styles
+    label: Badge
     models:
       - Badge
   - type: string
@@ -94,6 +80,15 @@ fields:
       type: ImageBlock
       url: /images/hero.png
       altText: Hero section image
+  - type: enum
+    name: featurePosition
+    label: Feature position
+    options:
+      - right
+      - left
+      - top
+      - bottom
+    default: right
   - type: model
     name: backgroundImage
     group: styles

@@ -1,12 +1,12 @@
 type: object
 name: Link
 label: Link
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
 fields:
-  - type: string
-    name: elementId
-    label: Element ID
-    description: The unique ID for an HTML element, must not contain whitespace
-    default: ''
   - type: string
     name: label
     label: Label
@@ -22,10 +22,12 @@ fields:
     default: '/'
   - type: boolean
     name: showIcon
+    group: styles
     label: Show icon
     default: false
   - type: enum
     name: icon
+    group: styles
     label: Icon
     options:
       - arrowLeft
@@ -39,6 +41,7 @@ fields:
     default: arrowLeft
   - type: enum
     name: iconPosition
+    group: styles
     label: Icon position
     options:
       - left
@@ -46,6 +49,7 @@ fields:
     default: right
   - type: enum
     name: style
+    group: styles
     label: Style
     options:
       - label: Link
@@ -55,3 +59,9 @@ fields:
       - label: Secondary
         value: secondary
     default: link
+  - type: string
+    name: elementId
+    group: settings
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''

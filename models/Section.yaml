@@ -113,7 +113,7 @@ fields:
       - center
       - right
     default: left
-   - type: string
+  - type: string
     name: elementId
     group: settings
     label: Element ID

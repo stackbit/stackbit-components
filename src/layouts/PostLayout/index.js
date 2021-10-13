@@ -8,8 +8,7 @@ import { getDynamicComponent } from '../../components-registry';
 export default function PostLayout(props) {
     const { page, site } = props;
     const BaseLayout = getBaseLayoutComponent(page.baseLayout, site.baseLayout);
-    const topSections = page.topSections || [];
-    const bottomSections = page.bottomSections || [];
+    const sections = page.bottomSections || [];
     const dateTimeAttr = dayjs(page.date).format('YYYY-MM-DD HH:mm:ss');
     const formattedDate = dayjs(page.date).format('MMMM D, YYYY');
 
@@ -17,17 +16,6 @@ export default function PostLayout(props) {
         <>
             <BaseLayout page={page} site={site}>
                 <div className="layout post-layout">
-                    {topSections.length > 0 && (
-                        <div data-sb-field-path="topSections">
-                            {topSections.map((section, index) => {
-                                const Component = getDynamicComponent(section.type);
-                                if (!Component) {
-                                    throw new Error(`no component matching the page section's type: ${section.type}`);
-                                }
-                                return <Component key={index} {...section} annotationPrefix={`topSections.${index}`} />;
-                            })}
-                        </div>
-                    )}
                     <article className="px-4 sm:px-6 py-14 lg:py-20">
                         <div className="mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
                             <header className="mb-12 text-center">
@@ -43,9 +31,9 @@ export default function PostLayout(props) {
                                     {page.author && postAuthor(page.author)}
                                 </div>
                             </header>
-                            {page.thumbImage && (
-                                <figure className="h-0 w-full pt-1/2 mb-8 relative" data-sb-field-path="thumbImage">
-                                    <ImageBlock {...page.thumbImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                            {page.featuredImage && (
+                                <figure className="h-0 w-full pt-1/2 mb-8 relative" data-sb-field-path="featuredImage">
+                                    <ImageBlock {...page.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
                                 </figure>
                             )}
                             {page.markdown_content && (
@@ -59,9 +47,9 @@ export default function PostLayout(props) {
                             )}
                         </div>
                     </article>
-                    {bottomSections.length > 0 && (
+                    {sections.length > 0 && (
                         <div data-sb-field-path="bottomSections">
-                            {bottomSections.map((section, index) => {
+                            {sections.map((section, index) => {
                                 const Component = getDynamicComponent(section.type);
                                 if (!Component) {
                                     throw new Error(`no component matching the page section's type: ${section.type}`);

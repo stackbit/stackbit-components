@@ -41,8 +41,8 @@ fields:
     default: variant-b
   - type: model
     name: badge
-    label: Badge
     group: styles
+    label: Badge
     models:
       - Badge
   - type: string
@@ -58,7 +58,7 @@ fields:
       - FormBlock
     default:
       type: FormBlock
-      idAttr: contact-form
+      elementId: contact-form
       action: /.netlify/functions/submission_created
       destination: ''
       fields:

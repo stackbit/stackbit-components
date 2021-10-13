@@ -2,6 +2,11 @@ name: PageLayout
 label: Page
 layout: PageLayout
 hideContent: true
+fieldGroups:
+  - name: settings
+    label: Settings
+  - name: seo
+    label: SEO
 fields:
   - type: string
     name: title
@@ -47,3 +52,10 @@ fields:
           type: ImageBlock
           url: /images/hero.png
           altText: Image alt text
+  - type: model
+    name: seo
+    group: seo
+    models:
+      - stackbit_page_meta
+
+

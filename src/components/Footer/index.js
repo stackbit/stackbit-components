@@ -64,7 +64,7 @@ export default function Footer(props) {
                             {props.text && (
                                 <Markdown
                                     options={{ forceBlock: true }}
-                                    className="max-w-xl"
+                                    className="sb-markdown max-w-xl"
                                     data-sb-field-path=".text"
                                 >
                                     {props.text}

@@ -137,7 +137,7 @@ function testimonialsVariantA(props) {
                         </div>
                     )}
                     {testimonial.quote && (
-                        <Markdown options={{ forceBlock: true }} className="text-center text-3xl sm:text-4xl" data-sb-field-path=".quote">
+                        <Markdown options={{ forceBlock: true }} className="sb-markdown text-center text-3xl sm:text-4xl" data-sb-field-path=".quote">
                             {testimonial.quote}
                         </Markdown>
                     )}
@@ -185,7 +185,7 @@ function testimonialsVariantB(props) {
                     )}
                     <div className="sm:flex-grow">
                         {testimonial.quote && (
-                            <Markdown options={{ forceBlock: true }} className="text-3xl sm:text-4xl" data-sb-field-path=".quote">
+                            <Markdown options={{ forceBlock: true }} className="sb-markdown text-3xl sm:text-4xl" data-sb-field-path=".quote">
                                 {testimonial.quote}
                             </Markdown>
                         )}

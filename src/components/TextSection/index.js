@@ -97,7 +97,7 @@ function textSectionBody(props) {
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true }}
-                    className={classNames('md:text-lg', {
+                    className={classNames('sb-markdown md:text-lg', {
                         'mt-6': props.badge || props.title || props.subtitle
                     })}
                     data-sb-field-path=".text"

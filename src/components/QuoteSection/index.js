@@ -108,7 +108,7 @@ function quoteContent(props) {
             })}
         >
             {props.quote && (
-                <Markdown options={{ forceBlock: true }} className="text-3xl sm:text-4xl" data-sb-field-path=".quote">
+                <Markdown options={{ forceBlock: true }} className="sb-markdown text-3xl sm:text-4xl" data-sb-field-path=".quote">
                     {props.quote}
                 </Markdown>
             )}

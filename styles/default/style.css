@@ -13,16 +13,56 @@
     h4,
     h5,
     h6 {
-        @apply font-heading font-medium;
-    }
-
-    b,
-    strong {
-        @apply font-medium;
+        @apply font-heading;
     }
 }
 
 @layer components {
+    .sb-markdown {
+        a {
+            @apply underline;
+        }
+        a:hover {
+            @apply no-underline;
+        }
+        b,
+        strong {
+            @apply font-bold;
+        }
+        em {
+            @apply italic;
+        }
+        p {
+            @apply my-4;
+        }
+        ul,
+        ol {
+            @apply my-6 pl-6;
+        }
+        ul:first-child,
+        ol:first-child {
+            @apply mt-0;
+        }
+        ol {
+            @apply list-decimal;
+        }
+        ul {
+            @apply list-disc;
+        }
+        li > ul,
+        li > ol {
+            @apply m-0;
+        }
+        blockquote {
+            @apply border-l-4 border-current pl-6 my-8;
+        }
+        pre {
+            @apply bg-gray-100 text-base leading-normal overflow-x-auto p-6;
+        }
+        hr {
+            @apply border-t border-current my-8;
+        }
+    }
     .sb-avatar {
         img {
             @apply h-full object-cover w-full;

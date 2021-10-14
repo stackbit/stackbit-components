@@ -20,8 +20,8 @@ module.exports = {
                 info: '#ffa928'
             },
             fontFamily: {
-                heading: ['Poppins', 'Frutiger', 'Frutiger Linotype', 'Univers', 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
-                body: ['Poppins', 'Frutiger', 'Frutiger Linotype', 'Univers', 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
+                heading: ['Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
+                body: ['Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
             },
             spacing: {
                 '1/1': '100%',

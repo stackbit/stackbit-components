@@ -179,7 +179,7 @@ function ctaContent(props) {
                 </h2>
             )}
             {props.text && (
-                <Markdown options={{ forceBlock: true }} className="md:text-lg" data-sb-field-path=".text">
+                <Markdown options={{ forceBlock: true }} className="sb-markdown" data-sb-field-path=".text">
                     {props.text}
                 </Markdown>
             )}

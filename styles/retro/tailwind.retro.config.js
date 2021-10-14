@@ -19,7 +19,7 @@ module.exports = {
                 info: '#ED6A5A'
             },
             fontFamily: {
-                heading: ['Poppins', 'Frutiger', 'Frutiger Linotype', 'Univers', 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
+                heading: ['Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
                 body: ['Constantia', 'Lucida Bright', 'Lucidabright', 'Lucida', 'Liberation Serif', 'Georgia', 'serif'],
             },
             spacing: {

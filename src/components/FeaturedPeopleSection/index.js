@@ -273,7 +273,7 @@ function peopleListVariantC(people, annotIndexStart = 0) {
                     </h2>
                 )}
                 {person.bio && (
-                    <Markdown options={{ forceBlock: true }} data-sb-field-path=".bio">
+                    <Markdown options={{ forceBlock: true }} className="sb-markdown" data-sb-field-path=".bio">
                         {person.bio}
                     </Markdown>
                 )}

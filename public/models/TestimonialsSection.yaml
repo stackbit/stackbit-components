@@ -39,12 +39,6 @@ fields:
       - label: Testimonial with author image on the left
         value: variant-b
     default: variant-b
-  - type: model
-    name: badge
-    group: styles
-    label: Badge
-    models:
-      - Badge
   - type: string
     name: title
     label: Title

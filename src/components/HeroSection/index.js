@@ -3,7 +3,6 @@ import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import { getDynamicComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
-import Badge from '../Badge';
 import Action from '../Action';
 
 export default function HeroSection(props) {
@@ -159,25 +158,9 @@ function heroBody(props) {
     const styles = props.styles || {};
     return (
         <div>
-            {props.badge && (
-                <div
-                    className={classNames(
-                        'component-section-badge',
-                        'mb-4',
-                        styles.badge ? mapStyles(styles.badge) : ''
-                    )}
-                    data-sb-field-path=".badge"
-                >
-                    <Badge {...props.badge} className="inline-block" annotationPrefix=".badge" />
-                </div>
-            )}
             {props.title && (
                 <h2
-                    className={classNames(
-                        'component-section-title',
-                        'mb-6',
-                        styles.title ? mapStyles(styles.title) : ''
-                    )}
+                    className={classNames('mb-6', styles.title ? mapStyles(styles.title) : '')}
                     data-sb-field-path=".title"
                 >
                     {props.title}
@@ -185,11 +168,7 @@ function heroBody(props) {
             )}
             {props.subtitle && (
                 <p
-                    className={classNames(
-                        'component-section-subtitle',
-                        'mb-3',
-                        styles.subtitle ? mapStyles(styles.subtitle) : ''
-                    )}
+                    className={classNames('mb-3', styles.subtitle ? mapStyles(styles.subtitle) : '')}
                     data-sb-field-path=".subtitle"
                 >
                     {props.subtitle}
@@ -198,11 +177,7 @@ function heroBody(props) {
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true }}
-                    className={classNames(
-                        'sb-markdown',
-                        'mb-3',
-                        styles.text ? mapStyles(styles.text) : ''
-                    )}
+                    className={classNames('sb-markdown', 'mb-3', styles.text ? mapStyles(styles.text) : '')}
                     data-sb-field-path=".text"
                 >
                     {props.text}

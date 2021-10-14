@@ -1,7 +1,6 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
-import Badge from '../Badge';
 import Action from '../Action';
 import ImageBlock from '../ImageBlock';
 import getPageUrlPath from '../../utils/get-page-url-path';
@@ -84,7 +83,7 @@ export default function FeaturedPostsSection(props) {
 }
 
 function featuredPostsHeader(props) {
-    if (!props.badge && !props.title && !props.subtitle) {
+    if (!props.title && !props.subtitle) {
         return null;
     }
     const textAlign = props.textAlign || 'left';
@@ -95,7 +94,6 @@ function featuredPostsHeader(props) {
                 'ml-auto text-right': textAlign === 'right'
             })}
         >
-            {props.badge && <Badge {...props.badge} className="inline-block inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
                 <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
                     {props.title}
@@ -150,7 +148,7 @@ function postsVariantA(props) {
     return (
         <div
             className={classNames('grid gap-6 md:grid-cols-3 lg:gap-8', {
-                'mt-10': props.badge || props.title || props.subtitle
+                'mt-10': props.title || props.subtitle
             })}
             data-sb-field-path=".posts"
         >
@@ -192,7 +190,7 @@ function postsVariantB(props) {
     return (
         <div
             className={classNames('grid gap-x-8 gap-y-10 lg:grid-cols-2', {
-                'mt-12': props.badge || props.title || props.subtitle
+                'mt-12': props.title || props.subtitle
             })}
             data-sb-field-path=".posts"
         >

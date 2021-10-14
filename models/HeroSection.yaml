@@ -29,12 +29,6 @@ fields:
     default: none
   - name: textAlign
     default: left
-  - type: model
-    name: badge
-    group: styles
-    label: Badge
-    models:
-      - Badge
   - type: string
     name: title
     label: Title
@@ -98,10 +92,6 @@ fields:
   - type: style
     name: styles
     styles:
-      badge:
-        fontSize: ['x-small', 'small', 'medium', 'large']
-        fontWeight: ['300', '400', '500']
-        textAlign: ['left', 'center', 'right']
       title:
         fontSize: ['x-large', 'xx-large', 'xxx-large']
         fontWeight: ['300', '400', '500']

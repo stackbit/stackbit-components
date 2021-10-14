@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import Badge from '../Badge';
 import ImageBlock from '../ImageBlock';
 
 export default function TestimonialsSection(props) {
@@ -80,7 +79,7 @@ export default function TestimonialsSection(props) {
 }
 
 function testimonialsHeader(props) {
-    if (!props.badge && !props.title && !props.subtitle) {
+    if (!props.title && !props.subtitle) {
         return null;
     }
     const textAlign = props.textAlign || 'left';
@@ -91,7 +90,6 @@ function testimonialsHeader(props) {
                 'ml-auto text-right': textAlign === 'right'
             })}
         >
-            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
                 <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
                     {props.title}
@@ -125,7 +123,7 @@ function testimonialsVariantA(props) {
     return (
         <div
             className={classNames({
-                'mt-10': props.badge || props.title || props.subtitle
+                'mt-10': props.title || props.subtitle
             })}
             data-sb-field-path=".testimonials"
         >
@@ -170,7 +168,7 @@ function testimonialsVariantB(props) {
     return (
         <div
             className={classNames({
-                'mt-10': props.badge || props.title || props.subtitle
+                'mt-10': props.title || props.subtitle
             })}
             data-sb-field-path=".testimonials"
         >

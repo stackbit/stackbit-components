@@ -29,12 +29,6 @@ fields:
     default: none
   - name: textAlign
     default: center
-  - type: model
-    name: badge
-    group: styles
-    label: Badge
-    models:
-      - Badge
   - type: string
     name: title
     label: Title

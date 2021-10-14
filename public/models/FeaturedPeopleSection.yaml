@@ -23,12 +23,6 @@ fields:
       - label: Two columns, person info with image at the top
         value: variant-c
     default: variant-a
-  - type: model
-    name: badge
-    group: styles
-    label: Badge
-    models:
-      - Badge
   - type: string
     name: title
     label: Title

@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import Badge from '../Badge';
 
 export default function TextSection(props) {
     const colors = props.colors || 'colors-a';
@@ -83,7 +82,6 @@ function textSectionBody(props) {
                 'text-right': textAlign === 'right'
             })}
         >
-            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
                 <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
                     {props.title}
@@ -98,7 +96,7 @@ function textSectionBody(props) {
                 <Markdown
                     options={{ forceBlock: true }}
                     className={classNames('sb-markdown md:text-lg', {
-                        'mt-6': props.badge || props.title || props.subtitle
+                        'mt-6': props.title || props.subtitle
                     })}
                     data-sb-field-path=".text"
                 >

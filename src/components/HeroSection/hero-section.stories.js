@@ -113,10 +113,6 @@ const args = {
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
     textAlign: 'left',
-    badge: {
-        type: 'Badge',
-        label: 'Brand new'
-    },
     title: 'The quick, brown fox jumps over a lazy dog',
     subtitle: 'Section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
@@ -142,11 +138,6 @@ const args = {
     },
     featurePosition: 'right',
     styles: {
-        badge: {
-            fontSize: 'x-small',
-            fontWeight: '400',
-            textAlign: 'left'
-        },
         title: {
             fontSize: 'xxx-large',
             fontWeight: '500',
@@ -229,7 +220,6 @@ HeroTextOnly.args = {
     contentWidth: 'small',
     contentAlignHoriz: 'left',
     contentAlignVert: 'bottom',
-    badge: null,
     actions: [
         {
             type: 'Button',
@@ -264,7 +254,6 @@ HeroRightForm.args = {
     ...args,
     colors: 'colors-f',
     contentWidth: 'medium',
-    badge: null,
     actions: [
         {
             type: 'Link',
@@ -307,7 +296,6 @@ HeroBottomForm.args = {
     colors: 'colors-i',
     contentWidth: 'small',
     contentAlignHoriz: 'center',
-    badge: null,
     title: 'Join our newsletter',
     actions: null,
     feature: {

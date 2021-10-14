@@ -77,10 +77,6 @@ const args = {
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
     textAlign: 'center',
-    badge: {
-        type: 'Badge',
-        label: 'Know Our Team'
-    },
     title: 'The Team',
     subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
     people: [

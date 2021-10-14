@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import Badge from '../Badge';
 import Action from '../Action';
 
 export default function CtaSection(props) {
@@ -105,7 +104,7 @@ function ctaButtonsBottom(props) {
             {actions.length > 0 && (
                 <div
                     className={classNames('flex flex-wrap items-center -mx-2', {
-                        'mt-8': props.badge || props.title || props.text,
+                        'mt-8': props.title || props.text,
                         'justify-center': textAlign === 'center',
                         'justify-end': textAlign === 'right'
                     })}
@@ -123,7 +122,7 @@ function ctaButtonsRight(props) {
     const actions = props.actions || [];
     return (
         <div className="lg:flex lg:justify-between">
-            {(props.badge || props.title || props.text) && (
+            {(props.title || props.text) && (
                 <div
                     className={classNames({
                         'text-center': textAlign === 'center',
@@ -136,7 +135,7 @@ function ctaButtonsRight(props) {
             {actions.length > 0 && (
                 <div
                     className={classNames('flex flex-col -mx-2 lg:pl-12', {
-                        'mt-10 lg:mt-0': props.badge || props.title || props.text,
+                        'mt-10 lg:mt-0': props.title || props.text,
                         'items-start lg:items-center': textAlign === 'left',
                         'items-center': textAlign === 'center',
                         'items-end lg:items-center': textAlign === 'right'
@@ -172,7 +171,6 @@ function ctaBackgroundImage(image) {
 function ctaContent(props) {
     return (
         <>
-            {props.badge && <Badge {...props.badge} className="inline-block inline-block mb-4 text-xs" annotationPrefix=".badge" />}
             {props.title && (
                 <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl mb-6" data-sb-field-path=".title">
                     {props.title}

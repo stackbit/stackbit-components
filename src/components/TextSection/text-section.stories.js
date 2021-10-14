@@ -71,10 +71,6 @@ const args = {
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
     textAlign: 'center',
-    badge: {
-        type: 'Badge',
-        label: 'Small text'
-    },
     title: 'The Section Title',
     subtitle: 'The section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'

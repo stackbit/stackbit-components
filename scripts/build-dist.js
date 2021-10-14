@@ -8,7 +8,7 @@ const componentsManifest = require('../src/components-manifest.json');
 
 console.log('Building components library');
 
-function runBabel(inputDir='src', outputDir='dist') {
+function runBabel(inputDir = 'src', outputDir = 'dist') {
     console.log('running babel...');
     const babelBin = path.resolve(__dirname, '../node_modules/.bin/babel');
     const babelConfig = path.resolve(__dirname, '../babel.dist.config.json');
@@ -46,7 +46,7 @@ if (process.env.SOURCEMAP_COMMAND) {
     runBabel('src', 'temp-dist');
     // apply using: patch -p1 -i sourcemap.patch
     childProcess.spawnSync('diff', ['-rc', 'dist temp-dist > dist/sourcemap.patch'], {
-        shell: true, 
+        shell: true,
         cwd: path.resolve(__dirname, '../')
     });
     childProcess.spawnSync('git', ['checkout', '--', 'src']);
@@ -105,5 +105,5 @@ files.forEach((file) => {
 
 if (args.includes('--local')) {
     console.log('copy local');
-    childProcess.spawnSync('cp', ['-r', path.join(__dirname, '../dist'), path.join(__dirname, '../stackbit-nextjs-v2/node_modules/@stackbit/components')]);
+    childProcess.spawnSync('cp', ['-r', path.join(__dirname, '../dist'), path.join(__dirname, '../stackbit-nextjs-starter/node_modules/@stackbit/components')]);
 }

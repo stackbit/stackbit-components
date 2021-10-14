@@ -20,22 +20,14 @@ export default function HeroSection(props) {
     return (
         <div
             id={props.elementId}
-            className={classNames(
-                'component',
-                'component-section',
-                'component-hero-section',
-                width === 'full' ? `${colors} relative` : '',
-                'px-4',
-                'sm:px-6',
-                {
-                    'mt-4 sm:mt-6': topGap === 'small',
-                    'mt-6 sm:mt-10': topGap === 'medium',
-                    'mt-10 sm:mt-16': topGap === 'large',
-                    'mb-4 sm:mb-6': bottomGap === 'small',
-                    'mb-6 sm:mb-10': bottomGap === 'medium',
-                    'mb-10 sm:mb-16': bottomGap === 'large'
-                }
-            )}
+            className={classNames('component', 'component-section', 'component-hero-section', width === 'full' ? `${colors} relative` : '', 'px-4', 'sm:px-6', {
+                'mt-4 sm:mt-6': topGap === 'small',
+                'mt-6 sm:mt-10': topGap === 'medium',
+                'mt-10 sm:mt-16': topGap === 'large',
+                'mb-4 sm:mb-6': bottomGap === 'small',
+                'mb-6 sm:mb-10': bottomGap === 'medium',
+                'mb-10 sm:mb-16': bottomGap === 'large'
+            })}
             data-sb-field-path={props.annotationPrefix}
         >
             <div
@@ -62,53 +54,35 @@ export default function HeroSection(props) {
             >
                 {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
                 <div
-                    className={classNames(
-                        'relative',
-                        'w-full',
-                        {
-                            'max-w-3xl': contentWidth === 'small',
-                            'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large'
-                        }
-                    )}
+                    className={classNames('relative', 'w-full', {
+                        'max-w-3xl': contentWidth === 'small',
+                        'max-w-5xl': contentWidth === 'medium',
+                        'max-w-7xl': contentWidth === 'large'
+                    })}
                 >
                     <div
-                        className={classNames(
-                            'flex',
-                            '-mx-4',
-                            {
-                                'flex-col lg:flex-row': featurePosition === 'right',
-                                'flex-col-reverse lg:flex-row-reverse': featurePosition === 'left',
-                                'flex-col-reverse': featurePosition === 'top',
-                                'flex-col': featurePosition === 'bottom'
-                            }
-                        )}
+                        className={classNames('flex', '-mx-4', {
+                            'flex-col lg:flex-row': featurePosition === 'right',
+                            'flex-col-reverse lg:flex-row-reverse': featurePosition === 'left',
+                            'flex-col-reverse': featurePosition === 'top',
+                            'flex-col': featurePosition === 'bottom'
+                        })}
                     >
                         <div
-                            className={classNames(
-                                'my-3',
-                                'flex-1',
-                                'px-4',
-                                'w-full',{
-                                    'self-center': contentAlignVert === 'middle',
-                                    'self-end': contentAlignVert === 'bottom'
-                                }
-                            )}
+                            className={classNames('my-3', 'flex-1', 'px-4', 'w-full', {
+                                'self-center': contentAlignVert === 'middle',
+                                'self-end': contentAlignVert === 'bottom'
+                            })}
                         >
                             {heroBody(props)}
                             {heroActions(props)}
                         </div>
                         {props.feature && (
                             <div
-                                className={classNames(
-                                    'my-3',
-                                    'flex-1',
-                                    'px-4',
-                                    'w-full',{
-                                        'self-center': contentAlignVert === 'middle',
-                                        'self-end': contentAlignVert === 'bottom'
-                                    }
-                                )}
+                                className={classNames('my-3', 'flex-1', 'px-4', 'w-full', {
+                                    'self-center': contentAlignVert === 'middle',
+                                    'self-end': contentAlignVert === 'bottom'
+                                })}
                                 data-sb-field-path=".feature"
                             >
                                 {heroFeature(props.feature)}
@@ -130,9 +104,7 @@ function heroFeature(feature) {
     if (!Feature) {
         throw new Error(`no component matching the hero section feature type: ${featureType}`);
     }
-    return (
-        <Feature {...feature} />
-    );
+    return <Feature {...feature} />;
 }
 
 function heroBackgroundImage(image) {
@@ -159,49 +131,24 @@ function heroBody(props) {
     return (
         <div>
             {props.badge && (
-                <div
-                    className={classNames(
-                        'component-section-badge',
-                        'mb-4',
-                        mapStyles(props.styles.badge)
-                    )}
-                    data-sb-field-path=".badge"
-                >
+                <div className={classNames('component-section-badge', 'mb-4', mapStyles(props.styles.badge))} data-sb-field-path=".badge">
                     <Badge {...props.badge} className="inline-block" annotationPrefix=".badge" />
                 </div>
             )}
             {props.title && (
-                <h2
-                    className={classNames(
-                        'component-section-title',
-                        'mb-6',
-                        mapStyles(props.styles.title)
-                    )}
-                    data-sb-field-path=".title"
-                >
+                <h2 className={classNames('component-section-title', 'mb-6', mapStyles(props.styles.title))} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p
-                    className={classNames(
-                        'component-section-subtitle',
-                        'mb-3',
-                        mapStyles(props.styles.subtitle)
-                    )}
-                    data-sb-field-path=".subtitle"
-                >
+                <p className={classNames('component-section-subtitle', 'mb-3', mapStyles(props.styles.subtitle))} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true }}
-                    className={classNames(
-                        'component-section-text',
-                        'mb-3',
-                        mapStyles(props.styles.text)
-                    )}
+                    className={classNames('component-section-text', 'mb-3', mapStyles(props.styles.text))}
                     data-sb-field-path=".text"
                 >
                     {props.text}
@@ -217,16 +164,7 @@ function heroActions(props) {
         return null;
     }
     return (
-        <div
-            className={classNames(
-                'flex',
-                'flex-wrap',
-                'items-center',
-                'mt-8',
-                '-mx-2'
-            )}
-            data-sb-field-path=".actions"
-        >
+        <div className={classNames('flex', 'flex-wrap', 'items-center', 'mt-8', '-mx-2')} data-sb-field-path=".actions">
             {actions.map((action, index) => (
                 <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
             ))}

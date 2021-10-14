@@ -32,5 +32,15 @@ fields:
     models:
       - ImageBlock
     default:
-      url: /images/dianne-ameter.jpg
+      url: /images/bg.jpg
       altText: Product Marketing Manager
+      opacity: 50
+  - type: style
+    name: styles
+    styles:
+      quote:
+        textAlign: ['left', 'center', 'right']
+      name:
+        textAlign: ['left', 'center', 'right']
+      title:
+        textAlign: ['left', 'center', 'right']

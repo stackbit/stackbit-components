@@ -51,7 +51,7 @@ export default function HeroSection(props) {
                     'sm:py-16',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
                         'justify-end': contentAlignVert === 'bottom',
                         'items-center': contentAlignHoriz === 'center',
@@ -88,7 +88,8 @@ export default function HeroSection(props) {
                                 'my-3',
                                 'flex-1',
                                 'px-4',
-                                'w-full',{
+                                'w-full',
+                                {
                                     'self-center': contentAlignVert === 'middle',
                                     'self-end': contentAlignVert === 'bottom'
                                 }
@@ -103,7 +104,8 @@ export default function HeroSection(props) {
                                     'my-3',
                                     'flex-1',
                                     'px-4',
-                                    'w-full',{
+                                    'w-full',
+                                    {
                                         'self-center': contentAlignVert === 'middle',
                                         'self-end': contentAlignVert === 'bottom'
                                     }
@@ -160,7 +162,7 @@ function heroBody(props) {
         <div>
             {props.title && (
                 <h2
-                    className={classNames('mb-6', styles.title ? mapStyles(styles.title) : '')}
+                    className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')}
                     data-sb-field-path=".title"
                 >
                     {props.title}
@@ -168,7 +170,7 @@ function heroBody(props) {
             )}
             {props.subtitle && (
                 <p
-                    className={classNames('mb-3', styles.subtitle ? mapStyles(styles.subtitle) : '')}
+                    className={classNames('text-xl', 'sm:text-2xl', 'mb-6', styles.subtitle ? mapStyles(styles.subtitle) : '')}
                     data-sb-field-path=".subtitle"
                 >
                     {props.subtitle}
@@ -177,7 +179,7 @@ function heroBody(props) {
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true }}
-                    className={classNames('sb-markdown', 'mb-3', styles.text ? mapStyles(styles.text) : '')}
+                    className={classNames('sb-markdown', 'md:text-lg', styles.text ? mapStyles(styles.text) : '')}
                     data-sb-field-path=".text"
                 >
                     {props.text}
@@ -192,6 +194,7 @@ function heroActions(props) {
     if (actions.length === 0) {
         return null;
     }
+    const actionStyles = props.styles?.actions || {};
     return (
         <div
             className={classNames(
@@ -199,7 +202,8 @@ function heroActions(props) {
                 'flex-wrap',
                 'items-center',
                 'mt-8',
-                '-mx-2'
+                '-mx-2',
+                actionStyles.textAlign ? mapActionsAlignStyles(actionStyles.textAlign) : ''
             )}
             data-sb-field-path=".actions"
         >
@@ -208,4 +212,16 @@ function heroActions(props) {
             ))}
         </div>
     );
+}
+
+function mapActionsAlignStyles(textAlign) {
+    switch (textAlign) {
+        case 'left':
+            return 'justify-start';
+        case 'center':
+            return 'justify-center';
+        case 'right':
+            return 'justify-end';
+    }
+    return null;
 }

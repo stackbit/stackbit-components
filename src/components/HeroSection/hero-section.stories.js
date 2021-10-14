@@ -24,7 +24,7 @@ export default {
             control: { type: 'select' }
         },
         height: {
-            options: ['short', 'tall', 'viewport'],
+            options: ['short', 'tall', 'screen'],
             defaultValue: 'short',
             control: { type: 'select' }
         },
@@ -51,11 +51,6 @@ export default {
         contentAlignVert: {
             options: ['top', 'middle', 'bottom'],
             defaultValue: 'middle',
-            control: { type: 'select' }
-        },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
             control: { type: 'select' }
         },
         featurePosition: {
@@ -139,18 +134,15 @@ const args = {
     featurePosition: 'right',
     styles: {
         title: {
-            fontSize: 'xxx-large',
-            fontWeight: '500',
             textAlign: 'left'
         },
         subtitle: {
-            fontSize: 'xx-large',
-            fontWeight: '300',
             textAlign: 'left'
         },
         text: {
-            fontSize: 'large',
-            fontWeight: '400',
+            textAlign: 'left'
+        },
+        actions: {
             textAlign: 'left'
         }
     }

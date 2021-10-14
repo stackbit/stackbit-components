@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import Action from '../Action';
 import ImageBlock from '../ImageBlock';
 
@@ -52,7 +53,7 @@ export default function FeaturedPeopleSection(props) {
                     'relative',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
                         'justify-end': contentAlignVert === 'bottom'
                     }
@@ -84,21 +85,22 @@ function featuredPeopleHeader(props) {
     if (!props.title && !props.subtitle) {
         return null;
     }
-    const textAlign = props.textAlign || 'left';
+    const styles = props.styles || {};
     return (
-        <div
-            className={classNames({
-                'mx-auto text-center': textAlign === 'center',
-                'ml-auto text-right': textAlign === 'right'
-            })}
-        >
+        <div>
             {props.title && (
-                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
+                <h2
+                    className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')}
+                    data-sb-field-path=".title"
+                >
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className="md:text-lg" data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -111,20 +113,29 @@ function featuredPeopleActions(props) {
     if (actions.length === 0) {
         return null;
     }
-    const textAlign = props.textAlign || 'left';
+    const actionStyles = props.styles?.actions || {};
     return (
         <div
-            className={classNames('flex flex-wrap items-center mt-12 -mx-2', {
-                'justify-center': textAlign === 'center',
-                'justify-end': textAlign === 'right'
-            })}
+            className={classNames('flex flex-wrap items-center mt-12 -mx-2', actionStyles.textAlign ? mapActionsAlignStyles(actionStyles.textAlign) : '')}
             data-sb-field-path=".actions"
         >
-            {props.actions.map((action, index) => (
+            {actions.map((action, index) => (
                 <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
             ))}
         </div>
     );
+}
+
+function mapActionsAlignStyles(textAlign) {
+    switch (textAlign) {
+        case 'left':
+            return 'justify-start';
+        case 'center':
+            return 'justify-center';
+        case 'right':
+            return 'justify-end';
+    }
+    return null;
 }
 
 function featuredPeopleVariants(props) {
@@ -234,16 +245,13 @@ function peopleVariantC(props) {
     if (people.length === 0) {
         return null;
     }
-    const textAlign = props.textAlign || 'left';
     const middleIndex = Math.floor(people.length / 2);
     const peopleLeft = people.slice(0, middleIndex);
     const peopleRight = people.slice(-middleIndex);
     return (
         <div
-            className={classNames('grid gap-x-6 gap-y-12 max-w-4xl place-items-stretch sm:grid-cols-2', {
-                'mt-10': props.title || props.subtitle,
-                'mx-auto': textAlign === 'center',
-                'ml-auto': textAlign === 'right'
+            className={classNames('grid gap-x-6 gap-y-12 sm:grid-cols-2', {
+                'mt-10': props.title || props.subtitle
             })}
             data-sb-field-path=".people"
         >

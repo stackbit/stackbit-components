@@ -25,7 +25,7 @@ export default {
             control: { type: 'select' }
         },
         height: {
-            options: ['short', 'tall', 'viewport'],
+            options: ['short', 'tall', 'screen'],
             defaultValue: 'short',
             control: { type: 'select' }
         },
@@ -53,11 +53,6 @@ export default {
             options: ['top', 'middle', 'bottom'],
             defaultValue: 'middle',
             control: { type: 'select' }
-        },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
         }
     }
 };
@@ -76,7 +71,6 @@ const args = {
     contentWidth: 'large',
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
-    textAlign: 'left',
     testimonials: [
         {
             quote: '“Stackbit is fast! Themes are always up to date. It’s easy to use across the organization, and collaboration is easy.”',
@@ -93,7 +87,15 @@ const args = {
                 altText: 'The logo'
             }
         }
-    ]
+    ],
+    styles: {
+        title: {
+            textAlign: 'left'
+        },
+        subtitle: {
+            textAlign: 'left'
+        }
+    }
 };
 
 export const Primary = Template.bind({});
@@ -107,7 +109,14 @@ VariantB.args = {
     variant: 'variant-b',
     colors: 'colors-f',
     width: 'full',
-    textAlign: 'center',
     title: 'Testimonials',
-    subtitle: 'What our users say'
+    subtitle: 'What our users say',
+    styles: {
+        title: {
+            textAlign: 'center'
+        },
+        subtitle: {
+            textAlign: 'center'
+        }
+    }
 };

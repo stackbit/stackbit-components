@@ -26,7 +26,6 @@ fields:
         contentWidth: large
         contentAlignHoriz: center
         contentAlignVert: middle
-        textAlign: left
         title: This Is A Big Hero Headline
         text: >-
           Aenean eros ipsum, interdum quis dignissim non, sollicitudin vitae nisl.

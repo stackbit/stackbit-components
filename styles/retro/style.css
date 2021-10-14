@@ -189,7 +189,15 @@
 
     /* Color palettes */
     .colors-a {
-        @apply bg-white text-neutral;
+        @apply bg-white text-body;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-headline;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -210,6 +218,14 @@
     }
     .colors-b {
         @apply bg-white text-primary;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-primary;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -230,6 +246,14 @@
     }
     .colors-c {
         @apply bg-neutral text-white;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-white;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -253,6 +277,14 @@
     }
     .colors-d {
         @apply bg-neutral text-primary;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-primary;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -275,7 +307,15 @@
         }
     }
     .colors-e {
-        @apply bg-primary text-neutral;
+        @apply bg-primary text-body;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-headline;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -295,7 +335,15 @@
         }
     }
     .colors-f {
-        @apply bg-secondary text-neutral;
+        @apply bg-secondary text-body;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-headline;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -316,6 +364,14 @@
     }
     .colors-g {
         @apply bg-secondary text-primary;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-primary;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -335,7 +391,15 @@
         }
     }
     .colors-h {
-        @apply bg-complementary text-neutral;
+        @apply bg-complementary text-body;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-headline;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {
@@ -355,7 +419,15 @@
         }
     }
     .colors-i {
-        @apply bg-complementary-alt text-neutral;
+        @apply bg-complementary-alt text-body;
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            @apply text-headline;
+        }
         .sb-input,
         .sb-select,
         .sb-textarea {

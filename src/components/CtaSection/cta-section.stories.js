@@ -20,7 +20,7 @@ export default {
             control: { type: 'select' }
         },
         height: {
-            options: ['short', 'tall', 'viewport'],
+            options: ['short', 'tall', 'screen'],
             defaultValue: 'short',
             control: { type: 'select' }
         },
@@ -49,14 +49,9 @@ export default {
             defaultValue: 'middle',
             control: { type: 'select' }
         },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        },
-        variant: {
-            options: ['variant-a', 'variant-b'],
-            defaultValue: 'variant-a',
+        actionsPosition: {
+            options: ['right', 'bottom'],
+            defaultValue: 'right',
             control: { type: 'select' }
         }
     }
@@ -67,7 +62,6 @@ const Template = (args) => <CtaSection {...args} />;
 const args = {
     type: 'CtaSection',
     elementId: '',
-    variant: 'variant-a',
     colors: 'colors-h',
     height: 'short',
     topGap: 'none',
@@ -75,7 +69,6 @@ const args = {
     contentWidth: 'large',
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
-    textAlign: 'center',
     title: "Let's do this",
     text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
     actions: [
@@ -85,27 +78,49 @@ const args = {
             label: 'Get Started',
             style: 'primary'
         }
-    ]
+    ],
+    actionsPosition: 'right',
+    styles: {
+        title: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        },
+        actions: {
+            textAlign: 'left'
+        }
+    }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'CTA Section With Button at the Bottom';
+Primary.storyName = 'CTA Section With Button on the Right';
 Primary.args = args;
 
 export const CtaButtonsRight = Template.bind({});
-CtaButtonsRight.storyName = 'CTA Section With Buttons on the Right';
+CtaButtonsRight.storyName = 'CTA Section With Buttons at the Bottom';
 CtaButtonsRight.args = {
     ...args,
-    variant: 'variant-b',
     colors: 'colors-c',
     width: 'full',
     contentWidth: 'medium',
-    textAlign: 'left',
+    actionsPosition: 'bottom',
     backgroundImage: {
         type: 'ImageBlock',
         url: '/images/bg.jpg',
         altText: 'Background image',
         caption: '',
         opacity: 50
+    },
+    styles: {
+        title: {
+            textAlign: 'center'
+        },
+        text: {
+            textAlign: 'center'
+        },
+        actions: {
+            textAlign: 'center'
+        }
     }
 };

@@ -20,7 +20,7 @@ export default {
             control: { type: 'select' }
         },
         height: {
-            options: ['short', 'tall', 'viewport'],
+            options: ['short', 'tall', 'screen'],
             defaultValue: 'short',
             control: { type: 'select' }
         },
@@ -48,11 +48,6 @@ export default {
             options: ['top', 'middle', 'bottom'],
             defaultValue: 'middle',
             control: { type: 'select' }
-        },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
         }
     }
 };
@@ -70,7 +65,6 @@ const args = {
     contentWidth: 'small',
     contentAlignHoriz: 'left',
     contentAlignVert: 'bottom',
-    textAlign: 'left',
     quote: '“A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away”',
     name: 'Antoine de Saint-Exupéry',
     title: 'Writer',
@@ -79,7 +73,18 @@ const args = {
         url: '/images/bg.jpg',
         altText: 'Background Image',
         caption: '',
-        opacity: 40
+        opacity: 50
+    },
+    styles: {
+        quote: {
+            textAlign: 'left'
+        },
+        name: {
+            textAlign: 'left'
+        },
+        title: {
+            textAlign: 'left'
+        }
     }
 };
 
@@ -93,10 +98,20 @@ Secondary.args = {
     ...args,
     colors: 'colors-d',
     width: 'full',
-    height: 'viewport',
+    height: 'screen',
     contentWidth: 'medium',
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
-    textAlign: 'center',
-    backgroundImage: null
+    backgroundImage: null,
+    styles: {
+        quote: {
+            textAlign: 'center'
+        },
+        name: {
+            textAlign: 'center'
+        },
+        title: {
+            textAlign: 'center'
+        }
+    }
 };

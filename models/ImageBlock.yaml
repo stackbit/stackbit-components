@@ -22,13 +22,13 @@ fields:
   - type: number
     name: opacity
     group: styles
-    label: Opacity
-    description: The opacity of the image
     controlType: 'slider'
     min: 0
     max: 100
     step: 1
     unit: '%'
+    label: Opacity
+    description: The opacity of the image
     default: 100
   - type: string
     name: elementId

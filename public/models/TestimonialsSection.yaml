@@ -27,8 +27,6 @@ fields:
     default: none
   - name: bottomGap
     default: none
-  - name: textAlign
-    default: left
   - type: enum
     name: variant
     label: Arrangement

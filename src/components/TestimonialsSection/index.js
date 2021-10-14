@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import ImageBlock from '../ImageBlock';
 
 export default function TestimonialsSection(props) {
@@ -51,7 +52,7 @@ export default function TestimonialsSection(props) {
                     'relative',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
                         'justify-end': contentAlignVert === 'bottom'
                     }
@@ -82,21 +83,22 @@ function testimonialsHeader(props) {
     if (!props.title && !props.subtitle) {
         return null;
     }
-    const textAlign = props.textAlign || 'left';
+    const styles = props.styles || {};
     return (
-        <div
-            className={classNames({
-                'mx-auto text-center': textAlign === 'center',
-                'ml-auto text-right': textAlign === 'right'
-            })}
-        >
+        <div>
             {props.title && (
-                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
+                <h2
+                    className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')}
+                    data-sb-field-path=".title"
+                >
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className="md:text-lg" data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}

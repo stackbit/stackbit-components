@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
 export default function TextSection(props) {
     const colors = props.colors || 'colors-a';
@@ -11,6 +12,7 @@ export default function TextSection(props) {
     const contentWidth = props.contentWidth || 'large';
     const contentAlignHoriz = props.contentAlignHoriz || 'left';
     const contentAlignVert = props.contentAlignVert || 'middle';
+    const styles = props.styles || {};
 
     return (
         <div
@@ -42,67 +44,57 @@ export default function TextSection(props) {
                     'mx-auto',
                     'px-4',
                     'sm:px-8',
-                    'md:px-12',
-                    'lg:px-16',
-                    'py-10',
-                    'md:py-20',
+                    'md:px-16',
+                    'py-8',
+                    'sm:py-16',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
-                        'justify-end': contentAlignVert === 'bottom'
+                        'justify-end': contentAlignVert === 'bottom',
+                        'items-center': contentAlignHoriz === 'center',
+                        'items-end': contentAlignHoriz === 'right'
                     }
                 )}
             >
                 <div
                     className={classNames(
                         'w-full',
+                        'my-3',
                         {
                             'max-w-3xl': contentWidth === 'small',
                             'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large',
-                            'mx-auto': contentAlignHoriz === 'center',
-                            'ml-auto': contentAlignHoriz === 'right'
+                            'max-w-7xl': contentWidth === 'large'
                         }
                     )}
                 >
-                    {textSectionBody(props)}
+                    {props.title && (
+                        <h2
+                            className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')}
+                            data-sb-field-path=".title"
+                        >
+                            {props.title}
+                        </h2>
+                    )}
+                        {props.subtitle && (
+                            <p
+                                className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : '')}
+                                data-sb-field-path=".subtitle"
+                            >
+                                {props.subtitle}
+                            </p>
+                        )}
+                        {props.text && (
+                            <Markdown
+                                options={{ forceBlock: true }}
+                                className={classNames('sb-markdown', 'md:text-lg', styles.text ? mapStyles(styles.text) : '', props.title || props.subtitle ? 'mt-6' : '')}
+                                data-sb-field-path=".text"
+                            >
+                                {props.text}
+                            </Markdown>
+                        )}
                 </div>
             </div>
-        </div>
-    );
-}
-
-function textSectionBody(props) {
-    const textAlign = props.textAlign || 'left';
-    return (
-        <div
-            className={classNames({
-                'text-center': textAlign === 'center',
-                'text-right': textAlign === 'right'
-            })}
-        >
-            {props.title && (
-                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
-                    {props.title}
-                </h2>
-            )}
-            {props.subtitle && (
-                <p className="md:text-lg" data-sb-field-path=".subtitle">
-                    {props.subtitle}
-                </p>
-            )}
-            {props.text && (
-                <Markdown
-                    options={{ forceBlock: true }}
-                    className={classNames('sb-markdown md:text-lg', {
-                        'mt-6': props.title || props.subtitle
-                    })}
-                    data-sb-field-path=".text"
-                >
-                    {props.text}
-                </Markdown>
-            )}
         </div>
     );
 }

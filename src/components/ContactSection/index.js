@@ -2,6 +2,7 @@ import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import { getDynamicComponent } from '../../components-registry';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import FormBlock from '../FormBlock';
 
 export default function ContactSection(props) {
@@ -52,7 +53,7 @@ export default function ContactSection(props) {
                     'relative',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
                         'justify-end': contentAlignVert === 'bottom'
                     }
@@ -91,7 +92,6 @@ function contactVariants(props) {
 
 function contactFeatureRight(props) {
     const contentAlignVert = props.contentAlignVert || 'middle';
-    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-y-8', {
@@ -108,14 +108,13 @@ function contactFeatureRight(props) {
                     </div>
                 )}
             </div>
-            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature, textAlign)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature)}</div>}
         </div>
     );
 }
 
 function contactFeatureLeft(props) {
     const contentAlignVert = props.contentAlignVert || 'middle';
-    const textAlign = props.textAlign || 'left';
     return (
         <div
             className={classNames('grid gap-y-8', {
@@ -124,7 +123,7 @@ function contactFeatureLeft(props) {
                 'lg:items-end': contentAlignVert === 'bottom'
             })}
         >
-            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature, textAlign)}</div>}
+            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature)}</div>}
             <div>
                 {contactContent(props)}
                 {props.form && (
@@ -137,7 +136,7 @@ function contactFeatureLeft(props) {
     );
 }
 
-function contactFeature(feature, align) {
+function contactFeature(feature) {
     const featureType = feature.type;
     if (!featureType) {
         throw new Error(`contact section feature does not have the 'type' property`);
@@ -147,32 +146,28 @@ function contactFeature(feature, align) {
         throw new Error(`no component matching the contact section feature type: ${featureType}`);
     }
     return (
-        <Feature
-            {...feature}
-            className={classNames({
-                'ml-auto': align === 'right',
-                'mx-auto': align === 'center'
-            })}
-        />
+        <Feature {...feature} />
     );
 }
 
 function contactContent(props) {
-    const textAlign = props.textAlign || 'left';
+    const styles = props.styles || {};
     return (
-        <div
-            className={classNames('mb-12', {
-                'text-right': textAlign === 'right',
-                'text-center': textAlign === 'center'
-            })}
-        >
+        <div className="mb-12">
             {props.title && (
-                <h2 className="component-section-title text-4xl tracking-tight sm:text-5xl mb-6" data-sb-field-path=".title">
+                <h2
+                    className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')}
+                    data-sb-field-path=".title"
+                >
                     {props.title}
                 </h2>
             )}
             {props.text && (
-                <Markdown options={{ forceBlock: true }} className="sb-markdown" data-sb-field-path=".text">
+                <Markdown
+                    options={{ forceBlock: true }}
+                    className={classNames('sb-markdown', styles.text ? mapStyles(styles.text) : '')}
+                    data-sb-field-path=".text"
+                >
                     {props.text}
                 </Markdown>
             )}

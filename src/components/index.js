@@ -1,5 +1,4 @@
 import Action from './Action';
-import Badge from './Badge';
 import CheckboxFormControl from './CheckboxFormControl';
 import ContactSection from './ContactSection';
 import CtaSection from './CtaSection';
@@ -22,7 +21,6 @@ import VideoBlock from './VideoBlock';
 
 export {
     Action,
-    Badge,
     CheckboxFormControl,
     ContactSection,
     CtaSection,

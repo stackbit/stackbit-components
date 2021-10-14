@@ -25,7 +25,7 @@ export default {
             control: { type: 'select' }
         },
         height: {
-            options: ['short', 'tall', 'viewport'],
+            options: ['short', 'tall', 'screen'],
             defaultValue: 'short',
             control: { type: 'select' }
         },
@@ -53,11 +53,6 @@ export default {
             options: ['top', 'middle', 'bottom'],
             defaultValue: 'middle',
             control: { type: 'select' }
-        },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
         }
     }
 };
@@ -76,7 +71,6 @@ const args = {
     contentWidth: 'large',
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
-    textAlign: 'left',
     title: 'Join our club',
     text: 'We will notify you every time a shipment is heading to your neighborhood, and you could immediatly let us know if you want in or not.',
     feature: {
@@ -120,6 +114,14 @@ const args = {
             }
         ],
         submitLabel: 'Send Message'
+    },
+    styles: {
+        title: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        }
     }
 };
 
@@ -133,5 +135,12 @@ ContactRightImage.args = {
     ...args,
     variant: 'variant-a',
     colors: 'colors-h',
-    textAlign: 'center'
+    styles: {
+        title: {
+            textAlign: 'center'
+        },
+        text: {
+            textAlign: 'center'
+        }
+    }
 };

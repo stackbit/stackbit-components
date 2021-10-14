@@ -11,21 +11,6 @@ fieldGroups:
   - name: settings
     label: Settings
 fields:
-  - type: enum
-    name: variant
-    label: Arrangement
-    options:
-      - label: CTA with buttons at the bottom
-        value: variant-a
-      - label: CTA with buttons on the right
-        value: variant-b
-    default: variant-b
-  - type: model
-    name: badge
-    group: styles
-    label: Badge
-    models:
-      - Badge
   - type: string
     name: title
     label: Title
@@ -47,8 +32,29 @@ fields:
         label: Try it now
         url: '/about'
         style: primary
+  - type: enum
+    name: actionsPosition
+    group: styles
+    controlType: button-group
+    label: Actions position
+    options:
+      - label: Right
+        value: right
+      - label: Bottom
+        value: bottom
+    default: right
   - type: model
     name: backgroundImage
+    group: styles
     label: Background image
     models:
       - ImageBlock
+  - type: style
+    name: styles
+    styles:
+      title:
+        textAlign: ['left', 'center', 'right']
+      text:
+        textAlign: ['left', 'center', 'right']
+      actions:
+        textAlign: ['left', 'center', 'right']

@@ -3,7 +3,6 @@ import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import { getDynamicComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
-import Badge from '../Badge';
 import Action from '../Action';
 
 export default function HeroSection(props) {
@@ -44,7 +43,7 @@ export default function HeroSection(props) {
                     'sm:py-16',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
                         'justify-end': contentAlignVert === 'bottom',
                         'items-center': contentAlignHoriz === 'center',
@@ -69,20 +68,32 @@ export default function HeroSection(props) {
                         })}
                     >
                         <div
-                            className={classNames('my-3', 'flex-1', 'px-4', 'w-full', {
-                                'self-center': contentAlignVert === 'middle',
-                                'self-end': contentAlignVert === 'bottom'
-                            })}
+                            className={classNames(
+                                'my-3',
+                                'flex-1',
+                                'px-4',
+                                'w-full',
+                                {
+                                    'self-center': contentAlignVert === 'middle',
+                                    'self-end': contentAlignVert === 'bottom'
+                                }
+                            )}
                         >
                             {heroBody(props)}
                             {heroActions(props)}
                         </div>
                         {props.feature && (
                             <div
-                                className={classNames('my-3', 'flex-1', 'px-4', 'w-full', {
-                                    'self-center': contentAlignVert === 'middle',
-                                    'self-end': contentAlignVert === 'bottom'
-                                })}
+                                className={classNames(
+                                    'my-3',
+                                    'flex-1',
+                                    'px-4',
+                                    'w-full',
+                                    {
+                                        'self-center': contentAlignVert === 'middle',
+                                        'self-end': contentAlignVert === 'bottom'
+                                    }
+                                )}
                                 data-sb-field-path=".feature"
                             >
                                 {heroFeature(props.feature)}
@@ -128,27 +139,29 @@ function heroBackgroundImage(image) {
 }
 
 function heroBody(props) {
+    const styles = props.styles || {};
     return (
         <div>
-            {props.badge && (
-                <div className={classNames('component-section-badge', 'mb-4', mapStyles(props.styles.badge))} data-sb-field-path=".badge">
-                    <Badge {...props.badge} className="inline-block" annotationPrefix=".badge" />
-                </div>
-            )}
             {props.title && (
-                <h2 className={classNames('component-section-title', 'mb-6', mapStyles(props.styles.title))} data-sb-field-path=".title">
+                <h2
+                    className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')}
+                    data-sb-field-path=".title"
+                >
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('component-section-subtitle', 'mb-3', mapStyles(props.styles.subtitle))} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-xl', 'sm:text-2xl', 'mb-6', styles.subtitle ? mapStyles(styles.subtitle) : '')}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true }}
-                    className={classNames('component-section-text', 'mb-3', mapStyles(props.styles.text))}
+                    className={classNames('sb-markdown', 'md:text-lg', styles.text ? mapStyles(styles.text) : '')}
                     data-sb-field-path=".text"
                 >
                     {props.text}
@@ -163,11 +176,34 @@ function heroActions(props) {
     if (actions.length === 0) {
         return null;
     }
+    const actionStyles = props.styles?.actions || {};
     return (
-        <div className={classNames('flex', 'flex-wrap', 'items-center', 'mt-8', '-mx-2')} data-sb-field-path=".actions">
+        <div
+            className={classNames(
+                'flex',
+                'flex-wrap',
+                'items-center',
+                'mt-8',
+                '-mx-2',
+                actionStyles.textAlign ? mapActionsAlignStyles(actionStyles.textAlign) : ''
+            )}
+            data-sb-field-path=".actions"
+        >
             {actions.map((action, index) => (
                 <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
             ))}
         </div>
     );
+}
+
+function mapActionsAlignStyles(textAlign) {
+    switch (textAlign) {
+        case 'left':
+            return 'justify-start';
+        case 'center':
+            return 'justify-center';
+        case 'right':
+            return 'justify-end';
+    }
+    return null;
 }

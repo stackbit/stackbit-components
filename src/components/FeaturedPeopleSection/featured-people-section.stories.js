@@ -25,7 +25,7 @@ export default {
             control: { type: 'select' }
         },
         height: {
-            options: ['short', 'tall', 'viewport'],
+            options: ['short', 'tall', 'screen'],
             defaultValue: 'short',
             control: { type: 'select' }
         },
@@ -53,11 +53,6 @@ export default {
             options: ['top', 'middle', 'bottom'],
             defaultValue: 'middle',
             control: { type: 'select' }
-        },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
         }
     }
 };
@@ -76,11 +71,6 @@ const args = {
     contentWidth: 'large',
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
-    textAlign: 'center',
-    badge: {
-        type: 'Badge',
-        label: 'Know Our Team'
-    },
     title: 'The Team',
     subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
     people: [
@@ -128,7 +118,18 @@ const args = {
                 altText: 'Photo of Hugh Saturation'
             }
         }
-    ]
+    ],
+    styles: {
+        title: {
+            textAlign: 'center'
+        },
+        subtitle: {
+            textAlign: 'center'
+        },
+        actions: {
+            textAlign: 'center'
+        }
+    }
 };
 
 export const Primary = Template.bind({});
@@ -150,7 +151,18 @@ VariantB.args = {
             label: 'View More',
             style: 'primary'
         }
-    ]
+    ],
+    styles: {
+        title: {
+            textAlign: 'left'
+        },
+        subtitle: {
+            textAlign: 'left'
+        },
+        actions: {
+            textAlign: 'left'
+        }
+    }
 };
 
 export const VariantC = Template.bind({});
@@ -158,5 +170,6 @@ VariantC.storyName = 'Two Cols, Info Under the Image';
 VariantC.args = {
     ...args,
     variant: 'variant-c',
-    colors: 'colors-i'
+    colors: 'colors-i',
+    contentWidth: 'medium'
 };

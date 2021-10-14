@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import Badge from '../Badge';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import ImageBlock from '../ImageBlock';
 
 export default function TestimonialsSection(props) {
@@ -52,7 +52,7 @@ export default function TestimonialsSection(props) {
                     'relative',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
                         'justify-end': contentAlignVert === 'bottom'
                     }
@@ -80,25 +80,25 @@ export default function TestimonialsSection(props) {
 }
 
 function testimonialsHeader(props) {
-    if (!props.badge && !props.title && !props.subtitle) {
+    if (!props.title && !props.subtitle) {
         return null;
     }
-    const textAlign = props.textAlign || 'left';
+    const styles = props.styles || {};
     return (
-        <div
-            className={classNames({
-                'mx-auto text-center': textAlign === 'center',
-                'ml-auto text-right': textAlign === 'right'
-            })}
-        >
-            {props.badge && <Badge {...props.badge} className="inline-block mb-4 text-xs" annotationPrefix=".badge" />}
+        <div>
             {props.title && (
-                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
+                <h2
+                    className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')}
+                    data-sb-field-path=".title"
+                >
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className="md:text-lg" data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -125,7 +125,7 @@ function testimonialsVariantA(props) {
     return (
         <div
             className={classNames({
-                'mt-10': props.badge || props.title || props.subtitle
+                'mt-10': props.title || props.subtitle
             })}
             data-sb-field-path=".testimonials"
         >
@@ -137,15 +137,15 @@ function testimonialsVariantA(props) {
                         </div>
                     )}
                     {testimonial.quote && (
-                        <Markdown options={{ forceBlock: true }} className="text-center text-3xl sm:text-4xl" data-sb-field-path=".quote">
+                        <Markdown options={{ forceBlock: true }} className="sb-markdown text-center text-3xl sm:text-4xl" data-sb-field-path=".quote">
                             {testimonial.quote}
                         </Markdown>
                     )}
                     {(testimonial.name || testimonial.title || testimonial.image) && (
                         <footer className="mt-8 text-center text-sm">
                             {testimonial.image && (
-                                <div className="sb-avatar mx-auto mb-4 w-24 h-24" data-sb-field-path=".image">
-                                    <ImageBlock {...testimonial.image} />
+                                <div className="mb-4 mx-auto w-24 h-24" data-sb-field-path=".image">
+                                    <ImageBlock {...testimonial.image} className="h-full object-cover w-full" />
                                 </div>
                             )}
                             {testimonial.name && (
@@ -170,7 +170,7 @@ function testimonialsVariantB(props) {
     return (
         <div
             className={classNames({
-                'mt-10': props.badge || props.title || props.subtitle
+                'mt-10': props.title || props.subtitle
             })}
             data-sb-field-path=".testimonials"
         >
@@ -178,14 +178,14 @@ function testimonialsVariantB(props) {
                 <blockquote key={index} className="max-w-5xl mx-auto py-8 sm:flex" data-sb-field-path={`.${index}`}>
                     {testimonial.image && (
                         <div className="mb-8 sm:flex-shrink-0 sm:mb-0 sm:mr-10">
-                            <div className="sb-avatar mx-auto w-36 h-36 sm:w-48 sm:h-48" data-sb-field-path=".image">
-                                <ImageBlock {...testimonial.image} />
+                            <div className="mx-auto w-36 h-36 sm:w-48 sm:h-48" data-sb-field-path=".image">
+                                <ImageBlock {...testimonial.image} className="h-full object-cover w-full" />
                             </div>
                         </div>
                     )}
                     <div className="sm:flex-grow">
                         {testimonial.quote && (
-                            <Markdown options={{ forceBlock: true }} className="text-3xl sm:text-4xl" data-sb-field-path=".quote">
+                            <Markdown options={{ forceBlock: true }} className="sb-markdown text-3xl sm:text-4xl" data-sb-field-path=".quote">
                                 {testimonial.quote}
                             </Markdown>
                         )}

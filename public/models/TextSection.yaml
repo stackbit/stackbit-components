@@ -27,14 +27,6 @@ fields:
     default: none
   - name: bottomGap
     default: none
-  - name: textAlign
-    default: center
-  - type: model
-    name: badge
-    group: styles
-    label: Badge
-    models:
-      - Badge
   - type: string
     name: title
     label: Title
@@ -53,3 +45,12 @@ fields:
       Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium
       doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo
       inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+  - type: style
+    name: styles
+    styles:
+      title:
+        textAlign: ['left', 'center', 'right']
+      subtitle:
+        textAlign: ['left', 'center', 'right']
+      text:
+        textAlign: ['left', 'center', 'right']

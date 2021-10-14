@@ -12,16 +12,20 @@ module.exports = {
     theme: {
         extend: {
             colors: {
+                body: '#414c58',
+                headline: '#303941',
                 primary: '#28aaff',
                 secondary: '#dfe3e7',
-                base: '#282f36',
-                'complementary-1': '#e9f6ff',
-                'complementary-2': '#fffde2',
-                info: '#ffa928'
+                neutral: '#282f36',
+                'complementary': '#e9f6ff',
+                'complementary-alt': '#fffde2',
+                info: '#ffa928',
+                success: '#9bed72',
+                warning: '#df1c2e'
             },
             fontFamily: {
-                heading: ['Poppins', 'Frutiger', 'Frutiger Linotype', 'Univers', 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
-                body: ['Poppins', 'Frutiger', 'Frutiger Linotype', 'Univers', 'Calibri', 'Gill Sans', 'Gill Sans MT', 'Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
+                heading: ['Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
+                body: ['Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
             },
             spacing: {
                 '1/1': '100%',

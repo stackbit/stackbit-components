@@ -20,7 +20,7 @@ export default {
             control: { type: 'select' }
         },
         height: {
-            options: ['short', 'tall', 'viewport'],
+            options: ['short', 'tall', 'screen'],
             defaultValue: 'short',
             control: { type: 'select' }
         },
@@ -49,11 +49,6 @@ export default {
             defaultValue: 'middle',
             control: { type: 'select' }
         },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        }
     }
 };
 
@@ -70,19 +65,38 @@ const args = {
     contentWidth: 'small',
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
-    textAlign: 'center',
-    badge: {
-        type: 'Badge',
-        label: 'Small text'
-    },
     title: 'The Section Title',
     subtitle: 'The section subtitle',
-    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.'
+    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+    styles: {
+        title: {
+            textAlign: 'left'
+        },
+        subtitle: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        }
+    }
 };
 
 export const Primary = Template.bind({});
 Primary.storyName = 'Wide Short Text Section';
-Primary.args = args;
+Primary.args = {
+    ...args,
+    styles: {
+        title: {
+            textAlign: 'center'
+        },
+        subtitle: {
+            textAlign: 'center'
+        },
+        text: {
+            textAlign: 'center'
+        }
+    }
+}
 
 export const Secondary = Template.bind({});
 Secondary.storyName = 'Full Bleed Tall Text Section';
@@ -95,8 +109,7 @@ Secondary.args = {
     bottomGap: 'none',
     contentWidth: 'medium',
     contentAlignHoriz: 'left',
-    contentAlignVert: 'bottom',
-    textAlign: 'left'
+    contentAlignVert: 'bottom'
 }
 
 export const Tertiary = Template.bind({});
@@ -105,11 +118,10 @@ Tertiary.args = {
     ...args,
     colors: 'colors-h',
     width: 'full',
-    height: 'viewport',
+    height: 'screen',
     topGap: 'none',
     bottomGap: 'none',
     contentWidth: 'small',
     contentAlignHoriz: 'right',
-    contentAlignVert: 'top',
-    textAlign: 'left'
+    contentAlignVert: 'top'
 }

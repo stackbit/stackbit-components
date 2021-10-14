@@ -1,10 +1,10 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
-import Badge from '../Badge';
 import Action from '../Action';
 import ImageBlock from '../ImageBlock';
 import getPageUrlPath from '../../utils/get-page-url-path';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import Link from '../../utils/link';
 
 export default function FeaturedPostsSection(props) {
@@ -55,7 +55,7 @@ export default function FeaturedPostsSection(props) {
                     'relative',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
                         'justify-end': contentAlignVert === 'bottom'
                     }
@@ -84,25 +84,25 @@ export default function FeaturedPostsSection(props) {
 }
 
 function featuredPostsHeader(props) {
-    if (!props.badge && !props.title && !props.subtitle) {
+    if (!props.title && !props.subtitle) {
         return null;
     }
-    const textAlign = props.textAlign || 'left';
+    const styles = props.styles || {};
     return (
-        <div
-            className={classNames({
-                'mx-auto text-center': textAlign === 'center',
-                'ml-auto text-right': textAlign === 'right'
-            })}
-        >
-            {props.badge && <Badge {...props.badge} className="inline-block inline-block mb-4 text-xs" annotationPrefix=".badge" />}
+        <div>
             {props.title && (
-                <h2 className="component-section-title text-3xl tracking-tight sm:text-4xl" data-sb-field-path=".title">
+                <h2
+                    className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')}
+                    data-sb-field-path=".title"
+                >
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className="md:text-lg" data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -115,13 +115,10 @@ function featuredPostsActions(props) {
     if (actions.length === 0) {
         return null;
     }
-    const textAlign = props.textAlign || 'left';
+    const actionStyles = props.styles?.actions || {};
     return (
         <div
-            className={classNames('flex flex-wrap items-center mt-12 -mx-2', {
-                'justify-center': textAlign === 'center',
-                'justify-end': textAlign === 'right'
-            })}
+            className={classNames('flex flex-wrap items-center mt-12 -mx-2', actionStyles.textAlign ? mapActionsAlignStyles(actionStyles.textAlign) : '')}
             data-sb-field-path=".actions"
         >
             {props.actions.map((action, index) => (
@@ -129,6 +126,18 @@ function featuredPostsActions(props) {
             ))}
         </div>
     );
+}
+
+function mapActionsAlignStyles(textAlign) {
+    switch (textAlign) {
+        case 'left':
+            return 'justify-start';
+        case 'center':
+            return 'justify-center';
+        case 'right':
+            return 'justify-end';
+    }
+    return null;
 }
 
 function featuredPostsVariants(props) {
@@ -150,7 +159,7 @@ function postsVariantA(props) {
     return (
         <div
             className={classNames('grid gap-6 md:grid-cols-3 lg:gap-8', {
-                'mt-10': props.badge || props.title || props.subtitle
+                'mt-10': props.title || props.subtitle
             })}
             data-sb-field-path=".posts"
         >
@@ -192,7 +201,7 @@ function postsVariantB(props) {
     return (
         <div
             className={classNames('grid gap-x-8 gap-y-10 lg:grid-cols-2', {
-                'mt-12': props.badge || props.title || props.subtitle
+                'mt-12': props.title || props.subtitle
             })}
             data-sb-field-path=".posts"
         >

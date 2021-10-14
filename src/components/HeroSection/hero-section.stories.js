@@ -24,7 +24,7 @@ export default {
             control: { type: 'select' }
         },
         height: {
-            options: ['short', 'tall', 'viewport'],
+            options: ['short', 'tall', 'screen'],
             defaultValue: 'short',
             control: { type: 'select' }
         },
@@ -51,11 +51,6 @@ export default {
         contentAlignVert: {
             options: ['top', 'middle', 'bottom'],
             defaultValue: 'middle',
-            control: { type: 'select' }
-        },
-        textAlign: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
             control: { type: 'select' }
         },
         featurePosition: {
@@ -113,10 +108,6 @@ const args = {
     contentAlignHoriz: 'center',
     contentAlignVert: 'middle',
     textAlign: 'left',
-    badge: {
-        type: 'Badge',
-        label: 'Brand new'
-    },
     title: 'The quick, brown fox jumps over a lazy dog',
     subtitle: 'Section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
@@ -142,24 +133,16 @@ const args = {
     },
     featurePosition: 'right',
     styles: {
-        badge: {
-            fontSize: 'x-small',
-            fontWeight: '400',
-            textAlign: 'left'
-        },
         title: {
-            fontSize: 'xxx-large',
-            fontWeight: '500',
             textAlign: 'left'
         },
         subtitle: {
-            fontSize: 'xx-large',
-            fontWeight: '300',
             textAlign: 'left'
         },
         text: {
-            fontSize: 'large',
-            fontWeight: '400',
+            textAlign: 'left'
+        },
+        actions: {
             textAlign: 'left'
         }
     }
@@ -229,7 +212,6 @@ HeroTextOnly.args = {
     contentWidth: 'small',
     contentAlignHoriz: 'left',
     contentAlignVert: 'bottom',
-    badge: null,
     actions: [
         {
             type: 'Button',
@@ -264,7 +246,6 @@ HeroRightForm.args = {
     ...args,
     colors: 'colors-f',
     contentWidth: 'medium',
-    badge: null,
     actions: [
         {
             type: 'Link',
@@ -307,7 +288,6 @@ HeroBottomForm.args = {
     colors: 'colors-i',
     contentWidth: 'small',
     contentAlignHoriz: 'center',
-    badge: null,
     title: 'Join our newsletter',
     actions: null,
     feature: {

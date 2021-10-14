@@ -35,84 +35,103 @@ fields:
   - type: enum
     name: width
     group: styles
+    controlType: button-group
     label: Width
     description: The width of the section
     options:
-      - wide
-      - full
+      - label: Wide
+        value: wide
+      - label: Full
+        value: full
     default: wide
   - type: enum
     name: height
     group: styles
+    controlType: button-group
     label: Height
     description: The height of the section
     options:
-      - short
-      - tall
-      - viewport
+      - label: Short
+        value: short
+      - label: Tall
+        value: tall
+      - label: Screen
+        value: screen
     default: tall
   - type: enum
     name: topGap
     group: styles
+    controlType: button-group
     label: Top gap
     description: The margin area on the top of the section
     options:
-      - none
-      - small
-      - medium
-      - large
+      - label: None
+        value: none
+      - label: Small
+        value: small
+      - label: Medium
+        value: medium
+      - label: Large
+        value: large
     default: medium
   - type: enum
     name: bottomGap
     group: styles
+    controlType: button-group
     label: Bottom gap
     description: The margin area on the bottom of the section
     options:
-      - none
-      - small
-      - medium
-      - large
+      - label: None
+        value: none
+      - label: Small
+        value: small
+      - label: Medium
+        value: medium
+      - label: Large
+        value: large
     default: medium
   - type: enum
     name: contentWidth
     group: styles
+    controlType: button-group
     label: Content width
     description: The width of the section content
     options:
-      - small
-      - medium
-      - large
+      - label: Small
+        value: small
+      - label: Medium
+        value: medium
+      - label: Large
+        value: large
     default: large
   - type: enum
     name: contentAlignHoriz
     group: styles
+    controlType: button-group
     label: Content horizontal alignment
     description: The horizontal position of the section content relative to the section container
     options:
-      - left
-      - center
-      - right
+      - label: Left
+        value: left
+      - label: Center
+        value: center
+      - label: Right
+        value: right
     default: left
   - type: enum
     name: contentAlignVert
     group: styles
+    controlType: button-group
     label: Content vertical alignment
     description: The vertical position of the section content relative to the section container
     options:
-      - top
-      - middle
-      - bottom
+      - label: Top
+        value: top
+      - label: Middle
+        value: middle
+      - label: Bottom
+        value: bottom
     default: middle
-  - type: enum
-    name: textAlign
-    group: styles
-    label: Text alignment
-    description: The horizontal alignment of the section text
-    options:
-      - left
-      - center
-      - right
-    default: left
   - type: string
     name: elementId
     group: settings

@@ -1,6 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
 export default function QuoteSection(props) {
     const colors = props.colors || 'colors-a';
@@ -19,10 +20,9 @@ export default function QuoteSection(props) {
                 'component',
                 'component-section',
                 'component-quote-section',
-                width === 'full' ? colors : '',
+                width === 'full' ? `${colors} relative` : '',
                 'px-4',
                 'sm:px-6',
-                'relative',
                 {
                     'mt-4 sm:mt-6': topGap === 'small',
                     'mt-6 sm:mt-10': topGap === 'medium',
@@ -37,27 +37,27 @@ export default function QuoteSection(props) {
             {(width === 'full') && props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames(
-                    width === 'wide' ? colors : '',
+                    width === 'wide' ? `${colors} relative` : '',
                     'flex',
                     'flex-col',
                     'max-w-screen-2xl',
                     'mx-auto',
                     'px-4',
                     'sm:px-8',
-                    'md:px-12',
-                    'lg:px-16',
-                    'py-10',
-                    'md:py-20',
-                    'relative',
+                    'md:px-16',
+                    'py-8',
+                    'sm:py-16',
                     {
                         'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'viewport',
+                        'min-h-screen': height === 'screen',
                         'justify-center': contentAlignVert === 'middle',
-                        'justify-end': contentAlignVert === 'bottom'
+                        'justify-end': contentAlignVert === 'bottom',
+                        'items-center': contentAlignHoriz === 'center',
+                        'items-end': contentAlignHoriz === 'right'
                     }
                 )}
             >
-                {(width === 'wide') && props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
+                {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
                 <div
                     className={classNames(
                         'relative',
@@ -65,9 +65,7 @@ export default function QuoteSection(props) {
                         {
                             'max-w-3xl': contentWidth === 'small',
                             'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large',
-                            'mx-auto': contentAlignHoriz === 'center',
-                            'ml-auto': contentAlignHoriz === 'right'
+                            'max-w-7xl': contentWidth === 'large'
                         }
                     )}
                 >
@@ -99,28 +97,34 @@ function quoteBackgroundImage(image) {
 }
 
 function quoteContent(props) {
-    const textAlign = props.textAlign || 'left';
+    const styles = props.styles || {};
+
     return (
-        <blockquote
-            className={classNames({
-                'text-center': textAlign === 'center',
-                'text-right': textAlign === 'right'
-            })}
-        >
+        <blockquote className="my-3">
             {props.quote && (
-                <Markdown options={{ forceBlock: true }} className="text-3xl sm:text-4xl" data-sb-field-path=".quote">
+                <Markdown
+                    options={{ forceBlock: true }}
+                    className={classNames('sb-markdown', 'text-3xl', 'sm:text-4xl', styles.quote ? mapStyles(styles.quote) : '')}
+                    data-sb-field-path=".quote"
+                >
                     {props.quote}
                 </Markdown>
             )}
             {(props.name || props.title) && (
                 <footer className="mt-8 sm:mt-12">
                     {props.name && (
-                        <strong className="block font-normal mb-1 text-3xl sm:text-4xl" data-sb-field-path=".name">
+                        <strong
+                            className={classNames('block', 'font-normal', 'text-2xl', 'sm:text-3xl', styles.name ? mapStyles(styles.name) : '')}
+                            data-sb-field-path=".name"
+                        >
                             {props.name}
                         </strong>
                     )}
                     {props.title && (
-                        <span className="text-large" data-sb-field-path=".title">
+                        <span
+                            className={classNames('block', 'text-lg', styles.title ? mapStyles(styles.title) : '', props.name ? 'mt-1.5' : '')}
+                            data-sb-field-path=".title"
+                        >
                             {props.title}
                         </span>
                     )}

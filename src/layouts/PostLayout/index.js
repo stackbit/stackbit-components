@@ -17,7 +17,7 @@ export default function PostLayout(props) {
             <BaseLayout page={page} site={site}>
                 <div className="layout post-layout">
                     <article className="px-4 sm:px-6 py-14 lg:py-20">
-                        <div className="mx-auto sm:max-w-screen-sm md:max-w-screen-md lg:max-w-screen-lg xl:max-w-screen-xl">
+                        <div className="max-w-screen-xl mx-auto px-4 sm:px-8 md:px-16">
                             <header className="mb-12 text-center">
                                 {page.title && (
                                     <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-3xl mx-auto" data-sb-field-path="title">
@@ -39,7 +39,7 @@ export default function PostLayout(props) {
                             {page.markdown_content && (
                                 <Markdown
                                     options={{ forceBlock: true }}
-                                    className="sb-prose max-w-prose mx-auto md:text-lg"
+                                    className="sb-markdown max-w-screen-md mx-auto"
                                     data-sb-field-path="markdown_content"
                                 >
                                     {page.markdown_content}

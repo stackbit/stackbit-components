@@ -4,11 +4,6 @@
         "modelName": null,
         "isDynamic": false
     },
-    "Badge": {
-        "path": "components/Badge",
-        "modelName": "Badge",
-        "isDynamic": false
-    },
     "CheckboxFormControl": {
         "path": "components/CheckboxFormControl",
         "modelName": "CheckboxFormControl",

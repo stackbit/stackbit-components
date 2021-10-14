@@ -23,12 +23,6 @@ fields:
       - label: Two columns, person info with image at the top
         value: variant-c
     default: variant-a
-  - type: model
-    name: badge
-    group: styles
-    label: Badge
-    models:
-      - Badge
   - type: string
     name: title
     label: Title
@@ -56,3 +50,12 @@ fields:
       - content/data/team/desmond-eagle.json
       - content/data/team/dianne-ameter.json
       - content/data/team/hilary-ouse.json
+  - type: style
+    name: styles
+    styles:
+      title:
+        textAlign: ['left', 'center', 'right']
+      subtitle:
+        textAlign: ['left', 'center', 'right']
+      actions:
+        textAlign: ['left', 'center', 'right']

@@ -11,12 +11,16 @@ module.exports = {
     theme: {
         extend: {
             colors: {
-                primary: '#9BC1BC',
-                secondary: '#F4F1BB',
-                base: '#332E40',
-                'complementary-1': '#8A8499',
-                'complementary-2': '#DCE3D4',
-                info: '#ED6A5A'
+                body: '#414c58',
+                headline: '#303941',
+                primary: '#9bc1bc',
+                secondary: '#f4f1bb',
+                neutral: '#332e40',
+                'complementary': '#8a8499',
+                'complementary-alt': '#dce3d4',
+                info: '#ed6a5a',
+                success: '#9bed72',
+                warning: '#df1c2e'
             },
             fontFamily: {
                 heading: ['Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],

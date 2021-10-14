@@ -142,8 +142,8 @@ function testimonialsVariantA(props) {
                     {(testimonial.name || testimonial.title || testimonial.image) && (
                         <footer className="mt-8 text-center text-sm">
                             {testimonial.image && (
-                                <div className="sb-avatar mx-auto mb-4 w-24 h-24" data-sb-field-path=".image">
-                                    <ImageBlock {...testimonial.image} />
+                                <div className="mb-4 mx-auto w-24 h-24" data-sb-field-path=".image">
+                                    <ImageBlock {...testimonial.image} className="h-full object-cover w-full" />
                                 </div>
                             )}
                             {testimonial.name && (
@@ -176,8 +176,8 @@ function testimonialsVariantB(props) {
                 <blockquote key={index} className="max-w-5xl mx-auto py-8 sm:flex" data-sb-field-path={`.${index}`}>
                     {testimonial.image && (
                         <div className="mb-8 sm:flex-shrink-0 sm:mb-0 sm:mr-10">
-                            <div className="sb-avatar mx-auto w-36 h-36 sm:w-48 sm:h-48" data-sb-field-path=".image">
-                                <ImageBlock {...testimonial.image} />
+                            <div className="mx-auto w-36 h-36 sm:w-48 sm:h-48" data-sb-field-path=".image">
+                                <ImageBlock {...testimonial.image} className="h-full object-cover w-full" />
                             </div>
                         </div>
                     )}

@@ -39,7 +39,7 @@ export default function PostLayout(props) {
                             {page.markdown_content && (
                                 <Markdown
                                     options={{ forceBlock: true }}
-                                    className="sb-markdown max-w-screen-md mx-auto md:text-lg"
+                                    className="sb-markdown max-w-screen-md mx-auto"
                                     data-sb-field-path="markdown_content"
                                 >
                                     {page.markdown_content}

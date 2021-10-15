@@ -1,8 +1,8 @@
 import React from 'react';
 import { Title, Subtitle, Description, Primary as PrimaryStory, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import StackbitFrontmatter from '../../addons/addon-stackbit-frontmatter/StackbitFrontmatter';
-import StackbitModels from '../../addons/addon-stackbit-models/StackbitModels';
+import StackbitFrontmatter from '../../storybook-addons/addon-stackbit-frontmatter/StackbitFrontmatter';
+import StackbitModels from '../../storybook-addons/addon-stackbit-models/StackbitModels';
 import HeroSection from './index';
 
 export default {

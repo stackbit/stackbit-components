@@ -1,3 +1,5 @@
+import * as React from 'react';
+
 export default function Bolt(props) {
     return (
         <svg className={`w-${props.size} h-${props.size} text-deep-purple-accent-400`} stroke="currentColor" viewBox="0 0 52 52">

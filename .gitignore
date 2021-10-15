@@ -107,5 +107,7 @@ dist
 .idea
 storybook-static
 public/css
+public/models
 .storybook/storybook-dynamic.js
 stackbit-theme.yaml
+src/components-map.json

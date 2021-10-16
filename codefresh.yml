@@ -34,6 +34,5 @@ steps:
     working_directory: "${{clone}}" # Running command where code cloned
     commands:
       - "echo //registry.npmjs.org/:_authToken=${NPM_TOKEN} > ~/.npmrc"
-      - "cd dist"
       - "npm publish"
     stage: "publish"

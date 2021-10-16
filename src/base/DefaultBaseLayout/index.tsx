@@ -1,13 +1,15 @@
 import * as React from 'react';
 import Head from 'next/head';
 import classNames from 'classnames';
-import NavBar from '../../components/NavBar';
-import Footer from '../../components/Footer';
+
+import { getComponent } from '../../components-registry';
 
 export default function DefaultBaseLayout(props) {
     const { page, site } = props;
     const siteMeta = site?.__metadata || {};
     const pageMeta = page?.__metadata || {};
+    const NavBar = getComponent('NavBar');
+    const Footer = getComponent('Footer');
     return (
         <div className={classNames('page', pageMeta.pageCssClasses)} data-sb-object-id={pageMeta.id}>
             <div className="base default-base-layout">

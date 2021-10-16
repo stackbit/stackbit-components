@@ -4,10 +4,10 @@
 // Webpack replaces it with a file located at /.stackbit/dynamic-components.js
 import dynamicComponents from './dynamic-components';
 
-export function registerDynamicComponents(newComponents) {
+export function registerComponents(newComponents) {
     Object.assign(dynamicComponents, newComponents);
 }
 
-export function getDynamicComponent(key) {
+export function getComponent(key) {
     return dynamicComponents[key];
 }

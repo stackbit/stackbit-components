@@ -1,7 +1,7 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import { getDynamicComponent } from '../../components-registry';
+import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import FormBlock from '../FormBlock';
 
@@ -141,7 +141,7 @@ function contactFeature(feature) {
     if (!featureType) {
         throw new Error(`contact section feature does not have the 'type' property`);
     }
-    const Feature = getDynamicComponent(featureType);
+    const Feature = getComponent(featureType);
     if (!Feature) {
         throw new Error(`no component matching the contact section feature type: ${featureType}`);
     }

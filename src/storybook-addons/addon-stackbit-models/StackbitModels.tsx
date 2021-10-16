@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import yaml from 'js-yaml';
 import axios from 'axios';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
@@ -10,8 +10,7 @@ import './style.css';
 const getModel = async (modelName) => {
     const modelYamlFile = await axios.get(`/models/${modelName}.yaml`);
     const modelYamlData = yaml.load(modelYamlFile.data, 'utf8');
-    const yamlObject = yaml.dump(modelYamlData);
-    return yamlObject;
+    return yaml.dump(modelYamlData);
 };
 
 const StackbitModels = (props) => {
@@ -45,9 +44,9 @@ const StackbitModels = (props) => {
                             {({ className, style, tokens, getLineProps, getTokenProps }) => (
                                 <pre className={className} style={style}>
                                     {tokens.map((line, i) => (
-                                        <div {...getLineProps({ line, key: i })}>
+                                        <div key={i} {...getLineProps({ line, key: i })}>
                                             {line.map((token, key) => (
-                                                <span {...getTokenProps({ token, key })} />
+                                                <span key={key} {...getTokenProps({ token, key })} />
                                             ))}
                                         </div>
                                     ))}

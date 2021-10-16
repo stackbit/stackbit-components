@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
-import Action from '../Action';
+import { getComponent } from '../../components-registry';
 import ImageBlock from '../ImageBlock';
 
 export default function FeaturedPeopleSection(props) {
@@ -114,6 +114,7 @@ function featuredPeopleActions(props) {
         return null;
     }
     const actionStyles = props.styles?.actions || {};
+    const Action = getComponent('Action');
     return (
         <div
             className={classNames('flex flex-wrap items-center mt-12 -mx-2', actionStyles.textAlign ? mapActionsAlignStyles(actionStyles.textAlign) : '')}

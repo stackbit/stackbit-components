@@ -1,5 +1,5 @@
 import React from 'react';
-import { Title, Subtitle, Description, Primary as PrimaryStory, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
+import { Subtitle, Description, Primary as PrimaryStory, ArgsTable, Stories, PRIMARY_STORY } from '@storybook/addon-docs';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
 import StackbitFrontmatter from '../../storybook-addons/addon-stackbit-frontmatter/StackbitFrontmatter';
 import StackbitModels from '../../storybook-addons/addon-stackbit-models/StackbitModels';
@@ -62,34 +62,36 @@ export default {
     parameters: {
         controls: { expanded: false },
         docs: {
-            page: () => (
-                <>
-                    <h1 className="text-3xl normal-case">{args.type}</h1>
-                    <Subtitle />
-                    <Description />
-                    <PrimaryStory />
+            page: function Page() {
+                return (
+                    <>
+                        <h1 className="text-3xl normal-case">{args.type}</h1>
+                        <Subtitle />
+                        <Description />
+                        <PrimaryStory />
 
-                    <Tabs>
-                        <TabList>
-                            <Tab>Props</Tab>
-                            <Tab>Frontmatter</Tab>
-                            <Tab>Model</Tab>
-                        </TabList>
+                        <Tabs>
+                            <TabList>
+                                <Tab>Props</Tab>
+                                <Tab>Frontmatter</Tab>
+                                <Tab>Model</Tab>
+                            </TabList>
 
-                        <TabPanel>
-                            <ArgsTable story={PRIMARY_STORY} />
-                        </TabPanel>
-                        <TabPanel>
-                            <StackbitFrontmatter args={args} />
-                        </TabPanel>
-                        <TabPanel>
-                            <StackbitModels args={args} />
-                        </TabPanel>
-                    </Tabs>
+                            <TabPanel>
+                                <ArgsTable story={PRIMARY_STORY} />
+                            </TabPanel>
+                            <TabPanel>
+                                <StackbitFrontmatter args={args} />
+                            </TabPanel>
+                            <TabPanel>
+                                <StackbitModels args={args} />
+                            </TabPanel>
+                        </Tabs>
 
-                    <Stories />
-                </>
-            )
+                        <Stories />
+                    </>
+                )
+            }
         }
     }
 };

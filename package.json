@@ -7,16 +7,17 @@
         "components"
     ],
     "main": "./dist/index.js",
+    "sideEffects": false,
     "exports": {
         ".": "./dist/index.js",
+        "./next-stackbit-components": "./src/next-stackbit-components.js",
+        "./components-map": "./dist/components-map.js",
+        "./base/*": "./dist/base/*",
         "./components/*": "./dist/components/*",
         "./layouts/*": "./dist/layouts/*",
         "./svgs/*": "./dist/svgs/*",
-        "./base/*": "./dist/base/*",
         "./utils/*": "./dist/utils/*",
-        "./next-stackbit-components": "./src/next-stackbit-components.js",
-        "./styles/default/tailwind.default.config": "./styles/default/tailwind.default.config.js",
-        "./styles/default/style.css": "./styles/default/style.css"
+        "./styles/*": "./styles/*"
     },
     "files": [
         "dist",
@@ -33,6 +34,7 @@
         "dist": "./scripts/build-dist.js --clean",
         "build:ts": "rm -rf dist && tsc",
         "dev:ts": "tsc --watch",
+        "lint": "eslint src",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
         "version-patch": "npm version patch -m \"bumped version to v%s\""
     },
@@ -60,13 +62,14 @@
         "@storybook/addon-links": "^6.2.9",
         "@storybook/addon-postcss": "^2.0.0",
         "@storybook/react": "^6.3.7",
+        "@typescript-eslint/eslint-plugin": "^5.0.0",
+        "@typescript-eslint/parser": "^5.0.0",
         "concurrently": "^6.2.1",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
-        "eslint-plugin-import": "^2.24.0",
+        "eslint-plugin-import": "^2.25.2",
         "eslint-plugin-jsx-a11y": "^6.4.1",
-        "eslint-plugin-prettier": "^3.4.0",
-        "eslint-plugin-react": "^7.24.0",
+        "eslint-plugin-react": "^7.26.1",
         "eslint-plugin-react-hooks": "^4.2.0",
         "fs-extra": "^10.0.0",
         "js-yaml": "^4.1.0",

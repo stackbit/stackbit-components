@@ -111,3 +111,4 @@ public/models
 .storybook/storybook-dynamic.js
 stackbit-theme.yaml
 src/components-map.json
+src/components-map.ts

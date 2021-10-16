@@ -3,8 +3,7 @@ import Head from 'next/head';
 import classNames from 'classnames';
 
 export default function BlankBaseLayout(props) {
-    const { page, site } = props;
-    const siteMeta = site?.__metadata || {};
+    const { page } = props;
     const pageMeta = page?.__metadata || {};
     return (
         <div className={classNames('page', pageMeta.pageCssClasses)} data-sb-object-id={pageMeta.id}>

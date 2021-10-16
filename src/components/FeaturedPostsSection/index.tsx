@@ -1,10 +1,11 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import dayjs from 'dayjs';
-import Action from '../Action';
-import ImageBlock from '../ImageBlock';
-import getPageUrlPath from '../../utils/get-page-url-path';
+
+import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
+import getPageUrlPath from '../../utils/get-page-url-path';
+import ImageBlock from '../ImageBlock';
 import Link from '../../utils/link';
 
 export default function FeaturedPostsSection(props) {
@@ -116,6 +117,7 @@ function featuredPostsActions(props) {
         return null;
     }
     const actionStyles = props.styles?.actions || {};
+    const Action = getComponent('Action');
     return (
         <div
             className={classNames('flex flex-wrap items-center mt-12 -mx-2', actionStyles.textAlign ? mapActionsAlignStyles(actionStyles.textAlign) : '')}

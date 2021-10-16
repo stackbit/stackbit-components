@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import { getDynamicComponent } from '../../components-registry';
+
+import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
-import Action from '../Action';
 
 export default function HeroSection(props) {
     const colors = props.colors || 'colors-a';
@@ -111,7 +111,7 @@ function heroFeature(feature) {
     if (!featureType) {
         throw new Error(`hero section feature does not have the 'type' property`);
     }
-    const Feature = getDynamicComponent(featureType);
+    const Feature = getComponent(featureType);
     if (!Feature) {
         throw new Error(`no component matching the hero section feature type: ${featureType}`);
     }
@@ -177,6 +177,7 @@ function heroActions(props) {
         return null;
     }
     const actionStyles = props.styles?.actions || {};
+    const Action = getComponent('Action');
     return (
         <div
             className={classNames(

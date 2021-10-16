@@ -1,8 +1,9 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
+
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
-import Action from '../Action';
+import { getComponent } from '../../components-registry';
 
 export default function CtaSection(props) {
     const colors = props.colors || 'colors-a';
@@ -137,6 +138,7 @@ function ctaBackgroundImage(image) {
 function ctaActions(props) {
     const actions = props.actions || [];
     const actionStyles = props.styles?.actions || {};
+    const Action = getComponent('Action');
     return (
         <div
             className={classNames('flex flex-wrap items-center -mx-2', actionStyles.textAlign ? mapActionsAlignStyles(actionStyles.textAlign) : '')}

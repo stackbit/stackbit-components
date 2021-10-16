@@ -1,6 +1,6 @@
 import * as React from 'react';
 import axios from 'axios';
-import { getDynamicComponent } from '../../components-registry';
+import { getComponent } from '../../components-registry';
 
 export default class FormBlock extends React.Component<any> {
     state = {
@@ -78,7 +78,7 @@ export default class FormBlock extends React.Component<any> {
                         if (!fieldType) {
                             throw new Error(`form field does not have the 'type' property`);
                         }
-                        const FormControl = getDynamicComponent(fieldType);
+                        const FormControl = getComponent(fieldType);
                         if (!FormControl) {
                             throw new Error(`no component matching the form field type: ${fieldType}`);
                         }

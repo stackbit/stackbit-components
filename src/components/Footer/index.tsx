@@ -1,9 +1,9 @@
 import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
-import Action from '../Action';
+
+import { getComponent } from '../../components-registry';
 import ImageBlock from '../ImageBlock';
-import Social from '../Social';
 import Link from '../../utils/link';
 
 export default function Footer(props) {
@@ -12,6 +12,8 @@ export default function Footer(props) {
     const primaryLinks = props.primaryLinks || [];
     const socialLinks = props.socialLinks || [];
     const legalLinks = props.legalLinks || [];
+    const Action = getComponent('Action');
+    const Social = getComponent('Social');
     return (
         <footer
             className={classNames(

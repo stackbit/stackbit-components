@@ -3,9 +3,12 @@ const path = require('path');
 const childProcess = require('child_process');
 const fse = require('fs-extra');
 const args = process.argv.slice(2);
-const generateComponentsMap = require('./generate-components-map');
+const { generateComponentsMapJSON, generateComponentsMapTS } = require('./generate-components-map');
 
 console.log('Building components library');
+
+generateComponentsMapJSON();
+generateComponentsMapTS();
 
 function runTSC(outputDir = 'dist') {
     console.log('⏳ compiling typescript...');
@@ -58,5 +61,3 @@ if (process.env.SOURCEMAP_COMMAND) {
     fse.rmdirSync('temp-dist', { recursive: true });
     console.log('✔ finished stackbit sourcemap generation');
 }
-
-generateComponentsMap();

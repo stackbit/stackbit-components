@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { useState } from 'react';
 import classNames from 'classnames';
-import Action from '../Action';
+
+import { getComponent } from '../../components-registry';
 import ImageBlock from '../ImageBlock';
 import Link from '../../utils/link';
 import CloseIcon from '../../svgs/close';
@@ -161,14 +162,14 @@ function mobileNavVariants(props) {
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
     switch (mobileNavVariant) {
         case 'variant-a':
-            return mobileNavVariantA(props);
+            return MobileNavVariantA(props);
         case 'variant-b':
-            return mobileNavVariantB(props);
+            return MobileNavVariantB(props);
     }
     return null;
 }
 
-function mobileNavVariantA(props) {
+function MobileNavVariantA(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const secondaryColors = props.secondaryColors || 'colors-a';
     const title = props.title;
@@ -207,7 +208,7 @@ function mobileNavVariantA(props) {
     );
 }
 
-function mobileNavVariantB(props) {
+function MobileNavVariantB(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const secondaryColors = props.secondaryColors || 'colors-a';
     const title = props.title;
@@ -267,6 +268,7 @@ function siteLogoLink({ title, isTitleVisible, logo }) {
 }
 
 function listOfLinks(links, inMenu = false) {
+    const Action = getComponent('Action');
     return links.map((link, index) => {
         const defaultStyle = link.type === 'Link' ? 'link' : 'secondary';
         const style = link.style || defaultStyle;

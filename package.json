@@ -7,18 +7,6 @@
         "components"
     ],
     "main": "./dist/index.js",
-    "sideEffects": false,
-    "exports": {
-        ".": "./dist/index.js",
-        "./next-stackbit-components": "./src/next-stackbit-components.js",
-        "./components-map": "./dist/components-map.js",
-        "./base/*": "./dist/base/*",
-        "./components/*": "./dist/components/*",
-        "./layouts/*": "./dist/layouts/*",
-        "./svgs/*": "./dist/svgs/*",
-        "./utils/*": "./dist/utils/*",
-        "./styles/*": "./styles/*"
-    },
     "files": [
         "dist",
         "!dist/storybook-polyfills",

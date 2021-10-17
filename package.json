@@ -14,7 +14,8 @@
         "models",
         "src",
         "styles",
-        "!**/.DS_Store"
+        "!**/.DS_Store",
+        "sourcemap.patch"
     ],
     "scripts": {
         "dev": "node ./scripts/build-storybook.js && start-storybook -s ./public -p 6006",

@@ -52,7 +52,7 @@ if (process.env.SOURCEMAP_COMMAND) {
     console.log(String(sourcemapResult.stderr).trim());
     runTSC('temp-dist');
     // apply using: patch -p1 -i sourcemap.patch
-    childProcess.spawnSync('diff', ['-rc', 'dist temp-dist > dist/sourcemap.patch'], {
+    childProcess.spawnSync('diff', ['-rc', 'dist temp-dist > sourcemap.patch'], {
         shell: true,
         cwd: path.resolve(__dirname, '../')
     });

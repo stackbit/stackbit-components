@@ -4,9 +4,10 @@ const componentsManifest = require('../src/components-manifest.json');
 
 if (require.main === module) {
     generateComponentsMapJSON();
-    generateComponentsMapTS();
+    generateComponentsMapJS();
 } else {
     module.exports.generateComponentsMapJSON = generateComponentsMapJSON;
+    module.exports.generateComponentsMapJS = generateComponentsMapJS;
     module.exports.generateComponentsMapTS = generateComponentsMapTS;
 }
 
@@ -38,14 +39,52 @@ function generateComponentsMapJSON() {
     console.log('✔ generated src/components-map.json');
 }
 
+function generateComponentsMapJS() {
+    console.log('⏳ generating dist/components-map.js ...');
+
+    const { staticImports, staticMap } = Object.entries(componentsManifest)
+        .filter(([_, component]) => !component.isDynamic)
+        .reduce((res, [componentName, componentManifest]) => {
+            res.staticImports.push(`const ${componentName} = require('./${componentManifest.path}').default;`);
+            res.staticMap.push(`'${componentName}': ${componentName}`);
+            return res;
+        }, { staticImports: [], staticMap: [] });
+
+    const dynamicMap = Object.entries(componentsManifest)
+        .filter(([_, component]) => component.isDynamic)
+        .reduce((map, [_, componentManifest]) => {
+            map.push(`'${componentManifest.modelName}': dynamic(() => import('./${componentManifest.path}/index.js').then((mod) => mod.default))`);
+            return map;
+        }, []);
+
+    const data = `const dynamic = require('next/dynamic').default;
+
+${staticImports.join('\n')}
+
+module.exports.componentsMap = {
+    // static components, key is component name
+    ${staticMap.join(',\n    ')},
+
+    // dynamic components, key is model name
+    ${dynamicMap.join(',\n    ')}
+};
+`;
+
+    fse.ensureDirSync(path.join(__dirname, '../dist'));
+    fse.writeFileSync(path.join(__dirname, '../dist/components-map.js'), data);
+
+    console.log('✔ generated dist/components-map.js');
+}
+
+
 function generateComponentsMapTS() {
-    console.log('⏳ generating src/components-map.ts ...');
+    console.log('⏳ generating dist/components-map.ts ...');
 
     const { staticImports, staticMap } = Object.entries(componentsManifest)
         .filter(([_, component]) => !component.isDynamic)
         .reduce((res, [componentName, componentManifest]) => {
             res.staticImports.push(`import ${componentName} from './${componentManifest.path}';`);
-            res.staticMap.push(`'${componentName}': ${componentName},`);
+            res.staticMap.push(`'${componentName}': ${componentName}`);
             return res;
         }, { staticImports: [], staticMap: [] });
 
@@ -62,14 +101,15 @@ ${staticImports.join('\n')}
 
 export const componentsMap = {
     // static components, key is component name
-    ${staticMap.join('\n    ')}
+    ${staticMap.join(',\n    ')},
 
     // dynamic components, key is model name
     ${dynamicMap.join(',\n    ')}
 };
 `;
 
-    fse.writeFileSync(path.join(__dirname, '../src/components-map.ts'), data);
+    fse.ensureDirSync(path.join(__dirname, '../dist'));
+    fse.writeFileSync(path.join(__dirname, '../dist/components-map.ts'), data);
 
-    console.log('✔ generated src/components-map.ts');
+    console.log('✔ generated dist/components-map.ts');
 }

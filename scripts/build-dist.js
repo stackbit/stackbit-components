@@ -3,12 +3,9 @@ const path = require('path');
 const childProcess = require('child_process');
 const fse = require('fs-extra');
 const args = process.argv.slice(2);
-const { generateComponentsMapJSON, generateComponentsMapTS } = require('./generate-components-map');
+const { generateComponentsMapJSON, generateComponentsMapJS } = require('./generate-components-map');
 
 console.log('Building components library');
-
-generateComponentsMapJSON();
-generateComponentsMapTS();
 
 function runTSC(outputDir = 'dist') {
     console.log('⏳ compiling typescript...');
@@ -36,6 +33,8 @@ if (args.includes('--clean')) {
     console.log('✔ removed dist folder');
 }
 
+generateComponentsMapJSON();
+generateComponentsMapJS();
 runTSC();
 
 if (process.env.SOURCEMAP_COMMAND) {
@@ -60,4 +59,30 @@ if (process.env.SOURCEMAP_COMMAND) {
     childProcess.spawnSync('git', ['checkout', '--', 'src']);
     fse.rmdirSync('temp-dist', { recursive: true });
     console.log('✔ finished stackbit sourcemap generation');
+}
+
+if (args.includes('--local')) {
+    const cwd = path.join(__dirname, '..');
+    const targetDir = path.join(cwd, '../stackbit-nextjs-starter/node_modules/@stackbit/components');
+    console.log(`⏳ run npm pack ...`);
+    const npmPackResult = childProcess.spawnSync('npm', ['pack', '--json'], { cwd });
+    if (npmPackResult.status !== 0) {
+        console.log(`❌ npm pack failed, quiting`);
+        process.exit(1);
+    }
+    const tarFile = JSON.parse(String(npmPackResult.stdout).trim())[0].filename;
+    console.log(`✔ generated package archive ${tarFile}`);
+    console.log(`⏳ uncompress archive ...`);
+    fse.ensureDirSync(targetDir);
+    const tarResult = childProcess.spawnSync('tar', ['-xf', tarFile], { cwd, env: { LC_ALL: 'en_US.UTF-8' } });
+    if (tarResult.status !== 0) {
+        console.log(`❌ tar failed, quiting`);
+        process.exit(1);
+    }
+    fse.removeSync(path.join(cwd, tarFile));
+    console.log(`✔ uncompressed archive`);
+    console.log(`⏳ copy uncompressed package to ${targetDir} ...`);
+    fse.copySync(path.join(cwd, 'package'), targetDir, { overwrite: true });
+    fse.removeSync(path.join(cwd, 'package'));
+    console.log(`✔ copied package`);
 }

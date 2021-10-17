@@ -61,3 +61,10 @@ fields:
           type: ImageBlock
           url: /images/dianne-ameter.jpg
           altText: Product Marketing Manager
+  - type: style
+    name: styles
+    styles:
+      title:
+        textAlign: ['left', 'center', 'right']
+      subtitle:
+        textAlign: ['left', 'center', 'right']

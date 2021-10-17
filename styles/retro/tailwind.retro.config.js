@@ -12,7 +12,7 @@ module.exports = {
         extend: {
             colors: {
                 body: '#414c58',
-                headline: '#303941',
+                headlines: '#303941',
                 primary: '#9bc1bc',
                 secondary: '#f4f1bb',
                 neutral: '#332e40',
@@ -23,8 +23,8 @@ module.exports = {
                 warning: '#df1c2e'
             },
             fontFamily: {
-                heading: ['Myriad Pro', 'Myriad', 'Helvetica Neue', 'Helvetica', 'sans-serif'],
-                body: ['Constantia', 'Lucida Bright', 'Lucidabright', 'Lucida', 'Liberation Serif', 'Georgia', 'serif'],
+                body: defaultTheme.fontFamily.serif,
+                headlines: defaultTheme.fontFamily.sans
             },
             spacing: {
                 '1/1': '100%',

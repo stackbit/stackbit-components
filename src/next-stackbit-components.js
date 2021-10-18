@@ -7,7 +7,9 @@ const STACKBIT_FOLDER_DEFAULT_PATH = '.stackbit/';
 const STACKBIT_COMPONENTS_PACKAGE_NAME = '@stackbit/components';
 const COMPONENTS_MAP_DEFAULT_USER_PATH = '.stackbit/components-map.json';
 const DYNAMIC_COMPONENTS_DEFAULT_USER_PATH = '.stackbit/dynamic-components.js';
-const DYNAMIC_COMPONENTS_INTERNAL_PATH = path.resolve(__dirname, 'dynamic-components.js');
+const COMPONENT_LIBRARY_PATH = path.resolve(__dirname, '..');
+const DYNAMIC_COMPONENTS_TEMPLATE_PATH = path.resolve(__dirname, './dynamic-components.js');
+const DYNAMIC_COMPONENTS_INTERNAL_PATH = path.resolve(__dirname, '../dist/dynamic-components.js');
 
 module.exports = (pluginOptions = {}) => function withStackbitComponents(nextConfig) {
     copyComponentsJson(pluginOptions);
@@ -56,8 +58,8 @@ function generateDynamicComponents(pluginOptions) {
             }
             return `'${key}': dynamic(() => import('${importString}'))`;
         })
-        .join(',\n  ');
-    const data = fse.readFileSync(DYNAMIC_COMPONENTS_INTERNAL_PATH, 'utf-8');
+        .join(',\n    ');
+    const data = fse.readFileSync(DYNAMIC_COMPONENTS_TEMPLATE_PATH, 'utf-8');
     const replaced = data.replace('//__COMPONENTS_TOKEN__', componentsString);
     fse.writeFileSync(targetFilePath, replaced, 'utf-8');
 }
@@ -255,7 +257,7 @@ class StackbitComponentsResolverPlugin {
             const issuer = request.context?.issuer;
 
             // only consider paths inside the components dir
-            if (!requestPath.startsWith(__dirname)) {
+            if (!requestPath.startsWith(COMPONENT_LIBRARY_PATH)) {
                 return callback();
             }
 

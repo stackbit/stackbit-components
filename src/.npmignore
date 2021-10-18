@@ -1,1 +1,3 @@
-**/*.stories.js
+storybook-addons
+storybook-polyfills
+**/*.stories.{js|tsx|d.ts}

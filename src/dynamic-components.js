@@ -4,10 +4,10 @@
  * To add components using dynamic imports update the 'dynamic' property in
  * .stackbit/components-map.json file.
  *
- * To dynamically import a component in your code, use the 'getDynamicComponent'
- * method from '@stackbit/components/components-registry' and call it with the
- * component's registration key. The key should be the model name, which is
- * stored with every object using the 'type' field.
+ * To import a component in your code, use the 'getComponent' method from
+ * '@stackbit/components/components-registry' and call it with the component'
+ * registration key. The key should be the model name, which is stored with
+ * every object using the 'type' field.
  *
  * Dynamically imported components are used in places where a parent component
  * can contain different types of child components, and are useful to reduce the
@@ -17,6 +17,8 @@
  * available section components, effectively including them in the page bundle,
  * it is suggested to use a map of dynamic components and load each of them
  * on demand.
+ *
+ *
  */
 
 import dynamic from 'next/dynamic';

@@ -11,6 +11,8 @@ if (require.main === module) {
     module.exports.generateComponentsMapTS = generateComponentsMapTS;
 }
 
+const projectDir = path.join(__dirname, '..');
+
 function generateComponentsMapJSON() {
     console.log('⏳ generating src/components-map.json ...');
 
@@ -34,7 +36,7 @@ function generateComponentsMapJSON() {
             return map;
         }, {});
 
-    fse.writeJsonSync(path.join(__dirname, '../src/components-map.json'), componentsMap, { spaces: 4 });
+    fse.writeJsonSync(path.join(projectDir, 'src/components-map.json'), componentsMap, { spaces: 4 });
 
     console.log('✔ generated src/components-map.json');
 }
@@ -70,8 +72,8 @@ module.exports.componentsMap = {
 };
 `;
 
-    fse.ensureDirSync(path.join(__dirname, '../dist'));
-    fse.writeFileSync(path.join(__dirname, '../dist/components-map.js'), data);
+    fse.ensureDirSync(path.join(projectDir, 'dist'));
+    fse.writeFileSync(path.join(projectDir, 'dist/components-map.js'), data);
 
     console.log('✔ generated dist/components-map.js');
 }
@@ -108,8 +110,8 @@ export const componentsMap = {
 };
 `;
 
-    fse.ensureDirSync(path.join(__dirname, '../dist'));
-    fse.writeFileSync(path.join(__dirname, '../dist/components-map.ts'), data);
+    fse.ensureDirSync(path.join(projectDir, 'dist'));
+    fse.writeFileSync(path.join(projectDir, 'dist/components-map.ts'), data);
 
     console.log('✔ generated dist/components-map.ts');
 }

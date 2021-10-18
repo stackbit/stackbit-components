@@ -8,6 +8,8 @@ generateComponentsMapTS();
 generateDynamicComponents();
 copyModelsToPublicFolder();
 
+const projectDir = path.join(__dirname, '..');
+
 function generateDynamicComponents() {
     console.log('⏳ generating dynamic components for storybook...');
 
@@ -32,11 +34,11 @@ const dynamicComponents = {
 export default dynamicComponents;
 `;
 
-    fse.writeFileSync(path.join(__dirname, '../.storybook/storybook-dynamic.js'), data, 'utf8');
+    fse.writeFileSync(path.join(projectDir, '.storybook/storybook-dynamic.js'), data, 'utf8');
 
     console.log('✔ generated .storybook/storybook-dynamic.js');
 }
 
 function copyModelsToPublicFolder() {
-    fse.copy(path.join(__dirname, '../models'), path.join(__dirname, '../public/models'));
+    fse.copy(path.join(projectDir, 'models'), path.join(projectDir, 'public/models'));
 }

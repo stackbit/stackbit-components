@@ -5,22 +5,20 @@
         "sourceType": "module",
         "lib": ["es2020"]
     },
-    "extends": [
-        "eslint:recommended",
-        "plugin:react/recommended",
-        "plugin:react-hooks/recommended",
-        "plugin:jsx-a11y/recommended",
-        "plugin:@typescript-eslint/recommended",
-        "prettier"
-    ],
-    "plugins": ["react", "react-hooks", "import", "jsx-a11y", "@typescript-eslint"],
+    "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:react/recommended", "plugin:react-hooks/recommended", "prettier"],
+    "plugins": ["@typescript-eslint", "react", "react-hooks", "import", "prettier"],
     "env": {
         "es6": true,
         "browser": true,
         "node": true
     },
     "rules": {
+        "prettier/prettier": "error",
+        "consistent-return": "warn",
+        "no-console": "warn",
         "react/prop-types": "off",
+        "react/display-name": "off",
+        "import/no-unresolved": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "import/order": [
             "error",
@@ -43,10 +41,5 @@
             }
         ]
     },
-    "ignorePatterns": [
-        "scripts/*.js",
-        "styles/**/*.js",
-        "src/next-stackbit-components.js",
-        "src/dynamic-components.js"
-    ]
+    "ignorePatterns": ["scripts/*.js", "styles/**/*.js", "src/next-stackbit-components.js", "src/dynamic-components.js"]
 }

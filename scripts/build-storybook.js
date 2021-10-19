@@ -4,11 +4,11 @@ const fse = require('fs-extra');
 const componentsManifest = require('../src/components-manifest.json');
 const { generateComponentsMapTS } = require('./generate-components-map');
 
+const projectDir = path.join(__dirname, '..');
+
 generateComponentsMapTS();
 generateDynamicComponents();
-copyModelsToPublicFolder();
-
-const projectDir = path.join(__dirname, '..');
+copyModelsToStorybookAddon();
 
 function generateDynamicComponents() {
     console.log('⏳ generating dynamic components for storybook...');
@@ -39,6 +39,6 @@ export default dynamicComponents;
     console.log('✔ generated .storybook/storybook-dynamic.js');
 }
 
-function copyModelsToPublicFolder() {
+function copyModelsToStorybookAddon() {
     fse.copy(path.join(projectDir, 'models'), path.join(projectDir, 'public/models'));
 }

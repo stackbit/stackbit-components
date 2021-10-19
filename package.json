@@ -23,7 +23,6 @@
         "dist": "./scripts/build-dist.js --clean",
         "build:ts": "rm -rf dist && tsc",
         "dev:ts": "tsc --watch",
-        "lint": "eslint src",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
         "version-patch": "npm version patch -m \"bumped version to v%s\""
     },
@@ -56,8 +55,8 @@
         "concurrently": "^6.2.1",
         "eslint": "^7.32.0",
         "eslint-config-prettier": "^8.3.0",
+        "eslint-plugin-prettier": "^4.0.0",
         "eslint-plugin-import": "^2.25.2",
-        "eslint-plugin-jsx-a11y": "^6.4.1",
         "eslint-plugin-react": "^7.26.1",
         "eslint-plugin-react-hooks": "^4.2.0",
         "fs-extra": "^10.0.0",

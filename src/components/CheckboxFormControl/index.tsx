@@ -28,12 +28,7 @@ export default function CheckboxFormControl(props) {
                 data-sb-field-path=".name#@id .name#@name .isRequired#@required"
             />
             {props.label && (
-                <label
-                    id={labelId}
-                    className="sb-label ml-2"
-                    htmlFor={props.name}
-                    data-sb-field-path=".label .name#@for"
-                >
+                <label id={labelId} className="sb-label ml-2" htmlFor={props.name} data-sb-field-path=".label .name#@for">
                     {props.label}
                 </label>
             )}

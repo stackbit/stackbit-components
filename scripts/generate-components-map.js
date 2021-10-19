@@ -46,11 +46,14 @@ function generateComponentsMapJS() {
 
     const { staticImports, staticMap } = Object.entries(componentsManifest)
         .filter(([_, component]) => !component.isDynamic)
-        .reduce((res, [componentName, componentManifest]) => {
-            res.staticImports.push(`const ${componentName} = require('./${componentManifest.path}').default;`);
-            res.staticMap.push(`'${componentName}': ${componentName}`);
-            return res;
-        }, { staticImports: [], staticMap: [] });
+        .reduce(
+            (res, [componentName, componentManifest]) => {
+                res.staticImports.push(`const ${componentName} = require('./${componentManifest.path}').default;`);
+                res.staticMap.push(`'${componentName}': ${componentName}`);
+                return res;
+            },
+            { staticImports: [], staticMap: [] }
+        );
 
     const dynamicMap = Object.entries(componentsManifest)
         .filter(([_, component]) => component.isDynamic)
@@ -78,17 +81,19 @@ module.exports.componentsMap = {
     console.log('✔ generated dist/components-map.js');
 }
 
-
 function generateComponentsMapTS() {
     console.log('⏳ generating dist/components-map.ts ...');
 
     const { staticImports, staticMap } = Object.entries(componentsManifest)
         .filter(([_, component]) => !component.isDynamic)
-        .reduce((res, [componentName, componentManifest]) => {
-            res.staticImports.push(`import ${componentName} from './${componentManifest.path}';`);
-            res.staticMap.push(`'${componentName}': ${componentName}`);
-            return res;
-        }, { staticImports: [], staticMap: [] });
+        .reduce(
+            (res, [componentName, componentManifest]) => {
+                res.staticImports.push(`import ${componentName} from './${componentManifest.path}';`);
+                res.staticMap.push(`'${componentName}': ${componentName}`);
+                return res;
+            },
+            { staticImports: [], staticMap: [] }
+        );
 
     const dynamicMap = Object.entries(componentsManifest)
         .filter(([_, component]) => component.isDynamic)

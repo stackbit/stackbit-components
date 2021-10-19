@@ -60,17 +60,13 @@ export default function ContactSection(props) {
                 )}
             >
                 <div
-                    className={classNames(
-                        'relative',
-                        'w-full',
-                        {
-                            'max-w-3xl': contentWidth === 'small',
-                            'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large',
-                            'mx-auto': contentAlignHoriz === 'center',
-                            'ml-auto': contentAlignHoriz === 'right'
-                        }
-                    )}
+                    className={classNames('relative', 'w-full', {
+                        'max-w-3xl': contentWidth === 'small',
+                        'max-w-5xl': contentWidth === 'medium',
+                        'max-w-7xl': contentWidth === 'large',
+                        'mx-auto': contentAlignHoriz === 'center',
+                        'ml-auto': contentAlignHoriz === 'right'
+                    })}
                 >
                     {contactVariants(props)}
                 </div>
@@ -145,9 +141,7 @@ function contactFeature(feature) {
     if (!Feature) {
         throw new Error(`no component matching the contact section feature type: ${featureType}`);
     }
-    return (
-        <Feature {...feature} />
-    );
+    return <Feature {...feature} />;
 }
 
 function contactContent(props) {
@@ -155,10 +149,7 @@ function contactContent(props) {
     return (
         <div className="mb-12">
             {props.title && (
-                <h2
-                    className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')}
-                    data-sb-field-path=".title"
-                >
+                <h2 className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}

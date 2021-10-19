@@ -8,5 +8,5 @@ export default function getPageUrlPath(page) {
             parts.pop();
         }
     }
-    return  '/' + parts.join('/').toLowerCase();
+    return '/' + parts.join('/').toLowerCase();
 }

@@ -11,12 +11,13 @@ const COMPONENT_LIBRARY_PATH = path.resolve(__dirname, '..');
 const DYNAMIC_COMPONENTS_TEMPLATE_PATH = path.resolve(__dirname, './dynamic-components.js');
 const DYNAMIC_COMPONENTS_INTERNAL_PATH = path.resolve(__dirname, '../dist/dynamic-components.js');
 
-module.exports = (pluginOptions = {}) => function withStackbitComponents(nextConfig) {
-    copyComponentsJson(pluginOptions);
-    generateDynamicComponents(pluginOptions);
-    configureWebpack(pluginOptions, nextConfig);
-    return nextConfig;
-};
+module.exports = (pluginOptions = {}) =>
+    function withStackbitComponents(nextConfig) {
+        copyComponentsJson(pluginOptions);
+        generateDynamicComponents(pluginOptions);
+        configureWebpack(pluginOptions, nextConfig);
+        return nextConfig;
+    };
 
 function copyComponentsJson(pluginOptions) {
     fse.ensureDir(STACKBIT_FOLDER_DEFAULT_PATH);

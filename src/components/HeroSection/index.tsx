@@ -68,32 +68,20 @@ export default function HeroSection(props) {
                         })}
                     >
                         <div
-                            className={classNames(
-                                'my-3',
-                                'flex-1',
-                                'px-4',
-                                'w-full',
-                                {
-                                    'self-center': contentAlignVert === 'middle',
-                                    'self-end': contentAlignVert === 'bottom'
-                                }
-                            )}
+                            className={classNames('my-3', 'flex-1', 'px-4', 'w-full', {
+                                'self-center': contentAlignVert === 'middle',
+                                'self-end': contentAlignVert === 'bottom'
+                            })}
                         >
                             {heroBody(props)}
                             {heroActions(props)}
                         </div>
                         {props.feature && (
                             <div
-                                className={classNames(
-                                    'my-3',
-                                    'flex-1',
-                                    'px-4',
-                                    'w-full',
-                                    {
-                                        'self-center': contentAlignVert === 'middle',
-                                        'self-end': contentAlignVert === 'bottom'
-                                    }
-                                )}
+                                className={classNames('my-3', 'flex-1', 'px-4', 'w-full', {
+                                    'self-center': contentAlignVert === 'middle',
+                                    'self-end': contentAlignVert === 'bottom'
+                                })}
                                 data-sb-field-path=".feature"
                             >
                                 {heroFeature(props.feature)}
@@ -143,18 +131,12 @@ function heroBody(props) {
     return (
         <div>
             {props.title && (
-                <h2
-                    className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')}
-                    data-sb-field-path=".title"
-                >
+                <h2 className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p
-                    className={classNames('text-xl', 'sm:text-2xl', 'mb-6', styles.subtitle ? mapStyles(styles.subtitle) : '')}
-                    data-sb-field-path=".subtitle"
-                >
+                <p className={classNames('text-xl', 'sm:text-2xl', 'mb-6', styles.subtitle ? mapStyles(styles.subtitle) : '')} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}

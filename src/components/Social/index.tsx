@@ -44,9 +44,7 @@ export default function Social(props) {
             data-sb-field-path={annotations.join(' ').trim()}
         >
             {label && <span>{label}</span>}
-            {showIcon && IconComponent && (
-                <IconComponent className={classNames('fill-current h-5 w-5', label ? 'mr-1.5 order-first' : '')} />
-            )}
+            {showIcon && IconComponent && <IconComponent className={classNames('fill-current h-5 w-5', label ? 'mr-1.5 order-first' : '')} />}
         </Link>
     );
 }

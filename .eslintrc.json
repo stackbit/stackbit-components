@@ -14,11 +14,7 @@
     },
     "rules": {
         "prettier/prettier": "error",
-        "consistent-return": "warn",
-        "no-console": "warn",
         "react/prop-types": "off",
-        "react/display-name": "off",
-        "import/no-unresolved": "off",
         "@typescript-eslint/no-explicit-any": "off",
         "import/order": [
             "error",

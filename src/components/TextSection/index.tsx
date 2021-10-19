@@ -17,22 +17,14 @@ export default function TextSection(props) {
     return (
         <div
             id={props.elementId}
-            className={classNames(
-                'component',
-                'component-section',
-                'component-text-section',
-                width === 'full' ? colors : '',
-                'px-4',
-                'sm:px-6',
-                {
-                    'mt-4 sm:mt-6': topGap === 'small',
-                    'mt-6 sm:mt-10': topGap === 'medium',
-                    'mt-10 sm:mt-16': topGap === 'large',
-                    'mb-4 sm:mb-6': bottomGap === 'small',
-                    'mb-6 sm:mb-10': bottomGap === 'medium',
-                    'mb-10 sm:mb-16': bottomGap === 'large'
-                }
-            )}
+            className={classNames('component', 'component-section', 'component-text-section', width === 'full' ? colors : '', 'px-4', 'sm:px-6', {
+                'mt-4 sm:mt-6': topGap === 'small',
+                'mt-6 sm:mt-10': topGap === 'medium',
+                'mt-10 sm:mt-16': topGap === 'large',
+                'mb-4 sm:mb-6': bottomGap === 'small',
+                'mb-6 sm:mb-10': bottomGap === 'medium',
+                'mb-10 sm:mb-16': bottomGap === 'large'
+            })}
             data-sb-field-path={props.annotationPrefix}
         >
             <div
@@ -58,41 +50,36 @@ export default function TextSection(props) {
                 )}
             >
                 <div
-                    className={classNames(
-                        'w-full',
-                        'my-3',
-                        {
-                            'max-w-3xl': contentWidth === 'small',
-                            'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large'
-                        }
-                    )}
+                    className={classNames('w-full', 'my-3', {
+                        'max-w-3xl': contentWidth === 'small',
+                        'max-w-5xl': contentWidth === 'medium',
+                        'max-w-7xl': contentWidth === 'large'
+                    })}
                 >
                     {props.title && (
-                        <h2
-                            className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')}
-                            data-sb-field-path=".title"
-                        >
+                        <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
                             {props.title}
                         </h2>
                     )}
-                        {props.subtitle && (
-                            <p
-                                className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : '')}
-                                data-sb-field-path=".subtitle"
-                            >
-                                {props.subtitle}
-                            </p>
-                        )}
-                        {props.text && (
-                            <Markdown
-                                options={{ forceBlock: true }}
-                                className={classNames('sb-markdown', 'md:text-lg', styles.text ? mapStyles(styles.text) : '', props.title || props.subtitle ? 'mt-6' : '')}
-                                data-sb-field-path=".text"
-                            >
-                                {props.text}
-                            </Markdown>
-                        )}
+                    {props.subtitle && (
+                        <p className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : '')} data-sb-field-path=".subtitle">
+                            {props.subtitle}
+                        </p>
+                    )}
+                    {props.text && (
+                        <Markdown
+                            options={{ forceBlock: true }}
+                            className={classNames(
+                                'sb-markdown',
+                                'md:text-lg',
+                                styles.text ? mapStyles(styles.text) : '',
+                                props.title || props.subtitle ? 'mt-6' : ''
+                            )}
+                            data-sb-field-path=".text"
+                        >
+                            {props.text}
+                        </Markdown>
+                    )}
                 </div>
             </div>
         </div>

@@ -13,27 +13,9 @@ export default function NavBar(props) {
     const mobileNavVariant = props.mobileNavVariant || 'variant-a';
     const width = props.width || 'wide';
     return (
-        <nav
-            className={classNames(
-                'component',
-                'component-nav-bar'
-            )}
-            data-sb-object-id={props.annotationPrefix}
-        >
-            <div
-                className={classNames(
-                    width === 'full' ? primaryColors : '',
-                    'px-4',
-                    'sm:px-6'
-                )}
-                data-sb-field-path="navBar"
-            >
-                <div
-                    className={classNames(
-                        width === 'wide' ? `${primaryColors} max-w-screen-2xl mx-auto px-4` : '',
-                        'py-5'
-                    )}
-                >
+        <nav className={classNames('component', 'component-nav-bar')} data-sb-object-id={props.annotationPrefix}>
+            <div className={classNames(width === 'full' ? primaryColors : '', 'px-4', 'sm:px-6')} data-sb-field-path="navBar">
+                <div className={classNames(width === 'wide' ? `${primaryColors} max-w-screen-2xl mx-auto px-4` : '', 'py-5')}>
                     <Link href="#content" className="sr-only">
                         Skip to main content
                     </Link>

@@ -50,5 +50,5 @@ LinkIcon.args = {
     showIcon: true,
     icon: 'arrowLeft',
     iconPosition: 'left',
-    style: 'link',
+    style: 'link'
 };

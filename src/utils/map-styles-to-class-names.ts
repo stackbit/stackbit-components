@@ -1,9 +1,9 @@
 const TAILWIND_MAP = {
     fontSize: {
         'x-small': 'text-xs',
-        'small': 'text-sm',
-        'medium': 'text-base',
-        'large': 'text-lg',
+        small: 'text-sm',
+        medium: 'text-base',
+        large: 'text-lg',
         'x-large': 'text-xl',
         'xx-large': 'text-2xl',
         'xxx-large': 'text-3xl'
@@ -30,13 +30,15 @@ export function mapStylesToClassNames(styles: Record<string, any>) {
     if (!styles) {
         return styles;
     }
-    return Object.entries(styles).map(([prop, value]) => {
-        if (prop in TAILWIND_MAP && value in TAILWIND_MAP[prop]) {
-            return TAILWIND_MAP[prop][value];
-        } else {
-            // if prop or value don't exist in the map, use the value as is,
-            // useful for direct color values.
-            return value;
-        }
-    }).join(' ');
+    return Object.entries(styles)
+        .map(([prop, value]) => {
+            if (prop in TAILWIND_MAP && value in TAILWIND_MAP[prop]) {
+                return TAILWIND_MAP[prop][value];
+            } else {
+                // if prop or value don't exist in the map, use the value as is,
+                // useful for direct color values.
+                return value;
+            }
+        })
+        .join(' ');
 }

@@ -21,22 +21,14 @@ export default function CtaSection(props) {
     return (
         <div
             id={props.elementId}
-            className={classNames(
-                'component',
-                'component-section',
-                'component-cta-section',
-                width === 'full' ? `${colors} relative` : '',
-                'px-4',
-                'sm:px-6',
-                {
-                    'mt-4 sm:mt-6': topGap === 'small',
-                    'mt-6 sm:mt-10': topGap === 'medium',
-                    'mt-10 sm:mt-16': topGap === 'large',
-                    'mb-4 sm:mb-6': bottomGap === 'small',
-                    'mb-6 sm:mb-10': bottomGap === 'medium',
-                    'mb-10 sm:mb-16': bottomGap === 'large'
-                }
-            )}
+            className={classNames('component', 'component-section', 'component-cta-section', width === 'full' ? `${colors} relative` : '', 'px-4', 'sm:px-6', {
+                'mt-4 sm:mt-6': topGap === 'small',
+                'mt-6 sm:mt-10': topGap === 'medium',
+                'mt-10 sm:mt-16': topGap === 'large',
+                'mb-4 sm:mb-6': bottomGap === 'small',
+                'mb-6 sm:mb-10': bottomGap === 'medium',
+                'mb-10 sm:mb-16': bottomGap === 'large'
+            })}
             data-sb-field-path={props.annotationPrefix}
         >
             <div
@@ -63,25 +55,17 @@ export default function CtaSection(props) {
             >
                 {props.backgroundImage && ctaBackgroundImage(props.backgroundImage)}
                 <div
-                    className={classNames(
-                        'relative',
-                        'w-full',
-                        {
-                            'max-w-3xl': contentWidth === 'small',
-                            'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large'
-                        }
-                    )}
+                    className={classNames('relative', 'w-full', {
+                        'max-w-3xl': contentWidth === 'small',
+                        'max-w-5xl': contentWidth === 'medium',
+                        'max-w-7xl': contentWidth === 'large'
+                    })}
                 >
                     <div
-                        className={classNames(
-                            'flex',
-                            '-mx-4',
-                            {
-                                'flex-col lg:flex-row lg:justify-between': actionsPosition === 'right',
-                                'flex-col': actionsPosition === 'bottom'
-                            }
-                        )}
+                        className={classNames('flex', '-mx-4', {
+                            'flex-col lg:flex-row lg:justify-between': actionsPosition === 'right',
+                            'flex-col': actionsPosition === 'bottom'
+                        })}
                     >
                         {(props.title || props.text) && (
                             <div className="my-3 px-4">
@@ -104,11 +88,7 @@ export default function CtaSection(props) {
                                 )}
                             </div>
                         )}
-                        {actions.length > 0 && (
-                            <div className="my-3 px-4">
-                                {ctaActions(props)}
-                            </div>
-                        )}
+                        {actions.length > 0 && <div className="my-3 px-4">{ctaActions(props)}</div>}
                     </div>
                 </div>
             </div>

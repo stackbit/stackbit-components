@@ -59,17 +59,13 @@ export default function TestimonialsSection(props) {
                 )}
             >
                 <div
-                    className={classNames(
-                        'relative',
-                        'w-full',
-                        {
-                            'max-w-3xl': contentWidth === 'small',
-                            'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large',
-                            'mx-auto': contentAlignHoriz === 'center',
-                            'ml-auto': contentAlignHoriz === 'right'
-                        }
-                    )}
+                    className={classNames('relative', 'w-full', {
+                        'max-w-3xl': contentWidth === 'small',
+                        'max-w-5xl': contentWidth === 'medium',
+                        'max-w-7xl': contentWidth === 'large',
+                        'mx-auto': contentAlignHoriz === 'center',
+                        'ml-auto': contentAlignHoriz === 'right'
+                    })}
                 >
                     {testimonialsHeader(props)}
                     {testimonialVariants(props)}
@@ -87,18 +83,12 @@ function testimonialsHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2
-                    className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')}
-                    data-sb-field-path=".title"
-                >
+                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p
-                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')}
-                    data-sb-field-path=".subtitle"
-                >
+                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}

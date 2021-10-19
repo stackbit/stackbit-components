@@ -48,7 +48,7 @@ export default {
             options: ['top', 'middle', 'bottom'],
             defaultValue: 'middle',
             control: { type: 'select' }
-        },
+        }
     }
 };
 
@@ -96,7 +96,7 @@ Primary.args = {
             textAlign: 'center'
         }
     }
-}
+};
 
 export const Secondary = Template.bind({});
 Secondary.storyName = 'Full Bleed Tall Text Section';
@@ -110,7 +110,7 @@ Secondary.args = {
     contentWidth: 'medium',
     contentAlignHoriz: 'left',
     contentAlignVert: 'bottom'
-}
+};
 
 export const Tertiary = Template.bind({});
 Tertiary.storyName = 'Full Bleed Viewport Height Text Section';
@@ -124,4 +124,4 @@ Tertiary.args = {
     contentWidth: 'small',
     contentAlignHoriz: 'right',
     contentAlignVert: 'top'
-}
+};

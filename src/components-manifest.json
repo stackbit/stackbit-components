@@ -105,8 +105,8 @@
         "isDynamic": true
     },
     "PostLayout": {
-      "path": "layouts/PostLayout",
-      "modelName": "PostLayout",
-      "isDynamic": true
-  }
+        "path": "layouts/PostLayout",
+        "modelName": "PostLayout",
+        "isDynamic": true
+    }
 }

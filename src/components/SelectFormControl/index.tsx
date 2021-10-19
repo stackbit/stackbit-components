@@ -20,26 +20,22 @@ export default function SelectFormControl(props) {
             data-sb-field-path={props.annotationPrefix}
         >
             {props.label && (
-                <label
-                    id={labelId}
-                    className="sb-label"
-                    htmlFor={props.name}
-                    data-sb-field-path=".label .name#@for"
-                >
+                <label id={labelId} className="sb-label" htmlFor={props.name} data-sb-field-path=".label .name#@for">
                     {props.label}
                 </label>
             )}
-            <select
-                id={props.name}
-                className="sb-select"
-                name={props.name}
-                {...attr}
-                data-sb-field-path=".name#@id .name#@name .isRequired#@required .options"
-            >
-                {props.defaultValue && <option value="" data-sb-field-path=".defaultValue">{props.defaultValue}</option>}
-                {options.length > 0 && options.map((option, index) =>
-                    <option key={index} value={option} data-sb-field-path={`.${index}`}>{option}</option>
+            <select id={props.name} className="sb-select" name={props.name} {...attr} data-sb-field-path=".name#@id .name#@name .isRequired#@required .options">
+                {props.defaultValue && (
+                    <option value="" data-sb-field-path=".defaultValue">
+                        {props.defaultValue}
+                    </option>
                 )}
+                {options.length > 0 &&
+                    options.map((option, index) => (
+                        <option key={index} value={option} data-sb-field-path={`.${index}`}>
+                            {option}
+                        </option>
+                    ))}
             </select>
         </div>
     );

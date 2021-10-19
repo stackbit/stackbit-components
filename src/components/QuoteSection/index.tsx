@@ -34,7 +34,7 @@ export default function QuoteSection(props) {
             )}
             data-sb-field-path={props.annotationPrefix}
         >
-            {(width === 'full') && props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
+            {width === 'full' && props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames(
                     width === 'wide' ? `${colors} relative` : '',
@@ -59,15 +59,11 @@ export default function QuoteSection(props) {
             >
                 {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
                 <div
-                    className={classNames(
-                        'relative',
-                        'w-full',
-                        {
-                            'max-w-3xl': contentWidth === 'small',
-                            'max-w-5xl': contentWidth === 'medium',
-                            'max-w-7xl': contentWidth === 'large'
-                        }
-                    )}
+                    className={classNames('relative', 'w-full', {
+                        'max-w-3xl': contentWidth === 'small',
+                        'max-w-5xl': contentWidth === 'medium',
+                        'max-w-7xl': contentWidth === 'large'
+                    })}
                 >
                     {quoteContent(props)}
                 </div>

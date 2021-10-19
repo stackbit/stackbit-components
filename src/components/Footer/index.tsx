@@ -15,23 +15,8 @@ export default function Footer(props) {
     const Action = getComponent('Action');
     const Social = getComponent('Social');
     return (
-        <footer
-            className={classNames(
-                'component',
-                'component-footer'
-            )}
-            data-sb-object-id={props.annotationPrefix}
-        >
-            <div
-                className={classNames(
-                    'component',
-                    'component-footer',
-                    width === 'full' ? colors : '',
-                    'px-4',
-                    'sm:px-6'
-                )}
-                data-sb-field-path="footer"
-            >
+        <footer className={classNames('component', 'component-footer')} data-sb-object-id={props.annotationPrefix}>
+            <div className={classNames('component', 'component-footer', width === 'full' ? colors : '', 'px-4', 'sm:px-6')} data-sb-field-path="footer">
                 <div
                     className={classNames(
                         width === 'wide' ? colors : '',
@@ -48,27 +33,17 @@ export default function Footer(props) {
                     {(props.logo || props.title || props.text) && (
                         <div className="mb-12">
                             {props.logo && (
-                                <Link
-                                    href="/"
-                                    className="inline-block mb-4" data-sb-field-path=".logo"
-                                >
+                                <Link href="/" className="inline-block mb-4" data-sb-field-path=".logo">
                                     {props.logo && <ImageBlock {...props.logo} />}
                                 </Link>
                             )}
                             {props.title && (
-                                <div
-                                    className="mb-2 text-2xl tracking-wide"
-                                    data-sb-field-path="footer.title"
-                                >
+                                <div className="mb-2 text-2xl tracking-wide" data-sb-field-path="footer.title">
                                     {props.title}
                                 </div>
                             )}
                             {props.text && (
-                                <Markdown
-                                    options={{ forceBlock: true }}
-                                    className="sb-markdown max-w-xl"
-                                    data-sb-field-path=".text"
-                                >
+                                <Markdown options={{ forceBlock: true }} className="sb-markdown max-w-xl" data-sb-field-path=".text">
                                     {props.text}
                                 </Markdown>
                             )}

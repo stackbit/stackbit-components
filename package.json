@@ -23,6 +23,8 @@
         "dist": "./scripts/build-dist.js --clean",
         "build:ts": "rm -rf dist && tsc",
         "dev:ts": "tsc --watch",
+        "lint": "eslint src",
+        "prettier": "prettier --write src scripts",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
         "version-patch": "npm version patch -m \"bumped version to v%s\""
     },

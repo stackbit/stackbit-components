@@ -29,8 +29,7 @@ const args = {
         url: '/images/logo-alt.svg',
         altText: 'Logo'
     },
-    text:
-        'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
+    text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
     contacts: {
         phoneNumber: '850-123-5021',
         phoneAltText: 'Our phone',

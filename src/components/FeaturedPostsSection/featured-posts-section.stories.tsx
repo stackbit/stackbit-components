@@ -10,7 +10,7 @@ export default {
             defaultValue: ''
         },
         variant: {
-            options: ['variant-a', 'variant-b'],
+            options: ['variant-a', 'variant-b', 'variant-c'],
             defaultValue: 'variant-a',
             control: { type: 'select' }
         },
@@ -19,39 +19,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
-            control: { type: 'select' }
-        },
-        height: {
-            options: ['short', 'tall', 'screen'],
-            defaultValue: 'short',
-            control: { type: 'select' }
-        },
-        topGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        bottomGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        contentWidth: {
-            options: ['small', 'medium', 'large'],
-            defaultValue: 'large',
-            control: { type: 'select' }
-        },
-        contentAlignHoriz: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        },
-        contentAlignVert: {
-            options: ['top', 'middle', 'bottom'],
-            defaultValue: 'middle',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
@@ -63,14 +33,10 @@ const args = {
     type: 'FeaturedPostsSection',
     elementId: '',
     variant: 'variant-a',
-    colors: 'colors-a',
-    width: 'wide',
-    height: 'short',
-    topGap: 'none',
-    bottomGap: 'none',
-    contentWidth: 'large',
-    contentAlignHoriz: 'center',
-    contentAlignVert: 'middle',
+    colors: 'colors-f',
+    backgroundWidth: 'full',
+    title: 'Latest from the Blog',
+    subtitle: 'This is Subtitle',
     actions: [
         {
             type: 'Button',
@@ -121,40 +87,61 @@ const args = {
         }
     ],
     styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         title: {
             textAlign: 'center'
         },
         subtitle: {
             textAlign: 'center'
         },
-        actions: {
+        text: {
             textAlign: 'center'
+        },
+        actions: {
+            justifyContent: 'center'
         }
     }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Three Cols, Post Content Below Image';
+Primary.storyName = 'Featured Posts, Three Column Grid';
 Primary.args = args;
 
-export const VariantB = Template.bind({});
-VariantB.storyName = 'Two Cols, Post Content to the Right of the Image';
-VariantB.args = {
+export const FeaturedPostsTwoCol = Template.bind({});
+FeaturedPostsTwoCol.storyName = 'Featured Posts, Two Column Grid';
+FeaturedPostsTwoCol.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-c',
-    width: 'full',
-    title: 'Latest from the Blog',
-    actions: null,
     styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         title: {
             textAlign: 'left'
         },
         subtitle: {
             textAlign: 'left'
         },
-        actions: {
+        text: {
             textAlign: 'left'
+        },
+        actions: {
+            justifyContent: 'start'
         }
     }
+};
+
+export const FeaturedPostsList = Template.bind({});
+FeaturedPostsList.storyName = 'Featured Posts List';
+FeaturedPostsList.args = {
+    ...args,
+    variant: 'variant-c'
 };

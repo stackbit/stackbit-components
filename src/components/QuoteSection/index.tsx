@@ -5,68 +5,40 @@ import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-cl
 
 export default function QuoteSection(props) {
     const colors = props.colors || 'colors-a';
-    const width = props.width || 'wide';
-    const height = props.height || 'tall';
-    const topGap = props.topGap || 'medium';
-    const bottomGap = props.bottomGap || 'medium';
-    const contentWidth = props.contentWidth || 'large';
-    const contentAlignHoriz = props.contentAlignHoriz || 'left';
-    const contentAlignVert = props.contentAlignVert || 'middle';
+    const backgroundWidth = props.backgroundWidth || 'full';
+    const sectionStyles = props.styles?.self || {};
 
     return (
         <div
             id={props.elementId}
             className={classNames(
-                'component',
-                'component-section',
-                'component-quote-section',
-                width === 'full' ? `${colors} relative` : '',
+                'sb-component',
+                'sb-component-section',
+                backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
+                'sb-component-quote-section',
+                colors,
                 'px-4',
-                'sm:px-6',
-                {
-                    'mt-4 sm:mt-6': topGap === 'small',
-                    'mt-6 sm:mt-10': topGap === 'medium',
-                    'mt-10 sm:mt-16': topGap === 'large',
-                    'mb-4 sm:mb-6': bottomGap === 'small',
-                    'mb-6 sm:mb-10': bottomGap === 'medium',
-                    'mb-10 sm:mb-16': bottomGap === 'large'
-                }
+                'sm:px-8',
+                'relative'
             )}
             data-sb-field-path={props.annotationPrefix}
         >
-            {width === 'full' && props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
+            {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames(
-                    width === 'wide' ? `${colors} relative` : '',
                     'flex',
                     'flex-col',
-                    'max-w-screen-2xl',
+                    'max-w-screen-xl',
                     'mx-auto',
-                    'px-4',
-                    'sm:px-8',
-                    'md:px-16',
                     'py-8',
-                    'sm:py-16',
-                    {
-                        'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'screen',
-                        'justify-center': contentAlignVert === 'middle',
-                        'justify-end': contentAlignVert === 'bottom',
-                        'items-center': contentAlignHoriz === 'center',
-                        'items-end': contentAlignHoriz === 'right'
-                    }
+                    'sm:py-14',
+                    'relative',
+                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : '',
+                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : '',
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : ''
                 )}
             >
-                {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
-                <div
-                    className={classNames('relative', 'w-full', {
-                        'max-w-3xl': contentWidth === 'small',
-                        'max-w-5xl': contentWidth === 'medium',
-                        'max-w-7xl': contentWidth === 'large'
-                    })}
-                >
-                    {quoteContent(props)}
-                </div>
+                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : '')}>{quoteContent(props)}</div>
             </div>
         </div>
     );
@@ -96,10 +68,10 @@ function quoteContent(props) {
     const styles = props.styles || {};
 
     return (
-        <blockquote className="my-3">
+        <blockquote>
             {props.quote && (
                 <Markdown
-                    options={{ forceBlock: true }}
+                    options={{ forceBlock: true, forceWrapper: true }}
                     className={classNames('sb-markdown', 'text-3xl', 'sm:text-4xl', styles.quote ? mapStyles(styles.quote) : '')}
                     data-sb-field-path=".quote"
                 >
@@ -107,7 +79,7 @@ function quoteContent(props) {
                 </Markdown>
             )}
             {(props.name || props.title) && (
-                <footer className="mt-8 sm:mt-12">
+                <footer>
                     {props.name && (
                         <strong
                             className={classNames('block', 'font-normal', 'text-2xl', 'sm:text-3xl', styles.name ? mapStyles(styles.name) : '')}
@@ -128,4 +100,26 @@ function quoteContent(props) {
             )}
         </blockquote>
     );
+}
+
+function mapMinHeightStyles(height) {
+    switch (height) {
+        case 'auto':
+            return 'min-h-0';
+        case 'screen':
+            return 'min-h-screen';
+    }
+    return null;
+}
+
+function mapMaxWidthStyles(width) {
+    switch (width) {
+        case 'narrow':
+            return 'max-w-screen-sm';
+        case 'wide':
+            return 'max-w-screen-lg';
+        case 'full':
+            return 'max-w-full';
+    }
+    return null;
 }

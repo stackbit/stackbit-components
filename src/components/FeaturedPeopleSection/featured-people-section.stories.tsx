@@ -19,39 +19,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
-            control: { type: 'select' }
-        },
-        height: {
-            options: ['short', 'tall', 'screen'],
-            defaultValue: 'short',
-            control: { type: 'select' }
-        },
-        topGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        bottomGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        contentWidth: {
-            options: ['small', 'medium', 'large'],
-            defaultValue: 'large',
-            control: { type: 'select' }
-        },
-        contentAlignHoriz: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        },
-        contentAlignVert: {
-            options: ['top', 'middle', 'bottom'],
-            defaultValue: 'middle',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
@@ -63,16 +33,19 @@ const args = {
     type: 'FeaturedPeopleSection',
     elementId: '',
     variant: 'variant-a',
-    colors: 'colors-f',
+    colors: 'colors-h',
     width: 'wide',
-    height: 'short',
-    topGap: 'none',
-    bottomGap: 'none',
-    contentWidth: 'large',
-    contentAlignHoriz: 'center',
-    contentAlignVert: 'middle',
+    backgroundWidth: 'full',
     title: 'The Team',
-    subtitle: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
+    subtitle: 'This is Subtitle',
+    actions: [
+        {
+            type: 'Button',
+            url: '#',
+            label: 'View More',
+            style: 'primary'
+        }
+    ],
     people: [
         {
             firstName: 'Desmond',
@@ -120,56 +93,61 @@ const args = {
         }
     ],
     styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         title: {
             textAlign: 'center'
         },
         subtitle: {
             textAlign: 'center'
         },
-        actions: {
+        text: {
             textAlign: 'center'
+        },
+        actions: {
+            justifyContent: 'center'
         }
     }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Four Cols, Info Under the Image';
+Primary.storyName = 'Featured People, Four Column Grid';
 Primary.args = args;
 
-export const VariantB = Template.bind({});
-VariantB.storyName = 'Two Cols, Info to the Right of the Image';
-VariantB.args = {
+export const FeaturedPeopleTwoCol = Template.bind({});
+FeaturedPeopleTwoCol.storyName = 'Featured People, Two Column Grid';
+FeaturedPeopleTwoCol.args = {
     ...args,
     variant: 'variant-b',
-    colors: 'colors-c',
-    width: 'full',
-    textAlign: 'left',
-    actions: [
-        {
-            type: 'Button',
-            url: '#',
-            label: 'View More',
-            style: 'primary'
-        }
-    ],
     styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         title: {
             textAlign: 'left'
         },
         subtitle: {
             textAlign: 'left'
         },
-        actions: {
+        text: {
             textAlign: 'left'
+        },
+        actions: {
+            justifyContent: 'start'
         }
     }
 };
 
-export const VariantC = Template.bind({});
-VariantC.storyName = 'Two Cols, Info Under the Image';
-VariantC.args = {
+export const FeaturedPeopleTwoColAlt = Template.bind({});
+FeaturedPeopleTwoColAlt.storyName = 'Featured People, Two Column Grid Alt';
+FeaturedPeopleTwoColAlt.args = {
     ...args,
-    variant: 'variant-c',
-    colors: 'colors-i',
-    contentWidth: 'medium'
+    variant: 'variant-c'
 };

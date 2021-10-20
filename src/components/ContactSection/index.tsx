@@ -7,126 +7,54 @@ import FormBlock from '../FormBlock';
 
 export default function ContactSection(props) {
     const colors = props.colors || 'colors-a';
-    const width = props.width || 'wide';
-    const height = props.height || 'tall';
-    const topGap = props.topGap || 'medium';
-    const bottomGap = props.bottomGap || 'medium';
-    const contentWidth = props.contentWidth || 'large';
-    const contentAlignHoriz = props.contentAlignHoriz || 'left';
-    const contentAlignVert = props.contentAlignVert || 'middle';
+    const backgroundWidth = props.backgroundWidth || 'full';
+    const sectionStyles = props.styles?.self || {};
 
     return (
         <div
             id={props.elementId}
             className={classNames(
-                'component',
-                'component-section',
-                'component-contact-section',
-                width === 'full' ? colors : '',
+                'sb-component',
+                'sb-component-section',
+                backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
+                'sb-component-contact-section',
+                colors,
                 'px-4',
-                'sm:px-6',
-                'relative',
-                {
-                    'mt-4 sm:mt-6': topGap === 'small',
-                    'mt-6 sm:mt-10': topGap === 'medium',
-                    'mt-10 sm:mt-16': topGap === 'large',
-                    'mb-4 sm:mb-6': bottomGap === 'small',
-                    'mb-6 sm:mb-10': bottomGap === 'medium',
-                    'mb-10 sm:mb-16': bottomGap === 'large'
-                }
+                'sm:px-8'
             )}
             data-sb-field-path={props.annotationPrefix}
         >
             <div
                 className={classNames(
-                    width === 'wide' ? colors : '',
                     'flex',
                     'flex-col',
-                    'max-w-screen-2xl',
+                    'max-w-screen-xl',
                     'mx-auto',
-                    'px-4',
-                    'sm:px-8',
-                    'md:px-12',
-                    'lg:px-16',
-                    'py-10',
-                    'md:py-20',
+                    'py-5',
+                    'sm:py-11',
                     'relative',
-                    {
-                        'min-h-2/3-screen': height === 'tall',
-                        'min-h-screen': height === 'screen',
-                        'justify-center': contentAlignVert === 'middle',
-                        'justify-end': contentAlignVert === 'bottom'
-                    }
+                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : '',
+                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : '',
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : ''
                 )}
             >
-                <div
-                    className={classNames('relative', 'w-full', {
-                        'max-w-3xl': contentWidth === 'small',
-                        'max-w-5xl': contentWidth === 'medium',
-                        'max-w-7xl': contentWidth === 'large',
-                        'mx-auto': contentAlignHoriz === 'center',
-                        'ml-auto': contentAlignHoriz === 'right'
-                    })}
-                >
-                    {contactVariants(props)}
+                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : '')}>
+                    <div className={classNames('flex', '-mx-4', sectionStyles.flexDirection ? mapFlexDirectionStyles(sectionStyles.flexDirection) : '')}>
+                        <div className="my-3 flex-1 px-4 w-full">
+                            {contactBody(props)}
+                            {props.form && (
+                                <div data-sb-field-path=".form">
+                                    <FormBlock {...props.form} />
+                                </div>
+                            )}
+                        </div>
+                        {props.feature && (
+                            <div className="my-3 flex-1 px-4 w-full" data-sb-field-path=".feature">
+                                {contactFeature(props.feature)}
+                            </div>
+                        )}
+                    </div>
                 </div>
-            </div>
-        </div>
-    );
-}
-
-function contactVariants(props) {
-    const variant = props.variant || 'variant-a';
-    switch (variant) {
-        case 'variant-a':
-            return contactFeatureRight(props);
-        case 'variant-b':
-            return contactFeatureLeft(props);
-    }
-    return null;
-}
-
-function contactFeatureRight(props) {
-    const contentAlignVert = props.contentAlignVert || 'middle';
-    return (
-        <div
-            className={classNames('grid gap-y-8', {
-                'gap-x-12 lg:grid-cols-2': props.feature,
-                'lg:items-center': contentAlignVert === 'middle',
-                'lg:items-end': contentAlignVert === 'bottom'
-            })}
-        >
-            <div>
-                {contactContent(props)}
-                {props.form && (
-                    <div data-sb-field-path=".form">
-                        <FormBlock {...props.form} />
-                    </div>
-                )}
-            </div>
-            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature)}</div>}
-        </div>
-    );
-}
-
-function contactFeatureLeft(props) {
-    const contentAlignVert = props.contentAlignVert || 'middle';
-    return (
-        <div
-            className={classNames('grid gap-y-8', {
-                'gap-x-12 lg:grid-cols-2': props.feature,
-                'lg:items-center': contentAlignVert === 'middle',
-                'lg:items-end': contentAlignVert === 'bottom'
-            })}
-        >
-            {props.feature && <div data-sb-field-path=".feature">{contactFeature(props.feature)}</div>}
-            <div>
-                {contactContent(props)}
-                {props.form && (
-                    <div data-sb-field-path=".form">
-                        <FormBlock {...props.form} />
-                    </div>
-                )}
             </div>
         </div>
     );
@@ -144,10 +72,10 @@ function contactFeature(feature) {
     return <Feature {...feature} />;
 }
 
-function contactContent(props) {
+function contactBody(props) {
     const styles = props.styles || {};
     return (
-        <div className="mb-12">
+        <div>
             {props.title && (
                 <h2 className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
                     {props.title}
@@ -155,7 +83,7 @@ function contactContent(props) {
             )}
             {props.text && (
                 <Markdown
-                    options={{ forceBlock: true }}
+                    options={{ forceBlock: true, forceWrapper: true }}
                     className={classNames('sb-markdown', styles.text ? mapStyles(styles.text) : '')}
                     data-sb-field-path=".text"
                 >
@@ -164,4 +92,40 @@ function contactContent(props) {
             )}
         </div>
     );
+}
+
+function mapMinHeightStyles(height) {
+    switch (height) {
+        case 'auto':
+            return 'min-h-0';
+        case 'screen':
+            return 'min-h-screen';
+    }
+    return null;
+}
+
+function mapMaxWidthStyles(width) {
+    switch (width) {
+        case 'narrow':
+            return 'max-w-screen-sm';
+        case 'wide':
+            return 'max-w-screen-lg';
+        case 'full':
+            return 'max-w-full';
+    }
+    return null;
+}
+
+function mapFlexDirectionStyles(flexDirection) {
+    switch (flexDirection) {
+        case 'row':
+            return ['flex-col', 'lg:flex-row'];
+        case 'row-reverse':
+            return ['flex-col-reverse', 'lg:flex-row-reverse'];
+        case 'col':
+            return ['flex-col'];
+        case 'col-reverse':
+            return ['flex-col-reverse'];
+    }
+    return null;
 }

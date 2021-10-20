@@ -14,44 +14,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
-            control: { type: 'select' }
-        },
-        height: {
-            options: ['short', 'tall', 'screen'],
-            defaultValue: 'short',
-            control: { type: 'select' }
-        },
-        topGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        bottomGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        contentWidth: {
-            options: ['small', 'medium', 'large'],
-            defaultValue: 'large',
-            control: { type: 'select' }
-        },
-        contentAlignHoriz: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        },
-        contentAlignVert: {
-            options: ['top', 'middle', 'bottom'],
-            defaultValue: 'middle',
-            control: { type: 'select' }
-        },
-        actionsPosition: {
-            options: ['right', 'bottom'],
-            defaultValue: 'right',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
@@ -63,12 +28,7 @@ const args = {
     type: 'CtaSection',
     elementId: '',
     colors: 'colors-h',
-    height: 'short',
-    topGap: 'none',
-    bottomGap: 'none',
-    contentWidth: 'large',
-    contentAlignHoriz: 'center',
-    contentAlignVert: 'middle',
+    backgroundWidth: 'full',
     title: "Let's do this",
     text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
     actions: [
@@ -77,34 +37,14 @@ const args = {
             url: '#',
             label: 'Get Started',
             style: 'primary'
+        },
+        {
+            type: 'Button',
+            url: '#',
+            label: 'Learn more',
+            style: 'secondary'
         }
     ],
-    actionsPosition: 'right',
-    styles: {
-        title: {
-            textAlign: 'left'
-        },
-        text: {
-            textAlign: 'left'
-        },
-        actions: {
-            textAlign: 'left'
-        }
-    }
-};
-
-export const Primary = Template.bind({});
-Primary.storyName = 'CTA Section With Button on the Right';
-Primary.args = args;
-
-export const CtaButtonsRight = Template.bind({});
-CtaButtonsRight.storyName = 'CTA Section With Buttons at the Bottom';
-CtaButtonsRight.args = {
-    ...args,
-    colors: 'colors-c',
-    width: 'full',
-    contentWidth: 'medium',
-    actionsPosition: 'bottom',
     backgroundImage: {
         type: 'ImageBlock',
         url: '/images/bg.jpg',
@@ -113,6 +53,41 @@ CtaButtonsRight.args = {
         opacity: 50
     },
     styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row'
+        },
+        title: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        },
+        actions: {
+            justifyContent: 'start'
+        }
+    }
+};
+
+export const Primary = Template.bind({});
+Primary.storyName = 'CTA Section With Actions on the Right';
+Primary.args = args;
+
+export const CtaActionsBottom = Template.bind({});
+CtaActionsBottom.storyName = 'CTA Section With Actions at the Bottom';
+CtaActionsBottom.args = {
+    ...args,
+    styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'col'
+        },
         title: {
             textAlign: 'center'
         },
@@ -120,7 +95,7 @@ CtaButtonsRight.args = {
             textAlign: 'center'
         },
         actions: {
-            textAlign: 'center'
+            justifyContent: 'center'
         }
     }
 };

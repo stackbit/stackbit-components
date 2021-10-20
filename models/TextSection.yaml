@@ -2,55 +2,60 @@ type: object
 name: TextSection
 label: Text section
 extends:
-  - Section
+    - Section
 groups:
-  - sectionComponent
+    - sectionComponent
 fieldGroups:
-  - name: styles
-    label: Styles
-  - name: settings
-    label: Settings
+    - name: styles
+      label: Styles
+    - name: settings
+      label: Settings
 fields:
-  - name: colors
-    default: colors-f
-  - name: width
-    default: wide
-  - name: height
-    default: tall
-  - name: contentWidth
-    default: small
-  - name: contentAlignHoriz
-    default: center
-  - name: contentAlignVert
-    default: middle
-  - name: topGap
-    default: none
-  - name: bottomGap
-    default: none
-  - type: string
-    name: title
-    label: Title
-    default: The Section Title
-  - type: string
-    name: subtitle
-    label: Subtitle
-    default: The section subtitle
-  - type: markdown
-    name: text
-    label: Text
-    default: |-
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
-      doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo
-      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-      Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium
-      doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo
-      inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
-  - type: style
-    name: styles
-    styles:
-      title:
-        textAlign: ['left', 'center', 'right']
-      subtitle:
-        textAlign: ['left', 'center', 'right']
-      text:
-        textAlign: ['left', 'center', 'right']
+    - name: colors
+      default: colors-f
+    - name: backgroundWidth
+      default: full
+    - type: string
+      name: title
+      label: Title
+      default: The Section Title
+    - type: string
+      name: subtitle
+      label: Subtitle
+      default: The section subtitle
+    - type: markdown
+      name: text
+      label: Text
+      default: |-
+          Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo
+          inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+          Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium
+          doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo
+          inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.
+    - type: style
+      name: styles
+      styles:
+          self:
+              height: ['auto', 'screen']
+              width: ['narrow', 'wide', 'full']
+              alignItems: ['start', 'center', 'end']
+              justifyContent: ['start', 'center', 'end']
+          title:
+              textAlign: ['left', 'center', 'right']
+          subtitle:
+              textAlign: ['left', 'center', 'right']
+          text:
+              textAlign: ['left', 'center', 'right']
+      default:
+          self:
+              height: auto
+              width: wide
+              alignItems: center
+              justifyContent: center
+          title:
+              textAlign: center
+          subtitle:
+              textAlign: center
+          text:
+              textAlign: center

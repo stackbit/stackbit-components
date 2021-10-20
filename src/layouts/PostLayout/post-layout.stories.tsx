@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 
 import * as NavBarStories from '../../components/NavBar/navbar.stories';
 import * as FooterStories from '../../components/Footer/footer.stories';
@@ -40,8 +40,7 @@ Primary.args = {
                 altText: 'Photo of Desmond Eagle'
             }
         },
-        excerpt:
-            'Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio.',
+        excerpt: 'Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio.',
         featuredImage: {
             type: 'ImageBlock',
             url: '/images/post-1.jpeg',

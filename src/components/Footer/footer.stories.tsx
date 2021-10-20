@@ -10,9 +10,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
@@ -22,7 +22,7 @@ const Template = (args) => <Footer {...args} />;
 
 const args = {
     colors: 'colors-c',
-    width: 'wide',
+    backgroundWidth: 'full',
     title: 'Starter',
     logo: {
         type: 'ImageBlock',
@@ -112,7 +112,6 @@ FooterNoContacts.storyName = 'Footer Without Contacts';
 FooterNoContacts.args = {
     ...args,
     colors: 'colors-c',
-    width: 'full',
     logo: {
         type: 'ImageBlock',
         url: '/images/logo-alt.svg',

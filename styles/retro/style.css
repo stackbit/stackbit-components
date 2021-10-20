@@ -18,6 +18,12 @@
 }
 
 @layer components {
+    /* Sections */
+    .sb-component-section-inset,
+    .sb-component-footer-inset {
+        margin-left: 4vw;
+        margin-right: 4vw;
+    }
     /* Markdown block */
     .sb-markdown {
         line-height: 1.75;
@@ -163,7 +169,7 @@
 
     /* Form controls */
     .sb-form-control {
-        @apply mb-8;
+        @apply mb-4;
     }
     .sb-label {
         @apply font-light;

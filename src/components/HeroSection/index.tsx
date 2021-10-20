@@ -5,7 +5,6 @@ import classNames from 'classnames';
 import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
-
 export default function HeroSection(props) {
     const colors = props.colors || 'colors-a';
     const backgroundWidth = props.backgroundWidth || 'full';

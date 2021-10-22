@@ -1,4 +1,4 @@
-import React from 'react';
+import * as React from 'react';
 
 import * as NavBarStories from '../../components/NavBar/navbar.stories';
 import * as FooterStories from '../../components/Footer/footer.stories';

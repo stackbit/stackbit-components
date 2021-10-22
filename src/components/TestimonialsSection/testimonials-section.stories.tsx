@@ -9,49 +9,14 @@ export default {
         elementId: {
             defaultValue: ''
         },
-        variant: {
-            options: ['variant-a', 'variant-b'],
-            defaultValue: 'variant-a',
-            control: { type: 'select' }
-        },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
-            control: { type: 'select' }
-        },
-        height: {
-            options: ['short', 'tall', 'screen'],
-            defaultValue: 'short',
-            control: { type: 'select' }
-        },
-        topGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        bottomGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        contentWidth: {
-            options: ['small', 'medium', 'large'],
-            defaultValue: 'large',
-            control: { type: 'select' }
-        },
-        contentAlignHoriz: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        },
-        contentAlignVert: {
-            options: ['top', 'middle', 'bottom'],
-            defaultValue: 'middle',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
@@ -62,15 +27,8 @@ const Template = (args) => <TestimonialsSection {...args} />;
 const args = {
     type: 'TestimonialsSection',
     elementId: '',
-    variant: 'variant-a',
-    colors: 'colors-e',
-    width: 'wide',
-    height: 'short',
-    topGap: 'none',
-    bottomGap: 'none',
-    contentWidth: 'large',
-    contentAlignHoriz: 'center',
-    contentAlignVert: 'middle',
+    colors: 'colors-h',
+    backgroundWidth: 'full',
     testimonials: [
         {
             quote: '“Stackbit is fast! Themes are always up to date. It’s easy to use across the organization, and collaboration is easy.”',
@@ -81,37 +39,105 @@ const args = {
                 url: '/images/isabelle-parks.jpg',
                 altText: 'Photo of Isabelle Parks'
             },
-            logo: {
-                type: 'ImageBlock',
-                url: '/images/the-logo.svg',
-                altText: 'The logo'
+            styles: {
+                self: {
+                    flexDirection: 'row'
+                },
+                quote: {
+                    textAlign: 'left'
+                },
+                name: {
+                    textAlign: 'left'
+                },
+                title: {
+                    textAlign: 'left'
+                }
             }
         }
     ],
     styles: {
+        self: {
+            height: 'auto',
+            width: 'wide',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         title: {
-            textAlign: 'left'
+            textAlign: 'center'
         },
         subtitle: {
-            textAlign: 'left'
+            textAlign: 'center'
         }
     }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Quote Above Image';
+Primary.storyName = 'Testimonials Section With Author Image on the Left/Right';
 Primary.args = args;
 
-export const VariantB = Template.bind({});
-VariantB.storyName = 'Quote to the Right of the Image';
-VariantB.args = {
+export const TestimonialsAuthorTop = Template.bind({});
+TestimonialsAuthorTop.storyName = 'Testimonials Section With Author Image at the Top';
+TestimonialsAuthorTop.args = {
     ...args,
-    variant: 'variant-b',
-    colors: 'colors-f',
-    width: 'full',
     title: 'Testimonials',
     subtitle: 'What our users say',
+    testimonials: [
+        {
+            quote: '“Stackbit is fast! Themes are always up to date. It’s easy to use across the organization, and collaboration is easy.”',
+            name: 'Isabelle Parks',
+            title: 'Design Manager at Retro',
+            image: {
+                type: 'ImageBlock',
+                url: '/images/isabelle-parks.jpg',
+                altText: 'Photo of Isabelle Parks'
+            },
+            styles: {
+                self: {
+                    flexDirection: 'col-reverse'
+                },
+                quote: {
+                    textAlign: 'center'
+                },
+                name: {
+                    textAlign: 'center'
+                },
+                title: {
+                    textAlign: 'center'
+                }
+            }
+        },
+        {
+            quote: '“Stackbit allows you to easily deploy a static site backed with a CMS. Amazing service.”',
+            name: 'Desmond Eagle',
+            title: 'CTO at Retro',
+            image: {
+                type: 'ImageBlock',
+                url: '/images/desmond-eagle.jpg',
+                altText: 'Photo of Desmond Eagle'
+            },
+            styles: {
+                self: {
+                    flexDirection: 'col'
+                },
+                quote: {
+                    textAlign: 'center'
+                },
+                name: {
+                    textAlign: 'center'
+                },
+                title: {
+                    textAlign: 'center'
+                }
+            }
+        }
+    ],
     styles: {
+        self: {
+            height: 'auto',
+            width: 'narrow',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         title: {
             textAlign: 'center'
         },

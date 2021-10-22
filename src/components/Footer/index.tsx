@@ -8,28 +8,26 @@ import Link from '../../utils/link';
 
 export default function Footer(props) {
     const colors = props.colors || 'colors-a';
-    const width = props.width || 'wide';
+    const backgroundWidth = props.backgroundWidth || 'full';
     const primaryLinks = props.primaryLinks || [];
     const socialLinks = props.socialLinks || [];
     const legalLinks = props.legalLinks || [];
     const Action = getComponent('Action');
     const Social = getComponent('Social');
     return (
-        <footer className={classNames('component', 'component-footer')} data-sb-object-id={props.annotationPrefix}>
-            <div className={classNames('component', 'component-footer', width === 'full' ? colors : '', 'px-4', 'sm:px-6')} data-sb-field-path="footer">
-                <div
-                    className={classNames(
-                        width === 'wide' ? colors : '',
-                        'max-w-screen-2xl',
-                        'mx-auto',
-                        'px-4',
-                        'sm:px-8',
-                        'md:px-12',
-                        'lg:px-16',
-                        'py-10',
-                        'md:py-20'
-                    )}
-                >
+        <footer
+            className={classNames(
+                'sb-component',
+                'sb-component-footer',
+                backgroundWidth === 'inset' ? 'sb-component-footer-inset' : '',
+                colors,
+                'px-4',
+                'sm:px-8'
+            )}
+            data-sb-object-id={props.annotationPrefix}
+        >
+            <div data-sb-field-path="footer">
+                <div className={classNames('max-w-screen-xl', 'mx-auto', 'py-10', 'md:py-20')}>
                     {(props.logo || props.title || props.text) && (
                         <div className="mb-12">
                             {props.logo && (
@@ -43,7 +41,7 @@ export default function Footer(props) {
                                 </div>
                             )}
                             {props.text && (
-                                <Markdown options={{ forceBlock: true }} className="sb-markdown max-w-xl" data-sb-field-path=".text">
+                                <Markdown options={{ forceBlock: true, forceWrapper: true }} className="sb-markdown max-w-xl" data-sb-field-path=".text">
                                     {props.text}
                                 </Markdown>
                             )}

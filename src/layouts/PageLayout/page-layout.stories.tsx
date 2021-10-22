@@ -41,8 +41,8 @@ Primary.args = {
             FeaturedPostsSectionStories.Primary.args,
             HeroSectionStories.Primary.args,
             QuoteSectionStories.Primary.args,
-            TestimonialsSectionStories.Primary.args,
-            TextSectionStories.Primary.args
+            TextSectionStories.Primary.args,
+            TestimonialsSectionStories.Primary.args
         ]
     },
     site: {

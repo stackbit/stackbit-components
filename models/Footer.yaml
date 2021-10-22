@@ -2,80 +2,84 @@ type: object
 name: Footer
 label: Footer
 fieldGroups:
-  - name: styles
-    label: Styles
-  - name: settings
-    label: Settings
+    - name: styles
+      label: Styles
+    - name: settings
+      label: Settings
 fields:
-  - type: enum
-    name: colors
-    group: styles
-    label: Colors
-    options:
-      - label: Base foreground on white background
-        value: colors-a
-      - label: Primary foreground on white background
-        value: colors-b
-      - label: White foreground on base background
-        value: colors-c
-      - label: Primary foreground on base background
-        value: colors-d
-      - label: Base foreground on primary background
-        value: colors-e
-      - label: Base foreground on secondary background
-        value: colors-f
-      - label: Primary foreground on secondary background
-        value: colors-g
-      - label: Base foreground on complementary 1 background
-        value: colors-h
-      - label: Base foreground on complementary 2 background
-        value: colors-i
-    default: colors-a
-  - type: enum
-    name: width
-    group: styles
-    label: Width
-    options:
-      - wide
-      - full
-    default: wide
-  - type: model
-    name: logo
-    label: Logo
-    models: [ImageBlock]
-  - type: string
-    name: title
-    label: Title
-  - type: markdown
-    name: text
-    label: Text
-  - type: model
-    name: contacts
-    label: Contacts
-    models: [ContactBlock]
-  - type: markdown
-    name: copyrightText
-    label: Copyright text
-  - type: list
-    name: primaryLinks
-    label: Primary navigation links
-    items:
-      type: model
-      models:
-        - Button
-        - Link
-  - type: list
-    name: socialLinks
-    label: Social links
-    items:
-      type: model
-      models:
-        - Social
-  - type: list
-    name: legalLinks
-    label: Legal navigation links
-    items:
-      type: model
-      models:
-        - Button
-        - Link
+    - type: enum
+      name: colors
+      group: styles
+      label: Colors
+      options:
+          - label: Base foreground on white background
+            value: colors-a
+          - label: Primary foreground on white background
+            value: colors-b
+          - label: White foreground on base background
+            value: colors-c
+          - label: Primary foreground on base background
+            value: colors-d
+          - label: Base foreground on primary background
+            value: colors-e
+          - label: Base foreground on secondary background
+            value: colors-f
+          - label: Primary foreground on secondary background
+            value: colors-g
+          - label: Base foreground on complementary 1 background
+            value: colors-h
+          - label: Base foreground on complementary 2 background
+            value: colors-i
+      default: colors-a
+    - type: enum
+      name: backgroundWidth
+      group: styles
+      controlType: button-group
+      label: Background width
+      description: The background width of the section
+      options:
+          - label: Inset
+            value: inset
+          - label: Full
+            value: full
+      default: full
+    - type: model
+      name: logo
+      label: Logo
+      models: [ImageBlock]
+    - type: string
+      name: title
+      label: Title
+    - type: markdown
+      name: text
+      label: Text
+    - type: model
+      name: contacts
+      label: Contacts
+      models: [ContactBlock]
+    - type: markdown
+      name: copyrightText
+      label: Copyright text
+    - type: list
+      name: primaryLinks
+      label: Primary navigation links
+      items:
+          type: model
+          models:
+              - Button
+              - Link
+    - type: list
+      name: socialLinks
+      label: Social links
+      items:
+          type: model
+          models:
+              - Social
+    - type: list
+      name: legalLinks
+      label: Legal navigation links
+      items:
+          type: model
+          models:
+              - Button
+              - Link

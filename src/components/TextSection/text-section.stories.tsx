@@ -14,39 +14,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
-            control: { type: 'select' }
-        },
-        height: {
-            options: ['short', 'tall', 'screen'],
-            defaultValue: 'short',
-            control: { type: 'select' }
-        },
-        topGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        bottomGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        contentWidth: {
-            options: ['small', 'medium', 'large'],
-            defaultValue: 'large',
-            control: { type: 'select' }
-        },
-        contentAlignHoriz: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        },
-        contentAlignVert: {
-            options: ['top', 'middle', 'bottom'],
-            defaultValue: 'middle',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
@@ -57,71 +27,76 @@ const Template = (args) => <TextSection {...args} />;
 const args = {
     type: 'TextSection',
     elementId: '',
-    colors: 'colors-e',
-    width: 'wide',
-    height: 'short',
-    topGap: 'medium',
-    bottomGap: 'medium',
-    contentWidth: 'small',
-    contentAlignHoriz: 'center',
-    contentAlignVert: 'middle',
+    colors: 'colors-f',
+    backgroundWidth: 'full',
     title: 'The Section Title',
     subtitle: 'The section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
     styles: {
+        self: {
+            height: 'auto',
+            width: 'wide',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         title: {
-            textAlign: 'left'
+            textAlign: 'center'
         },
         subtitle: {
-            textAlign: 'left'
+            textAlign: 'center'
         },
         text: {
-            textAlign: 'left'
+            textAlign: 'center'
         }
     }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Wide Short Text Section';
-Primary.args = {
+Primary.storyName = 'Text Section With Wide Centered Content';
+Primary.args = args;
+
+export const TextFullLeft = Template.bind({});
+TextFullLeft.storyName = 'Text Section With Full Width Left Aligned Content';
+TextFullLeft.args = {
     ...args,
     styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         title: {
-            textAlign: 'center'
+            textAlign: 'left'
         },
         subtitle: {
-            textAlign: 'center'
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'center'
+            textAlign: 'left'
         }
     }
 };
 
-export const Secondary = Template.bind({});
-Secondary.storyName = 'Full Bleed Tall Text Section';
-Secondary.args = {
+export const TextNarrowLeftBottom = Template.bind({});
+TextNarrowLeftBottom.storyName = 'Screen Height Text Section With Narrow Left Aligned Content';
+TextNarrowLeftBottom.args = {
     ...args,
-    colors: 'colors-i',
-    width: 'full',
-    height: 'tall',
-    topGap: 'none',
-    bottomGap: 'none',
-    contentWidth: 'medium',
-    contentAlignHoriz: 'left',
-    contentAlignVert: 'bottom'
-};
-
-export const Tertiary = Template.bind({});
-Tertiary.storyName = 'Full Bleed Viewport Height Text Section';
-Tertiary.args = {
-    ...args,
-    colors: 'colors-h',
-    width: 'full',
-    height: 'screen',
-    topGap: 'none',
-    bottomGap: 'none',
-    contentWidth: 'small',
-    contentAlignHoriz: 'right',
-    contentAlignVert: 'top'
+    styles: {
+        self: {
+            height: 'screen',
+            width: 'narrow',
+            alignItems: 'start',
+            justifyContent: 'end'
+        },
+        title: {
+            textAlign: 'left'
+        },
+        subtitle: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        }
+    }
 };

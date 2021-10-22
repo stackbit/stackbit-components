@@ -14,39 +14,9 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
-            control: { type: 'select' }
-        },
-        height: {
-            options: ['short', 'tall', 'screen'],
-            defaultValue: 'short',
-            control: { type: 'select' }
-        },
-        topGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        bottomGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        contentWidth: {
-            options: ['small', 'medium', 'large'],
-            defaultValue: 'large',
-            control: { type: 'select' }
-        },
-        contentAlignHoriz: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        },
-        contentAlignVert: {
-            options: ['top', 'middle', 'bottom'],
-            defaultValue: 'middle',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
@@ -58,14 +28,8 @@ const args = {
     type: 'QuoteSection',
     elementId: '',
     colors: 'colors-c',
-    width: 'wide',
-    height: 'tall',
-    topGap: 'none',
-    bottomGap: 'none',
-    contentWidth: 'small',
-    contentAlignHoriz: 'left',
-    contentAlignVert: 'bottom',
-    quote: '“A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away”',
+    backgroundWidth: 'full',
+    quote: '“A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.”',
     name: 'Antoine de Saint-Exupéry',
     title: 'Writer',
     backgroundImage: {
@@ -73,9 +37,15 @@ const args = {
         url: '/images/bg.jpg',
         altText: 'Background Image',
         caption: '',
-        opacity: 50
+        opacity: 20
     },
     styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         quote: {
             textAlign: 'left'
         },
@@ -89,21 +59,20 @@ const args = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Quote Section';
+Primary.storyName = 'Quote Section With Full Width Left Aligned Content';
 Primary.args = args;
 
-export const Secondary = Template.bind({});
-Secondary.storyName = 'Centered Quote Section';
-Secondary.args = {
+export const QuoteWideCentered = Template.bind({});
+QuoteWideCentered.storyName = 'Quote Section With Wide Centered Content';
+QuoteWideCentered.args = {
     ...args,
-    colors: 'colors-d',
-    width: 'full',
-    height: 'screen',
-    contentWidth: 'medium',
-    contentAlignHoriz: 'center',
-    contentAlignVert: 'middle',
-    backgroundImage: null,
     styles: {
+        self: {
+            height: 'auto',
+            width: 'wide',
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
         quote: {
             textAlign: 'center'
         },
@@ -112,6 +81,29 @@ Secondary.args = {
         },
         title: {
             textAlign: 'center'
+        }
+    }
+};
+
+export const QuoteNarrowLeftBottom = Template.bind({});
+QuoteNarrowLeftBottom.storyName = 'Screen Height Quote Section With Narrow Left aligned Content';
+QuoteNarrowLeftBottom.args = {
+    ...args,
+    styles: {
+        self: {
+            height: 'screen',
+            width: 'narrow',
+            alignItems: 'start',
+            justifyContent: 'end'
+        },
+        quote: {
+            textAlign: 'left'
+        },
+        name: {
+            textAlign: 'left'
+        },
+        title: {
+            textAlign: 'left'
         }
     }
 };

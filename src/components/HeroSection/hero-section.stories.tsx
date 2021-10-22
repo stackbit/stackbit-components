@@ -18,80 +18,43 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
-            control: { type: 'select' }
-        },
-        height: {
-            options: ['short', 'tall', 'screen'],
-            defaultValue: 'short',
-            control: { type: 'select' }
-        },
-        topGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        bottomGap: {
-            options: ['none', 'small', 'medium', 'large'],
-            defaultValue: 'medium',
-            control: { type: 'select' }
-        },
-        contentWidth: {
-            options: ['small', 'medium', 'large'],
-            defaultValue: 'large',
-            control: { type: 'select' }
-        },
-        contentAlignHoriz: {
-            options: ['left', 'center', 'right'],
-            defaultValue: 'left',
-            control: { type: 'select' }
-        },
-        contentAlignVert: {
-            options: ['top', 'middle', 'bottom'],
-            defaultValue: 'middle',
-            control: { type: 'select' }
-        },
-        featurePosition: {
-            options: ['right', 'left', 'top', 'bottom'],
-            defaultValue: 'right',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     },
     parameters: {
         controls: { expanded: false },
         docs: {
-            page: function Page() {
-                return (
-                    <>
-                        <h1 className="text-3xl normal-case">{args.type}</h1>
-                        <Subtitle />
-                        <Description />
-                        <PrimaryStory />
+            page: () => (
+                <>
+                    <h1 className="normal-case text-3xl">{args.type}</h1>
+                    <Subtitle />
+                    <Description />
+                    <PrimaryStory />
 
-                        <Tabs>
-                            <TabList>
-                                <Tab>Props</Tab>
-                                <Tab>Frontmatter</Tab>
-                                <Tab>Model</Tab>
-                            </TabList>
+                    <Tabs>
+                        <TabList>
+                            <Tab>Props</Tab>
+                            <Tab>Frontmatter</Tab>
+                            <Tab>Model</Tab>
+                        </TabList>
 
-                            <TabPanel>
-                                <ArgsTable story={PRIMARY_STORY} />
-                            </TabPanel>
-                            <TabPanel>
-                                <StackbitFrontmatter args={args} />
-                            </TabPanel>
-                            <TabPanel>
-                                <StackbitModels args={args} />
-                            </TabPanel>
-                        </Tabs>
+                        <TabPanel>
+                            <ArgsTable story={PRIMARY_STORY} />
+                        </TabPanel>
+                        <TabPanel>
+                            <StackbitFrontmatter args={args} />
+                        </TabPanel>
+                        <TabPanel>
+                            <StackbitModels args={args} />
+                        </TabPanel>
+                    </Tabs>
 
-                        <Stories />
-                    </>
-                );
-            }
+                    <Stories />
+                </>
+            )
         }
     }
 };
@@ -101,15 +64,8 @@ const Template = (args) => <HeroSection {...args} />;
 const args = {
     type: 'HeroSection',
     elementId: '',
-    colors: 'colors-a',
-    width: 'wide',
-    height: 'short',
-    topGap: 'none',
-    bottomGap: 'none',
-    contentWidth: 'large',
-    contentAlignHoriz: 'center',
-    contentAlignVert: 'middle',
-    textAlign: 'left',
+    colors: 'colors-h',
+    backgroundWidth: 'full',
     title: 'The quick, brown fox jumps over a lazy dog',
     subtitle: 'Section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
@@ -133,8 +89,14 @@ const args = {
         altText: 'Image alt text',
         caption: 'Image caption'
     },
-    featurePosition: 'right',
     styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row'
+        },
         title: {
             textAlign: 'left'
         },
@@ -145,7 +107,7 @@ const args = {
             textAlign: 'left'
         },
         actions: {
-            textAlign: 'left'
+            justifyContent: 'start'
         }
     }
 };
@@ -154,13 +116,37 @@ export const Primary = Template.bind({});
 Primary.storyName = 'Hero Section With Image on the Right';
 Primary.args = args;
 
-export const HeroLeftVideo = Template.bind({});
-HeroLeftVideo.storyName = 'Hero Section With Video on the Left';
-HeroLeftVideo.args = {
+export const HeroImageBottom = Template.bind({});
+HeroImageBottom.storyName = 'Hero Section With Image at the Bottom';
+HeroImageBottom.args = {
     ...args,
-    colors: 'colors-c',
-    width: 'full',
-    height: 'tall',
+    styles: {
+        self: {
+            height: 'auto',
+            width: 'wide',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'col'
+        },
+        title: {
+            textAlign: 'left'
+        },
+        subtitle: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        },
+        actions: {
+            justifyContent: 'start'
+        }
+    }
+};
+
+export const HeroVideoLeft = Template.bind({});
+HeroVideoLeft.storyName = 'Hero Section With Video on the Left';
+HeroVideoLeft.args = {
+    ...args,
     actions: [
         {
             type: 'Button',
@@ -177,87 +163,36 @@ HeroLeftVideo.args = {
         loop: true,
         muted: true,
         controls: false
-    }
-};
-
-export const HeroBottomImage = Template.bind({});
-HeroBottomImage.storyName = 'Hero Section With Image at the Bottom';
-HeroBottomImage.args = {
-    ...args,
-    colors: 'colors-c',
-    width: 'full',
-    contentWidth: 'small',
-    textAlign: 'center',
-    actions: [
-        {
-            type: 'Button',
-            url: '#',
-            label: 'Get started',
-            style: 'primary'
-        }
-    ],
-    feature: {
-        type: 'ImageBlock',
-        url: '/images/hero.png',
-        altText: 'Image alt text',
-        caption: 'Image caption'
-    }
-};
-
-export const HeroTextOnly = Template.bind({});
-HeroTextOnly.storyName = 'Hero Section With Text Only';
-HeroTextOnly.args = {
-    ...args,
-    colors: 'colors-c',
-    width: 'full',
-    height: 'tall',
-    contentWidth: 'small',
-    contentAlignHoriz: 'left',
-    contentAlignVert: 'bottom',
-    actions: [
-        {
-            type: 'Button',
-            url: '#',
-            label: 'Start Shopping',
-            showIcon: true,
-            icon: 'cart',
-            style: 'primary'
+    },
+    styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row-reverse'
         },
-        {
-            type: 'Link',
-            url: '#',
-            label: 'Get 15% discount',
-            showIcon: true,
-            icon: 'arrowRight',
-            style: 'link'
+        title: {
+            textAlign: 'left'
+        },
+        subtitle: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        },
+        actions: {
+            justifyContent: 'start'
         }
-    ],
-    feature: null,
-    backgroundImage: {
-        type: 'ImageBlock',
-        url: '/images/bg.jpg',
-        altText: 'Hero Image',
-        caption: '',
-        opacity: 50
     }
 };
 
-export const HeroRightForm = Template.bind({});
-HeroRightForm.storyName = 'Hero Section With Form on the Right';
-HeroRightForm.args = {
+export const HeroFormBottom = Template.bind({});
+HeroFormBottom.storyName = 'Hero Section With Form at the Bottom';
+HeroFormBottom.args = {
     ...args,
-    colors: 'colors-f',
-    contentWidth: 'medium',
-    actions: [
-        {
-            type: 'Link',
-            url: '#',
-            label: 'Learn More',
-            showIcon: true,
-            icon: 'arrowRight',
-            style: 'link'
-        }
-    ],
+    title: 'Join our newsletter',
+    actions: null,
     feature: {
         type: 'FormBlock',
         elementId: 'hero-form',
@@ -266,7 +201,7 @@ HeroRightForm.args = {
                 type: 'TextFormControl',
                 name: 'name',
                 label: 'Name',
-                placeholder: 'John Doe',
+                placeholder: 'john.doe@example.org',
                 isRequired: true,
                 width: 'full'
             },
@@ -280,31 +215,61 @@ HeroRightForm.args = {
             }
         ],
         submitLabel: 'Subscribe'
+    },
+    styles: {
+        self: {
+            height: 'screen',
+            width: 'narrow',
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'col'
+        },
+        title: {
+            textAlign: 'center'
+        },
+        subtitle: {
+            textAlign: 'center'
+        },
+        text: {
+            textAlign: 'center'
+        },
+        actions: {
+            justifyContent: 'center'
+        }
     }
 };
 
-export const HeroBottomForm = Template.bind({});
-HeroBottomForm.storyName = 'Hero Section With Form at the Bottom';
-HeroBottomForm.args = {
+export const HeroTextOnly = Template.bind({});
+HeroTextOnly.storyName = 'Hero Section With Text Only';
+HeroTextOnly.args = {
     ...args,
-    colors: 'colors-i',
-    contentWidth: 'small',
-    contentAlignHoriz: 'center',
-    title: 'Join our newsletter',
-    actions: null,
-    feature: {
-        type: 'FormBlock',
-        elementId: 'hero-form',
-        fields: [
-            {
-                type: 'EmailFormControl',
-                name: 'email',
-                label: 'E-mail',
-                placeholder: 'john.doe@example.org',
-                isRequired: true,
-                width: 'full'
-            }
-        ],
-        submitLabel: 'Subscribe'
+    feature: null,
+    backgroundImage: {
+        type: 'ImageBlock',
+        url: '/images/bg.jpg',
+        altText: 'Hero Image',
+        caption: '',
+        opacity: 50
+    },
+    styles: {
+        self: {
+            height: 'screen',
+            width: 'narrow',
+            alignItems: 'start',
+            justifyContent: 'end',
+            flexDirection: 'row'
+        },
+        title: {
+            textAlign: 'left'
+        },
+        subtitle: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        },
+        actions: {
+            justifyContent: 'start'
+        }
     }
 };

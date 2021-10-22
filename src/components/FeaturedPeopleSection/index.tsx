@@ -17,7 +17,7 @@ export default function FeaturedPeopleSection(props) {
                 'sb-component',
                 'sb-component-section',
                 backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
-                'sb-component-feat-people-section',
+                'sb-component-featured-people-section',
                 colors,
                 'px-4',
                 'sm:px-8'

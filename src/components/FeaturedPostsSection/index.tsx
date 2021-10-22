@@ -20,7 +20,7 @@ export default function FeaturedPostsSection(props) {
                 'sb-component',
                 'sb-component-section',
                 backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
-                'sb-component-feat-posts-section',
+                'sb-component-featured-posts-section',
                 colors,
                 'px-4',
                 'sm:px-8'

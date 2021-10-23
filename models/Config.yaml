@@ -3,9 +3,9 @@ name: Config
 label: Site configuration
 fields:
   - type: model
-    name: navBar
-    label: Navbar configuration
-    models: [NavBar]
+    name: header
+    label: Header configuration
+    models: [Header]
   - type: model
     name: footer
     label: Footer configuration

@@ -9,14 +9,14 @@ export default function PageLayout(props) {
 
     return (
         <BaseLayout page={page} site={site}>
-            <div className="layout page-layout">
+            <main id="main" className="layout page-layout">
                 {page.title && (
                     <h1 className="sr-only" data-sb-field-path="title">
                         {page.title}
                     </h1>
                 )}
                 {sections.length > 0 && (
-                    <div className="sections" data-sb-field-path="sections">
+                    <div data-sb-field-path="sections">
                         {sections.map((section, index) => {
                             const Component = getComponent(section.type);
                             if (!Component) {
@@ -26,7 +26,7 @@ export default function PageLayout(props) {
                         })}
                     </div>
                 )}
-            </div>
+            </main>
         </BaseLayout>
     );
 }

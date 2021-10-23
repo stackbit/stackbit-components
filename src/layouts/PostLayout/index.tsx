@@ -14,7 +14,7 @@ export default function PostLayout(props) {
 
     return (
         <BaseLayout page={page} site={site}>
-            <div className="layout post-layout">
+            <main id="main" className="layout post-layout">
                 <article className="px-4 sm:px-6 py-14 lg:py-20">
                     <div className="max-w-screen-xl mx-auto px-4 sm:px-8 md:px-16">
                         <header className="mb-12 text-center">
@@ -53,7 +53,7 @@ export default function PostLayout(props) {
                         })}
                     </div>
                 )}
-            </div>
+            </main>
         </BaseLayout>
     );
 }

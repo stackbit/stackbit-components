@@ -20,11 +20,12 @@
 @layer components {
     /* Sections */
     .sb-component-section-inset,
-    .sb-component-footer-inset {
+    .sb-component-footer-inset,
+    .sb-component-header-inset {
         margin-left: 4vw;
         margin-right: 4vw;
     }
-  
+
     /* Markdown block */
     .sb-markdown {
         line-height: 1.75;

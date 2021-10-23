@@ -1,16 +1,16 @@
 import React from 'react';
-import NavBar from './index';
+import Header from './index';
 
 export default {
-    title: 'Components/NavBar',
-    component: NavBar,
+    title: 'Components/Header',
+    component: Header,
     argTypes: {
-        desktopNavVariant: {
-            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
+        headerVariant: {
+            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d', 'variant-e'],
             defaultValue: 'variant-a',
             control: { type: 'select' }
         },
-        mobileNavVariant: {
+        mobileMenuVariant: {
             options: ['variant-a', 'variant-b'],
             defaultValue: 'variant-a',
             control: { type: 'select' }
@@ -25,22 +25,22 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
-        width: {
-            options: ['wide', 'full'],
-            defaultValue: 'wide',
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
 };
 
-const Template = (args) => <NavBar {...args} />;
+const Template = (args) => <Header {...args} />;
 
 const args = {
-    desktopNavVariant: 'variant-a',
-    mobileNavVariant: 'variant-a',
+    headerVariant: 'variant-a',
+    mobileMenuVariant: 'variant-a',
     primaryColors: 'colors-a',
-    secondaryColors: 'colors-a',
-    width: 'wide',
+    secondaryColors: 'colors-h',
+    backgroundWidth: 'full',
     title: 'Starter',
     isTitleVisible: true,
     logo: {
@@ -86,40 +86,33 @@ const args = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Navbar With Logo and Primary Links on the Left';
+Primary.storyName = 'Header With Logo and Primary Links on the Left';
 Primary.args = args;
 
 export const VariantB = Template.bind({});
-VariantB.storyName = 'Navbar With Logo on the Left and Primary Links Centered';
+VariantB.storyName = 'Header With Logo on the Left and Primary Links Centered';
 VariantB.args = {
     ...args,
-    desktopNavVariant: 'variant-b'
+    headerVariant: 'variant-b'
 };
 
 export const VariantC = Template.bind({});
-VariantC.storyName = 'Navbar With Logo on the Left and Primary Links on the Right';
+VariantC.storyName = 'Header With Logo on the Left and Primary Links on the Right';
 VariantC.args = {
     ...args,
-    desktopNavVariant: 'variant-c',
-    mobileNavVariant: 'variant-b',
-    primaryColors: 'colors-c',
-    secondaryColors: 'colors-a',
-    width: 'full',
-    logo: null
+    headerVariant: 'variant-c'
 };
 
 export const VariantD = Template.bind({});
-VariantD.storyName = 'Navbar With Logo Centered and Primary Links on the Left';
+VariantD.storyName = 'Header With Logo Centered and Primary Links on the Left';
 VariantD.args = {
     ...args,
-    desktopNavVariant: 'variant-d',
-    mobileNavVariant: 'variant-b',
-    primaryColors: 'colors-c',
-    secondaryColors: 'colors-c',
-    logo: {
-        type: 'ImageBlock',
-        url: '/images/logo-alt.svg',
-        altText: 'The Cook logo'
-    },
-    isTitleVisible: false
+    headerVariant: 'variant-d'
+};
+
+export const VariantE = Template.bind({});
+VariantE.storyName = 'Header With Logo and Primary Links Centered';
+VariantE.args = {
+    ...args,
+    headerVariant: 'variant-e'
 };

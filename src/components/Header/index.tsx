@@ -69,7 +69,7 @@ function headerVariantA(props) {
                     {listOfLinks(secondaryLinks)}
                 </ul>
             )}
-            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && mobileMenuVariants(props)}
+            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && <MobileMenu {...props} />}
         </div>
     );
 }
@@ -93,7 +93,7 @@ function headerVariantB(props) {
                     {listOfLinks(secondaryLinks)}
                 </ul>
             )}
-            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && mobileMenuVariants(props)}
+            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && <MobileMenu {...props} />}
         </div>
     );
 }
@@ -117,7 +117,7 @@ function headerVariantC(props) {
                     {listOfLinks(secondaryLinks)}
                 </ul>
             )}
-            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && mobileMenuVariants(props)}
+            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && <MobileMenu {...props} />}
         </div>
     );
 }
@@ -138,7 +138,7 @@ function headerVariantD(props) {
                     {listOfLinks(secondaryLinks)}
                 </ul>
             )}
-            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && mobileMenuVariants(props)}
+            {(primaryLinks.length > 0 || secondaryLinks.length > 0) && <MobileMenu {...props} />}
         </div>
     );
 }
@@ -155,7 +155,7 @@ function headerVariantE(props) {
                         {listOfLinks(secondaryLinks)}
                     </ul>
                 )}
-                {(primaryLinks.length > 0 || secondaryLinks.length > 0) && mobileMenuVariants(props)}
+                {(primaryLinks.length > 0 || secondaryLinks.length > 0) && <MobileMenu {...props} />}
             </div>
             {primaryLinks.length > 0 && (
                 <ul className="hidden lg:flex lg:items-center lg:justify-center space-x-8 mt-4" data-sb-field-path=".primaryLinks">
@@ -166,61 +166,7 @@ function headerVariantE(props) {
     );
 }
 
-function mobileMenuVariants(props) {
-    const mobileMenuVariant = props.mobileMenuVariant || 'variant-a';
-    switch (mobileMenuVariant) {
-        case 'variant-a':
-            return mobileMenuVariantA(props);
-        case 'variant-b':
-            return mobileMenuVariantB(props);
-    }
-    return null;
-}
-
-function mobileMenuVariantA(props) {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
-    const secondaryColors = props.secondaryColors || 'colors-a';
-    const primaryLinks = props.primaryLinks || [];
-    const secondaryLinks = props.secondaryLinks || [];
-
-    return (
-        <div className="ml-auto lg:hidden">
-            <button aria-label="Open Menu" title="Open Menu" className="p-2 -mr-1 focus:outline-none" onClick={() => setIsMenuOpen(true)}>
-                <span className="sr-only">Open Menu</span>
-                <HamburgerIcon className="fill-current h-6 w-6" />
-            </button>
-            {isMenuOpen && (
-                <div className="absolute top-0 left-0 w-full z-10">
-                    <div className={classNames(secondaryColors, 'px-4', 'sm:px-8', 'py-5')}>
-                        <div className="flex items-center justify-between mb-10">
-                            {siteLogoLink(props)}
-                            <button
-                                aria-label="Close Menu"
-                                title="Close Menu"
-                                className="p-2 -mt-2 -mr-2 focus:outline-none"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
-                                <CloseIcon className="fill-current h-6 w-6" />
-                            </button>
-                        </div>
-                        {primaryLinks.length > 0 && (
-                            <ul className="mb-10 space-y-5" data-sb-field-path=".primaryLinks">
-                                {listOfLinks(primaryLinks, true)}
-                            </ul>
-                        )}
-                        {secondaryLinks.length > 0 && (
-                            <ul className="mb-10 space-y-5" data-sb-field-path=".secondaryLinks">
-                                {listOfLinks(secondaryLinks, true)}
-                            </ul>
-                        )}
-                    </div>
-                </div>
-            )}
-        </div>
-    );
-}
-
-function mobileMenuVariantB(props) {
+function MobileMenu(props) {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const secondaryColors = props.secondaryColors || 'colors-a';
     const primaryLinks = props.primaryLinks || [];

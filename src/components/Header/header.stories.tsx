@@ -10,11 +10,6 @@ export default {
             defaultValue: 'variant-a',
             control: { type: 'select' }
         },
-        mobileMenuVariant: {
-            options: ['variant-a', 'variant-b'],
-            defaultValue: 'variant-a',
-            control: { type: 'select' }
-        },
         primaryColors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
@@ -37,7 +32,6 @@ const Template = (args) => <Header {...args} />;
 
 const args = {
     headerVariant: 'variant-a',
-    mobileMenuVariant: 'variant-a',
     primaryColors: 'colors-a',
     secondaryColors: 'colors-h',
     backgroundWidth: 'full',

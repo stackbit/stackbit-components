@@ -24,16 +24,6 @@ fields:
         value: variant-e
     default: variant-a
   - type: enum
-    name: mobileMenuVariant
-    group: styles
-    label: Mobile menu arrangement
-    options:
-      - label: Full-width mobile menu
-        value: variant-a
-      - label: Full-screen mobile menu
-        value: variant-b
-    default: variant-a
-  - type: enum
     name: primaryColors
     group: styles
     label: Primary colors

@@ -36,13 +36,19 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         text: {
@@ -62,14 +68,20 @@ TextFullLeft.args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'narrow',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {
@@ -86,13 +98,19 @@ TextNarrowLeftBottom.args = {
         self: {
             height: 'screen',
             width: 'narrow',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'start',
             justifyContent: 'end'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {

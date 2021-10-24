@@ -76,12 +76,16 @@ const args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {
@@ -110,12 +114,16 @@ ContactVideoLeft.args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row-reverse'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {

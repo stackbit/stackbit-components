@@ -83,3 +83,13 @@ fields:
       models:
         - Button
         - Link
+  - type: style
+    name: styles
+    styles:
+      self:
+        width: ['narrow', 'wide', 'full']
+        padding: ['twt0:24', 'twb0:24']
+    default:
+      self:
+        width: narrow
+        padding: ['pt-16', 'pb-16']

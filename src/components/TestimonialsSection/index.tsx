@@ -16,7 +16,7 @@ export default function TestimonialsSection(props) {
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
+                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-testimonials-section',
                 colors,
                 'px-4',
@@ -28,16 +28,16 @@ export default function TestimonialsSection(props) {
                 className={classNames(
                     'flex',
                     'flex-col',
-                    'max-w-screen-xl',
+                    'max-w-screen-2xl',
                     'mx-auto',
-                    'py-5',
-                    'sm:py-11',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : '',
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : '',
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : ''
+                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                    sectionStyles.margin,
+                    sectionStyles.padding,
+                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
                 )}
             >
-                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : '')}>
+                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
                     {testimonialsHeader(props)}
                     {testimonials.length > 0 && (
                         <div data-sb-field-path=".testimonials">{testimonials.map((testimonial, index) => testimonialItem(testimonial, index))}</div>
@@ -56,12 +56,12 @@ function testimonialsHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
+                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')} data-sb-field-path=".subtitle">
+                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}
@@ -76,14 +76,19 @@ function testimonialItem(testimonial, index) {
     return (
         <blockquote
             key={index}
-            className={classNames('flex', '-mx-4', 'py-4', testimonialStyles.flexDirection ? mapFlexDirectionStyles(testimonialStyles.flexDirection) : '')}
+            className={classNames(
+                'flex',
+                '-mx-4',
+                testimonialStyles.flexDirection ? mapFlexDirectionStyles(testimonialStyles.flexDirection) : null,
+                testimonialStyles.margin
+            )}
             data-sb-field-path={`.${index}`}
         >
             <div className="flex-grow my-4 px-4">
                 {testimonial.quote && (
                     <Markdown
                         options={{ forceBlock: true, forceWrapper: true }}
-                        className={classNames('sb-markdown', 'text-3xl', 'sm:text-4xl', styles.quote ? mapStyles(styles.quote) : '')}
+                        className={classNames('sb-markdown', 'text-3xl', 'sm:text-4xl', styles.quote ? mapStyles(styles.quote) : null)}
                         data-sb-field-path=".quote"
                     >
                         {testimonial.quote}
@@ -92,12 +97,12 @@ function testimonialItem(testimonial, index) {
                 {(testimonial.name || testimonial.title) && (
                     <footer>
                         {testimonial.name && (
-                            <strong className={classNames('block', 'text-lg', styles.name ? mapStyles(styles.name) : '')} data-sb-field-path=".name">
+                            <strong className={classNames('block', 'text-lg', styles.name ? mapStyles(styles.name) : null)} data-sb-field-path=".name">
                                 {testimonial.name}
                             </strong>
                         )}
                         {testimonial.title && (
-                            <span className={classNames('block', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
+                            <span className={classNames('block', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                                 {testimonial.title}
                             </span>
                         )}
@@ -128,9 +133,9 @@ function mapMinHeightStyles(height) {
 function mapMaxWidthStyles(width) {
     switch (width) {
         case 'narrow':
-            return 'max-w-screen-sm';
+            return 'max-w-screen-md';
         case 'wide':
-            return 'max-w-screen-lg';
+            return 'max-w-screen-xl';
         case 'full':
             return 'max-w-full';
     }

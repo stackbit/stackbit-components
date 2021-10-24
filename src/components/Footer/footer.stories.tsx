@@ -100,7 +100,13 @@ const args = {
             label: 'Terms & Conditions',
             url: '/'
         }
-    ]
+    ],
+    styles: {
+        self: {
+            width: 'narrow',
+            padding: ['pt-16', 'pb-16']
+        }
+    }
 };
 
 export const Primary = Template.bind({});

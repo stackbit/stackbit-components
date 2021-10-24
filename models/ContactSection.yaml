@@ -2,93 +2,101 @@ type: object
 name: ContactSection
 label: Contact section
 extends:
-    - Section
+  - Section
 groups:
-    - sectionComponent
+  - sectionComponent
 fieldGroups:
-    - name: styles
-      label: Styles
-    - name: settings
-      label: Settings
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
 fields:
-    - name: colors
-      default: colors-h
-    - name: backgroundWidth
-      default: full
-    - type: string
-      name: title
-      label: Title
-    - type: markdown
-      name: text
-      label: Text
-      default: |-
-          Aenean eros ipsum, interdum quis dignissim non, sollicitudin vitae nisl.
-          Aenean vel aliquet elit, at blandit ipsum.
-    - type: model
-      name: form
-      label: Form
-      models:
-          - FormBlock
-      default:
-          type: FormBlock
-          elementId: contact-form
-          action: /.netlify/functions/submission_created
-          destination: ''
-          fields:
-              - type: TextFormControl
-                name: name
-                label: Name
-                placeholder: Your name
-                isRequired: true
-                width: 1/2
-              - type: EmailFormControl
-                name: email
-                label: Email
-                placeholder: Your email
-                isRequired: true
-                width: 1/2
-              - type: TextFormControl
-                name: home-address
-                label: Home address
-                placeholder: Your home address
-                isRequired: true
-                width: full
-              - type: CheckboxFormControl
-                name: updates
-                label: Sign me up to receive updates
-                width: full
-          submitLabel: Send Message
-    - type: model
-      name: feature
-      label: Feature
-      models:
-          - ImageBlock
-          - VideoBlock
-      default:
-          type: ImageBlock
-          url: /images/contact.png
-          altText: Contact form image
-    - type: style
-      name: styles
-      styles:
-          self:
-              height: ['auto', 'screen']
-              width: ['narrow', 'wide', 'full']
-              alignItems: ['start', 'center', 'end']
-              justifyContent: ['start', 'center', 'end']
-              flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
-          title:
-              textAlign: ['left', 'center', 'right']
-          text:
-              textAlign: ['left', 'center', 'right']
-      default:
-          self:
-              height: auto
-              width: full
-              alignItems: center
-              justifyContent: center
-              flexDirection: row
-          title:
-              textAlign: left
-          text:
-              textAlign: left
+  - name: colors
+    default: colors-h
+  - name: backgroundWidth
+    default: full
+  - type: string
+    name: title
+    label: Title
+  - type: markdown
+    name: text
+    label: Text
+    default: |-
+      Aenean eros ipsum, interdum quis dignissim non, sollicitudin vitae nisl.
+      Aenean vel aliquet elit, at blandit ipsum.
+  - type: model
+    name: form
+    label: Form
+    models:
+      - FormBlock
+    default:
+      type: FormBlock
+      elementId: contact-form
+      action: /.netlify/functions/submission_created
+      destination: ''
+      fields:
+        - type: TextFormControl
+          name: name
+          label: Name
+          placeholder: Your name
+          isRequired: true
+          width: 1/2
+        - type: EmailFormControl
+          name: email
+          label: Email
+          placeholder: Your email
+          isRequired: true
+          width: 1/2
+        - type: TextFormControl
+          name: home-address
+          label: Home address
+          placeholder: Your home address
+          isRequired: true
+          width: full
+        - type: CheckboxFormControl
+          name: updates
+          label: Sign me up to receive updates
+          width: full
+      submitLabel: Send Message
+  - type: model
+    name: feature
+    label: Feature
+    models:
+      - ImageBlock
+      - VideoBlock
+    default:
+      type: ImageBlock
+      url: /images/contact.png
+      altText: Contact form image
+  - type: style
+    name: styles
+    styles:
+      self:
+        height: ['auto', 'screen']
+        width: ['narrow', 'wide', 'full']
+        margin: ['twt0:24', 'twb0:24']
+        padding: ['twt0:24', 'twb0:24']
+        alignItems: ['start', 'center', 'end']
+        justifyContent: ['start', 'center', 'end']
+        flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+      text:
+        textAlign: ['left', 'center', 'right']
+    default:
+      self:
+        height: auto
+        width: wide
+        margin: ['mt-0', 'mb-0']
+        padding: ['pt-10', 'pb-10']
+        alignItems: center
+        justifyContent: center
+        flexDirection: row
+      title:
+        fontWeight: 700
+        fontStyle: normal
+        textAlign: left
+      text:
+        textAlign: left

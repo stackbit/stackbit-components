@@ -92,15 +92,21 @@ const args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {
@@ -124,14 +130,20 @@ HeroImageBottom.args = {
         self: {
             height: 'auto',
             width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {
@@ -168,14 +180,20 @@ HeroVideoLeft.args = {
         self: {
             height: 'auto',
             width: 'full',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row-reverse'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {
@@ -220,14 +238,20 @@ HeroFormBottom.args = {
         self: {
             height: 'screen',
             width: 'narrow',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         text: {
@@ -249,20 +273,30 @@ HeroTextOnly.args = {
         url: '/images/bg.jpg',
         altText: 'Hero Image',
         caption: '',
-        opacity: 50
+        styles: {
+            self: {
+                opacity: 50
+            }
+        }
     },
     styles: {
         self: {
             height: 'screen',
             width: 'narrow',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'start',
             justifyContent: 'end',
             flexDirection: 'row'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {

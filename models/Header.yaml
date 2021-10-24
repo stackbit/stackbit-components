@@ -114,6 +114,8 @@ fields:
     styles:
       self:
         width: ['narrow', 'wide', 'full']
+        padding: ['twt0:24', 'twb0:24']
     default:
       self:
-        width: full
+        width: narrow
+        padding: ['pt-5', 'pb-5']

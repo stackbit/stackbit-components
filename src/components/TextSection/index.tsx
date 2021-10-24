@@ -14,7 +14,7 @@ export default function TextSection(props) {
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
+                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'component-text-section',
                 colors,
                 'px-4',
@@ -26,16 +26,16 @@ export default function TextSection(props) {
                 className={classNames(
                     'flex',
                     'flex-col',
-                    'max-w-screen-xl',
+                    'max-w-screen-2xl',
                     'mx-auto',
-                    'py-8',
-                    'sm:py-14',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : '',
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : '',
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : ''
+                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                    sectionStyles.margin,
+                    sectionStyles.padding,
+                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
                 )}
             >
-                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : '')}>{textBody(props)}</div>
+                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>{textBody(props)}</div>
             </div>
         </div>
     );
@@ -46,19 +46,27 @@ function textBody(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
+                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : '')} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-xl', 'sm:text-2xl', props.title ? 'mt-2' : null, styles.subtitle ? mapStyles(styles.subtitle) : null)}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames('sb-markdown', 'md:text-lg', styles.text ? mapStyles(styles.text) : '', props.title || props.subtitle ? 'mt-6' : '')}
+                    className={classNames(
+                        'sb-markdown',
+                        'md:text-lg',
+                        styles.text ? mapStyles(styles.text) : null,
+                        props.title || props.subtitle ? 'mt-6' : null
+                    )}
                     data-sb-field-path=".text"
                 >
                     {props.text}
@@ -81,9 +89,9 @@ function mapMinHeightStyles(height) {
 function mapMaxWidthStyles(width) {
     switch (width) {
         case 'narrow':
-            return 'max-w-screen-sm';
+            return 'max-w-screen-md';
         case 'wide':
-            return 'max-w-screen-lg';
+            return 'max-w-screen-xl';
         case 'full':
             return 'max-w-full';
     }

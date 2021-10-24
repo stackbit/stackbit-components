@@ -37,12 +37,18 @@ const args = {
         url: '/images/bg.jpg',
         altText: 'Background Image',
         caption: '',
-        opacity: 20
+        styles: {
+            self: {
+                opacity: 50
+            }
+        }
     },
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-16', 'pb-16'],
             alignItems: 'center',
             justifyContent: 'center'
         },
@@ -50,9 +56,13 @@ const args = {
             textAlign: 'left'
         },
         name: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         title: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         }
     }
@@ -70,6 +80,8 @@ QuoteWideCentered.args = {
         self: {
             height: 'auto',
             width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center'
         },
@@ -77,9 +89,13 @@ QuoteWideCentered.args = {
             textAlign: 'center'
         },
         name: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         title: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'center'
         }
     }
@@ -93,6 +109,8 @@ QuoteNarrowLeftBottom.args = {
         self: {
             height: 'screen',
             width: 'narrow',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'start',
             justifyContent: 'end'
         },
@@ -100,9 +118,13 @@ QuoteNarrowLeftBottom.args = {
             textAlign: 'left'
         },
         name: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         title: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         }
     }

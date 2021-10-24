@@ -15,11 +15,11 @@ export default function PostLayout(props) {
     return (
         <BaseLayout page={page} site={site}>
             <main id="main" className="layout post-layout">
-                <article className="px-4 sm:px-6 py-14 lg:py-20">
-                    <div className="max-w-screen-xl mx-auto px-4 sm:px-8 md:px-16">
-                        <header className="mb-12 text-center">
+                <article className="px-4 sm:px-8 py-14 lg:py-20">
+                    <div className="max-w-screen-2xl mx-auto">
+                        <header className="max-w-screen-md mx-auto mb-12 text-center">
                             {page.title && (
-                                <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-3xl mx-auto" data-sb-field-path="title">
+                                <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-xl mx-auto" data-sb-field-path="title">
                                     {page.title}
                                 </h1>
                             )}
@@ -31,7 +31,7 @@ export default function PostLayout(props) {
                             </div>
                         </header>
                         {page.featuredImage && (
-                            <figure className="h-0 w-full pt-1/2 mb-8 relative" data-sb-field-path="featuredImage">
+                            <figure className="h-0 w-full pt-1/2 max-w-screen-xl mx-auto mb-8 relative" data-sb-field-path="featuredImage">
                                 <ImageBlock {...page.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
                             </figure>
                         )}

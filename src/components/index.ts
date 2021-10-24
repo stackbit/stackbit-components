@@ -7,9 +7,9 @@ import FeaturedPeopleSection from './FeaturedPeopleSection';
 import FeaturedPostsSection from './FeaturedPostsSection';
 import Footer from './Footer';
 import FormBlock from './FormBlock';
+import Header from './Header';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
-import NavBar from './NavBar';
 import QuoteSection from './QuoteSection';
 import Social from './Social';
 import SelectFormControl from './SelectFormControl';
@@ -29,9 +29,9 @@ export {
     FeaturedPostsSection,
     Footer,
     FormBlock,
+    Header,
     HeroSection,
     ImageBlock,
-    NavBar,
     QuoteSection,
     Social,
     SelectFormControl,

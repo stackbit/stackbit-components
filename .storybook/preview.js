@@ -11,7 +11,7 @@ export const parameters = {
                 ['PageLayout', 'PostLayout'],
                 'Components',
                 [
-                    'NavBar',
+                    'Header',
                     'Footer',
                     'ContactSection',
                     'CtaSection',

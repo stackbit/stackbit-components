@@ -44,6 +44,11 @@
         "modelName": "FormBlock",
         "isDynamic": true
     },
+    "Header": {
+        "path": "components/Header",
+        "modelName": "Header",
+        "isDynamic": false
+    },
     "HeroSection": {
         "path": "components/HeroSection",
         "modelName": "HeroSection",
@@ -53,11 +58,6 @@
         "path": "components/ImageBlock",
         "modelName": "ImageBlock",
         "isDynamic": true
-    },
-    "NavBar": {
-        "path": "components/NavBar",
-        "modelName": "NavBar",
-        "isDynamic": false
     },
     "QuoteSection": {
         "path": "components/QuoteSection",

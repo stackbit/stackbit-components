@@ -1,6 +1,6 @@
 type: object
-name: NavBar
-label: Navbar
+name: Header
+label: Header
 fieldGroups:
   - name: styles
     label: Styles
@@ -8,33 +8,25 @@ fieldGroups:
     label: Settings
 fields:
   - type: enum
-    name: desktopNavVariant
+    name: headerVariant
     group: styles
-    label: Desktop navigation arrangement
+    label: Header arrangement
     options:
-      - label: Navbar with logo and primary links on the left
+      - label: Header with logo and primary links on the left
         value: variant-a
-      - label: Navbar with logo on the left and primary links centered
+      - label: Header with logo on the left and primary links centered
         value: variant-b
-      - label: Navbar with logo on the left and primary links on the right
+      - label: Header with logo on the left and primary links on the right
         value: variant-c
-      - label: Navbar with logo centered and primary links on the left
+      - label: Header with logo centered and primary links on the left
         value: variant-d
-    default: variant-a
-  - type: enum
-    name: mobileNavVariant
-    group: styles
-    label: Mobile navigation arrangement
-    options:
-      - label: Full-width mobile navigation
-        value: variant-a
-      - label: Full-height mobile navigation
-        value: variant-b
+      - label: Header with logo centered and primary links centered
+        value: variant-e
     default: variant-a
   - type: enum
     name: primaryColors
     group: styles
-    label: Primary colors (navbar)
+    label: Primary colors
     options:
       - label: Base foreground on white background
         value: colors-a
@@ -58,7 +50,7 @@ fields:
   - type: enum
     name: secondaryColors
     group: styles
-    label: Secondary colors (mobile navigation)
+    label: Secondary colors (mobile menu)
     options:
       - label: Base foreground on white background
         value: colors-a
@@ -80,13 +72,17 @@ fields:
         value: colors-i
     default: colors-a
   - type: enum
-    name: width
+    name: backgroundWidth
     group: styles
-    label: Width
+    controlType: button-group
+    label: Background width
+    description: The background width of the header
     options:
-      - wide
-      - full
-    default: wide
+      - label: Inset
+        value: inset
+      - label: Full
+        value: full
+    default: full
   - type: string
     name: title
     label: Title
@@ -113,3 +109,11 @@ fields:
       models:
         - Button
         - Link
+  - type: style
+    name: styles
+    styles:
+      self:
+        width: ['narrow', 'wide', 'full']
+    default:
+      self:
+        width: full

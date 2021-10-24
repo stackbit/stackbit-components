@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import * as NavBarStories from '../../components/NavBar/navbar.stories';
+import * as HeaderStories from '../../components/Header/header.stories';
 import * as FooterStories from '../../components/Footer/footer.stories';
 import * as CtaSectionStories from '../../components/CtaSection/cta-section.stories';
 import * as FeaturedPostsSectionStories from '../../components/FeaturedPostsSection/featured-posts-section.stories';
@@ -52,7 +52,7 @@ Primary.args = {
         bottomSections: [FeaturedPostsSectionStories.Primary.args, CtaSectionStories.Primary.args]
     },
     site: {
-        navBar: NavBarStories.Primary.args,
+        header: HeaderStories.Primary.args,
         footer: FooterStories.Primary.args
     }
 };

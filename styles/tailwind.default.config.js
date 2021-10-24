@@ -17,7 +17,7 @@ module.exports = {
                 primary: '#28aaff',
                 secondary: '#dfe3e7',
                 neutral: '#282f36',
-                'complementary': '#e9f6ff',
+                complementary: '#e9f6ff',
                 'complementary-alt': '#fffde2',
                 info: '#ffa928',
                 success: '#9bed72',
@@ -34,7 +34,7 @@ module.exports = {
                 '2/3': '66.667%'
             },
             minHeight: {
-                '2/3-screen': '66vh',
+                '2/3-screen': '66vh'
             }
         }
     },

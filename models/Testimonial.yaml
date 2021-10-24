@@ -35,6 +35,7 @@ fields:
     name: styles
     styles:
       self:
+        margin: ['twt0:24', 'twb0:24']
         flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
       quote:
         textAlign: ['left', 'center', 'right']
@@ -48,7 +49,7 @@ fields:
         textAlign: ['left', 'center', 'right']
     default:
       self:
-        margin: ['twt0:24', 'twb0:24']
+        margin: ['mt-0', 'mb-0']
         flexDirection: row
       quote:
         textAlign: left

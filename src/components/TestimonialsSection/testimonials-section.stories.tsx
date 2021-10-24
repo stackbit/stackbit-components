@@ -41,15 +41,20 @@ const args = {
             },
             styles: {
                 self: {
+                    margin: ['mt-0', 'mb-0'],
                     flexDirection: 'row'
                 },
                 quote: {
                     textAlign: 'left'
                 },
                 name: {
+                    fontWeight: 700,
+                    fontStyle: 'normal',
                     textAlign: 'left'
                 },
                 title: {
+                    fontWeight: 400,
+                    fontStyle: 'normal',
                     textAlign: 'left'
                 }
             }
@@ -59,13 +64,19 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-16', 'pb-16'],
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'center'
         }
     }
@@ -93,15 +104,20 @@ TestimonialsAuthorTop.args = {
             },
             styles: {
                 self: {
+                    margin: ['mt-12', 'mb-0'],
                     flexDirection: 'col-reverse'
                 },
                 quote: {
                     textAlign: 'center'
                 },
                 name: {
+                    fontWeight: 700,
+                    fontStyle: 'normal',
                     textAlign: 'center'
                 },
                 title: {
+                    fontWeight: 400,
+                    fontStyle: 'normal',
                     textAlign: 'center'
                 }
             }
@@ -117,15 +133,20 @@ TestimonialsAuthorTop.args = {
             },
             styles: {
                 self: {
-                    flexDirection: 'col'
+                    margin: ['mt-12', 'mb-0'],
+                    flexDirection: 'col-reverse'
                 },
                 quote: {
                     textAlign: 'center'
                 },
                 name: {
+                    fontWeight: 700,
+                    fontStyle: 'normal',
                     textAlign: 'center'
                 },
                 title: {
+                    fontWeight: 400,
+                    fontStyle: 'normal',
                     textAlign: 'center'
                 }
             }
@@ -135,13 +156,19 @@ TestimonialsAuthorTop.args = {
         self: {
             height: 'auto',
             width: 'narrow',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-16', 'pb-16'],
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'center'
         }
     }

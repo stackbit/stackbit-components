@@ -19,7 +19,7 @@ export default function FeaturedPostsSection(props) {
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
+                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-featured-posts-section',
                 colors,
                 'px-4',
@@ -31,16 +31,16 @@ export default function FeaturedPostsSection(props) {
                 className={classNames(
                     'flex',
                     'flex-col',
-                    'max-w-screen-xl',
+                    'max-w-screen-2xl',
                     'mx-auto',
-                    'py-5',
-                    'sm:py-11',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : '',
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : '',
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : ''
+                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                    sectionStyles.margin,
+                    sectionStyles.padding,
+                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
                 )}
             >
-                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : '')}>
+                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
                     {featuredPostsHeader(props)}
                     {featuredPostsVariants(props)}
                     {featuredPostsActions(props)}
@@ -58,12 +58,12 @@ function featuredPostsHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
+                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')} data-sb-field-path=".subtitle">
+                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}
@@ -80,7 +80,7 @@ function featuredPostsActions(props) {
     const Action = getComponent('Action');
     return (
         <div
-            className={classNames('flex', 'flex-wrap', 'items-center', 'mt-8', '-mx-2', styles.actions ? mapStyles(styles.actions) : '')}
+            className={classNames('flex', 'flex-wrap', 'items-center', 'mt-8', '-mx-2', styles.actions ? mapStyles(styles.actions) : null)}
             data-sb-field-path=".actions"
         >
             {props.actions.map((action, index) => (
@@ -111,7 +111,7 @@ function postsVariantA(props) {
     return (
         <div
             className={classNames('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', {
-                'mt-10': props.title || props.subtitle
+                'mt-12': props.title || props.subtitle
             })}
             data-sb-field-path=".posts"
         >
@@ -159,7 +159,7 @@ function postsVariantB(props) {
     return (
         <div
             className={classNames('grid', 'gap-6', 'md:grid-cols-2', 'lg:gap-8', {
-                'mt-10': props.title || props.subtitle
+                'mt-12': props.title || props.subtitle
             })}
             data-sb-field-path=".posts"
         >
@@ -205,7 +205,12 @@ function postsVariantC(props) {
         return null;
     }
     return (
-        <div className={classNames(props.title || props.subtitle ? 'mt-12' : '')} data-sb-field-path=".posts">
+        <div
+            className={classNames({
+                'mt-12': props.title || props.subtitle
+            })}
+            data-sb-field-path=".posts"
+        >
             {posts.map((post, index) => {
                 const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
@@ -263,9 +268,9 @@ function mapMinHeightStyles(height) {
 function mapMaxWidthStyles(width) {
     switch (width) {
         case 'narrow':
-            return 'max-w-screen-sm';
+            return 'max-w-screen-md';
         case 'wide':
-            return 'max-w-screen-lg';
+            return 'max-w-screen-xl';
         case 'full':
             return 'max-w-full';
     }

@@ -37,6 +37,7 @@ fields:
   - type: enum
     name: style
     group: styles
+    controlType: button-group
     label: Style
     options:
       - label: Link

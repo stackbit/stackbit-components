@@ -9,14 +9,13 @@ export default function ContactSection(props) {
     const colors = props.colors || 'colors-a';
     const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
-
     return (
         <div
             id={props.elementId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
+                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-contact-section',
                 colors,
                 'px-4',
@@ -28,22 +27,22 @@ export default function ContactSection(props) {
                 className={classNames(
                     'flex',
                     'flex-col',
-                    'max-w-screen-xl',
+                    'max-w-screen-2xl',
                     'mx-auto',
-                    'py-5',
-                    'sm:py-11',
                     'relative',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : '',
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : '',
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : ''
+                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                    sectionStyles.margin,
+                    sectionStyles.padding,
+                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
                 )}
             >
-                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : '')}>
-                    <div className={classNames('flex', '-mx-4', sectionStyles.flexDirection ? mapFlexDirectionStyles(sectionStyles.flexDirection) : '')}>
+                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+                    <div className={classNames('flex', '-mx-4', sectionStyles.flexDirection ? mapFlexDirectionStyles(sectionStyles.flexDirection) : null)}>
                         <div className="my-3 flex-1 px-4 w-full">
                             {contactBody(props)}
                             {props.form && (
-                                <div data-sb-field-path=".form">
+                                <div className={classNames(props.title || props.text ? 'mt-8' : null)} data-sb-field-path=".form">
                                     <FormBlock {...props.form} />
                                 </div>
                             )}
@@ -77,14 +76,14 @@ function contactBody(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-4xl', 'sm:text-5xl', 'mb-6', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
+                <h2 className={classNames('text-4xl', 'sm:text-5xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames('sb-markdown', styles.text ? mapStyles(styles.text) : '')}
+                    className={classNames('sb-markdown', props.title ? 'mt-6' : null, styles.text ? mapStyles(styles.text) : null)}
                     data-sb-field-path=".text"
                 >
                     {props.text}
@@ -107,9 +106,9 @@ function mapMinHeightStyles(height) {
 function mapMaxWidthStyles(width) {
     switch (width) {
         case 'narrow':
-            return 'max-w-screen-sm';
+            return 'max-w-screen-md';
         case 'wide':
-            return 'max-w-screen-lg';
+            return 'max-w-screen-xl';
         case 'full':
             return 'max-w-full';
     }

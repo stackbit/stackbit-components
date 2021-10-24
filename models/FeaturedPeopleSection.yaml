@@ -2,81 +2,93 @@ type: object
 name: FeaturedPeopleSection
 label: Featured people section
 extends:
-    - Section
+  - Section
 groups:
-    - sectionComponent
+  - sectionComponent
 fieldGroups:
-    - name: styles
-      label: Styles
-    - name: settings
-      label: Settings
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
 fields:
-    - type: enum
-      name: variant
-      group: styles
-      label: Arrangement
-      options:
-          - label: Four column grid
-            value: variant-a
-          - label: Two column grid
-            value: variant-b
-          - label: Two column alt grid
-            value: variant-c
-      default: variant-a
-    - name: colors
-      default: colors-h
-    - name: backgroundWidth
-      default: full
-    - type: string
-      name: title
-      label: Title
-      default: About us
-    - type: string
-      name: subtitle
-      label: Subtitle
-      default: Meet the team
-    - type: list
-      name: actions
-      label: Actions
-      items:
-          type: model
-          models:
-              - Button
-              - Link
-    - type: list
-      name: people
-      label: People
-      items:
-          type: reference
-          models:
-              - Person
-      default:
-          - content/data/team/desmond-eagle.json
-          - content/data/team/dianne-ameter.json
-          - content/data/team/hilary-ouse.json
-    - type: style
-      name: styles
-      styles:
-          self:
-              height: ['auto', 'screen']
-              width: ['narrow', 'wide', 'full']
-              alignItems: ['start', 'center', 'end']
-              justifyContent: ['start', 'center', 'end']
-          title:
-              textAlign: ['left', 'center', 'right']
-          subtitle:
-              textAlign: ['left', 'center', 'right']
-          actions:
-              justifyContent: ['start', 'center', 'end']
-      default:
-          self:
-              height: auto
-              width: full
-              alignItems: center
-              justifyContent: center
-          title:
-              textAlign: center
-          subtitle:
-              textAlign: center
-          actions:
-              justifyContent: center
+  - type: enum
+    name: variant
+    group: styles
+    label: Arrangement
+    options:
+      - label: Four column grid
+        value: variant-a
+      - label: Two column grid
+        value: variant-b
+      - label: Two column alt grid
+        value: variant-c
+    default: variant-a
+  - name: colors
+    default: colors-h
+  - name: backgroundWidth
+    default: full
+  - type: string
+    name: title
+    label: Title
+    default: About us
+  - type: string
+    name: subtitle
+    label: Subtitle
+    default: Meet the team
+  - type: list
+    name: actions
+    label: Actions
+    items:
+      type: model
+      models:
+        - Button
+        - Link
+  - type: list
+    name: people
+    label: People
+    items:
+      type: reference
+      models:
+        - Person
+    default:
+      - content/data/team/desmond-eagle.json
+      - content/data/team/dianne-ameter.json
+      - content/data/team/hilary-ouse.json
+  - type: style
+    name: styles
+    styles:
+      self:
+        height: ['auto', 'screen']
+        width: ['narrow', 'wide', 'full']
+        margin: ['twt0:24', 'twb0:24']
+        padding: ['twt0:24', 'twb0:24']
+        alignItems: ['start', 'center', 'end']
+        justifyContent: ['start', 'center', 'end']
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+      subtitle:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+      actions:
+        justifyContent: ['start', 'center', 'end']
+    default:
+      self:
+        height: auto
+        width: wide
+        margin: ['mt-0', 'mb-0']
+        padding: ['pt-10', 'pb-10']
+        alignItems: center
+        justifyContent: center
+      title:
+        fontWeight: 700
+        fontStyle: normal
+        textAlign: center
+      subtitle:
+        fontWeight: 400
+        fontStyle: normal
+        textAlign: center
+      actions:
+        justifyContent: center

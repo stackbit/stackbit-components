@@ -50,17 +50,25 @@ const args = {
         url: '/images/bg.jpg',
         altText: 'Background image',
         caption: '',
-        opacity: 50
+        styles: {
+            self: {
+                opacity: 50
+            }
+        }
     },
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {
@@ -80,15 +88,20 @@ export const CtaActionsBottom = Template.bind({});
 CtaActionsBottom.storyName = 'CTA Section With Actions at the Bottom';
 CtaActionsBottom.args = {
     ...args,
+    backgroundWidth: 'full',
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'narrow',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         text: {

@@ -76,7 +76,13 @@ const args = {
             altText: 'Sign up',
             style: 'secondary'
         }
-    ]
+    ],
+    styles: {
+        self: {
+            width: 'narrow',
+            padding: ['pt-5', 'pb-5']
+        }
+    }
 };
 
 export const Primary = Template.bind({});

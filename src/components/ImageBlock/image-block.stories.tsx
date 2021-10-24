@@ -13,7 +13,12 @@ const args = {
     url: '/images/post-1.jpeg',
     altText: 'Image alt text',
     caption: 'Image caption',
-    elementId: ''
+    elementId: '',
+    styles: {
+        self: {
+            opacity: 100
+        }
+    }
 };
 
 export const Primary = Template.bind({});

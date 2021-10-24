@@ -89,17 +89,20 @@ const args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         subtitle: {
-            textAlign: 'center'
-        },
-        text: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         actions: {
@@ -120,17 +123,20 @@ FeaturedPostsTwoCol.args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         subtitle: {
-            textAlign: 'left'
-        },
-        text: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         actions: {

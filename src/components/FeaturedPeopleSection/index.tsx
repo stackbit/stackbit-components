@@ -9,14 +9,13 @@ export default function FeaturedPeopleSection(props) {
     const colors = props.colors || 'colors-a';
     const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
-
     return (
         <div
             id={props.elementId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
+                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-featured-people-section',
                 colors,
                 'px-4',
@@ -28,16 +27,16 @@ export default function FeaturedPeopleSection(props) {
                 className={classNames(
                     'flex',
                     'flex-col',
-                    'max-w-screen-xl',
+                    'max-w-screen-2xl',
                     'mx-auto',
-                    'py-5',
-                    'sm:py-11',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : '',
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : '',
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : ''
+                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                    sectionStyles.margin,
+                    sectionStyles.padding,
+                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
                 )}
             >
-                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : '')}>
+                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
                     {featuredPeopleHeader(props)}
                     {featuredPeopleVariants(props)}
                     {featuredPeopleActions(props)}
@@ -55,12 +54,12 @@ function featuredPeopleHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : '')} data-sb-field-path=".title">
+                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : '')} data-sb-field-path=".subtitle">
+                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}
@@ -77,7 +76,7 @@ function featuredPeopleActions(props) {
     const Action = getComponent('Action');
     return (
         <div
-            className={classNames('flex', 'flex-wrap', 'items-center', 'mt-8', '-mx-2', styles.actions ? mapStyles(styles.actions) : '')}
+            className={classNames('flex', 'flex-wrap', 'items-center', 'mt-8', '-mx-2', styles.actions ? mapStyles(styles.actions) : null)}
             data-sb-field-path=".actions"
         >
             {props.actions.map((action, index) => (
@@ -108,7 +107,7 @@ function peopleVariantA(props) {
     return (
         <div
             className={classNames('grid', 'gap-6', 'sm:grid-cols-2', 'lg:grid-cols-4', 'lg:gap-8', {
-                'mt-10': props.title || props.subtitle
+                'mt-12': props.title || props.subtitle
             })}
             data-sb-field-path=".people"
         >
@@ -160,7 +159,7 @@ function peopleVariantB(props) {
                         </div>
                     )}
                     <div
-                        className={classNames('mb-4 sm:flex-grow', {
+                        className={classNames('mb-4', 'sm:flex-grow', {
                             'pt-6 sm:pt-0 sm:pl-6': person.image
                         })}
                     >
@@ -200,7 +199,7 @@ function peopleVariantC(props) {
     return (
         <div
             className={classNames('grid', 'gap-x-6', 'gap-y-12', 'sm:grid-cols-2', {
-                'mt-10': props.title || props.subtitle
+                'mt-12': props.title || props.subtitle
             })}
             data-sb-field-path=".people"
         >
@@ -212,15 +211,23 @@ function peopleVariantC(props) {
 
 function peopleListVariantC(people, annotIndexStart = 0) {
     return people.map((person, index, arr) => (
-        <article key={index} className={classNames(arr.length - 1 === index ? '' : 'mb-12')} data-sb-field-path={`.${annotIndexStart + index}`}>
+        <article key={index} className={classNames(arr.length - 1 === index ? null : 'mb-12')} data-sb-field-path={`.${annotIndexStart + index}`}>
             {person.image && (
                 <div data-sb-field-path=".image">
                     <ImageBlock {...person.image} className="w-full" />
                 </div>
             )}
-            <div className={classNames(person.image ? 'mt-6' : '')}>
+            <div
+                className={classNames({
+                    'mt-4': person.image
+                })}
+            >
                 {(person.firstName || person.lastName || person.role) && (
-                    <h2 className={classNames('text-xl sm:text-2xl', person.bio ? 'mb-3' : '')}>
+                    <h2
+                        className={classNames('text-xl', 'sm:text-2xl', {
+                            'mb-3': person.bio
+                        })}
+                    >
                         {person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>}{' '}
                         {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}{' '}
                         {(person.firstName || person.lastName) && person.role && <span className="mx-1">|</span>}{' '}
@@ -250,9 +257,9 @@ function mapMinHeightStyles(height) {
 function mapMaxWidthStyles(width) {
     switch (width) {
         case 'narrow':
-            return 'max-w-screen-sm';
+            return 'max-w-screen-md';
         case 'wide':
-            return 'max-w-screen-lg';
+            return 'max-w-screen-xl';
         case 'full':
             return 'max-w-full';
     }

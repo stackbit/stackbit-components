@@ -95,17 +95,20 @@ const args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         subtitle: {
-            textAlign: 'center'
-        },
-        text: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'center'
         },
         actions: {
@@ -126,17 +129,20 @@ FeaturedPeopleTwoCol.args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'full',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
             alignItems: 'center',
             justifyContent: 'center'
         },
         title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         subtitle: {
-            textAlign: 'left'
-        },
-        text: {
+            fontWeight: 400,
+            fontStyle: 'normal',
             textAlign: 'left'
         },
         actions: {
@@ -149,5 +155,28 @@ export const FeaturedPeopleTwoColAlt = Template.bind({});
 FeaturedPeopleTwoColAlt.storyName = 'Featured People, Two Column Grid Alt';
 FeaturedPeopleTwoColAlt.args = {
     ...args,
-    variant: 'variant-c'
+    variant: 'variant-c',
+    styles: {
+        self: {
+            height: 'auto',
+            width: 'narrow',
+            margin: ['mt-0', 'mb-0'],
+            padding: ['pt-10', 'pb-10'],
+            alignItems: 'center',
+            justifyContent: 'center'
+        },
+        title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
+            textAlign: 'center'
+        },
+        subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
+            textAlign: 'center'
+        },
+        actions: {
+            justifyContent: 'center'
+        }
+    }
 };

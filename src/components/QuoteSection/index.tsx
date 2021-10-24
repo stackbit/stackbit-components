@@ -7,14 +7,13 @@ export default function QuoteSection(props) {
     const colors = props.colors || 'colors-a';
     const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
-
     return (
         <div
             id={props.elementId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : '',
+                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-quote-section',
                 colors,
                 'px-4',
@@ -28,17 +27,19 @@ export default function QuoteSection(props) {
                 className={classNames(
                     'flex',
                     'flex-col',
-                    'max-w-screen-xl',
+                    'max-w-screen-2xl',
                     'mx-auto',
-                    'py-8',
-                    'sm:py-14',
                     'relative',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : '',
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : '',
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : ''
+                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                    sectionStyles.margin,
+                    sectionStyles.padding,
+                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
                 )}
             >
-                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : '')}>{quoteContent(props)}</div>
+                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+                    {quoteContent(props)}
+                </div>
             </div>
         </div>
     );
@@ -49,17 +50,17 @@ function quoteBackgroundImage(image) {
     if (!imageUrl) {
         return null;
     }
-    const imageOpacity = (image.opacity || 100) * 0.01;
-
+    const imageStyles = image.styles?.self || {};
+    const imageOpacity = imageStyles.opacity || imageStyles.opacity === 0 ? imageStyles.opacity : 100;
     return (
         <span
             className="bg-cover bg-center block absolute inset-0"
             style={{
                 backgroundImage: `url('${imageUrl}')`,
-                opacity: imageOpacity
+                opacity: imageOpacity * 0.01
             }}
             aria-label={image.altText}
-            data-sb-field-path=".backgroundImage.url#@style .backgroundImage.opacity#@style .backgroundImage.altText#@aria-label"
+            data-sb-field-path=".backgroundImage.url#@style .backgroundImage.altText#@aria-label"
         />
     );
 }
@@ -72,7 +73,7 @@ function quoteContent(props) {
             {props.quote && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames('sb-markdown', 'text-3xl', 'sm:text-4xl', styles.quote ? mapStyles(styles.quote) : '')}
+                    className={classNames('sb-markdown', 'text-3xl', 'sm:text-4xl', styles.quote ? mapStyles(styles.quote) : null)}
                     data-sb-field-path=".quote"
                 >
                     {props.quote}
@@ -82,7 +83,7 @@ function quoteContent(props) {
                 <footer>
                     {props.name && (
                         <strong
-                            className={classNames('block', 'font-normal', 'text-2xl', 'sm:text-3xl', styles.name ? mapStyles(styles.name) : '')}
+                            className={classNames('block', 'text-2xl', 'sm:text-3xl', styles.name ? mapStyles(styles.name) : null)}
                             data-sb-field-path=".name"
                         >
                             {props.name}
@@ -90,7 +91,7 @@ function quoteContent(props) {
                     )}
                     {props.title && (
                         <span
-                            className={classNames('block', 'text-lg', styles.title ? mapStyles(styles.title) : '', props.name ? 'mt-1.5' : '')}
+                            className={classNames('block', 'text-lg', styles.title ? mapStyles(styles.title) : null, { 'mt-1.5': props.name })}
                             data-sb-field-path=".title"
                         >
                             {props.title}
@@ -115,9 +116,9 @@ function mapMinHeightStyles(height) {
 function mapMaxWidthStyles(width) {
     switch (width) {
         case 'narrow':
-            return 'max-w-screen-sm';
+            return 'max-w-screen-md';
         case 'wide':
-            return 'max-w-screen-lg';
+            return 'max-w-screen-xl';
         case 'full':
             return 'max-w-full';
     }

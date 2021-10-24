@@ -2,71 +2,83 @@ type: object
 name: TestimonialsSection
 label: Testimonials section
 extends:
-    - Section
+  - Section
 groups:
-    - sectionComponent
+  - sectionComponent
 fieldGroups:
-    - name: styles
-      label: Styles
-    - name: settings
-      label: Settings
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
 fields:
-    - name: colors
-      default: colors-h
-    - name: backgroundWidth
-      default: full
-    - type: string
-      name: title
-      label: Title
-    - type: string
-      name: subtitle
-      label: Subtitle
-    - type: list
-      name: testimonials
-      label: Testimonials
-      items:
-          type: model
-          models:
-              - Testimonial
-      default:
-          - type: Testimonial
-            quote: |-
-                “It’s great to see someone taking action while still maintaining a
-                sustainable fish supply to home cooks.”
-            name: Johnna Doe
-            title: Product Marketing Manager at Acme
-            image:
-                type: ImageBlock
-                url: /images/dianne-ameter.jpg
-                altText: Product Marketing Manager
-            styles:
-                self:
-                    flexDirection: row
-                quote:
-                    textAlign: left
-                name:
-                    textAlign: left
-                title:
-                    textAlign: left
-    - type: style
-      name: styles
-      styles:
+  - name: colors
+    default: colors-h
+  - name: backgroundWidth
+    default: full
+  - type: string
+    name: title
+    label: Title
+  - type: string
+    name: subtitle
+    label: Subtitle
+  - type: list
+    name: testimonials
+    label: Testimonials
+    items:
+      type: model
+      models:
+        - Testimonial
+    default:
+      - type: Testimonial
+        quote: |-
+          “It’s great to see someone taking action while still maintaining a
+          sustainable fish supply to home cooks.”
+        name: Johnna Doe
+        title: Product Marketing Manager at Acme
+        image:
+          type: ImageBlock
+          url: /images/dianne-ameter.jpg
+          altText: Product Marketing Manager
+        styles:
           self:
-              height: ['auto', 'screen']
-              width: ['narrow', 'wide', 'full']
-              alignItems: ['start', 'center', 'end']
-              justifyContent: ['start', 'center', 'end']
+            flexDirection: row
+          quote:
+            textAlign: left
+          name:
+            textAlign: left
           title:
-              textAlign: ['left', 'center', 'right']
-          subtitle:
-              textAlign: ['left', 'center', 'right']
-      default:
-          self:
-              height: auto
-              width: wide
-              alignItems: center
-              justifyContent: center
-          title:
-              textAlign: center
-          subtitle:
-              textAlign: center
+            textAlign: left
+  - type: style
+    name: styles
+    styles:
+      self:
+        height: ['auto', 'screen']
+        width: ['narrow', 'wide', 'full']
+        margin: ['twt0:24', 'twb0:24']
+        padding: ['twt0:24', 'twb0:24']
+        alignItems: ['start', 'center', 'end']
+        justifyContent: ['start', 'center', 'end']
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+      subtitle:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+    default:
+      self:
+        height: auto
+        width: wide
+        margin: ['mt-0', 'mb-0']
+        padding: ['pt-10', 'pb-10']
+        alignItems: center
+        justifyContent: center
+      title:
+        fontWeight: 700
+        fontStyle: normal
+        textAlign: center
+      subtitle:
+        fontWeight: 400
+        fontStyle: normal
+        textAlign: center

@@ -94,7 +94,7 @@ const args = {
             height: 'auto',
             width: 'wide',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-10', 'pb-10'],
+            padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row'
@@ -113,7 +113,7 @@ const args = {
             textAlign: 'left'
         },
         actions: {
-            justifyContent: 'start'
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -131,7 +131,7 @@ HeroImageBottom.args = {
             height: 'auto',
             width: 'wide',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-10', 'pb-10'],
+            padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col'
@@ -150,7 +150,7 @@ HeroImageBottom.args = {
             textAlign: 'left'
         },
         actions: {
-            justifyContent: 'start'
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -181,7 +181,7 @@ HeroVideoLeft.args = {
             height: 'auto',
             width: 'full',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-10', 'pb-10'],
+            padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row-reverse'
@@ -200,7 +200,7 @@ HeroVideoLeft.args = {
             textAlign: 'left'
         },
         actions: {
-            justifyContent: 'start'
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -239,7 +239,7 @@ HeroFormBottom.args = {
             height: 'screen',
             width: 'narrow',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-10', 'pb-10'],
+            padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col'
@@ -284,9 +284,9 @@ HeroTextOnly.args = {
             height: 'screen',
             width: 'narrow',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-10', 'pb-10'],
-            alignItems: 'start',
-            justifyContent: 'end',
+            padding: ['pt-12', 'pb-12'],
+            alignItems: 'flex-start',
+            justifyContent: 'flex-end',
             flexDirection: 'row'
         },
         title: {
@@ -303,7 +303,7 @@ HeroTextOnly.args = {
             textAlign: 'left'
         },
         actions: {
-            justifyContent: 'start'
+            justifyContent: 'flex-start'
         }
     }
 };

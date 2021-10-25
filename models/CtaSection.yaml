@@ -48,10 +48,10 @@ fields:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:24', 'twb0:24']
-        padding: ['twt0:24', 'twb0:24']
-        alignItems: ['start', 'center', 'end']
-        justifyContent: ['start', 'center', 'end']
+        margin: ['twt0:36', 'twb0:36']
+        padding: ['twt0:36', 'twb0:36']
+        alignItems: ['flex-start', 'flex-end', 'center']
+        justifyContent: ['flex-start', 'flex-end', 'center']
         flexDirection: ['row', 'col']
       title:
         fontWeight: ['400', '700']
@@ -60,13 +60,13 @@ fields:
       text:
         textAlign: ['left', 'center', 'right']
       actions:
-        justifyContent: ['start', 'center', 'end']
+        justifyContent: ['flex-start', 'flex-end', 'center']
     default:
       self:
         height: auto
         width: wide
         margin: ['mt-0', 'mb-0']
-        padding: ['pt-10', 'pb-10']
+        padding: ['pt-12', 'pb-12']
         alignItems: center
         justifyContent: center
         flexDirection: row
@@ -77,4 +77,4 @@ fields:
       text:
         textAlign: left
       actions:
-        justifyContent: start
+        justifyContent: flex-start

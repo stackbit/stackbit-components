@@ -20,7 +20,6 @@ export default function HeroSection(props) {
                 colors,
                 'flex',
                 'flex-col',
-                'w-full',
                 'px-4',
                 'sm:px-8',
                 'relative',
@@ -110,22 +109,14 @@ function heroBody(props) {
                 </h2>
             )}
             {props.subtitle && (
-                <p
-                    className={classNames('text-xl', 'sm:text-2xl', props.title ? 'mt-4' : null, styles.subtitle ? mapStyles(styles.subtitle) : null)}
-                    data-sb-field-path=".subtitle"
-                >
+                <p className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames(
-                        'sb-markdown',
-                        'md:text-lg',
-                        props.title || props.subtitle ? 'mt-6' : null,
-                        styles.text ? mapStyles(styles.text) : null
-                    )}
+                    className={classNames('sb-markdown', 'md:text-lg', styles.text ? mapStyles(styles.text) : null)}
                     data-sb-field-path=".text"
                 >
                     {props.text}
@@ -144,14 +135,7 @@ function heroActions(props) {
     const Action = getComponent('Action');
     return (
         <div
-            className={classNames(
-                'flex',
-                'flex-wrap',
-                'items-center',
-                '-mx-2',
-                props.title || props.subtitle || props.text ? 'mt-8' : null,
-                styles.actions ? mapStyles(styles.actions) : null
-            )}
+            className={classNames('flex', 'flex-wrap', 'items-center', '-mx-2', styles.actions ? mapStyles(styles.actions) : null)}
             data-sb-field-path=".actions"
         >
             {actions.map((action, index) => (

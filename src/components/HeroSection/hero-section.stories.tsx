@@ -106,18 +106,22 @@ const args = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-4']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'flex-start'
+            justifyContent: 'flex-start',
+            margin: ['mt-0', 'mb-0']
         }
     }
 };
@@ -147,18 +151,22 @@ HeroImageBottom.args = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-4']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'flex-start'
+            justifyContent: 'flex-start',
+            margin: ['mt-0', 'mb-0']
         }
     }
 };
@@ -201,18 +209,22 @@ HeroVideoLeft.args = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-4']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'flex-start'
+            justifyContent: 'flex-start',
+            margin: ['mt-0', 'mb-0']
         }
     }
 };
@@ -263,18 +275,22 @@ HeroFormBottom.args = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-4']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'center'
+            justifyContent: 'center',
+            margin: ['mt-0', 'mb-0']
         }
     }
 };
@@ -312,18 +328,22 @@ HeroTextOnly.args = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-4']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'flex-start'
+            justifyContent: 'flex-start',
+            margin: ['mt-0', 'mb-0']
         }
     }
 };

@@ -29,13 +29,13 @@ const TAILWIND_MAP = {
         justify: 'text-justify'
     },
     justifyContent: {
-        start: 'justify-start',
-        end: 'justify-end',
+        'flex-start': 'justify-start',
+        'flex-end': 'justify-end',
         center: 'justify-center'
     },
     alignItems: {
-        start: 'items-start',
-        end: 'items-end',
+        'flex-start': 'items-start',
+        'flex-end': 'items-end',
         center: 'items-center'
     }
 };

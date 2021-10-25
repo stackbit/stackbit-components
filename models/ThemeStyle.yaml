@@ -11,8 +11,8 @@ fields:
     label: Body
     group: color-palettes
   - type: color
-    name: headline
-    label: Headline
+    name: headlines
+    label: Headlines
     group: color-palettes
   - type: color
     name: primary

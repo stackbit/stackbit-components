@@ -97,7 +97,11 @@ const args = {
             padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row'
+            flexDirection: 'row',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
@@ -134,7 +138,11 @@ HeroImageBottom.args = {
             padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'col'
+            flexDirection: 'col',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
@@ -184,7 +192,11 @@ HeroVideoLeft.args = {
             padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row-reverse'
+            flexDirection: 'row-reverse',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
@@ -242,7 +254,11 @@ HeroFormBottom.args = {
             padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'col'
+            flexDirection: 'col',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
@@ -264,7 +280,7 @@ HeroFormBottom.args = {
 };
 
 export const HeroTextOnly = Template.bind({});
-HeroTextOnly.storyName = 'Hero Section With Text Only';
+HeroTextOnly.storyName = 'Hero Section With Borders and Without Feature';
 HeroTextOnly.args = {
     ...args,
     feature: null,
@@ -287,7 +303,11 @@ HeroTextOnly.args = {
             padding: ['pt-12', 'pb-12'],
             alignItems: 'flex-start',
             justifyContent: 'flex-end',
-            flexDirection: 'row'
+            flexDirection: 'row',
+            borderRadius: 'medium',
+            borderWidth: 8,
+            borderStyle: 'dashed',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,

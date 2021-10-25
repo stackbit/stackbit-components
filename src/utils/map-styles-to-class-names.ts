@@ -37,6 +37,24 @@ const TAILWIND_MAP = {
         'flex-start': 'items-start',
         'flex-end': 'items-end',
         center: 'items-center'
+    },
+    borderRadius: {
+        none: 'rounded-none',
+        'xx-small': 'rounded-sm',
+        'x-small': 'rounded',
+        small: 'rounded-md',
+        medium: 'rounded-lg',
+        large: 'rounded-xl',
+        'x-large': 'rounded-2xl',
+        'xx-large': 'rounded-3xl',
+        full: 'rounded-full'
+    },
+    borderStyle: {
+        none: 'border-none',
+        solid: 'border-solid',
+        dashed: 'border-dashed',
+        dotted: 'border-dotted',
+        double: 'border-double'
     }
 };
 

@@ -23,7 +23,8 @@ export default function FeaturedPostsSection(props) {
                 'sb-component-featured-posts-section',
                 colors,
                 'px-4',
-                'sm:px-8'
+                'sm:px-8',
+                sectionStyles.margin
             )}
             data-sb-field-path={props.annotationPrefix}
         >
@@ -34,7 +35,6 @@ export default function FeaturedPostsSection(props) {
                     'max-w-screen-2xl',
                     'mx-auto',
                     sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.margin,
                     sectionStyles.padding,
                     sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
                     sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null

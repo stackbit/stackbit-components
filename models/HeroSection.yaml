@@ -77,6 +77,25 @@ fields:
         alignItems: ['flex-start', 'flex-end', 'center']
         justifyContent: ['flex-start', 'flex-end', 'center']
         flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            color: '#28aaff'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            color: '#dfe3e7'
+          - value: 'border-neutral'
+            label: 'Neutral color'
+            color: '#282f36'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            color: '#e9f6ff'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            color: '#fffde2'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
@@ -98,6 +117,10 @@ fields:
         alignItems: center
         justifyContent: center
         flexDirection: row
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-neutral
       title:
         fontWeight: 700
         fontStyle: normal

@@ -20,7 +20,8 @@ export default function TestimonialsSection(props) {
                 'sb-component-testimonials-section',
                 colors,
                 'px-4',
-                'sm:px-8'
+                'sm:px-8',
+                sectionStyles.margin
             )}
             data-sb-field-path={props.annotationPrefix}
         >
@@ -31,7 +32,6 @@ export default function TestimonialsSection(props) {
                     'max-w-screen-2xl',
                     'mx-auto',
                     sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.margin,
                     sectionStyles.padding,
                     sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
                     sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null

@@ -114,7 +114,7 @@ fields:
     styles:
       self:
         width: ['narrow', 'wide', 'full']
-        padding: ['twt0:24', 'twb0:24']
+        padding: ['twt0:36', 'twb0:36']
     default:
       self:
         width: narrow

@@ -81,7 +81,7 @@ QuoteWideCentered.args = {
             height: 'auto',
             width: 'wide',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-10', 'pb-10'],
+            padding: ['pt-16', 'pb-16'],
             alignItems: 'center',
             justifyContent: 'center'
         },
@@ -110,9 +110,9 @@ QuoteNarrowLeftBottom.args = {
             height: 'screen',
             width: 'narrow',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-10', 'pb-10'],
-            alignItems: 'start',
-            justifyContent: 'end'
+            padding: ['pt-16', 'pb-16'],
+            alignItems: 'flex-start',
+            justifyContent: 'flex-end'
         },
         quote: {
             textAlign: 'left'

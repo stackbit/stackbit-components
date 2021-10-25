@@ -55,14 +55,28 @@ const TAILWIND_MAP = {
         dashed: 'border-dashed',
         dotted: 'border-dotted',
         double: 'border-double'
+    },
+    margin: function (value) {
+        // for tailwind margins - ['twt0:16', 'twb0:16'], the value will be array ['mt-0', 'mb-4']
+        if (Array.isArray(value)) {
+            return value.join(' ');
+        }
+        // for regular margins - ['x0:8', 'y0:16'], the value will be object: { left: 4, top: 10 }
+        // this object can not be converted into classes and needs to be handled differently
+        console.warn('cannot convert "margin" style field value to class name');
+        return '';
     }
 };
 
 export function mapStylesToClassNames(styles: Record<string, any>) {
     return Object.entries(styles)
         .map(([prop, value]) => {
-            if (prop in TAILWIND_MAP && value in TAILWIND_MAP[prop]) {
-                return TAILWIND_MAP[prop][value];
+            if (prop in TAILWIND_MAP) {
+                if (typeof TAILWIND_MAP[prop] === 'function') {
+                    return TAILWIND_MAP[prop](value);
+                } else if (value in TAILWIND_MAP[prop]) {
+                    return TAILWIND_MAP[prop][value];
+                }
             } else {
                 // if prop or value don't exist in the map, use the value as is,
                 // useful for direct color values.

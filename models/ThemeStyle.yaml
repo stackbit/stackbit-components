@@ -34,15 +34,3 @@ fields:
     name: complementary-alt
     label: Complementary Alt
     group: color-palettes
-  - type: color
-    name: info
-    label: Info
-    group: color-palettes
-  - type: color
-    name: success
-    label: Success
-    group: color-palettes
-  - type: color
-    name: warning
-    label: Warning
-    group: color-palettes

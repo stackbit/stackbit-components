@@ -18,10 +18,7 @@ module.exports = {
                 secondary: '#dfe3e7',
                 neutral: '#282f36',
                 complementary: '#e9f6ff',
-                'complementary-alt': '#fffde2',
-                info: '#ffa928',
-                success: '#9bed72',
-                warning: '#df1c2e'
+                'complementary-alt': '#fffde2'
             },
             fontFamily: {
                 body: defaultTheme.fontFamily.sans,

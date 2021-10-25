@@ -5,7 +5,7 @@ module.exports = {
     mode: 'jit',
     purge: {
         enabled: false,
-        content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/@stackbit/components/src/{base,layouts,components}/**/*.{js,ts,jsx,tsx}'],
+        content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/@stackbit/components/src/{base,layouts,components,utils}/**/*.{js,ts,jsx,tsx}'],
         safelist: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i']
     },
     darkMode: false,
@@ -18,10 +18,7 @@ module.exports = {
                 secondary: '#dfe3e7',
                 neutral: '#282f36',
                 complementary: '#e9f6ff',
-                'complementary-alt': '#fffde2',
-                info: '#ffa928',
-                success: '#9bed72',
-                warning: '#df1c2e'
+                'complementary-alt': '#fffde2'
             },
             fontFamily: {
                 body: defaultTheme.fontFamily.sans,

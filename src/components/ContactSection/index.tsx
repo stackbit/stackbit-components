@@ -19,7 +19,8 @@ export default function ContactSection(props) {
                 'sb-component-contact-section',
                 colors,
                 'px-4',
-                'sm:px-8'
+                'sm:px-8',
+                sectionStyles.margin
             )}
             data-sb-field-path={props.annotationPrefix}
         >
@@ -31,7 +32,6 @@ export default function ContactSection(props) {
                     'mx-auto',
                     'relative',
                     sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.margin,
                     sectionStyles.padding,
                     sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
                     sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null

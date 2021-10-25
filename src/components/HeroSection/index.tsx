@@ -8,6 +8,7 @@ export default function HeroSection(props) {
     const colors = props.colors || 'colors-a';
     const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
+    const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
             id={props.elementId}
@@ -17,10 +18,21 @@ export default function HeroSection(props) {
                 backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-hero-section',
                 colors,
+                'flex',
+                'flex-col',
+                'w-full',
                 'px-4',
                 'sm:px-8',
-                'relative'
+                'relative',
+                sectionStyles.margin,
+                sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                sectionStyles.borderColor,
+                sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
+                sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
             )}
+            style={{
+                borderWidth: `${sectionBorderWidth}px`
+            }}
             data-sb-field-path={props.annotationPrefix}
         >
             {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
@@ -31,8 +43,8 @@ export default function HeroSection(props) {
                     'max-w-screen-2xl',
                     'mx-auto',
                     'relative',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.margin,
+                    'flex-grow',
+                    'w-full',
                     sectionStyles.padding,
                     sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
                     sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null

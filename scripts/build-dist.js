@@ -25,7 +25,7 @@ if (process.env.SOURCEMAP_COMMAND) {
     const srcDirPath = path.resolve(projectDir, 'src');
     const sourcemapResult = childProcess.spawnSync(
         cmdParts[0],
-        [cmdParts.slice(1).join(' ') + ` ${srcDirPath} ${srcDirPath} node_modules/@stackbit/components`],
+        [cmdParts.slice(1).join(' ') + ` ${srcDirPath} ${srcDirPath} node_modules/@stackbit/components/src`],
         {
             shell: true
         }

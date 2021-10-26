@@ -1,6 +1,7 @@
 type: object
 name: HeroSection
 label: Hero section
+labelField: title
 extends:
   - Section
 groups:

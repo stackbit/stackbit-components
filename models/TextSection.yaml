@@ -1,6 +1,7 @@
 type: object
 name: TextSection
 label: Text section
+labelField: title
 extends:
   - Section
 groups:

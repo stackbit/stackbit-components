@@ -1,6 +1,7 @@
 type: object
 name: Testimonial
 label: Testimonial
+labelField: name
 fieldGroups:
   - name: settings
     label: Settings

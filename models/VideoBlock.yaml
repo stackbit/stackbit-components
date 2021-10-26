@@ -1,6 +1,7 @@
 type: object
 name: VideoBlock
 label: Video
+labelField: url
 fieldGroups:
   - name: settings
     label: Settings

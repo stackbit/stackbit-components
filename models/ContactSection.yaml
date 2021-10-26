@@ -1,6 +1,7 @@
 type: object
 name: ContactSection
 label: Contact section
+labelField: title
 extends:
   - Section
 groups:

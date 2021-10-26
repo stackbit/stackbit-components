@@ -1,6 +1,7 @@
 type: object
 name: QuoteSection
 label: Quote section
+labelField: name
 extends:
   - Section
 groups:

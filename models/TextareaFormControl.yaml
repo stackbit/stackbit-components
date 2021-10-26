@@ -1,6 +1,7 @@
 type: object
 name: TextareaFormControl
 label: Textarea
+labelField: label
 fieldGroups:
   - name: styles
     label: Styles

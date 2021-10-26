@@ -1,6 +1,7 @@
 type: object
 name: Footer
 label: Footer
+labelField: title
 fieldGroups:
   - name: styles
     label: Styles

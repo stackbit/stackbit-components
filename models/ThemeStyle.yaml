@@ -15,28 +15,181 @@ fields:
     label: Font - headlines & subtitles
     group: text-styles
     options:
-      - label: Web safe sans
+      - label: System sans
         value: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
-      - label: Web safe serif
+      - label: System serif
         value: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif
   - type: object
     name: h1
     label: H1
     group: text-styles
-    extends:
-      - ThemeStyleTextStyle
+    fields:
+      - type: enum
+        name: weight
+        label: Font weight
+        controlType: button-group
+        options:
+          - label: Bold
+            value: bold
+          - label: Normal
+            value: normal
+        default: bold
+      - type: enum
+        name: decoration
+        label: Decoration
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Underline
+            value: underline
+          - label: Line through
+            value: line-through
+        default: none
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tighter
+            value: -0.05em
+          - label: Tight
+            value: -0.025em
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: 0.025em
+          - label: Wider
+            value: 0.05em
+        default: normal
   - type: object
     name: h2
     label: H2
     group: text-styles
-    extends:
-      - ThemeStyleTextStyle
+    fields:
+      - type: enum
+        name: weight
+        label: Font weight
+        controlType: button-group
+        options:
+          - label: Bold
+            value: bold
+          - label: Normal
+            value: normal
+        default: bold
+      - type: enum
+        name: decoration
+        label: Decoration
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Underline
+            value: underline
+          - label: Line through
+            value: line-through
+        default: none
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tighter
+            value: -0.05em
+          - label: Tight
+            value: -0.025em
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: 0.025em
+          - label: Wider
+            value: 0.05em
+        default: normal
   - type: object
     name: h3
     label: H3
     group: text-styles
-    extends:
-      - ThemeStyleTextStyle
+    fields:
+      - type: enum
+        name: weight
+        label: Font weight
+        controlType: button-group
+        options:
+          - label: Bold
+            value: bold
+          - label: Normal
+            value: normal
+        default: bold
+      - type: enum
+        name: decoration
+        label: Decoration
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Underline
+            value: underline
+          - label: Line through
+            value: line-through
+        default: none
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tighter
+            value: -0.05em
+          - label: Tight
+            value: -0.025em
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: 0.025em
+          - label: Wider
+            value: 0.05em
+        default: normal
   - type: enum
     name: fontBody
     label: Font - body & captions
@@ -78,97 +231,61 @@ fields:
     name: buttonPrimary
     label: Primary button
     group: button-styles
-    extends:
-      - ThemeStyleButtonStyle
+    fields:
+      - type: enum
+        name: radius
+        label: Corner radius
+        controlType: button-group
+        options:
+          - label: None
+            value: 0
+          - label: Small
+            value: 0.125rem
+          - label: Large
+            value: 9999px
+        default: none
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none
   - type: object
     name: buttonSecondary
     label: Secondary button
     group: button-styles
-    extends:
-      - ThemeStyleButtonStyle
-ThemeStyleButtonStyle:
-  type: object
-  label: Button style
-  fields:
-    - type: enum
-      name: radius
-      label: Corner radius
-      controlType: button-group
-      options:
-        - label: None
-          value: 0
-        - label: Small
-          value: 0.125rem
-        - label: Large
-          value: 9999px
-      default: none
-    - type: enum
-      name: case
-      label: Case
-      controlType: button-group
-      options:
-        - label: default
-          value: none
-        - label: ag
-          value: lowercase
-        - label: Ag
-          value: capitalize
-        - label: AG
-          value: uppercase
-      default: none
-ThemeStyleTextStyle:
-  type: object
-  label: Heading style
-  fields:
-    - type: enum
-      name: weight
-      label: Font weight
-      controlType: button-group
-      options:
-        - label: Bold
-          value: bold
-        - label: Normal
-          value: normal
-      default: bold
-    - type: enum
-      name: decoration
-      label: Decoration
-      controlType: button-group
-      options:
-        - label: None
-          value: none
-        - label: Underline
-          value: underline
-        - label: Line through
-          value: line-through
-      default: none
-    - type: enum
-      name: case
-      label: Case
-      controlType: button-group
-      options:
-        - label: default
-          value: none
-        - label: ag
-          value: lowercase
-        - label: Ag
-          value: capitalize
-        - label: AG
-          value: uppercase
-      default: none
-    - type: enum
-      name: letterSpacing
-      label: Letter spacing
-      controlType: button-group
-      options:
-        - label: Tighter
-          value: -0.05em
-        - label: Tight
-          value: -0.025em
-        - label: Normal
-          value: normal
-        - label: Wide
-          value: 0.025em
-        - label: Wider
-          value: 0.05em
-      default: normal
+    fields:
+      - type: enum
+        name: radius
+        label: Corner radius
+        controlType: button-group
+        options:
+          - label: None
+            value: 0
+          - label: Small
+            value: 0.125rem
+          - label: Large
+            value: 9999px
+        default: none
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none

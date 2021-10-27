@@ -13,7 +13,7 @@
     h4,
     h5,
     h6 {
-        @apply font-headlines font-bold text-headlines;
+        @apply font-headlines text-headlines;
     }
 }
 

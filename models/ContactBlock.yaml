@@ -1,6 +1,7 @@
 type: object
 name: ContactBlock
 label: Contact
+labelField: phoneNumber
 fieldGroups:
   - name: settings
     label: Settings

@@ -1,6 +1,7 @@
 type: object
 name: Header
 label: Header
+labelField: title
 fieldGroups:
   - name: styles
     label: Styles

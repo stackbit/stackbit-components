@@ -1,6 +1,7 @@
 type: object
 name: SelectFormControl
 label: Select
+labelField: label
 fieldGroups:
   - name: styles
     label: Styles

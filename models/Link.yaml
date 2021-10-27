@@ -1,6 +1,7 @@
 type: object
 name: Link
 label: Link
+labelField: label
 fieldGroups:
   - name: styles
     label: Styles

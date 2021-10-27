@@ -1,6 +1,7 @@
 type: object
 name: FormBlock
 label: Form
+labelField: action
 fieldGroups:
   - name: settings
     label: Settings

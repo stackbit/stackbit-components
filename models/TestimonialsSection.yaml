@@ -1,6 +1,7 @@
 type: object
 name: TestimonialsSection
 label: Testimonials section
+labelField: title
 extends:
   - Section
 groups:

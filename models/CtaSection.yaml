@@ -1,6 +1,7 @@
 type: object
 name: CtaSection
 label: CTA section
+labelField: title
 extends:
   - Section
 groups:

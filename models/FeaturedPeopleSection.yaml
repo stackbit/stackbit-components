@@ -1,6 +1,7 @@
 type: object
 name: FeaturedPeopleSection
 label: Featured people section
+labelField: title
 extends:
   - Section
 groups:

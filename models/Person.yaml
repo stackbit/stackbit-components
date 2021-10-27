@@ -1,5 +1,6 @@
 name: Person
 label: Person
+labelField: firstName
 fields:
   - type: string
     name: firstName

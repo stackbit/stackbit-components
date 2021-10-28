@@ -4,8 +4,12 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
     mode: 'jit',
     purge: {
-        enabled: true,
-        content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/@stackbit/components/src/{base,layouts,components,utils}/**/*.{js,ts,jsx,tsx}'],
+        enabled: false,
+        content: [
+            './src/**/*.{js,ts,jsx,tsx}',
+            './node_modules/@stackbit/components/src/{base,layouts,components,utils}/**/*.{js,ts,jsx,tsx}',
+            './content/**/*'
+        ],
         safelist: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i']
     },
     darkMode: false,

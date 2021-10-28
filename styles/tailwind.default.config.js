@@ -4,7 +4,7 @@ const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
     mode: 'jit',
     purge: {
-        enabled: false,
+        enabled: true,
         content: ['./src/**/*.{js,ts,jsx,tsx}', './node_modules/@stackbit/components/src/{base,layouts,components,utils}/**/*.{js,ts,jsx,tsx}'],
         safelist: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i']
     },
@@ -41,36 +41,35 @@ module.exports = {
     plugins: [
         plugin(function ({ addBase, addComponents }) {
             addBase({
-                'h1': {
+                h1: {
                     fontWeight: 'bold',
                     textDecoration: 'none',
                     textTransform: 'none',
-                    letterSpacing: 'normal',
+                    letterSpacing: 'normal'
                 },
-                'h2': {
+                h2: {
                     fontWeight: 'bold',
                     textDecoration: 'none',
                     textTransform: 'none',
-                    letterSpacing: 'normal',
+                    letterSpacing: 'normal'
                 },
-                'h3': {
+                h3: {
                     fontWeight: 'bold',
                     textDecoration: 'none',
                     textTransform: 'none',
-                    letterSpacing: 'normal',
+                    letterSpacing: 'normal'
                 }
             }),
-            addComponents({
-                '.sb-component-button-primary': {
-                    borderRadius: '0',
-                    textTransform: 'none'
-
-                },
-                '.sb-component-button-secondary': {
-                    borderRadius: '0',
-                    textTransform: 'none'
-                }
-            })
+                addComponents({
+                    '.sb-component-button-primary': {
+                        borderRadius: '0',
+                        textTransform: 'none'
+                    },
+                    '.sb-component-button-secondary': {
+                        borderRadius: '0',
+                        textTransform: 'none'
+                    }
+                });
         })
     ]
 };

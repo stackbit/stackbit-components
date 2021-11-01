@@ -31,7 +31,7 @@ fields:
         value: colors-h
       - label: Base foreground on complementary 2 background
         value: colors-i
-    default: colors-a
+    default: colors-f
   - type: enum
     name: backgroundWidth
     group: styles
@@ -48,19 +48,33 @@ fields:
     name: logo
     label: Logo
     models: [ImageBlock]
+    default:
+      default:
+      type: ImageBlock
+      url: "images/logo.svg"
+      altText: "Your logo image"
+      caption: ""
   - type: string
     name: title
     label: Title
+    default: Personal
   - type: markdown
     name: text
     label: Text
+    default: A description of your brand
   - type: model
     name: contacts
     label: Contacts
     models: [ContactBlock]
+    default:
+      phoneNumber: "850-123-5021"
+      phoneAltText: "Call me"
+      email: "john@doe.com"
+      emailAltText: "Email me"
   - type: markdown
     name: copyrightText
     label: Copyright text
+    default: Copyright text
   - type: list
     name: primaryLinks
     label: Primary navigation links
@@ -69,6 +83,15 @@ fields:
       models:
         - Button
         - Link
+    default:
+      - type: Link
+        label: Projects
+        url: /
+        altText: Projects
+      - type: Link
+        label: Documentation
+        url: /
+        altText: Documentation
   - type: list
     name: socialLinks
     label: Social links
@@ -76,6 +99,21 @@ fields:
       type: model
       models:
         - Social
+    default:
+      - type: facebook
+        icon: facebook
+        label: ""
+        altText: facebook
+        url: /
+        elementId: false
+        showIcon: true
+      - type: twitter
+        icon: twitter
+        label: ""
+        altText: twitter
+        url: /
+        elementId: false
+        showIcon: true
   - type: list
     name: legalLinks
     label: Legal navigation links
@@ -84,6 +122,15 @@ fields:
       models:
         - Button
         - Link
+    default:
+      - type: Link
+        label: Privacy Policy
+        url: /
+        altText: Privacy Policy
+      - type: Link
+        label: Terms & Conditions
+        url: /
+        altText: Terms & Conditions
   - type: style
     name: styles
     styles:

@@ -2,6 +2,10 @@ type: data
 name: Config
 label: Site configuration
 fields:
+  - type: string
+    name: domain
+    label: Domain
+    description: The domain of your site, including the protocol, e.g. https://www.example.com/
   - type: model
     name: header
     label: Header configuration

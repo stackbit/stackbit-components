@@ -5,6 +5,7 @@ const componentsManifest = require('../src/components-manifest.json');
 if (require.main === module) {
     generateComponentsMapJSON();
     generateComponentsMapJS();
+    generateComponentsMapTS();
 } else {
     module.exports.generateComponentsMapJSON = generateComponentsMapJSON;
     module.exports.generateComponentsMapJS = generateComponentsMapJS;
@@ -58,11 +59,22 @@ function generateComponentsMapJS() {
     const dynamicMap = Object.entries(componentsManifest)
         .filter(([_, component]) => component.isDynamic)
         .reduce((map, [_, componentManifest]) => {
-            map.push(`'${componentManifest.modelName}': dynamic(() => import('./${componentManifest.path}/index.js').then((mod) => mod.default))`);
+            map.push(`'${componentManifest.modelName}': dynamic(
+        () => import('./${componentManifest.path}/index.js').then(getDefault),
+        {
+            webpack: () => [require.resolveWeak('./${componentManifest.path}/index.js')],
+            modules: ['../../node_modules/@stackbit/components/dist/components-map.js -> ./${componentManifest.path}/index.js']
+        }
+    )`);
             return map;
         }, []);
 
-    const data = `const dynamic = require('next/dynamic').default;
+    const data = `"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+
+const getDefault = (mod) => mod.default;
+
+const dynamic = require('next/dynamic').default;
 
 ${staticImports.join('\n')}
 
@@ -72,17 +84,26 @@ module.exports.componentsMap = {
 
     // dynamic components, key is model name
     ${dynamicMap.join(',\n    ')}
-};
-`;
+};`;
 
     fse.ensureDirSync(path.join(projectDir, 'dist'));
     fse.writeFileSync(path.join(projectDir, 'dist/components-map.js'), data);
+
+    // const colInGen = 21; // column in the generated file containing the "componentsMap"
+    // const lineInOrig = 7; // line number in the original file containing the "componentsMap"
+    // const colInOrig = 13; // column in the original file containing the "componentsMap"
+    // const varLength = 'componentsMap'.length;
+    // console.log(vlq.encode([0, 0, lineInOrig, 0]));
+    // console.log(vlq.encode([colInGen, 0, 0, colInOrig]));
+    // console.log(vlq.encode([colInOrig, 0, 0, varLength]));
+    fse.writeFileSync(path.join(projectDir, 'dist/components-map.d.ts.map'), '{"version":3,"file":"components-map.d.ts","sourceRoot":"","sources":["../src/components-map.ts"],"names":[],"mappings":"AAOA,qBAAa,aAAa"}');
+    fse.writeFileSync(path.join(projectDir, 'dist/components-map.d.ts'), 'export declare const componentsMap: any;\n//# sourceMappingURL=components-map.d.ts.map');
 
     console.log('✔ generated dist/components-map.js');
 }
 
 function generateComponentsMapTS() {
-    console.log('⏳ generating dist/components-map.ts ...');
+    console.log('⏳ generating src/components-map.ts ...');
 
     const { staticImports, staticMap } = Object.entries(componentsManifest)
         .filter(([_, component]) => !component.isDynamic)
@@ -115,8 +136,7 @@ export const componentsMap = {
 };
 `;
 
-    fse.ensureDirSync(path.join(projectDir, 'dist'));
-    fse.writeFileSync(path.join(projectDir, 'dist/components-map.ts'), data);
+    fse.writeFileSync(path.join(projectDir, 'src/components-map.ts'), data);
 
-    console.log('✔ generated dist/components-map.ts');
+    console.log('✔ generated src/components-map.ts');
 }

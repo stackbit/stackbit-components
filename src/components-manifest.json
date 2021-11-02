@@ -59,6 +59,11 @@
         "modelName": "ImageBlock",
         "isDynamic": true
     },
+    "LogoGridSection": {
+        "path": "components/LogoGridSection",
+        "modelName": "LogoGridSection",
+        "isDynamic": true
+    },
     "QuoteSection": {
         "path": "components/QuoteSection",
         "modelName": "QuoteSection",

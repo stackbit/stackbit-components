@@ -1,0 +1,19 @@
+name: Logo
+label: Logo
+labelField: title
+fields:
+  - type: string
+    name: title
+    label: Title
+    default: RandoCorp
+  - type: model
+    name: image
+    label: Image
+    models: [ImageBlock]
+    default:
+      url: /images/dianne-ameter.jpg
+      altText: Look at that Logo
+  - type: string
+    name: id
+    label: ID
+    default: company-name

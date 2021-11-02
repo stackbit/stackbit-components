@@ -1,9 +1,6 @@
 name: PostLayout
 label: Post
 layout: PostLayout
-fieldGroups:
-  - name: seo
-    label: SEO
 fields:
   - type: string
     name: title
@@ -37,8 +34,3 @@ fields:
       type: model
       groups:
         - sectionComponent
-  - type: model
-    name: seo
-    group: seo
-    models:
-      - StackbitPageMeta

@@ -96,8 +96,14 @@ module.exports.componentsMap = {
     // console.log(vlq.encode([0, 0, lineInOrig, 0]));
     // console.log(vlq.encode([colInGen, 0, 0, colInOrig]));
     // console.log(vlq.encode([colInOrig, 0, 0, varLength]));
-    fse.writeFileSync(path.join(projectDir, 'dist/components-map.d.ts.map'), '{"version":3,"file":"components-map.d.ts","sourceRoot":"","sources":["../src/components-map.ts"],"names":[],"mappings":"AAOA,qBAAa,aAAa"}');
-    fse.writeFileSync(path.join(projectDir, 'dist/components-map.d.ts'), 'export declare const componentsMap: any;\n//# sourceMappingURL=components-map.d.ts.map');
+    fse.writeFileSync(
+        path.join(projectDir, 'dist/components-map.d.ts.map'),
+        '{"version":3,"file":"components-map.d.ts","sourceRoot":"","sources":["../src/components-map.ts"],"names":[],"mappings":"AAOA,qBAAa,aAAa"}'
+    );
+    fse.writeFileSync(
+        path.join(projectDir, 'dist/components-map.d.ts'),
+        'export declare const componentsMap: any;\n//# sourceMappingURL=components-map.d.ts.map'
+    );
 
     console.log('✔ generated dist/components-map.js');
 }

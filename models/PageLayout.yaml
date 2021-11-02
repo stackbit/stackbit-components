@@ -2,9 +2,6 @@ name: PageLayout
 label: Page
 layout: PageLayout
 hideContent: true
-fieldGroups:
-  - name: seo
-    label: SEO
 fields:
   - type: string
     name: title
@@ -63,8 +60,3 @@ fields:
             textAlign: left
           actions:
             justifyContent: flex-start
-  - type: model
-    name: seo
-    group: seo
-    models:
-      - StackbitPageMeta

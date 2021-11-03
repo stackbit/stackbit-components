@@ -10,6 +10,7 @@ import FormBlock from './FormBlock';
 import Header from './Header';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
+import MediaGallerySection from './MediaGallerySection';
 import QuoteSection from './QuoteSection';
 import Social from './Social';
 import SelectFormControl from './SelectFormControl';
@@ -32,6 +33,7 @@ export {
     Header,
     HeroSection,
     ImageBlock,
+    MediaGallerySection,
     QuoteSection,
     Social,
     SelectFormControl,

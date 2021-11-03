@@ -1,0 +1,43 @@
+type: object
+name: MediaGallerySection
+label: Media gallery section
+labelField: title
+extends:
+  - Section
+groups:
+  - sectionComponent
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
+fields:
+  - type: list
+    name: images
+    label: Images
+    items:
+      type: reference
+      models:
+        - Media
+    default:
+      - content/data/media/michelle-obama.json
+      - content/data/media/barak-obama.json
+      - content/data/media/justin-bieber.json
+  - type: style
+    name: styles
+    styles:
+      self:
+        height: ['auto', 'screen']
+        width: ['narrow', 'wide', 'full']
+        margin: ['twt0:36', 'twb0:36']
+        padding: ['twt0:36', 'twb0:36']
+        alignItems: ['flex-start', 'flex-end', 'center']
+        justifyContent: ['flex-start', 'flex-end', 'center']
+    default:
+      self:
+        height: auto
+        width: full
+        margin: ['mt-0', 'mb-0']
+        padding: ['pt-12', 'pb-12']
+        alignItems: center
+        justifyContent: center

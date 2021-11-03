@@ -6,6 +6,7 @@ fields:
     name: title
     label: Title
     default: Post Title
+    required: true
   - type: date
     name: date
     label: Date

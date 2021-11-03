@@ -19,9 +19,9 @@ fields:
     options:
       - label: Three columns grid
         value: variant-a
-      - label: Two columns grid
+      - label: Three column mixed grid
         value: variant-b
-      - label: List
+      - label: Two column mixed grid
         value: variant-c
     default: variant-a
   - name: colors
@@ -74,12 +74,15 @@ fields:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
+        margin: ['twt0:12', 'twb0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
+        margin: ['twt0:12', 'twb0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
+        margin: ['twt0:12', 'twb0:12']
     default:
       self:
         height: auto
@@ -92,9 +95,12 @@ fields:
         fontWeight: 700
         fontStyle: normal
         textAlign: center
+        margin: ['mt-0', 'mb-2']
       subtitle:
         fontWeight: 400
         fontStyle: normal
         textAlign: center
+        margin: ['mt-0', 'mb-12']
       actions:
         justifyContent: center
+        margin: ['mt-12', 'mb-0']

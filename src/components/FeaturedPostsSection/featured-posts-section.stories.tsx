@@ -35,8 +35,8 @@ const args = {
     variant: 'variant-a',
     colors: 'colors-f',
     backgroundWidth: 'full',
-    title: 'Latest from the Blog',
-    subtitle: 'This is Subtitle',
+    title: 'Featured Posts',
+    subtitle: 'This is the Subtitle',
     actions: [
         {
             type: 'Button',
@@ -48,12 +48,12 @@ const args = {
     posts: [
         {
             __metadata: {},
-            title: 'Post Title Three',
-            date: '2021-07-03',
-            excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
+            title: 'Post Title One',
+            date: '2021-06-28',
+            excerpt: 'Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-3.jpeg',
+                url: '/images/post-1.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -74,12 +74,25 @@ const args = {
         },
         {
             __metadata: {},
-            title: 'Post Title One',
-            date: '2021-06-28',
-            excerpt: 'Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis.',
+            title: 'Post Title Three',
+            date: '2021-07-03',
+            excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-1.jpeg',
+                url: '/images/post-3.jpeg',
+                altText: 'Post Image'
+            },
+            markdown_content:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ea mala virtuti magnitudine obruebantur. Duo Reges: constructio interrete. An hoc usque quaque, aliter in vita? Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Itaque hoc frequenter dici solet a vobis, non intellegere nos, quam dicat Epicurus voluptatem. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret.\n\n## Sed Ille, UT Dixi, Vitiose\n\nUtrum igitur tibi litteram videor an totas paginas commovere? Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Ne in odium veniam, si amicum destitero tueri. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Quid ergo aliud intellegetur nisi uti ne quae pars naturae neglegatur? Quis istud, quaeso, nesciebat? Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam aut expetendam. Et ille ridens: Video, inquit, quid agas; In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.\n\n'
+        },
+        {
+            __metadata: {},
+            title: 'Post Title Four',
+            date: '2021-11-03',
+            excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: '/images/post-4.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -98,56 +111,79 @@ const args = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-2']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-12']
         },
         actions: {
-            justifyContent: 'center'
+            justifyContent: 'center',
+            margin: ['mt-12', 'mb-0']
         }
     }
 };
 
 export const Primary = Template.bind({});
 Primary.storyName = 'Featured Posts, Three Column Grid';
-Primary.args = args;
-
-export const FeaturedPostsTwoCol = Template.bind({});
-FeaturedPostsTwoCol.storyName = 'Featured Posts, Two Column Grid';
-FeaturedPostsTwoCol.args = {
+Primary.args = {
     ...args,
-    variant: 'variant-b',
-    styles: {
-        self: {
-            height: 'auto',
-            width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+    posts: [
+        {
+            __metadata: {},
+            title: 'Post Title One',
+            date: '2021-06-28',
+            excerpt: 'Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: '/images/post-1.jpeg',
+                altText: 'Post Image'
+            },
+            markdown_content:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ea mala virtuti magnitudine obruebantur. Duo Reges: constructio interrete. An hoc usque quaque, aliter in vita? Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Itaque hoc frequenter dici solet a vobis, non intellegere nos, quam dicat Epicurus voluptatem. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret.\n\n## Sed Ille, UT Dixi, Vitiose\n\nUtrum igitur tibi litteram videor an totas paginas commovere? Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Ne in odium veniam, si amicum destitero tueri. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Quid ergo aliud intellegetur nisi uti ne quae pars naturae neglegatur? Quis istud, quaeso, nesciebat? Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam aut expetendam. Et ille ridens: Video, inquit, quid agas; In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.\n\n'
         },
-        title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left'
+        {
+            __metadata: {},
+            title: 'Post Title Two',
+            date: '2021-07-01',
+            excerpt: 'otius inflammat, ut coercendi magis quam dedocendi esse videantur.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: '/images/post-2.jpeg',
+                altText: 'Post Image'
+            },
+            markdown_content:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ea mala virtuti magnitudine obruebantur. Duo Reges: constructio interrete. An hoc usque quaque, aliter in vita? Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Itaque hoc frequenter dici solet a vobis, non intellegere nos, quam dicat Epicurus voluptatem. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret.\n\n## Sed Ille, UT Dixi, Vitiose\n\nUtrum igitur tibi litteram videor an totas paginas commovere? Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Ne in odium veniam, si amicum destitero tueri. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Quid ergo aliud intellegetur nisi uti ne quae pars naturae neglegatur? Quis istud, quaeso, nesciebat? Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam aut expetendam. Et ille ridens: Video, inquit, quid agas; In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.\n\n'
         },
-        subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left'
-        },
-        actions: {
-            justifyContent: 'flex-start'
+        {
+            __metadata: {},
+            title: 'Post Title Three',
+            date: '2021-07-03',
+            excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: '/images/post-3.jpeg',
+                altText: 'Post Image'
+            },
+            markdown_content:
+                'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ea mala virtuti magnitudine obruebantur. Duo Reges: constructio interrete. An hoc usque quaque, aliter in vita? Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Itaque hoc frequenter dici solet a vobis, non intellegere nos, quam dicat Epicurus voluptatem. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret.\n\n## Sed Ille, UT Dixi, Vitiose\n\nUtrum igitur tibi litteram videor an totas paginas commovere? Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Ne in odium veniam, si amicum destitero tueri. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Quid ergo aliud intellegetur nisi uti ne quae pars naturae neglegatur? Quis istud, quaeso, nesciebat? Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam aut expetendam. Et ille ridens: Video, inquit, quid agas; In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.\n\n'
         }
-    }
+    ]
 };
 
-export const FeaturedPostsList = Template.bind({});
-FeaturedPostsList.storyName = 'Featured Posts List';
-FeaturedPostsList.args = {
+export const FeaturedPostsMixed = Template.bind({});
+FeaturedPostsMixed.storyName = 'Featured Posts, Three Column Grid With First Full-width Post';
+FeaturedPostsMixed.args = {
+    ...args,
+    variant: 'variant-b'
+};
+
+export const FeaturedPostsMixedAlt = Template.bind({});
+FeaturedPostsMixedAlt.storyName = 'Featured Posts, Two Column Mixed Width Grid';
+FeaturedPostsMixedAlt.args = {
     ...args,
     variant: 'variant-c'
 };

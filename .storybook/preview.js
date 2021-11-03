@@ -18,6 +18,7 @@ export const parameters = {
                     'FeaturedPeopleSection',
                     'FeaturedPostsSection',
                     'HeroSection',
+                    'PostFeedSection',
                     'QuoteSection',
                     'TestimonialsSection',
                     'TextSection'

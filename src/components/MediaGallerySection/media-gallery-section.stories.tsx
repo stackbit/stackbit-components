@@ -12,30 +12,31 @@ export default {
 
 const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...args} />;
 
-const args = {
-    type: 'MediaGallerySection',
+const args: MediaGallerySectionProps = {
+    annotationPrefix: 'sections.1',
     elementId: '',
-    width: 'full',
+    showCaption: true,
+    enableHover: true,
     images: [
         {
-            type: 'ImageBlock',
-            url: 'https://splendid-petunia-99a9e.stackbit.app/images/Frame%201484.svg',
-            altText: 'Apple Logo'
+            url: 'https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5735f40da7ea4353698df276%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D259%26cropX2%3D607%26cropY1%3D19%26cropY2%3D367',
+            altText: 'Michelle Obama',
+            caption: 'Former first lady Michelle Obama'
         },
         {
-            type: 'ImageBlock',
-            url: 'https://splendid-petunia-99a9e.stackbit.app/images/Frame%201485.svg',
-            altText: 'Google Pixel'
+            url: 'https://www.biography.com/.image/t_share/MTE4MDAzNDEwNzg5ODI4MTEw/barack-obama-12782369-1-402.jpg',
+            altText: 'Barak Obama',
+            caption: 'President Barak Obama'
         },
         {
-            type: 'ImageBlock',
-            url: 'https://splendid-petunia-99a9e.stackbit.app/images/Frame%201486.svg',
-            altText: 'Xbox Logo'
+            url: 'https://s.abcnews.com/images/GMA/jill-biden-colbert-ht-ps-201218_1608300587346_hpMain_4x3_992.jpg',
+            altText: 'Jill Biden',
+            caption: 'First Lady Dr. Jill Biden'
         },
         {
-            type: 'ImageBlock',
-            url: 'https://splendid-petunia-99a9e.stackbit.app/images/Frame%201487.svg',
-            altText: 'PlayStation Logo'
+            url: 'https://www.whitehouse.gov/wp-content/uploads/2021/04/P20210303AS-1901-cropped.jpg',
+            altText: 'Joe Biden',
+            caption: 'President Joe Biden'
         }
     ],
     styles: {

@@ -11,10 +11,13 @@ type BaseSectionComponentProps = {
 type Image = {
     url: string;
     altText: string;
+    caption: string;
 };
 
 export type MediaGallerySectionProps = BaseSectionComponentProps & {
     images?: Image[];
+    showCaption: boolean;
+    enableHover: boolean;
     styles?: any;
 };
 
@@ -54,16 +57,20 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
     );
 }
 
-function LogoImage({ image, index }: { image: Image; index: number }) {
+function LogoImage({ image, enableHover }: { image: Image; enableHover: boolean }) {
+    if (!image) {
+        return null;
+    }
+
     return (
-        <article data-sb-field-path={`.${index}`}>
-            {image && (
-                <div className="h-0 w-full pt-1/1 relative items-center" data-sb-field-path=".image">
-                    <ImageBlock {...image} className="absolute left-0 h-full object-contain top-0 w-full" />
-                </div>
-            )}
-            {/* TODO: caption */}
-        </article>
+        <div className="h-0 w-full pt-1/1 relative items-center overflow-hidden">
+            <ImageBlock
+                {...image}
+                className={classNames('absolute', 'left-0', 'h-full', 'object-cover', 'top-0', 'w-full', 'transition-transform', {
+                    'hover:scale-105': enableHover
+                })}
+            />
+        </div>
     );
 }
 
@@ -72,10 +79,22 @@ function MediaGalleryImages(props: MediaGallerySectionProps) {
     if (images.length === 0) {
         return null;
     }
+
     return (
-        <div className={classNames('grid', 'grid-cols-4')} data-sb-field-path=".logos">
+        <div
+            className={classNames('grid')}
+            data-sb-field-path=".images"
+            style={{
+                gridTemplateColumns: `repeat(${images.length}, minmax(0, 1fr))`
+            }}
+        >
             {images.map((image, index) => (
-                <LogoImage image={image} key={`image-${index}`} index={index} />
+                <div key={`image-${index}`} data-sb-field-path={`.${index}`} className="relative p-2">
+                    <LogoImage image={image} enableHover={props.enableHover} />
+                    {props.showCaption ? (
+                        <div className="absolute left-4 bottom-4 text-white text-xs text-left leading-4 pointer-events-none">{image.caption}</div>
+                    ) : null}
+                </div>
             ))}
         </div>
     );

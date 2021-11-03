@@ -49,11 +49,10 @@ fields:
     label: Logo
     models: [ImageBlock]
     default:
-      default:
       type: ImageBlock
-      url: "images/logo.svg"
-      altText: "Your logo image"
-      caption: ""
+      url: 'images/logo.svg'
+      altText: 'Your logo image'
+      caption: ''
   - type: string
     name: title
     label: Title
@@ -67,10 +66,10 @@ fields:
     label: Contacts
     models: [ContactBlock]
     default:
-      phoneNumber: "850-123-5021"
-      phoneAltText: "Call me"
-      email: "john@doe.com"
-      emailAltText: "Email me"
+      phoneNumber: '850-123-5021'
+      phoneAltText: 'Call me'
+      email: 'john@doe.com'
+      emailAltText: 'Email me'
   - type: markdown
     name: copyrightText
     label: Copyright text
@@ -102,14 +101,14 @@ fields:
     default:
       - type: facebook
         icon: facebook
-        label: ""
+        label: ''
         altText: facebook
         url: /
         elementId: false
         showIcon: true
       - type: twitter
         icon: twitter
-        label: ""
+        label: ''
         altText: twitter
         url: /
         elementId: false

@@ -26,6 +26,7 @@ const args: MediaGallerySectionProps = {
     annotationPrefix: 'sections.1',
     elementId: '',
     spacing: 1,
+    imageSizePx: 100,
     showCaption: true,
     enableHover: true,
     colors: 'colors-a',

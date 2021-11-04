@@ -11,6 +11,11 @@ export default {
             defaultValue: 'colors-a',
             control: { type: 'select' }
         },
+        backgroundWidth: {
+            options: ['full', 'inset'],
+            defaultValue: 'full',
+            control: { type: 'select' }
+        },
         elementId: {}
     }
 };
@@ -23,6 +28,7 @@ const args: MediaGallerySectionProps = {
     showCaption: true,
     enableHover: true,
     colors: 'colors-a',
+    backgroundWidth: 'full',
     images: [
         {
             url: 'https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5735f40da7ea4353698df276%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D259%26cropX2%3D607%26cropY1%3D19%26cropY2%3D367',

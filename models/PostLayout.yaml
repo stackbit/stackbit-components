@@ -10,11 +10,26 @@ fields:
   - type: date
     name: date
     label: Date
+    required: true
   - type: reference
     name: author
     label: Author
     models:
       - Person
+  - type: list
+    name: categories
+    label: Categories
+    items:
+      type: reference
+      models:
+        - PostCategory
+  - type: list
+    name: tags
+    label: Tags
+    items:
+      type: reference
+      models:
+        - PostTag
   - type: string
     name: excerpt
     label: Excerpt

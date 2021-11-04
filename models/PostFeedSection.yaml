@@ -47,10 +47,25 @@ fields:
         label: View all
         url: '/'
         style: primary
+  - type: reference
+    name: author
+    label: Filter posts by author
+    models:
+      - Person
+  - type: reference
+    name: category
+    label: Filter posts by category
+    models:
+      - PostCategory
+  - type: reference
+    name: tag
+    label: Filter posts by tag
+    models:
+      - PostTag
   - type: boolean
     name: showRecent
     label: Show recent posts only
-    description: Show the specified number of recent posts
+    description: Show only the specified number of recent posts
     default: false
   - type: number
     name: recentCount

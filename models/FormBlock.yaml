@@ -25,6 +25,7 @@ fields:
     group: settings
     label: Element ID
     description: The unique ID used for id and name attributes, must not contain whitespace
+    required: true
   - type: string
     name: action
     group: settings

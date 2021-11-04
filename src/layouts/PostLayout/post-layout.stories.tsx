@@ -40,6 +40,22 @@ Primary.args = {
                 altText: 'Photo of Desmond Eagle'
             }
         },
+        categories: [
+            {
+                title: 'Guides & Tutorials',
+                id: 'guides-tutorials'
+            }
+        ],
+        tags: [
+            {
+                title: 'Jamstack',
+                id: 'jamstack'
+            },
+            {
+                title: 'React',
+                id: 'react'
+            }
+        ],
         excerpt:
             'Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio.',
         featuredImage: {

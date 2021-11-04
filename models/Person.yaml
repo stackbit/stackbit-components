@@ -6,6 +6,7 @@ fields:
     name: firstName
     label: First name
     default: Name
+    required: true
   - type: string
     name: lastName
     label: Last name
@@ -17,7 +18,7 @@ fields:
   - type: markdown
     name: bio
     label: Bio
-    default: With over 10 years in both public and private sectors, Johnna has experience in management consultation, team building, professional development, strategic implementation, and company collaboration.
+    default: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam libero nunc, finibus a mattis nec, mollis ac nibh. Proin dui lectus, rhoncus in tortor ut, feugiat bibendum tortor.
   - type: model
     name: image
     label: Image
@@ -26,6 +27,12 @@ fields:
       url: /images/dianne-ameter.jpg
       altText: Role at Company
   - type: string
+    name: link
+    label: Link
+    description: The link to the author page, e.g. "/blog/author/name-surname"
+  - type: string
     name: id
     label: ID
     default: name-surname
+    description: A unique identifier used when filtering posts, e.g. "name-surname"
+    required: true

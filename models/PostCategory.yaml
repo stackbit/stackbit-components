@@ -1,0 +1,19 @@
+name: PostCategory
+label: Category
+labelField: title
+fields:
+  - type: string
+    name: title
+    label: Title
+    default: Category title
+    required: true
+  - type: string
+    name: link
+    label: Link
+    description: The link to the category page, e.g. "/blog/category/category-title"
+  - type: string
+    name: id
+    label: ID
+    default: category-title
+    description: A unique identifier used when filtering posts, e.g. "category-title"
+    required: true

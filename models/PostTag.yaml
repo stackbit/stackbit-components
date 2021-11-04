@@ -1,0 +1,19 @@
+name: PostTag
+label: Tag
+labelField: title
+fields:
+  - type: string
+    name: title
+    label: Title
+    default: Tag title
+    required: true
+  - type: string
+    name: link
+    label: Link
+    description: The link to the tag page, e.g. "/blog/tag/tag-title"
+  - type: string
+    name: id
+    label: ID
+    default: tag-title
+    description: A unique identifier used when filtering posts, e.g. "tag-title"
+    required: true

@@ -6,6 +6,8 @@ import ImageBlock from '../ImageBlock';
 type BaseSectionComponentProps = {
     annotationPrefix: string;
     elementId: string;
+    colors: string;
+    styles?: any;
 };
 
 type Image = {
@@ -18,11 +20,11 @@ export type MediaGallerySectionProps = BaseSectionComponentProps & {
     images?: Image[];
     showCaption: boolean;
     enableHover: boolean;
-    styles?: any;
 };
 
 export default function MediaGallerySection(props: MediaGallerySectionProps) {
     const sectionStyles = props.styles?.self || {};
+    const colors = props.colors || 'colors-a';
     return (
         <div
             id={props.elementId}
@@ -30,6 +32,7 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
                 'sb-component',
                 'sb-component-section',
                 'sb-component-media-gallery-section',
+                colors,
                 'mt-6',
                 'px-4',
                 'sm:px-8',
@@ -91,9 +94,7 @@ function MediaGalleryImages(props: MediaGallerySectionProps) {
             {images.map((image, index) => (
                 <div key={`image-${index}`} data-sb-field-path={`.${index}`} className="relative p-2">
                     <LogoImage image={image} enableHover={props.enableHover} />
-                    {props.showCaption ? (
-                        <div className="absolute left-4 bottom-4 text-white text-xs text-left leading-4 pointer-events-none">{image.caption}</div>
-                    ) : null}
+                    {props.showCaption ? <div className="absolute left-4 bottom-4 text-xs text-left leading-4 pointer-events-none">{image.caption}</div> : null}
                 </div>
             ))}
         </div>

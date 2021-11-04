@@ -49,7 +49,7 @@ fields:
     group: settings
     label: Element ID
     description: The unique ID used for id and name attributes, must not contain whitespace
-    default: "contact-form"
+    default: 'contact-form'
   - type: string
     name: action
     group: settings
@@ -58,5 +58,5 @@ fields:
   - type: string
     name: destination
     label: Destination (email to redirect responses)
-    destination: ''
+    default: ''
     group: settings

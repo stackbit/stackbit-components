@@ -1,14 +1,12 @@
 name: PostLayout
 label: Post
 layout: PostLayout
-fieldGroups:
-  - name: seo
-    label: SEO
 fields:
   - type: string
     name: title
     label: Title
     default: Post Title
+    required: true
   - type: date
     name: date
     label: Date
@@ -37,8 +35,3 @@ fields:
       type: model
       groups:
         - sectionComponent
-  - type: model
-    name: seo
-    group: seo
-    models:
-      - StackbitPageMeta

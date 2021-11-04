@@ -6,7 +6,7 @@ import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-cl
 import getPageUrlPath from '../../utils/get-page-url-path';
 import Link from '../../utils/link';
 
-export default function FeaturedPostsSection(props) {
+export default function PostFeedSection(props) {
     const colors = props.colors || 'colors-a';
     const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
@@ -18,7 +18,7 @@ export default function FeaturedPostsSection(props) {
                 'sb-component',
                 'sb-component-section',
                 backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
-                'sb-component-featured-posts-section',
+                'sb-component-latest-posts-section',
                 colors,
                 'px-4',
                 'sm:px-8',
@@ -39,16 +39,16 @@ export default function FeaturedPostsSection(props) {
                 )}
             >
                 <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
-                    {featuredPostsHeader(props)}
-                    {featuredPostsVariants(props)}
-                    {featuredPostsActions(props)}
+                    {PostFeedHeader(props)}
+                    {PostFeedVariants(props)}
+                    {PostFeedActions(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function featuredPostsHeader(props) {
+function PostFeedHeader(props) {
     if (!props.title && !props.subtitle) {
         return null;
     }
@@ -69,7 +69,7 @@ function featuredPostsHeader(props) {
     );
 }
 
-function featuredPostsActions(props) {
+function PostFeedActions(props) {
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
@@ -88,15 +88,13 @@ function featuredPostsActions(props) {
     );
 }
 
-function featuredPostsVariants(props) {
+function PostFeedVariants(props) {
     const variant = props.variant || 'variant-a';
     switch (variant) {
         case 'variant-a':
             return postsVariantA(props);
         case 'variant-b':
             return postsVariantB(props);
-        case 'variant-c':
-            return postsVariantC(props);
     }
     return null;
 }
@@ -154,113 +152,32 @@ function postsVariantB(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
+        <div>
             {posts.map((post, index) => {
-                const isFullWidth = index % 4 === 0;
                 const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
                 return (
-                    <article
-                        key={index}
-                        className={classNames('sb-card', {
-                            'md:col-span-3 md:flex': isFullWidth
-                        })}
-                        data-sb-object-id={post.__metadata.id}
-                    >
+                    <article key={index} className="sb-card mb-8 md:flex" data-sb-object-id={post.__metadata.id}>
                         {post.featuredImage && (
-                            <div
-                                className={classNames({
-                                    'md:w-2/5': isFullWidth
-                                })}
-                            >
+                            <div className="md:w-2/5">
                                 <Link
                                     href={getPageUrlPath(post)}
-                                    className={classNames('block', 'h-0', 'w-full', 'pt-9/16', 'relative', {
-                                        'md:h-60 md:min-h-full md:pt-0 lg:h-72': isFullWidth
-                                    })}
+                                    className="block h-0 w-full pt-9/16 relative md:h-60 md:min-h-full md:pt-0 lg:h-72"
                                     data-sb-field-path="featuredImage"
                                 >
                                     <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
                                 </Link>
                             </div>
                         )}
-                        <div
-                            className={classNames('px-4 pt-6 pb-8 sm:px-6', {
-                                'md:w-3/5 md:pt-8 md:pb-10': isFullWidth
-                            })}
-                        >
+                        <div className="px-4 pt-6 pb-8 sm:px-6 md:w-3/5 md:pt-8 md:pb-10">
                             {props.title ? (
-                                <h3
-                                    className={classNames('text-xl', 'sm:text-2xl', 'mb-1', {
-                                        'md:text-3xl': isFullWidth
-                                    })}
-                                >
+                                <h3 className="text-xl sm:text-2xl md:text-3xl mb-1">
                                     <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                         {post.title}
                                     </Link>
                                 </h3>
                             ) : (
-                                <h2
-                                    className={classNames('text-xl', 'sm:text-2xl', 'mb-1', {
-                                        'md:text-3xl': isFullWidth
-                                    })}
-                                >
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                            )}
-                            <div className="text-sm mb-3">
-                                <time dateTime={dateTimeAttr} data-sb-field-path="date">
-                                    {formattedDate}
-                                </time>
-                            </div>
-                            {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
-                        </div>
-                    </article>
-                );
-            })}
-        </div>
-    );
-}
-
-function postsVariantC(props) {
-    const posts = props.posts || [];
-    if (posts.length === 0) {
-        return null;
-    }
-    const ImageBlock = getComponent('ImageBlock');
-    return (
-        <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
-            {posts.map((post, index) => {
-                const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
-                const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
-                return (
-                    <article
-                        key={index}
-                        className={classNames('sb-card', {
-                            'md:col-span-2': index % 4 === 0 || (index + 1) % 4 === 0
-                        })}
-                        data-sb-object-id={post.__metadata.id}
-                    >
-                        {post.featuredImage && (
-                            <Link
-                                href={getPageUrlPath(post)}
-                                className="block h-0 w-full pt-9/16 relative md:pt-0 md:h-60 lg:h-72"
-                                data-sb-field-path="featuredImage"
-                            >
-                                <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                            </Link>
-                        )}
-                        <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                            {props.title ? (
-                                <h3 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                            ) : (
-                                <h2 className="text-xl sm:text-2xl mb-1">
+                                <h2 className="text-xl sm:text-2xl md:text-3xl mb-1">
                                     <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                         {post.title}
                                     </Link>

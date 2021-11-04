@@ -3,7 +3,7 @@ const path = require('path');
 const childProcess = require('child_process');
 const fse = require('fs-extra');
 const args = process.argv.slice(2);
-const { generateComponentsMapJSON, generateComponentsMapJS } = require('./generate-components-map');
+const { generateComponentsMapJSON, generateComponentsMapJS, generateComponentsMapTS } = require('./generate-components-map');
 
 console.log('Building components library');
 
@@ -16,8 +16,9 @@ if (args.includes('--clean')) {
 }
 
 generateComponentsMapJSON();
-generateComponentsMapJS();
 runTSC();
+generateComponentsMapJS();
+generateComponentsMapTS();
 
 if (process.env.SOURCEMAP_COMMAND) {
     console.log('⏳ running stackbit sourcemap generation...');

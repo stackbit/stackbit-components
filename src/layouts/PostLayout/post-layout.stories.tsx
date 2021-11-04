@@ -49,54 +49,9 @@ Primary.args = {
         },
         markdown_content:
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ea mala virtuti magnitudine obruebantur. **Duo Reges: constructio interrete.** An hoc usque quaque, aliter in vita? Gracchum [patrem non beatiorem fuisse](https://www.stackbit.com/) quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio Cn. *Illud non continuo, ut aeque incontentae.* Atqui pugnantibus et contrariis studiis consiliisque semper utens nihil quieti videre, nihil tranquilli potest. Itaque hoc frequenter dici solet a vobis, non intellegere nos, quam dicat Epicurus voluptatem. Sin kakan malitiam dixisses, ad aliud nos unum certum vitium consuetudo Latina traduceret.\n\n## Sed Ille, UT Dixi, Vitiose\n\nUtrum igitur tibi litteram videor an totas paginas commovere? Potius inflammat, ut coercendi magis quam dedocendi esse videantur. Ne in odium veniam, si amicum destitero tueri. Ne amores quidem sanctos a sapiente alienos esse arbitrantur. Quid ergo aliud intellegetur nisi uti ne quae pars naturae neglegatur? Quis istud, quaeso, nesciebat? Primum divisit ineleganter; Hoc unum Aristo tenuit: `praeter vitia atque virtutes negavit rem esse ullam aut fugiendam aut expetendam`. Et ille ridens: Video, inquit, quid agas; In his igitur partibus duabus nihil erat, quod Zeno commutare gestiret.\n\n',
-        bottomSections: [FeaturedPostsSectionStories.Primary.args, CtaSectionStories.Primary.args],
-        seo: {
-            title: 'Post Title',
-            description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-            extra: [
-                {
-                    name: 'og:type',
-                    value: 'website',
-                    keyName: 'property'
-                },
-                {
-                    name: 'og:title',
-                    value: 'Post Title',
-                    keyName: 'property'
-                },
-                {
-                    name: 'og:description',
-                    value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit',
-                    keyName: 'property'
-                },
-                {
-                    name: 'og:image',
-                    value: '/images/post-1.jpeg',
-                    keyName: 'property',
-                    relativeUrl: true
-                },
-                {
-                    name: 'twitter:card',
-                    value: 'summary_large_image'
-                },
-                {
-                    name: 'twitter:title',
-                    value: 'Post Title'
-                },
-                {
-                    name: 'twitter:description',
-                    value: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit'
-                },
-                {
-                    name: 'twitter:image',
-                    value: '/images/post-1.jpeg',
-                    relativeUrl: true
-                }
-            ]
-        }
+        bottomSections: [FeaturedPostsSectionStories.Primary.args, CtaSectionStories.Primary.args]
     },
     site: {
-        domain: 'https://mysite.com/',
         header: HeaderStories.Primary.args,
         footer: FooterStories.Primary.args
     }

@@ -7,6 +7,7 @@ import * as CtaSectionStories from '../../components/CtaSection/cta-section.stor
 import * as FeaturedPeopleSectionStories from '../../components/FeaturedPeopleSection/featured-people-section.stories';
 import * as FeaturedPostsSectionStories from '../../components/FeaturedPostsSection/featured-posts-section.stories';
 import * as HeroSectionStories from '../../components/HeroSection/hero-section.stories';
+import * as PostFeedSectionStories from '../../components/PostFeedSection/post-feed-section.stories';
 import * as QuoteSectionStories from '../../components/QuoteSection/quote-section.stories';
 import * as TestimonialsSectionStories from '../../components/TestimonialsSection/testimonials-section.stories';
 import * as TextSectionStories from '../../components/TextSection/text-section.stories';
@@ -40,57 +41,13 @@ Primary.args = {
             FeaturedPeopleSectionStories.Primary.args,
             FeaturedPostsSectionStories.Primary.args,
             HeroSectionStories.Primary.args,
+            PostFeedSectionStories.Primary.args,
             QuoteSectionStories.Primary.args,
             TextSectionStories.Primary.args,
             TestimonialsSectionStories.Primary.args
-        ],
-        seo: {
-            title: 'Stackbit Starter Theme',
-            description: 'The preview of the Starter theme',
-            extra: [
-                {
-                    name: 'og:type',
-                    value: 'website',
-                    keyName: 'property'
-                },
-                {
-                    name: 'og:title',
-                    value: 'Stackbit Starter Theme',
-                    keyName: 'property'
-                },
-                {
-                    name: 'og:description',
-                    value: 'The preview of the Starter theme',
-                    keyName: 'property'
-                },
-                {
-                    name: 'og:image',
-                    value: '/images/hero.png',
-                    keyName: 'property',
-                    relativeUrl: true
-                },
-                {
-                    name: 'twitter:card',
-                    value: 'summary_large_image'
-                },
-                {
-                    name: 'twitter:title',
-                    value: 'Stackbit Starter Theme'
-                },
-                {
-                    name: 'twitter:description',
-                    value: 'The preview of the Starter theme'
-                },
-                {
-                    name: 'twitter:image',
-                    value: '/images/hero.png',
-                    relativeUrl: true
-                }
-            ]
-        }
+        ]
     },
     site: {
-        domain: 'https://mysite.com/',
         header: HeaderStories.Primary.args,
         footer: FooterStories.Primary.args
     }

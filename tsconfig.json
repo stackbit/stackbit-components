@@ -27,5 +27,5 @@
 		}
     },
     "include": ["src/**/*.ts", "src/**/*.tsx"],
-    "exclude": ["node_modules", "src/**/*.stories.*", "src/storybook-addons/**/*"]
+    "exclude": ["node_modules", "src/**/*.stories.*", "src/storybook-addons/**/*", "src/components-map.ts"]
 }

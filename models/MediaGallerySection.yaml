@@ -1,7 +1,6 @@
 type: object
 name: MediaGallerySection
 label: Media gallery section
-labelField: title
 extends:
   - Section
 groups:
@@ -16,13 +15,17 @@ fields:
     name: images
     label: Images
     items:
-      type: reference
-      models:
-        - Media
-    default:
-      - content/data/media/michelle-obama.json
-      - content/data/media/barak-obama.json
-      - content/data/media/justin-bieber.json
+      type: model
+      models: [ImageBlock]
+      # TODO - default
+  - type: number
+    name: spacing
+    label: Spacing between images
+    default: 1
+  - type: boolean
+    name: showCaption
+    label: Show caption
+    default: false
   - type: style
     name: styles
     styles:

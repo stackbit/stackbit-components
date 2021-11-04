@@ -64,6 +64,11 @@
         "modelName": "MediaGallerySection",
         "isDynamic": true
     },
+    "PostFeedSection": {
+        "path": "components/PostFeedSection",
+        "modelName": "PostFeedSection",
+        "isDynamic": true
+    },
     "QuoteSection": {
         "path": "components/QuoteSection",
         "modelName": "QuoteSection",

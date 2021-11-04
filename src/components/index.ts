@@ -11,6 +11,7 @@ import Header from './Header';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
 import MediaGallerySection from './MediaGallerySection';
+import PostFeedSection from './PostFeedSection';
 import QuoteSection from './QuoteSection';
 import Social from './Social';
 import SelectFormControl from './SelectFormControl';
@@ -34,6 +35,7 @@ export {
     HeroSection,
     ImageBlock,
     MediaGallerySection,
+    PostFeedSection,
     QuoteSection,
     Social,
     SelectFormControl,

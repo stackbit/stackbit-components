@@ -159,11 +159,6 @@
         @apply inline-flex items-center justify-center no-underline transition duration-200 ease-in hover:opacity-80;
     }
 
-    /* Cards */
-    a.sb-card {
-        @apply transition transform duration-300 hover:-translate-y-1;
-    }
-
     /* Dividers */
     .sb-divider {
         @apply flex items-center h-4 before:flex-grow before:h-px;
@@ -221,7 +216,7 @@
             @apply before:bg-neutral;
         }
         .sb-card {
-            @apply bg-secondary;
+            @apply bg-complementary;
         }
     }
     .colors-b {
@@ -249,7 +244,7 @@
             @apply before:bg-primary;
         }
         .sb-card {
-            @apply bg-secondary;
+            @apply bg-complementary;
         }
     }
     .colors-c {
@@ -280,7 +275,7 @@
             @apply before:bg-white;
         }
         .sb-card {
-            @apply bg-neutral;
+            @apply bg-white bg-opacity-5;
         }
     }
     .colors-d {
@@ -311,7 +306,7 @@
             @apply before:bg-primary;
         }
         .sb-card {
-            @apply bg-neutral;
+            @apply bg-white bg-opacity-5;
         }
     }
     .colors-e {
@@ -367,7 +362,7 @@
             @apply before:bg-neutral;
         }
         .sb-card {
-            @apply bg-secondary;
+            @apply bg-white;
         }
     }
     .colors-g {
@@ -395,7 +390,7 @@
             @apply before:bg-primary;
         }
         .sb-card {
-            @apply bg-secondary;
+            @apply bg-white;
         }
     }
     .colors-h {
@@ -423,7 +418,7 @@
             @apply before:bg-neutral;
         }
         .sb-card {
-            @apply bg-primary;
+            @apply bg-white;
         }
     }
     .colors-i {
@@ -451,7 +446,7 @@
             @apply before:bg-neutral;
         }
         .sb-card {
-            @apply bg-secondary;
+            @apply bg-white;
         }
     }
 }

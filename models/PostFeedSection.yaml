@@ -1,6 +1,6 @@
 type: object
-name: FeaturedPostsSection
-label: Featured posts section
+name: PostFeedSection
+label: Post feed section
 labelField: title
 extends:
   - Section
@@ -19,10 +19,8 @@ fields:
     options:
       - label: Three columns grid
         value: variant-a
-      - label: Three column mixed grid
+      - label: List
         value: variant-b
-      - label: Two column mixed grid
-        value: variant-c
     default: variant-a
   - name: colors
     default: colors-h
@@ -31,11 +29,11 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Featured
+    default: Latest news
   - type: string
     name: subtitle
     label: Subtitle
-    default: Featured blog posts section example
+    default: Latest blog posts section example
   - type: list
     name: actions
     label: Actions
@@ -49,17 +47,15 @@ fields:
         label: View all
         url: '/'
         style: primary
-  - type: list
-    name: posts
-    label: Posts
-    items:
-      type: reference
-      models:
-        - PostLayout
-    default:
-      - content/pages/blog/post-three.md
-      - content/pages/blog/post-two.md
-      - content/pages/blog/post-one.md
+  - type: boolean
+    name: showRecent
+    label: Show recent posts only
+    description: Show the specified number of recent posts
+    default: false
+  - type: number
+    name: recentCount
+    label: Number of recent posts to show
+    default: 6
   - type: style
     name: styles
     styles:

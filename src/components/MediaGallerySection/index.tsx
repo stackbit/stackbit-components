@@ -19,6 +19,7 @@ type Image = {
 
 export type MediaGallerySectionProps = BaseSectionComponentProps & {
     images?: Image[];
+    spacing?: number;
     showCaption: boolean;
     enableHover: boolean;
 };
@@ -48,12 +49,12 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
                 className={classNames(
                     'flex',
                     'flex-col',
+                    'items-center',
+                    'justify-center',
                     'max-w-screen-2xl',
                     'mx-auto',
                     sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.padding,
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
+                    sectionStyles.padding
                 )}
             >
                 <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
@@ -70,14 +71,12 @@ function LogoImage({ image, enableHover }: { image: Image; enableHover: boolean 
     }
 
     return (
-        <div className="h-0 w-full pt-1/1 relative items-center overflow-hidden">
-            <ImageBlock
-                {...image}
-                className={classNames('absolute', 'left-0', 'h-full', 'object-cover', 'top-0', 'w-full', 'transition-transform', {
-                    'hover:scale-105': enableHover
-                })}
-            />
-        </div>
+        <ImageBlock
+            {...image}
+            className={classNames('media-gallery-image', 'absolute', 'left-0', 'top-0', 'h-full', 'w-full', 'object-cover', 'transition-transform', {
+                'hover:scale-105': enableHover
+            })}
+        />
     );
 }
 
@@ -89,16 +88,17 @@ function MediaGalleryImages(props: MediaGallerySectionProps) {
 
     return (
         <div
-            className={classNames('grid')}
+            className="grid place-items-center"
             data-sb-field-path=".images"
             style={{
-                gridTemplateColumns: `repeat(${images.length}, minmax(0, 1fr))`
+                gridTemplateColumns: `repeat(auto-fit, minmax(0, 1fr))`,
+                gap: props.spacing ? `${props.spacing}rem` : undefined
             }}
         >
             {images.map((image, index) => (
-                <div key={`image-${index}`} data-sb-field-path={`.${index}`} className="relative p-2">
+                <div key={`image-${index}`} data-sb-field-path={`.${index}`} className="relative h-0 w-full pt-1/1 relative items-center overflow-hidden">
                     <LogoImage image={image} enableHover={props.enableHover} />
-                    {props.showCaption ? <div className="absolute left-4 bottom-4 text-xs text-left leading-4 pointer-events-none">{image.caption}</div> : null}
+                    {props.showCaption ? <div className="absolute left-2 bottom-2 text-xs text-left pointer-events-none">{image.caption}</div> : null}
                 </div>
             ))}
         </div>

@@ -8,7 +8,7 @@ export default {
         type: { table: { disable: true } },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
-            defaultValue: 'colors-a',
+            defaultValue: 'colors-d',
             control: { type: 'select' }
         },
         backgroundWidth: {
@@ -25,6 +25,7 @@ const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...ar
 const args: MediaGallerySectionProps = {
     annotationPrefix: 'sections.1',
     elementId: '',
+    spacing: 1,
     showCaption: true,
     enableHover: true,
     colors: 'colors-a',
@@ -49,6 +50,11 @@ const args: MediaGallerySectionProps = {
             url: 'https://www.whitehouse.gov/wp-content/uploads/2021/04/P20210303AS-1901-cropped.jpg',
             altText: 'Joe Biden',
             caption: 'President Joe Biden'
+        },
+        {
+            url: 'https://www.whitehouse.gov/wp-content/uploads/2021/04/P20210303AS-1901-cropped.jpg',
+            altText: 'Joe Biden',
+            caption: 'President Joe Biden'
         }
     ],
     styles: {
@@ -64,5 +70,5 @@ const args: MediaGallerySectionProps = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Four images, four columns, captions disabled';
+Primary.storyName = 'Four images, four columns, captions enabled';
 Primary.args = args;

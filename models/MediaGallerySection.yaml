@@ -26,12 +26,16 @@ fields:
     name: showCaption
     label: Show caption
     default: false
+  - type: boolean
+    name: enableHover
+    label: Enable hover
+    default: true
   - type: style
     name: styles
     styles:
       self:
         height: ['auto', 'screen']
-        width: ['narrow', 'wide', 'full']
+        width: ['full', 'inset']
         margin: ['twt0:36', 'twb0:36']
         padding: ['twt0:36', 'twb0:36']
         alignItems: ['flex-start', 'flex-end', 'center']

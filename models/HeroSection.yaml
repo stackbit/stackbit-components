@@ -84,19 +84,19 @@ fields:
         borderColor:
           - value: 'border-primary'
             label: 'Primary color'
-            color: '#28aaff'
+            styleObjectColor: 'primary'
           - value: 'border-secondary'
             label: 'Secondary color'
-            color: '#dfe3e7'
+            styleObjectColor: 'secondary'
           - value: 'border-neutral'
             label: 'Neutral color'
-            color: '#282f36'
+            styleObjectColor: 'neutral'
           - value: 'border-complementary'
             label: 'Complementary color'
-            color: '#e9f6ff'
+            styleObjectColor: 'complementary'
           - value: 'border-complementary-alt'
             label: 'Complementary alt color'
-            color: '#fffde2'
+            styleObjectColor: 'complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']

@@ -5,36 +5,32 @@ import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-cl
 
 export default function TextSection(props) {
     const colors = props.colors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
-
+    const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
             id={props.elementId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
-                'component-text-section',
+                'sb-component-text-section',
                 colors,
-                'px-4',
-                'sm:px-8',
-                sectionStyles.margin
+                'flex',
+                'flex-col',
+                'justify-center',
+                sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                sectionStyles.margin,
+                sectionStyles.padding,
+                sectionStyles.borderColor,
+                sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
+                sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
             )}
+            style={{
+                borderWidth: `${sectionBorderWidth}px`
+            }}
             data-sb-field-path={props.annotationPrefix}
         >
-            <div
-                className={classNames(
-                    'flex',
-                    'flex-col',
-                    'max-w-screen-2xl',
-                    'mx-auto',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.padding,
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
-                )}
-            >
+            <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
                 <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>{textBody(props)}</div>
             </div>
         </div>
@@ -51,22 +47,14 @@ function textBody(props) {
                 </h2>
             )}
             {props.subtitle && (
-                <p
-                    className={classNames('text-xl', 'sm:text-2xl', props.title ? 'mt-2' : null, styles.subtitle ? mapStyles(styles.subtitle) : null)}
-                    data-sb-field-path=".subtitle"
-                >
+                <p className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames(
-                        'sb-markdown',
-                        'md:text-lg',
-                        styles.text ? mapStyles(styles.text) : null,
-                        props.title || props.subtitle ? 'mt-6' : null
-                    )}
+                    className={classNames('sb-markdown', 'md:text-lg', styles.text ? mapStyles(styles.text) : null)}
                     data-sb-field-path=".text"
                 >
                     {props.text}

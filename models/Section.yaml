@@ -32,18 +32,6 @@ fields:
       - label: Base foreground on complementary alt background
         value: colors-i
     default: colors-a
-  - type: enum
-    name: backgroundWidth
-    group: styles
-    controlType: button-group
-    label: Background width
-    description: The background width of the section
-    options:
-      - label: Inset
-        value: inset
-      - label: Full
-        value: full
-    default: full
   - type: string
     name: elementId
     group: settings

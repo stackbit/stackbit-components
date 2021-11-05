@@ -14,7 +14,7 @@ export default function ImageBlock(props) {
     return (
         <img
             id={cssId}
-            className={classNames('component', 'component-block', 'component-image-block', cssClasses)}
+            className={classNames('sb-component', 'sb-component-block', 'sb-component-image-block', cssClasses)}
             src={url}
             alt={altText || ''}
             title={caption}

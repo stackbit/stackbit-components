@@ -18,14 +18,6 @@
 }
 
 @layer components {
-    /* Sections */
-    .sb-component-section-inset,
-    .sb-component-footer-inset,
-    .sb-component-header-inset {
-        margin-left: 4vw;
-        margin-right: 4vw;
-    }
-
     /* Markdown block */
     .sb-markdown {
         line-height: 1.75;
@@ -151,7 +143,7 @@
 
     /* Buttons */
     .sb-component-button {
-        @apply border-2 font-medium inline-flex items-center justify-center no-underline px-5 py-2.5 text-center tracking-wider transition duration-200 ease-in hover:opacity-80;
+        @apply border-2 font-medium inline-flex items-center justify-center no-underline px-5 py-2.5 text-center transition duration-200 ease-in hover:opacity-80;
     }
 
     /* Links */

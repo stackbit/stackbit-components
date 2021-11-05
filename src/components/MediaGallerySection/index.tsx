@@ -139,7 +139,7 @@ function mapMaxWidthStyles(width) {
         case 'narrow':
             return 'max-w-screen-md';
         case 'wide':
-            return 'max-w-screen-xl';
+            return 'max-w-screen-lg';
         case 'full':
             return 'max-w-full';
     }

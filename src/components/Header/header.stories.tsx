@@ -19,11 +19,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -34,7 +29,6 @@ const args = {
     headerVariant: 'variant-a',
     primaryColors: 'colors-a',
     secondaryColors: 'colors-h',
-    backgroundWidth: 'full',
     title: 'Starter',
     isTitleVisible: true,
     logo: {
@@ -79,8 +73,8 @@ const args = {
     ],
     styles: {
         self: {
-            width: 'narrow',
-            padding: ['pt-5', 'pb-5']
+            width: 'full',
+            padding: ['pt-5', 'pb-5', 'pl-4', 'pr-4']
         }
     }
 };

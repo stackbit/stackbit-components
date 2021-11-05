@@ -11,6 +11,14 @@ fieldGroups:
   - name: settings
     label: Settings
 fields:
+  - type: string
+    name: title
+    label: Title
+    default: Some photos
+  - type: string
+    name: subtitle
+    label: Subtitle
+    default: Aren't they lovely photos?
   - type: list
     name: images
     label: Images
@@ -60,6 +68,14 @@ fields:
         padding: ['twt0:36', 'twb0:36']
         # TODO:
         height: ['auto', 'screen']
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+      subtitle:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
     default:
       self:
         width: full
@@ -67,3 +83,11 @@ fields:
         padding: ['pt-12', 'pb-12']
         # TODO:
         height: auto
+      title:
+        fontWeight: 700
+        fontStyle: normal
+        textAlign: center
+      subtitle:
+        fontWeight: 400
+        fontStyle: normal
+        textAlign: center

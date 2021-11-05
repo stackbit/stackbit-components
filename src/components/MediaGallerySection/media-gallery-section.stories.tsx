@@ -28,7 +28,8 @@ export default {
 const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...args} />;
 
 const args: MediaGallerySectionProps = {
-    annotationPrefix: 'sections.1',
+    title: 'Some photos',
+    subtitle: 'Subtitle for some photos',
     columns: 4,
     imageSizePx: 100,
     spacing: 1,
@@ -37,6 +38,7 @@ const args: MediaGallerySectionProps = {
     elementId: '',
     colors: 'colors-a',
     backgroundWidth: 'full',
+    annotationPrefix: 'sections.1',
     images: [
         {
             url: 'https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5735f40da7ea4353698df276%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D259%26cropX2%3D607%26cropY1%3D19%26cropY2%3D367',
@@ -72,6 +74,16 @@ const args: MediaGallerySectionProps = {
             padding: ['pt-12', 'pb-12'],
             alignItems: 'center',
             justifyContent: 'center'
+        },
+        title: {
+            fontWeight: 700,
+            fontStyle: 'normal',
+            textAlign: 'left'
+        },
+        subtitle: {
+            fontWeight: 400,
+            fontStyle: 'normal',
+            textAlign: 'left'
         }
     }
 };

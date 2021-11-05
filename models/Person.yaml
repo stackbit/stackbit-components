@@ -6,6 +6,7 @@ fields:
     name: firstName
     label: First name
     default: Name
+    required: true
   - type: string
     name: lastName
     label: Last name
@@ -29,3 +30,4 @@ fields:
     name: id
     label: ID
     default: name-surname
+    required: true

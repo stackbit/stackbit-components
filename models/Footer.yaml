@@ -2,6 +2,7 @@ type: object
 name: Footer
 label: Footer
 labelField: title
+readOnly: true
 fieldGroups:
   - name: styles
     label: Styles

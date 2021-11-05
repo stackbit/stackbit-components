@@ -2,6 +2,7 @@ type: object
 name: Header
 label: Header
 labelField: title
+readOnly: true
 fieldGroups:
   - name: styles
     label: Styles

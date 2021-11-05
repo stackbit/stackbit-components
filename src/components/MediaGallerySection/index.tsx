@@ -20,6 +20,7 @@ type Image = {
 export type MediaGallerySectionProps = BaseSectionComponentProps & {
     images?: Image[];
     spacing?: number;
+    columns?: number;
     imageSizePx?: number;
     showCaption: boolean;
     enableHover: boolean;
@@ -96,18 +97,18 @@ function MediaGalleryImages(props: MediaGallerySectionProps) {
         return null;
     }
 
+    const columns = props.columns || 4;
+    const numGaps = columns - 1; // 1 image, 0 gaps, 2 images, 1 gap, etc etc
     const spacing = props.spacing || 0;
-    const numImages = images.length;
-    const numGaps = images.length - 1;
-    // Give enough width for the desired image width, plus the gaps, and the grid will auto-resize (resizing the images along with it)
-    const widthString = `calc((${props.imageSizePx}px * ${numImages}) + (${spacing}rem * ${numGaps}))`; // TODO - this is better done through flex
+    // Give enough width for the desired image width * columns, plus the gaps, and the grid will auto-resize (resizing the images along with it)
+    const widthString = `calc((${props.imageSizePx}px * ${columns}) + (${spacing}rem * ${numGaps}))`; // TODO - this is probably better done through flex
 
     return (
         <div
             className="grid place-items-center"
             data-sb-field-path=".images"
             style={{
-                gridTemplateColumns: `repeat(auto-fit, minmax(0, 1fr))`,
+                gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
                 gap: props.spacing ? `${props.spacing}rem` : undefined,
                 width: props.imageSizePx ? widthString : '100%',
                 maxWidth: '100%'

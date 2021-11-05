@@ -11,6 +11,11 @@ export default {
             defaultValue: 'colors-d',
             control: { type: 'select' }
         },
+        columns: {
+            options: [1, 2, 3, 4, 5, 6],
+            defaultValue: 4,
+            control: { type: 'select' }
+        },
         backgroundWidth: {
             options: ['full', 'inset'],
             defaultValue: 'full',
@@ -24,11 +29,12 @@ const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...ar
 
 const args: MediaGallerySectionProps = {
     annotationPrefix: 'sections.1',
-    elementId: '',
-    spacing: 1,
+    columns: 4,
     imageSizePx: 100,
+    spacing: 1,
     showCaption: true,
     enableHover: true,
+    elementId: '',
     colors: 'colors-a',
     backgroundWidth: 'full',
     images: [

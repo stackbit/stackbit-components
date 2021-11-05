@@ -29,7 +29,7 @@ export type MediaGallerySectionProps = BaseSectionComponentProps & {
 export default function MediaGallerySection(props: MediaGallerySectionProps) {
     const sectionStyles = props.styles?.self || {};
     const colors = props.colors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full';
+    const backgroundWidth = props.backgroundWidth || 'full'; // Note that this is different from the style prop sectiomStyles.width
 
     return (
         <div

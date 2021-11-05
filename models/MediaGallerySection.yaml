@@ -55,17 +55,15 @@ fields:
     name: styles
     styles:
       self:
-        height: ['auto', 'screen']
-        width: ['full', 'inset']
+        width: ['narrow', 'wide', 'full']
         margin: ['twt0:36', 'twb0:36']
         padding: ['twt0:36', 'twb0:36']
-        alignItems: ['flex-start', 'flex-end', 'center']
-        justifyContent: ['flex-start', 'flex-end', 'center']
+        # TODO:
+        height: ['auto', 'screen']
     default:
       self:
-        height: auto
         width: full
         margin: ['mt-0', 'mb-0']
         padding: ['pt-12', 'pb-12']
-        alignItems: center
-        justifyContent: center
+        # TODO:
+        height: auto

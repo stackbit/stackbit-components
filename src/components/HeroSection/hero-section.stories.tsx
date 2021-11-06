@@ -112,6 +112,9 @@ const args = {
         text: {
             textAlign: 'left',
             margin: ['mt-0', 'mb-8']
+        },
+        actions: {
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -153,6 +156,9 @@ HeroImageBottom.args = {
         text: {
             textAlign: 'left',
             margin: ['mt-0', 'mb-8']
+        },
+        actions: {
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -207,6 +213,9 @@ HeroVideoLeft.args = {
         text: {
             textAlign: 'left',
             margin: ['mt-0', 'mb-8']
+        },
+        actions: {
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -269,6 +278,9 @@ HeroFormBottom.args = {
         text: {
             textAlign: 'center',
             margin: ['mt-0', 'mb-8']
+        },
+        actions: {
+            justifyContent: 'center'
         }
     }
 };
@@ -295,8 +307,8 @@ HeroTextOnly.args = {
             width: 'narrow',
             margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
-            alignItems: 'flex-start',
-            justifyContent: 'flex-end',
+            alignItems: 'center',
+            justifyContent: 'center',
             flexDirection: 'row',
             borderRadius: 'medium',
             borderWidth: 8,
@@ -306,18 +318,21 @@ HeroTextOnly.args = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left',
+            textAlign: 'center',
             margin: ['mt-0', 'mb-4']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left',
+            textAlign: 'center',
             margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'left',
+            textAlign: 'center',
             margin: ['mt-0', 'mb-8']
+        },
+        actions: {
+            justifyContent: 'center'
         }
     }
 };

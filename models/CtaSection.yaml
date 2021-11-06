@@ -80,6 +80,8 @@ fields:
       text:
         textAlign: ['left', 'center', 'right']
         margin: ['twy0:12']
+      actions:
+        justifyContent: ['flex-start', 'flex-end', 'center']
     default:
       self:
         height: auto
@@ -101,3 +103,5 @@ fields:
       text:
         textAlign: left
         margin: ['mt-0', 'mb-0']
+      actions:
+        justifyContent: 'flex-start'

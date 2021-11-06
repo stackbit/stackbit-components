@@ -73,6 +73,9 @@ const args = {
         text: {
             textAlign: 'left',
             margin: ['mt-0', 'mb-0']
+        },
+        actions: {
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -108,6 +111,9 @@ CtaActionsBottom.args = {
         text: {
             textAlign: 'center',
             margin: ['mt-0', 'mb-0']
+        },
+        actions: {
+            justifyContent: 'center'
         }
     }
 };

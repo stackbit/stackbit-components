@@ -10,18 +10,13 @@ export default {
             defaultValue: ''
         },
         variant: {
-            options: ['variant-a', 'variant-b', 'variant-c'],
+            options: ['variant-a', 'variant-b', 'variant-c', 'variant-d'],
             defaultValue: 'variant-a',
             control: { type: 'select' }
         },
         colors: {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
-            control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
             control: { type: 'select' }
         }
     }
@@ -34,7 +29,6 @@ const args = {
     elementId: '',
     variant: 'variant-a',
     colors: 'colors-f',
-    backgroundWidth: 'full',
     title: 'Featured Posts',
     subtitle: 'This is the Subtitle',
     actions: [
@@ -103,10 +97,13 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
@@ -121,14 +118,13 @@ const args = {
             margin: ['mt-0', 'mb-12']
         },
         actions: {
-            justifyContent: 'center',
-            margin: ['mt-12', 'mb-0']
+            justifyContent: 'center'
         }
     }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Featured Posts, Three Column Grid';
+Primary.storyName = 'Featured Posts, Three Columns Grid';
 Primary.args = {
     ...args,
     posts: [
@@ -174,16 +170,23 @@ Primary.args = {
     ]
 };
 
-export const FeaturedPostsMixed = Template.bind({});
-FeaturedPostsMixed.storyName = 'Featured Posts, Three Column Grid With First Full-width Post';
-FeaturedPostsMixed.args = {
+export const FeaturedPostsTwoCol = Template.bind({});
+FeaturedPostsTwoCol.storyName = 'Featured Posts, Two Columns Grid';
+FeaturedPostsTwoCol.args = {
     ...args,
     variant: 'variant-b'
 };
 
-export const FeaturedPostsMixedAlt = Template.bind({});
-FeaturedPostsMixedAlt.storyName = 'Featured Posts, Two Column Mixed Width Grid';
-FeaturedPostsMixedAlt.args = {
+export const FeaturedPostsMixed = Template.bind({});
+FeaturedPostsMixed.storyName = 'Featured Posts, Mixed Grid';
+FeaturedPostsMixed.args = {
     ...args,
     variant: 'variant-c'
+};
+
+export const FeaturedPostsList = Template.bind({});
+FeaturedPostsList.storyName = 'Featured Posts, List';
+FeaturedPostsList.args = {
+    ...args,
+    variant: 'variant-d'
 };

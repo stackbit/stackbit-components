@@ -18,11 +18,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -34,7 +29,6 @@ const args = {
     elementId: '',
     variant: 'variant-a',
     colors: 'colors-f',
-    backgroundWidth: 'full',
     title: 'Latest Posts',
     subtitle: 'This is the Subtitle',
     actions: [
@@ -104,10 +98,13 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
@@ -122,14 +119,13 @@ const args = {
             margin: ['mt-0', 'mb-12']
         },
         actions: {
-            justifyContent: 'center',
-            margin: ['mt-12', 'mb-0']
+            justifyContent: 'center'
         }
     }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Latest Posts, Three Column Grid';
+Primary.storyName = 'Latest Posts, Three Columns Grid';
 Primary.args = args;
 
 export const PostFeedList = Template.bind({});

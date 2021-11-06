@@ -132,7 +132,7 @@ function heroActions(props) {
     }
     const Action = getComponent('Action');
     return (
-        <div className={classNames('flex', 'flex-wrap', 'items-center', '-mx-2')} data-sb-field-path=".actions">
+        <div className="flex flex-wrap items-center -mx-2" data-sb-field-path=".actions">
             {actions.map((action, index) => (
                 <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
             ))}

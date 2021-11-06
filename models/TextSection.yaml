@@ -14,8 +14,6 @@ fieldGroups:
 fields:
   - name: colors
     default: colors-f
-  - name: backgroundWidth
-    default: full
   - type: string
     name: title
     label: Title
@@ -40,35 +38,62 @@ fields:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
-        alignItems: ['flex-start', 'flex-end', 'center']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
         justifyContent: ['flex-start', 'flex-end', 'center']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            styleObjectColor: 'primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            styleObjectColor: 'secondary'
+          - value: 'border-neutral'
+            label: 'Neutral color'
+            styleObjectColor: 'neutral'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            styleObjectColor: 'complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            styleObjectColor: 'complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
       text:
         textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
     default:
       self:
         height: auto
         width: wide
-        margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
-        alignItems: center
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         justifyContent: center
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-neutral
       title:
         fontWeight: 700
         fontStyle: normal
         textAlign: center
+        margin: ['mt-0', 'mb-2']
       subtitle:
         fontWeight: 400
         fontStyle: normal
         textAlign: center
+        margin: ['mt-0', 'mb-6']
       text:
         textAlign: center
+        margin: ['mt-0', 'mb-0']

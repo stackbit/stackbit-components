@@ -17,11 +17,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     },
     parameters: {
@@ -65,7 +60,6 @@ const args = {
     type: 'HeroSection',
     elementId: '',
     colors: 'colors-h',
-    backgroundWidth: 'full',
     title: 'The quick, brown fox jumps over a lazy dog',
     subtitle: 'Section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
@@ -93,8 +87,8 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row',
@@ -120,8 +114,7 @@ const args = {
             margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'flex-start',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -138,8 +131,8 @@ HeroImageBottom.args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col',
@@ -165,8 +158,7 @@ HeroImageBottom.args = {
             margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'flex-start',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -196,8 +188,8 @@ HeroVideoLeft.args = {
         self: {
             height: 'auto',
             width: 'full',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row-reverse',
@@ -223,8 +215,7 @@ HeroVideoLeft.args = {
             margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'flex-start',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -262,8 +253,8 @@ HeroFormBottom.args = {
         self: {
             height: 'screen',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col',
@@ -289,8 +280,7 @@ HeroFormBottom.args = {
             margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'center',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'center'
         }
     }
 };
@@ -315,10 +305,10 @@ HeroTextOnly.args = {
         self: {
             height: 'screen',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'flex-start',
-            justifyContent: 'flex-end',
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            alignItems: 'center',
+            justifyContent: 'center',
             flexDirection: 'row',
             borderRadius: 'medium',
             borderWidth: 8,
@@ -328,22 +318,21 @@ HeroTextOnly.args = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left',
+            textAlign: 'center',
             margin: ['mt-0', 'mb-4']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left',
+            textAlign: 'center',
             margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'left',
+            textAlign: 'center',
             margin: ['mt-0', 'mb-8']
         },
         actions: {
-            justifyContent: 'flex-start',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'center'
         }
     }
 };

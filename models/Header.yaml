@@ -73,18 +73,6 @@ fields:
       - label: Base foreground on complementary 2 background
         value: colors-i
     default: colors-a
-  - type: enum
-    name: backgroundWidth
-    group: styles
-    controlType: button-group
-    label: Background width
-    description: The background width of the header
-    options:
-      - label: Inset
-        value: inset
-      - label: Full
-        value: full
-    default: full
   - type: string
     name: title
     label: Title
@@ -116,8 +104,8 @@ fields:
     styles:
       self:
         width: ['narrow', 'wide', 'full']
-        padding: ['twt0:36', 'twb0:36']
+        padding: ['tw4:36']
     default:
       self:
         width: narrow
-        padding: ['pt-5', 'pb-5']
+        padding: ['pt-5', 'pb-5', 'pl-4', 'pr-4']

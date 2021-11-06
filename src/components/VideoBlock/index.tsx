@@ -18,7 +18,7 @@ export default function VideoBlock(props) {
             {...(controls && { controls: true })}
             playsInline
             poster={thumbnailUrl}
-            className={classNames('component', 'component-block', 'component-video-block', cssClasses)}
+            className={classNames('sb-component', 'sb-component-block', 'sb-component-video-block', cssClasses)}
             data-sb-field-path=".elementId#@id .thumbnailUrl#@poster"
         >
             <source src={url} type="video/mp4" data-sb-field-path=".url" />

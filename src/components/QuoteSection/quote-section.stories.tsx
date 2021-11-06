@@ -13,11 +13,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -28,7 +23,6 @@ const args = {
     type: 'QuoteSection',
     elementId: '',
     colors: 'colors-c',
-    backgroundWidth: 'full',
     quote: '“A designer knows he has achieved perfection not when there is nothing left to add, but when there is nothing left to take away.”',
     name: 'Antoine de Saint-Exupéry',
     title: 'Writer',
@@ -47,10 +41,13 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-16', 'pb-16'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-16', 'pb-16', 'pl-4', 'pr-4'],
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         quote: {
             textAlign: 'left'
@@ -80,10 +77,14 @@ QuoteWideCentered.args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-16', 'pb-16'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-16', 'pb-16', 'pl-4', 'pr-4'],
             alignItems: 'center',
-            justifyContent: 'center'
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         quote: {
             textAlign: 'center'
@@ -109,10 +110,14 @@ QuoteNarrowLeftBottom.args = {
         self: {
             height: 'screen',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-16', 'pb-16'],
-            alignItems: 'flex-start',
-            justifyContent: 'flex-end'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-16', 'pb-16', 'pl-4', 'pr-4'],
+            alignItems: 'center',
+            justifyContent: 'flex-start',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         quote: {
             textAlign: 'left'

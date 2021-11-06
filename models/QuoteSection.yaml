@@ -14,8 +14,6 @@ fieldGroups:
 fields:
   - name: colors
     default: colors-c
-  - name: backgroundWidth
-    default: full
   - type: markdown
     name: quote
     label: Quote
@@ -39,7 +37,7 @@ fields:
     default:
       type: ImageBlock
       url: /images/bg.jpg
-      altText: Product Marketing Manager
+      altText: Dots
       opacity: 30
   - type: style
     name: styles
@@ -47,10 +45,28 @@ fields:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
-        alignItems: ['flex-start', 'flex-end', 'center']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
         justifyContent: ['flex-start', 'flex-end', 'center']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            styleObjectColor: 'primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            styleObjectColor: 'secondary'
+          - value: 'border-neutral'
+            label: 'Neutral color'
+            styleObjectColor: 'neutral'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            styleObjectColor: 'complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            styleObjectColor: 'complementaryAlt'
       quote:
         textAlign: ['left', 'center', 'right']
       name:
@@ -65,10 +81,13 @@ fields:
       self:
         height: auto
         width: wide
-        margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
-        alignItems: center
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         justifyContent: center
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-neutral
       quote:
         textAlign: center
       name:

@@ -13,11 +13,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -28,7 +23,6 @@ const args = {
     type: 'CtaSection',
     elementId: '',
     colors: 'colors-h',
-    backgroundWidth: 'full',
     title: "Let's do this",
     text: 'The Stackbit theme is flexible and scalable to every need. It can manage any layout and any screen.',
     actions: [
@@ -60,19 +54,25 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row'
+            flexDirection: 'row',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-4']
         },
         text: {
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-0']
         },
         actions: {
             justifyContent: 'flex-start'
@@ -88,24 +88,29 @@ export const CtaActionsBottom = Template.bind({});
 CtaActionsBottom.storyName = 'CTA Section With Actions at the Bottom';
 CtaActionsBottom.args = {
     ...args,
-    backgroundWidth: 'full',
     styles: {
         self: {
             height: 'auto',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'col'
+            flexDirection: 'col',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-4']
         },
         text: {
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-0']
         },
         actions: {
             justifyContent: 'center'

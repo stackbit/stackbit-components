@@ -19,7 +19,7 @@ export default function PostLayout(props) {
                     <div className="max-w-screen-2xl mx-auto">
                         <header className="max-w-screen-md mx-auto mb-12 text-center">
                             {page.title && (
-                                <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-xl mx-auto" data-sb-field-path="title">
+                                <h1 className="text-4xl sm:text-5xl mb-6 max-w-xl mx-auto" data-sb-field-path="title">
                                     {page.title}
                                 </h1>
                             )}
@@ -60,7 +60,7 @@ export default function PostLayout(props) {
 
 function postAuthor(author) {
     return (
-        <div data-sb-field-path={'.author'}>
+        <div data-sb-field-path="author">
             {author.firstName && <span data-sb-field-path=".firstName">{author.firstName}</span>}{' '}
             {author.lastName && <span data-sb-field-path=".lastName">{author.lastName}</span>}
         </div>

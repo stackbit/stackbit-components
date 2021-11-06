@@ -13,11 +13,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -28,7 +23,6 @@ const args = {
     type: 'ContactSection',
     elementId: '',
     colors: 'colors-h',
-    backgroundWidth: 'full',
     title: 'Join our club',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
     feature: {
@@ -77,19 +71,25 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row'
+            flexDirection: 'row',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-8']
         }
     }
 };
@@ -115,19 +115,25 @@ ContactVideoLeft.args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row-reverse'
+            flexDirection: 'row-reverse',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-8']
         }
     }
 };

@@ -32,7 +32,11 @@ const args = {
             width: 'wide',
             margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
-            justifyContent: 'center'
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
@@ -66,7 +70,11 @@ TextFullLeft.args = {
             width: 'narrow',
             margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
-            justifyContent: 'center'
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
@@ -96,7 +104,11 @@ TextNarrowLeftBottom.args = {
             width: 'narrow',
             margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
-            justifyContent: 'flex-end'
+            justifyContent: 'flex-end',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,

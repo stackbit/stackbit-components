@@ -103,7 +103,7 @@ function postsVariantA(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
+        <div className="grid gap-6 md:grid-cols-3 lg:gap-8">
             {posts.map((post, index) => {
                 const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');

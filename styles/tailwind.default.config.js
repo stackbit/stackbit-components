@@ -62,11 +62,26 @@ module.exports = {
                 addComponents({
                     '.sb-component-button-primary': {
                         borderRadius: '0',
-                        textTransform: 'none'
+                        boxShadow: 'none',
+                        fontWeight: 'bold',
+                        textTransform: 'none',
+                        letterSpacing: 'normal',
+                        paddingLeft: 24,
+                        paddingRight: 24,
+                        paddingTop: 12,
+                        paddingBottom: 12
                     },
                     '.sb-component-button-secondary': {
                         borderRadius: '0',
-                        textTransform: 'none'
+                        boxShadow: 'none',
+                        style: 'solid',
+                        fontWeight: 'bold',
+                        textTransform: 'none',
+                        letterSpacing: 'normal',
+                        paddingLeft: 24,
+                        paddingRight: 24,
+                        paddingTop: 12,
+                        paddingBottom: 12
                     }
                 });
         })

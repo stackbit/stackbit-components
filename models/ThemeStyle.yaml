@@ -119,6 +119,16 @@ fields:
           - label: AG
             value: uppercase
         default: none
+      - type: number
+        name: size
+        label: Font Size
+      - type: number
+        name: lineHeight
+        controlType: 'slider'
+        min: 0
+        max: 100
+        step: 2
+        unit: 'px'
       - type: enum
         name: letterSpacing
         label: Letter spacing
@@ -237,17 +247,15 @@ fields:
     readOnly: true
     fields:
       - type: enum
-        name: radius
-        label: Corner radius
+        name: weight
+        label: Font weight
         controlType: button-group
         options:
-          - label: None
-            value: 0
-          - label: Small
-            value: 0.125rem
-          - label: Large
-            value: 9999px
-        default: none
+          - label: Bold
+            value: bold
+          - label: Normal
+            value: normal
+        default: normal
       - type: enum
         name: case
         label: Case
@@ -261,6 +269,62 @@ fields:
             value: capitalize
           - label: AG
             value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tight
+            value: -0.025em
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: 0.05em
+          - label: Wider
+            value: 0.1em
+        default: normal
+      - type: enum
+        name: radius
+        label: Corner radius
+        controlType: button-group
+        options:
+          - label: None
+            value: 0
+          - label: Small
+            value: 0.5rem
+          - label: Large
+            value: 9999px
+        default: none
+      - type: number
+        name: horizontalPadding
+        label: Horizontal padding
+        controlType: 'slider'
+        min: 0
+        max: 30
+        step: 1
+        unit: 'px'
+        default: 24
+      - type: number
+        name: verticalPadding
+        label: Vertical padding
+        controlType: 'slider'
+        min: 0
+        max: 30
+        step: 1
+        unit: 'px'
+        default: 12
+      - type: enum
+        name: shadow
+        label: Shadow
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Mild
+            value: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
+          - label: Float
+            value: 0 25px 50px -12px rgba(0, 0, 0, 0.25)
         default: none
   - type: object
     name: buttonSecondary
@@ -269,17 +333,15 @@ fields:
     readOnly: true
     fields:
       - type: enum
-        name: radius
-        label: Corner radius
+        name: weight
+        label: Font weight
         controlType: button-group
         options:
-          - label: None
-            value: 0
-          - label: Small
-            value: 0.125rem
-          - label: Large
-            value: 9999px
-        default: none
+          - label: Bold
+            value: bold
+          - label: Normal
+            value: normal
+        default: bold
       - type: enum
         name: case
         label: Case
@@ -293,4 +355,76 @@ fields:
             value: capitalize
           - label: AG
             value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tight
+            value: -0.025em
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: 0.05em
+          - label: Wider
+            value: 0.1em
+        default: normal
+      - type: enum
+        name: radius
+        label: Corner radius
+        controlType: button-group
+        options:
+          - label: None
+            value: 0
+          - label: Small
+            value: 0.5rem
+          - label: Large
+            value: 9999px
+        default: none
+      - type: enum
+        name: style
+        label: Border style
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Solid
+            value: solid
+          - label: Dashed
+            value: dashed
+          - label: Dotted
+            value: dotted
+          - label: Double
+            value: double
+        default: solid
+      - type: number
+        name: horizontalPadding
+        label: Horizontal padding
+        controlType: 'slider'
+        min: 0
+        max: 30
+        step: 1
+        unit: 'px'
+        default: 24
+      - type: number
+        name: verticalPadding
+        label: Verical padding
+        controlType: 'slider'
+        min: 0
+        max: 30
+        step: 1
+        unit: 'px'
+        default: 12
+      - type: enum
+        name: shadow
+        label: Shadow
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Mild
+            value: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
+          - label: Float
+            value: 0 25px 50px -12px rgba(0, 0, 0, 0.25)
         default: none

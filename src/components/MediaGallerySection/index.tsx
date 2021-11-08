@@ -7,7 +7,6 @@ type BaseSectionComponentProps = {
     annotationPrefix: string;
     elementId: string;
     colors?: string;
-    backgroundWidth?: string;
     styles?: any;
 };
 
@@ -31,7 +30,6 @@ export type MediaGallerySectionProps = BaseSectionComponentProps & {
 export default function MediaGallerySection(props: MediaGallerySectionProps) {
     const sectionStyles = props.styles?.self || {};
     const colors = props.colors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full'; // Note that this is different from the style prop sectiomStyles.width
 
     return (
         <div
@@ -41,7 +39,6 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
                 'sb-component-section',
                 'sb-component-media-gallery-section',
                 colors,
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'mt-6',
                 'px-4',
                 'sm:px-8',

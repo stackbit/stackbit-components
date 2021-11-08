@@ -37,7 +37,6 @@ const args: MediaGallerySectionProps = {
     enableHover: true,
     elementId: '',
     colors: 'colors-a',
-    backgroundWidth: 'full',
     annotationPrefix: 'sections.1',
     images: [
         {

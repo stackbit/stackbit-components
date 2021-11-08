@@ -285,7 +285,7 @@ fields:
             value: 0.1em
         default: normal
       - type: enum
-        name: radius
+        name: borderRadius
         label: Corner radius
         controlType: button-group
         options:
@@ -371,7 +371,7 @@ fields:
             value: 0.1em
         default: normal
       - type: enum
-        name: radius
+        name: borderRadius
         label: Corner radius
         controlType: button-group
         options:
@@ -383,7 +383,7 @@ fields:
             value: 9999px
         default: none
       - type: enum
-        name: style
+        name: borderStyle
         label: Border style
         controlType: button-group
         options:
@@ -409,7 +409,7 @@ fields:
         default: 24
       - type: number
         name: verticalPadding
-        label: Verical padding
+        label: Vertical padding
         controlType: 'slider'
         min: 0
         max: 30

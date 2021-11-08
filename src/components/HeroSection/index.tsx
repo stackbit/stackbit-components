@@ -5,26 +5,25 @@ import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
 export default function HeroSection(props) {
+    const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-hero-section',
                 colors,
                 'flex',
                 'flex-col',
-                'px-4',
-                'sm:px-8',
+                'justify-center',
                 'relative',
-                sectionStyles.margin,
                 sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                sectionStyles.margin,
+                sectionStyles.padding,
                 sectionStyles.borderColor,
                 sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
                 sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
@@ -38,26 +37,27 @@ export default function HeroSection(props) {
             <div
                 className={classNames(
                     'flex',
-                    'flex-col',
-                    'max-w-screen-2xl',
-                    'mx-auto',
                     'relative',
-                    'flex-grow',
                     'w-full',
-                    sectionStyles.padding,
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
                     sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
                 )}
             >
-                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
-                    <div className={classNames('flex', '-mx-4', sectionStyles.flexDirection ? mapFlexDirectionStyles(sectionStyles.flexDirection) : null)}>
+                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+                    <div
+                        className={classNames(
+                            'flex',
+                            '-mx-4',
+                            sectionStyles.flexDirection ? mapFlexDirectionStyles(sectionStyles.flexDirection) : null,
+                            sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null
+                        )}
+                    >
                         <div className="my-3 flex-1 px-4 w-full">
                             {heroBody(props)}
                             {heroActions(props)}
                         </div>
                         {props.feature && (
-                            <div className="my-3 flex-1 px-4 w-full" data-sb-field-path=".feature">
-                                {heroFeature(props.feature)}
+                            <div className="my-3 flex-1 px-4 w-full">
+                                <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>
                             </div>
                         )}
                     </div>
@@ -93,8 +93,7 @@ function heroBackgroundImage(image) {
                 backgroundImage: `url('${imageUrl}')`,
                 opacity: imageOpacity * 0.01
             }}
-            aria-label={image.altText}
-            data-sb-field-path=".backgroundImage.url#@style .backgroundImage.altText#@aria-label"
+            data-sb-field-path=".backgroundImage.url#@style"
         />
     );
 }

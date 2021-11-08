@@ -13,11 +13,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -28,7 +23,6 @@ const args = {
     type: 'TextSection',
     elementId: '',
     colors: 'colors-f',
-    backgroundWidth: 'full',
     title: 'The Section Title',
     subtitle: 'The section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Sed ut perspiciatis undeomnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam. Eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
@@ -36,20 +30,25 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-2']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'center'
+            textAlign: 'center',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
             textAlign: 'center'
@@ -69,20 +68,25 @@ TextFullLeft.args = {
         self: {
             height: 'auto',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-2']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
             textAlign: 'left'
@@ -98,20 +102,25 @@ TextNarrowLeftBottom.args = {
         self: {
             height: 'screen',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'flex-start',
-            justifyContent: 'flex-end'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'flex-end',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
         },
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-2']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-6']
         },
         text: {
             textAlign: 'left'

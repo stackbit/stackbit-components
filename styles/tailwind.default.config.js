@@ -42,30 +42,39 @@ module.exports = {
             addBase({
                 h1: {
                     fontWeight: 'bold',
+                    letterSpacing: 'normal',
                     textDecoration: 'none',
                     textTransform: 'none',
-                    letterSpacing: 'normal'
                 },
                 h2: {
                     fontWeight: 'bold',
+                    letterSpacing: 'normal',
                     textDecoration: 'none',
                     textTransform: 'none',
-                    letterSpacing: 'normal'
                 },
                 h3: {
                     fontWeight: 'bold',
+                    letterSpacing: 'normal',
                     textDecoration: 'none',
-                    textTransform: 'none',
-                    letterSpacing: 'normal'
+                    textTransform: 'none'
                 }
             }),
                 addComponents({
                     '.sb-component-button-primary': {
                         borderRadius: '0',
+                        boxShadow: 'none',
+                        fontWeight: 'bold',
+                        letterSpacing: 'normal',
+                        padding: '12px 24px',
                         textTransform: 'none'
                     },
                     '.sb-component-button-secondary': {
                         borderRadius: '0',
+                        borderStyle: 'solid',
+                        boxShadow: 'none',
+                        fontWeight: 'bold',
+                        letterSpacing: 'normal',
+                        padding: '12px 24px',
                         textTransform: 'none'
                     }
                 });

@@ -14,8 +14,6 @@ fieldGroups:
 fields:
   - name: colors
     default: colors-f
-  - name: backgroundWidth
-    default: full
   - type: model
     name: backgroundImage
     group: styles
@@ -29,7 +27,7 @@ fields:
   - type: string
     name: subtitle
     label: Subtitle
-    default: This Is Subtitle
+    default: The section subtitle
   - type: markdown
     name: text
     label: Text
@@ -73,8 +71,8 @@ fields:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
         alignItems: ['flex-start', 'flex-end', 'center']
         justifyContent: ['flex-start', 'flex-end', 'center']
         flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
@@ -84,41 +82,40 @@ fields:
         borderColor:
           - value: 'border-primary'
             label: 'Primary color'
-            color: '#28aaff'
+            styleObjectColor: 'primary'
           - value: 'border-secondary'
             label: 'Secondary color'
-            color: '#dfe3e7'
+            styleObjectColor: 'secondary'
           - value: 'border-neutral'
             label: 'Neutral color'
-            color: '#282f36'
+            styleObjectColor: 'neutral'
           - value: 'border-complementary'
             label: 'Complementary color'
-            color: '#e9f6ff'
+            styleObjectColor: 'complementary'
           - value: 'border-complementary-alt'
             label: 'Complementary alt color'
-            color: '#fffde2'
+            styleObjectColor: 'complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twt0:12', 'twb0:12']
+        margin: ['twy0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twt0:12', 'twb0:12']
+        margin: ['twy0:12']
       text:
         textAlign: ['left', 'center', 'right']
-        margin: ['twt0:12', 'twb0:12']
+        margin: ['twy0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
-        margin: ['twt0:12', 'twb0:12']
     default:
       self:
         height: auto
         width: wide
-        margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         alignItems: center
         justifyContent: center
         flexDirection: row
@@ -141,4 +138,3 @@ fields:
         margin: ['mt-0', 'mb-8']
       actions:
         justifyContent: flex-start
-        margin: ['mt-0', 'mb-0']

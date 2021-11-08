@@ -74,29 +74,55 @@ fields:
     styles:
       self:
         width: ['narrow', 'wide', 'full']
+        height: ['auto', 'screen']
         margin: ['twt0:36', 'twb0:36']
         padding: ['twt0:36', 'twb0:36']
-        # TODO:
-        height: ['auto', 'screen']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            styleObjectColor: 'primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            styleObjectColor: 'secondary'
+          - value: 'border-neutral'
+            label: 'Neutral color'
+            styleObjectColor: 'neutral'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            styleObjectColor: 'complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            styleObjectColor: 'complementaryAlt'
+
       title:
         fontWeight: [400, 700]
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
+
       subtitle:
         fontWeight: [400, 700]
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
+
     default:
       self:
         width: full
+        height: auto
         margin: ['mt-0', 'mb-0']
         padding: ['pt-12', 'pb-12']
-        # TODO:
-        height: auto
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-neutral
+
       title:
         fontWeight: 700
         fontStyle: normal
         textAlign: center
+
       subtitle:
         fontWeight: 400
         fontStyle: normal

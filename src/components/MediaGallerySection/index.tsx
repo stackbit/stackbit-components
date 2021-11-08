@@ -5,23 +5,27 @@ import ImageBlock from '../ImageBlock';
 
 type BaseSectionStyle = {
     self: {
-        margin: string | string[];
-        padding: string | string[];
-        height: string;
-        width: string;
+        height?: string;
+        width?: string;
+        margin?: string | string[];
+        padding?: string | string[];
+        borderRadius?: string;
+        borderWidth?: number;
+        borderStyle?: string;
+        borderColor?: string;
     };
 };
 
 type MediaGalleryStyle = {
     title: {
-        fontWeight: number;
-        fontStyle: string;
-        textAlign: string;
+        fontWeight?: number;
+        fontStyle?: string;
+        textAlign?: string;
     };
     subtitle: {
-        fontWeight: number;
-        fontStyle: string;
-        textAlign: string;
+        fontWeight?: number;
+        fontStyle?: string;
+        textAlign?: string;
     };
 };
 
@@ -52,6 +56,7 @@ export type MediaGallerySectionProps = BaseSectionComponentProps & {
 export default function MediaGallerySection(props: MediaGallerySectionProps) {
     const sectionStyles = props.styles?.self;
     const colors = props.colors || 'colors-a';
+    const sectionBorderWidth = sectionStyles?.borderWidth || 0;
 
     return (
         <div
@@ -65,8 +70,14 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
                 'px-4',
                 'sm:px-8',
                 sectionStyles?.margin,
-                sectionStyles?.padding
+                sectionStyles?.padding,
+                sectionStyles?.borderColor,
+                sectionStyles?.borderRadius ? mapStyles({ borderRadius: sectionStyles?.borderRadius }) : null,
+                sectionStyles?.borderStyle ? mapStyles({ borderStyle: sectionStyles?.borderStyle }) : null
             )}
+            style={{
+                borderWidth: `${sectionBorderWidth}px`
+            }}
             data-sb-field-path={props.annotationPrefix}
         >
             <div

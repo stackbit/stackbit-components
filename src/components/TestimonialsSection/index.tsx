@@ -5,13 +5,14 @@ import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-cl
 import ImageBlock from '../ImageBlock';
 
 export default function TestimonialsSection(props) {
+    const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
     const testimonials = props.testimonials || [];
     const sectionStyles = props.styles?.self || {};
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',

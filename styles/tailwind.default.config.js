@@ -42,21 +42,21 @@ module.exports = {
             addBase({
                 h1: {
                     fontWeight: 'bold',
+                    letterSpacing: 'normal',
                     textDecoration: 'none',
                     textTransform: 'none',
-                    letterSpacing: 'normal'
                 },
                 h2: {
                     fontWeight: 'bold',
+                    letterSpacing: 'normal',
                     textDecoration: 'none',
                     textTransform: 'none',
-                    letterSpacing: 'normal'
                 },
                 h3: {
                     fontWeight: 'bold',
+                    letterSpacing: 'normal',
                     textDecoration: 'none',
-                    textTransform: 'none',
-                    letterSpacing: 'normal'
+                    textTransform: 'none'
                 }
             }),
                 addComponents({
@@ -64,24 +64,18 @@ module.exports = {
                         borderRadius: '0',
                         boxShadow: 'none',
                         fontWeight: 'bold',
-                        textTransform: 'none',
                         letterSpacing: 'normal',
-                        paddingLeft: 24,
-                        paddingRight: 24,
-                        paddingTop: 12,
-                        paddingBottom: 12
+                        padding: '12px 24px',
+                        textTransform: 'none'
                     },
                     '.sb-component-button-secondary': {
                         borderRadius: '0',
+                        borderStyle: 'solid',
                         boxShadow: 'none',
-                        style: 'solid',
                         fontWeight: 'bold',
-                        textTransform: 'none',
                         letterSpacing: 'normal',
-                        paddingLeft: 24,
-                        paddingRight: 24,
-                        paddingTop: 12,
-                        paddingBottom: 12
+                        padding: '12px 24px',
+                        textTransform: 'none'
                     }
                 });
         })

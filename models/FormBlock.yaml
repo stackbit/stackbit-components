@@ -1,7 +1,7 @@
 type: object
 name: FormBlock
 label: Form
-labelField: action
+labelField: elementId
 fieldGroups:
   - name: settings
     label: Settings
@@ -50,6 +50,7 @@ fields:
     label: Element ID
     description: The unique ID used for id and name attributes, must not contain whitespace
     default: 'contact-form'
+    required: true
   - type: string
     name: action
     group: settings

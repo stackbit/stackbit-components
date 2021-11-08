@@ -7,12 +7,13 @@ import getPageUrlPath from '../../utils/get-page-url-path';
 import Link from '../../utils/link';
 
 export default function PostFeedSection(props) {
+    const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
     const sectionStyles = props.styles?.self || {};
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',

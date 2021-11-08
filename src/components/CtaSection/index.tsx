@@ -5,12 +5,13 @@ import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
 export default function CtaSection(props) {
+    const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
     const sectionStyles = props.styles?.self || {};
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
@@ -73,8 +74,7 @@ function ctaBackgroundImage(image) {
                 backgroundImage: `url('${imageUrl}')`,
                 opacity: imageOpacity * 0.01
             }}
-            aria-label={image.altText}
-            data-sb-field-path=".backgroundImage.url#@style .backgroundImage.altText#@aria-label"
+            data-sb-field-path=".backgroundImage.url#@style"
         />
     );
 }

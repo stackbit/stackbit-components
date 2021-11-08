@@ -119,16 +119,6 @@ fields:
           - label: AG
             value: uppercase
         default: none
-      - type: number
-        name: size
-        label: Font Size
-      - type: number
-        name: lineHeight
-        controlType: 'slider'
-        min: 0
-        max: 100
-        step: 2
-        unit: 'px'
       - type: enum
         name: letterSpacing
         label: Letter spacing

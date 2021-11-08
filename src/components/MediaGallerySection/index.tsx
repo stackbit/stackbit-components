@@ -3,11 +3,33 @@ import classNames from 'classnames';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import ImageBlock from '../ImageBlock';
 
+type BaseSectionStyle = {
+    self: {
+        margin: string | string[];
+        padding: string | string[];
+        height: string;
+        width: string;
+    };
+};
+
+type MediaGalleryStyle = {
+    title: {
+        fontWeight: number;
+        fontStyle: string;
+        textAlign: string;
+    };
+    subtitle: {
+        fontWeight: number;
+        fontStyle: string;
+        textAlign: string;
+    };
+};
+
 type BaseSectionComponentProps = {
     annotationPrefix: string;
     elementId: string;
     colors?: string;
-    styles?: any;
+    styles?: BaseSectionStyle & MediaGalleryStyle;
 };
 
 type Image = {
@@ -28,7 +50,7 @@ export type MediaGallerySectionProps = BaseSectionComponentProps & {
 };
 
 export default function MediaGallerySection(props: MediaGallerySectionProps) {
-    const sectionStyles = props.styles?.self || {};
+    const sectionStyles = props.styles?.self;
     const colors = props.colors || 'colors-a';
 
     return (
@@ -42,7 +64,8 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
                 'mt-6',
                 'px-4',
                 'sm:px-8',
-                sectionStyles.margin
+                sectionStyles?.margin,
+                sectionStyles?.padding
             )}
             data-sb-field-path={props.annotationPrefix}
         >
@@ -54,8 +77,7 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
                     'justify-center',
                     'max-w-screen-2xl',
                     'mx-auto',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.padding
+                    sectionStyles?.height ? mapMinHeightStyles(sectionStyles?.height) : null
                 )}
             >
                 <div
@@ -65,7 +87,7 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
                         'flex-col',
                         'items-center',
                         'justify-center',
-                        sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null // TODO - should this width handler be up a level and get rid of this div?
+                        sectionStyles?.width ? mapMaxWidthStyles(sectionStyles?.width) : null // TODO - should this width handler be up a level and get rid of this div?
                     )}
                 >
                     {/* Inline-block div that will grow to the width of the image grid so we can left-align / right align text with the edges of the grid */}
@@ -83,17 +105,17 @@ function MediaGalleryHeader(props: MediaGallerySectionProps) {
     if (!props.title && !props.subtitle) {
         return null;
     }
-    const styles = props.styles || {};
+    const styles = props.styles;
 
     return (
         <div className="w-full pb-4">
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles?.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p className={classNames('text-lg', 'sm:text-xl', styles?.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}

@@ -79,11 +79,11 @@ fields:
         # TODO:
         height: ['auto', 'screen']
       title:
-        fontWeight: ['400', '700']
+        fontWeight: [400, 700]
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
       subtitle:
-        fontWeight: ['400', '700']
+        fontWeight: [400, 700]
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
     default:

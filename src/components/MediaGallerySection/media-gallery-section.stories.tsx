@@ -70,9 +70,7 @@ const args: MediaGallerySectionProps = {
             height: 'auto',
             width: 'wide',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            padding: ['pt-12', 'pb-12']
         },
         title: {
             fontWeight: 700,

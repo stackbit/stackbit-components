@@ -9,6 +9,8 @@ fields:
   - type: string
     name: name
     label: Name
+    required: true
+    default: city
   - type: string
     name: label
     label: Label

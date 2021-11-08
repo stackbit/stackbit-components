@@ -9,8 +9,6 @@ export default {
 const Template = (args) => <Action {...args} />;
 
 const args = {
-    type: 'Button',
-    elementId: '',
     label: 'Stackbit',
     altText: 'Stackbit',
     url: 'https://www.stackbit.com',
@@ -46,7 +44,6 @@ export const LinkIcon = Template.bind({});
 LinkIcon.storyName = 'Link with icon';
 LinkIcon.args = {
     ...args,
-    type: 'Link',
     showIcon: true,
     icon: 'arrowLeft',
     iconPosition: 'left',

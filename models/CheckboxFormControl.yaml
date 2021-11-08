@@ -9,7 +9,8 @@ fields:
   - type: string
     name: name
     label: Name
-    default: 'Checkbox'
+    default: updates
+    required: true
   - type: string
     name: label
     label: Label

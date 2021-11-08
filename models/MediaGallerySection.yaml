@@ -29,6 +29,11 @@ fields:
   - type: number
     name: spacing
     label: Spacing between images
+    controlType: 'slider'
+    min: 0
+    max: 30
+    step: 1
+    unit: 'rem'
     default: 1
   - type: enum
     name: columns
@@ -50,6 +55,11 @@ fields:
   - type: number
     name: imageSizePx
     label: Max image size, in px
+    controlType: 'slider'
+    min: 50
+    max: 300
+    step: 1
+    unit: 'px'
     default: 120
   - type: boolean
     name: showCaption

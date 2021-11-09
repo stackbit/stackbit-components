@@ -61,22 +61,6 @@ fields:
           - label: AG
             value: uppercase
         default: none
-      - type: enum
-        name: letterSpacing
-        label: Letter spacing
-        controlType: button-group
-        options:
-          - label: Tighter
-            value: -0.05em
-          - label: Tight
-            value: -0.025em
-          - label: Normal
-            value: normal
-          - label: Wide
-            value: 0.025em
-          - label: Wider
-            value: 0.05em
-        default: normal
   - type: object
     name: h2
     label: H2
@@ -119,22 +103,6 @@ fields:
           - label: AG
             value: uppercase
         default: none
-      - type: enum
-        name: letterSpacing
-        label: Letter spacing
-        controlType: button-group
-        options:
-          - label: Tighter
-            value: -0.05em
-          - label: Tight
-            value: -0.025em
-          - label: Normal
-            value: normal
-          - label: Wide
-            value: 0.025em
-          - label: Wider
-            value: 0.05em
-        default: normal
   - type: object
     name: h3
     label: H3
@@ -177,22 +145,6 @@ fields:
           - label: AG
             value: uppercase
         default: none
-      - type: enum
-        name: letterSpacing
-        label: Letter spacing
-        controlType: button-group
-        options:
-          - label: Tighter
-            value: -0.05em
-          - label: Tight
-            value: -0.025em
-          - label: Normal
-            value: normal
-          - label: Wide
-            value: 0.025em
-          - label: Wider
-            value: 0.05em
-        default: normal
   - type: enum
     name: fontBody
     label: Font - body & captions
@@ -260,20 +212,6 @@ fields:
           - label: AG
             value: uppercase
         default: none
-      - type: enum
-        name: letterSpacing
-        label: Letter spacing
-        controlType: button-group
-        options:
-          - label: Tight
-            value: -0.025em
-          - label: Normal
-            value: normal
-          - label: Wide
-            value: 0.05em
-          - label: Wider
-            value: 0.1em
-        default: normal
       - type: enum
         name: borderRadius
         label: Corner radius
@@ -346,20 +284,6 @@ fields:
           - label: AG
             value: uppercase
         default: none
-      - type: enum
-        name: letterSpacing
-        label: Letter spacing
-        controlType: button-group
-        options:
-          - label: Tight
-            value: -0.025em
-          - label: Normal
-            value: normal
-          - label: Wide
-            value: 0.05em
-          - label: Wider
-            value: 0.1em
-        default: normal
       - type: enum
         name: borderRadius
         label: Corner radius

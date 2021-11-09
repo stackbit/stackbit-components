@@ -16,11 +16,6 @@ export default {
             defaultValue: 4,
             control: { type: 'select' }
         },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
-        },
         elementId: {}
     }
 };
@@ -70,7 +65,8 @@ const args: MediaGallerySectionProps = {
             height: 'auto',
             width: 'wide',
             margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'flex-end',
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
@@ -79,12 +75,14 @@ const args: MediaGallerySectionProps = {
         title: {
             fontWeight: 700,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-2']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
-            textAlign: 'left'
+            textAlign: 'left',
+            margin: ['mt-0', 'mb-12']
         }
     }
 };

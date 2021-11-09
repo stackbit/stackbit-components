@@ -1,6 +1,7 @@
 type: object
 name: MediaGallerySection
 label: Media gallery section
+labelField: title
 extends:
   - Section
 groups:
@@ -40,17 +41,17 @@ fields:
     label: Images per row
     default: 4
     options: # `options` are objects like this because label becomes a string and value needs to remain a number
-      - label: 1
+      - label: '1'
         value: 1
-      - label: 2
+      - label: '2'
         value: 2
-      - label: 3
+      - label: '3'
         value: 3
-      - label: 4
+      - label: '4'
         value: 4
-      - label: 5
+      - label: '5'
         value: 5
-      - label: 6
+      - label: '6'
         value: 6
   - type: number
     name: imageSizePx
@@ -75,8 +76,9 @@ fields:
       self:
         width: ['narrow', 'wide', 'full']
         height: ['auto', 'screen']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
+        justifyContent: ['flex-start', 'flex-end', 'center']
         borderRadius: '*'
         borderWidth: ['0:8']
         borderStyle: '*'
@@ -96,34 +98,34 @@ fields:
           - value: 'border-complementary-alt'
             label: 'Complementary alt color'
             styleObjectColor: 'complementaryAlt'
-
       title:
-        fontWeight: [400, 700]
+        fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-
+        margin: ['twy0:12']
       subtitle:
-        fontWeight: [400, 700]
+        fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-
+        margin: ['twy0:12']
     default:
       self:
         width: full
         height: auto
         margin: ['mt-0', 'mb-0']
         padding: ['pt-12', 'pb-12']
+        justifyContent: center
         borderRadius: none
         borderWidth: 0
         borderStyle: none
         borderColor: border-neutral
-
       title:
         fontWeight: 700
         fontStyle: normal
         textAlign: center
-
+        margin: ['mt-0', 'mb-2']
       subtitle:
         fontWeight: 400
         fontStyle: normal
         textAlign: center
+        margin: ['mt-0', 'mb-12']

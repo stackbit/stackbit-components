@@ -7,6 +7,7 @@ type BaseSectionStyle = {
     self: {
         height?: string;
         width?: string;
+        justifyContent?: string;
         margin?: string | string[];
         padding?: string | string[];
         borderRadius?: string;
@@ -54,21 +55,23 @@ export type MediaGallerySectionProps = BaseSectionComponentProps & {
 };
 
 export default function MediaGallerySection(props: MediaGallerySectionProps) {
+    const cssId = props.elementId || null;
     const sectionStyles = props.styles?.self;
     const colors = props.colors || 'colors-a';
     const sectionBorderWidth = sectionStyles?.borderWidth || 0;
 
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
                 'sb-component-media-gallery-section',
                 colors,
-                'mt-6',
-                'px-4',
-                'sm:px-8',
+                'flex',
+                'flex-col',
+                'justify-center',
+                sectionStyles?.height ? mapMinHeightStyles(sectionStyles?.height) : null,
                 sectionStyles?.margin,
                 sectionStyles?.padding,
                 sectionStyles?.borderColor,
@@ -80,32 +83,10 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
             }}
             data-sb-field-path={props.annotationPrefix}
         >
-            <div
-                className={classNames(
-                    'flex',
-                    'flex-col',
-                    'items-center',
-                    'justify-center',
-                    'max-w-screen-2xl',
-                    'mx-auto',
-                    sectionStyles?.height ? mapMinHeightStyles(sectionStyles?.height) : null
-                )}
-            >
-                <div
-                    className={classNames(
-                        'w-full',
-                        'flex',
-                        'flex-col',
-                        'items-center',
-                        'justify-center',
-                        sectionStyles?.width ? mapMaxWidthStyles(sectionStyles?.width) : null // TODO - should this width handler be up a level and get rid of this div?
-                    )}
-                >
-                    {/* Inline-block div that will grow to the width of the image grid so we can left-align / right align text with the edges of the grid */}
-                    <div className="inline-block max-w-full">
-                        <MediaGalleryHeader {...props} />
-                        <MediaGalleryImageGrid {...props} />
-                    </div>
+            <div className={classNames('flex', 'w-full', sectionStyles?.justifyContent ? mapStyles({ justifyContent: sectionStyles?.justifyContent }) : null)}>
+                <div className={classNames(sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+                    <MediaGalleryHeader {...props} />
+                    <MediaGalleryImageGrid {...props} />
                 </div>
             </div>
         </div>
@@ -119,7 +100,7 @@ function MediaGalleryHeader(props: MediaGallerySectionProps) {
     const styles = props.styles;
 
     return (
-        <div className="w-full pb-4">
+        <div>
             {props.title && (
                 <h2 className={classNames('text-3xl', 'sm:text-4xl', styles?.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}

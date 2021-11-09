@@ -1,0 +1,135 @@
+type: object
+name: MediaGallerySection
+label: Media gallery section
+labelField: title
+extends:
+  - Section
+groups:
+  - sectionComponent
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
+fields:
+  - type: string
+    name: title
+    label: Title
+    default: Some photos
+  - type: string
+    name: subtitle
+    label: Subtitle
+    default: Aren't they lovely photos?
+  - type: list
+    name: images
+    label: Images
+    items:
+      type: model
+      models: [ImageBlock]
+    default:
+      - type: ImageBlock
+        url: https://loremflickr.com/cache/resized/65535_51377543930_d101570b6d_b_640_640_nofilter.jpg
+        altText: Cute Cat
+        caption: Look! It's a cat!
+  - type: number
+    name: spacing
+    label: Spacing between images
+    controlType: 'slider'
+    min: 0
+    max: 30
+    step: 1
+    unit: 'rem'
+    default: 1
+  - type: enum
+    name: columns
+    label: Images per row
+    default: 4
+    options: # `options` are objects like this because label becomes a string and value needs to remain a number
+      - label: '1'
+        value: 1
+      - label: '2'
+        value: 2
+      - label: '3'
+        value: 3
+      - label: '4'
+        value: 4
+      - label: '5'
+        value: 5
+      - label: '6'
+        value: 6
+  - type: number
+    name: imageSizePx
+    label: Max image size, in px
+    controlType: 'slider'
+    min: 50
+    max: 300
+    step: 1
+    unit: 'px'
+    default: 120
+  - type: boolean
+    name: showCaption
+    label: Show caption
+    default: false
+  - type: boolean
+    name: enableHover
+    label: Enable hover
+    default: true
+  - type: style
+    name: styles
+    styles:
+      self:
+        width: ['narrow', 'wide', 'full']
+        height: ['auto', 'screen']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
+        justifyContent: ['flex-start', 'flex-end', 'center']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            styleObjectColor: 'primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            styleObjectColor: 'secondary'
+          - value: 'border-neutral'
+            label: 'Neutral color'
+            styleObjectColor: 'neutral'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            styleObjectColor: 'complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            styleObjectColor: 'complementaryAlt'
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+      subtitle:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+    default:
+      self:
+        width: full
+        height: auto
+        margin: ['mt-0', 'mb-0']
+        padding: ['pt-12', 'pb-12']
+        justifyContent: center
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-neutral
+      title:
+        fontWeight: 700
+        fontStyle: normal
+        textAlign: center
+        margin: ['mt-0', 'mb-2']
+      subtitle:
+        fontWeight: 400
+        fontStyle: normal
+        textAlign: center
+        margin: ['mt-0', 'mb-12']

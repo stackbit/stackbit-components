@@ -26,7 +26,11 @@ fields:
     items:
       type: model
       models: [ImageBlock]
-      # TODO - default
+    default:
+      - type: ImageBlock
+        url: https://loremflickr.com/cache/resized/65535_51377543930_d101570b6d_b_640_640_nofilter.jpg
+        altText: Cute Cat
+        caption: Look! It's a cat!
   - type: number
     name: spacing
     label: Spacing between images

@@ -26,38 +26,38 @@ const args: MediaGallerySectionProps = {
     title: 'Some photos',
     subtitle: 'Subtitle for some photos',
     columns: 4,
-    imageSizePx: 100,
+    imageSizePx: 200,
     spacing: 1,
     showCaption: true,
     enableHover: true,
     elementId: '',
-    colors: 'colors-a',
+    colors: 'colors-d',
     annotationPrefix: 'sections.1',
     images: [
         {
-            url: 'https://thumbor.forbes.com/thumbor/fit-in/416x416/filters%3Aformat%28jpg%29/https%3A%2F%2Fspecials-images.forbesimg.com%2Fimageserve%2F5735f40da7ea4353698df276%2F0x0.jpg%3Fbackground%3D000000%26cropX1%3D259%26cropX2%3D607%26cropY1%3D19%26cropY2%3D367',
-            altText: 'Michelle Obama',
-            caption: 'Former first lady Michelle Obama'
+            url: 'https://www.fillmurray.com/640/640',
+            altText: 'Bill Murray',
+            caption: 'Comedian and actor Bill Murray'
         },
         {
-            url: 'https://www.biography.com/.image/t_share/MTE4MDAzNDEwNzg5ODI4MTEw/barack-obama-12782369-1-402.jpg',
-            altText: 'Barak Obama',
-            caption: 'President Barak Obama'
+            url: 'https://loremflickr.com/cache/resized/65535_51377543930_d101570b6d_b_640_640_nofilter.jpg',
+            altText: 'Kitten',
+            caption: "Oh Look, It's a Cat!"
         },
         {
-            url: 'https://s.abcnews.com/images/GMA/jill-biden-colbert-ht-ps-201218_1608300587346_hpMain_4x3_992.jpg',
-            altText: 'Jill Biden',
-            caption: 'First Lady Dr. Jill Biden'
+            url: 'https://placebear.com/640/640',
+            altText: 'Two Brown Bears (I think)',
+            caption: "Don't poke the bears."
         },
         {
-            url: 'https://www.whitehouse.gov/wp-content/uploads/2021/04/P20210303AS-1901-cropped.jpg',
-            altText: 'Joe Biden',
-            caption: 'President Joe Biden'
+            url: 'https://www.stevensegallery.com/640/640',
+            altText: 'Steven Segal',
+            caption: "I'm going to be honest I'm not sure who Steven Seagal is."
         },
         {
-            url: 'https://www.whitehouse.gov/wp-content/uploads/2021/04/P20210303AS-1901-cropped.jpg',
-            altText: 'Joe Biden',
-            caption: 'President Joe Biden'
+            url: 'https://i.picsum.photos/id/828/800/500.jpg?hmac=g6xZl72KNwQKXfu6g3a4mAjzKEKU-ZF8BGtBltcN-QE',
+            altText: 'Fireworks',
+            caption: "Fireworks. Aren't they pretty!"
         }
     ],
     styles: {
@@ -66,7 +66,7 @@ const args: MediaGallerySectionProps = {
             width: 'wide',
             margin: ['mt-0', 'mb-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
-            justifyContent: 'flex-end',
+            justifyContent: 'center',
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',

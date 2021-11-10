@@ -104,6 +104,11 @@
         "modelName": "TextSection",
         "isDynamic": true
     },
+    "Item": {
+        "path": "components/Item",
+        "modelName": "Item",
+        "isDynamic": true
+    },
     "VideoBlock": {
         "path": "components/VideoBlock",
         "modelName": "VideoBlock",

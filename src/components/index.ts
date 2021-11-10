@@ -20,6 +20,7 @@ import TextFormControl from './TextFormControl';
 import TextSection from './TextSection';
 import VideoBlock from './VideoBlock';
 import MediaGallerySection from './MediaGallerySection';
+import Item from './Item';
 
 export {
     Action,
@@ -43,5 +44,9 @@ export {
     TextFormControl,
     TextSection,
     VideoBlock,
+<<<<<<< HEAD
     MediaGallerySection
+=======
+    Item
+>>>>>>> Create new item component
 };

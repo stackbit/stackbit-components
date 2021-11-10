@@ -1,0 +1,121 @@
+type: object
+name: FeaturedItem
+label: Featured Item section
+labelField: title
+extends:
+  - Section
+groups:
+  - sectionComponent
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
+fields:
+  - type: string
+    name: title
+    label: Title
+    default: Item
+  - type: string
+    name: subtitle
+    label: Subtitle
+    default: Featured blog posts section example
+  - type: list
+    name: items
+    label: Items
+    items:
+      type: model
+      models:
+        - Item
+    default:
+      - type: Item
+        title: 'Special Item'
+        subtitle: 'Subtitle'
+        content: 'This is the content of the item'
+        author: 'John Doe'
+        rating: 5
+  - type: list
+    name: actions
+    label: Actions
+    items:
+      type: model
+      models:
+        - Button
+        - Link
+    default:
+      - type: Button
+        label: Get Started
+        url: '/'
+        style: primary
+        elementId: hero-main-button
+      - type: Button
+        label: Learn More
+        url: '/'
+        style: secondary
+  - type: style
+    name: styles
+    styles:
+      self:
+        height: ['auto', 'screen']
+        width: ['narrow', 'wide', 'full']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
+        alignItems: ['flex-start', 'flex-end', 'center']
+        justifyContent: ['flex-start', 'flex-end', 'center']
+        flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            styleObjectColor: 'primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            styleObjectColor: 'secondary'
+          - value: 'border-neutral'
+            label: 'Neutral color'
+            styleObjectColor: 'neutral'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            styleObjectColor: 'complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            styleObjectColor: 'complementaryAlt'
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+      subtitle:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+      actions:
+        justifyContent: ['flex-start', 'flex-end', 'center']
+    default:
+      self:
+        height: auto
+        width: wide
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
+        alignItems: center
+        justifyContent: center
+        flexDirection: row
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-neutral
+      title:
+        fontWeight: 700
+        fontStyle: normal
+        textAlign: left
+        margin: ['mt-0', 'mb-4']
+      subtitle:
+        fontWeight: 400
+        fontStyle: normal
+        textAlign: left
+        margin: ['mt-0', 'mb-6']
+      actions:
+        justifyContent: flex-start

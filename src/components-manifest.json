@@ -109,6 +109,11 @@
         "modelName": "Item",
         "isDynamic": true
     },
+    "FeaturedItem": {
+        "path": "components/FeaturedItem",
+        "modelName": "FeaturedItem",
+        "isDynamic": true
+    },
     "VideoBlock": {
         "path": "components/VideoBlock",
         "modelName": "VideoBlock",

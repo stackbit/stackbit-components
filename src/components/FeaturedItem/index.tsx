@@ -1,12 +1,12 @@
 import * as React from 'react';
 
 import classNames from 'classnames';
-import Markdown from 'markdown-to-jsx';
 import { getComponent } from '../../components-registry';
 
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
+import Item from '../Item';
 
-export default function Item(props) {
+export default function FeaturedItem(props) {
     const sectionStyles = props.styles?.self || {};
 
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
@@ -57,19 +57,14 @@ export default function Item(props) {
                                     {props.subtitle}
                                 </p>
                             )}
-
-                            {props.content && (
-                                <Markdown
-                                    options={{ forceBlock: true, forceWrapper: true }}
-                                    className={classNames('sb-markdown', 'md:text-lg', props?.styles?.text ? mapStyles(props?.styles?.text) : null)}
-                                    data-sb-field-path=".text"
-                                >
-                                    {props.content}
-                                </Markdown>
+                            {props?.items && (
+                                <div>
+                                    {props.items.map((item, index) => (
+                                        <Item key={index} {...item} />
+                                    ))}
+                                </div>
                             )}
-                            {props.author && <div>{props.author}</div>}
-                            {props.rating && <div>{props.rating}</div>}
-                            <div className="my-3 flex-1 px-4 w-full">{itemActions(props)}</div>
+                            <div className="my-3 flex-1 px-4 w-full">{featuredItemActions(props)}</div>
                         </div>
                     </article>
                 </div>
@@ -78,7 +73,7 @@ export default function Item(props) {
     );
 }
 
-function itemActions(props) {
+function featuredItemActions(props) {
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;

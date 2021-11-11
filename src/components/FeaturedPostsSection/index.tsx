@@ -113,7 +113,7 @@ function postsVariantA(props) {
                 const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
                 return (
-                    <article key={index} className="sb-card" data-sb-object-id={post.__metadata.id}>
+                    <article key={index} className="sb-card" data-sb-object-id={post.__metadata?.id}>
                         {post.featuredImage && (
                             <Link href={getPageUrlPath(post)} className="block h-0 w-full pt-9/16 relative" data-sb-field-path="featuredImage">
                                 <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
@@ -164,7 +164,7 @@ function postsVariantB(props) {
                         className={classNames('sb-card', {
                             'md:col-span-2': index % 4 === 0 || (index + 1) % 4 === 0
                         })}
-                        data-sb-object-id={post.__metadata.id}
+                        data-sb-object-id={post.__metadata?.id}
                     >
                         {post.featuredImage && (
                             <Link

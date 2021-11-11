@@ -31,39 +31,48 @@ fields:
     group: styles
     controlType: palette
     options:
-      - value: colors-a
+      - label: Colors A
+        value: colors-a
         textColor: '$body'
         backgroundColor: '#ffffff'
         borderColor: '#ececec'
-      - value: colors-b
+      - label: Colors B
+        value: colors-b
         textColor: '$primary'
         backgroundColor: '#ffffff'
         borderColor: '#ececec'
-      - value: colors-c
+      - label: Colors C
+        value: colors-c
         textColor: '#ffffff'
         backgroundColor: '$neutral'
         borderColor: '#ececec'
-      - value: colors-d
+      - label: Colors D
+        value: colors-d
         textColor: '$primary'
         backgroundColor: '$neutral'
         borderColor: '#ececec'
-      - value: colors-e
+      - label: Colors E
+        value: colors-e
         textColor: '$body'
         backgroundColor: '$primary'
         borderColor: '#ececec'
-      - value: colors-f
+      - label: Colors F
+        value: colors-f
         textColor: '$body'
         backgroundColor: '$secondary'
         borderColor: '#ececec'
-      - value: colors-g
+      - label: Colors G
+        value: colors-g
         textColor: '$primary'
         backgroundColor: '$secondary'
         borderColor: '#ececec'
-      - value: colors-h
+      - label: Colors H
+        value: colors-h
         textColor: '$body'
         backgroundColor: '$complementary'
         borderColor: '#ececec'
-      - value: colors-i
+      - label: Colors I
+        value: colors-i
         textColor: '$body'
         backgroundColor: '$complementaryAlt'
         borderColor: '#ececec'
@@ -74,39 +83,48 @@ fields:
     group: styles
     controlType: palette
     options:
-      - value: colors-a
+      - label: Colors A
+        value: colors-a
         textColor: '$body'
         backgroundColor: '#ffffff'
         borderColor: '#ececec'
-      - value: colors-b
+      - label: Colors B
+        value: colors-b
         textColor: '$primary'
         backgroundColor: '#ffffff'
         borderColor: '#ececec'
-      - value: colors-c
+      - label: Colors C
+        value: colors-c
         textColor: '#ffffff'
         backgroundColor: '$neutral'
         borderColor: '#ececec'
-      - value: colors-d
+      - label: Colors D
+        value: colors-d
         textColor: '$primary'
         backgroundColor: '$neutral'
         borderColor: '#ececec'
-      - value: colors-e
+      - label: Colors E
+        value: colors-e
         textColor: '$body'
         backgroundColor: '$primary'
         borderColor: '#ececec'
-      - value: colors-f
+      - label: Colors F
+        value: colors-f
         textColor: '$body'
         backgroundColor: '$secondary'
         borderColor: '#ececec'
-      - value: colors-g
+      - label: Colors G
+        value: colors-g
         textColor: '$primary'
         backgroundColor: '$secondary'
         borderColor: '#ececec'
-      - value: colors-h
+      - label: Colors H
+        value: colors-h
         textColor: '$body'
         backgroundColor: '$complementary'
         borderColor: '#ececec'
-      - value: colors-i
+      - label: Colors I
+        value: colors-i
         textColor: '$body'
         backgroundColor: '$complementaryAlt'
         borderColor: '#ececec'

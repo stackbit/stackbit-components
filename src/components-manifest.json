@@ -109,9 +109,9 @@
         "modelName": "Item",
         "isDynamic": true
     },
-    "FeaturedItem": {
-        "path": "components/FeaturedItem",
-        "modelName": "FeaturedItem",
+    "FeaturedItemsSection": {
+        "path": "components/FeaturedItemsSection",
+        "modelName": "FeaturedItemsSection",
         "isDynamic": true
     },
     "VideoBlock": {

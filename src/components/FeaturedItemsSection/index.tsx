@@ -6,7 +6,7 @@ import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import Item from '../Item';
 
-export default function FeaturedItem(props) {
+export default function FeaturedItemsSection(props) {
     const sectionStyles = props.styles?.self || {};
 
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;

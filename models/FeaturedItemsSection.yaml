@@ -1,6 +1,6 @@
 type: object
-name: FeaturedItem
-label: Featured Item section
+name: FeaturedItemsSection
+label: Featured Items section
 labelField: title
 extends:
   - Section
@@ -15,11 +15,11 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Item
+    default: Featured items
   - type: string
     name: subtitle
     label: Subtitle
-    default: Featured blog posts section example
+    default: Featured items section example
   - type: list
     name: items
     label: Items
@@ -69,19 +69,19 @@ fields:
         borderColor:
           - value: 'border-primary'
             label: 'Primary color'
-            styleObjectColor: 'primary'
+            color: '$primary'
           - value: 'border-secondary'
             label: 'Secondary color'
-            styleObjectColor: 'secondary'
+            color: '$secondary'
           - value: 'border-neutral'
             label: 'Neutral color'
-            styleObjectColor: 'neutral'
+            color: '$neutral'
           - value: 'border-complementary'
             label: 'Complementary color'
-            styleObjectColor: 'complementary'
+            color: '$complementary'
           - value: 'border-complementary-alt'
             label: 'Complementary alt color'
-            styleObjectColor: 'complementaryAlt'
+            color: '$complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']

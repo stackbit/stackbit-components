@@ -11,27 +11,46 @@ fieldGroups:
 fields:
   - type: enum
     name: colors
-    group: styles
     label: Colors
+    group: styles
+    controlType: palette
     options:
-      - label: Base foreground on white background
-        value: colors-a
-      - label: Primary foreground on white background
-        value: colors-b
-      - label: White foreground on base background
-        value: colors-c
-      - label: Primary foreground on base background
-        value: colors-d
-      - label: Base foreground on primary background
-        value: colors-e
-      - label: Base foreground on secondary background
-        value: colors-f
-      - label: Primary foreground on secondary background
-        value: colors-g
-      - label: Base foreground on complementary 1 background
-        value: colors-h
-      - label: Base foreground on complementary 2 background
-        value: colors-i
+      - value: colors-a
+        textColor: '$body'
+        backgroundColor: '#ffffff'
+        borderColor: '#ececec'
+      - value: colors-b
+        textColor: '$primary'
+        backgroundColor: '#ffffff'
+        borderColor: '#ececec'
+      - value: colors-c
+        textColor: '#ffffff'
+        backgroundColor: '$neutral'
+        borderColor: '#ececec'
+      - value: colors-d
+        textColor: '$primary'
+        backgroundColor: '$neutral'
+        borderColor: '#ececec'
+      - value: colors-e
+        textColor: '$body'
+        backgroundColor: '$primary'
+        borderColor: '#ececec'
+      - value: colors-f
+        textColor: '$body'
+        backgroundColor: '$secondary'
+        borderColor: '#ececec'
+      - value: colors-g
+        textColor: '$primary'
+        backgroundColor: '$secondary'
+        borderColor: '#ececec'
+      - value: colors-h
+        textColor: '$body'
+        backgroundColor: '$complementary'
+        borderColor: '#ececec'
+      - value: colors-i
+        textColor: '$body'
+        backgroundColor: '$complementaryAlt'
+        borderColor: '#ececec'
     default: colors-f
   - type: model
     name: logo

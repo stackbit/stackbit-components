@@ -9,11 +9,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -22,7 +17,6 @@ const Template = (args) => <Footer {...args} />;
 
 const args = {
     colors: 'colors-c',
-    backgroundWidth: 'full',
     title: 'Starter',
     logo: {
         type: 'ImageBlock',

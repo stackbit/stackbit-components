@@ -61,8 +61,8 @@ export default function Item(props) {
                             {props.content && (
                                 <Markdown
                                     options={{ forceBlock: true, forceWrapper: true }}
-                                    className={classNames('sb-markdown', 'md:text-lg', props?.styles?.text ? mapStyles(props?.styles?.text) : null)}
-                                    data-sb-field-path=".text"
+                                    className={classNames('sb-markdown', 'md:text-lg', props?.styles?.content ? mapStyles(props?.styles?.content) : null)}
+                                    data-sb-field-path=".content"
                                 >
                                     {props.content}
                                 </Markdown>

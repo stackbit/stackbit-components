@@ -6,7 +6,7 @@ import StackbitModels from '../../storybook-addons/addon-stackbit-models/Stackbi
 import Item from './index';
 
 export default {
-    title: 'Components/Item',
+    title: 'Blocks/Item',
     component: Item,
     argTypes: {
         type: { table: { disable: true } },
@@ -59,7 +59,7 @@ const Template = (args) => <Item {...args} />;
 const args = {
     type: 'Item',
     title: 'The quick, brown fox jumps over a lazy dog',
-    subtitle: 'Section subtitle',
+    subtitle: 'Block subtitle',
     author: 'Earnest Hemingway',
     content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     actions: [

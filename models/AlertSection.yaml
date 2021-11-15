@@ -1,5 +1,8 @@
+type: object
 name: AlertSection
 label: Alert Section
+extends:
+  - Section
 groups:
   - sectionComponent
 fields:

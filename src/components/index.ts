@@ -10,7 +10,6 @@ import FormBlock from './FormBlock';
 import Header from './Header';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
-import MediaGallerySection from './MediaGallerySection';
 import PostFeedSection from './PostFeedSection';
 import QuoteSection from './QuoteSection';
 import Social from './Social';
@@ -20,6 +19,7 @@ import TextareaFormControl from './TextareaFormControl';
 import TextFormControl from './TextFormControl';
 import TextSection from './TextSection';
 import VideoBlock from './VideoBlock';
+import MediaGallerySection from './MediaGallerySection';
 
 export {
     Action,
@@ -34,7 +34,6 @@ export {
     Header,
     HeroSection,
     ImageBlock,
-    MediaGallerySection,
     PostFeedSection,
     QuoteSection,
     Social,
@@ -43,5 +42,6 @@ export {
     TextareaFormControl,
     TextFormControl,
     TextSection,
-    VideoBlock
+    VideoBlock,
+    MediaGallerySection
 };

@@ -30,6 +30,10 @@ module.exports = {
             },
             spacing: {
                 '1/1': '100%',
+                '2/3': '66.666%',
+                '3/2': '150%',
+                '3/4': '75%',
+                '4/3': '133.333%',
                 '9/16': '56.25%'
             }
         }
@@ -44,13 +48,13 @@ module.exports = {
                     fontWeight: 'bold',
                     letterSpacing: 'normal',
                     textDecoration: 'none',
-                    textTransform: 'none',
+                    textTransform: 'none'
                 },
                 h2: {
                     fontWeight: 'bold',
                     letterSpacing: 'normal',
                     textDecoration: 'none',
-                    textTransform: 'none',
+                    textTransform: 'none'
                 },
                 h3: {
                     fontWeight: 'bold',

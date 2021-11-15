@@ -19,6 +19,7 @@ import TextareaFormControl from './TextareaFormControl';
 import TextFormControl from './TextFormControl';
 import TextSection from './TextSection';
 import VideoBlock from './VideoBlock';
+import MediaGallerySection from './MediaGallerySection';
 
 export {
     Action,
@@ -41,5 +42,6 @@ export {
     TextareaFormControl,
     TextFormControl,
     TextSection,
-    VideoBlock
+    VideoBlock,
+    MediaGallerySection
 };

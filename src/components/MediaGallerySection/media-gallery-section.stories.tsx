@@ -16,6 +16,11 @@ export default {
             defaultValue: 4,
             control: { type: 'select' }
         },
+        aspectRatio: {
+            options: ['1:1', '2:3', '3:2', '4:3', '3:4', '16:9', 'auto'],
+            defaultValue: '1:1',
+            control: { type: 'select' }
+        },
         elementId: {}
     }
 };
@@ -23,41 +28,42 @@ export default {
 const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...args} />;
 
 const args: MediaGallerySectionProps = {
+    type: 'MediaGallerySection',
     title: 'Some photos',
     subtitle: 'Subtitle for some photos',
     columns: 4,
-    imageSizePx: 200,
+    imageSizePx: 300,
     spacing: 1,
+    aspectRatio: '1:1',
     showCaption: true,
     enableHover: true,
     elementId: '',
     colors: 'colors-d',
-    annotationPrefix: 'sections.1',
     images: [
         {
-            url: 'https://www.fillmurray.com/640/640',
-            altText: 'Bill Murray',
-            caption: 'Comedian and actor Bill Murray'
+            url: '/images/image-1.jpeg',
+            altText: 'Image alt text',
+            caption: 'Caption of the image'
         },
         {
-            url: 'https://loremflickr.com/cache/resized/65535_51377543930_d101570b6d_b_640_640_nofilter.jpg',
-            altText: 'Kitten',
-            caption: "Oh Look, It's a Cat!"
+            url: '/images/image-2.jpeg',
+            altText: 'Image alt text',
+            caption: 'Caption of the image'
         },
         {
-            url: 'https://placebear.com/640/640',
-            altText: 'Two Brown Bears (I think)',
-            caption: "Don't poke the bears."
+            url: '/images/image-3.jpeg',
+            altText: 'Image alt text',
+            caption: 'Caption of the image'
         },
         {
-            url: 'https://www.stevensegallery.com/640/640',
-            altText: 'Steven Segal',
-            caption: "I'm going to be honest I'm not sure who Steven Seagal is."
+            url: '/images/image-4.jpeg',
+            altText: 'Image alt text',
+            caption: 'Caption of the image'
         },
         {
-            url: 'https://i.picsum.photos/id/828/800/500.jpg?hmac=g6xZl72KNwQKXfu6g3a4mAjzKEKU-ZF8BGtBltcN-QE',
-            altText: 'Fireworks',
-            caption: "Fireworks. Aren't they pretty!"
+            url: '/images/image-5.jpeg',
+            altText: 'Image alt text',
+            caption: 'Caption of the image'
         }
     ],
     styles: {
@@ -88,5 +94,5 @@ const args: MediaGallerySectionProps = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Four images, four columns, captions enabled';
+Primary.storyName = 'Four columns, captions enabled';
 Primary.args = args;

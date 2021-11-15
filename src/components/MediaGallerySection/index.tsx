@@ -22,16 +22,18 @@ type MediaGalleryStyle = {
         fontWeight?: number;
         fontStyle?: string;
         textAlign?: string;
+        margin?: string | string[];
     };
     subtitle: {
         fontWeight?: number;
         fontStyle?: string;
         textAlign?: string;
+        margin?: string | string[];
     };
 };
 
 type BaseSectionComponentProps = {
-    annotationPrefix: string;
+    type: string;
     elementId: string;
     colors?: string;
     styles?: BaseSectionStyle & MediaGalleryStyle;
@@ -49,6 +51,7 @@ export type MediaGallerySectionProps = BaseSectionComponentProps & {
     images?: Image[];
     spacing?: number;
     columns?: number;
+    aspectRatio?: string;
     imageSizePx?: number;
     showCaption: boolean;
     enableHover: boolean;
@@ -81,12 +84,20 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
             style={{
                 borderWidth: `${sectionBorderWidth}px`
             }}
-            data-sb-field-path={props.annotationPrefix}
         >
             <div className={classNames('flex', 'w-full', sectionStyles?.justifyContent ? mapStyles({ justifyContent: sectionStyles?.justifyContent }) : null)}>
-                <div className={classNames(sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
-                    <MediaGalleryHeader {...props} />
-                    <MediaGalleryImageGrid {...props} />
+                <div
+                    className={classNames(
+                        'flex',
+                        'w-full',
+                        sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null,
+                        sectionStyles?.justifyContent ? mapStyles({ justifyContent: sectionStyles?.justifyContent }) : null
+                    )}
+                >
+                    <div className="inline-block max-w-full">
+                        <MediaGalleryHeader {...props} />
+                        <MediaGalleryImageGrid {...props} />
+                    </div>
                 </div>
             </div>
         </div>
@@ -115,7 +126,7 @@ function MediaGalleryHeader(props: MediaGallerySectionProps) {
     );
 }
 
-function LogoImage({ image, enableHover }: { image: Image; enableHover: boolean }) {
+function MediaGalleryImage({ image, enableHover, aspectRatio }: { image: Image; enableHover: boolean; aspectRatio: string }) {
     if (!image) {
         return null;
     }
@@ -123,8 +134,8 @@ function LogoImage({ image, enableHover }: { image: Image; enableHover: boolean 
     return (
         <ImageBlock
             {...image}
-            className={classNames('media-gallery-image', 'absolute', 'left-0', 'top-0', 'h-full', 'w-full', 'object-cover', 'transition-transform', {
-                'hover:scale-105': enableHover
+            className={classNames('sb-media-gallery-image', aspectRatio === 'auto' ? 'mx-auto' : 'absolute left-0 top-0 h-full w-full object-cover', {
+                'transition-transform hover:scale-105': enableHover
             })}
         />
     );
@@ -137,6 +148,7 @@ function MediaGalleryImageGrid(props: MediaGallerySectionProps) {
     }
 
     const columns = props.columns || 4;
+    const aspectRatio = props.aspectRatio || '1:1';
     const numGaps = columns - 1; // 1 image, 0 gaps, 2 images, 1 gap, etc etc
     const spacing = props.spacing || 0;
     // Give enough width for the desired image width * columns, plus the gaps, and the grid will auto-resize (resizing the images along with it)
@@ -148,15 +160,28 @@ function MediaGalleryImageGrid(props: MediaGallerySectionProps) {
             data-sb-field-path=".images"
             style={{
                 gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
-                gap: props.spacing ? `${props.spacing}rem` : undefined,
+                gap: spacing ? `${spacing}rem` : undefined,
                 width: props.imageSizePx ? widthString : '100%',
                 maxWidth: '100%'
             }}
         >
             {images.map((image, index) => (
-                <div key={`image-${index}`} data-sb-field-path={`.${index}`} className="relative h-0 w-full pt-1/1 relative items-center overflow-hidden">
-                    <LogoImage image={image} enableHover={props.enableHover} />
-                    {props.showCaption ? <div className="absolute left-2 bottom-2 text-xs text-left pointer-events-none">{image.caption}</div> : null}
+                <div
+                    key={`image-${index}`}
+                    data-sb-field-path={`.${index}`}
+                    className={classNames('overflow-hidden', 'relative', 'w-full', {
+                        'h-0 pt-1/1': aspectRatio === '1:1',
+                        'h-0 pt-3/2': aspectRatio === '2:3',
+                        'h-0 pt-2/3': aspectRatio === '3:2',
+                        'h-0 pt-4/3': aspectRatio === '3:4',
+                        'h-0 pt-3/4': aspectRatio === '4:3',
+                        'h-0 pt-9/16': aspectRatio === '16:9'
+                    })}
+                >
+                    <MediaGalleryImage image={image} enableHover={props.enableHover} aspectRatio={aspectRatio} />
+                    {props.showCaption && image.caption && (
+                        <div className="absolute bg-white bg-opacity-70 left-0 mx-2 bottom-2 p-1.5 text-xs pointer-events-none">{image.caption}</div>
+                    )}
                 </div>
             ))}
         </div>

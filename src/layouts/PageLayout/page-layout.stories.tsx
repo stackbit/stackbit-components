@@ -7,6 +7,7 @@ import * as CtaSectionStories from '../../components/CtaSection/cta-section.stor
 import * as FeaturedPeopleSectionStories from '../../components/FeaturedPeopleSection/featured-people-section.stories';
 import * as FeaturedPostsSectionStories from '../../components/FeaturedPostsSection/featured-posts-section.stories';
 import * as HeroSectionStories from '../../components/HeroSection/hero-section.stories';
+import * as MediaGallerySectionStories from '../../components/MediaGallerySection/media-gallery-section.stories';
 import * as PostFeedSectionStories from '../../components/PostFeedSection/post-feed-section.stories';
 import * as QuoteSectionStories from '../../components/QuoteSection/quote-section.stories';
 import * as TestimonialsSectionStories from '../../components/TestimonialsSection/testimonials-section.stories';
@@ -41,6 +42,7 @@ Primary.args = {
             FeaturedPeopleSectionStories.Primary.args,
             FeaturedPostsSectionStories.Primary.args,
             HeroSectionStories.Primary.args,
+            MediaGallerySectionStories.Primary.args,
             PostFeedSectionStories.Primary.args,
             QuoteSectionStories.Primary.args,
             TextSectionStories.Primary.args,

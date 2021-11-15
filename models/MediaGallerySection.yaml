@@ -15,11 +15,11 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Some photos
+    default: Our Customers
   - type: string
     name: subtitle
     label: Subtitle
-    default: Aren't they lovely photos?
+    default: Check out some of the brands that are already trusting us
   - type: list
     name: images
     label: Images
@@ -28,12 +28,25 @@ fields:
       models: [ImageBlock]
     default:
       - type: ImageBlock
-        url: https://loremflickr.com/cache/resized/65535_51377543930_d101570b6d_b_640_640_nofilter.jpg
-        altText: Cute Cat
-        caption: Look! It's a cat!
+        url: images/github.svg
+        altText: GitHub
+        caption: GitHub
+      - type: ImageBlock
+        url: images/netlify.svg
+        altText: Nelify logo
+        caption: Nelify
+      - type: ImageBlock
+        url: images/sticker-mule.svg
+        altText: Stickermule logo
+        caption: Stickermule
+      - type: ImageBlock
+        url: images/twilio.svg
+        altText: Twilio logo
+        caption: Twilio
   - type: number
     name: spacing
     label: Spacing between images
+    group: styles
     controlType: 'slider'
     min: 0
     max: 30
@@ -43,8 +56,9 @@ fields:
   - type: enum
     name: columns
     label: Images per row
+    group: styles
     default: 4
-    options: # `options` are objects like this because label becomes a string and value needs to remain a number
+    options:
       - label: '1'
         value: 1
       - label: '2'
@@ -57,15 +71,36 @@ fields:
         value: 5
       - label: '6'
         value: 6
+  - type: enum
+    name: aspectRatio
+    label: Image aspect ratio
+    group: styles
+    options:
+      - label: '1:1'
+        value: '1:1'
+      - label: '3:2'
+        value: '3:2'
+      - label: '2:3'
+        value: '2:3'
+      - label: '4:3'
+        value: '4:3'
+      - label: '3:4'
+        value: '3:4'
+      - label: '16:9'
+        value: '16:9'
+      - label: Auto
+        value: auto
+    default: '1:1'
   - type: number
     name: imageSizePx
     label: Max image size, in px
+    group: styles
     controlType: 'slider'
     min: 50
     max: 300
     step: 1
     unit: 'px'
-    default: 120
+    default: 300
   - type: boolean
     name: showCaption
     label: Show caption
@@ -117,7 +152,7 @@ fields:
         width: full
         height: auto
         margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         justifyContent: center
         borderRadius: none
         borderWidth: 0

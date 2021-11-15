@@ -29,7 +29,6 @@ export default function TextSection(props) {
             style={{
                 borderWidth: `${sectionBorderWidth}px`
             }}
-            data-sb-field-path={props.annotationPrefix}
         >
             <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
                 <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>{textBody(props)}</div>

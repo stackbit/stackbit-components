@@ -30,7 +30,6 @@ export default function QuoteSection(props) {
             style={{
                 borderWidth: `${sectionBorderWidth}px`
             }}
-            data-sb-field-path={props.annotationPrefix}
         >
             {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
             <div

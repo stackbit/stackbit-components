@@ -31,7 +31,6 @@ export default function CtaSection(props) {
             style={{
                 borderWidth: `${sectionBorderWidth}px`
             }}
-            data-sb-field-path={props.annotationPrefix}
         >
             {props.backgroundImage && ctaBackgroundImage(props.backgroundImage)}
             <div

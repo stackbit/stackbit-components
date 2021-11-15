@@ -31,7 +31,6 @@ export default function HeroSection(props) {
             style={{
                 borderWidth: `${sectionBorderWidth}px`
             }}
-            data-sb-field-path={props.annotationPrefix}
         >
             {props.backgroundImage && heroBackgroundImage(props.backgroundImage)}
             <div

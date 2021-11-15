@@ -15,11 +15,11 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Featured items
+    default: Featured items section
   - type: string
     name: subtitle
     label: Subtitle
-    default: Featured items section example
+    default: Featured items section example subtitle
   - type: list
     name: items
     label: Items
@@ -29,10 +29,10 @@ fields:
         - Item
     default:
       - type: Item
-        title: 'Special Item'
-        subtitle: 'Subtitle'
-        content: 'This is the content of the item'
-        author: 'John Doe'
+        title: The quick, brown fox jumps over a lazy dog
+        subtitle: Section subtitle
+        content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.'
+        author: Earnest Hemingway
         rating: 5
   - type: list
     name: actions
@@ -44,13 +44,12 @@ fields:
         - Link
     default:
       - type: Button
-        label: Get Started
-        url: '/'
+        label: Apply Now
+        url: '#'
         style: primary
-        elementId: hero-main-button
       - type: Button
         label: Learn More
-        url: '/'
+        url: '#'
         style: secondary
   - type: style
     name: styles

@@ -8,6 +8,12 @@ fieldGroups:
   - name: settings
     label: Settings
 fields:
+  - type: string
+    name: elementId
+    group: settings
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''
   - type: enum
     name: rating
     label: Rating
@@ -26,15 +32,15 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Item
+    default: Item block
   - type: string
     name: subtitle
     label: Subtitle
-    default: Featured blog posts section example
+    default: Item block example subtitle
   - type: string
     name: content
     label: Content
-    default: Some content for example
+    default: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.'
   - type: string
     name: author
     label: Author Name
@@ -49,13 +55,12 @@ fields:
         - Link
     default:
       - type: Button
-        label: Get Started
-        url: '/'
+        label: Apply Now
+        url: '#'
         style: primary
-        elementId: hero-main-button
       - type: Button
         label: Learn More
-        url: '/'
+        url: '#'
         style: secondary
   - type: style
     name: styles

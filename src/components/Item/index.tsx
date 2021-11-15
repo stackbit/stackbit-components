@@ -1,19 +1,21 @@
 import * as React from 'react';
-
 import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
 import { getComponent } from '../../components-registry';
-
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
 export default function Item(props) {
     const sectionStyles = props.styles?.self || {};
+    const cssId = props.elementId || null;
 
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
+            id={cssId}
             className={classNames(
                 'sb-component',
+                'sb-component-block',
+                'sb-component-item',
                 'flex',
                 'flex-col',
                 'justify-center',

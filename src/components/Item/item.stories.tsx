@@ -58,8 +58,8 @@ const Template = (args) => <Item {...args} />;
 
 const args = {
     type: 'Item',
-    title: 'The quick, brown fox jumps over a lazy dog',
-    subtitle: 'Block subtitle',
+    title: 'Item block',
+    subtitle: 'Item block example subtitle',
     author: 'Earnest Hemingway',
     content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     actions: [
@@ -102,7 +102,7 @@ const args = {
             textAlign: 'left',
             margin: ['mt-0', 'mb-6']
         },
-        text: {
+        content: {
             textAlign: 'left',
             margin: ['mt-0', 'mb-8']
         },

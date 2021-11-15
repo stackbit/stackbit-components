@@ -1,19 +1,21 @@
 import * as React from 'react';
-
 import classNames from 'classnames';
 import { getComponent } from '../../components-registry';
-
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import Item from '../Item';
 
 export default function FeaturedItemsSection(props) {
     const sectionStyles = props.styles?.self || {};
+    const cssId = props.elementId || null;
 
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
+            id={cssId}
             className={classNames(
                 'sb-component',
+                'sb-component-section',
+                'sb-component-featured-items-section',
                 'flex',
                 'flex-col',
                 'justify-center',

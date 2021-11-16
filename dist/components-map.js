@@ -18,6 +18,13 @@ module.exports.componentsMap = {
     'Social': Social,
 
     // dynamic components, key is model name
+    'AlertSection': dynamic(
+        () => import('./components/AlertSection/index.js').then(getDefault),
+        {
+            webpack: () => [require.resolveWeak('./components/AlertSection/index.js')],
+            modules: ['../../node_modules/@stackbit/components/dist/components-map.js -> ./components/AlertSection/index.js']
+        }
+    ),
     'CheckboxFormControl': dynamic(
         () => import('./components/CheckboxFormControl/index.js').then(getDefault),
         {

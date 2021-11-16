@@ -1,0 +1,170 @@
+type: object
+name: MediaGallerySection
+label: Media gallery section
+labelField: title
+extends:
+  - Section
+groups:
+  - sectionComponent
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
+fields:
+  - type: string
+    name: title
+    label: Title
+    default: Our Customers
+  - type: string
+    name: subtitle
+    label: Subtitle
+    default: Check out some of the brands that are already trusting us
+  - type: list
+    name: images
+    label: Images
+    items:
+      type: model
+      models: [ImageBlock]
+    default:
+      - type: ImageBlock
+        url: images/github.svg
+        altText: GitHub
+        caption: GitHub
+      - type: ImageBlock
+        url: images/netlify.svg
+        altText: Nelify logo
+        caption: Nelify
+      - type: ImageBlock
+        url: images/sticker-mule.svg
+        altText: Stickermule logo
+        caption: Stickermule
+      - type: ImageBlock
+        url: images/twilio.svg
+        altText: Twilio logo
+        caption: Twilio
+  - type: number
+    name: spacing
+    label: Spacing between images
+    group: styles
+    controlType: 'slider'
+    min: 0
+    max: 30
+    step: 1
+    unit: 'rem'
+    default: 1
+  - type: enum
+    name: columns
+    label: Images per row
+    group: styles
+    default: 4
+    options:
+      - label: '1'
+        value: 1
+      - label: '2'
+        value: 2
+      - label: '3'
+        value: 3
+      - label: '4'
+        value: 4
+      - label: '5'
+        value: 5
+      - label: '6'
+        value: 6
+  - type: enum
+    name: aspectRatio
+    label: Image aspect ratio
+    group: styles
+    options:
+      - label: '1:1'
+        value: '1:1'
+      - label: '3:2'
+        value: '3:2'
+      - label: '2:3'
+        value: '2:3'
+      - label: '4:3'
+        value: '4:3'
+      - label: '3:4'
+        value: '3:4'
+      - label: '16:9'
+        value: '16:9'
+      - label: Auto
+        value: auto
+    default: '1:1'
+  - type: number
+    name: imageSizePx
+    label: Max image size, in px
+    group: styles
+    controlType: 'slider'
+    min: 50
+    max: 300
+    step: 1
+    unit: 'px'
+    default: 300
+  - type: boolean
+    name: showCaption
+    label: Show caption
+    default: false
+  - type: boolean
+    name: enableHover
+    label: Enable hover
+    default: true
+  - type: style
+    name: styles
+    styles:
+      self:
+        width: ['narrow', 'wide', 'full']
+        height: ['auto', 'screen']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
+        justifyContent: ['flex-start', 'flex-end', 'center']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            color: '$primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            color: '$secondary'
+          - value: 'border-neutral'
+            label: 'Neutral color'
+            color: '$neutral'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            color: '$complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            color: '$complementaryAlt'
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+      subtitle:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+    default:
+      self:
+        width: full
+        height: auto
+        margin: ['mt-0', 'mb-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
+        justifyContent: center
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-neutral
+      title:
+        fontWeight: 700
+        fontStyle: normal
+        textAlign: center
+        margin: ['mt-0', 'mb-2']
+      subtitle:
+        fontWeight: 400
+        fontStyle: normal
+        textAlign: center
+        margin: ['mt-0', 'mb-12']

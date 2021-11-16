@@ -64,6 +64,11 @@
         "modelName": "ImageBlock",
         "isDynamic": true
     },
+    "MediaGallerySection": {
+        "path": "components/MediaGallerySection",
+        "modelName": "MediaGallerySection",
+        "isDynamic": true
+    },
     "PostFeedSection": {
         "path": "components/PostFeedSection",
         "modelName": "PostFeedSection",

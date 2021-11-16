@@ -31,7 +31,6 @@ export default function CtaSection(props) {
             style={{
                 borderWidth: `${sectionBorderWidth}px`
             }}
-            data-sb-field-path={props.annotationPrefix}
         >
             {props.backgroundImage && ctaBackgroundImage(props.backgroundImage)}
             <div
@@ -68,13 +67,12 @@ function ctaBackgroundImage(image) {
     const imageStyles = image.styles?.self || {};
     const imageOpacity = imageStyles.opacity || imageStyles.opacity === 0 ? imageStyles.opacity : 100;
     return (
-        <span
+        <div
             className="bg-cover bg-center block absolute inset-0"
             style={{
                 backgroundImage: `url('${imageUrl}')`,
                 opacity: imageOpacity * 0.01
             }}
-            data-sb-field-path=".backgroundImage.url#@style"
         />
     );
 }

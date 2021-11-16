@@ -108,40 +108,37 @@ function postsVariantA(props) {
     const ImageBlock = getComponent('ImageBlock');
     return (
         <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
-            {posts.map((post, index) => {
-                const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
-                const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
-                return (
-                    <article key={index} className="sb-card" data-sb-object-id={post.__metadata?.id}>
-                        {post.featuredImage && (
-                            <Link href={getPageUrlPath(post)} className="block h-0 w-full pt-9/16 relative" data-sb-field-path="featuredImage">
-                                <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                            </Link>
+            {posts.map((post, index) => (
+                <article key={index} className="sb-card" data-sb-object-id={post.__metadata?.id}>
+                    {post.featuredImage && (
+                        <Link href={getPageUrlPath(post)} className="block h-0 w-full pt-9/16 relative" data-sb-field-path="featuredImage">
+                            <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                        </Link>
+                    )}
+                    <div className="px-4 py-6 sm:px-6 sm:pb-10">
+                        {props.showDate && postDate(post.date)}
+                        {props.title ? (
+                            <h3 className="text-xl sm:text-2xl">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h3>
+                        ) : (
+                            <h2 className="text-xl sm:text-2xl">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h2>
                         )}
-                        <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                            {props.title ? (
-                                <h3 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                            ) : (
-                                <h2 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                            )}
-                            <div className="text-sm mb-3">
-                                <time dateTime={dateTimeAttr} data-sb-field-path="date">
-                                    {formattedDate}
-                                </time>
-                            </div>
-                            {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
-                        </div>
-                    </article>
-                );
-            })}
+                        {props.showAuthor && post.author && postAuthor(post.author)}
+                        {post.excerpt && (
+                            <p className="mt-3" data-sb-field-path="excerpt">
+                                {post.excerpt}
+                            </p>
+                        )}
+                    </div>
+                </article>
+            ))}
         </div>
     );
 }
@@ -154,50 +151,47 @@ function postsVariantB(props) {
     const ImageBlock = getComponent('ImageBlock');
     return (
         <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
-            {posts.map((post, index) => {
-                const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
-                const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
-                return (
-                    <article
-                        key={index}
-                        className={classNames('sb-card', {
-                            'md:col-span-2': index % 4 === 0 || (index + 1) % 4 === 0
-                        })}
-                        data-sb-object-id={post.__metadata?.id}
-                    >
-                        {post.featuredImage && (
-                            <Link
-                                href={getPageUrlPath(post)}
-                                className="block h-0 w-full pt-9/16 relative md:pt-0 md:h-60 lg:h-72"
-                                data-sb-field-path="featuredImage"
-                            >
-                                <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                            </Link>
+            {posts.map((post, index) => (
+                <article
+                    key={index}
+                    className={classNames('sb-card', {
+                        'md:col-span-2': index % 4 === 0 || (index + 1) % 4 === 0
+                    })}
+                    data-sb-object-id={post.__metadata?.id}
+                >
+                    {post.featuredImage && (
+                        <Link
+                            href={getPageUrlPath(post)}
+                            className="block h-0 w-full pt-9/16 relative md:pt-0 md:h-60 lg:h-72"
+                            data-sb-field-path="featuredImage"
+                        >
+                            <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                        </Link>
+                    )}
+                    <div className="px-4 py-6 sm:px-6 sm:pb-10">
+                        {props.showDate && postDate(post.date)}
+                        {props.title ? (
+                            <h3 className="text-xl sm:text-2xl">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h3>
+                        ) : (
+                            <h2 className="text-xl sm:text-2xl">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h2>
                         )}
-                        <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                            {props.title ? (
-                                <h3 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                            ) : (
-                                <h2 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                            )}
-                            <div className="text-sm mb-3">
-                                <time dateTime={dateTimeAttr} data-sb-field-path="date">
-                                    {formattedDate}
-                                </time>
-                            </div>
-                            {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
-                        </div>
-                    </article>
-                );
-            })}
+                        {props.showAuthor && post.author && postAuthor(post.author)}
+                        {post.excerpt && (
+                            <p className="mt-3" data-sb-field-path="excerpt">
+                                {post.excerpt}
+                            </p>
+                        )}
+                    </div>
+                </article>
+            ))}
         </div>
     );
 }
@@ -212,8 +206,6 @@ function postsVariantC(props) {
         <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
             {posts.map((post, index) => {
                 const isFullWidth = index % 4 === 0;
-                const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
-                const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
                 return (
                     <article
                         key={index}
@@ -244,9 +236,10 @@ function postsVariantC(props) {
                                 'md:w-3/5 md:pt-8 md:pb-10': isFullWidth
                             })}
                         >
+                            {props.showDate && postDate(post.date)}
                             {props.title ? (
                                 <h3
-                                    className={classNames('text-xl', 'sm:text-2xl', 'mb-1', {
+                                    className={classNames('text-xl', 'sm:text-2xl', {
                                         'md:text-3xl': isFullWidth
                                     })}
                                 >
@@ -256,7 +249,7 @@ function postsVariantC(props) {
                                 </h3>
                             ) : (
                                 <h2
-                                    className={classNames('text-xl', 'sm:text-2xl', 'mb-1', {
+                                    className={classNames('text-xl', 'sm:text-2xl', {
                                         'md:text-3xl': isFullWidth
                                     })}
                                 >
@@ -265,12 +258,12 @@ function postsVariantC(props) {
                                     </Link>
                                 </h2>
                             )}
-                            <div className="text-sm mb-3">
-                                <time dateTime={dateTimeAttr} data-sb-field-path="date">
-                                    {formattedDate}
-                                </time>
-                            </div>
-                            {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
+                            {props.showAuthor && post.author && postAuthor(post.author)}
+                            {post.excerpt && (
+                                <p className="mt-3" data-sb-field-path="excerpt">
+                                    {post.excerpt}
+                                </p>
+                            )}
                         </div>
                     </article>
                 );
@@ -286,47 +279,68 @@ function postsVariantD(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div>
-            {posts.map((post, index) => {
-                const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
-                const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
-                return (
-                    <article key={index} className="sb-card mb-8 md:flex" data-sb-object-id={post.__metadata.id}>
-                        {post.featuredImage && (
-                            <div className="md:w-2/5">
-                                <Link
-                                    href={getPageUrlPath(post)}
-                                    className="block h-0 w-full pt-9/16 relative md:h-60 md:min-h-full md:pt-0 lg:h-72"
-                                    data-sb-field-path="featuredImage"
-                                >
-                                    <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                                </Link>
-                            </div>
-                        )}
-                        <div className="px-4 pt-6 pb-8 sm:px-6 md:w-3/5 md:pt-8 md:pb-10">
-                            {props.title ? (
-                                <h3 className="text-xl sm:text-2xl md:text-3xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                            ) : (
-                                <h2 className="text-xl sm:text-2xl md:text-3xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                            )}
-                            <div className="text-sm mb-3">
-                                <time dateTime={dateTimeAttr} data-sb-field-path="date">
-                                    {formattedDate}
-                                </time>
-                            </div>
-                            {post.excerpt && <p data-sb-field-path="excerpt">{post.excerpt}</p>}
+        <div data-sb-field-path=".posts">
+            {posts.map((post, index) => (
+                <article key={index} className="sb-card mb-8 md:flex" data-sb-object-id={post.__metadata.id}>
+                    {post.featuredImage && (
+                        <div className="md:w-2/5">
+                            <Link
+                                href={getPageUrlPath(post)}
+                                className="block h-0 w-full pt-9/16 relative md:h-60 md:min-h-full md:pt-0 lg:h-72"
+                                data-sb-field-path="featuredImage"
+                            >
+                                <ImageBlock {...post.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                            </Link>
                         </div>
-                    </article>
-                );
-            })}
+                    )}
+                    <div className="px-4 pt-6 pb-8 sm:px-6 md:w-3/5 md:pt-8 md:pb-10">
+                        {props.showDate && postDate(post.date)}
+                        {props.title ? (
+                            <h3 className="text-xl sm:text-2xl md:text-3xl">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h3>
+                        ) : (
+                            <h2 className="text-xl sm:text-2xl md:text-3xl">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h2>
+                        )}
+                        {props.showAuthor && post.author && postAuthor(post.author)}
+                        {post.excerpt && (
+                            <p className="mt-3" data-sb-field-path="excerpt">
+                                {post.excerpt}
+                            </p>
+                        )}
+                    </div>
+                </article>
+            ))}
+        </div>
+    );
+}
+
+function postDate(date) {
+    const dateTimeAttr = dayjs(date).format('YYYY-MM-DD HH:mm:ss');
+    const formattedDate = dayjs(date).format('MMMM D, YYYY');
+    return (
+        <div className="text-sm mb-1">
+            <time dateTime={dateTimeAttr} data-sb-field-path="date">
+                {formattedDate}
+            </time>
+        </div>
+    );
+}
+
+function postAuthor(author) {
+    return (
+        <div className="text-sm mt-1">
+            By{' '}
+            <span data-sb-field-path="author">
+                {author.firstName && <span data-sb-field-path=".firstName">{author.firstName}</span>}{' '}
+                {author.lastName && <span data-sb-field-path=".lastName">{author.lastName}</span>}
+            </span>
         </div>
     );
 }

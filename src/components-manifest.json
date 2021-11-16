@@ -4,6 +4,11 @@
         "modelName": null,
         "isDynamic": false
     },
+    "AlertSection": {
+        "path": "components/AlertSection",
+        "modelName": "AlertSection",
+        "isDynamic": true
+    },
     "CheckboxFormControl": {
         "path": "components/CheckboxFormControl",
         "modelName": "CheckboxFormControl",

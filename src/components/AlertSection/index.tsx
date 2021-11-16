@@ -30,7 +30,7 @@ export default function AlertSection(props) {
             }}
             data-sb-field-path={props.annotationPrefix}
         >
-            <h1>Alert3</h1>
+            <h1>Alert4</h1>
             <p>{props.body}</p>
         </div>
     );

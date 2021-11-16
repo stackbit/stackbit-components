@@ -88,6 +88,13 @@ module.exports.componentsMap = {
             modules: ['../../node_modules/@stackbit/components/dist/components-map.js -> ./components/ImageBlock/index.js']
         }
     ),
+    'MediaGallerySection': dynamic(
+        () => import('./components/MediaGallerySection/index.js').then(getDefault),
+        {
+            webpack: () => [require.resolveWeak('./components/MediaGallerySection/index.js')],
+            modules: ['../../node_modules/@stackbit/components/dist/components-map.js -> ./components/MediaGallerySection/index.js']
+        }
+    ),
     'PostFeedSection': dynamic(
         () => import('./components/PostFeedSection/index.js').then(getDefault),
         {

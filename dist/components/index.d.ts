@@ -19,5 +19,6 @@ import TextareaFormControl from './TextareaFormControl';
 import TextFormControl from './TextFormControl';
 import TextSection from './TextSection';
 import VideoBlock from './VideoBlock';
-export { Action, CheckboxFormControl, ContactSection, CtaSection, EmailFormControl, FeaturedPeopleSection, FeaturedPostsSection, Footer, FormBlock, Header, HeroSection, ImageBlock, PostFeedSection, QuoteSection, Social, SelectFormControl, TestimonialsSection, TextareaFormControl, TextFormControl, TextSection, VideoBlock };
+import MediaGallerySection from './MediaGallerySection';
+export { Action, CheckboxFormControl, ContactSection, CtaSection, EmailFormControl, FeaturedPeopleSection, FeaturedPostsSection, Footer, FormBlock, Header, HeroSection, ImageBlock, PostFeedSection, QuoteSection, Social, SelectFormControl, TestimonialsSection, TextareaFormControl, TextFormControl, TextSection, VideoBlock, MediaGallerySection };
 //# sourceMappingURL=index.d.ts.map

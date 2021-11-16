@@ -35,7 +35,7 @@ function ContactSection(props) {
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-section', 'sb-component-contact-section', colors, 'flex', 'flex-col', 'justify-center', sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null, sectionStyles.margin, sectionStyles.padding, sectionStyles.borderColor, sectionStyles.borderRadius ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderRadius: sectionStyles.borderRadius }) : null, sectionStyles.borderStyle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderStyle: sectionStyles.borderStyle }) : null), style: {
             borderWidth: `${sectionBorderWidth}px`
-        }, "data-sb-field-path": props.annotationPrefix },
+        } },
         React.createElement("div", { className: (0, classnames_1.default)('flex', 'w-full', sectionStyles.justifyContent ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ justifyContent: sectionStyles.justifyContent }) : null) },
             React.createElement("div", { className: (0, classnames_1.default)('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null) },
                 React.createElement("div", { className: (0, classnames_1.default)('flex', '-mx-4', sectionStyles.flexDirection ? mapFlexDirectionStyles(sectionStyles.flexDirection) : null, sectionStyles.alignItems ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ alignItems: sectionStyles.alignItems }) : null) },

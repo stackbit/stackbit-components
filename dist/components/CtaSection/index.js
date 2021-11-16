@@ -34,7 +34,7 @@ function CtaSection(props) {
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-section', 'sb-component-cta-section', colors, 'flex', 'flex-col', 'justify-center', 'relative', sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null, sectionStyles.margin, sectionStyles.padding, sectionStyles.borderColor, sectionStyles.borderRadius ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderRadius: sectionStyles.borderRadius }) : null, sectionStyles.borderStyle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderStyle: sectionStyles.borderStyle }) : null), style: {
             borderWidth: `${sectionBorderWidth}px`
-        }, "data-sb-field-path": props.annotationPrefix },
+        } },
         props.backgroundImage && ctaBackgroundImage(props.backgroundImage),
         React.createElement("div", { className: (0, classnames_1.default)('flex', 'relative', 'w-full', sectionStyles.justifyContent ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ justifyContent: sectionStyles.justifyContent }) : null) },
             React.createElement("div", { className: (0, classnames_1.default)('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null) },
@@ -50,10 +50,10 @@ function ctaBackgroundImage(image) {
     }
     const imageStyles = image.styles?.self || {};
     const imageOpacity = imageStyles.opacity || imageStyles.opacity === 0 ? imageStyles.opacity : 100;
-    return (React.createElement("span", { className: "bg-cover bg-center block absolute inset-0", style: {
+    return (React.createElement("div", { className: "bg-cover bg-center block absolute inset-0", style: {
             backgroundImage: `url('${imageUrl}')`,
             opacity: imageOpacity * 0.01
-        }, "data-sb-field-path": ".backgroundImage.url#@style" }));
+        } }));
 }
 function ctaBody(props) {
     if (!props.title && !props.text) {

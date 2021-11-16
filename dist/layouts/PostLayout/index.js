@@ -51,7 +51,8 @@ function PostLayout(props) {
                 if (!Component) {
                     throw new Error(`no component matching the page section's type: ${section.type}`);
                 }
-                return React.createElement(Component, { key: index, ...section, annotationPrefix: `bottomSections.${index}` });
+                return (React.createElement("div", { key: index, "data-sb-field-path": `bottomSections.${index}` },
+                    React.createElement(Component, { ...section })));
             }))))));
 }
 exports.default = PostLayout;

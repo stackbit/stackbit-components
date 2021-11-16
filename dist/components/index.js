@@ -3,7 +3,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.VideoBlock = exports.TextSection = exports.TextFormControl = exports.TextareaFormControl = exports.TestimonialsSection = exports.SelectFormControl = exports.Social = exports.QuoteSection = exports.PostFeedSection = exports.ImageBlock = exports.HeroSection = exports.Header = exports.FormBlock = exports.Footer = exports.FeaturedPostsSection = exports.FeaturedPeopleSection = exports.EmailFormControl = exports.CtaSection = exports.ContactSection = exports.CheckboxFormControl = exports.Action = void 0;
+exports.MediaGallerySection = exports.VideoBlock = exports.TextSection = exports.TextFormControl = exports.TextareaFormControl = exports.TestimonialsSection = exports.SelectFormControl = exports.Social = exports.QuoteSection = exports.PostFeedSection = exports.ImageBlock = exports.HeroSection = exports.Header = exports.FormBlock = exports.Footer = exports.FeaturedPostsSection = exports.FeaturedPeopleSection = exports.EmailFormControl = exports.CtaSection = exports.ContactSection = exports.CheckboxFormControl = exports.Action = void 0;
 const Action_1 = __importDefault(require("./Action"));
 exports.Action = Action_1.default;
 const CheckboxFormControl_1 = __importDefault(require("./CheckboxFormControl"));
@@ -46,4 +46,6 @@ const TextSection_1 = __importDefault(require("./TextSection"));
 exports.TextSection = TextSection_1.default;
 const VideoBlock_1 = __importDefault(require("./VideoBlock"));
 exports.VideoBlock = VideoBlock_1.default;
+const MediaGallerySection_1 = __importDefault(require("./MediaGallerySection"));
+exports.MediaGallerySection = MediaGallerySection_1.default;
 //# sourceMappingURL=index.js.map

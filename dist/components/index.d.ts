@@ -1,4 +1,5 @@
 import Action from './Action';
+import AlertSection from './AlertSection';
 import CheckboxFormControl from './CheckboxFormControl';
 import ContactSection from './ContactSection';
 import CtaSection from './CtaSection';
@@ -20,5 +21,5 @@ import TextFormControl from './TextFormControl';
 import TextSection from './TextSection';
 import VideoBlock from './VideoBlock';
 import MediaGallerySection from './MediaGallerySection';
-export { Action, CheckboxFormControl, ContactSection, CtaSection, EmailFormControl, FeaturedPeopleSection, FeaturedPostsSection, Footer, FormBlock, Header, HeroSection, ImageBlock, PostFeedSection, QuoteSection, Social, SelectFormControl, TestimonialsSection, TextareaFormControl, TextFormControl, TextSection, VideoBlock, MediaGallerySection };
+export { Action, AlertSection, CheckboxFormControl, ContactSection, CtaSection, EmailFormControl, FeaturedPeopleSection, FeaturedPostsSection, Footer, FormBlock, Header, HeroSection, ImageBlock, PostFeedSection, QuoteSection, Social, SelectFormControl, TestimonialsSection, TextareaFormControl, TextFormControl, TextSection, VideoBlock, MediaGallerySection };
 //# sourceMappingURL=index.d.ts.map

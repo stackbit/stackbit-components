@@ -133,5 +133,15 @@
         "path": "layouts/PostLayout",
         "modelName": "PostLayout",
         "isDynamic": true
+    },
+    "PostFeedLayout": {
+        "path": "layouts/PostFeedLayout",
+        "modelName": "PostFeedLayout",
+        "isDynamic": true
+    },
+    "PostCategoryLayout": {
+        "path": "layouts/PostCategoryLayout",
+        "modelName": "PostCategoryLayout",
+        "isDynamic": true
     }
 }

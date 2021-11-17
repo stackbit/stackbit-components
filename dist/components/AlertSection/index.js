@@ -33,7 +33,7 @@ function AlertSection(props) {
     return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-section', 'sb-component-alert-section', colors, 'flex', 'flex-col', 'justify-center', sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null, sectionStyles.margin, sectionStyles.padding, sectionStyles.borderColor, sectionStyles.borderRadius ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderRadius: sectionStyles.borderRadius }) : null, sectionStyles.borderStyle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderStyle: sectionStyles.borderStyle }) : null), style: {
             borderWidth: `${sectionBorderWidth}px`
         }, "data-sb-field-path": props.annotationPrefix },
-        React.createElement("h1", null, "Alert7"),
+        React.createElement("h1", null, "Alert8"),
         React.createElement("p", null, props.body)));
 }
 exports.default = AlertSection;

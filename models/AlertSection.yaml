@@ -9,3 +9,4 @@ groups:
 fields:
   - type: text
     name: body
+    default: 'Warning, this is an alert'

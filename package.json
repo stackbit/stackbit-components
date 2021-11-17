@@ -27,7 +27,8 @@
         "lint": "eslint src",
         "prettier": "prettier --write src scripts",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
-        "version-patch": "npm version patch -m \"bumped version to v%s\""
+        "version-patch": "npm version patch -m \"bumped version to v%s\"",
+        "prepare": "npm run dist"
     },
     "repository": {
         "type": "git",

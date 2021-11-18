@@ -31,15 +31,15 @@ fields:
     group: styles
     label: Icon
     options:
-      - arrowLeft
       - arrowRight
+      - arrowLeft
       - cart
       - facebook
       - github
       - instagram
       - linkedin
       - twitter
-    default: arrowLeft
+    default: arrowRight
   - type: enum
     name: iconPosition
     group: styles
@@ -57,10 +57,6 @@ fields:
     options:
       - label: Link
         value: link
-      - label: Primary
-        value: primary
-      - label: Secondary
-        value: secondary
     default: link
   - type: string
     name: elementId

@@ -6,7 +6,7 @@ export default function AlertSection(props) {
     return (
         <div id={cssId} className={classNames('sb-component', 'sb-component-section', 'sb-component-alert-section')}>
             <h1>Alert11</h1>
-            <p>{props.body}</p>
+            <p data-sb-field-path=".body">{props.body}</p>
         </div>
     );
 }

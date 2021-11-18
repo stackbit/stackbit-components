@@ -60,6 +60,15 @@ fields:
       - content/pages/blog/post-three.md
       - content/pages/blog/post-two.md
       - content/pages/blog/post-one.md
+  - type: boolean
+    name: showDate
+    label: Show post date
+    default: false
+  - type: boolean
+    name: showAuthor
+    label: Show post author
+    description: Show the author of the post
+    default: false
   - type: style
     name: styles
     styles:

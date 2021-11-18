@@ -98,7 +98,7 @@ const args = {
     styles: {
         self: {
             width: 'narrow',
-            padding: ['pt-16', 'pb-16']
+            padding: ['pt-16', 'pb-16', 'pl-4', 'pr-4']
         }
     }
 };

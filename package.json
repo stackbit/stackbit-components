@@ -22,6 +22,7 @@
         "build": "node ./scripts/build-storybook.js && build-storybook -s ./public",
         "dist": "./scripts/build-dist.js --clean",
         "dist-local": "./scripts/build-dist.js --local",
+        "dist-sync": "./scripts/build-dist.js",
         "build:ts": "rm -rf dist && tsc",
         "dev:ts": "tsc --watch",
         "lint": "eslint src",

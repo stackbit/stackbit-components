@@ -1,12 +1,22 @@
 import * as React from 'react';
+import Link from '../../utils/link';
 import { getComponent } from '../../components-registry';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
 
 export default function PostFeedLayout(props) {
     const { page, site } = props;
     const BaseLayout = getBaseLayoutComponent(page.baseLayout, site.baseLayout);
-    const { title, topSections = [], bottomSections = [], pageIndex, numOfPages, numOfTotalItems, ...rest } = page;
+    const { title, topSections = [], bottomSections = [], pageIndex, baseUrlPath, numOfPages, numOfTotalItems, ...rest } = page;
     const PostFeedSection = getComponent('PostFeedSection');
+
+    // blog/category/react
+    const pageLinks = [];
+    for (let i = 0; i < numOfPages; i++) {
+        const urlPath = i === 0 ? baseUrlPath : `${baseUrlPath}/page/${i + 1}`;
+        pageLinks.push(
+            <Link key={i} href={urlPath}><a>Page {i + 1}</a></Link>
+        );
+    }
 
     return (
         <BaseLayout page={page} site={site}>
@@ -17,9 +27,9 @@ export default function PostFeedLayout(props) {
                     </h1>
                 )}
                 {renderSections(topSections, 'topSections')}
-                <div data-sb-field-path="sections">
+
                     <PostFeedSection {...rest} />
-                </div>
+                    <div>{pageLinks}</div>
                 {renderSections(bottomSections, 'bottomSections')}
             </main>
         </BaseLayout>

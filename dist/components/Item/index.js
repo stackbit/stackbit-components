@@ -28,14 +28,10 @@ const markdown_to_jsx_1 = __importDefault(require("markdown-to-jsx"));
 const components_registry_1 = require("../../components-registry");
 const map_styles_to_class_names_1 = require("../../utils/map-styles-to-class-names");
 function Item(props) {
-    const sectionStyles = props.styles?.self || {};
     const cssId = props.elementId || null;
-    const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
-    return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-block', 'sb-component-item', 'flex', 'flex-col', 'justify-center', 'relative', sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null, sectionStyles.margin, sectionStyles.padding, sectionStyles.borderColor, sectionStyles.borderRadius ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderRadius: sectionStyles.borderRadius }) : null, sectionStyles.borderStyle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderStyle: sectionStyles.borderStyle }) : null), style: {
-            borderWidth: `${sectionBorderWidth}px`
-        }, "data-sb-field-path": props.annotationPrefix },
-        React.createElement("div", { className: (0, classnames_1.default)('flex', 'relative', 'w-full', sectionStyles.justifyContent ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ justifyContent: sectionStyles.justifyContent }) : null) },
-            React.createElement("div", { className: (0, classnames_1.default)('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null) },
+    return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-block', 'sb-component-item', 'flex', 'flex-col', 'justify-center', 'relative'), "data-sb-field-path": props.annotationPrefix },
+        React.createElement("div", { className: (0, classnames_1.default)('flex', 'relative', 'w-full') },
+            React.createElement("div", { className: (0, classnames_1.default)('w-full') },
                 React.createElement("article", { className: "sb-card" },
                     React.createElement("div", { className: "px-4 py-6 sm:px-6 sm:pb-10" },
                         props.title && (React.createElement("h2", { className: (0, classnames_1.default)('text-4xl', 'sm:text-5xl', props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
@@ -54,25 +50,5 @@ function itemActions(props) {
     const styles = props.styles || {};
     const Action = (0, components_registry_1.getComponent)('Action');
     return (React.createElement("div", { className: (0, classnames_1.default)('flex', 'flex-wrap', 'items-center', '-mx-2', styles.actions ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.actions) : null), "data-sb-field-path": ".actions" }, actions.map((action, index) => (React.createElement(Action, { key: index, ...action, className: "mb-3 mx-2 lg:whitespace-nowrap", annotationPrefix: `.${index}` })))));
-}
-function mapMinHeightStyles(height) {
-    switch (height) {
-        case 'auto':
-            return 'min-h-0';
-        case 'screen':
-            return 'min-h-screen';
-    }
-    return null;
-}
-function mapMaxWidthStyles(width) {
-    switch (width) {
-        case 'narrow':
-            return 'max-w-screen-md';
-        case 'wide':
-            return 'max-w-screen-xl';
-        case 'full':
-            return 'max-w-full';
-    }
-    return null;
 }
 //# sourceMappingURL=index.js.map

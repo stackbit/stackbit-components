@@ -65,33 +65,6 @@ fields:
   - type: style
     name: styles
     styles:
-      self:
-        height: ['auto', 'screen']
-        width: ['narrow', 'wide', 'full']
-        margin: ['tw0:36']
-        padding: ['tw4:36']
-        alignItems: ['flex-start', 'flex-end', 'center']
-        justifyContent: ['flex-start', 'flex-end', 'center']
-        flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
-        borderRadius: '*'
-        borderWidth: ['0:8']
-        borderStyle: '*'
-        borderColor:
-          - value: 'border-primary'
-            label: 'Primary color'
-            styleObjectColor: 'primary'
-          - value: 'border-secondary'
-            label: 'Secondary color'
-            styleObjectColor: 'secondary'
-          - value: 'border-neutral'
-            label: 'Neutral color'
-            styleObjectColor: 'neutral'
-          - value: 'border-complementary'
-            label: 'Complementary color'
-            styleObjectColor: 'complementary'
-          - value: 'border-complementary-alt'
-            label: 'Complementary alt color'
-            styleObjectColor: 'complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']

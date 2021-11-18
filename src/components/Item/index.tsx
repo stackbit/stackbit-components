@@ -5,42 +5,15 @@ import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
 export default function Item(props) {
-    const sectionStyles = props.styles?.self || {};
     const cssId = props.elementId || null;
-
-    const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
             id={cssId}
-            className={classNames(
-                'sb-component',
-                'sb-component-block',
-                'sb-component-item',
-                'flex',
-                'flex-col',
-                'justify-center',
-                'relative',
-                sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                sectionStyles.margin,
-                sectionStyles.padding,
-                sectionStyles.borderColor,
-                sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
-                sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
-            )}
-            style={{
-                borderWidth: `${sectionBorderWidth}px`
-            }}
+            className={classNames('sb-component', 'sb-component-block', 'sb-component-item', 'flex', 'flex-col', 'justify-center', 'relative')}
             data-sb-field-path={props.annotationPrefix}
         >
-            <div
-                className={classNames(
-                    'flex',
-                    'relative',
-                    'w-full',
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
-                )}
-            >
-                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+            <div className={classNames('flex', 'relative', 'w-full')}>
+                <div className={classNames('w-full')}>
                     <article className="sb-card">
                         <div className="px-4 py-6 sm:px-6 sm:pb-10">
                             {props.title && (
@@ -97,26 +70,4 @@ function itemActions(props) {
             ))}
         </div>
     );
-}
-
-function mapMinHeightStyles(height) {
-    switch (height) {
-        case 'auto':
-            return 'min-h-0';
-        case 'screen':
-            return 'min-h-screen';
-    }
-    return null;
-}
-
-function mapMaxWidthStyles(width) {
-    switch (width) {
-        case 'narrow':
-            return 'max-w-screen-md';
-        case 'wide':
-            return 'max-w-screen-xl';
-        case 'full':
-            return 'max-w-full';
-    }
-    return null;
 }

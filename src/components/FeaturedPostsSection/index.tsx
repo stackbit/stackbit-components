@@ -53,7 +53,7 @@ function featuredPostsHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames(styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
@@ -118,13 +118,13 @@ function postsVariantA(props) {
                     <div className="px-4 py-6 sm:px-6 sm:pb-10">
                         {props.showDate && postDate(post.date)}
                         {props.title ? (
-                            <h3 className="text-xl sm:text-2xl">
+                            <h3>
                                 <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                     {post.title}
                                 </Link>
                             </h3>
                         ) : (
-                            <h2 className="text-xl sm:text-2xl">
+                            <h2>
                                 <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                     {post.title}
                                 </Link>
@@ -171,13 +171,13 @@ function postsVariantB(props) {
                     <div className="px-4 py-6 sm:px-6 sm:pb-10">
                         {props.showDate && postDate(post.date)}
                         {props.title ? (
-                            <h3 className="text-xl sm:text-2xl">
+                            <h3>
                                 <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                     {post.title}
                                 </Link>
                             </h3>
                         ) : (
-                            <h2 className="text-xl sm:text-2xl">
+                            <h2>
                                 <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                     {post.title}
                                 </Link>
@@ -238,21 +238,13 @@ function postsVariantC(props) {
                         >
                             {props.showDate && postDate(post.date)}
                             {props.title ? (
-                                <h3
-                                    className={classNames('text-xl', 'sm:text-2xl', {
-                                        'md:text-3xl': isFullWidth
-                                    })}
-                                >
+                                <h3>
                                     <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                         {post.title}
                                     </Link>
                                 </h3>
                             ) : (
-                                <h2
-                                    className={classNames('text-xl', 'sm:text-2xl', {
-                                        'md:text-3xl': isFullWidth
-                                    })}
-                                >
+                                <h2>
                                     <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                         {post.title}
                                     </Link>
@@ -296,13 +288,13 @@ function postsVariantD(props) {
                     <div className="px-4 pt-6 pb-8 sm:px-6 md:w-3/5 md:pt-8 md:pb-10">
                         {props.showDate && postDate(post.date)}
                         {props.title ? (
-                            <h3 className="text-xl sm:text-2xl md:text-3xl">
+                            <h3>
                                 <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                     {post.title}
                                 </Link>
                             </h3>
                         ) : (
-                            <h2 className="text-xl sm:text-2xl md:text-3xl">
+                            <h2>
                                 <Link href={getPageUrlPath(post)} data-sb-field-path="title">
                                     {post.title}
                                 </Link>

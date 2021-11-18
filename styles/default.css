@@ -4,23 +4,21 @@
 
 @layer base {
     body {
-        @apply font-body text-base text-body;
+        @apply bg-main text-base;
     }
-
     h1,
     h2,
     h3,
     h4,
     h5,
     h6 {
-        @apply font-headlines text-headlines;
+        line-height: 1.15;
     }
 }
 
 @layer components {
-    /* Markdown block */
     .sb-markdown {
-        line-height: 1.75;
+        @apply leading-relaxed;
         a {
             @apply underline;
         }
@@ -34,47 +32,25 @@
         em {
             @apply italic;
         }
-        h1 {
-            font-size: 2.25em;
-            margin: 1.33333em 0 0.33333em;
-            line-height: 1.11111;
-        }
-        h2 {
-            font-size: 1.875em;
-            margin: 1.2em 0 0.4em;
-            line-height: 1.25;
-        }
-        h3 {
-            font-size: 1.5em;
-            margin: 1.5em 0 0.5em;
-            line-height: 1.25;
-        }
-        h4 {
-            font-size: 1.25em;
-            margin: 1.8em 0 0.6em;
-            line-height: 1.25;
-        }
-        h5 {
-            font-size: 1.125em;
-            margin: 2em 0 0.66667em;
-            line-height: 1.25;
-        }
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
         h6 {
-            font-size: 1em;
-            margin: 2.25em 0 0.75em;
-            line-height: 1.5;
+            margin: 2.5rem 0 1.5rem;
         }
         p {
-            margin: 1.125em 0;
+            margin: 1.5rem 0;
         }
         ol {
             @apply list-decimal;
-            margin: 1.125em 0;
+            margin: 1.5rem 0;
             padding-left: 1.25em;
         }
         ul {
             @apply list-disc;
-            margin: 1.125em 0;
+            margin: 1.5rem 0;
             padding-left: 1.25em;
         }
         li > ul,
@@ -83,32 +59,37 @@
         }
         blockquote {
             @apply border-l-4 border-current;
-            font-size: 1.125em;
-            margin: 1.33333em 0;
-            padding-left: 1em;
+            font-size: 1.25em;
+            line-height: 1.4;
+            margin: 2.5rem 0;
+            padding-left: 1.25em;
         }
         pre {
-            @apply bg-neutral text-white overflow-x-auto;
+            @apply bg-dark text-on-dark overflow-x-auto leading-normal;
             font-size: 0.875em;
-            line-height: 1.5;
-            margin: 1.71428em 0;
-            padding: 1.71428em;
+            margin: 1.5rem 0;
+            padding: 1.25em;
         }
         hr {
-            @apply border-t;
-            margin: 2.25em 0;
+            @apply bg-current border-0 h-px;
+            margin: 2.5rem 0;
         }
         figure {
-            margin: 1.5em 0;
+            margin: 1.5rem 0;
         }
         figcaption {
+            @apply leading-normal;
             font-size: 0.875em;
-            line-height: 1.5;
-            margin: 0.85714em 0;
+            margin: 0.5rem 0 0;
         }
         table {
             @apply border border-collapse text-left w-full;
-            margin: 1.5em 0;
+            margin: 1.5rem 0;
+        }
+        caption {
+            @apply text-left;
+            font-size: 0.875em;
+            margin: 0 0 0.5rem;
         }
         th,
         td {
@@ -124,11 +105,6 @@
         h4:first-child,
         h5:first-child,
         h6:first-child,
-        h1 + h2,
-        h2 + h3,
-        h3 + h4,
-        h4 + h5,
-        h5 + h6,
         p:first-child,
         ul:first-child,
         ol:first-child,
@@ -138,6 +114,13 @@
         figure:first-child,
         table:first-child {
             margin-top: 0;
+        }
+        h1 + h2,
+        h2 + h3,
+        h3 + h4,
+        h4 + h5,
+        h5 + h6 {
+            margin-top: 1.5rem;
         }
     }
 
@@ -156,23 +139,28 @@
         @apply flex items-center h-4 before:flex-grow before:h-px;
     }
 
+    /* Cards */
+    .sb-card-body {
+        @apply px-4 py-6 sm:px-6 sm:pb-10;
+    }
+
     /* Form controls */
     .sb-form-control {
         @apply mb-4;
     }
     .sb-label {
-        @apply font-light;
+        @apply inline-block mb-1;
     }
     .sb-input,
     .sb-select,
     .sb-textarea {
-        @apply bg-transparent border font-light p-2 text-base w-full focus:outline-none;
+        @apply border p-2 text-base w-full focus:outline-none;
     }
     .sb-checkbox {
         @apply align-middle appearance-none bg-origin-border border border-current cursor-pointer flex-shrink-0 inline-block h-5 select-none w-5 checked:bg-center checked:bg-no-repeat checked:bg-current;
     }
     .sb-checkbox:checked {
-        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='white' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='%23111' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
         background-size: 100%;
     }
     .sb-select {
@@ -184,261 +172,216 @@
 
     /* Color palettes */
     .colors-a {
-        @apply bg-white text-body;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-headlines;
-        }
+        @apply bg-light text-on-light;
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-neutral placeholder-body placeholder-opacity-50;
+            @apply bg-light border-on-light text-on-light placeholder-on-light placeholder-opacity-50;
+        }
+        .sb-checkbox {
+            @apply bg-light border-on-light;
         }
         .sb-component-button-primary {
-            @apply bg-primary border-primary text-body;
+            @apply bg-primary border-primary text-on-primary;
         }
         .sb-component-button-secondary {
-            @apply border-neutral text-body;
+            @apply border-on-light text-on-light;
         }
         .sb-divider {
-            @apply before:bg-neutral;
+            @apply before:bg-on-light;
         }
         .sb-card {
-            @apply bg-complementary;
+            @apply bg-complementary-alt text-on-complementary-alt;
         }
     }
     .colors-b {
-        @apply bg-white text-primary;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-primary;
-        }
+        @apply bg-light text-primary;
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-primary placeholder-primary placeholder-opacity-50;
+            @apply bg-light border-primary text-on-light placeholder-on-light placeholder-opacity-50;
+        }
+        .sb-checkbox {
+            @apply bg-light border-on-light;
         }
         .sb-component-button-primary {
-            @apply bg-primary border-primary text-body;
+            @apply bg-primary border-primary text-on-primary;
         }
         .sb-component-button-secondary {
-            @apply border-neutral text-body;
+            @apply border-on-light text-on-light;
         }
         .sb-divider {
             @apply before:bg-primary;
         }
         .sb-card {
-            @apply bg-complementary;
+            @apply bg-complementary-alt;
         }
     }
     .colors-c {
-        @apply bg-neutral text-white;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-white;
-        }
+        @apply bg-dark text-on-dark;
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-white placeholder-white placeholder-opacity-50;
+            @apply bg-light border-transparent text-on-light placeholder-on-light placeholder-opacity-50;
         }
-        .sb-checkbox:checked {
-            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        pre {
+            @apply border border-on-dark;
+        }
+        .sb-checkbox {
+            @apply bg-light border-transparent;
         }
         .sb-component-button-primary {
-            @apply bg-primary border-primary text-body;
+            @apply bg-primary border-primary text-on-primary;
         }
         .sb-component-button-secondary {
-            @apply border-white text-white;
+            @apply border-on-dark text-on-dark;
         }
         .sb-divider {
-            @apply before:bg-white;
+            @apply before:bg-on-dark;
         }
         .sb-card {
-            @apply bg-white bg-opacity-5;
+            @apply bg-light text-on-light;
         }
     }
     .colors-d {
-        @apply bg-neutral text-primary;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-primary;
-        }
+        @apply bg-dark text-primary;
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-primary placeholder-primary placeholder-opacity-50;
+            @apply bg-light border-transparent text-on-light placeholder-on-light placeholder-opacity-50;
         }
-        .sb-checkbox:checked {
-            background-image: url("data:image/svg+xml,%3csvg viewBox='0 0 16 16' fill='black' xmlns='http://www.w3.org/2000/svg'%3e%3cpath d='M12.207 4.793a1 1 0 010 1.414l-5 5a1 1 0 01-1.414 0l-2-2a1 1 0 011.414-1.414L6.5 9.086l4.293-4.293a1 1 0 011.414 0z'/%3e%3c/svg%3e");
+        pre {
+            @apply border border-primary;
+        }
+        .sb-checkbox {
+            @apply bg-light border-transparent;
         }
         .sb-component-button-primary {
-            @apply bg-primary border-primary text-body;
+            @apply bg-primary border-primary text-on-primary;
         }
         .sb-component-button-secondary {
-            @apply border-white text-white;
+            @apply border-on-dark text-on-dark;
         }
         .sb-divider {
             @apply before:bg-primary;
         }
         .sb-card {
-            @apply bg-white bg-opacity-5;
+            @apply bg-light;
         }
     }
     .colors-e {
-        @apply bg-primary text-body;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-headlines;
-        }
+        @apply bg-primary text-on-primary;
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-neutral placeholder-body placeholder-opacity-70;
+            @apply bg-light border-transparent text-on-light placeholder-on-light placeholder-opacity-50;
+        }
+        .sb-checkbox {
+            @apply bg-light border-transparent;
         }
         .sb-component-button-primary {
-            @apply bg-neutral border-neutral text-white;
+            @apply bg-dark border-dark text-on-dark;
         }
         .sb-component-button-secondary {
-            @apply border-neutral text-neutral;
+            @apply border-on-primary text-on-primary;
         }
         .sb-divider {
-            @apply before:bg-neutral;
+            @apply before:bg-on-primary;
         }
         .sb-card {
-            @apply bg-secondary;
+            @apply bg-light text-on-light;
         }
     }
     .colors-f {
-        @apply bg-secondary text-body;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-headlines;
-        }
+        @apply bg-secondary text-on-secondary;
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-neutral placeholder-body placeholder-opacity-50;
+            @apply bg-light border-transparent text-on-light placeholder-on-light placeholder-opacity-50;
+        }
+        .sb-checkbox {
+            @apply bg-light border-transparent;
         }
         .sb-component-button-primary {
-            @apply bg-primary border-primary text-body;
+            @apply bg-primary border-primary text-on-primary;
         }
         .sb-component-button-secondary {
-            @apply border-neutral text-body;
+            @apply border-on-secondary text-on-secondary;
         }
         .sb-divider {
-            @apply before:bg-neutral;
+            @apply before:bg-on-secondary;
         }
         .sb-card {
-            @apply bg-white;
+            @apply bg-light text-on-light;
         }
     }
     .colors-g {
         @apply bg-secondary text-primary;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-primary;
-        }
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-primary placeholder-primary placeholder-opacity-50;
+            @apply bg-light border-transparent text-on-light placeholder-on-light placeholder-opacity-50;
+        }
+        .sb-checkbox {
+            @apply bg-light border-transparent;
         }
         .sb-component-button-primary {
-            @apply bg-primary border-primary text-body;
+            @apply bg-primary border-primary text-on-primary;
         }
         .sb-component-button-secondary {
-            @apply border-neutral text-body;
+            @apply border-on-secondary text-on-secondary;
         }
         .sb-divider {
-            @apply before:bg-primary;
+            @apply before:bg-on-secondary;
         }
         .sb-card {
-            @apply bg-white;
+            @apply bg-light;
         }
     }
     .colors-h {
-        @apply bg-complementary text-body;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-headlines;
-        }
+        @apply bg-complementary text-on-complementary;
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-neutral placeholder-body placeholder-opacity-50;
+            @apply bg-light border-transparent text-on-light placeholder-on-light placeholder-opacity-50;
+        }
+        .sb-checkbox {
+            @apply bg-light border-transparent;
         }
         .sb-component-button-primary {
-            @apply bg-neutral border-neutral text-white;
+            @apply bg-dark border-dark text-on-dark;
         }
         .sb-component-button-secondary {
-            @apply border-neutral text-body;
+            @apply border-dark text-dark;
         }
         .sb-divider {
-            @apply before:bg-neutral;
+            @apply before:bg-on-complementary;
         }
         .sb-card {
-            @apply bg-white;
+            @apply bg-light text-on-light;
         }
     }
     .colors-i {
-        @apply bg-complementary-alt text-body;
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6 {
-            @apply text-headlines;
-        }
+        @apply bg-complementary-alt text-on-complementary-alt;
         .sb-input,
         .sb-select,
         .sb-textarea {
-            @apply border-neutral placeholder-body placeholder-opacity-50;
+            @apply bg-light border-transparent text-on-light placeholder-on-light placeholder-opacity-50;
+        }
+        .sb-checkbox {
+            @apply bg-light border-transparent;
         }
         .sb-component-button-primary {
-            @apply bg-neutral border-neutral text-white;
+            @apply bg-dark border-dark text-on-dark;
         }
         .sb-component-button-secondary {
-            @apply border-neutral text-body;
+            @apply border-dark text-dark;
         }
         .sb-divider {
-            @apply before:bg-neutral;
+            @apply before:bg-on-complementary-alt;
         }
         .sb-card {
-            @apply bg-white;
+            @apply bg-light text-on-light;
         }
     }
 }

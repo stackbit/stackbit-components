@@ -81,7 +81,26 @@ const args = {
             subtitle: 'Section subtitle',
             author: 'Earnest Hemingway',
             content:
-                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.'
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: '/images/post-1.jpeg',
+                altText: 'Post Image'
+            }
+        },
+
+        {
+            type: 'Item',
+            title: 'The quick, brown fox jumps over a lazy dog',
+            subtitle: 'Section subtitle',
+            author: 'Earnest Hemingway',
+            content:
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: '/images/post-1.jpeg',
+                altText: 'Post Image'
+            }
         }
     ],
     styles: {

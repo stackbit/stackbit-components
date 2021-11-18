@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
 import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
+import { ImageBlock } from '..';
 
 export default function Item(props) {
     const cssId = props.elementId || null;
@@ -16,6 +17,11 @@ export default function Item(props) {
                 <div className={classNames('w-full')}>
                     <article className="sb-card">
                         <div className="px-4 py-6 sm:px-6 sm:pb-10">
+                            {props.featuredImage && (
+                                <div className="block h-0 w-full pt-9/16 relative" data-sb-field-path="featuredImage">
+                                    <ImageBlock {...props.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
+                                </div>
+                            )}
                             {props.title && (
                                 <h2
                                     className={classNames('text-4xl', 'sm:text-5xl', props?.styles?.title ? mapStyles(props?.styles?.title) : null)}

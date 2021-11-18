@@ -40,7 +40,7 @@ function FeaturedItemsSection(props) {
                     React.createElement("div", { className: "px-4 py-6 sm:px-6 sm:pb-10" },
                         props.title && (React.createElement("h2", { className: (0, classnames_1.default)('text-4xl', 'sm:text-5xl', props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
                         props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-xl', 'sm:text-2xl', props?.styles?.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle)),
-                        props?.items && (React.createElement("div", null, props.items.map((item, index) => (React.createElement(Item_1.default, { key: index, ...item }))))),
+                        props?.items && (React.createElement("div", { className: "grid gap-6 md:grid-cols-3 lg:gap-8", "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement(Item_1.default, { key: index, ...item }))))),
                         React.createElement("div", { className: "my-3 flex-1 px-4 w-full" }, featuredItemActions(props))))))));
 }
 exports.default = FeaturedItemsSection;

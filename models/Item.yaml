@@ -45,6 +45,15 @@ fields:
     name: author
     label: Author Name
     default: Earnest Hemingway
+  - type: model
+    name: featuredImage
+    label: Featured image
+    models:
+      - ImageBlock
+    default:
+      type: ImageBlock
+      url: /images/post-1.jpeg
+      altText: Post thumbnail image
   - type: list
     name: actions
     label: Actions

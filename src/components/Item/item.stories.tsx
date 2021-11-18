@@ -62,6 +62,11 @@ const args = {
     subtitle: 'Item block example subtitle',
     author: 'Earnest Hemingway',
     content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+    featuredImage: {
+        type: 'ImageBlock',
+        url: '/images/post-1.jpeg',
+        altText: 'Post Image'
+    },
     actions: [
         {
             type: 'Button',

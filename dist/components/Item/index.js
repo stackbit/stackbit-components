@@ -27,6 +27,7 @@ const classnames_1 = __importDefault(require("classnames"));
 const markdown_to_jsx_1 = __importDefault(require("markdown-to-jsx"));
 const components_registry_1 = require("../../components-registry");
 const map_styles_to_class_names_1 = require("../../utils/map-styles-to-class-names");
+const __1 = require("..");
 function Item(props) {
     const cssId = props.elementId || null;
     return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-block', 'sb-component-item', 'flex', 'flex-col', 'justify-center', 'relative'), "data-sb-field-path": props.annotationPrefix },
@@ -34,6 +35,8 @@ function Item(props) {
             React.createElement("div", { className: (0, classnames_1.default)('w-full') },
                 React.createElement("article", { className: "sb-card" },
                     React.createElement("div", { className: "px-4 py-6 sm:px-6 sm:pb-10" },
+                        props.featuredImage && (React.createElement("div", { className: "block h-0 w-full pt-9/16 relative", "data-sb-field-path": "featuredImage" },
+                            React.createElement(__1.ImageBlock, { ...props.featuredImage, className: "absolute left-0 top-0 h-full w-full object-cover" }))),
                         props.title && (React.createElement("h2", { className: (0, classnames_1.default)('text-4xl', 'sm:text-5xl', props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
                         props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-xl', 'sm:text-2xl', props?.styles?.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle)),
                         props.content && (React.createElement(markdown_to_jsx_1.default, { options: { forceBlock: true, forceWrapper: true }, className: (0, classnames_1.default)('sb-markdown', 'md:text-lg', props?.styles?.content ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.content) : null), "data-sb-field-path": ".content" }, props.content)),

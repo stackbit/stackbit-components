@@ -60,7 +60,7 @@ export default function FeaturedItemsSection(props) {
                                 </p>
                             )}
                             {props?.items && (
-                                <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".items">
+                                <div className={classNames(`grid gap-2 ${mapCulStyles(props?.numOfColumns || 3)} lg:gap-4`)} data-sb-field-path=".items">
                                     {props.items.map((item, index) => (
                                         <Item key={index} {...item} />
                                     ))}
@@ -92,6 +92,18 @@ function featuredItemActions(props) {
             ))}
         </div>
     );
+}
+
+function mapCulStyles(columns) {
+    switch (columns) {
+        case 4:
+            return 'md:grid-cols-4';
+        case 3:
+            return 'md:grid-cols-3';
+        case 2:
+            return 'md:grid-cols-2';
+    }
+    return null;
 }
 
 function mapMinHeightStyles(height) {

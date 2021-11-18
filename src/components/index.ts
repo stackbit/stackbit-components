@@ -44,9 +44,6 @@ export {
     TextFormControl,
     TextSection,
     VideoBlock,
-<<<<<<< HEAD
-    MediaGallerySection
-=======
+    MediaGallerySection,
     Item
->>>>>>> Create new item component
 };

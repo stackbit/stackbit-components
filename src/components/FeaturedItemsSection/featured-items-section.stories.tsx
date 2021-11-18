@@ -10,6 +10,11 @@ export default {
     component: FeaturedItemsSection,
     argTypes: {
         type: { table: { disable: true } },
+        numOfColumns: {
+            options: [2, 3, 4],
+            defaultValue: 4,
+            control: { type: 'select' }
+        },
         elementId: {
             defaultValue: ''
         },
@@ -74,6 +79,7 @@ const args = {
             style: 'secondary'
         }
     ],
+    numOfColumns: 4,
     items: [
         {
             type: 'Item',
@@ -88,7 +94,32 @@ const args = {
                 altText: 'Post Image'
             }
         },
-
+        {
+            type: 'Item',
+            title: 'The quick, brown fox jumps over a lazy dog',
+            subtitle: 'Section subtitle',
+            author: 'Earnest Hemingway',
+            content:
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: '/images/post-1.jpeg',
+                altText: 'Post Image'
+            }
+        },
+        {
+            type: 'Item',
+            title: 'The quick, brown fox jumps over a lazy dog',
+            subtitle: 'Section subtitle',
+            author: 'Earnest Hemingway',
+            content:
+                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: '/images/post-1.jpeg',
+                altText: 'Post Image'
+            }
+        },
         {
             type: 'Item',
             title: 'The quick, brown fox jumps over a lazy dog',

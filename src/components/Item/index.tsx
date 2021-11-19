@@ -8,54 +8,35 @@ import { ImageBlock } from '..';
 export default function Item(props) {
     const cssId = props.elementId || null;
     return (
-        <div
-            id={cssId}
-            className={classNames('sb-component', 'sb-component-block', 'sb-component-item', 'flex', 'flex-col', 'justify-center', 'relative')}
-            data-sb-field-path={props.annotationPrefix}
-        >
-            <div className={classNames('flex', 'relative', 'w-full')}>
-                <div className={classNames('w-full')}>
-                    <article className="sb-card">
-                        <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                            {props.featuredImage && (
-                                <div className="block h-0 w-full pt-9/16 relative" data-sb-field-path="featuredImage">
-                                    <ImageBlock {...props.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                                </div>
-                            )}
-                            {props.title && (
-                                <h2
-                                    className={classNames('text-4xl', 'sm:text-5xl', props?.styles?.title ? mapStyles(props?.styles?.title) : null)}
-                                    data-sb-field-path=".title"
-                                >
-                                    {props.title}
-                                </h2>
-                            )}
-                            {props.subtitle && (
-                                <p
-                                    className={classNames('text-xl', 'sm:text-2xl', props?.styles?.subtitle ? mapStyles(props?.styles?.subtitle) : null)}
-                                    data-sb-field-path=".subtitle"
-                                >
-                                    {props.subtitle}
-                                </p>
-                            )}
-
-                            {props.content && (
-                                <Markdown
-                                    options={{ forceBlock: true, forceWrapper: true }}
-                                    className={classNames('sb-markdown', 'md:text-lg', props?.styles?.content ? mapStyles(props?.styles?.content) : null)}
-                                    data-sb-field-path=".content"
-                                >
-                                    {props.content}
-                                </Markdown>
-                            )}
-                            {props.author && <div>{props.author}</div>}
-                            {props.rating && <div>{props.rating}</div>}
-                            <div className="my-3 flex-1 px-4 w-full">{itemActions(props)}</div>
-                        </div>
-                    </article>
+        <article id={cssId} className="sb-component sb-component-block sb-component-item" data-sb-field-path={props.annotationPrefix}>
+            {props.featuredImage && (
+                <div className="" data-sb-field-path="featuredImage">
+                    <ImageBlock {...props.featuredImage} className="" />
                 </div>
-            </div>
-        </div>
+            )}
+            {props.title && (
+                <h3 className={classNames(props?.styles?.title ? mapStyles(props?.styles?.title) : null)} data-sb-field-path=".title">
+                    {props.title}
+                </h3>
+            )}
+            {props.subtitle && (
+                <p className={classNames('text-lg', props?.styles?.subtitle ? mapStyles(props?.styles?.subtitle) : null)} data-sb-field-path=".subtitle">
+                    {props.subtitle}
+                </p>
+            )}
+            {props.text && (
+                <Markdown
+                    options={{ forceBlock: true, forceWrapper: true }}
+                    className={classNames('sb-markdown', props?.styles?.text ? mapStyles(props?.styles?.text) : null)}
+                    data-sb-field-path=".text"
+                >
+                    {props.text}
+                </Markdown>
+            )}
+            {props.author && <div className="text-sm">{props.author}</div>}
+            {props.rating && <div>{props.rating}</div>}
+            <div className="my-3 flex-1 px-4 w-full">{itemActions(props)}</div>
+        </article>
     );
 }
 

@@ -10,7 +10,7 @@ export default {
     component: FeaturedItemsSection,
     argTypes: {
         type: { table: { disable: true } },
-        numOfColumns: {
+        columns: {
             options: [2, 3, 4],
             defaultValue: 4,
             control: { type: 'select' }
@@ -79,19 +79,39 @@ const args = {
             style: 'secondary'
         }
     ],
-    numOfColumns: 4,
+    columns: 4,
     items: [
         {
             type: 'Item',
             title: 'The quick, brown fox jumps over a lazy dog',
             subtitle: 'Section subtitle',
             author: 'Earnest Hemingway',
-            content:
-                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
             featuredImage: {
                 type: 'ImageBlock',
                 url: '/images/post-1.jpeg',
                 altText: 'Post Image'
+            },
+            styles: {
+                title: {
+                    fontWeight: 700,
+                    fontStyle: 'normal',
+                    textAlign: 'left',
+                    margin: ['mt-4', 'mb-0']
+                },
+                subtitle: {
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    textAlign: 'left',
+                    margin: ['mt-0', 'mb-4']
+                },
+                text: {
+                    textAlign: 'left',
+                    margin: ['mt-0', 'mb-4']
+                },
+                actions: {
+                    justifyContent: 'flex-start'
+                }
             }
         },
         {
@@ -99,12 +119,32 @@ const args = {
             title: 'The quick, brown fox jumps over a lazy dog',
             subtitle: 'Section subtitle',
             author: 'Earnest Hemingway',
-            content:
-                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
             featuredImage: {
                 type: 'ImageBlock',
                 url: '/images/post-1.jpeg',
                 altText: 'Post Image'
+            },
+            styles: {
+                title: {
+                    fontWeight: 700,
+                    fontStyle: 'normal',
+                    textAlign: 'left',
+                    margin: ['mt-4', 'mb-0']
+                },
+                subtitle: {
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    textAlign: 'left',
+                    margin: ['mt-0', 'mb-4']
+                },
+                text: {
+                    textAlign: 'left',
+                    margin: ['mt-0', 'mb-4']
+                },
+                actions: {
+                    justifyContent: 'flex-start'
+                }
             }
         },
         {
@@ -112,12 +152,32 @@ const args = {
             title: 'The quick, brown fox jumps over a lazy dog',
             subtitle: 'Section subtitle',
             author: 'Earnest Hemingway',
-            content:
-                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
             featuredImage: {
                 type: 'ImageBlock',
                 url: '/images/post-1.jpeg',
                 altText: 'Post Image'
+            },
+            styles: {
+                title: {
+                    fontWeight: 700,
+                    fontStyle: 'normal',
+                    textAlign: 'left',
+                    margin: ['mt-4', 'mb-0']
+                },
+                subtitle: {
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    textAlign: 'left',
+                    margin: ['mt-0', 'mb-4']
+                },
+                text: {
+                    textAlign: 'left',
+                    margin: ['mt-0', 'mb-4']
+                },
+                actions: {
+                    justifyContent: 'flex-start'
+                }
             }
         },
         {
@@ -125,12 +185,32 @@ const args = {
             title: 'The quick, brown fox jumps over a lazy dog',
             subtitle: 'Section subtitle',
             author: 'Earnest Hemingway',
-            content:
-                'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
             featuredImage: {
                 type: 'ImageBlock',
                 url: '/images/post-1.jpeg',
                 altText: 'Post Image'
+            },
+            styles: {
+                title: {
+                    fontWeight: 700,
+                    fontStyle: 'normal',
+                    textAlign: 'left',
+                    margin: ['mt-4', 'mb-0']
+                },
+                subtitle: {
+                    fontWeight: 400,
+                    fontStyle: 'normal',
+                    textAlign: 'left',
+                    margin: ['mt-0', 'mb-4']
+                },
+                text: {
+                    textAlign: 'left',
+                    margin: ['mt-0', 'mb-4']
+                },
+                actions: {
+                    justifyContent: 'flex-start'
+                }
             }
         }
     ],
@@ -152,17 +232,13 @@ const args = {
             fontWeight: 700,
             fontStyle: 'normal',
             textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            margin: ['mt-0', 'mb-2']
         },
         subtitle: {
             fontWeight: 400,
             fontStyle: 'normal',
             textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
-        },
-        text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            margin: ['mt-0', 'mb-12']
         },
         actions: {
             justifyContent: 'flex-start'

@@ -52,8 +52,9 @@ fields:
         url: '#'
         style: secondary
   - type: enum
-    name: numOfColumns
-    label: Number of columns
+    name: columns
+    label: Items per row
+    group: styles
     options:
       - label: '2'
         value: 2
@@ -61,7 +62,7 @@ fields:
         value: 3
       - label: '4'
         value: 4
-    default: 1
+    default: 3
   - type: style
     name: styles
     styles:
@@ -70,9 +71,7 @@ fields:
         width: ['narrow', 'wide', 'full']
         margin: ['tw0:36']
         padding: ['tw4:36']
-        alignItems: ['flex-start', 'flex-end', 'center']
         justifyContent: ['flex-start', 'flex-end', 'center']
-        flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
         borderRadius: '*'
         borderWidth: ['0:8']
         borderStyle: '*'
@@ -110,9 +109,7 @@ fields:
         width: wide
         margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
         padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
-        alignItems: center
         justifyContent: center
-        flexDirection: row
         borderRadius: none
         borderWidth: 0
         borderStyle: none

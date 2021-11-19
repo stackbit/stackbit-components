@@ -12,7 +12,7 @@ export default {
             control: { type: 'select' }
         },
         columns: {
-            options: [1, 2, 3, 4, 5, 6],
+            options: [1, 2, 3, 4, 5, 6, 7],
             defaultValue: 4,
             control: { type: 'select' }
         },
@@ -76,7 +76,7 @@ const args: MediaGallerySectionProps = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,

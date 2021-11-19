@@ -79,7 +79,7 @@ const args = {
     ],
     feature: {
         type: 'ImageBlock',
-        url: '/images/hero.png',
+        url: 'https://assets.stackbit.com/components/images/default/hero.png',
         altText: 'Image alt text',
         caption: 'Image caption'
     },
@@ -177,8 +177,8 @@ HeroVideoLeft.args = {
     ],
     feature: {
         type: 'VideoBlock',
-        url: '/videos/stackbit-for-marketers.mp4',
-        thumbnailUrl: '/images/stackbit-for-marketers.jpeg',
+        url: 'https://assets.stackbit.com/components/videos/default/stackbit-for-marketers.mp4',
+        thumbnailUrl: 'https://assets.stackbit.com/components/images/default/stackbit-for-marketers.jpeg',
         autoplay: true,
         loop: true,
         muted: true,
@@ -292,7 +292,7 @@ HeroTextOnly.args = {
     feature: null,
     backgroundImage: {
         type: 'ImageBlock',
-        url: '/images/bg.jpg',
+        url: 'https://assets.stackbit.com/components/images/default/bg.jpg',
         altText: 'Hero Image',
         caption: '',
         styles: {

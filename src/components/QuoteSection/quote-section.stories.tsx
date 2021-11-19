@@ -28,7 +28,7 @@ const args = {
     title: 'Writer',
     backgroundImage: {
         type: 'ImageBlock',
-        url: '/images/bg.jpg',
+        url: 'https://assets.stackbit.com/components/images/default/bg.jpg',
         altText: 'Background Image',
         caption: '',
         styles: {

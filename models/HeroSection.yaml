@@ -2,6 +2,7 @@ type: object
 name: HeroSection
 label: Hero section
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -63,7 +64,7 @@ fields:
       - VideoBlock
     default:
       type: ImageBlock
-      url: /images/hero.png
+      url: https://assets.stackbit.com/components/images/default/hero.png
       altText: Hero section image
   - type: style
     name: styles

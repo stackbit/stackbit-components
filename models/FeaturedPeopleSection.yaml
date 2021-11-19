@@ -2,6 +2,7 @@ type: object
 name: FeaturedPeopleSection
 label: Featured people section
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:

@@ -2,6 +2,7 @@ type: object
 name: TestimonialsSection
 label: Testimonials section
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -36,7 +37,7 @@ fields:
         title: Product Marketing Manager at Acme
         image:
           type: ImageBlock
-          url: /images/dianne-ameter.jpg
+          url: https://assets.stackbit.com/components/images/default/person-1.jpg
           altText: Product Marketing Manager
         styles:
           self:

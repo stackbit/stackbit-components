@@ -36,7 +36,7 @@ Primary.args = {
             bio: 'Nullam rhoncus tellus nec felis ullamcorper mattis. Cras convallis, velit in tincidunt posuere, nulla ipsum consequat metus, convallis lacinia ex eros eget leo.',
             image: {
                 type: 'ImageBlock',
-                url: '/images/desmond-eagle.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/desmond-eagle.jpg',
                 altText: 'Photo of Desmond Eagle'
             }
         },
@@ -44,7 +44,7 @@ Primary.args = {
             'Gracchum patrem non beatiorem fuisse quam fillum, cum alter stabilire rem publicam studuerit, alter evertere. Quo plebiscito decreta a senatu est consuli quaestio.',
         featuredImage: {
             type: 'ImageBlock',
-            url: '/images/post-1.jpeg',
+            url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
             altText: 'Post Image'
         },
         markdown_content:

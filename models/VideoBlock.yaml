@@ -10,10 +10,12 @@ fields:
     name: url
     label: Video
     description: The URL of the video (.mp4)
+    default: 'https://assets.stackbit.com/components/videos/default/stackbit-for-marketers.mp4'
   - type: image
     name: thumbnailUrl
     label: Video thumbnail
     description: The URL of the video thumbnail
+    default: 'https://assets.stackbit.com/components/images/default/stackbit-for-marketers.jpeg'
   - type: boolean
     name: autoplay
     label: Autoplay

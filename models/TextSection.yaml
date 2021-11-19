@@ -2,6 +2,7 @@ type: object
 name: TextSection
 label: Text section
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:

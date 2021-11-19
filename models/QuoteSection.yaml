@@ -2,6 +2,7 @@ type: object
 name: QuoteSection
 label: Quote section
 labelField: name
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -36,7 +37,7 @@ fields:
       - ImageBlock
     default:
       type: ImageBlock
-      url: /images/bg.jpg
+      url: https://assets.stackbit.com/components/images/default/bg.jpg
       altText: Dots
       opacity: 30
   - type: style

@@ -1,6 +1,7 @@
 name: PostLayout
 label: Post
 layout: PostLayout
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 fields:
   - type: string
     name: title
@@ -27,7 +28,7 @@ fields:
       - ImageBlock
     default:
       type: ImageBlock
-      url: /images/post-1.jpeg
+      url: https://assets.stackbit.com/components/images/default/post-1.jpeg
       altText: Post thumbnail image
   - type: list
     name: bottomSections

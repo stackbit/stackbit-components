@@ -39,7 +39,8 @@ function FeaturedItemsSection(props) {
             React.createElement("div", { className: (0, classnames_1.default)('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null) },
                 props.title && (React.createElement("h2", { className: (0, classnames_1.default)(props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
                 props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-lg', 'sm:text-xl', props?.styles?.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle)),
-                props?.items && (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3)), "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement(ItemBlock_1.default, { key: index, ...item }))))),
+                props?.items && (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3)), "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement("div", { key: index, "data-sb-field-path": `.${index}` },
+                    React.createElement(ItemBlock_1.default, { ...item })))))),
                 featuredItemActions(props)))));
 }
 exports.default = FeaturedItemsSection;

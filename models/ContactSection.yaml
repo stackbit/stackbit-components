@@ -65,7 +65,7 @@ fields:
       - VideoBlock
     default:
       type: ImageBlock
-      url: /images/contact.png
+      url: https://assets.stackbit.com/components/images/default/contact.png
       altText: Contact form image
   - type: style
     name: styles

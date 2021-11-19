@@ -41,27 +41,27 @@ const args: MediaGallerySectionProps = {
     colors: 'colors-d',
     images: [
         {
-            url: '/images/image-1.jpeg',
+            url: 'https://assets.stackbit.com/components/images/default/image-1.jpeg',
             altText: 'Image alt text',
             caption: 'Caption of the image'
         },
         {
-            url: '/images/image-2.jpeg',
+            url: 'https://assets.stackbit.com/components/images/default/image-2.jpeg',
             altText: 'Image alt text',
             caption: 'Caption of the image'
         },
         {
-            url: '/images/image-3.jpeg',
+            url: 'https://assets.stackbit.com/components/images/default/image-3.jpeg',
             altText: 'Image alt text',
             caption: 'Caption of the image'
         },
         {
-            url: '/images/image-4.jpeg',
+            url: 'https://assets.stackbit.com/components/images/default/image-4.jpeg',
             altText: 'Image alt text',
             caption: 'Caption of the image'
         },
         {
-            url: '/images/image-5.jpeg',
+            url: 'https://assets.stackbit.com/components/images/default/image-5.jpeg',
             altText: 'Image alt text',
             caption: 'Caption of the image'
         }

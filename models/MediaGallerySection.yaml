@@ -15,11 +15,11 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Our Customers
+    default: Gallery
   - type: string
     name: subtitle
     label: Subtitle
-    default: Check out some of the brands that are already trusting us
+    default: The gallery subtitle
   - type: list
     name: images
     label: Images
@@ -28,21 +28,21 @@ fields:
       models: [ImageBlock]
     default:
       - type: ImageBlock
-        url: images/github.svg
-        altText: GitHub
-        caption: GitHub
+        url: https://assets.stackbit.com/components/images/default/post-1.jpeg
+        altText: Image 1
+        caption: Image 1
       - type: ImageBlock
-        url: images/netlify.svg
-        altText: Nelify logo
-        caption: Nelify
+        url: https://assets.stackbit.com/components/images/default/post-2.jpeg
+        altText: Image 2
+        caption: Image 2
       - type: ImageBlock
-        url: images/sticker-mule.svg
-        altText: Stickermule logo
-        caption: Stickermule
+        url: https://assets.stackbit.com/components/images/default/post-3.jpeg
+        altText: Image 3
+        caption: Image 3
       - type: ImageBlock
-        url: images/twilio.svg
-        altText: Twilio logo
-        caption: Twilio
+        url: https://assets.stackbit.com/components/images/default/post-4.jpeg
+        altText: Image 4
+        caption: Image 4
   - type: number
     name: spacing
     label: Spacing between images

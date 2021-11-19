@@ -20,7 +20,7 @@ const args = {
     title: 'Starter',
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo-alt.svg',
+        url: 'https://assets.stackbit.com/components/images/default/logo-alt.svg',
         altText: 'Logo'
     },
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
@@ -114,7 +114,7 @@ FooterNoContacts.args = {
     colors: 'colors-c',
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo-alt.svg',
+        url: 'https://assets.stackbit.com/components/images/default/logo-alt.svg',
         altText: 'Logo'
     },
     contacts: null
@@ -127,7 +127,7 @@ FooterNoLegal.args = {
     colors: 'colors-e',
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo.svg',
+        url: 'https://assets.stackbit.com/components/images/default/logo.svg',
         altText: 'Logo'
     },
     legalLinks: null

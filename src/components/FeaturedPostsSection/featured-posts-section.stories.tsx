@@ -61,14 +61,14 @@ const args = {
                 bio: 'Nullam rhoncus tellus nec felis ullamcorper mattis. Cras convallis, velit in tincidunt posuere, nulla ipsum consequat metus, convallis lacinia ex eros eget leo.',
                 image: {
                     type: 'ImageBlock',
-                    url: '/images/desmond-eagle.jpg',
+                    url: 'https://assets.stackbit.com/components/images/default/desmond-eagle.jpg',
                     altText: 'Photo of Desmond Eagle'
                 }
             },
             excerpt: 'Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-1.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -85,14 +85,14 @@ const args = {
                 bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
                 image: {
                     type: 'ImageBlock',
-                    url: '/images/hilary-ouse.jpg',
+                    url: 'https://assets.stackbit.com/components/images/default/hilary-ouse.jpg',
                     altText: 'Photo of Hilary Ouse'
                 }
             },
             excerpt: 'otius inflammat, ut coercendi magis quam dedocendi esse videantur.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-2.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-2.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -109,14 +109,14 @@ const args = {
                 bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
                 image: {
                     type: 'ImageBlock',
-                    url: '/images/hugh-saturation.jpg',
+                    url: 'https://assets.stackbit.com/components/images/default/hugh-saturation.jpg',
                     altText: 'Photo of Hugh Saturation'
                 }
             },
             excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-3.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-3.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -133,14 +133,14 @@ const args = {
                 bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
                 image: {
                     type: 'ImageBlock',
-                    url: '/images/hilary-ouse.jpg',
+                    url: 'https://assets.stackbit.com/components/images/default/hilary-ouse.jpg',
                     altText: 'Photo of Hilary Ouse'
                 }
             },
             excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-4.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-4.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:

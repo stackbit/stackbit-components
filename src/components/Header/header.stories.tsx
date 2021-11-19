@@ -33,7 +33,7 @@ const args = {
     isTitleVisible: true,
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo.svg',
+        url: 'https://assets.stackbit.com/components/images/default/logo.svg',
         altText: 'Logo'
     },
     primaryLinks: [

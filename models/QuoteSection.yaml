@@ -36,7 +36,7 @@ fields:
       - ImageBlock
     default:
       type: ImageBlock
-      url: /images/bg.jpg
+      url: https://assets.stackbit.com/components/images/default/bg.jpg
       altText: Dots
       opacity: 30
   - type: style

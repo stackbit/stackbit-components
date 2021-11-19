@@ -24,7 +24,7 @@ fields:
     label: Author image
     models: [ImageBlock]
     default:
-      url: /images/dianne-ameter.jpg
+      url: https://assets.stackbit.com/components/images/default/person-1.jpg
       altText: Product Marketing Manager
   - type: string
     name: elementId

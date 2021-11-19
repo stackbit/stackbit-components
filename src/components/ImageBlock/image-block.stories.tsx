@@ -10,7 +10,7 @@ const Template = (args) => <ImageBlock {...args} />;
 
 const args = {
     type: 'ImageBlock',
-    url: '/images/post-1.jpeg',
+    url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
     altText: 'Image alt text',
     caption: 'Image caption',
     elementId: '',

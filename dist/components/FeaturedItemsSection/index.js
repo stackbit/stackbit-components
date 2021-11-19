@@ -26,22 +26,21 @@ const React = __importStar(require("react"));
 const classnames_1 = __importDefault(require("classnames"));
 const components_registry_1 = require("../../components-registry");
 const map_styles_to_class_names_1 = require("../../utils/map-styles-to-class-names");
-const Item_1 = __importDefault(require("../Item"));
+const ItemBlock_1 = __importDefault(require("../ItemBlock"));
 function FeaturedItemsSection(props) {
-    const sectionStyles = props.styles?.self || {};
     const cssId = props.elementId || null;
+    const colors = props.colors || 'colors-a';
+    const sectionStyles = props.styles?.self || {};
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
-    return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-section', 'sb-component-featured-items-section', 'flex', 'flex-col', 'justify-center', 'relative', sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null, sectionStyles.margin, sectionStyles.padding, sectionStyles.borderColor, sectionStyles.borderRadius ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderRadius: sectionStyles.borderRadius }) : null, sectionStyles.borderStyle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderStyle: sectionStyles.borderStyle }) : null), style: {
+    return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-section', 'sb-component-featured-items-section', colors, 'flex', 'flex-col', 'justify-center', 'relative', sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null, sectionStyles.margin, sectionStyles.padding, sectionStyles.borderColor, sectionStyles.borderRadius ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderRadius: sectionStyles.borderRadius }) : null, sectionStyles.borderStyle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderStyle: sectionStyles.borderStyle }) : null), style: {
             borderWidth: `${sectionBorderWidth}px`
-        }, "data-sb-field-path": props.annotationPrefix },
-        React.createElement("div", { className: (0, classnames_1.default)('flex', 'relative', 'w-full', sectionStyles.justifyContent ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ justifyContent: sectionStyles.justifyContent }) : null) },
+        } },
+        React.createElement("div", { className: (0, classnames_1.default)('flex', 'w-full', sectionStyles.justifyContent ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ justifyContent: sectionStyles.justifyContent }) : null) },
             React.createElement("div", { className: (0, classnames_1.default)('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null) },
-                React.createElement("article", { className: "sb-card" },
-                    React.createElement("div", { className: "px-4 py-6 sm:px-6 sm:pb-10" },
-                        props.title && (React.createElement("h2", { className: (0, classnames_1.default)('text-4xl', 'sm:text-5xl', props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
-                        props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-xl', 'sm:text-2xl', props?.styles?.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle)),
-                        props?.items && (React.createElement("div", { className: (0, classnames_1.default)(`grid gap-2 ${mapCulStyles(props?.numOfColumns || 3)} lg:gap-4`), "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement(Item_1.default, { key: index, ...item }))))),
-                        React.createElement("div", { className: "my-3 flex-1 px-4 w-full" }, featuredItemActions(props))))))));
+                props.title && (React.createElement("h2", { className: (0, classnames_1.default)(props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
+                props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-lg', 'sm:text-xl', props?.styles?.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle)),
+                props?.items && (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3)), "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement(ItemBlock_1.default, { key: index, ...item }))))),
+                featuredItemActions(props)))));
 }
 exports.default = FeaturedItemsSection;
 function featuredItemActions(props) {
@@ -51,9 +50,9 @@ function featuredItemActions(props) {
     }
     const styles = props.styles || {};
     const Action = (0, components_registry_1.getComponent)('Action');
-    return (React.createElement("div", { className: (0, classnames_1.default)('flex', 'flex-wrap', 'items-center', '-mx-2', styles.actions ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.actions) : null), "data-sb-field-path": ".actions" }, actions.map((action, index) => (React.createElement(Action, { key: index, ...action, className: "mb-3 mx-2 lg:whitespace-nowrap", annotationPrefix: `.${index}` })))));
+    return (React.createElement("div", { className: (0, classnames_1.default)('flex', 'flex-wrap', 'items-center', 'mt-12', '-mx-2', styles.actions ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.actions) : null), "data-sb-field-path": ".actions" }, actions.map((action, index) => (React.createElement(Action, { key: index, ...action, className: "mb-3 mx-2 lg:whitespace-nowrap", annotationPrefix: `.${index}` })))));
 }
-function mapCulStyles(columns) {
+function mapColStyles(columns) {
     switch (columns) {
         case 4:
             return 'md:grid-cols-4';

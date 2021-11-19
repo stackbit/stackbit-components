@@ -2,7 +2,7 @@ type: object
 name: MediaGallerySection
 label: Media gallery section
 labelField: title
-thumbnail: https://assets.stackbit.com/components/models/thumbnails/default-media-gellery-section-thumbnail.png
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:

@@ -1,6 +1,7 @@
 name: PostLayout
 label: Post
 layout: PostLayout
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 fields:
   - type: string
     name: title

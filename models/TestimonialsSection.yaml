@@ -2,6 +2,7 @@ type: object
 name: TestimonialsSection
 label: Testimonials section
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -36,7 +37,7 @@ fields:
         title: Product Marketing Manager at Acme
         image:
           type: ImageBlock
-          url: /images/dianne-ameter.jpg
+          url: https://assets.stackbit.com/components/images/default/person-1.jpg
           altText: Product Marketing Manager
         styles:
           self:
@@ -66,9 +67,9 @@ fields:
           - value: 'border-secondary'
             label: 'Secondary color'
             color: '$secondary'
-          - value: 'border-neutral'
-            label: 'Neutral color'
-            color: '$neutral'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
           - value: 'border-complementary'
             label: 'Complementary color'
             color: '$complementary'
@@ -95,7 +96,7 @@ fields:
         borderRadius: none
         borderWidth: 0
         borderStyle: none
-        borderColor: border-neutral
+        borderColor: border-dark
       title:
         fontWeight: 700
         fontStyle: normal

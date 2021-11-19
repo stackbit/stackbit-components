@@ -47,7 +47,7 @@ const args = {
             bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
             image: {
                 type: 'ImageBlock',
-                url: '/images/desmond-eagle.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/desmond-eagle.jpg',
                 altText: 'Photo of Desmond Eagle'
             }
         },
@@ -58,7 +58,7 @@ const args = {
             bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
             image: {
                 type: 'ImageBlock',
-                url: '/images/dianne-ameter.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/dianne-ameter.jpg',
                 altText: 'Photo of Dianne Ameter'
             }
         },
@@ -69,7 +69,7 @@ const args = {
             bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
             image: {
                 type: 'ImageBlock',
-                url: '/images/hilary-ouse.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/hilary-ouse.jpg',
                 altText: 'Photo of Hilary Ouse'
             }
         },
@@ -80,7 +80,7 @@ const args = {
             bio: 'Vincent Van Gogh’s most popular painting, The Starry Night.',
             image: {
                 type: 'ImageBlock',
-                url: '/images/hugh-saturation.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/hugh-saturation.jpg',
                 altText: 'Photo of Hugh Saturation'
             }
         }
@@ -95,7 +95,7 @@ const args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,
@@ -134,7 +134,7 @@ FeaturedPeopleTwoCol.args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,
@@ -169,7 +169,7 @@ FeaturedPeopleTwoColAlt.args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,

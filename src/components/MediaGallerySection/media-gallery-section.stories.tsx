@@ -12,7 +12,7 @@ export default {
             control: { type: 'select' }
         },
         columns: {
-            options: [1, 2, 3, 4, 5, 6],
+            options: [1, 2, 3, 4, 5, 6, 7],
             defaultValue: 4,
             control: { type: 'select' }
         },
@@ -29,8 +29,8 @@ const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...ar
 
 const args: MediaGallerySectionProps = {
     type: 'MediaGallerySection',
-    title: 'Some photos',
-    subtitle: 'Subtitle for some photos',
+    title: 'Gallery',
+    subtitle: 'Gallery subtitle',
     columns: 4,
     imageSizePx: 300,
     spacing: 1,
@@ -38,32 +38,27 @@ const args: MediaGallerySectionProps = {
     showCaption: true,
     enableHover: true,
     elementId: '',
-    colors: 'colors-d',
+    colors: 'colors-a',
     images: [
         {
-            url: '/images/image-1.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
+            url: 'https://assets.stackbit.com/components/images/default/image-1.jpeg',
+            altText: 'image alt text',
+            caption: 'image caption'
         },
         {
-            url: '/images/image-2.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
+            url: 'https://assets.stackbit.com/components/images/default/image-2.jpeg',
+            altText: 'image alt text',
+            caption: 'image caption'
         },
         {
-            url: '/images/image-3.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
+            url: 'https://assets.stackbit.com/components/images/default/image-3.jpeg',
+            altText: 'image alt text',
+            caption: 'image caption'
         },
         {
-            url: '/images/image-4.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
-        },
-        {
-            url: '/images/image-5.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
+            url: 'https://assets.stackbit.com/components/images/default/image-4.jpeg',
+            altText: 'image alt text',
+            caption: 'image caption'
         }
     ],
     styles: {
@@ -76,7 +71,7 @@ const args: MediaGallerySectionProps = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,

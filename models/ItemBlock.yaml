@@ -1,0 +1,107 @@
+type: object
+name: ItemBlock
+label: Item
+labelField: title
+fieldGroups:
+  - name: styles
+    label: Styles
+  - name: settings
+    label: Settings
+fields:
+  - type: string
+    name: elementId
+    group: settings
+    label: Element ID
+    description: The unique ID for an HTML element, must not contain whitespace
+    default: ''
+  - type: string
+    name: title
+    label: Title
+    default: Item block
+  - type: string
+    name: subtitle
+    label: Subtitle
+    default: Item block example subtitle
+  - type: markdown
+    name: text
+    label: Text
+    default: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.'
+  - type: string
+    name: author
+    label: Author
+    default: Earnest Hemingway
+  - type: enum
+    name: rating
+    label: Rating
+    options:
+      - label: '1'
+        value: 1
+      - label: '2'
+        value: 2
+      - label: '3'
+        value: 3
+      - label: '4'
+        value: 4
+      - label: '5'
+        value: 5
+    default: 1
+  - type: model
+    name: featuredImage
+    label: Featured image
+    models:
+      - ImageBlock
+    default:
+      type: ImageBlock
+      url: /images/post-1.jpeg
+      altText: Post thumbnail image
+  - type: list
+    name: actions
+    label: Actions
+    items:
+      type: model
+      models:
+        - Button
+        - Link
+    default:
+      - type: Button
+        label: Apply Now
+        url: '#'
+        style: primary
+      - type: Button
+        label: Learn More
+        url: '#'
+        style: secondary
+  - type: style
+    name: styles
+    styles:
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+      subtitle:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+      text:
+        textAlign: ['left', 'center', 'right']
+        margin: ['twy0:12']
+      actions:
+        justifyContent: ['flex-start', 'flex-end', 'center']
+    default:
+      title:
+        fontWeight: '700'
+        fontStyle: normal
+        textAlign: left
+        margin: ['mt-0', 'mb-4']
+      subtitle:
+        fontWeight: '400'
+        fontStyle: normal
+        textAlign: left
+        margin: ['mt-0', 'mb-6']
+      text:
+        textAlign: left
+        margin: ['mt-0', 'mb-8']
+      actions:
+        justifyContent: flex-start

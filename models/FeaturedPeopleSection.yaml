@@ -2,6 +2,7 @@ type: object
 name: FeaturedPeopleSection
 label: Featured people section
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -72,9 +73,9 @@ fields:
           - value: 'border-secondary'
             label: 'Secondary color'
             color: '$secondary'
-          - value: 'border-neutral'
-            label: 'Neutral color'
-            color: '$neutral'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
           - value: 'border-complementary'
             label: 'Complementary color'
             color: '$complementary'
@@ -103,7 +104,7 @@ fields:
         borderRadius: none
         borderWidth: 0
         borderStyle: none
-        borderColor: border-neutral
+        borderColor: border-dark
       title:
         fontWeight: 700
         fontStyle: normal

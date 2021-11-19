@@ -42,7 +42,7 @@ fields:
         width: full
   - type: string
     name: submitLabel
-    label: Submit button label
+    label: Button
     default: Send Message
   - type: string
     name: elementId

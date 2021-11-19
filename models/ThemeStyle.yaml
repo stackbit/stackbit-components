@@ -16,9 +16,9 @@ fields:
     group: text-styles
     options:
       - label: Sans
-        value: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+        value: sans
       - label: Serif
-        value: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif
+        value: serif
   - type: object
     name: h1
     label: H1
@@ -26,14 +26,46 @@ fields:
     readOnly: true
     fields:
       - type: enum
+        name: size
+        label: Font size
+        controlType: button-group
+        options:
+          - label: XS
+            value: xs
+          - label: SM
+            value: sm
+          - label: Base
+            value: base
+          - label: LG
+            value: lg
+          - label: XL
+            value: xl
+          - label: 2XL
+            value: 2xl
+          - label: 3XL
+            value: 3xl
+          - label: 4XL
+            value: 4xl
+          - label: 5XL
+            value: 5xl
+          - label: 6XL
+            value: 6xl
+          - label: 7XL
+            value: 7xl
+          - label: 8XL
+            value: 8xl
+          - label: 9XL
+            value: 9xl
+        default: 5xl
+      - type: enum
         name: weight
         label: Font weight
         controlType: button-group
         options:
-          - label: Bold
-            value: bold
           - label: Normal
             value: normal
+          - label: Bold
+            value: bold
         default: bold
       - type: enum
         name: decoration
@@ -52,7 +84,7 @@ fields:
         label: Case
         controlType: button-group
         options:
-          - label: default
+          - label: Default
             value: none
           - label: ag
             value: lowercase
@@ -67,15 +99,15 @@ fields:
         controlType: button-group
         options:
           - label: Tighter
-            value: -0.05em
+            value: tighter
           - label: Tight
-            value: -0.025em
+            value: tight
           - label: Normal
             value: normal
           - label: Wide
-            value: 0.025em
+            value: wide
           - label: Wider
-            value: 0.05em
+            value: wider
         default: normal
   - type: object
     name: h2
@@ -84,14 +116,46 @@ fields:
     readOnly: true
     fields:
       - type: enum
+        name: size
+        label: Font size
+        controlType: button-group
+        options:
+          - label: XS
+            value: xs
+          - label: SM
+            value: sm
+          - label: Base
+            value: base
+          - label: LG
+            value: lg
+          - label: XL
+            value: xl
+          - label: 2XL
+            value: 2xl
+          - label: 3XL
+            value: 3xl
+          - label: 4XL
+            value: 4xl
+          - label: 5XL
+            value: 5xl
+          - label: 6XL
+            value: 6xl
+          - label: 7XL
+            value: 7xl
+          - label: 8XL
+            value: 8xl
+          - label: 9XL
+            value: 9xl
+        default: 4xl
+      - type: enum
         name: weight
         label: Font weight
         controlType: button-group
         options:
-          - label: Bold
-            value: bold
           - label: Normal
             value: normal
+          - label: Bold
+            value: bold
         default: bold
       - type: enum
         name: decoration
@@ -110,7 +174,7 @@ fields:
         label: Case
         controlType: button-group
         options:
-          - label: default
+          - label: Default
             value: none
           - label: ag
             value: lowercase
@@ -125,15 +189,15 @@ fields:
         controlType: button-group
         options:
           - label: Tighter
-            value: -0.05em
+            value: tighter
           - label: Tight
-            value: -0.025em
+            value: tight
           - label: Normal
             value: normal
           - label: Wide
-            value: 0.025em
+            value: wide
           - label: Wider
-            value: 0.05em
+            value: wider
         default: normal
   - type: object
     name: h3
@@ -142,14 +206,46 @@ fields:
     readOnly: true
     fields:
       - type: enum
+        name: size
+        label: Font size
+        controlType: button-group
+        options:
+          - label: XS
+            value: xs
+          - label: SM
+            value: sm
+          - label: Base
+            value: base
+          - label: LG
+            value: lg
+          - label: XL
+            value: xl
+          - label: 2XL
+            value: 2xl
+          - label: 3XL
+            value: 3xl
+          - label: 4XL
+            value: 4xl
+          - label: 5XL
+            value: 5xl
+          - label: 6XL
+            value: 6xl
+          - label: 7XL
+            value: 7xl
+          - label: 8XL
+            value: 8xl
+          - label: 9XL
+            value: 9xl
+        default: 3xl
+      - type: enum
         name: weight
         label: Font weight
         controlType: button-group
         options:
-          - label: Bold
-            value: bold
           - label: Normal
             value: normal
+          - label: Bold
+            value: bold
         default: bold
       - type: enum
         name: decoration
@@ -168,7 +264,7 @@ fields:
         label: Case
         controlType: button-group
         options:
-          - label: default
+          - label: Default
             value: none
           - label: ag
             value: lowercase
@@ -183,15 +279,285 @@ fields:
         controlType: button-group
         options:
           - label: Tighter
-            value: -0.05em
+            value: tighter
           - label: Tight
-            value: -0.025em
+            value: tight
           - label: Normal
             value: normal
           - label: Wide
-            value: 0.025em
+            value: wide
           - label: Wider
-            value: 0.05em
+            value: wider
+        default: normal
+  - type: object
+    name: h4
+    label: H4
+    group: text-styles
+    readOnly: true
+    fields:
+      - type: enum
+        name: size
+        label: Font size
+        controlType: button-group
+        options:
+          - label: XS
+            value: xs
+          - label: SM
+            value: sm
+          - label: Base
+            value: base
+          - label: LG
+            value: lg
+          - label: XL
+            value: xl
+          - label: 2XL
+            value: 2xl
+          - label: 3XL
+            value: 3xl
+          - label: 4XL
+            value: 4xl
+          - label: 5XL
+            value: 5xl
+          - label: 6XL
+            value: 6xl
+          - label: 7XL
+            value: 7xl
+          - label: 8XL
+            value: 8xl
+          - label: 9XL
+            value: 9xl
+        default: 2xl
+      - type: enum
+        name: weight
+        label: Font weight
+        controlType: button-group
+        options:
+          - label: Normal
+            value: normal
+          - label: Bold
+            value: bold
+        default: bold
+      - type: enum
+        name: decoration
+        label: Decoration
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Underline
+            value: underline
+          - label: Line through
+            value: line-through
+        default: none
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: Default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tighter
+            value: tighter
+          - label: Tight
+            value: tight
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: wide
+          - label: Wider
+            value: wider
+        default: normal
+  - type: object
+    name: h5
+    label: H5
+    group: text-styles
+    readOnly: true
+    fields:
+      - type: enum
+        name: size
+        label: Font size
+        controlType: button-group
+        options:
+          - label: XS
+            value: xs
+          - label: SM
+            value: sm
+          - label: Base
+            value: base
+          - label: LG
+            value: lg
+          - label: XL
+            value: xl
+          - label: 2XL
+            value: 2xl
+          - label: 3XL
+            value: 3xl
+          - label: 4XL
+            value: 4xl
+          - label: 5XL
+            value: 5xl
+          - label: 6XL
+            value: 6xl
+          - label: 7XL
+            value: 7xl
+          - label: 8XL
+            value: 8xl
+          - label: 9XL
+            value: 9xl
+        default: xl
+      - type: enum
+        name: weight
+        label: Font weight
+        controlType: button-group
+        options:
+          - label: Normal
+            value: normal
+          - label: Bold
+            value: bold
+        default: bold
+      - type: enum
+        name: decoration
+        label: Decoration
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Underline
+            value: underline
+          - label: Line through
+            value: line-through
+        default: none
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: Default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tighter
+            value: tighter
+          - label: Tight
+            value: tight
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: wide
+          - label: Wider
+            value: wider
+        default: normal
+  - type: object
+    name: h6
+    label: H6
+    group: text-styles
+    readOnly: true
+    fields:
+      - type: enum
+        name: size
+        label: Font size
+        controlType: button-group
+        options:
+          - label: XS
+            value: xs
+          - label: SM
+            value: sm
+          - label: Base
+            value: base
+          - label: LG
+            value: lg
+          - label: XL
+            value: xl
+          - label: 2XL
+            value: 2xl
+          - label: 3XL
+            value: 3xl
+          - label: 4XL
+            value: 4xl
+          - label: 5XL
+            value: 5xl
+          - label: 6XL
+            value: 6xl
+          - label: 7XL
+            value: 7xl
+          - label: 8XL
+            value: 8xl
+          - label: 9XL
+            value: 9xl
+        default: lg
+      - type: enum
+        name: weight
+        label: Font weight
+        controlType: button-group
+        options:
+          - label: Normal
+            value: normal
+          - label: Bold
+            value: bold
+        default: bold
+      - type: enum
+        name: decoration
+        label: Decoration
+        controlType: button-group
+        options:
+          - label: None
+            value: none
+          - label: Underline
+            value: underline
+          - label: Line through
+            value: line-through
+        default: none
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: Default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tighter
+            value: tighter
+          - label: Tight
+            value: tight
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: wide
+          - label: Wider
+            value: wider
         default: normal
   - type: enum
     name: fontBody
@@ -199,36 +565,60 @@ fields:
     group: text-styles
     options:
       - label: Sans
-        value: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"
+        value: sans
       - label: Serif
-        value: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif
+        value: serif
   - type: color
-    name: body
-    label: Body
+    name: main
+    label: Site background
     group: color-palettes
   - type: color
-    name: headlines
-    label: Headlines
+    name: light
+    label: Light
+    group: color-palettes
+  - type: color
+    name: onLight
+    label: On light
+    group: color-palettes
+  - type: color
+    name: dark
+    label: Dark
+    group: color-palettes
+  - type: color
+    name: onDark
+    label: On dark
     group: color-palettes
   - type: color
     name: primary
     label: Primary
     group: color-palettes
   - type: color
+    name: onPrimary
+    label: On primary
+    group: color-palettes
+  - type: color
     name: secondary
     label: Secondary
     group: color-palettes
   - type: color
-    name: neutral
-    label: Neutral
+    name: onSecondary
+    label: On secondary
     group: color-palettes
   - type: color
     name: complementary
     label: Complementary
     group: color-palettes
   - type: color
+    name: onComplementary
+    label: On complementary
+    group: color-palettes
+  - type: color
     name: complementaryAlt
     label: Complementary Alt
+    group: color-palettes
+  - type: color
+    name: onComplementaryAlt
+    label: On complementary alt
     group: color-palettes
   - type: object
     name: buttonPrimary
@@ -241,17 +631,17 @@ fields:
         label: Font weight
         controlType: button-group
         options:
-          - label: Bold
-            value: bold
           - label: Normal
             value: normal
+          - label: Bold
+            value: bold
         default: normal
       - type: enum
         name: case
         label: Case
         controlType: button-group
         options:
-          - label: default
+          - label: Default
             value: none
           - label: ag
             value: lowercase
@@ -265,14 +655,16 @@ fields:
         label: Letter spacing
         controlType: button-group
         options:
+          - label: Tighter
+            value: tighter
           - label: Tight
-            value: -0.025em
+            value: tight
           - label: Normal
             value: normal
           - label: Wide
-            value: 0.05em
+            value: wide
           - label: Wider
-            value: 0.1em
+            value: wider
         default: normal
       - type: enum
         name: borderRadius
@@ -280,11 +672,11 @@ fields:
         controlType: button-group
         options:
           - label: None
-            value: 0
+            value: none
           - label: Small
-            value: 0.5rem
+            value: md
           - label: Large
-            value: 9999px
+            value: full
         default: none
       - type: number
         name: horizontalPadding
@@ -312,9 +704,9 @@ fields:
           - label: None
             value: none
           - label: Mild
-            value: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
+            value: md
           - label: Float
-            value: 0 25px 50px -12px rgba(0, 0, 0, 0.25)
+            value: xl
         default: none
   - type: object
     name: buttonSecondary
@@ -327,17 +719,17 @@ fields:
         label: Font weight
         controlType: button-group
         options:
-          - label: Bold
-            value: bold
           - label: Normal
             value: normal
+          - label: Bold
+            value: bold
         default: bold
       - type: enum
         name: case
         label: Case
         controlType: button-group
         options:
-          - label: default
+          - label: Default
             value: none
           - label: ag
             value: lowercase
@@ -351,14 +743,16 @@ fields:
         label: Letter spacing
         controlType: button-group
         options:
+          - label: Tighter
+            value: tighter
           - label: Tight
-            value: -0.025em
+            value: tight
           - label: Normal
             value: normal
           - label: Wide
-            value: 0.05em
+            value: wide
           - label: Wider
-            value: 0.1em
+            value: wider
         default: normal
       - type: enum
         name: borderRadius
@@ -366,11 +760,11 @@ fields:
         controlType: button-group
         options:
           - label: None
-            value: 0
+            value: none
           - label: Small
-            value: 0.5rem
+            value: md
           - label: Large
-            value: 9999px
+            value: full
         default: none
       - type: enum
         name: borderStyle
@@ -414,7 +808,53 @@ fields:
           - label: None
             value: none
           - label: Mild
-            value: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)
+            value: md
           - label: Float
-            value: 0 25px 50px -12px rgba(0, 0, 0, 0.25)
+            value: xl
         default: none
+  - type: object
+    name: link
+    label: Link
+    group: button-styles
+    readOnly: true
+    fields:
+      - type: enum
+        name: weight
+        label: Font weight
+        controlType: button-group
+        options:
+          - label: Normal
+            value: normal
+          - label: Bold
+            value: bold
+        default: bold
+      - type: enum
+        name: case
+        label: Case
+        controlType: button-group
+        options:
+          - label: Default
+            value: none
+          - label: ag
+            value: lowercase
+          - label: Ag
+            value: capitalize
+          - label: AG
+            value: uppercase
+        default: none
+      - type: enum
+        name: letterSpacing
+        label: Letter spacing
+        controlType: button-group
+        options:
+          - label: Tighter
+            value: tighter
+          - label: Tight
+            value: tight
+          - label: Normal
+            value: normal
+          - label: Wide
+            value: wide
+          - label: Wider
+            value: wider
+        default: normal

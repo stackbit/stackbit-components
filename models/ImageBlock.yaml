@@ -10,7 +10,7 @@ fields:
     name: url
     label: Image
     description: The URL of the image
-    default: images/default-image.png
+    default: https://assets.stackbit.com/components/images/default/default-image.png
   - type: string
     name: altText
     label: Alt text

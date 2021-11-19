@@ -27,7 +27,7 @@ const args = {
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
     feature: {
         type: 'ImageBlock',
-        url: '/images/contact.png',
+        url: 'https://assets.stackbit.com/components/images/default/contact.png',
         altText: 'Contact Image'
     },
     form: {
@@ -79,7 +79,7 @@ const args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,
@@ -104,8 +104,8 @@ ContactVideoLeft.args = {
     ...args,
     feature: {
         type: 'VideoBlock',
-        url: '/videos/stackbit-for-marketers.mp4',
-        thumbnailUrl: '/images/stackbit-for-marketers.jpeg',
+        url: 'https://assets.stackbit.com/components/videos/default/stackbit-for-marketers.mp4',
+        thumbnailUrl: 'https://assets.stackbit.com/components/images/default/stackbit-for-marketers.jpeg',
         autoplay: true,
         loop: true,
         muted: true,
@@ -123,7 +123,7 @@ ContactVideoLeft.args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,

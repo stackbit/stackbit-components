@@ -50,7 +50,7 @@ function featuredPostsHeader(props) {
     }
     const styles = props.styles || {};
     return (React.createElement("div", null,
-        props.title && (React.createElement("h2", { className: (0, classnames_1.default)('text-3xl', 'sm:text-4xl', styles.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.title) : null), "data-sb-field-path": ".title" }, props.title)),
+        props.title && (React.createElement("h2", { className: (0, classnames_1.default)(styles.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.title) : null), "data-sb-field-path": ".title" }, props.title)),
         props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-lg', 'sm:text-xl', styles.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle))));
 }
 function featuredPostsActions(props) {
@@ -87,9 +87,8 @@ function postsVariantA(props) {
             React.createElement(ImageBlock, { ...post.featuredImage, className: "absolute left-0 top-0 h-full w-full object-cover" }))),
         React.createElement("div", { className: "px-4 py-6 sm:px-6 sm:pb-10" },
             props.showDate && postDate(post.date),
-            props.title ? (React.createElement("h3", { className: "text-xl sm:text-2xl" },
-                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title))) : (React.createElement("h2", { className: "text-xl sm:text-2xl" },
-                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title))),
+            React.createElement("h3", null,
+                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title)),
             props.showAuthor && post.author && postAuthor(post.author),
             post.excerpt && (React.createElement("p", { className: "mt-3", "data-sb-field-path": "excerpt" }, post.excerpt))))))));
 }
@@ -106,9 +105,8 @@ function postsVariantB(props) {
             React.createElement(ImageBlock, { ...post.featuredImage, className: "absolute left-0 top-0 h-full w-full object-cover" }))),
         React.createElement("div", { className: "px-4 py-6 sm:px-6 sm:pb-10" },
             props.showDate && postDate(post.date),
-            props.title ? (React.createElement("h3", { className: "text-xl sm:text-2xl" },
-                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title))) : (React.createElement("h2", { className: "text-xl sm:text-2xl" },
-                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title))),
+            React.createElement("h3", null,
+                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title)),
             props.showAuthor && post.author && postAuthor(post.author),
             post.excerpt && (React.createElement("p", { className: "mt-3", "data-sb-field-path": "excerpt" }, post.excerpt))))))));
 }
@@ -134,13 +132,8 @@ function postsVariantC(props) {
                     'md:w-3/5 md:pt-8 md:pb-10': isFullWidth
                 }) },
                 props.showDate && postDate(post.date),
-                props.title ? (React.createElement("h3", { className: (0, classnames_1.default)('text-xl', 'sm:text-2xl', {
-                        'md:text-3xl': isFullWidth
-                    }) },
-                    React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title))) : (React.createElement("h2", { className: (0, classnames_1.default)('text-xl', 'sm:text-2xl', {
-                        'md:text-3xl': isFullWidth
-                    }) },
-                    React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title))),
+                React.createElement("h3", null,
+                    React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title)),
                 props.showAuthor && post.author && postAuthor(post.author),
                 post.excerpt && (React.createElement("p", { className: "mt-3", "data-sb-field-path": "excerpt" }, post.excerpt)))));
     })));
@@ -157,9 +150,8 @@ function postsVariantD(props) {
                 React.createElement(ImageBlock, { ...post.featuredImage, className: "absolute left-0 top-0 h-full w-full object-cover" })))),
         React.createElement("div", { className: "px-4 pt-6 pb-8 sm:px-6 md:w-3/5 md:pt-8 md:pb-10" },
             props.showDate && postDate(post.date),
-            props.title ? (React.createElement("h3", { className: "text-xl sm:text-2xl md:text-3xl" },
-                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title))) : (React.createElement("h2", { className: "text-xl sm:text-2xl md:text-3xl" },
-                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title))),
+            React.createElement("h3", null,
+                React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), "data-sb-field-path": "title" }, post.title)),
             props.showAuthor && post.author && postAuthor(post.author),
             post.excerpt && (React.createElement("p", { className: "mt-3", "data-sb-field-path": "excerpt" }, post.excerpt))))))));
 }

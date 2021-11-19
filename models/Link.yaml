@@ -49,15 +49,6 @@ fields:
       - left
       - right
     default: right
-  - type: enum
-    name: style
-    group: styles
-    controlType: button-group
-    label: Style
-    options:
-      - label: Link
-        value: link
-    default: link
   - type: string
     name: elementId
     group: settings

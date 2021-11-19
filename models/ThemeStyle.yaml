@@ -28,7 +28,6 @@ fields:
       - type: enum
         name: size
         label: Font size
-        controlType: button-group
         options:
           - label: XS
             value: xs
@@ -118,7 +117,6 @@ fields:
       - type: enum
         name: size
         label: Font size
-        controlType: button-group
         options:
           - label: XS
             value: xs
@@ -208,7 +206,6 @@ fields:
       - type: enum
         name: size
         label: Font size
-        controlType: button-group
         options:
           - label: XS
             value: xs
@@ -298,7 +295,6 @@ fields:
       - type: enum
         name: size
         label: Font size
-        controlType: button-group
         options:
           - label: XS
             value: xs
@@ -388,7 +384,6 @@ fields:
       - type: enum
         name: size
         label: Font size
-        controlType: button-group
         options:
           - label: XS
             value: xs
@@ -478,7 +473,6 @@ fields:
       - type: enum
         name: size
         label: Font size
-        controlType: button-group
         options:
           - label: XS
             value: xs
@@ -614,7 +608,7 @@ fields:
     group: color-palettes
   - type: color
     name: complementaryAlt
-    label: Complementary Alt
+    label: Complementary alt
     group: color-palettes
   - type: color
     name: onComplementaryAlt

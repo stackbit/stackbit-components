@@ -3,17 +3,31 @@ import ItemBlock from './index';
 
 export default {
     title: 'Blocks/ItemBlock',
-    component: ItemBlock
+    component: ItemBlock,
+    argTypes: {
+        type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
+        rating: {
+            options: [1, 2, 3, 4, 5],
+            defaultValue: 1,
+            control: { type: 'select' }
+        }
+    }
 };
 
 const Template = (args) => <ItemBlock {...args} />;
 
 const args = {
     type: 'ItemBlock',
+    elementId: '',
     title: 'Item block',
     subtitle: 'Item block example subtitle',
-    author: 'Earnest Hemingway',
+    author: 'Ernest Hemingway',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+    rating: 5,
+    isRatingVisible: true,
     featuredImage: {
         type: 'ImageBlock',
         url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
@@ -38,7 +52,7 @@ const args = {
             fontWeight: 700,
             fontStyle: 'normal',
             textAlign: 'left',
-            margin: ['mt-4', 'mb-0']
+            margin: ['mt-4', 'mb-1']
         },
         subtitle: {
             fontWeight: 400,

@@ -38,7 +38,7 @@ export default function ItemBlock(props) {
                     {props.author}
                 </div>
             )}
-            {props.rating && <div data-sb-field-path=".rating">{props.rating}</div>}
+            {props.isRatingVisible && props.rating && <div data-sb-field-path=".rating">{props.rating}</div>}
             {itemActions(props)}
         </article>
     );

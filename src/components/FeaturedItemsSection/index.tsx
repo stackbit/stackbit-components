@@ -50,7 +50,7 @@ export default function FeaturedItemsSection(props) {
                     {props?.items && (
                         <div className={classNames('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3))} data-sb-field-path=".items">
                             {props.items.map((item, index) => (
-                                <ItemBlock key={index} {...item} />
+                                <div key={index} data-sb-field-path={`.${index}`}><ItemBlock {...item} /></div>
                             ))}
                         </div>
                     )}

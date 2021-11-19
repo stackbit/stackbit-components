@@ -26,12 +26,12 @@ fields:
     items:
       type: model
       models:
-        - Item
+        - ItemBlock
     default:
-      - type: Item
+      - type: ItemBlock
         title: The quick, brown fox jumps over a lazy dog
         subtitle: Section subtitle
-        content: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.'
+        text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.'
         author: Earnest Hemingway
         rating: 5
   - type: list
@@ -82,9 +82,9 @@ fields:
           - value: 'border-secondary'
             label: 'Secondary color'
             color: '$secondary'
-          - value: 'border-neutral'
-            label: 'Neutral color'
-            color: '$neutral'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
           - value: 'border-complementary'
             label: 'Complementary color'
             color: '$complementary'
@@ -113,7 +113,7 @@ fields:
         borderRadius: none
         borderWidth: 0
         borderStyle: none
-        borderColor: border-neutral
+        borderColor: border-dark
       title:
         fontWeight: 700
         fontStyle: normal

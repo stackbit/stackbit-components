@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
-import Item from '../Item';
+import ItemBlock from '../ItemBlock';
 
 export default function FeaturedItemsSection(props) {
     const cssId = props.elementId || null;
@@ -50,7 +50,7 @@ export default function FeaturedItemsSection(props) {
                     {props?.items && (
                         <div className={classNames('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3))} data-sb-field-path=".items">
                             {props.items.map((item, index) => (
-                                <Item key={index} {...item} />
+                                <ItemBlock key={index} {...item} />
                             ))}
                         </div>
                     )}

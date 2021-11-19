@@ -5,13 +5,13 @@ import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import { ImageBlock } from '..';
 
-export default function Item(props) {
+export default function ItemBlock(props) {
     const cssId = props.elementId || null;
     return (
         <article id={cssId} className="sb-component sb-component-block sb-component-item" data-sb-field-path={props.annotationPrefix}>
             {props.featuredImage && (
-                <div className="" data-sb-field-path="featuredImage">
-                    <ImageBlock {...props.featuredImage} className="" />
+                <div data-sb-field-path=".featuredImage">
+                    <ImageBlock {...props.featuredImage} />
                 </div>
             )}
             {props.title && (
@@ -33,9 +33,13 @@ export default function Item(props) {
                     {props.text}
                 </Markdown>
             )}
-            {props.author && <div className="text-sm">{props.author}</div>}
-            {props.rating && <div>{props.rating}</div>}
-            <div className="my-3 flex-1 px-4 w-full">{itemActions(props)}</div>
+            {props.author && (
+                <div className="text-sm" data-sb-field-path=".author">
+                    {props.author}
+                </div>
+            )}
+            {props.rating && <div data-sb-field-path=".rating">{props.rating}</div>}
+            {itemActions(props)}
         </article>
     );
 }
@@ -49,7 +53,7 @@ function itemActions(props) {
     const Action = getComponent('Action');
     return (
         <div
-            className={classNames('flex', 'flex-wrap', 'items-center', '-mx-2', styles.actions ? mapStyles(styles.actions) : null)}
+            className={classNames('flex', 'flex-wrap', 'items-center', 'mt-6', '-mx-2', styles.actions ? mapStyles(styles.actions) : null)}
             data-sb-field-path=".actions"
         >
             {actions.map((action, index) => (

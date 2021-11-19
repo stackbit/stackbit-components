@@ -4,6 +4,7 @@ import * as HeaderStories from '../../components/Header/header.stories';
 import * as FooterStories from '../../components/Footer/footer.stories';
 import * as ContactSectionStories from '../../components/ContactSection/contact-section.stories';
 import * as CtaSectionStories from '../../components/CtaSection/cta-section.stories';
+import * as FeaturedItemsStories from '../../components/FeaturedItemsSection/featured-items-section.stories';
 import * as FeaturedPeopleSectionStories from '../../components/FeaturedPeopleSection/featured-people-section.stories';
 import * as FeaturedPostsSectionStories from '../../components/FeaturedPostsSection/featured-posts-section.stories';
 import * as HeroSectionStories from '../../components/HeroSection/hero-section.stories';
@@ -39,6 +40,7 @@ Primary.args = {
         sections: [
             ContactSectionStories.Primary.args,
             CtaSectionStories.Primary.args,
+            FeaturedItemsStories.Primary.args,
             FeaturedPeopleSectionStories.Primary.args,
             FeaturedPostsSectionStories.Primary.args,
             HeroSectionStories.Primary.args,

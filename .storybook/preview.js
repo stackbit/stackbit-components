@@ -15,6 +15,7 @@ export const parameters = {
                     'Footer',
                     'ContactSection',
                     'CtaSection',
+                    'FeaturedItemsSection',
                     'FeaturedPeopleSection',
                     'FeaturedPostsSection',
                     'HeroSection',

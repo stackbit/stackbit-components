@@ -29,8 +29,8 @@ const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...ar
 
 const args: MediaGallerySectionProps = {
     type: 'MediaGallerySection',
-    title: 'Some photos',
-    subtitle: 'Subtitle for some photos',
+    title: 'Gallery',
+    subtitle: 'Gallery subtitle',
     columns: 4,
     imageSizePx: 300,
     spacing: 1,
@@ -38,32 +38,27 @@ const args: MediaGallerySectionProps = {
     showCaption: true,
     enableHover: true,
     elementId: '',
-    colors: 'colors-d',
+    colors: 'colors-a',
     images: [
         {
             url: 'https://assets.stackbit.com/components/images/default/image-1.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
+            altText: 'image alt text',
+            caption: 'image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-2.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
+            altText: 'image alt text',
+            caption: 'image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-3.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
+            altText: 'image alt text',
+            caption: 'image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-4.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
-        },
-        {
-            url: 'https://assets.stackbit.com/components/images/default/image-5.jpeg',
-            altText: 'Image alt text',
-            caption: 'Caption of the image'
+            altText: 'image alt text',
+            caption: 'image caption'
         }
     ],
     styles: {

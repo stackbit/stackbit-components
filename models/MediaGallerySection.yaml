@@ -2,6 +2,7 @@ type: object
 name: MediaGallerySection
 label: Media gallery section
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default-media-gellery-section-thumbnail.png
 extends:
   - Section
 groups:
@@ -19,7 +20,7 @@ fields:
   - type: string
     name: subtitle
     label: Subtitle
-    default: The gallery subtitle
+    default: Gallery subtitle
   - type: list
     name: images
     label: Images
@@ -28,21 +29,21 @@ fields:
       models: [ImageBlock]
     default:
       - type: ImageBlock
-        url: https://assets.stackbit.com/components/images/default/post-1.jpeg
-        altText: Image 1
-        caption: Image 1
+        url: https://assets.stackbit.com/components/images/default/image-1.jpeg
+        altText: image alt text
+        caption: image caption
       - type: ImageBlock
-        url: https://assets.stackbit.com/components/images/default/post-2.jpeg
-        altText: Image 2
-        caption: Image 2
+        url: https://assets.stackbit.com/components/images/default/image-2.jpeg
+        altText: image alt text
+        caption: image caption
       - type: ImageBlock
-        url: https://assets.stackbit.com/components/images/default/post-3.jpeg
-        altText: Image 3
-        caption: Image 3
+        url: https://assets.stackbit.com/components/images/default/image-3.jpeg
+        altText: image alt text
+        caption: image caption
       - type: ImageBlock
-        url: https://assets.stackbit.com/components/images/default/post-4.jpeg
-        altText: Image 4
-        caption: Image 4
+        url: https://assets.stackbit.com/components/images/default/image-4.jpeg
+        altText: image alt text
+        caption: image caption
   - type: number
     name: spacing
     label: Spacing between images
@@ -104,7 +105,7 @@ fields:
   - type: boolean
     name: showCaption
     label: Show caption
-    default: false
+    default: true
   - type: boolean
     name: enableHover
     label: Enable hover

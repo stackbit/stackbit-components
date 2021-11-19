@@ -85,14 +85,14 @@ function ctaBody(props) {
     return (
         <div className="my-3 px-4 w-full lg:flex-grow">
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames(styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames('sb-markdown', 'md:text-lg', styles.text ? mapStyles(styles.text) : null)}
+                    className={classNames('sb-markdown', 'sm:text-lg', styles.text ? mapStyles(styles.text) : null)}
                     data-sb-field-path=".text"
                 >
                     {props.text}

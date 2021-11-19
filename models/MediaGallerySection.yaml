@@ -72,6 +72,8 @@ fields:
         value: 5
       - label: '6'
         value: 6
+      - label: '7'
+        value: 7
   - type: enum
     name: aspectRatio
     label: Image aspect ratio
@@ -129,9 +131,9 @@ fields:
           - value: 'border-secondary'
             label: 'Secondary color'
             color: '$secondary'
-          - value: 'border-neutral'
-            label: 'Neutral color'
-            color: '$neutral'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
           - value: 'border-complementary'
             label: 'Complementary color'
             color: '$complementary'
@@ -158,7 +160,7 @@ fields:
         borderRadius: none
         borderWidth: 0
         borderStyle: none
-        borderColor: border-neutral
+        borderColor: border-dark
       title:
         fontWeight: 700
         fontStyle: normal

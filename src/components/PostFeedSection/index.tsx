@@ -53,7 +53,7 @@ function postFeedHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames(styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
@@ -115,19 +115,11 @@ function postsVariantA(props) {
                             </Link>
                         )}
                         <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                            {props.title ? (
-                                <h3 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                            ) : (
-                                <h2 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                            )}
+                            <h3 className="mb-1">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h3>
                             <div className="text-sm mb-3">
                                 <time dateTime={dateTimeAttr} data-sb-field-path="date">
                                     {formattedDate}
@@ -167,19 +159,11 @@ function postsVariantB(props) {
                             </div>
                         )}
                         <div className="px-4 pt-6 pb-8 sm:px-6 md:w-3/5 md:pt-8 md:pb-10">
-                            {props.title ? (
-                                <h3 className="text-xl sm:text-2xl md:text-3xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                            ) : (
-                                <h2 className="text-xl sm:text-2xl md:text-3xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                            )}
+                            <h3 className="mb-1">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h3>
                             <div className="text-sm mb-3">
                                 <time dateTime={dateTimeAttr} data-sb-field-path="date">
                                     {formattedDate}

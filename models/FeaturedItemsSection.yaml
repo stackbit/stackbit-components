@@ -15,11 +15,11 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Featured items section
+    default: Featured Items
   - type: string
     name: subtitle
     label: Subtitle
-    default: Featured items section example subtitle
+    default: The section subtitle
   - type: list
     name: items
     label: Items
@@ -29,23 +29,21 @@ fields:
         - ItemBlock
     default:
       - type: ItemBlock
-        title: The quick, brown fox jumps over a lazy dog
-        subtitle: Item subtitle
+        title: Item Title
         text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.'
+        featuredImage:
+          type: ImageBlock
+          url: 'https://assets.stackbit.com/components/images/default/default-image.png'
+          altText: Item image
         styles:
           title:
-            fontWeight: '700'
-            fontStyle: normal
             textAlign: left
-            margin: ['mt-4', 'mb-0']
           subtitle:
-            fontWeight: '400'
+            fontWeight: 400
             fontStyle: normal
             textAlign: left
-            margin: ['mt-0', 'mb-4']
           text:
             textAlign: left
-            margin: ['mt-0', 'mb-4']
           actions:
             justifyContent: flex-start
   - type: list
@@ -65,17 +63,14 @@ fields:
         label: Learn More
         url: '#'
         style: secondary
-  - type: enum
+  - type: number
     name: columns
     label: Items per row
     group: styles
-    options:
-      - label: '2'
-        value: 2
-      - label: '3'
-        value: 3
-      - label: '4'
-        value: 4
+    controlType: 'slider'
+    min: 1
+    max: 4
+    step: 1
     default: 3
   - type: style
     name: styles
@@ -109,12 +104,10 @@ fields:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
     default:
@@ -129,14 +122,10 @@ fields:
         borderStyle: none
         borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
-        textAlign: left
-        margin: ['mt-0', 'mb-4']
+        textAlign: center
       subtitle:
         fontWeight: 400
         fontStyle: normal
-        textAlign: left
-        margin: ['mt-0', 'mb-6']
+        textAlign: center
       actions:
-        justifyContent: flex-start
+        justifyContent: center

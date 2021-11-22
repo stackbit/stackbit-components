@@ -22,13 +22,11 @@ type MediaGalleryStyle = {
         fontWeight?: number;
         fontStyle?: string;
         textAlign?: string;
-        margin?: string | string[];
     };
     subtitle: {
         fontWeight?: number;
         fontStyle?: string;
         textAlign?: string;
-        margin?: string | string[];
     };
 };
 
@@ -113,12 +111,15 @@ function MediaGalleryHeader(props: MediaGallerySectionProps) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles?.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames(styles?.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles?.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles?.subtitle ? mapStyles(styles.subtitle) : null, { 'mt-2': props.title })}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -156,7 +157,7 @@ function MediaGalleryImageGrid(props: MediaGallerySectionProps) {
 
     return (
         <div
-            className="grid place-items-center"
+            className={classNames('grid', 'place-items-center', { 'mt-12': props.title || props.subtitle })}
             data-sb-field-path=".images"
             style={{
                 gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,

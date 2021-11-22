@@ -61,3 +61,11 @@ fields:
     label: Destination (email to redirect responses)
     default: ''
     group: settings
+  - type: style
+    name: styles
+    styles:
+      submitLabel:
+        textAlign: ['left', 'center', 'right']
+    default:
+      title:
+        textAlign: left

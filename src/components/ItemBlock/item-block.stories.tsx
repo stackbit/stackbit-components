@@ -22,16 +22,16 @@ const Template = (args) => <ItemBlock {...args} />;
 const args = {
     type: 'ItemBlock',
     elementId: '',
-    title: 'Item block',
-    subtitle: 'Item block example subtitle',
+    title: 'Item Title',
+    subtitle: 'Item subtitle',
     author: 'Ernest Hemingway',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
     rating: 5,
     isRatingVisible: true,
-    featuredImage: {
+    image: {
         type: 'ImageBlock',
         url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
-        altText: 'Post Image'
+        altText: 'Item image'
     },
     actions: [
         {
@@ -49,20 +49,13 @@ const args = {
     ],
     styles: {
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-4', 'mb-1']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         actions: {
             justifyContent: 'flex-start'

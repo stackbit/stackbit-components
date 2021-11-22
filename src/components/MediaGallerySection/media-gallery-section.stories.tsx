@@ -30,7 +30,7 @@ const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...ar
 const args: MediaGallerySectionProps = {
     type: 'MediaGallerySection',
     title: 'Gallery',
-    subtitle: 'Gallery subtitle',
+    subtitle: 'This is the subtitle',
     columns: 4,
     imageSizePx: 300,
     spacing: 1,
@@ -42,30 +42,30 @@ const args: MediaGallerySectionProps = {
     images: [
         {
             url: 'https://assets.stackbit.com/components/images/default/image-1.jpeg',
-            altText: 'image alt text',
-            caption: 'image caption'
+            altText: 'Media gallery image',
+            caption: 'Image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-2.jpeg',
-            altText: 'image alt text',
-            caption: 'image caption'
+            altText: 'Media gallery image',
+            caption: 'Image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-3.jpeg',
-            altText: 'image alt text',
-            caption: 'image caption'
+            altText: 'Media gallery image',
+            caption: 'Image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-4.jpeg',
-            altText: 'image alt text',
-            caption: 'image caption'
+            altText: 'Media gallery image',
+            caption: 'Image caption'
         }
     ],
     styles: {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             justifyContent: 'center',
             borderRadius: 'none',
@@ -74,16 +74,10 @@ const args: MediaGallerySectionProps = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-2']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-12']
+            textAlign: 'center'
         }
     }
 };

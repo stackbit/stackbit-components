@@ -80,12 +80,12 @@ function quoteContent(props) {
             {(props.name || props.title) && (
                 <footer>
                     {props.name && (
-                        <strong
+                        <span
                             className={classNames('block', 'text-2xl', 'sm:text-3xl', styles.name ? mapStyles(styles.name) : null)}
                             data-sb-field-path=".name"
                         >
                             {props.name}
-                        </strong>
+                        </span>
                     )}
                     {props.title && (
                         <span className={classNames('block', 'text-lg', 'mt-1.5', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">

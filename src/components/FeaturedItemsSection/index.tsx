@@ -41,16 +41,23 @@ export default function FeaturedItemsSection(props) {
                     )}
                     {props.subtitle && (
                         <p
-                            className={classNames('text-lg', 'sm:text-xl', props?.styles?.subtitle ? mapStyles(props?.styles?.subtitle) : null)}
+                            className={classNames('text-lg', 'sm:text-xl', props?.styles?.subtitle ? mapStyles(props?.styles?.subtitle) : null, {
+                                'mt-2': props.title
+                            })}
                             data-sb-field-path=".subtitle"
                         >
                             {props.subtitle}
                         </p>
                     )}
                     {props?.items && (
-                        <div className={classNames('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3))} data-sb-field-path=".items">
+                        <div
+                            className={classNames('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3), { 'mt-12': props.title || props.subtitle })}
+                            data-sb-field-path=".items"
+                        >
                             {props.items.map((item, index) => (
-                                <div key={index} data-sb-field-path={`.${index}`}><ItemBlock {...item} /></div>
+                                <div key={index} data-sb-field-path={`.${index}`}>
+                                    <ItemBlock {...item} />
+                                </div>
                             ))}
                         </div>
                     )}

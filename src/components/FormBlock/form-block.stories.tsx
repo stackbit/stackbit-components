@@ -58,7 +58,12 @@ const args = {
             width: 'full'
         }
     ],
-    submitLabel: 'Submit'
+    submitLabel: 'Submit',
+    styles: {
+        submitLabel: {
+            textAlign: 'left'
+        }
+    }
 };
 
 export const Primary = Template.bind({});

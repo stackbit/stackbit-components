@@ -98,20 +98,13 @@ const args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'left'
         },
         actions: {
             justifyContent: 'flex-start'
@@ -142,20 +135,13 @@ HeroImageBottom.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'left'
         },
         actions: {
             justifyContent: 'flex-start'
@@ -199,20 +185,13 @@ HeroVideoLeft.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'left'
         },
         actions: {
             justifyContent: 'flex-start'
@@ -247,7 +226,12 @@ HeroFormBottom.args = {
                 width: 'full'
             }
         ],
-        submitLabel: 'Subscribe'
+        submitLabel: 'Subscribe',
+        styles: {
+            submitLabel: {
+                textAlign: 'center'
+            }
+        }
     },
     styles: {
         self: {
@@ -264,20 +248,13 @@ HeroFormBottom.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'center'
         },
         text: {
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'center'
         },
         actions: {
             justifyContent: 'center'
@@ -316,20 +293,13 @@ HeroTextOnly.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'center'
         },
         text: {
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'center'
         },
         actions: {
             justifyContent: 'center'

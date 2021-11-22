@@ -58,7 +58,10 @@ function postFeedHeader(props) {
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null, { 'mt-2': props.title })}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -103,7 +106,7 @@ function postsVariantA(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div className="grid gap-6 md:grid-cols-3 lg:gap-8">
+        <div className={classNames('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', { 'mt-12': props.title || props.subtitle })}>
             {posts.map((post, index) => {
                 const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
@@ -141,7 +144,7 @@ function postsVariantB(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div>
+        <div className={classNames({ 'mt-12': props.title || props.subtitle })}>
             {posts.map((post, index) => {
                 const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');

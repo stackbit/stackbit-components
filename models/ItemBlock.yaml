@@ -17,11 +17,11 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Item block
+    default: Item Title
   - type: string
     name: subtitle
     label: Subtitle
-    default: Item block example subtitle
+    default: ''
   - type: markdown
     name: text
     label: Text
@@ -29,21 +29,14 @@ fields:
   - type: string
     name: author
     label: Author
-    default: Ernest Hemingway
-  - type: enum
+    default: ''
+  - type: number
     name: rating
     label: Rating
-    options:
-      - label: '1'
-        value: 1
-      - label: '2'
-        value: 2
-      - label: '3'
-        value: 3
-      - label: '4'
-        value: 4
-      - label: '5'
-        value: 5
+    controlType: 'slider'
+    min: 1
+    max: 5
+    step: 1
     default: 1
   - type: boolean
     name: isRatingVisible
@@ -51,13 +44,13 @@ fields:
     default: false
   - type: model
     name: featuredImage
-    label: Featured image
+    label: Image
     models:
       - ImageBlock
     default:
       type: ImageBlock
-      url: /images/post-1.jpeg
-      altText: Post thumbnail image
+      url: 'https://assets.stackbit.com/components/images/default/default-image.png'
+      altText: Item image
   - type: list
     name: actions
     label: Actions
@@ -66,15 +59,6 @@ fields:
       models:
         - Button
         - Link
-    default:
-      - type: Button
-        label: Apply Now
-        url: '#'
-        style: primary
-      - type: Button
-        label: Learn More
-        url: '#'
-        style: secondary
   - type: style
     name: styles
     styles:
@@ -82,30 +66,22 @@ fields:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       text:
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
     default:
       title:
-        fontWeight: '700'
-        fontStyle: normal
         textAlign: left
-        margin: ['mt-4', 'mb-0']
       subtitle:
-        fontWeight: '400'
+        fontWeight: 400
         fontStyle: normal
         textAlign: left
-        margin: ['mt-0', 'mb-4']
       text:
         textAlign: left
-        margin: ['mt-0', 'mb-4']
       actions:
         justifyContent: flex-start

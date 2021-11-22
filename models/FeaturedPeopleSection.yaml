@@ -34,7 +34,7 @@ fields:
   - type: string
     name: subtitle
     label: Subtitle
-    default: Meet the team
+    default: Featured people section example
   - type: list
     name: actions
     label: Actions
@@ -86,12 +86,10 @@ fields:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
     default:
@@ -106,14 +104,10 @@ fields:
         borderStyle: none
         borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
         textAlign: center
-        margin: ['mt-0', 'mb-2']
       subtitle:
         fontWeight: 400
         fontStyle: normal
         textAlign: center
-        margin: ['mt-0', 'mb-12']
       actions:
         justifyContent: center

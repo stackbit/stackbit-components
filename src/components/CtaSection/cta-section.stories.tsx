@@ -65,14 +65,10 @@ const args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-0']
+            textAlign: 'left'
         },
         actions: {
             justifyContent: 'flex-start'
@@ -103,14 +99,10 @@ CtaActionsBottom.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'center'
         },
         text: {
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-0']
+            textAlign: 'center'
         },
         actions: {
             justifyContent: 'center'

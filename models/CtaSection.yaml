@@ -77,10 +77,8 @@ fields:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       text:
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
     default:
@@ -97,12 +95,8 @@ fields:
         borderStyle: none
         borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
         textAlign: left
-        margin: ['mt-0', 'mb-4']
       text:
         textAlign: left
-        margin: ['mt-0', 'mb-0']
       actions:
         justifyContent: 'flex-start'

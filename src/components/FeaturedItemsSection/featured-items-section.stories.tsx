@@ -15,7 +15,7 @@ export default {
             control: { type: 'select' }
         },
         columns: {
-            options: [2, 3, 4],
+            options: [1, 2, 3, 4],
             defaultValue: 4,
             control: { type: 'select' }
         }
@@ -27,8 +27,8 @@ const Template = (args) => <FeaturedItemsSection {...args} />;
 const args = {
     type: 'FeaturedItemsSection',
     elementId: '',
-    title: 'Featured items section',
-    subtitle: 'Featured items section example subtitle',
+    title: 'Featured Items',
+    subtitle: 'This is the subtitle',
     actions: [
         {
             type: 'Button',
@@ -46,10 +46,10 @@ const args = {
     columns: 4,
     items: [
         {
-            type: 'Item',
-            title: 'The quick, brown fox jumps over a lazy dog',
-            subtitle: 'Section subtitle',
-            author: 'Ernest Hemingway',
+            type: 'ItemBlock',
+            title: 'Item Title',
+            subtitle: 'This is the subtitle',
+            author: 'Item author',
             text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
             featuredImage: {
                 type: 'ImageBlock',
@@ -79,10 +79,10 @@ const args = {
             }
         },
         {
-            type: 'Item',
-            title: 'The quick, brown fox jumps over a lazy dog',
-            subtitle: 'Section subtitle',
-            author: 'Ernest Hemingway',
+            type: 'ItemBlock',
+            title: 'Item Title',
+            subtitle: 'This is the subtitle',
+            author: 'Item author',
             text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
             featuredImage: {
                 type: 'ImageBlock',
@@ -112,10 +112,10 @@ const args = {
             }
         },
         {
-            type: 'Item',
-            title: 'The quick, brown fox jumps over a lazy dog',
-            subtitle: 'Section subtitle',
-            author: 'Ernest Hemingway',
+            type: 'ItemBlock',
+            title: 'Item Title',
+            subtitle: 'This is the subtitle',
+            author: 'Item author',
             text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
             featuredImage: {
                 type: 'ImageBlock',
@@ -145,10 +145,10 @@ const args = {
             }
         },
         {
-            type: 'Item',
-            title: 'The quick, brown fox jumps over a lazy dog',
-            subtitle: 'Section subtitle',
-            author: 'Ernest Hemingway',
+            type: 'ItemBlock',
+            title: 'Item Title',
+            subtitle: 'This is the subtitle',
+            author: 'Item author',
             text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
             featuredImage: {
                 type: 'ImageBlock',
@@ -211,5 +211,5 @@ const args = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Featured item with items';
+Primary.storyName = 'Featured items, four columns';
 Primary.args = args;

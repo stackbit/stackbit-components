@@ -30,7 +30,7 @@ const Template = (args: MediaGallerySectionProps) => <MediaGallerySection {...ar
 const args: MediaGallerySectionProps = {
     type: 'MediaGallerySection',
     title: 'Gallery',
-    subtitle: 'Gallery subtitle',
+    subtitle: 'This is the subtitle',
     columns: 4,
     imageSizePx: 300,
     spacing: 1,
@@ -42,23 +42,23 @@ const args: MediaGallerySectionProps = {
     images: [
         {
             url: 'https://assets.stackbit.com/components/images/default/image-1.jpeg',
-            altText: 'image alt text',
-            caption: 'image caption'
+            altText: 'Media gallery image',
+            caption: 'Image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-2.jpeg',
-            altText: 'image alt text',
-            caption: 'image caption'
+            altText: 'Media gallery image',
+            caption: 'Image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-3.jpeg',
-            altText: 'image alt text',
-            caption: 'image caption'
+            altText: 'Media gallery image',
+            caption: 'Image caption'
         },
         {
             url: 'https://assets.stackbit.com/components/images/default/image-4.jpeg',
-            altText: 'image alt text',
-            caption: 'image caption'
+            altText: 'Media gallery image',
+            caption: 'Image caption'
         }
     ],
     styles: {

@@ -24,8 +24,8 @@ fields:
     label: Author image
     models: [ImageBlock]
     default:
-      url: https://assets.stackbit.com/components/images/default/person-1.jpg
-      altText: Product Marketing Manager
+      url: https://assets.stackbit.com/components/images/default/default-person.png
+      altText: Person photo
   - type: string
     name: elementId
     group: settings

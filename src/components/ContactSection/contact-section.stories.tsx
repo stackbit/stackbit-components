@@ -28,7 +28,7 @@ const args = {
     feature: {
         type: 'ImageBlock',
         url: 'https://assets.stackbit.com/components/images/default/contact.png',
-        altText: 'Contact Image'
+        altText: 'Contact section image'
     },
     form: {
         type: 'FormBlock',

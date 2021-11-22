@@ -37,8 +37,8 @@ fields:
         title: Product Marketing Manager at Acme
         image:
           type: ImageBlock
-          url: https://assets.stackbit.com/components/images/default/person-1.jpg
-          altText: Product Marketing Manager
+          url: https://assets.stackbit.com/components/images/default/default-person.png
+          altText: Person photo
         styles:
           self:
             flexDirection: row

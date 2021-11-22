@@ -247,7 +247,12 @@ HeroFormBottom.args = {
                 width: 'full'
             }
         ],
-        submitLabel: 'Subscribe'
+        submitLabel: 'Subscribe',
+        styles: {
+            submitLabel: {
+                textAlign: 'center'
+            }
+        }
     },
     styles: {
         self: {

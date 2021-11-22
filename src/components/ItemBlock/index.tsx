@@ -11,7 +11,7 @@ export default function ItemBlock(props) {
         <article id={cssId} className="sb-component sb-component-block sb-component-item" data-sb-field-path={props.annotationPrefix}>
             {props.featuredImage && (
                 <div data-sb-field-path=".featuredImage">
-                    <ImageBlock {...props.featuredImage} />
+                    <ImageBlock {...props.featuredImage} className="mx-auto" />
                 </div>
             )}
             {props.title && (

@@ -20,7 +20,7 @@ fields:
   - type: string
     name: subtitle
     label: Subtitle
-    default: Gallery subtitle
+    default: This is the subtitle
   - type: list
     name: images
     label: Images
@@ -30,20 +30,20 @@ fields:
     default:
       - type: ImageBlock
         url: https://assets.stackbit.com/components/images/default/image-1.jpeg
-        altText: image alt text
-        caption: image caption
+        altText: Media gallery image
+        caption: Image caption
       - type: ImageBlock
         url: https://assets.stackbit.com/components/images/default/image-2.jpeg
-        altText: image alt text
-        caption: image caption
+        altText: Media gallery image
+        caption: Image caption
       - type: ImageBlock
         url: https://assets.stackbit.com/components/images/default/image-3.jpeg
-        altText: image alt text
-        caption: image caption
+        altText: Media gallery image
+        caption: Image caption
       - type: ImageBlock
         url: https://assets.stackbit.com/components/images/default/image-4.jpeg
-        altText: image alt text
-        caption: image caption
+        altText: Media gallery image
+        caption: Image caption
   - type: number
     name: spacing
     label: Spacing between images
@@ -54,26 +54,15 @@ fields:
     step: 1
     unit: 'rem'
     default: 1
-  - type: enum
+  - type: number
     name: columns
     label: Images per row
     group: styles
+    controlType: 'slider'
+    min: 1
+    max: 7
+    step: 1
     default: 4
-    options:
-      - label: '1'
-        value: 1
-      - label: '2'
-        value: 2
-      - label: '3'
-        value: 3
-      - label: '4'
-        value: 4
-      - label: '5'
-        value: 5
-      - label: '6'
-        value: 6
-      - label: '7'
-        value: 7
   - type: enum
     name: aspectRatio
     label: Image aspect ratio

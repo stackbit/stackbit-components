@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 
 export default function ImageBlock(props) {
-    const { url, altText, caption } = props;
+    const { url, altText } = props;
     if (!url) {
         return null;
     }
@@ -17,9 +17,8 @@ export default function ImageBlock(props) {
             className={classNames('sb-component', 'sb-component-block', 'sb-component-image-block', cssClasses)}
             src={url}
             alt={altText || ''}
-            title={caption}
             style={{ opacity: imageOpacity * 0.01 }}
-            data-sb-field-path=".url#@src .altText#@alt .caption#@title .elementId#@id"
+            data-sb-field-path=".url#@src .altText#@alt .elementId#@id"
         />
     );
 }

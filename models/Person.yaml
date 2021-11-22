@@ -24,8 +24,8 @@ fields:
     label: Image
     models: [ImageBlock]
     default:
-      url: https://assets.stackbit.com/components/images/default/person-1.jpg
-      altText: Role at Company
+      url: https://assets.stackbit.com/components/images/default/default-person.png
+      altText: Person photo
   - type: string
     name: id
     label: ID

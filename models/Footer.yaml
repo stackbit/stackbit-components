@@ -68,7 +68,7 @@ fields:
     default:
       type: ImageBlock
       url: 'https://assets.stackbit.com/components/images/default/logo.svg'
-      altText: 'Your logo image'
+      altText: Your logo image
       caption: ''
   - type: string
     name: title

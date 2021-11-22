@@ -66,15 +66,12 @@ fields:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       text:
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
     default:

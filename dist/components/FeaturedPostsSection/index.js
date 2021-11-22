@@ -51,7 +51,9 @@ function featuredPostsHeader(props) {
     const styles = props.styles || {};
     return (React.createElement("div", null,
         props.title && (React.createElement("h2", { className: (0, classnames_1.default)(styles.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.title) : null), "data-sb-field-path": ".title" }, props.title)),
-        props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-lg', 'sm:text-xl', styles.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle))));
+        props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-lg', 'sm:text-xl', styles.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.subtitle) : null, {
+                'mt-2': props.title
+            }), "data-sb-field-path": ".subtitle" }, props.subtitle))));
 }
 function featuredPostsActions(props) {
     const actions = props.actions || [];
@@ -82,7 +84,7 @@ function postsVariantA(props) {
         return null;
     }
     const ImageBlock = (0, components_registry_1.getComponent)('ImageBlock');
-    return (React.createElement("div", { className: "grid gap-6 md:grid-cols-3 lg:gap-8", "data-sb-field-path": ".posts" }, posts.map((post, index) => (React.createElement("article", { key: index, className: "sb-card", "data-sb-object-id": post.__metadata?.id },
+    return (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', { 'mt-12': props.title || props.subtitle }), "data-sb-field-path": ".posts" }, posts.map((post, index) => (React.createElement("article", { key: index, className: "sb-card", "data-sb-object-id": post.__metadata?.id },
         post.featuredImage && (React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), className: "block h-0 w-full pt-9/16 relative", "data-sb-field-path": "featuredImage" },
             React.createElement(ImageBlock, { ...post.featuredImage, className: "absolute left-0 top-0 h-full w-full object-cover" }))),
         React.createElement("div", { className: "px-4 py-6 sm:px-6 sm:pb-10" },
@@ -98,7 +100,7 @@ function postsVariantB(props) {
         return null;
     }
     const ImageBlock = (0, components_registry_1.getComponent)('ImageBlock');
-    return (React.createElement("div", { className: "grid gap-6 md:grid-cols-3 lg:gap-8", "data-sb-field-path": ".posts" }, posts.map((post, index) => (React.createElement("article", { key: index, className: (0, classnames_1.default)('sb-card', {
+    return (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', { 'mt-12': props.title || props.subtitle }), "data-sb-field-path": ".posts" }, posts.map((post, index) => (React.createElement("article", { key: index, className: (0, classnames_1.default)('sb-card', {
             'md:col-span-2': index % 4 === 0 || (index + 1) % 4 === 0
         }), "data-sb-object-id": post.__metadata?.id },
         post.featuredImage && (React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), className: "block h-0 w-full pt-9/16 relative md:pt-0 md:h-60 lg:h-72", "data-sb-field-path": "featuredImage" },
@@ -116,7 +118,7 @@ function postsVariantC(props) {
         return null;
     }
     const ImageBlock = (0, components_registry_1.getComponent)('ImageBlock');
-    return (React.createElement("div", { className: "grid gap-6 md:grid-cols-3 lg:gap-8", "data-sb-field-path": ".posts" }, posts.map((post, index) => {
+    return (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', { 'mt-12': props.title || props.subtitle }), "data-sb-field-path": ".posts" }, posts.map((post, index) => {
         const isFullWidth = index % 4 === 0;
         return (React.createElement("article", { key: index, className: (0, classnames_1.default)('sb-card', {
                 'md:col-span-3 md:flex': isFullWidth
@@ -144,7 +146,7 @@ function postsVariantD(props) {
         return null;
     }
     const ImageBlock = (0, components_registry_1.getComponent)('ImageBlock');
-    return (React.createElement("div", { "data-sb-field-path": ".posts" }, posts.map((post, index) => (React.createElement("article", { key: index, className: "sb-card mb-8 md:flex", "data-sb-object-id": post.__metadata.id },
+    return (React.createElement("div", { className: (0, classnames_1.default)({ 'mt-12': props.title || props.subtitle }), "data-sb-field-path": ".posts" }, posts.map((post, index) => (React.createElement("article", { key: index, className: "sb-card mb-8 md:flex", "data-sb-object-id": post.__metadata.id },
         post.featuredImage && (React.createElement("div", { className: "md:w-2/5" },
             React.createElement(link_1.default, { href: (0, get_page_url_path_1.default)(post), className: "block h-0 w-full pt-9/16 relative md:h-60 md:min-h-full md:pt-0 lg:h-72", "data-sb-field-path": "featuredImage" },
                 React.createElement(ImageBlock, { ...post.featuredImage, className: "absolute left-0 top-0 h-full w-full object-cover" })))),

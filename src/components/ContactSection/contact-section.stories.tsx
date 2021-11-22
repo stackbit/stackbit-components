@@ -82,14 +82,10 @@ const args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'left'
         }
     }
 };
@@ -126,14 +122,10 @@ ContactVideoLeft.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'left'
         }
     }
 };

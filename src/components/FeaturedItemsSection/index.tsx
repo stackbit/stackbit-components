@@ -32,31 +32,7 @@ export default function FeaturedItemsSection(props) {
                 borderWidth: `${sectionBorderWidth}px`
             }}
         >
-            <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
-                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
-                    {props.title && (
-                        <h2 className={classNames(props?.styles?.title ? mapStyles(props?.styles?.title) : null)} data-sb-field-path=".title">
-                            {props.title}
-                        </h2>
-                    )}
-                    {props.subtitle && (
-                        <p
-                            className={classNames('text-lg', 'sm:text-xl', props?.styles?.subtitle ? mapStyles(props?.styles?.subtitle) : null)}
-                            data-sb-field-path=".subtitle"
-                        >
-                            {props.subtitle}
-                        </p>
-                    )}
-                    {props?.items && (
-                        <div className={classNames('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3))} data-sb-field-path=".items">
-                            {props.items.map((item, index) => (
-                                <div key={index} data-sb-field-path={`.${index}`}><ItemBlock {...item} /></div>
-                            ))}
-                        </div>
-                    )}
-                    {featuredItemActions(props)}
-                </div>
-            </div>
+            {featuredItemsVariants(props)}
         </div>
     );
 }
@@ -80,6 +56,89 @@ function featuredItemActions(props) {
     );
 }
 
+function featuredItemsVariants(props) {
+    const variant = props.variant || 'variant-a';
+    switch (variant) {
+        case 'variant-a':
+            return itemsVariantA(props);
+        case 'variant-b':
+            return itemsVariantB(props);
+    }
+    return null;
+}
+
+function itemsVariantA(props) {
+    const sectionStyles = props.styles?.self || {};
+    return (
+        <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
+            <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+                {props.title && (
+                    <h2 className={classNames(props?.styles?.title ? mapStyles(props?.styles?.title) : null)} data-sb-field-path=".title">
+                        {props.title}
+                    </h2>
+                )}
+                {props.subtitle && (
+                    <p
+                        className={classNames('text-lg', 'sm:text-xl', props?.styles?.subtitle ? mapStyles(props?.styles?.subtitle) : null)}
+                        data-sb-field-path=".subtitle"
+                    >
+                        {props.subtitle}
+                    </p>
+                )}
+                {props?.items && (
+                    <div className={classNames('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3))} data-sb-field-path=".items">
+                        {props.items.map((item, index) => (
+                            <div key={index} data-sb-field-path={`.${index}`}>
+                                <ItemBlock {...item} />
+                            </div>
+                        ))}
+                    </div>
+                )}
+                {featuredItemActions(props)}
+            </div>
+        </div>
+    );
+}
+
+function itemsVariantB(props) {
+    const sectionStyles = props.styles?.self || {};
+    return (
+        <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
+            <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+                <div className={classNames('flex', 'flex-col', 'md:flex-row')}>
+                    <div>
+                        {props.title && (
+                            <h2 className={classNames(props?.styles?.title ? mapStyles(props?.styles?.title) : null)} data-sb-field-path=".title">
+                                {props.title}
+                            </h2>
+                        )}
+                        {props.subtitle && (
+                            <p
+                                className={classNames('text-lg', 'sm:text-xl', props?.styles?.subtitle ? mapStyles(props?.styles?.subtitle) : null)}
+                                data-sb-field-path=".subtitle"
+                            >
+                                {props.subtitle}
+                            </p>
+                        )}
+                    </div>
+                    <div className={classNames('ml-20')}>
+                        {props?.items && (
+                            <div className={classNames('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3))} data-sb-field-path=".items">
+                                {props.items.map((item, index) => (
+                                    <div key={index} data-sb-field-path={`.${index}`}>
+                                        <ItemBlock {...item} />
+                                    </div>
+                                ))}
+                            </div>
+                        )}
+                    </div>
+                </div>
+                {featuredItemActions(props)}
+            </div>
+        </div>
+    );
+}
+
 function mapColStyles(columns) {
     switch (columns) {
         case 4:
@@ -88,6 +147,8 @@ function mapColStyles(columns) {
             return 'md:grid-cols-3';
         case 2:
             return 'md:grid-cols-2';
+        case 1:
+            return 'md:grid-cols-1';
     }
     return null;
 }

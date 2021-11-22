@@ -34,14 +34,7 @@ function FeaturedItemsSection(props) {
     const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (React.createElement("div", { id: cssId, className: (0, classnames_1.default)('sb-component', 'sb-component-section', 'sb-component-featured-items-section', colors, 'flex', 'flex-col', 'justify-center', 'relative', sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null, sectionStyles.margin, sectionStyles.padding, sectionStyles.borderColor, sectionStyles.borderRadius ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderRadius: sectionStyles.borderRadius }) : null, sectionStyles.borderStyle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ borderStyle: sectionStyles.borderStyle }) : null), style: {
             borderWidth: `${sectionBorderWidth}px`
-        } },
-        React.createElement("div", { className: (0, classnames_1.default)('flex', 'w-full', sectionStyles.justifyContent ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ justifyContent: sectionStyles.justifyContent }) : null) },
-            React.createElement("div", { className: (0, classnames_1.default)('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null) },
-                props.title && (React.createElement("h2", { className: (0, classnames_1.default)(props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
-                props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-lg', 'sm:text-xl', props?.styles?.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle)),
-                props?.items && (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3)), "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement("div", { key: index, "data-sb-field-path": `.${index}` },
-                    React.createElement(ItemBlock_1.default, { ...item })))))),
-                featuredItemActions(props)))));
+        } }, featuredItemsVariants(props)));
 }
 exports.default = FeaturedItemsSection;
 function featuredItemActions(props) {
@@ -53,6 +46,38 @@ function featuredItemActions(props) {
     const Action = (0, components_registry_1.getComponent)('Action');
     return (React.createElement("div", { className: (0, classnames_1.default)('flex', 'flex-wrap', 'items-center', 'mt-12', '-mx-2', styles.actions ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.actions) : null), "data-sb-field-path": ".actions" }, actions.map((action, index) => (React.createElement(Action, { key: index, ...action, className: "mb-3 mx-2 lg:whitespace-nowrap", annotationPrefix: `.${index}` })))));
 }
+function featuredItemsVariants(props) {
+    const variant = props.variant || 'variant-a';
+    switch (variant) {
+        case 'variant-a':
+            return itemsVariantA(props);
+        case 'variant-b':
+            return itemsVariantB(props);
+    }
+    return null;
+}
+function itemsVariantA(props) {
+    const sectionStyles = props.styles?.self || {};
+    return (React.createElement("div", { className: (0, classnames_1.default)('flex', 'w-full', sectionStyles.justifyContent ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ justifyContent: sectionStyles.justifyContent }) : null) },
+        React.createElement("div", { className: (0, classnames_1.default)('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null) },
+            props.title && (React.createElement("h2", { className: (0, classnames_1.default)(props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
+            props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-lg', 'sm:text-xl', props?.styles?.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle)),
+            props?.items && (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3)), "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement("div", { key: index, "data-sb-field-path": `.${index}` },
+                React.createElement(ItemBlock_1.default, { ...item })))))),
+            featuredItemActions(props))));
+}
+function itemsVariantB(props) {
+    const sectionStyles = props.styles?.self || {};
+    return (React.createElement("div", { className: (0, classnames_1.default)('flex', 'w-full', sectionStyles.justifyContent ? (0, map_styles_to_class_names_1.mapStylesToClassNames)({ justifyContent: sectionStyles.justifyContent }) : null) },
+        React.createElement("div", { className: (0, classnames_1.default)('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null) },
+            React.createElement("div", { className: (0, classnames_1.default)('flex', 'flex-col', 'md:flex-row') },
+                React.createElement("div", null,
+                    props.title && (React.createElement("h2", { className: (0, classnames_1.default)(props?.styles?.title ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.title) : null), "data-sb-field-path": ".title" }, props.title)),
+                    props.subtitle && (React.createElement("p", { className: (0, classnames_1.default)('text-lg', 'sm:text-xl', props?.styles?.subtitle ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(props?.styles?.subtitle) : null), "data-sb-field-path": ".subtitle" }, props.subtitle))),
+                React.createElement("div", { className: (0, classnames_1.default)('ml-20') }, props?.items && (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3)), "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement("div", { key: index, "data-sb-field-path": `.${index}` },
+                    React.createElement(ItemBlock_1.default, { ...item })))))))),
+            featuredItemActions(props))));
+}
 function mapColStyles(columns) {
     switch (columns) {
         case 4:
@@ -61,6 +86,8 @@ function mapColStyles(columns) {
             return 'md:grid-cols-3';
         case 2:
             return 'md:grid-cols-2';
+        case 1:
+            return 'md:grid-cols-1';
     }
     return null;
 }

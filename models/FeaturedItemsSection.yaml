@@ -120,8 +120,8 @@ fields:
         borderStyle: none
         borderColor: border-dark
       title:
-        textAlign: left
+        textAlign: center
       subtitle:
-        textAlign: left
+        textAlign: center
       actions:
-        justifyContent: flex-start
+        justifyContent: center

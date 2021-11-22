@@ -58,7 +58,9 @@ function featuredPostsHeader(props) {
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null, {
+                    'mt-2': props.title
+                })} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}
@@ -107,7 +109,7 @@ function postsVariantA(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
+        <div className={classNames('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', { 'mt-12': props.title || props.subtitle })} data-sb-field-path=".posts">
             {posts.map((post, index) => (
                 <article key={index} className="sb-card" data-sb-object-id={post.__metadata?.id}>
                     {post.featuredImage && (
@@ -142,7 +144,7 @@ function postsVariantB(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
+        <div className={classNames('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', { 'mt-12': props.title || props.subtitle })} data-sb-field-path=".posts">
             {posts.map((post, index) => (
                 <article
                     key={index}
@@ -187,7 +189,7 @@ function postsVariantC(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
+        <div className={classNames('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', { 'mt-12': props.title || props.subtitle })} data-sb-field-path=".posts">
             {posts.map((post, index) => {
                 const isFullWidth = index % 4 === 0;
                 return (
@@ -247,7 +249,7 @@ function postsVariantD(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div data-sb-field-path=".posts">
+        <div className={classNames({ 'mt-12': props.title || props.subtitle })} data-sb-field-path=".posts">
             {posts.map((post, index) => (
                 <article key={index} className="sb-card mb-8 md:flex" data-sb-object-id={post.__metadata.id}>
                     {post.featuredImage && (

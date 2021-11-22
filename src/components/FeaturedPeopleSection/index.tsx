@@ -57,7 +57,9 @@ function featuredPeopleHeader(props) {
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null, {
+                    'mt-2': props.title
+                })} data-sb-field-path=".subtitle">
                     {props.subtitle}
                 </p>
             )}
@@ -103,7 +105,7 @@ function peopleVariantA(props) {
         return null;
     }
     return (
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4 lg:gap-8" data-sb-field-path=".people">
+        <div className={classNames('grid', 'gap-6', 'sm:grid-cols-2', 'lg:grid-cols-4', 'lg:gap-8', { 'mt-12': props.title || props.subtitle })} data-sb-field-path=".people">
             {people.map((person, index) => (
                 <article key={index} data-sb-field-path={`.${index}`}>
                     {person.image && (
@@ -136,7 +138,7 @@ function peopleVariantB(props) {
         return null;
     }
     return (
-        <div className="grid gap-x-8 gap-y-10 lg:grid-cols-2" data-sb-field-path=".people">
+        <div className={classNames('grid', 'gap-x-8', 'gap-y-10', 'lg:grid-cols-2', { 'mt-12': props.title || props.subtitle })} data-sb-field-path=".people">
             {people.map((person, index) => (
                 <article key={index} className="sm:flex" data-sb-field-path={`.${index}`}>
                     {person.image && (
@@ -185,7 +187,7 @@ function peopleVariantC(props) {
     const peopleLeft = people.slice(0, middleIndex);
     const peopleRight = people.slice(-middleIndex);
     return (
-        <div className="grid gap-x-6 gap-y-12 sm:grid-cols-2" data-sb-field-path=".people">
+        <div className={classNames('grid', 'gap-x-6', 'gap-y-12', 'sm:grid-cols-2', { 'mt-12': props.title || props.subtitle })} data-sb-field-path=".people">
             {peopleLeft.length > 0 && <div className="sm:mt-32">{peopleListVariantC(peopleLeft)}</div>}
             {peopleRight.length > 0 && <div>{peopleListVariantC(peopleRight, middleIndex)}</div>}
         </div>

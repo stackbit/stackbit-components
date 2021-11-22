@@ -57,9 +57,12 @@ function featuredPeopleHeader(props) {
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null, {
-                    'mt-2': props.title
-                })} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null, {
+                        'mt-2': props.title
+                    })}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -105,7 +108,10 @@ function peopleVariantA(props) {
         return null;
     }
     return (
-        <div className={classNames('grid', 'gap-6', 'sm:grid-cols-2', 'lg:grid-cols-4', 'lg:gap-8', { 'mt-12': props.title || props.subtitle })} data-sb-field-path=".people">
+        <div
+            className={classNames('grid', 'gap-6', 'sm:grid-cols-2', 'lg:grid-cols-4', 'lg:gap-8', { 'mt-12': props.title || props.subtitle })}
+            data-sb-field-path=".people"
+        >
             {people.map((person, index) => (
                 <article key={index} data-sb-field-path={`.${index}`}>
                     {person.image && (

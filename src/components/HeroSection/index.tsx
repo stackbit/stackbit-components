@@ -106,14 +106,17 @@ function heroBody(props) {
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-xl', 'sm:text-2xl', styles.subtitle ? mapStyles(styles.subtitle) : null, { 'mt-4': props.title })}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames('sb-markdown', 'sm:text-lg', styles.text ? mapStyles(styles.text) : null)}
+                    className={classNames('sb-markdown', 'sm:text-lg', styles.text ? mapStyles(styles.text) : null, { 'mt-6': props.title || props.subtitle })}
                     data-sb-field-path=".text"
                 >
                     {props.text}
@@ -132,7 +135,9 @@ function heroActions(props) {
     const Action = getComponent('Action');
     return (
         <div
-            className={classNames('flex', 'flex-wrap', 'items-center', '-mx-2', styles.actions ? mapStyles(styles.actions) : null)}
+            className={classNames('flex', 'flex-wrap', 'items-center', '-mx-2', styles.actions ? mapStyles(styles.actions) : null, {
+                'mt-8': props.title || props.subtitle || props.text
+            })}
             data-sb-field-path=".actions"
         >
             {actions.map((action, index) => (

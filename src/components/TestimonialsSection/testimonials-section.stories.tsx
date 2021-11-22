@@ -32,25 +32,6 @@ const args = {
                 type: 'ImageBlock',
                 url: 'https://assets.stackbit.com/components/images/default/isabelle-parks.jpg',
                 altText: 'Photo of Isabelle Parks'
-            },
-            styles: {
-                self: {
-                    margin: ['mt-0', 'mb-0'],
-                    flexDirection: 'row'
-                },
-                quote: {
-                    textAlign: 'left'
-                },
-                name: {
-                    fontWeight: 700,
-                    fontStyle: 'normal',
-                    textAlign: 'left'
-                },
-                title: {
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    textAlign: 'left'
-                }
             }
         }
     ],
@@ -67,16 +48,10 @@ const args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-2']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-12']
+            textAlign: 'center'
         }
     }
 };
@@ -103,20 +78,16 @@ TestimonialsAuthorTop.args = {
             },
             styles: {
                 self: {
-                    margin: ['mt-12', 'mb-0'],
+                    margin: ['mt-0', 'mb-12'],
                     flexDirection: 'col-reverse'
                 },
                 quote: {
                     textAlign: 'center'
                 },
                 name: {
-                    fontWeight: 700,
-                    fontStyle: 'normal',
                     textAlign: 'center'
                 },
                 title: {
-                    fontWeight: 400,
-                    fontStyle: 'normal',
                     textAlign: 'center'
                 }
             }
@@ -132,20 +103,16 @@ TestimonialsAuthorTop.args = {
             },
             styles: {
                 self: {
-                    margin: ['mt-12', 'mb-0'],
+                    margin: ['mt-0', 'mb-0'],
                     flexDirection: 'col-reverse'
                 },
                 quote: {
                     textAlign: 'center'
                 },
                 name: {
-                    fontWeight: 700,
-                    fontStyle: 'normal',
                     textAlign: 'center'
                 },
                 title: {
-                    fontWeight: 400,
-                    fontStyle: 'normal',
                     textAlign: 'center'
                 }
             }
@@ -164,16 +131,10 @@ TestimonialsAuthorTop.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-2']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-12']
+            textAlign: 'center'
         }
     }
 };

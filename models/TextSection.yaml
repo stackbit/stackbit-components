@@ -65,15 +65,12 @@ fields:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
       text:
         textAlign: ['left', 'center', 'right']
-        margin: ['twy0:12']
     default:
       self:
         height: auto
@@ -86,15 +83,10 @@ fields:
         borderStyle: none
         borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
         textAlign: center
-        margin: ['mt-0', 'mb-2']
       subtitle:
         fontWeight: 400
         fontStyle: normal
         textAlign: center
-        margin: ['mt-0', 'mb-6']
       text:
         textAlign: center
-        margin: ['mt-0', 'mb-0']

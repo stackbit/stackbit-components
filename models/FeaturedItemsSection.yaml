@@ -39,6 +39,8 @@ fields:
           title:
             textAlign: left
           subtitle:
+            fontWeight: 400
+            fontStyle: normal
             textAlign: left
           text:
             textAlign: left
@@ -122,6 +124,8 @@ fields:
       title:
         textAlign: center
       subtitle:
+        fontWeight: 400
+        fontStyle: normal
         textAlign: center
       actions:
         justifyContent: center

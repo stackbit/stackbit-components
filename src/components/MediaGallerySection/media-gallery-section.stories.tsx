@@ -65,7 +65,7 @@ const args: MediaGallerySectionProps = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             justifyContent: 'center',
             borderRadius: 'none',
@@ -74,16 +74,10 @@ const args: MediaGallerySectionProps = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-2']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-12']
+            textAlign: 'center'
         }
     }
 };

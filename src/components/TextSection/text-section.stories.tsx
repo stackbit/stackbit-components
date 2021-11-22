@@ -39,16 +39,10 @@ const args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-2']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'center'
         },
         text: {
             textAlign: 'center'
@@ -77,16 +71,10 @@ TextFullLeft.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-2']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
             textAlign: 'left'
@@ -111,16 +99,10 @@ TextNarrowLeftBottom.args = {
             borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-2']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
             textAlign: 'left'

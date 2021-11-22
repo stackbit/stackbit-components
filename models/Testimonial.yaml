@@ -11,6 +11,7 @@ fields:
     label: Quote
     default: “It’s great to see someone taking action while still maintaining a
       sustainable fish supply to home cooks.”
+    required: true
   - type: string
     name: name
     label: Author name
@@ -55,7 +56,7 @@ fields:
       quote:
         textAlign: left
       name:
-        fontWeight: 700
+        fontWeight: 400
         fontStyle: normal
         textAlign: left
       title:

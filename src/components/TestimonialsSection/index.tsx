@@ -37,7 +37,9 @@ export default function TestimonialsSection(props) {
                 <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
                     {testimonialsHeader(props)}
                     {testimonials.length > 0 && (
-                        <div data-sb-field-path=".testimonials">{testimonials.map((testimonial, index) => testimonialItem(testimonial, index))}</div>
+                        <div className={classNames({ 'mt-12': props.title || props.subtitle })} data-sb-field-path=".testimonials">
+                            {testimonials.map((testimonial, index) => testimonialItem(testimonial, index))}
+                        </div>
                     )}
                 </div>
             </div>
@@ -58,7 +60,10 @@ function testimonialsHeader(props) {
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null, { 'mt-2': props.title })}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -94,9 +99,9 @@ function testimonialItem(testimonial, index) {
                 {(testimonial.name || testimonial.title) && (
                     <footer>
                         {testimonial.name && (
-                            <strong className={classNames('block', 'text-lg', styles.name ? mapStyles(styles.name) : null)} data-sb-field-path=".name">
+                            <span className={classNames('block', 'text-lg', styles.name ? mapStyles(styles.name) : null)} data-sb-field-path=".name">
                                 {testimonial.name}
-                            </strong>
+                            </span>
                         )}
                         {testimonial.title && (
                             <span className={classNames('block', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">

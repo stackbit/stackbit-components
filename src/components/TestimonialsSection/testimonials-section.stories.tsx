@@ -30,7 +30,7 @@ const args = {
             title: 'Design Manager at Retro',
             image: {
                 type: 'ImageBlock',
-                url: '/images/isabelle-parks.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/isabelle-parks.jpg',
                 altText: 'Photo of Isabelle Parks'
             },
             styles: {
@@ -64,7 +64,7 @@ const args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,
@@ -98,7 +98,7 @@ TestimonialsAuthorTop.args = {
             title: 'Design Manager at Retro',
             image: {
                 type: 'ImageBlock',
-                url: '/images/isabelle-parks.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/isabelle-parks.jpg',
                 altText: 'Photo of Isabelle Parks'
             },
             styles: {
@@ -127,7 +127,7 @@ TestimonialsAuthorTop.args = {
             title: 'CTO at Retro',
             image: {
                 type: 'ImageBlock',
-                url: '/images/desmond-eagle.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/desmond-eagle.jpg',
                 altText: 'Photo of Desmond Eagle'
             },
             styles: {
@@ -161,7 +161,7 @@ TestimonialsAuthorTop.args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,

@@ -24,7 +24,7 @@ fields:
     label: Image
     models: [ImageBlock]
     default:
-      url: /images/dianne-ameter.jpg
+      url: https://assets.stackbit.com/components/images/default/person-1.jpg
       altText: Role at Company
   - type: string
     name: id

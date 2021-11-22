@@ -41,7 +41,7 @@ const args = {
     ],
     backgroundImage: {
         type: 'ImageBlock',
-        url: '/images/bg.jpg',
+        url: 'https://assets.stackbit.com/components/images/default/bg.jpg',
         altText: 'Background image',
         caption: '',
         styles: {
@@ -62,7 +62,7 @@ const args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,
@@ -100,7 +100,7 @@ CtaActionsBottom.args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,

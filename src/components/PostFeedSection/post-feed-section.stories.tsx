@@ -48,7 +48,7 @@ const args = {
             excerpt: 'Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-1.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -61,7 +61,7 @@ const args = {
             excerpt: 'otius inflammat, ut coercendi magis quam dedocendi esse videantur.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-2.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-2.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -74,7 +74,7 @@ const args = {
             excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-3.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-3.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -87,7 +87,7 @@ const args = {
             excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-4.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-4.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -104,7 +104,7 @@ const args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             fontWeight: 700,

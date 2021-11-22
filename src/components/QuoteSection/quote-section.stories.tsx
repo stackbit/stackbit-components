@@ -28,7 +28,7 @@ const args = {
     title: 'Writer',
     backgroundImage: {
         type: 'ImageBlock',
-        url: '/images/bg.jpg',
+        url: 'https://assets.stackbit.com/components/images/default/bg.jpg',
         altText: 'Background Image',
         caption: '',
         styles: {
@@ -47,7 +47,7 @@ const args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         quote: {
             textAlign: 'left'
@@ -84,7 +84,7 @@ QuoteWideCentered.args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         quote: {
             textAlign: 'center'
@@ -117,7 +117,7 @@ QuoteNarrowLeftBottom.args = {
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         quote: {
             textAlign: 'left'

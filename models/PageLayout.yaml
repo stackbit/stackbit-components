@@ -2,6 +2,7 @@ name: PageLayout
 label: Page
 layout: PageLayout
 hideContent: true
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 fields:
   - type: string
     name: title
@@ -37,7 +38,7 @@ fields:
             style: secondary
         feature:
           type: ImageBlock
-          url: /images/hero.png
+          url: https://assets.stackbit.com/components/images/default/hero.png
           altText: Image alt text
         styles:
           self:

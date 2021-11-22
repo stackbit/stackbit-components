@@ -17,32 +17,32 @@ fields:
     options:
       - label: Colors A
         value: colors-a
-        textColor: '$body'
-        backgroundColor: '#ffffff'
+        textColor: '$onLight'
+        backgroundColor: '$light'
         borderColor: '#ececec'
       - label: Colors B
         value: colors-b
         textColor: '$primary'
-        backgroundColor: '#ffffff'
+        backgroundColor: '$light'
         borderColor: '#ececec'
       - label: Colors C
         value: colors-c
-        textColor: '#ffffff'
-        backgroundColor: '$neutral'
+        textColor: '$onDark'
+        backgroundColor: '$dark'
         borderColor: '#ececec'
       - label: Colors D
         value: colors-d
         textColor: '$primary'
-        backgroundColor: '$neutral'
+        backgroundColor: '$dark'
         borderColor: '#ececec'
       - label: Colors E
         value: colors-e
-        textColor: '$body'
+        textColor: '$onPrimary'
         backgroundColor: '$primary'
         borderColor: '#ececec'
       - label: Colors F
         value: colors-f
-        textColor: '$body'
+        textColor: '$onSecondary'
         backgroundColor: '$secondary'
         borderColor: '#ececec'
       - label: Colors G
@@ -52,12 +52,12 @@ fields:
         borderColor: '#ececec'
       - label: Colors H
         value: colors-h
-        textColor: '$body'
+        textColor: '$onComplementary'
         backgroundColor: '$complementary'
         borderColor: '#ececec'
       - label: Colors I
         value: colors-i
-        textColor: '$body'
+        textColor: '$onComplementaryAlt'
         backgroundColor: '$complementaryAlt'
         borderColor: '#ececec'
     default: colors-f
@@ -67,7 +67,7 @@ fields:
     models: [ImageBlock]
     default:
       type: ImageBlock
-      url: 'images/logo.svg'
+      url: 'https://assets.stackbit.com/components/images/default/logo.svg'
       altText: 'Your logo image'
       caption: ''
   - type: string

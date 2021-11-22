@@ -52,7 +52,7 @@ function featuredPeopleHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames(styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
@@ -117,10 +117,10 @@ function peopleVariantA(props) {
                         })}
                     >
                         {(person.firstName || person.lastName) && (
-                            <h2 className="text-xl sm:text-2xl">
+                            <h3>
                                 {person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>}{' '}
                                 {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}
-                            </h2>
+                            </h3>
                         )}
                         {person.role && <p data-sb-field-path=".role">{person.role}</p>}
                     </div>
@@ -152,10 +152,10 @@ function peopleVariantB(props) {
                         })}
                     >
                         {(person.firstName || person.lastName) && (
-                            <h2 className="text-xl sm:text-2xl">
+                            <h3>
                                 {person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>}{' '}
                                 {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}
-                            </h2>
+                            </h3>
                         )}
                         {person.role && <p data-sb-field-path=".role">{person.role}</p>}
                         {person.bio && (
@@ -200,22 +200,14 @@ function peopleListVariantC(people, annotIndexStart = 0) {
                     <ImageBlock {...person.image} className="w-full" />
                 </div>
             )}
-            <div
-                className={classNames({
-                    'mt-4': person.image
-                })}
-            >
+            <div className={classNames({ 'mt-4': person.image })}>
                 {(person.firstName || person.lastName || person.role) && (
-                    <h2
-                        className={classNames('text-xl', 'sm:text-2xl', {
-                            'mb-3': person.bio
-                        })}
-                    >
+                    <h3 className={classNames({ 'mb-3': person.bio })}>
                         {person.firstName && <span data-sb-field-path=".firstName">{person.firstName}</span>}{' '}
                         {person.lastName && <span data-sb-field-path=".lastName">{person.lastName}</span>}{' '}
                         {(person.firstName || person.lastName) && person.role && <span className="mx-1">|</span>}{' '}
                         {person.role && <span data-sb-field-path=".role">{person.role}</span>}
-                    </h2>
+                    </h3>
                 )}
                 {person.bio && (
                     <Markdown options={{ forceBlock: true, forceWrapper: true }} className="sb-markdown" data-sb-field-path=".bio">

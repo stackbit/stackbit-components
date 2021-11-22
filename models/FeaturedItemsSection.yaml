@@ -12,6 +12,16 @@ fieldGroups:
   - name: settings
     label: Settings
 fields:
+  - type: enum
+    name: variant
+    group: styles
+    label: Arrangement
+    options:
+      - label: Items Grid
+        value: variant-a
+      - label: Side by side
+        value: variant-b
+    default: variant-a
   - type: string
     name: title
     label: Title
@@ -70,6 +80,8 @@ fields:
     label: Items per row
     group: styles
     options:
+      - label: '1'
+        value: 1
       - label: '2'
         value: 2
       - label: '3'

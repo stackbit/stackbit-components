@@ -25,7 +25,7 @@ const args = {
     colors: 'colors-h',
     title: 'Join our club',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
-    feature: {
+    media: {
         type: 'ImageBlock',
         url: 'https://assets.stackbit.com/components/images/default/contact.png',
         altText: 'Contact section image'
@@ -98,7 +98,7 @@ export const ContactVideoLeft = Template.bind({});
 ContactVideoLeft.storyName = 'Contact Section With Video on the Left';
 ContactVideoLeft.args = {
     ...args,
-    feature: {
+    media: {
         type: 'VideoBlock',
         url: 'https://assets.stackbit.com/components/videos/default/stackbit-for-marketers.mp4',
         thumbnailUrl: 'https://assets.stackbit.com/components/images/default/stackbit-for-marketers.jpeg',

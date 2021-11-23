@@ -54,9 +54,9 @@ export default function HeroSection(props) {
                             {heroBody(props)}
                             {heroActions(props)}
                         </div>
-                        {props.feature && (
+                        {props.media && (
                             <div className="my-3 flex-1 px-4 w-full">
-                                <div data-sb-field-path=".feature">{heroFeature(props.feature)}</div>
+                                <div data-sb-field-path=".media">{heroMedia(props.media)}</div>
                             </div>
                         )}
                     </div>
@@ -66,16 +66,16 @@ export default function HeroSection(props) {
     );
 }
 
-function heroFeature(feature) {
-    const featureType = feature.type;
-    if (!featureType) {
-        throw new Error(`hero section feature does not have the 'type' property`);
+function heroMedia(media) {
+    const mediaType = media.type;
+    if (!mediaType) {
+        throw new Error(`hero section media does not have the 'type' property`);
     }
-    const Feature = getComponent(featureType);
-    if (!Feature) {
-        throw new Error(`no component matching the hero section feature type: ${featureType}`);
+    const Media = getComponent(mediaType);
+    if (!Media) {
+        throw new Error(`no component matching the hero section media type: ${mediaType}`);
     }
-    return <Feature {...feature} />;
+    return <Media {...media} />;
 }
 
 function heroBackgroundImage(image) {

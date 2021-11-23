@@ -36,7 +36,7 @@ fields:
             label: Learn More
             url: '/'
             style: secondary
-        feature:
+        media:
           type: ImageBlock
           url: https://assets.stackbit.com/components/images/default/hero.png
           altText: Image alt text

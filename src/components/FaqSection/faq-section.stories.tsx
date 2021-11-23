@@ -13,11 +13,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        columns: {
-            options: [1, 2, 3, 4],
-            defaultValue: 4,
-            control: { type: 'select' }
         }
     }
 };
@@ -25,59 +20,44 @@ export default {
 const Template = (args) => <FaqSection {...args} />;
 
 const args = {
-    type: 'FeaturedItemsSection',
+    type: 'FaqSection',
     elementId: '',
-    title: 'Featured Items',
+    title: 'FAQ',
     subtitle: 'This is the subtitle',
-    actions: [
-        {
-            type: 'Button',
-            url: '#',
-            label: 'Apply Now',
-            style: 'primary'
-        },
-        {
-            type: 'Button',
-            url: '#',
-            label: 'Learn more',
-            style: 'secondary'
-        }
-    ],
-    columns: 4,
     items: [
         {
-            question: 'Item Title',
-            answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            question: 'How it this different from what we have today?',
+            answer: 'At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation.',
             styles: {
-                title: {
+                question: {
                     textAlign: 'left'
                 },
-                subtitle: {
+                answer: {
                     textAlign: 'left'
-                },
-                text: {
-                    textAlign: 'left'
-                },
-                actions: {
-                    justifyContent: 'flex-start'
                 }
             }
         },
         {
-            question: 'Question',
-            answer: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            question: 'How it this different from what we have today?',
+            answer: 'At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation.',
             styles: {
-                title: {
+                question: {
                     textAlign: 'left'
                 },
-                subtitle: {
+                answer: {
+                    textAlign: 'left'
+                }
+            }
+        },
+        {
+            question: 'How it this different from what we have today?',
+            answer: 'At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation.',
+            styles: {
+                question: {
                     textAlign: 'left'
                 },
-                text: {
+                answer: {
                     textAlign: 'left'
-                },
-                actions: {
-                    justifyContent: 'flex-start'
                 }
             }
         }
@@ -88,22 +68,17 @@ const args = {
             width: 'wide',
             margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
-            alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row',
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             textAlign: 'left'
         },
         subtitle: {
             textAlign: 'left'
-        },
-        actions: {
-            justifyContent: 'flex-start'
         }
     }
 };

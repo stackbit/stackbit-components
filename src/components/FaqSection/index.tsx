@@ -3,7 +3,6 @@ import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
-
 export default function FaqSection(props) {
     const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
@@ -50,10 +49,7 @@ export default function FaqSection(props) {
                         </p>
                     )}
                     {props.items && (
-                        <div
-                            className={classNames({ 'mt-12': props.title || props.subtitle })}
-                            data-sb-field-path=".items"
-                        >
+                        <div className={classNames({ 'mt-12': props.title || props.subtitle })} data-sb-field-path=".items">
                             {props.items.map((item, index) => (
                                 <FaqItem key={index} {...item} data-sb-field-path={`.${index}`} />
                             ))}
@@ -67,18 +63,16 @@ export default function FaqSection(props) {
 
 function FaqItem(props) {
     return (
-        <div className="sb-faq-section-item border-b mb-10 last:mb-0" data-sb-field-path={props['data-sb-field-path']}>
+        <div className="sb-faq-section-item mb-12 last:mb-0" data-sb-field-path={props['data-sb-field-path']}>
             {props.question && (
-                <h3 className={classNames('mb-10', props?.styles?.question ? mapStyles(props?.styles?.question) : null)} data-sb-field-path=".question">
+                <h3 className={classNames('mb-6', props?.styles?.question ? mapStyles(props?.styles?.question) : null)} data-sb-field-path=".question">
                     {props.question}
                 </h3>
             )}
             {props.answer && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames('sb-markdown mb-14', props?.styles?.answer ? mapStyles(props?.styles?.answer) : null, {
-                        'mt-4': props.title || props.subtitle
-                    })}
+                    className={classNames('sb-markdown', props?.styles?.answer ? mapStyles(props?.styles?.answer) : null)}
                     data-sb-field-path=".answer"
                 >
                     {props.answer}

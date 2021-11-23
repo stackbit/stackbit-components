@@ -34,7 +34,7 @@ fields:
         - type: markdown
           name: answer
           label: Answer
-          default: At the office, working together is often a distruction, on remote, it could be motivation, At the office, working together is often a distruction, on remote, it could be motivation, At the office, working together is often a distruction, on remote, it could be motivation
+          default: At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation.
         - type: style
           name: styles
           styles:
@@ -46,11 +46,11 @@ fields:
               textAlign: ['left', 'center', 'right']
     default:
       - question: How it this different from what we have today?
-        answer: At the office, working together is often a distruction, on remote, it could be motivation, At the office, working together is often a distruction, on remote, it could be motivation, At the office, working together is often a distruction, on remote, it could be motivation
+        answer: At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation.
       - question: How it this different from what we have today?
-        answer: At the office, working together is often a distruction, on remote, it could be motivation, At the office, working together is often a distruction, on remote, it could be motivation, At the office, working together is often a distruction, on remote, it could be motivation
+        answer: At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation.
       - question: How it this different from what we have today?
-        answer: At the office, working together is often a distruction, on remote, it could be motivation, At the office, working together is often a distruction, on remote, it could be motivation, At the office, working together is often a distruction, on remote, it could be motivation
+        answer: At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation. At the office, working together is often a distruction, on remote, it could be motivation.
   - type: style
     name: styles
     styles:
@@ -104,5 +104,3 @@ fields:
         fontWeight: 400
         fontStyle: normal
         textAlign: center
-      actions:
-        justifyContent: center

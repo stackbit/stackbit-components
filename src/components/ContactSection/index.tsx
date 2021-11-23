@@ -50,9 +50,9 @@ export default function ContactSection(props) {
                                 </div>
                             )}
                         </div>
-                        {props.feature && (
+                        {props.media && (
                             <div className="my-3 flex-1 px-4 w-full">
-                                <div data-sb-field-path=".feature">{contactFeature(props.feature)}</div>
+                                <div data-sb-field-path=".media">{contactMedia(props.media)}</div>
                             </div>
                         )}
                     </div>
@@ -62,16 +62,16 @@ export default function ContactSection(props) {
     );
 }
 
-function contactFeature(feature) {
-    const featureType = feature.type;
-    if (!featureType) {
-        throw new Error(`contact section feature does not have the 'type' property`);
+function contactMedia(media) {
+    const mediaType = media.type;
+    if (!mediaType) {
+        throw new Error(`contact section media does not have the 'type' property`);
     }
-    const Feature = getComponent(featureType);
-    if (!Feature) {
-        throw new Error(`no component matching the contact section feature type: ${featureType}`);
+    const Media = getComponent(mediaType);
+    if (!Media) {
+        throw new Error(`no component matching the contact section media type: ${mediaType}`);
     }
-    return <Feature {...feature} />;
+    return <Media {...media} />;
 }
 
 function contactBody(props) {

@@ -1,7 +1,8 @@
 type: object
 name: FaqSection
-label: FAQ Section
+label: FAQ
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:

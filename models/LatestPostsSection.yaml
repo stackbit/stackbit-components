@@ -1,6 +1,6 @@
 type: object
-name: PostFeedSection
-label: Post feed section
+name: LatestPostsSection
+label: Latest posts
 labelField: title
 extends:
   - Section

@@ -5,7 +5,7 @@ import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import { ImageBlock } from '..';
 
-export default function ItemBlock(props) {
+export default function FeaturedItem(props) {
     const cssId = props.elementId || null;
     return (
         <article id={cssId} className="sb-component sb-component-block sb-component-item">

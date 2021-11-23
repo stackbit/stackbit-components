@@ -1,6 +1,6 @@
 type: object
 name: TextSection
-label: Text section
+label: Text block
 labelField: title
 thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:

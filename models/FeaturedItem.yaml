@@ -1,5 +1,5 @@
 type: object
-name: ItemBlock
+name: FeaturedItem
 label: Item
 labelField: title
 fieldGroups:

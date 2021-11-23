@@ -65,7 +65,7 @@ const args = {
     styles: {
         self: {
             height: 'auto',
-            width: 'wide',
+            width: 'narrow',
             margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             justifyContent: 'center',
@@ -75,10 +75,10 @@ const args = {
             borderColor: 'border-dark'
         },
         title: {
-            textAlign: 'left'
+            textAlign: 'center'
         },
         subtitle: {
-            textAlign: 'left'
+            textAlign: 'center'
         }
     }
 };

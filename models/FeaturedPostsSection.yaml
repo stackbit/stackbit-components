@@ -1,6 +1,6 @@
 type: object
 name: FeaturedPostsSection
-label: Featured posts section
+label: Featured posts
 labelField: title
 thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:

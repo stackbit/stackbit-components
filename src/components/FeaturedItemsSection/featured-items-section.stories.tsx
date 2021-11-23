@@ -46,7 +46,7 @@ const args = {
     columns: 4,
     items: [
         {
-            type: 'ItemBlock',
+            type: 'FeaturedItem',
             title: 'Item Title',
             subtitle: 'This is the subtitle',
             author: 'Item author',
@@ -72,7 +72,7 @@ const args = {
             }
         },
         {
-            type: 'ItemBlock',
+            type: 'FeaturedItem',
             title: 'Item Title',
             subtitle: 'This is the subtitle',
             author: 'Item author',
@@ -98,7 +98,7 @@ const args = {
             }
         },
         {
-            type: 'ItemBlock',
+            type: 'FeaturedItem',
             title: 'Item Title',
             subtitle: 'This is the subtitle',
             author: 'Item author',
@@ -124,7 +124,7 @@ const args = {
             }
         },
         {
-            type: 'ItemBlock',
+            type: 'FeaturedItem',
             title: 'Item Title',
             subtitle: 'This is the subtitle',
             author: 'Item author',
@@ -186,7 +186,7 @@ FeaturedItemsTwoCol.args = {
     columns: 2,
     items: [
         {
-            type: 'ItemBlock',
+            type: 'FeaturedItem',
             title: 'Item Title',
             subtitle: 'This is the subtitle',
             text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
@@ -219,7 +219,7 @@ FeaturedItemsTwoCol.args = {
             }
         },
         {
-            type: 'ItemBlock',
+            type: 'FeaturedItem',
             title: 'Item Title',
             subtitle: 'This is the subtitle',
             text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',

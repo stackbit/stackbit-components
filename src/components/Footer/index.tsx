@@ -24,7 +24,7 @@ export default function Footer(props) {
                     <div className="mb-12">
                         {props.logo && (
                             <Link href="/" className="inline-block mb-4" data-sb-field-path=".logo">
-                                {props.logo && <ImageBlock {...props.logo} />}
+                                {props.logo && <ImageBlock {...props.logo} className="max-h-12" />}
                             </Link>
                         )}
                         {props.title && (

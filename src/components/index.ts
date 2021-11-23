@@ -4,6 +4,7 @@ import ContactSection from './ContactSection';
 import CtaSection from './CtaSection';
 import EmailFormControl from './EmailFormControl';
 import FaqSection from './FaqSection';
+import FeaturedItem from './FeaturedItem';
 import FeaturedItemsSection from './FeaturedItemsSection';
 import FeaturedPeopleSection from './FeaturedPeopleSection';
 import FeaturedPostsSection from './FeaturedPostsSection';
@@ -12,9 +13,8 @@ import FormBlock from './FormBlock';
 import Header from './Header';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
-import ItemBlock from './ItemBlock';
+import LatestPostsSection from './LatestPostsSection';
 import MediaGallerySection from './MediaGallerySection';
-import PostFeedSection from './PostFeedSection';
 import QuoteSection from './QuoteSection';
 import Social from './Social';
 import SelectFormControl from './SelectFormControl';
@@ -31,6 +31,7 @@ export {
     CtaSection,
     EmailFormControl,
     FaqSection,
+    FeaturedItem,
     FeaturedItemsSection,
     FeaturedPeopleSection,
     FeaturedPostsSection,
@@ -39,9 +40,8 @@ export {
     Header,
     HeroSection,
     ImageBlock,
-    ItemBlock,
+    LatestPostsSection,
     MediaGallerySection,
-    PostFeedSection,
     QuoteSection,
     Social,
     SelectFormControl,

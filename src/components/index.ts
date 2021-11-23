@@ -3,6 +3,7 @@ import CheckboxFormControl from './CheckboxFormControl';
 import ContactSection from './ContactSection';
 import CtaSection from './CtaSection';
 import EmailFormControl from './EmailFormControl';
+import FaqSection from './FaqSection';
 import FeaturedItemsSection from './FeaturedItemsSection';
 import FeaturedPeopleSection from './FeaturedPeopleSection';
 import FeaturedPostsSection from './FeaturedPostsSection';
@@ -29,6 +30,7 @@ export {
     ContactSection,
     CtaSection,
     EmailFormControl,
+    FaqSection,
     FeaturedItemsSection,
     FeaturedPeopleSection,
     FeaturedPostsSection,

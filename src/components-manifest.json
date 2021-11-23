@@ -24,6 +24,11 @@
         "modelName": "EmailFormControl",
         "isDynamic": true
     },
+    "FaqSection": {
+        "path": "components/FaqSection",
+        "modelName": "FaqSection",
+        "isDynamic": true
+    },
     "FeaturedItemsSection": {
         "path": "components/FeaturedItemsSection",
         "modelName": "FeaturedItemsSection",

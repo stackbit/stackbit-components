@@ -77,7 +77,7 @@ const args = {
             style: 'secondary'
         }
     ],
-    feature: {
+    media: {
         type: 'ImageBlock',
         url: 'https://assets.stackbit.com/components/images/default/hero.png',
         altText: 'Image alt text',
@@ -161,7 +161,7 @@ HeroVideoLeft.args = {
             style: 'primary'
         }
     ],
-    feature: {
+    media: {
         type: 'VideoBlock',
         url: 'https://assets.stackbit.com/components/videos/default/stackbit-for-marketers.mp4',
         thumbnailUrl: 'https://assets.stackbit.com/components/images/default/stackbit-for-marketers.jpeg',
@@ -205,7 +205,7 @@ HeroFormBottom.args = {
     ...args,
     title: 'Join our newsletter',
     actions: null,
-    feature: {
+    media: {
         type: 'FormBlock',
         elementId: 'hero-form',
         fields: [
@@ -266,7 +266,7 @@ export const HeroTextOnly = Template.bind({});
 HeroTextOnly.storyName = 'Hero Section With Borders and Without Feature';
 HeroTextOnly.args = {
     ...args,
-    feature: null,
+    media: null,
     backgroundImage: {
         type: 'ImageBlock',
         url: 'https://assets.stackbit.com/components/images/default/bg.jpg',

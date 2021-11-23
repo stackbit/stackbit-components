@@ -156,13 +156,11 @@ const args = {
             width: 'wide',
             margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
             padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
-            alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row',
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
             textAlign: 'left'

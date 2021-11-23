@@ -306,3 +306,53 @@ HeroTextOnly.args = {
         }
     }
 };
+
+export const HeroVideoYouTubeLeft = Template.bind({});
+HeroVideoYouTubeLeft.storyName = 'Hero Section With YouTube Video on the Left';
+HeroVideoYouTubeLeft.args = {
+    ...args,
+    actions: [
+        {
+            type: 'Button',
+            url: '#',
+            label: 'Get started',
+            style: 'primary'
+        }
+    ],
+    feature: {
+        type: 'VideoBlock',
+        url: 'https://www.youtube.com/watch?v=WBSzKGJER18',
+        autoplay: false,
+        loop: false,
+        muted: true,
+        controls: true,
+        aspectRatio: '4:3'
+    },
+    styles: {
+        self: {
+            height: 'auto',
+            width: 'full',
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row-reverse',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-dark'
+        },
+        title: {
+            textAlign: 'left'
+        },
+        subtitle: {
+            textAlign: 'left'
+        },
+        text: {
+            textAlign: 'left'
+        },
+        actions: {
+            justifyContent: 'flex-start'
+        }
+    }
+};

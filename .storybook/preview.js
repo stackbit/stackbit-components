@@ -20,8 +20,8 @@ export const parameters = {
                     'FeaturedPeopleSection',
                     'FeaturedPostsSection',
                     'HeroSection',
+                    'LatestPostsSection',
                     'MediaGallerySection',
-                    'PostFeedSection',
                     'QuoteSection',
                     'TestimonialsSection',
                     'TextSection'

@@ -13,8 +13,8 @@ import FormBlock from './FormBlock';
 import Header from './Header';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
+import LatestPostsSection from './LatestPostsSection';
 import MediaGallerySection from './MediaGallerySection';
-import PostFeedSection from './PostFeedSection';
 import QuoteSection from './QuoteSection';
 import Social from './Social';
 import SelectFormControl from './SelectFormControl';
@@ -40,8 +40,8 @@ export {
     Header,
     HeroSection,
     ImageBlock,
+    LatestPostsSection,
     MediaGallerySection,
-    PostFeedSection,
     QuoteSection,
     Social,
     SelectFormControl,

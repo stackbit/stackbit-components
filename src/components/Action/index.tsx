@@ -26,7 +26,7 @@ export default function Action(props) {
     const icon = props.icon || 'arrowLeft';
     const iconPosition = props.iconPosition || 'right';
     const IconComponent = iconMap[icon];
-    const annotationPrefix = props.annotationPrefix || '';
+    const annotationPrefix = props['data-sb-field-path'] || '';
     const annotations = [
         `${annotationPrefix}`,
         `${annotationPrefix}.url#@href`,

@@ -165,6 +165,110 @@ const args = {
             borderColor: 'border-neutral'
         },
         title: {
+            textAlign: 'center'
+        },
+        subtitle: {
+            textAlign: 'center'
+        },
+        actions: {
+            justifyContent: 'center'
+        }
+    }
+};
+
+export const Primary = Template.bind({});
+Primary.storyName = 'Featured items, four columns';
+Primary.args = args;
+
+export const FeaturedItemsTwoCol = Template.bind({});
+FeaturedItemsTwoCol.storyName = 'Featured items, two columns';
+FeaturedItemsTwoCol.args = {
+    ...args,
+    actions: null,
+    columns: 2,
+    items: [
+        {
+            type: 'ItemBlock',
+            title: 'Item Title',
+            subtitle: 'This is the subtitle',
+            text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            featuredImage: {
+                type: 'ImageBlock',
+                url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
+                altText: 'Post Image'
+            },
+            actions: [
+                {
+                    type: 'Button',
+                    url: '#',
+                    label: 'Learn more',
+                    style: 'primary'
+                }
+            ],
+            styles: {
+                title: {
+                    textAlign: 'left'
+                },
+                subtitle: {
+                    textAlign: 'left'
+                },
+                text: {
+                    textAlign: 'left'
+                },
+                actions: {
+                    justifyContent: 'flex-start'
+                }
+            }
+        },
+        {
+            type: 'ItemBlock',
+            title: 'Item Title',
+            subtitle: 'This is the subtitle',
+            text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
+            actions: [
+                {
+                    type: 'Button',
+                    url: '#',
+                    label: 'Learn more',
+                    style: 'primary'
+                }
+            ],
+            featuredImage: {
+                type: 'ImageBlock',
+                url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
+                altText: 'Post Image'
+            },
+            styles: {
+                title: {
+                    textAlign: 'left'
+                },
+                subtitle: {
+                    textAlign: 'left'
+                },
+                text: {
+                    textAlign: 'left'
+                },
+                actions: {
+                    justifyContent: 'flex-start'
+                }
+            }
+        }
+    ],
+    styles: {
+        self: {
+            height: 'auto',
+            width: 'wide',
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            alignItems: 'center',
+            justifyContent: 'center',
+            flexDirection: 'row',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-neutral'
+        },
+        title: {
             textAlign: 'left'
         },
         subtitle: {
@@ -175,7 +279,3 @@ const args = {
         }
     }
 };
-
-export const Primary = Template.bind({});
-Primary.storyName = 'Featured items, four columns';
-Primary.args = args;

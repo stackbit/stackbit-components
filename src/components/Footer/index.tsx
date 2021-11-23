@@ -45,8 +45,8 @@ export default function Footer(props) {
                             <div className="mb-6">
                                 <ul className="flex flex-col items-start mb-6 space-y-6 text-lg" data-sb-field-path=".primaryLinks">
                                     {primaryLinks.map((link, index) => (
-                                        <li key={index} data-sb-field-path={`.${index}`}>
-                                            <Action {...link} />
+                                        <li key={index}>
+                                            <Action {...link} data-sb-field-path={`.${index}`} />
                                         </li>
                                     ))}
                                 </ul>
@@ -57,8 +57,8 @@ export default function Footer(props) {
                                 {socialLinks.length > 0 && (
                                     <ul className="flex items-center mb-6 space-x-10" data-sb-field-path=".socialLinks">
                                         {socialLinks.map((link, index) => (
-                                            <li key={index} data-sb-field-path={`.${index}`}>
-                                                <Social {...link} />
+                                            <li key={index}>
+                                                <Social {...link} data-sb-field-path={`.${index}`} />
                                             </li>
                                         ))}
                                     </ul>
@@ -74,8 +74,8 @@ export default function Footer(props) {
                     {legalLinks.length > 0 && (
                         <ul className="flex flex-col mb-6 space-y-2 lg:mb-0 sm:space-y-0 sm:space-x-5 sm:flex-row" data-sb-field-path=".legalLinks">
                             {legalLinks.map((link, index) => (
-                                <li key={index} data-sb-field-path={`.${index}`}>
-                                    <Action {...link} />
+                                <li key={index}>
+                                    <Action {...link} data-sb-field-path={`.${index}`} />
                                 </li>
                             ))}
                         </ul>

@@ -16,7 +16,7 @@ export default function TextareaFormControl(props) {
             className={classNames('sb-form-control', 'px-2', 'w-full', {
                 'sm:w-1/2': width === '1/2'
             })}
-            data-sb-field-path={props.annotationPrefix}
+            data-sb-field-path={props['data-sb-field-path']}
         >
             {props.label && (
                 <label id={labelId} className="sb-label" htmlFor={props.name} data-sb-field-path=".label .name#@for">

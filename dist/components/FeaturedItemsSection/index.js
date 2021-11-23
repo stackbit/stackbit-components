@@ -26,7 +26,7 @@ const React = __importStar(require("react"));
 const classnames_1 = __importDefault(require("classnames"));
 const components_registry_1 = require("../../components-registry");
 const map_styles_to_class_names_1 = require("../../utils/map-styles-to-class-names");
-const ItemBlock_1 = __importDefault(require("../ItemBlock"));
+const FeaturedItem_1 = __importDefault(require("../FeaturedItem"));
 function FeaturedItemsSection(props) {
     const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
@@ -42,7 +42,7 @@ function FeaturedItemsSection(props) {
                         'mt-2': props.title
                     }), "data-sb-field-path": ".subtitle" }, props.subtitle)),
                 props?.items && (React.createElement("div", { className: (0, classnames_1.default)('grid', 'gap-6', 'lg:gap-8', mapColStyles(props?.columns || 3), { 'mt-12': props.title || props.subtitle }), "data-sb-field-path": ".items" }, props.items.map((item, index) => (React.createElement("div", { key: index, "data-sb-field-path": `.${index}` },
-                    React.createElement(ItemBlock_1.default, { ...item })))))),
+                    React.createElement(FeaturedItem_1.default, { ...item })))))),
                 featuredItemActions(props)))));
 }
 exports.default = FeaturedItemsSection;

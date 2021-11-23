@@ -1,6 +1,6 @@
 type: object
 name: HeroSection
-label: Hero section
+label: Hero
 labelField: title
 thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
@@ -15,12 +15,6 @@ fieldGroups:
 fields:
   - name: colors
     default: colors-f
-  - type: model
-    name: backgroundImage
-    group: styles
-    label: Background image
-    models:
-      - ImageBlock
   - type: string
     name: title
     label: Title
@@ -66,6 +60,12 @@ fields:
       type: ImageBlock
       url: https://assets.stackbit.com/components/images/default/hero.png
       altText: Hero section image
+  - type: model
+    name: backgroundImage
+    group: styles
+    label: Background image
+    models:
+      - ImageBlock
   - type: style
     name: styles
     styles:

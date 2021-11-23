@@ -1,6 +1,6 @@
 type: object
 name: MediaGallerySection
-label: Media gallery section
+label: Media gallery
 labelField: title
 thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:

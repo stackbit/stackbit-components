@@ -1,6 +1,6 @@
 type: object
 name: CtaSection
-label: CTA section
+label: CTA
 labelField: title
 thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:

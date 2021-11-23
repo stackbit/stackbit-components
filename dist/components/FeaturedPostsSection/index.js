@@ -62,7 +62,7 @@ function featuredPostsActions(props) {
     }
     const styles = props.styles || {};
     const Action = (0, components_registry_1.getComponent)('Action');
-    return (React.createElement("div", { className: (0, classnames_1.default)('flex', 'flex-wrap', 'items-center', 'mt-12', '-mx-2', styles.actions ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.actions) : null), "data-sb-field-path": ".actions" }, props.actions.map((action, index) => (React.createElement(Action, { key: index, ...action, className: "mb-3 mx-2 lg:whitespace-nowrap", annotationPrefix: `.${index}` })))));
+    return (React.createElement("div", { className: (0, classnames_1.default)('flex', 'flex-wrap', 'items-center', 'mt-12', '-mx-2', styles.actions ? (0, map_styles_to_class_names_1.mapStylesToClassNames)(styles.actions) : null), "data-sb-field-path": ".actions" }, props.actions.map((action, index) => (React.createElement(Action, { key: index, ...action, className: "mb-3 mx-2 lg:whitespace-nowrap", "data-sb-field-path": `.${index}` })))));
 }
 function featuredPostsVariants(props) {
     const variant = props.variant || 'variant-a';

@@ -1,6 +1,6 @@
 type: object
 name: QuoteSection
-label: Quote section
+label: Quote
 labelField: name
 thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:

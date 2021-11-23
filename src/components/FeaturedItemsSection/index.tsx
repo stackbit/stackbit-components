@@ -2,7 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
-import ItemBlock from '../ItemBlock';
+import FeaturedItem from '../FeaturedItem';
 
 export default function FeaturedItemsSection(props) {
     const cssId = props.elementId || null;
@@ -56,7 +56,7 @@ export default function FeaturedItemsSection(props) {
                         >
                             {props.items.map((item, index) => (
                                 <div key={index} data-sb-field-path={`.${index}`}>
-                                    <ItemBlock {...item} />
+                                    <FeaturedItem {...item} />
                                 </div>
                             ))}
                         </div>

@@ -1,9 +1,9 @@
 import React from 'react';
-import ItemBlock from './index';
+import FeaturedItem from './index';
 
 export default {
-    title: 'Blocks/ItemBlock',
-    component: ItemBlock,
+    title: 'Blocks/FeaturedItem',
+    component: FeaturedItem,
     argTypes: {
         type: { table: { disable: true } },
         elementId: {
@@ -17,10 +17,10 @@ export default {
     }
 };
 
-const Template = (args) => <ItemBlock {...args} />;
+const Template = (args) => <FeaturedItem {...args} />;
 
 const args = {
-    type: 'ItemBlock',
+    type: 'FeaturedItem',
     elementId: '',
     title: 'Item Title',
     subtitle: 'Item subtitle',

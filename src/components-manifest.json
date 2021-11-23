@@ -29,6 +29,11 @@
         "modelName": "FaqSection",
         "isDynamic": true
     },
+    "FeaturedItem": {
+        "path": "components/FeaturedItem",
+        "modelName": "FeaturedItem",
+        "isDynamic": true
+    },
     "FeaturedItemsSection": {
         "path": "components/FeaturedItemsSection",
         "modelName": "FeaturedItemsSection",
@@ -67,11 +72,6 @@
     "ImageBlock": {
         "path": "components/ImageBlock",
         "modelName": "ImageBlock",
-        "isDynamic": true
-    },
-    "ItemBlock": {
-        "path": "components/ItemBlock",
-        "modelName": "ItemBlock",
         "isDynamic": true
     },
     "MediaGallerySection": {

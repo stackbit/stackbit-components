@@ -116,7 +116,7 @@ function ctaActions(props) {
                 data-sb-field-path=".actions"
             >
                 {actions.map((action, index) => (
-                    <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
+                    <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" data-sb-field-path={`.${index}`} />
                 ))}
             </div>
         </div>

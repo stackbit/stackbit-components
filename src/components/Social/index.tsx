@@ -19,7 +19,7 @@ export default function Social(props) {
     const { label, altText, url, showIcon } = props;
     const icon = props.icon || 'facebook';
     const IconComponent = iconMap[icon];
-    const annotationPrefix = props.annotationPrefix || '';
+    const annotationPrefix = props['data-sb-field-path'] || '';
     const annotations = [
         `${annotationPrefix}`,
         `${annotationPrefix}.url#@href`,

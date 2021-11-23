@@ -8,7 +8,7 @@ import { ImageBlock } from '..';
 export default function ItemBlock(props) {
     const cssId = props.elementId || null;
     return (
-        <article id={cssId} className="sb-component sb-component-block sb-component-item" data-sb-field-path={props.annotationPrefix}>
+        <article id={cssId} className="sb-component sb-component-block sb-component-item">
             {props.featuredImage && (
                 <div className="mb-4" data-sb-field-path=".featuredImage">
                     <ImageBlock {...props.featuredImage} className="mx-auto" />
@@ -66,7 +66,7 @@ function itemActions(props) {
             data-sb-field-path=".actions"
         >
             {actions.map((action, index) => (
-                <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
+                <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" data-sb-field-path={`.${index}`} />
             ))}
         </div>
     );

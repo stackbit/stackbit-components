@@ -17,7 +17,7 @@ export default function CheckboxFormControl(props) {
             className={classNames('sb-form-control', 'flex', 'items-center', 'px-2', 'w-full', {
                 'sm:w-1/2': width === '1/2'
             })}
-            data-sb-field-path={props.annotationPrefix}
+            data-sb-field-path={props['data-sb-field-path']}
         >
             <input
                 id={props.name}

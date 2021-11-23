@@ -217,8 +217,8 @@ function listOfLinks(links, inMobileMenu = false) {
         const defaultStyle = link.type === 'Link' ? 'link' : 'secondary';
         const style = link.style || defaultStyle;
         return (
-            <li key={index} data-sb-field-path={`.${index}`}>
-                <Action {...link} className={classNames(inMobileMenu && style !== 'link' ? 'w-full' : '')} />
+            <li key={index}>
+                <Action {...link} className={classNames(inMobileMenu && style !== 'link' ? 'w-full' : '')} data-sb-field-path={`.${index}`} />
             </li>
         );
     });

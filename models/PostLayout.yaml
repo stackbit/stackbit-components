@@ -20,7 +20,7 @@ fields:
   - type: string
     name: excerpt
     label: Excerpt
-    default: This is the excerpt of your blog post visible in the post feed or featured posts.
+    default: Nunc rutrum felis dui, ut consequat sapien scelerisque vel. Integer condimentum dignissim justo vel faucibus.
   - type: model
     name: featuredImage
     label: Featured image

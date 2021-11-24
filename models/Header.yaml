@@ -24,7 +24,7 @@ fields:
         value: variant-d
       - label: Header with logo centered and primary links centered
         value: variant-e
-    default: variant-a
+    default: variant-c
   - type: enum
     name: primaryColors
     label: Primary colors
@@ -141,6 +141,11 @@ fields:
     name: logo
     label: Logo
     models: [ImageBlock]
+    default:
+      type: ImageBlock
+      url: ''
+      altText: ''
+      caption: ''
   - type: list
     name: primaryLinks
     label: Primary navigation links

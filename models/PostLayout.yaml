@@ -6,7 +6,7 @@ fields:
   - type: string
     name: title
     label: Title
-    default: Post Title
+    default: This is a blog post title
     required: true
   - type: date
     name: date
@@ -20,7 +20,7 @@ fields:
   - type: string
     name: excerpt
     label: Excerpt
-    default: This is the excerpt of your blog post visible in the post feed or featured posts.
+    default: Nunc rutrum felis dui, ut consequat sapien scelerisque vel. Integer condimentum dignissim justo vel faucibus.
   - type: model
     name: featuredImage
     label: Featured image
@@ -30,6 +30,7 @@ fields:
       type: ImageBlock
       url: https://assets.stackbit.com/components/images/default/post-1.jpeg
       altText: Post thumbnail image
+      caption: ''
   - type: list
     name: bottomSections
     label: Sections

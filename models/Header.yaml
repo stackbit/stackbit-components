@@ -24,7 +24,7 @@ fields:
         value: variant-d
       - label: Header with logo centered and primary links centered
         value: variant-e
-    default: variant-a
+    default: variant-c
   - type: enum
     name: primaryColors
     label: Primary colors
@@ -132,6 +132,7 @@ fields:
   - type: string
     name: title
     label: Title
+    default: Your brand
   - type: boolean
     name: isTitleVisible
     label: Display title
@@ -139,6 +140,11 @@ fields:
     name: logo
     label: Logo
     models: [ImageBlock]
+    default:
+      type: ImageBlock
+      url: ''
+      altText: ''
+      caption: ''
   - type: list
     name: primaryLinks
     label: Primary navigation links
@@ -147,6 +153,15 @@ fields:
       models:
         - Button
         - Link
+    default:
+      - type: Link
+        label: Home
+        url: /
+        altText: Home
+      - type: Link
+        label: Blog
+        url: /
+        altText: Blog
   - type: list
     name: secondaryLinks
     label: Secondary links
@@ -155,6 +170,12 @@ fields:
       models:
         - Button
         - Link
+    default:
+      - type: Button
+        label: Sign up
+        url: /
+        altText: Sign up
+        style: primary
   - type: style
     name: styles
     styles:

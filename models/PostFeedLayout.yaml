@@ -1,7 +1,11 @@
 name: PostFeedLayout
 label: Blog
+labelField: title
 layout: PostFeedLayout
 hideContent: true
+fieldGroups:
+  - name: styles
+    label: Styles
 fields:
   - type: string
     name: title
@@ -11,6 +15,7 @@ fields:
   - type: number
     name: numOfPostsPerPage
     label: Number of Posts per page
+    description: set to 0 to show all posts on a single page
     default: 10
   - type: enum
     name: variant
@@ -22,7 +27,58 @@ fields:
       - label: List
         value: variant-b
     default: variant-a
-  - name: colors
+  - type: enum
+    name: colors
+    label: Colors
+    description: The color theme of the section
+    group: styles
+    controlType: palette
+    options:
+      - label: Colors A
+        value: colors-a
+        textColor: '$onLight'
+        backgroundColor: '$light'
+        borderColor: '#ececec'
+      - label: Colors B
+        value: colors-b
+        textColor: '$primary'
+        backgroundColor: '$light'
+        borderColor: '#ececec'
+      - label: Colors C
+        value: colors-c
+        textColor: '$onDark'
+        backgroundColor: '$dark'
+        borderColor: '#ececec'
+      - label: Colors D
+        value: colors-d
+        textColor: '$primary'
+        backgroundColor: '$dark'
+        borderColor: '#ececec'
+      - label: Colors E
+        value: colors-e
+        textColor: '$onPrimary'
+        backgroundColor: '$primary'
+        borderColor: '#ececec'
+      - label: Colors F
+        value: colors-f
+        textColor: '$onSecondary'
+        backgroundColor: '$secondary'
+        borderColor: '#ececec'
+      - label: Colors G
+        value: colors-g
+        textColor: '$primary'
+        backgroundColor: '$secondary'
+        borderColor: '#ececec'
+      - label: Colors H
+        value: colors-h
+        textColor: '$onComplementary'
+        backgroundColor: '$complementary'
+        borderColor: '#ececec'
+      - label: Colors I
+        value: colors-i
+        textColor: '$onComplementaryAlt'
+        backgroundColor: '$complementaryAlt'
+        borderColor: '#ececec'
     default: colors-h
   - type: list
     name: topSections
@@ -38,3 +94,13 @@ fields:
       type: model
       groups:
         - sectionComponent
+  - type: style
+    name: styles
+    styles:
+      self:
+        margin: ['tw0:36']
+        padding: ['tw4:36']
+      title:
+        fontWeight: ['400', '700']
+        fontStyle: ['normal', 'italic']
+        textAlign: ['left', 'center', 'right']

@@ -74,14 +74,14 @@
         "modelName": "ImageBlock",
         "isDynamic": true
     },
-    "LatestPostsSection": {
-        "path": "components/LatestPostsSection",
-        "modelName": "LatestPostsSection",
-        "isDynamic": true
-    },
     "MediaGallerySection": {
         "path": "components/MediaGallerySection",
         "modelName": "MediaGallerySection",
+        "isDynamic": true
+    },
+    "PostFeedSection": {
+        "path": "components/PostFeedSection",
+        "modelName": "PostFeedSection",
         "isDynamic": true
     },
     "QuoteSection": {

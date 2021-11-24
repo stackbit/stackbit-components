@@ -6,7 +6,7 @@ import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-cl
 import getPageUrlPath from '../../utils/get-page-url-path';
 import Link from '../../utils/link';
 
-export default function LatestPostsSection(props) {
+export default function PostFeedSection(props) {
     const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
     const sectionStyles = props.styles?.self || {};
@@ -36,16 +36,16 @@ export default function LatestPostsSection(props) {
         >
             <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
                 <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
-                    {latestPostsHeader(props)}
-                    {latestPostsVariants(props)}
-                    {latestPostsActions(props)}
+                    {postFeedHeader(props)}
+                    {postFeedVariants(props)}
+                    {postFeedActions(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function latestPostsHeader(props) {
+function postFeedHeader(props) {
     if (!props.title && !props.subtitle) {
         return null;
     }
@@ -69,7 +69,7 @@ function latestPostsHeader(props) {
     );
 }
 
-function latestPostsActions(props) {
+function postFeedActions(props) {
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
@@ -88,7 +88,7 @@ function latestPostsActions(props) {
     );
 }
 
-function latestPostsVariants(props) {
+function postFeedVariants(props) {
     const variant = props.variant || 'variant-a';
     switch (variant) {
         case 'variant-a':

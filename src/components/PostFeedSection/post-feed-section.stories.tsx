@@ -1,9 +1,9 @@
 import React from 'react';
-import LatestPostsSection from './index';
+import PostFeedSection from './index';
 
 export default {
-    title: 'Components/LatestPostsSection',
-    component: LatestPostsSection,
+    title: 'Components/PostFeedSection',
+    component: PostFeedSection,
     argTypes: {
         type: { table: { disable: true } },
         elementId: {
@@ -22,10 +22,10 @@ export default {
     }
 };
 
-const Template = (args) => <LatestPostsSection {...args} />;
+const Template = (args) => <PostFeedSection {...args} />;
 
 const args = {
-    type: 'LatestPostsSection',
+    type: 'PostFeedSection',
     elementId: '',
     variant: 'variant-a',
     colors: 'colors-f',
@@ -119,12 +119,12 @@ const args = {
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Latest Posts, Three Columns Grid';
+Primary.storyName = 'Post Feed, Three Columns Grid';
 Primary.args = args;
 
-export const LatestPostsList = Template.bind({});
-LatestPostsList.storyName = 'Latest Posts, List';
-LatestPostsList.args = {
+export const PostFeedList = Template.bind({});
+PostFeedList.storyName = 'Post Feed, List';
+PostFeedList.args = {
     ...args,
     variant: 'variant-b'
 };

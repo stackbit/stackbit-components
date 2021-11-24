@@ -16,7 +16,7 @@ fields:
     name: category
     label: Category
     models:
-      - PostCategoryLayout
+      - PostFeedCategoryLayout
   - type: reference
     name: author
     label: Author

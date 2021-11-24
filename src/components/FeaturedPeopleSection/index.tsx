@@ -191,7 +191,7 @@ function peopleVariantC(props) {
     }
     const middleIndex = Math.floor(people.length / 2);
     const peopleLeft = people.slice(0, middleIndex);
-    const peopleRight = people.slice(-middleIndex);
+    const peopleRight = people.slice(middleIndex, people.length);
     return (
         <div className={classNames('grid', 'gap-x-6', 'gap-y-12', 'sm:grid-cols-2', { 'mt-12': props.title || props.subtitle })} data-sb-field-path=".people">
             {peopleLeft.length > 0 && <div className="sm:mt-32">{peopleListVariantC(peopleLeft)}</div>}

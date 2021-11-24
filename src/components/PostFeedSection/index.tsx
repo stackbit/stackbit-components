@@ -17,7 +17,7 @@ export default function PostFeedSection(props) {
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                'sb-component-latest-posts-section',
+                'sb-component-posts-feed-section',
                 colors,
                 'flex',
                 'flex-col',
@@ -25,7 +25,7 @@ export default function PostFeedSection(props) {
                 'relative',
                 sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
                 sectionStyles.margin,
-                sectionStyles.padding,
+                sectionStyles.padding || 'py-12 px-4',
                 sectionStyles.borderColor,
                 sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
                 sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
@@ -34,8 +34,14 @@ export default function PostFeedSection(props) {
                 borderWidth: `${sectionBorderWidth}px`
             }}
         >
-            <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
-                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+            <div
+                className={classNames(
+                    'flex',
+                    'w-full',
+                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : 'justify-center'
+                )}
+            >
+                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : 'max-w-screen-xl')}>
                     {postFeedHeader(props)}
                     {postFeedVariants(props)}
                     {postFeedActions(props)}

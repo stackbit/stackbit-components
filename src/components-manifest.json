@@ -139,9 +139,9 @@
         "modelName": "PostFeedLayout",
         "isDynamic": true
     },
-    "PostCategoryLayout": {
-        "path": "layouts/PostCategoryLayout",
-        "modelName": "PostCategoryLayout",
+    "PostFeedCategoryLayout": {
+        "path": "layouts/PostFeedCategoryLayout",
+        "modelName": "PostFeedCategoryLayout",
         "isDynamic": true
     }
 }

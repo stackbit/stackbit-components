@@ -2,24 +2,26 @@ import * as React from 'react';
 import Link from '../../utils/link';
 import { getComponent } from '../../components-registry';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
+import classNames from 'classnames';
 
 export default function PostFeedLayout(props) {
     const { page, site } = props;
     const BaseLayout = getBaseLayoutComponent(page.baseLayout, site.baseLayout);
     const { title, topSections = [], bottomSections = [], pageIndex, baseUrlPath, numOfPages, numOfTotalItems, ...rest } = page;
     const PostFeedSection = getComponent('PostFeedSection');
+    const colors = page.colors || 'colors-a';
 
     return (
         <BaseLayout page={page} site={site}>
             <main id="main" className="layout page-layout">
                 {title && (
-                    <h1 className="sr-only" data-sb-field-path="title">
+                    <h1 className="max-w-screen-xl mx-auto text-center" data-sb-field-path="title">
                         {title}
                     </h1>
                 )}
                 {renderSections(topSections, 'topSections')}
                 <PostFeedSection {...rest} />
-                <PageLinks pageIndex={pageIndex} baseUrlPath={baseUrlPath} numOfPages={numOfPages} numOfTotalItems={numOfTotalItems}/>
+                <PageLinks pageIndex={pageIndex} baseUrlPath={baseUrlPath} numOfPages={numOfPages} numOfTotalItems={numOfTotalItems} colors={colors} />
                 {renderSections(bottomSections, 'bottomSections')}
             </main>
         </BaseLayout>
@@ -47,7 +49,7 @@ function renderSections(sections: any[], fieldName: string) {
     );
 }
 
-function PageLinks({ pageIndex, baseUrlPath, numOfPages, numOfTotalItems }) {
+function PageLinks({ pageIndex, baseUrlPath, numOfPages, numOfTotalItems, colors }) {
     if (numOfPages < 2) {
         return null;
     }
@@ -102,12 +104,12 @@ function PageLinks({ pageIndex, baseUrlPath, numOfPages, numOfTotalItems }) {
         pageLinks.push(<PageLinkDisabled key="next" buttonLabel="→" />);
     }
 
-    return <ul className="flex flex-row my-4 items-center">{pageLinks}</ul>;
+    return <ul className={classNames('flex flex-row mx-auto mb-12 max-w-screen-xl items-center justify-center', colors)}>{pageLinks}</ul>;
 }
 
 function PageLink({ pageIndex, buttonLabel, baseUrlPath }) {
     return (
-        <Link href={urlPathForPageAtIndex(pageIndex, baseUrlPath)} className="border border-primary px-4 py-2 mx-2">
+        <Link href={urlPathForPageAtIndex(pageIndex, baseUrlPath)} className="sb-component-button sb-component-button-secondary px-4 py-2 mx-2">
             {buttonLabel}
         </Link>
     );
@@ -115,7 +117,7 @@ function PageLink({ pageIndex, buttonLabel, baseUrlPath }) {
 
 function PageLinkDisabled({ buttonLabel }) {
     return (
-        <span key="next" className="border border-secondary px-4 py-2 mx-2">
+        <span key="next" className="sb-component-button sb-component-button-secondary opacity-25 px-4 py-2 mx-2">
             {buttonLabel}
         </span>
     );

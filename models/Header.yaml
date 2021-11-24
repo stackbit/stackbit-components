@@ -87,9 +87,11 @@ fields:
   - type: string
     name: title
     label: Title
+    default: Your Brand
   - type: boolean
     name: isTitleVisible
     label: Display title
+    default: true
   - type: model
     name: logo
     label: Logo
@@ -102,6 +104,19 @@ fields:
       models:
         - Button
         - Link
+    default: 
+      - type: link
+        url: /
+        name: Home
+        label: Home
+        altText: Home
+        style: link
+      - type: link
+        url: /
+        name: Blog
+        label: Blog
+        altText: Blog
+        style: link
   - type: list
     name: secondaryLinks
     label: Secondary links
@@ -110,6 +125,13 @@ fields:
       models:
         - Button
         - Link
+    default:
+      - type: Button
+        url: /
+        name: Sign up
+        label: Sign up
+        altText: Sign up
+        style: primary
   - type: style
     name: styles
     styles:

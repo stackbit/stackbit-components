@@ -1,7 +1,8 @@
 type: object
 name: TestimonialsSection
-label: Testimonials section
+label: Testimonials
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -14,8 +15,6 @@ fieldGroups:
 fields:
   - name: colors
     default: colors-h
-  - name: backgroundWidth
-    default: full
   - type: string
     name: title
     label: Title
@@ -38,8 +37,8 @@ fields:
         title: Product Marketing Manager at Acme
         image:
           type: ImageBlock
-          url: /images/dianne-ameter.jpg
-          altText: Product Marketing Manager
+          url: https://assets.stackbit.com/components/images/default/default-person.png
+          altText: Person photo
         styles:
           self:
             flexDirection: row
@@ -55,10 +54,28 @@ fields:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
-        alignItems: ['flex-start', 'flex-end', 'center']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
         justifyContent: ['flex-start', 'flex-end', 'center']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            color: '$primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            color: '$secondary'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            color: '$complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            color: '$complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
@@ -71,13 +88,14 @@ fields:
       self:
         height: auto
         width: wide
-        margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
-        alignItems: center
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         justifyContent: center
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
         textAlign: center
       subtitle:
         fontWeight: 400

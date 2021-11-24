@@ -1,7 +1,6 @@
 import * as React from 'react';
 import dayjs from 'dayjs';
 import Markdown from 'markdown-to-jsx';
-import ImageBlock from '../../components/ImageBlock';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
 import { getComponent } from '../../components-registry';
 
@@ -14,27 +13,18 @@ export default function PostLayout(props) {
 
     return (
         <BaseLayout page={page} site={site}>
-            <main id="main" className="layout post-layout">
-                <article className="px-4 sm:px-8 py-14 lg:py-20">
+            <main id="main" className="sb-layout sb-post-layout">
+                <article className="colors-a px-4 sm:px-8 py-14 lg:py-20">
                     <div className="max-w-screen-2xl mx-auto">
                         <header className="max-w-screen-md mx-auto mb-12 text-center">
-                            {page.title && (
-                                <h1 className="text-4xl tracking-tight sm:text-5xl mb-6 max-w-xl mx-auto" data-sb-field-path="title">
-                                    {page.title}
-                                </h1>
-                            )}
-                            <div className="text-lg">
+                            <div className="text-lg mb-4">
                                 <time dateTime={dateTimeAttr} data-sb-field-path="date">
                                     {formattedDate}
                                 </time>
-                                {page.author && postAuthor(page.author)}
                             </div>
+                            {page.title && <h1 data-sb-field-path="title">{page.title}</h1>}
+                            {page.author && postAuthor(page.author)}
                         </header>
-                        {page.featuredImage && (
-                            <figure className="h-0 w-full pt-9/16 max-w-screen-xl mx-auto mb-8 relative" data-sb-field-path="featuredImage">
-                                <ImageBlock {...page.featuredImage} className="absolute left-0 top-0 h-full w-full object-cover" />
-                            </figure>
-                        )}
                         {page.markdown_content && (
                             <Markdown options={{ forceBlock: true }} className="sb-markdown max-w-screen-md mx-auto" data-sb-field-path="markdown_content">
                                 {page.markdown_content}
@@ -49,7 +39,11 @@ export default function PostLayout(props) {
                             if (!Component) {
                                 throw new Error(`no component matching the page section's type: ${section.type}`);
                             }
-                            return <Component key={index} {...section} annotationPrefix={`bottomSections.${index}`} />;
+                            return (
+                                <div key={index} data-sb-field-path={`bottomSections.${index}`}>
+                                    <Component {...section} />
+                                </div>
+                            );
                         })}
                     </div>
                 )}
@@ -60,9 +54,12 @@ export default function PostLayout(props) {
 
 function postAuthor(author) {
     return (
-        <div data-sb-field-path={'.author'}>
-            {author.firstName && <span data-sb-field-path=".firstName">{author.firstName}</span>}{' '}
-            {author.lastName && <span data-sb-field-path=".lastName">{author.lastName}</span>}
+        <div className="text-lg mt-6">
+            By{' '}
+            <span data-sb-field-path="author">
+                {author.firstName && <span data-sb-field-path=".firstName">{author.firstName}</span>}{' '}
+                {author.lastName && <span data-sb-field-path=".lastName">{author.lastName}</span>}
+            </span>
         </div>
     );
 }

@@ -7,48 +7,45 @@ import getPageUrlPath from '../../utils/get-page-url-path';
 import Link from '../../utils/link';
 
 export default function PostFeedSection(props) {
+    const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
-
+    const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-latest-posts-section',
                 colors,
-                'px-4',
-                'sm:px-8',
-                sectionStyles.margin
+                'flex',
+                'flex-col',
+                'justify-center',
+                'relative',
+                sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                sectionStyles.margin,
+                sectionStyles.padding,
+                sectionStyles.borderColor,
+                sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
+                sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
             )}
-            data-sb-field-path={props.annotationPrefix}
+            style={{
+                borderWidth: `${sectionBorderWidth}px`
+            }}
         >
-            <div
-                className={classNames(
-                    'flex',
-                    'flex-col',
-                    'max-w-screen-2xl',
-                    'mx-auto',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.padding,
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
-                )}
-            >
+            <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
                 <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
-                    {PostFeedHeader(props)}
-                    {PostFeedVariants(props)}
-                    {PostFeedActions(props)}
+                    {postFeedHeader(props)}
+                    {postFeedVariants(props)}
+                    {postFeedActions(props)}
                 </div>
             </div>
         </div>
     );
 }
 
-function PostFeedHeader(props) {
+function postFeedHeader(props) {
     if (!props.title && !props.subtitle) {
         return null;
     }
@@ -56,12 +53,15 @@ function PostFeedHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames(styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null, { 'mt-2': props.title })}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -69,7 +69,7 @@ function PostFeedHeader(props) {
     );
 }
 
-function PostFeedActions(props) {
+function postFeedActions(props) {
     const actions = props.actions || [];
     if (actions.length === 0) {
         return null;
@@ -78,17 +78,17 @@ function PostFeedActions(props) {
     const Action = getComponent('Action');
     return (
         <div
-            className={classNames('flex', 'flex-wrap', 'items-center', '-mx-2', styles.actions ? mapStyles(styles.actions) : null)}
+            className={classNames('flex', 'flex-wrap', 'items-center', 'mt-12', '-mx-2', styles.actions ? mapStyles(styles.actions) : null)}
             data-sb-field-path=".actions"
         >
             {props.actions.map((action, index) => (
-                <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" annotationPrefix={`.${index}`} />
+                <Action key={index} {...action} className="mb-3 mx-2 lg:whitespace-nowrap" data-sb-field-path={`.${index}`} />
             ))}
         </div>
     );
 }
 
-function PostFeedVariants(props) {
+function postFeedVariants(props) {
     const variant = props.variant || 'variant-a';
     switch (variant) {
         case 'variant-a':
@@ -106,7 +106,7 @@ function postsVariantA(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div className="grid gap-6 md:grid-cols-3 lg:gap-8" data-sb-field-path=".posts">
+        <div className={classNames('grid', 'gap-6', 'md:grid-cols-3', 'lg:gap-8', { 'mt-12': props.title || props.subtitle })}>
             {posts.map((post, index) => {
                 const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
@@ -118,19 +118,11 @@ function postsVariantA(props) {
                             </Link>
                         )}
                         <div className="px-4 py-6 sm:px-6 sm:pb-10">
-                            {props.title ? (
-                                <h3 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                            ) : (
-                                <h2 className="text-xl sm:text-2xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                            )}
+                            <h3 className="mb-1">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h3>
                             <div className="text-sm mb-3">
                                 <time dateTime={dateTimeAttr} data-sb-field-path="date">
                                     {formattedDate}
@@ -152,7 +144,7 @@ function postsVariantB(props) {
     }
     const ImageBlock = getComponent('ImageBlock');
     return (
-        <div>
+        <div className={classNames({ 'mt-12': props.title || props.subtitle })}>
             {posts.map((post, index) => {
                 const dateTimeAttr = dayjs(post.date).format('YYYY-MM-DD HH:mm:ss');
                 const formattedDate = dayjs(post.date).format('MMMM D, YYYY');
@@ -170,19 +162,11 @@ function postsVariantB(props) {
                             </div>
                         )}
                         <div className="px-4 pt-6 pb-8 sm:px-6 md:w-3/5 md:pt-8 md:pb-10">
-                            {props.title ? (
-                                <h3 className="text-xl sm:text-2xl md:text-3xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h3>
-                            ) : (
-                                <h2 className="text-xl sm:text-2xl md:text-3xl mb-1">
-                                    <Link href={getPageUrlPath(post)} data-sb-field-path="title">
-                                        {post.title}
-                                    </Link>
-                                </h2>
-                            )}
+                            <h3 className="mb-1">
+                                <Link href={getPageUrlPath(post)} data-sb-field-path="title">
+                                    {post.title}
+                                </Link>
+                            </h3>
                             <div className="text-sm mb-3">
                                 <time dateTime={dateTimeAttr} data-sb-field-path="date">
                                     {formattedDate}

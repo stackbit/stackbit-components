@@ -11,6 +11,7 @@ fields:
     label: Quote
     default: “It’s great to see someone taking action while still maintaining a
       sustainable fish supply to home cooks.”
+    required: true
   - type: string
     name: name
     label: Author name
@@ -24,8 +25,8 @@ fields:
     label: Author image
     models: [ImageBlock]
     default:
-      url: /images/dianne-ameter.jpg
-      altText: Product Marketing Manager
+      url: https://assets.stackbit.com/components/images/default/default-person.png
+      altText: Person photo
   - type: string
     name: elementId
     group: settings
@@ -36,7 +37,7 @@ fields:
     name: styles
     styles:
       self:
-        margin: ['twt0:24', 'twb0:24']
+        margin: ['twy0:24']
         flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
       quote:
         textAlign: ['left', 'center', 'right']
@@ -55,7 +56,7 @@ fields:
       quote:
         textAlign: left
       name:
-        fontWeight: 700
+        fontWeight: 400
         fontStyle: normal
         textAlign: left
       title:

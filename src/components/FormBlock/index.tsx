@@ -1,6 +1,8 @@
 import * as React from 'react';
 import axios from 'axios';
+import classNames from 'classnames';
 import { getComponent } from '../../components-registry';
+import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
 export default class FormBlock extends React.Component<any> {
     state = {
@@ -54,7 +56,7 @@ export default class FormBlock extends React.Component<any> {
     }
 
     render() {
-        const { fields = [], elementId, action, destination, submitLabel, className } = this.props;
+        const { fields = [], elementId, action, destination, submitLabel, className, styles = {} } = this.props;
         if (fields.length === 0) {
             return null;
         }
@@ -82,10 +84,10 @@ export default class FormBlock extends React.Component<any> {
                         if (!FormControl) {
                             throw new Error(`no component matching the form field type: ${fieldType}`);
                         }
-                        return <FormControl key={index} {...field} annotationPrefix={`.${index}`} />;
+                        return <FormControl key={index} {...field} data-sb-field-path={`.${index}`} />;
                     })}
                 </div>
-                <div className="mt-4">
+                <div className={classNames('mt-4', styles.submitLabel?.textAlign ? mapStyles({ textAlign: styles.submitLabel?.textAlign }) : null)}>
                     <button
                         type="submit"
                         className="sb-component sb-component-block sb-component-button sb-component-button-primary"

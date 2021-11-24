@@ -11,8 +11,8 @@ export default function DefaultBaseLayout(props) {
     const Header = getComponent('Header');
     const Footer = getComponent('Footer');
     return (
-        <div className={classNames('page', pageMeta.pageCssClasses)} data-sb-object-id={pageMeta.id}>
-            <div className="base default-base-layout">
+        <div className={classNames('sb-page', pageMeta.pageCssClasses)} data-sb-object-id={pageMeta.id}>
+            <div className="sb-base sb-default-base-layout">
                 <Head>
                     <title>{page.title}</title>
                     <meta name="description" content="Stackbit Components Library" />

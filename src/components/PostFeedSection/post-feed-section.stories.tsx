@@ -18,11 +18,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -34,7 +29,6 @@ const args = {
     elementId: '',
     variant: 'variant-a',
     colors: 'colors-f',
-    backgroundWidth: 'full',
     title: 'Latest Posts',
     subtitle: 'This is the Subtitle',
     actions: [
@@ -54,7 +48,7 @@ const args = {
             excerpt: 'Quo plebiscito decreta a senatu est consuli quaestio Cn. Illud non continuo, ut aeque incontentae. Atqui pugnantibus et contrariis.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-1.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-1.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -67,7 +61,7 @@ const args = {
             excerpt: 'otius inflammat, ut coercendi magis quam dedocendi esse videantur.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-2.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-2.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -80,7 +74,7 @@ const args = {
             excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-3.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-3.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -93,7 +87,7 @@ const args = {
             excerpt: 'Primum divisit ineleganter; Hoc unum Aristo tenuit: praeter vitia atque virtutes negavit rem esse ullam aut fugiendam.',
             featuredImage: {
                 type: 'ImageBlock',
-                url: '/images/post-4.jpeg',
+                url: 'https://assets.stackbit.com/components/images/default/post-4.jpeg',
                 altText: 'Post Image'
             },
             markdown_content:
@@ -104,36 +98,32 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-2']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-12']
+            textAlign: 'center'
         },
         actions: {
-            justifyContent: 'center',
-            margin: ['mt-12', 'mb-0']
+            justifyContent: 'center'
         }
     }
 };
 
 export const Primary = Template.bind({});
-Primary.storyName = 'Latest Posts, Three Column Grid';
+Primary.storyName = 'Post Feed, Three Columns Grid';
 Primary.args = args;
 
 export const PostFeedList = Template.bind({});
-PostFeedList.storyName = 'Latest Posts, List';
+PostFeedList.storyName = 'Post Feed, List';
 PostFeedList.args = {
     ...args,
     variant: 'variant-b'

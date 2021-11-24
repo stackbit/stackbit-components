@@ -4,42 +4,43 @@ import classNames from 'classnames';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 
 export default function QuoteSection(props) {
+    const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
+    const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-quote-section',
                 colors,
-                'px-4',
-                'sm:px-8',
+                'flex',
+                'flex-col',
+                'justify-center',
                 'relative',
-                sectionStyles.margin
+                sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                sectionStyles.margin,
+                sectionStyles.padding,
+                sectionStyles.borderColor,
+                sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
+                sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
             )}
-            data-sb-field-path={props.annotationPrefix}
+            style={{
+                borderWidth: `${sectionBorderWidth}px`
+            }}
         >
             {props.backgroundImage && quoteBackgroundImage(props.backgroundImage)}
             <div
                 className={classNames(
                     'flex',
-                    'flex-col',
-                    'max-w-screen-2xl',
-                    'mx-auto',
                     'relative',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.padding,
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
+                    'w-full',
                     sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
                 )}
             >
-                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
-                    {quoteContent(props)}
-                </div>
+                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>{quoteContent(props)}</div>
             </div>
         </div>
     );
@@ -53,21 +54,18 @@ function quoteBackgroundImage(image) {
     const imageStyles = image.styles?.self || {};
     const imageOpacity = imageStyles.opacity || imageStyles.opacity === 0 ? imageStyles.opacity : 100;
     return (
-        <span
+        <div
             className="bg-cover bg-center block absolute inset-0"
             style={{
                 backgroundImage: `url('${imageUrl}')`,
                 opacity: imageOpacity * 0.01
             }}
-            aria-label={image.altText}
-            data-sb-field-path=".backgroundImage.url#@style .backgroundImage.altText#@aria-label"
         />
     );
 }
 
 function quoteContent(props) {
     const styles = props.styles || {};
-
     return (
         <blockquote>
             {props.quote && (
@@ -82,18 +80,15 @@ function quoteContent(props) {
             {(props.name || props.title) && (
                 <footer>
                     {props.name && (
-                        <strong
+                        <span
                             className={classNames('block', 'text-2xl', 'sm:text-3xl', styles.name ? mapStyles(styles.name) : null)}
                             data-sb-field-path=".name"
                         >
                             {props.name}
-                        </strong>
+                        </span>
                     )}
                     {props.title && (
-                        <span
-                            className={classNames('block', 'text-lg', styles.title ? mapStyles(styles.title) : null, { 'mt-1.5': props.name })}
-                            data-sb-field-path=".title"
-                        >
+                        <span className={classNames('block', 'text-lg', 'mt-1.5', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                             {props.title}
                         </span>
                     )}

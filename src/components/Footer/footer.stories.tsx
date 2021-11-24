@@ -9,11 +9,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -22,11 +17,10 @@ const Template = (args) => <Footer {...args} />;
 
 const args = {
     colors: 'colors-c',
-    backgroundWidth: 'full',
     title: 'Starter',
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo-alt.svg',
+        url: 'https://assets.stackbit.com/components/images/default/logo-alt.svg',
         altText: 'Logo'
     },
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam.  \nEaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo.',
@@ -104,7 +98,7 @@ const args = {
     styles: {
         self: {
             width: 'narrow',
-            padding: ['pt-16', 'pb-16']
+            padding: ['pt-16', 'pb-16', 'pl-4', 'pr-4']
         }
     }
 };
@@ -120,7 +114,7 @@ FooterNoContacts.args = {
     colors: 'colors-c',
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo-alt.svg',
+        url: 'https://assets.stackbit.com/components/images/default/logo-alt.svg',
         altText: 'Logo'
     },
     contacts: null
@@ -133,7 +127,7 @@ FooterNoLegal.args = {
     colors: 'colors-e',
     logo: {
         type: 'ImageBlock',
-        url: '/images/logo.svg',
+        url: 'https://assets.stackbit.com/components/images/default/logo.svg',
         altText: 'Logo'
     },
     legalLinks: null

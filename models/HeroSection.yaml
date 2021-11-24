@@ -1,7 +1,8 @@
 type: object
 name: HeroSection
-label: Hero section
+label: Hero
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -14,14 +15,6 @@ fieldGroups:
 fields:
   - name: colors
     default: colors-f
-  - name: backgroundWidth
-    default: full
-  - type: model
-    name: backgroundImage
-    group: styles
-    label: Background image
-    models:
-      - ImageBlock
   - type: string
     name: title
     label: Title
@@ -29,7 +22,7 @@ fields:
   - type: string
     name: subtitle
     label: Subtitle
-    default: This Is Subtitle
+    default: The section subtitle
   - type: markdown
     name: text
     label: Text
@@ -57,24 +50,30 @@ fields:
         url: '/'
         style: secondary
   - type: model
-    name: feature
-    label: Feature
+    name: media
+    label: Media
     models:
       - FormBlock
       - ImageBlock
       - VideoBlock
     default:
       type: ImageBlock
-      url: /images/hero.png
+      url: https://assets.stackbit.com/components/images/default/hero.png
       altText: Hero section image
+  - type: model
+    name: backgroundImage
+    group: styles
+    label: Background image
+    models:
+      - ImageBlock
   - type: style
     name: styles
     styles:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
         alignItems: ['flex-start', 'flex-end', 'center']
         justifyContent: ['flex-start', 'flex-end', 'center']
         flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
@@ -84,61 +83,51 @@ fields:
         borderColor:
           - value: 'border-primary'
             label: 'Primary color'
-            color: '#28aaff'
+            color: '$primary'
           - value: 'border-secondary'
             label: 'Secondary color'
-            color: '#dfe3e7'
-          - value: 'border-neutral'
-            label: 'Neutral color'
-            color: '#282f36'
+            color: '$secondary'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
           - value: 'border-complementary'
             label: 'Complementary color'
-            color: '#e9f6ff'
+            color: '$complementary'
           - value: 'border-complementary-alt'
             label: 'Complementary alt color'
-            color: '#fffde2'
+            color: '$complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twt0:12', 'twb0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twt0:12', 'twb0:12']
       text:
         textAlign: ['left', 'center', 'right']
-        margin: ['twt0:12', 'twb0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
-        margin: ['twt0:12', 'twb0:12']
     default:
       self:
         height: auto
         width: wide
-        margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         alignItems: center
         justifyContent: center
         flexDirection: row
         borderRadius: none
         borderWidth: 0
         borderStyle: none
-        borderColor: border-neutral
+        borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
         textAlign: left
-        margin: ['mt-0', 'mb-4']
       subtitle:
         fontWeight: 400
         fontStyle: normal
         textAlign: left
-        margin: ['mt-0', 'mb-6']
       text:
         textAlign: left
-        margin: ['mt-0', 'mb-8']
       actions:
         justifyContent: flex-start
-        margin: ['mt-0', 'mb-0']

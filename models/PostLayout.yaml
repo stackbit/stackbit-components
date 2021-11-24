@@ -1,6 +1,7 @@
 name: PostLayout
 label: Post
 layout: PostLayout
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 fields:
   - type: string
     name: title
@@ -10,6 +11,7 @@ fields:
   - type: date
     name: date
     label: Date
+    required: true
   - type: reference
     name: author
     label: Author

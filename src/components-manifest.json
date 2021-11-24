@@ -24,6 +24,21 @@
         "modelName": "EmailFormControl",
         "isDynamic": true
     },
+    "FaqSection": {
+        "path": "components/FaqSection",
+        "modelName": "FaqSection",
+        "isDynamic": true
+    },
+    "FeaturedItem": {
+        "path": "components/FeaturedItem",
+        "modelName": "FeaturedItem",
+        "isDynamic": true
+    },
+    "FeaturedItemsSection": {
+        "path": "components/FeaturedItemsSection",
+        "modelName": "FeaturedItemsSection",
+        "isDynamic": true
+    },
     "FeaturedPeopleSection": {
         "path": "components/FeaturedPeopleSection",
         "modelName": "FeaturedPeopleSection",
@@ -57,6 +72,11 @@
     "ImageBlock": {
         "path": "components/ImageBlock",
         "modelName": "ImageBlock",
+        "isDynamic": true
+    },
+    "MediaGallerySection": {
+        "path": "components/MediaGallerySection",
+        "modelName": "MediaGallerySection",
         "isDynamic": true
     },
     "PostFeedSection": {

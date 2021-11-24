@@ -17,11 +17,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     },
     parameters: {
@@ -65,7 +60,6 @@ const args = {
     type: 'HeroSection',
     elementId: '',
     colors: 'colors-h',
-    backgroundWidth: 'full',
     title: 'The quick, brown fox jumps over a lazy dog',
     subtitle: 'Section subtitle',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae. explicabo.',
@@ -83,9 +77,9 @@ const args = {
             style: 'secondary'
         }
     ],
-    feature: {
+    media: {
         type: 'ImageBlock',
-        url: '/images/hero.png',
+        url: 'https://assets.stackbit.com/components/images/default/hero.png',
         altText: 'Image alt text',
         caption: 'Image caption'
     },
@@ -93,35 +87,27 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row',
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'left'
         },
         actions: {
-            justifyContent: 'flex-start',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -138,35 +124,27 @@ HeroImageBottom.args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col',
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'left'
         },
         actions: {
-            justifyContent: 'flex-start',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -183,10 +161,10 @@ HeroVideoLeft.args = {
             style: 'primary'
         }
     ],
-    feature: {
+    media: {
         type: 'VideoBlock',
-        url: '/videos/stackbit-for-marketers.mp4',
-        thumbnailUrl: '/images/stackbit-for-marketers.jpeg',
+        url: 'https://assets.stackbit.com/components/videos/default/stackbit-for-marketers.mp4',
+        thumbnailUrl: 'https://assets.stackbit.com/components/images/default/stackbit-for-marketers.jpeg',
         autoplay: true,
         loop: true,
         muted: true,
@@ -196,35 +174,27 @@ HeroVideoLeft.args = {
         self: {
             height: 'auto',
             width: 'full',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'row-reverse',
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'left'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'left'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'left'
         },
         actions: {
-            justifyContent: 'flex-start',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'flex-start'
         }
     }
 };
@@ -235,7 +205,7 @@ HeroFormBottom.args = {
     ...args,
     title: 'Join our newsletter',
     actions: null,
-    feature: {
+    media: {
         type: 'FormBlock',
         elementId: 'hero-form',
         fields: [
@@ -256,41 +226,38 @@ HeroFormBottom.args = {
                 width: 'full'
             }
         ],
-        submitLabel: 'Subscribe'
+        submitLabel: 'Subscribe',
+        styles: {
+            submitLabel: {
+                textAlign: 'center'
+            }
+        }
     },
     styles: {
         self: {
             height: 'screen',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
             flexDirection: 'col',
             borderRadius: 'none',
             borderWidth: 0,
             borderStyle: 'none',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'center'
         },
         text: {
-            textAlign: 'center',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'center'
         },
         actions: {
-            justifyContent: 'center',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'center'
         }
     }
 };
@@ -299,10 +266,10 @@ export const HeroTextOnly = Template.bind({});
 HeroTextOnly.storyName = 'Hero Section With Borders and Without Feature';
 HeroTextOnly.args = {
     ...args,
-    feature: null,
+    media: null,
     backgroundImage: {
         type: 'ImageBlock',
-        url: '/images/bg.jpg',
+        url: 'https://assets.stackbit.com/components/images/default/bg.jpg',
         altText: 'Hero Image',
         caption: '',
         styles: {
@@ -315,35 +282,27 @@ HeroTextOnly.args = {
         self: {
             height: 'screen',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'flex-start',
-            justifyContent: 'flex-end',
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            alignItems: 'center',
+            justifyContent: 'center',
             flexDirection: 'row',
             borderRadius: 'medium',
             borderWidth: 8,
             borderStyle: 'dashed',
-            borderColor: 'border-neutral'
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-4']
+            textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-6']
+            textAlign: 'center'
         },
         text: {
-            textAlign: 'left',
-            margin: ['mt-0', 'mb-8']
+            textAlign: 'center'
         },
         actions: {
-            justifyContent: 'flex-start',
-            margin: ['mt-0', 'mb-0']
+            justifyContent: 'center'
         }
     }
 };

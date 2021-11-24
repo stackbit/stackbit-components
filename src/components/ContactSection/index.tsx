@@ -6,50 +6,53 @@ import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-cl
 import FormBlock from '../FormBlock';
 
 export default function ContactSection(props) {
+    const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full';
     const sectionStyles = props.styles?.self || {};
+    const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-contact-section',
                 colors,
-                'px-4',
-                'sm:px-8',
-                sectionStyles.margin
+                'flex',
+                'flex-col',
+                'justify-center',
+                sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                sectionStyles.margin,
+                sectionStyles.padding,
+                sectionStyles.borderColor,
+                sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
+                sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
             )}
-            data-sb-field-path={props.annotationPrefix}
+            style={{
+                borderWidth: `${sectionBorderWidth}px`
+            }}
         >
-            <div
-                className={classNames(
-                    'flex',
-                    'flex-col',
-                    'max-w-screen-2xl',
-                    'mx-auto',
-                    'relative',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.padding,
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
-                )}
-            >
-                <div className={classNames('relative', 'w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
-                    <div className={classNames('flex', '-mx-4', sectionStyles.flexDirection ? mapFlexDirectionStyles(sectionStyles.flexDirection) : null)}>
+            <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
+                <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
+                    <div
+                        className={classNames(
+                            'flex',
+                            '-mx-4',
+                            sectionStyles.flexDirection ? mapFlexDirectionStyles(sectionStyles.flexDirection) : null,
+                            sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null
+                        )}
+                    >
                         <div className="my-3 flex-1 px-4 w-full">
                             {contactBody(props)}
                             {props.form && (
-                                <div className={classNames(props.title || props.text ? 'mt-8' : null)} data-sb-field-path=".form">
+                                <div className={classNames({ 'mt-8': props.title || props.text })} data-sb-field-path=".form">
                                     <FormBlock {...props.form} />
                                 </div>
                             )}
                         </div>
-                        {props.feature && (
-                            <div className="my-3 flex-1 px-4 w-full" data-sb-field-path=".feature">
-                                {contactFeature(props.feature)}
+                        {props.media && (
+                            <div className="my-3 flex-1 px-4 w-full">
+                                <div data-sb-field-path=".media">{contactMedia(props.media)}</div>
                             </div>
                         )}
                     </div>
@@ -59,16 +62,16 @@ export default function ContactSection(props) {
     );
 }
 
-function contactFeature(feature) {
-    const featureType = feature.type;
-    if (!featureType) {
-        throw new Error(`contact section feature does not have the 'type' property`);
+function contactMedia(media) {
+    const mediaType = media.type;
+    if (!mediaType) {
+        throw new Error(`contact section media does not have the 'type' property`);
     }
-    const Feature = getComponent(featureType);
-    if (!Feature) {
-        throw new Error(`no component matching the contact section feature type: ${featureType}`);
+    const Media = getComponent(mediaType);
+    if (!Media) {
+        throw new Error(`no component matching the contact section media type: ${mediaType}`);
     }
-    return <Feature {...feature} />;
+    return <Media {...media} />;
 }
 
 function contactBody(props) {
@@ -76,14 +79,14 @@ function contactBody(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-4xl', 'sm:text-5xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames(styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.text && (
                 <Markdown
                     options={{ forceBlock: true, forceWrapper: true }}
-                    className={classNames('sb-markdown', props.title ? 'mt-6' : null, styles.text ? mapStyles(styles.text) : null)}
+                    className={classNames('sb-markdown', styles.text ? mapStyles(styles.text) : null, { 'mt-4': props.title })}
                     data-sb-field-path=".text"
                 >
                     {props.text}

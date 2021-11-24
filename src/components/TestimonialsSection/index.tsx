@@ -5,42 +5,41 @@ import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-cl
 import ImageBlock from '../ImageBlock';
 
 export default function TestimonialsSection(props) {
+    const cssId = props.elementId || null;
     const colors = props.colors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full';
     const testimonials = props.testimonials || [];
     const sectionStyles = props.styles?.self || {};
-
+    const sectionBorderWidth = sectionStyles.borderWidth ? sectionStyles.borderWidth : 0;
     return (
         <div
-            id={props.elementId}
+            id={cssId}
             className={classNames(
                 'sb-component',
                 'sb-component-section',
-                backgroundWidth === 'inset' ? 'sb-component-section-inset' : null,
                 'sb-component-testimonials-section',
                 colors,
-                'px-4',
-                'sm:px-8',
-                sectionStyles.margin
+                'flex',
+                'flex-col',
+                'justify-center',
+                'relative',
+                sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
+                sectionStyles.margin,
+                sectionStyles.padding,
+                sectionStyles.borderColor,
+                sectionStyles.borderRadius ? mapStyles({ borderRadius: sectionStyles.borderRadius }) : null,
+                sectionStyles.borderStyle ? mapStyles({ borderStyle: sectionStyles.borderStyle }) : null
             )}
-            data-sb-field-path={props.annotationPrefix}
+            style={{
+                borderWidth: `${sectionBorderWidth}px`
+            }}
         >
-            <div
-                className={classNames(
-                    'flex',
-                    'flex-col',
-                    'max-w-screen-2xl',
-                    'mx-auto',
-                    sectionStyles.height ? mapMinHeightStyles(sectionStyles.height) : null,
-                    sectionStyles.padding,
-                    sectionStyles.alignItems ? mapStyles({ alignItems: sectionStyles.alignItems }) : null,
-                    sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null
-                )}
-            >
+            <div className={classNames('flex', 'w-full', sectionStyles.justifyContent ? mapStyles({ justifyContent: sectionStyles.justifyContent }) : null)}>
                 <div className={classNames('w-full', sectionStyles.width ? mapMaxWidthStyles(sectionStyles.width) : null)}>
                     {testimonialsHeader(props)}
                     {testimonials.length > 0 && (
-                        <div data-sb-field-path=".testimonials">{testimonials.map((testimonial, index) => testimonialItem(testimonial, index))}</div>
+                        <div className={classNames({ 'mt-12': props.title || props.subtitle })} data-sb-field-path=".testimonials">
+                            {testimonials.map((testimonial, index) => testimonialItem(testimonial, index))}
+                        </div>
                     )}
                 </div>
             </div>
@@ -56,12 +55,15 @@ function testimonialsHeader(props) {
     return (
         <div>
             {props.title && (
-                <h2 className={classNames('text-3xl', 'sm:text-4xl', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
+                <h2 className={classNames(styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">
                     {props.title}
                 </h2>
             )}
             {props.subtitle && (
-                <p className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null)} data-sb-field-path=".subtitle">
+                <p
+                    className={classNames('text-lg', 'sm:text-xl', styles.subtitle ? mapStyles(styles.subtitle) : null, { 'mt-2': props.title })}
+                    data-sb-field-path=".subtitle"
+                >
                     {props.subtitle}
                 </p>
             )}
@@ -97,9 +99,9 @@ function testimonialItem(testimonial, index) {
                 {(testimonial.name || testimonial.title) && (
                     <footer>
                         {testimonial.name && (
-                            <strong className={classNames('block', 'text-lg', styles.name ? mapStyles(styles.name) : null)} data-sb-field-path=".name">
+                            <span className={classNames('block', 'text-lg', styles.name ? mapStyles(styles.name) : null)} data-sb-field-path=".name">
                                 {testimonial.name}
-                            </strong>
+                            </span>
                         )}
                         {testimonial.title && (
                             <span className={classNames('block', styles.title ? mapStyles(styles.title) : null)} data-sb-field-path=".title">

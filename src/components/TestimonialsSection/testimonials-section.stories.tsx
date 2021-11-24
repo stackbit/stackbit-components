@@ -13,11 +13,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -28,7 +23,6 @@ const args = {
     type: 'TestimonialsSection',
     elementId: '',
     colors: 'colors-h',
-    backgroundWidth: 'full',
     testimonials: [
         {
             quote: '“Stackbit is fast! Themes are always up to date. It’s easy to use across the organization, and collaboration is easy.”',
@@ -36,27 +30,8 @@ const args = {
             title: 'Design Manager at Retro',
             image: {
                 type: 'ImageBlock',
-                url: '/images/isabelle-parks.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/isabelle-parks.jpg',
                 altText: 'Photo of Isabelle Parks'
-            },
-            styles: {
-                self: {
-                    margin: ['mt-0', 'mb-0'],
-                    flexDirection: 'row'
-                },
-                quote: {
-                    textAlign: 'left'
-                },
-                name: {
-                    fontWeight: 700,
-                    fontStyle: 'normal',
-                    textAlign: 'left'
-                },
-                title: {
-                    fontWeight: 400,
-                    fontStyle: 'normal',
-                    textAlign: 'left'
-                }
             }
         }
     ],
@@ -64,19 +39,18 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
             textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
             textAlign: 'center'
         }
     }
@@ -99,25 +73,21 @@ TestimonialsAuthorTop.args = {
             title: 'Design Manager at Retro',
             image: {
                 type: 'ImageBlock',
-                url: '/images/isabelle-parks.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/isabelle-parks.jpg',
                 altText: 'Photo of Isabelle Parks'
             },
             styles: {
                 self: {
-                    margin: ['mt-12', 'mb-0'],
+                    margin: ['mt-0', 'mb-12'],
                     flexDirection: 'col-reverse'
                 },
                 quote: {
                     textAlign: 'center'
                 },
                 name: {
-                    fontWeight: 700,
-                    fontStyle: 'normal',
                     textAlign: 'center'
                 },
                 title: {
-                    fontWeight: 400,
-                    fontStyle: 'normal',
                     textAlign: 'center'
                 }
             }
@@ -128,25 +98,21 @@ TestimonialsAuthorTop.args = {
             title: 'CTO at Retro',
             image: {
                 type: 'ImageBlock',
-                url: '/images/desmond-eagle.jpg',
+                url: 'https://assets.stackbit.com/components/images/default/desmond-eagle.jpg',
                 altText: 'Photo of Desmond Eagle'
             },
             styles: {
                 self: {
-                    margin: ['mt-12', 'mb-0'],
+                    margin: ['mt-0', 'mb-0'],
                     flexDirection: 'col-reverse'
                 },
                 quote: {
                     textAlign: 'center'
                 },
                 name: {
-                    fontWeight: 700,
-                    fontStyle: 'normal',
                     textAlign: 'center'
                 },
                 title: {
-                    fontWeight: 400,
-                    fontStyle: 'normal',
                     textAlign: 'center'
                 }
             }
@@ -156,19 +122,18 @@ TestimonialsAuthorTop.args = {
         self: {
             height: 'auto',
             width: 'narrow',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
-            alignItems: 'center',
-            justifyContent: 'center'
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
+            justifyContent: 'center',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
             textAlign: 'center'
         },
         subtitle: {
-            fontWeight: 400,
-            fontStyle: 'normal',
             textAlign: 'center'
         }
     }

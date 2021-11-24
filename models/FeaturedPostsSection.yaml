@@ -1,7 +1,8 @@
 type: object
 name: FeaturedPostsSection
-label: Featured posts section
+label: Featured posts
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -19,15 +20,15 @@ fields:
     options:
       - label: Three columns grid
         value: variant-a
-      - label: Three column mixed grid
+      - label: Two columns grid
         value: variant-b
-      - label: Two column mixed grid
+      - label: Mixed grid
         value: variant-c
+      - label: List
+        value: variant-d
     default: variant-a
   - name: colors
     default: colors-h
-  - name: backgroundWidth
-    default: full
   - type: string
     name: title
     label: Title
@@ -60,47 +61,69 @@ fields:
       - content/pages/blog/post-three.md
       - content/pages/blog/post-two.md
       - content/pages/blog/post-one.md
+  - type: boolean
+    name: showDate
+    label: Show post date
+    default: false
+  - type: boolean
+    name: showAuthor
+    label: Show post author
+    description: Show the author of the post
+    default: false
   - type: style
     name: styles
     styles:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
-        alignItems: ['flex-start', 'flex-end', 'center']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
         justifyContent: ['flex-start', 'flex-end', 'center']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            color: '$primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            color: '$secondary'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            color: '$complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            color: '$complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twt0:12', 'twb0:12']
       subtitle:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
         textAlign: ['left', 'center', 'right']
-        margin: ['twt0:12', 'twb0:12']
       actions:
         justifyContent: ['flex-start', 'flex-end', 'center']
-        margin: ['twt0:12', 'twb0:12']
     default:
       self:
         height: auto
         width: wide
-        margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
-        alignItems: center
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         justifyContent: center
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
         textAlign: center
-        margin: ['mt-0', 'mb-2']
       subtitle:
         fontWeight: 400
         fontStyle: normal
         textAlign: center
-        margin: ['mt-0', 'mb-12']
       actions:
         justifyContent: center
-        margin: ['mt-12', 'mb-0']

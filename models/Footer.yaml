@@ -2,6 +2,7 @@ type: object
 name: Footer
 label: Footer
 labelField: title
+readOnly: true
 fieldGroups:
   - name: styles
     label: Styles
@@ -10,40 +11,56 @@ fieldGroups:
 fields:
   - type: enum
     name: colors
-    group: styles
     label: Colors
-    options:
-      - label: Base foreground on white background
-        value: colors-a
-      - label: Primary foreground on white background
-        value: colors-b
-      - label: White foreground on base background
-        value: colors-c
-      - label: Primary foreground on base background
-        value: colors-d
-      - label: Base foreground on primary background
-        value: colors-e
-      - label: Base foreground on secondary background
-        value: colors-f
-      - label: Primary foreground on secondary background
-        value: colors-g
-      - label: Base foreground on complementary 1 background
-        value: colors-h
-      - label: Base foreground on complementary 2 background
-        value: colors-i
-    default: colors-f
-  - type: enum
-    name: backgroundWidth
     group: styles
-    controlType: button-group
-    label: Background width
-    description: The background width of the footer
+    controlType: palette
     options:
-      - label: Inset
-        value: inset
-      - label: Full
-        value: full
-    default: full
+      - label: Colors A
+        value: colors-a
+        textColor: '$onLight'
+        backgroundColor: '$light'
+        borderColor: '#ececec'
+      - label: Colors B
+        value: colors-b
+        textColor: '$primary'
+        backgroundColor: '$light'
+        borderColor: '#ececec'
+      - label: Colors C
+        value: colors-c
+        textColor: '$onDark'
+        backgroundColor: '$dark'
+        borderColor: '#ececec'
+      - label: Colors D
+        value: colors-d
+        textColor: '$primary'
+        backgroundColor: '$dark'
+        borderColor: '#ececec'
+      - label: Colors E
+        value: colors-e
+        textColor: '$onPrimary'
+        backgroundColor: '$primary'
+        borderColor: '#ececec'
+      - label: Colors F
+        value: colors-f
+        textColor: '$onSecondary'
+        backgroundColor: '$secondary'
+        borderColor: '#ececec'
+      - label: Colors G
+        value: colors-g
+        textColor: '$primary'
+        backgroundColor: '$secondary'
+        borderColor: '#ececec'
+      - label: Colors H
+        value: colors-h
+        textColor: '$onComplementary'
+        backgroundColor: '$complementary'
+        borderColor: '#ececec'
+      - label: Colors I
+        value: colors-i
+        textColor: '$onComplementaryAlt'
+        backgroundColor: '$complementaryAlt'
+        borderColor: '#ececec'
+    default: colors-f
   - type: model
     name: logo
     label: Logo
@@ -136,8 +153,8 @@ fields:
     styles:
       self:
         width: ['narrow', 'wide', 'full']
-        padding: ['twt0:36', 'twb0:36']
+        padding: ['tw4:36']
     default:
       self:
         width: narrow
-        padding: ['pt-16', 'pb-16']
+        padding: ['pt-16', 'pb-16', 'pl-4', 'pr-4']

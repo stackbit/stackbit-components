@@ -10,25 +10,13 @@ import HamburgerIcon from '../../svgs/hamburger';
 
 export default function Header(props) {
     const primaryColors = props.primaryColors || 'colors-a';
-    const backgroundWidth = props.backgroundWidth || 'full';
     const headerStyles = props.styles?.self || {};
     return (
         <header
-            className={classNames(
-                'sb-component',
-                'sb-component-header',
-                backgroundWidth === 'inset' ? 'sb-component-header-inset' : '',
-                primaryColors,
-                'px-4',
-                'sm:px-8',
-                'relative'
-            )}
-            data-sb-object-id={props.annotationPrefix}
+            className={classNames('sb-component', 'sb-component-header', primaryColors, 'relative', headerStyles.padding)}
+            data-sb-field-path={`${props.annotationPrefix}:header`}
         >
-            <div
-                className={classNames('mx-auto', headerStyles.width ? mapMaxWidthStyles(headerStyles.width) : null, headerStyles.padding)}
-                data-sb-field-path="header"
-            >
+            <div className={classNames('mx-auto', headerStyles.width ? mapMaxWidthStyles(headerStyles.width) : null)}>
                 <Link href="#main" className="sr-only">
                     Skip to main content
                 </Link>
@@ -60,9 +48,9 @@ function headerVariantA(props) {
     const secondaryLinks = props.secondaryLinks || [];
     return (
         <div className="flex items-center relative">
-            <div>{siteLogoLink(props)}</div>
+            {(props.logo || (props.title && props.isTitleVisible)) && <div className="mr-8">{siteLogoLink(props)}</div>}
             {primaryLinks.length > 0 && (
-                <ul className="hidden lg:flex lg:items-center mx-8 space-x-8" data-sb-field-path=".primaryLinks">
+                <ul className="hidden lg:flex lg:items-center mr-8 space-x-8" data-sb-field-path=".primaryLinks">
                     {listOfLinks(primaryLinks)}
                 </ul>
             )}
@@ -81,7 +69,7 @@ function headerVariantB(props) {
     const secondaryLinks = props.secondaryLinks || [];
     return (
         <div className="flex items-center relative">
-            <div>{siteLogoLink(props)}</div>
+            {(props.logo || (props.title && props.isTitleVisible)) && <div className="mr-8">{siteLogoLink(props)}</div>}
             {primaryLinks.length > 0 && (
                 <ul
                     className="hidden lg:flex lg:items-center space-x-8 absolute left-1/2 top-1/2 transform -translate-y-1/2 -translate-x-1/2 w-auto"
@@ -105,7 +93,7 @@ function headerVariantC(props) {
     const secondaryLinks = props.secondaryLinks || [];
     return (
         <div className="flex items-center relative">
-            <div>{siteLogoLink(props)}</div>
+            {(props.logo || (props.title && props.isTitleVisible)) && <div className="mr-8">{siteLogoLink(props)}</div>}
             {primaryLinks.length > 0 && (
                 <ul className="hidden lg:flex lg:items-center ml-auto space-x-8" data-sb-field-path=".primaryLinks">
                     {listOfLinks(primaryLinks)}
@@ -129,7 +117,11 @@ function headerVariantD(props) {
     const secondaryLinks = props.secondaryLinks || [];
     return (
         <div className="flex items-center relative">
-            <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-1/2">{siteLogoLink(props)}</div>
+            {(props.logo || (props.title && props.isTitleVisible)) && (
+                <div className="mr-8 lg:mr-0 lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-1/2">
+                    {siteLogoLink(props)}
+                </div>
+            )}
             {primaryLinks.length > 0 && (
                 <ul className="hidden lg:flex lg:items-center space-x-8" data-sb-field-path=".primaryLinks">
                     {listOfLinks(primaryLinks)}
@@ -151,7 +143,11 @@ function headerVariantE(props) {
     return (
         <>
             <div className="flex items-center relative">
-                <div className="lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-1/2">{siteLogoLink(props)}</div>
+                {(props.logo || (props.title && props.isTitleVisible)) && (
+                    <div className="mr-8 lg:mr-0 lg:absolute lg:top-1/2 lg:left-1/2 lg:transform lg:-translate-y-1/2 lg:-translate-x-1/2">
+                        {siteLogoLink(props)}
+                    </div>
+                )}
                 {secondaryLinks.length > 0 && (
                     <ul className="hidden lg:flex lg:items-center space-x-8 ml-auto" data-sb-field-path=".secondaryLinks">
                         {listOfLinks(secondaryLinks)}
@@ -184,13 +180,8 @@ function MobileMenu(props) {
                 <div className={classNames(secondaryColors, 'fixed', 'inset-0', 'px-4', 'sm:px-8', 'py-5', 'overflow-y-auto', 'z-10')}>
                     <div className="flex flex-col min-h-full">
                         <div className="flex items-center justify-between mb-10">
-                            {siteLogoLink(props)}
-                            <button
-                                aria-label="Close Menu"
-                                title="Close Menu"
-                                className="p-2 -mt-2 -mr-2 focus:outline-none"
-                                onClick={() => setIsMenuOpen(false)}
-                            >
+                            {(props.logo || (props.title && props.isTitleVisible)) && siteLogoLink(props)}
+                            <button aria-label="Close Menu" title="Close Menu" className="p-2 -mr-1 focus:outline-none" onClick={() => setIsMenuOpen(false)}>
                                 <CloseIcon className="fill-current h-6 w-6" />
                             </button>
                         </div>
@@ -213,13 +204,9 @@ function MobileMenu(props) {
 
 function siteLogoLink(props) {
     return (
-        <Link href="/" aria-label={props.title} className="inline-flex items-center" data-sb-field-path=".title#@aria-label .logo">
-            {props.logo && <ImageBlock {...props.logo} className={classNames({ 'mr-2': props.isTitleVisible })} />}
-            {props.title && props.isTitleVisible && (
-                <span className="text-2xl tracking-wide" data-sb-field-path="header.title">
-                    {props.title}
-                </span>
-            )}
+        <Link href="/" aria-label={props.title} className="flex items-center" data-sb-field-path=".title#span[1] .logo#img[1]">
+            {props.logo && <ImageBlock {...props.logo} className={classNames('max-h-12', { 'mr-2': props.isTitleVisible })} />}
+            {props.title && props.isTitleVisible && <span className="text-2xl tracking-wide">{props.title}</span>}
         </Link>
     );
 }
@@ -230,8 +217,8 @@ function listOfLinks(links, inMobileMenu = false) {
         const defaultStyle = link.type === 'Link' ? 'link' : 'secondary';
         const style = link.style || defaultStyle;
         return (
-            <li key={index} data-sb-field-path={`.${index}`}>
-                <Action {...link} className={classNames(inMobileMenu && style !== 'link' ? 'w-full' : '')} />
+            <li key={index}>
+                <Action {...link} className={classNames(inMobileMenu && style !== 'link' ? 'w-full' : '')} data-sb-field-path={`.${index}`} />
             </li>
         );
     });

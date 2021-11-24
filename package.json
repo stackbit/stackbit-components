@@ -1,6 +1,6 @@
 {
     "name": "@stackbit/components",
-    "version": "0.1.44",
+    "version": "0.1.53",
     "description": "Stackbit components library",
     "keywords": [
         "stackbit",
@@ -22,12 +22,14 @@
         "build": "node ./scripts/build-storybook.js && build-storybook -s ./public",
         "dist": "./scripts/build-dist.js --clean",
         "dist-local": "./scripts/build-dist.js --local",
+        "dist-sync": "./scripts/build-dist.js",
         "build:ts": "rm -rf dist && tsc",
         "dev:ts": "tsc --watch",
         "lint": "eslint src",
         "prettier": "prettier --write src scripts",
         "version-minor": "npm version minor -m \"bumped version to v%s\"",
-        "version-patch": "npm version patch -m \"bumped version to v%s\""
+        "version-patch": "npm version patch -m \"bumped version to v%s\"",
+        "prepare": "npm run dist"
     },
     "repository": {
         "type": "git",

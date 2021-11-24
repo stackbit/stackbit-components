@@ -1,7 +1,8 @@
 type: object
 name: FeaturedPeopleSection
-label: Featured people section
+label: Featured people
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -26,8 +27,6 @@ fields:
     default: variant-a
   - name: colors
     default: colors-h
-  - name: backgroundWidth
-    default: full
   - type: string
     name: title
     label: Title
@@ -35,7 +34,7 @@ fields:
   - type: string
     name: subtitle
     label: Subtitle
-    default: Meet the team
+    default: Featured people section example
   - type: list
     name: actions
     label: Actions
@@ -61,10 +60,28 @@ fields:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
-        alignItems: ['flex-start', 'flex-end', 'center']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
         justifyContent: ['flex-start', 'flex-end', 'center']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            color: '$primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            color: '$secondary'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            color: '$complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            color: '$complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
@@ -79,13 +96,14 @@ fields:
       self:
         height: auto
         width: wide
-        margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
-        alignItems: center
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         justifyContent: center
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
         textAlign: center
       subtitle:
         fontWeight: 400

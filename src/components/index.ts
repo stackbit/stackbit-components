@@ -3,6 +3,9 @@ import CheckboxFormControl from './CheckboxFormControl';
 import ContactSection from './ContactSection';
 import CtaSection from './CtaSection';
 import EmailFormControl from './EmailFormControl';
+import FaqSection from './FaqSection';
+import FeaturedItem from './FeaturedItem';
+import FeaturedItemsSection from './FeaturedItemsSection';
 import FeaturedPeopleSection from './FeaturedPeopleSection';
 import FeaturedPostsSection from './FeaturedPostsSection';
 import Footer from './Footer';
@@ -10,6 +13,7 @@ import FormBlock from './FormBlock';
 import Header from './Header';
 import HeroSection from './HeroSection';
 import ImageBlock from './ImageBlock';
+import MediaGallerySection from './MediaGallerySection';
 import PostFeedSection from './PostFeedSection';
 import QuoteSection from './QuoteSection';
 import Social from './Social';
@@ -26,6 +30,9 @@ export {
     ContactSection,
     CtaSection,
     EmailFormControl,
+    FaqSection,
+    FeaturedItem,
+    FeaturedItemsSection,
     FeaturedPeopleSection,
     FeaturedPostsSection,
     Footer,
@@ -33,6 +40,7 @@ export {
     Header,
     HeroSection,
     ImageBlock,
+    MediaGallerySection,
     PostFeedSection,
     QuoteSection,
     Social,

@@ -9,7 +9,7 @@ export default function PageLayout(props) {
 
     return (
         <BaseLayout page={page} site={site}>
-            <main id="main" className="layout page-layout">
+            <main id="main" className="sb-layout sb-page-layout">
                 {page.title && (
                     <h1 className="sr-only" data-sb-field-path="title">
                         {page.title}
@@ -22,7 +22,11 @@ export default function PageLayout(props) {
                             if (!Component) {
                                 throw new Error(`no component matching the page section's type: ${section.type}`);
                             }
-                            return <Component key={index} {...section} annotationPrefix={`sections.${index}`} />;
+                            return (
+                                <div key={index} data-sb-field-path={`sections.${index}`}>
+                                    <Component {...section} />
+                                </div>
+                            );
                         })}
                     </div>
                 )}

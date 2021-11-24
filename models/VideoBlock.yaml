@@ -8,12 +8,14 @@ fieldGroups:
 fields:
   - type: string
     name: url
-    label: Video
+    label: Video source (.mp4) 
     description: The URL of the video (.mp4)
+    default: 'https://assets.stackbit.com/components/videos/default/stackbit-for-marketers.mp4'
   - type: image
     name: thumbnailUrl
     label: Video thumbnail
     description: The URL of the video thumbnail
+    default: 'https://assets.stackbit.com/components/images/default/stackbit-for-marketers.jpeg'
   - type: boolean
     name: autoplay
     label: Autoplay
@@ -29,7 +31,7 @@ fields:
   - type: boolean
     name: controls
     label: Controls
-    default: false
+    default: true
   - type: string
     name: elementId
     group: settings

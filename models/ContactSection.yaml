@@ -1,7 +1,8 @@
 type: object
 name: ContactSection
-label: Contact section
+label: Contact
 labelField: title
+thumbnail: https://assets.stackbit.com/components/models/thumbnails/default.png
 extends:
   - Section
 groups:
@@ -14,8 +15,6 @@ fieldGroups:
 fields:
   - name: colors
     default: colors-h
-  - name: backgroundWidth
-    default: full
   - type: string
     name: title
     label: Title
@@ -60,14 +59,14 @@ fields:
           width: full
       submitLabel: Send Message
   - type: model
-    name: feature
-    label: Feature
+    name: media
+    label: Media
     models:
       - ImageBlock
       - VideoBlock
     default:
       type: ImageBlock
-      url: /images/contact.png
+      url: https://assets.stackbit.com/components/images/default/contact.png
       altText: Contact form image
   - type: style
     name: styles
@@ -75,11 +74,30 @@ fields:
       self:
         height: ['auto', 'screen']
         width: ['narrow', 'wide', 'full']
-        margin: ['twt0:36', 'twb0:36']
-        padding: ['twt0:36', 'twb0:36']
+        margin: ['tw0:36']
+        padding: ['tw4:36']
         alignItems: ['flex-start', 'flex-end', 'center']
         justifyContent: ['flex-start', 'flex-end', 'center']
         flexDirection: ['row', 'row-reverse', 'col', 'col-reverse']
+        borderRadius: '*'
+        borderWidth: ['0:8']
+        borderStyle: '*'
+        borderColor:
+          - value: 'border-primary'
+            label: 'Primary color'
+            color: '$primary'
+          - value: 'border-secondary'
+            label: 'Secondary color'
+            color: '$secondary'
+          - value: 'border-dark'
+            label: 'Dark color'
+            color: '$dark'
+          - value: 'border-complementary'
+            label: 'Complementary color'
+            color: '$complementary'
+          - value: 'border-complementary-alt'
+            label: 'Complementary alt color'
+            color: '$complementaryAlt'
       title:
         fontWeight: ['400', '700']
         fontStyle: ['normal', 'italic']
@@ -90,14 +108,16 @@ fields:
       self:
         height: auto
         width: wide
-        margin: ['mt-0', 'mb-0']
-        padding: ['pt-12', 'pb-12']
+        margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0']
+        padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4']
         alignItems: center
         justifyContent: center
         flexDirection: row
+        borderRadius: none
+        borderWidth: 0
+        borderStyle: none
+        borderColor: border-dark
       title:
-        fontWeight: 700
-        fontStyle: normal
         textAlign: left
       text:
         textAlign: left

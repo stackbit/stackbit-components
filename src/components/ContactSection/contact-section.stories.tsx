@@ -13,11 +13,6 @@ export default {
             options: ['colors-a', 'colors-b', 'colors-c', 'colors-d', 'colors-e', 'colors-f', 'colors-g', 'colors-h', 'colors-i'],
             defaultValue: 'colors-a',
             control: { type: 'select' }
-        },
-        backgroundWidth: {
-            options: ['full', 'inset'],
-            defaultValue: 'full',
-            control: { type: 'select' }
         }
     }
 };
@@ -28,13 +23,12 @@ const args = {
     type: 'ContactSection',
     elementId: '',
     colors: 'colors-h',
-    backgroundWidth: 'full',
     title: 'Join our club',
     text: 'Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium.',
-    feature: {
+    media: {
         type: 'ImageBlock',
-        url: '/images/contact.png',
-        altText: 'Contact Image'
+        url: 'https://assets.stackbit.com/components/images/default/contact.png',
+        altText: 'Contact section image'
     },
     form: {
         type: 'FormBlock',
@@ -77,15 +71,17 @@ const args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row'
+            flexDirection: 'row',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {
@@ -102,10 +98,10 @@ export const ContactVideoLeft = Template.bind({});
 ContactVideoLeft.storyName = 'Contact Section With Video on the Left';
 ContactVideoLeft.args = {
     ...args,
-    feature: {
+    media: {
         type: 'VideoBlock',
-        url: '/videos/stackbit-for-marketers.mp4',
-        thumbnailUrl: '/images/stackbit-for-marketers.jpeg',
+        url: 'https://assets.stackbit.com/components/videos/default/stackbit-for-marketers.mp4',
+        thumbnailUrl: 'https://assets.stackbit.com/components/images/default/stackbit-for-marketers.jpeg',
         autoplay: true,
         loop: true,
         muted: true,
@@ -115,15 +111,17 @@ ContactVideoLeft.args = {
         self: {
             height: 'auto',
             width: 'wide',
-            margin: ['mt-0', 'mb-0'],
-            padding: ['pt-12', 'pb-12'],
+            margin: ['mt-0', 'mb-0', 'ml-0', 'mr-0'],
+            padding: ['pt-12', 'pb-12', 'pl-4', 'pr-4'],
             alignItems: 'center',
             justifyContent: 'center',
-            flexDirection: 'row-reverse'
+            flexDirection: 'row-reverse',
+            borderRadius: 'none',
+            borderWidth: 0,
+            borderStyle: 'none',
+            borderColor: 'border-dark'
         },
         title: {
-            fontWeight: 700,
-            fontStyle: 'normal',
             textAlign: 'left'
         },
         text: {

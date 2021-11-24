@@ -28,9 +28,9 @@ fields:
       - ImageBlock
     default:
       type: ImageBlock
-      url: https://assets.stackbit.com/components/images/default/post-1.jpeg
+      url: https://assets.stackbit.com/components/images/default/post-4.jpeg
       altText: Post thumbnail image
-      caption: ''
+      caption: ""
   - type: list
     name: bottomSections
     label: Sections

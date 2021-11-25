@@ -15,12 +15,12 @@ export default function PostFeedLayout(props) {
         <BaseLayout page={page} site={site}>
             <main id="main" className="layout page-layout">
                 {title && (
-                    <h1 className="max-w-screen-xl mx-auto text-center" data-sb-field-path="title">
+                    <h1 className="max-w-screen-xl mx-auto text-center my-12" data-sb-field-path="title">
                         {title}
                     </h1>
                 )}
                 {renderSections(topSections, 'topSections')}
-                <PostFeedSection {...postFeed} posts={items} pageLinks={pageLinks} />
+                <PostFeedSection {...postFeed} posts={items} pageLinks={pageLinks} data-sb-field-path="postFeed" />
                 {renderSections(bottomSections, 'bottomSections')}
             </main>
         </BaseLayout>
@@ -32,17 +32,13 @@ function renderSections(sections: any[], fieldName: string) {
         return null;
     }
     return (
-        <div data-sb-field-path="sections">
+        <div data-sb-field-path={fieldName}>
             {sections.map((section, index) => {
                 const Component = getComponent(section.type);
                 if (!Component) {
                     throw new Error(`no component matching the page section's type: ${section.type}`);
                 }
-                return (
-                    <div key={index} data-sb-field-path={`${fieldName}.${index}`}>
-                        <Component {...section} />
-                    </div>
-                );
+                return <Component key={index} {...section} data-sb-field-path={`${fieldName}.${index}`} />;
             })}
         </div>
     );

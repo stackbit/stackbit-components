@@ -2,6 +2,7 @@ import * as React from 'react';
 import Markdown from 'markdown-to-jsx';
 import classNames from 'classnames';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
+import { getDataAttrs } from '../../utils/get-data-attrs';
 
 export default function TextSection(props) {
     const cssId = props.elementId || null;
@@ -11,6 +12,7 @@ export default function TextSection(props) {
     return (
         <div
             id={cssId}
+            {...getDataAttrs(props)}
             className={classNames(
                 'sb-component',
                 'sb-component-section',

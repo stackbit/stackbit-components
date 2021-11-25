@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import Markdown from 'markdown-to-jsx';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
 import { getComponent } from '../../components-registry';
+import { getDataAttrs } from '../../utils/get-data-attrs';
 import ImageBlock from '../ImageBlock';
 
 export default function FeaturedPeopleSection(props) {
@@ -13,6 +14,7 @@ export default function FeaturedPeopleSection(props) {
     return (
         <div
             id={cssId}
+            {...getDataAttrs(props)}
             className={classNames(
                 'sb-component',
                 'sb-component-section',

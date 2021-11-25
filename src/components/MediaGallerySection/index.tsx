@@ -1,6 +1,7 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
+import { getDataAttrs } from '../../utils/get-data-attrs';
 import ImageBlock from '../ImageBlock';
 
 type BaseSectionStyle = {
@@ -64,6 +65,7 @@ export default function MediaGallerySection(props: MediaGallerySectionProps) {
     return (
         <div
             id={cssId}
+            {...getDataAttrs(props)}
             className={classNames(
                 'sb-component',
                 'sb-component-section',

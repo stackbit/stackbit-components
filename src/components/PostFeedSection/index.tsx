@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import dayjs from 'dayjs';
 import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
+import { getDataAttrs } from '../../utils/get-data-attrs';
 import getPageUrlPath from '../../utils/get-page-url-path';
 import Link from '../../utils/link';
 
@@ -17,6 +18,7 @@ export default function PostFeedSection(props) {
     return (
         <div
             id={cssId}
+            {...getDataAttrs(props)}
             className={classNames(
                 'sb-component',
                 'sb-component-section',

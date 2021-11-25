@@ -1,15 +1,15 @@
 import * as React from 'react';
+import classNames from 'classnames';
 import Link from '../../utils/link';
 import { getComponent } from '../../components-registry';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
-import classNames from 'classnames';
 
 export default function PostFeedLayout(props) {
     const { page, site } = props;
     const BaseLayout = getBaseLayoutComponent(page.baseLayout, site.baseLayout);
-    const { title, topSections = [], bottomSections = [], pageIndex, baseUrlPath, numOfPages, numOfTotalItems, ...rest } = page;
+    const { title, topSections = [], bottomSections = [], pageIndex, baseUrlPath, numOfPages, items, postFeed } = page;
     const PostFeedSection = getComponent('PostFeedSection');
-    const colors = page.colors || 'colors-a';
+    const pageLinks = PageLinks({ pageIndex, baseUrlPath, numOfPages });
 
     return (
         <BaseLayout page={page} site={site}>
@@ -20,8 +20,7 @@ export default function PostFeedLayout(props) {
                     </h1>
                 )}
                 {renderSections(topSections, 'topSections')}
-                <PostFeedSection {...rest} />
-                <PageLinks pageIndex={pageIndex} baseUrlPath={baseUrlPath} numOfPages={numOfPages} numOfTotalItems={numOfTotalItems} colors={colors} />
+                <PostFeedSection {...postFeed} posts={items} pageLinks={pageLinks} />
                 {renderSections(bottomSections, 'bottomSections')}
             </main>
         </BaseLayout>
@@ -49,7 +48,7 @@ function renderSections(sections: any[], fieldName: string) {
     );
 }
 
-function PageLinks({ pageIndex, baseUrlPath, numOfPages, numOfTotalItems, colors }) {
+function PageLinks({ pageIndex, baseUrlPath, numOfPages }) {
     if (numOfPages < 2) {
         return null;
     }
@@ -104,7 +103,7 @@ function PageLinks({ pageIndex, baseUrlPath, numOfPages, numOfTotalItems, colors
         pageLinks.push(<PageLinkDisabled key="next" buttonLabel="→" />);
     }
 
-    return <ul className={classNames('flex flex-row mx-auto mb-12 max-w-screen-xl items-center justify-center', colors)}>{pageLinks}</ul>;
+    return <div className={classNames('flex flex-row items-center justify-center mt-12')}>{pageLinks}</div>;
 }
 
 function PageLink({ pageIndex, buttonLabel, baseUrlPath }) {

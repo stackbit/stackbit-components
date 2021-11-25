@@ -12,6 +12,10 @@ contentModels:
     isPage: true
   Person:
     isPage: false
+  PostFeedLayout:
+    isPage: true
+  PostFeedCategoryLayout:
+    isPage: true
 
 modelsSource:
   type: files

@@ -14,19 +14,12 @@ export default function CheckboxFormControl(props) {
     }
     return (
         <div
-            className={classNames('sb-form-control', 'flex', 'items-center', 'px-2', 'w-full', {
-                'sm:w-1/2': width === '1/2'
+            className={classNames('sb-form-control', 'flex', 'items-center', {
+                'sm:col-span-2': width === 'full'
             })}
             data-sb-field-path={props['data-sb-field-path']}
         >
-            <input
-                id={props.name}
-                className="sb-checkbox"
-                type="checkbox"
-                name={props.name}
-                {...attr}
-                data-sb-field-path=".name#@id .name#@name .isRequired#@required"
-            />
+            <input id={props.name} className="sb-checkbox" type="checkbox" name={props.name} {...attr} data-sb-field-path=".name#@id .name#@name" />
             {props.label && (
                 <label id={labelId} className="sb-label ml-2" htmlFor={props.name} data-sb-field-path=".label .name#@for">
                     {props.label}

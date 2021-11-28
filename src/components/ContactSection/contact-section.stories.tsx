@@ -59,6 +59,15 @@ const args = {
                 width: 'full'
             },
             {
+                type: 'SelectFormControl',
+                name: 'city',
+                label: 'City',
+                defaultValue: 'Please choose...',
+                isRequired: true,
+                options: ['City 1', 'City 2'],
+                width: 'full'
+            },
+            {
                 type: 'CheckboxFormControl',
                 name: 'updates',
                 label: 'Sign me up to receive updates',

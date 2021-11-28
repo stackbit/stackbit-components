@@ -19,9 +19,9 @@ export default function DefaultBaseLayout(props) {
                     <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-32x32.png" />
                     <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-16x16.png" />
                 </Head>
-                <Header {...site.header} annotationPrefix={siteMeta.id} />
+                {site.header && <Header {...site.header} annotationPrefix={siteMeta.id} />}
                 {props.children}
-                <Footer {...site.footer} annotationPrefix={siteMeta.id} />
+                {site.footer && <Footer {...site.footer} annotationPrefix={siteMeta.id} />}
             </div>
         </div>
     );

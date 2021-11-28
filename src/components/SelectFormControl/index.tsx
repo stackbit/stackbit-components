@@ -14,8 +14,8 @@ export default function SelectFormControl(props) {
     }
     return (
         <div
-            className={classNames('sb-form-control', 'px-2', 'w-full', {
-                'sm:w-1/2': width === '1/2'
+            className={classNames('sb-form-control', {
+                'sm:col-span-2': width === 'full'
             })}
             data-sb-field-path={props['data-sb-field-path']}
         >
@@ -24,7 +24,7 @@ export default function SelectFormControl(props) {
                     {props.label}
                 </label>
             )}
-            <select id={props.name} className="sb-select" name={props.name} {...attr} data-sb-field-path=".name#@id .name#@name .isRequired#@required .options">
+            <select id={props.name} className="sb-select" name={props.name} {...attr} data-sb-field-path=".name#@id .name#@name .options">
                 {props.defaultValue && (
                     <option value="" data-sb-field-path=".defaultValue">
                         {props.defaultValue}

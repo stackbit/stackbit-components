@@ -143,8 +143,8 @@ fields:
     models: [ImageBlock]
     default:
       type: ImageBlock
-      url: ''
-      altText: ''
+      url: 'https://assets.stackbit.com/components/images/default/default-image.png'
+      altText: 'Your logo image'
       caption: ''
   - type: list
     name: primaryLinks
@@ -154,19 +154,15 @@ fields:
       models:
         - Button
         - Link
-    default: 
-      - type: link
-        url: /
-        name: Home
+    default:
+      - type: Link
         label: Home
-        altText: Home
-        style: link
-      - type: link
         url: /
-        name: Blog
+        altText: Home
+      - type: Link
         label: Blog
+        url: /
         altText: Blog
-        style: link
   - type: list
     name: secondaryLinks
     label: Secondary links
@@ -177,9 +173,8 @@ fields:
         - Link
     default:
       - type: Button
-        url: /
-        name: Sign up
         label: Sign up
+        url: /
         altText: Sign up
         style: primary
   - type: style

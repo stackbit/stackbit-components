@@ -89,7 +89,7 @@ fields:
     group: styles
     controlType: 'slider'
     min: 50
-    max: 300
+    max: 640
     step: 1
     unit: 'px'
     default: 300

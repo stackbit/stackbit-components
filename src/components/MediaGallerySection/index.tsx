@@ -152,8 +152,9 @@ function MediaGalleryImageGrid(props: MediaGallerySectionProps) {
     const aspectRatio = props.aspectRatio || '1:1';
     const numGaps = columns - 1; // 1 image, 0 gaps, 2 images, 1 gap, etc etc
     const spacing = props.spacing || 0;
+    const imageSizePx = props.imageSizePx || 300;
     // Give enough width for the desired image width * columns, plus the gaps, and the grid will auto-resize (resizing the images along with it)
-    const widthString = `calc((${props.imageSizePx}px * ${columns}) + (${spacing}rem * ${numGaps}))`; // TODO - this is probably better done through flex
+    const widthString = `calc((${imageSizePx}px * ${columns}) + (${spacing}rem * ${numGaps}))`; // TODO - this is probably better done through flex
 
     return (
         <div
@@ -162,7 +163,7 @@ function MediaGalleryImageGrid(props: MediaGallerySectionProps) {
             style={{
                 gridTemplateColumns: `repeat(${columns}, minmax(0, 1fr))`,
                 gap: spacing ? `${spacing}rem` : undefined,
-                width: props.imageSizePx ? widthString : '100%',
+                width: imageSizePx ? widthString : '100%',
                 maxWidth: '100%'
             }}
         >

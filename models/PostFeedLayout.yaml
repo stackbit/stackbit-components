@@ -15,8 +15,17 @@ fields:
     default: 10
   - type: model
     name: postFeed
+    readOnly: true
     label: Post Feed
     models: [PagedPostsSection]
+    default:
+      title: null
+      subtitle: null
+      showDate: true
+      showAuthor: true
+      variant: variant-d
+      colors: colors-a
+      actions: []
   - type: list
     name: topSections
     label: Top Sections

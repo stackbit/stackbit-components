@@ -7,8 +7,10 @@ extends:
 fields:
   - name: title
     hidden: true
+    default: null
   - name: subtitle
     hidden: true
+    default: null
   - name: showDate
     default: true
   - name: showAuthor
@@ -22,5 +24,6 @@ fields:
         value: variant-d
   - name: actions
     hidden: true
+    default: []
   - name: colors
     default: colors-a

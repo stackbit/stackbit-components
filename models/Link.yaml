@@ -31,14 +31,28 @@ fields:
     group: styles
     label: Icon
     options:
-      - arrowRight
-      - arrowLeft
-      - cart
-      - facebook
-      - github
-      - instagram
-      - linkedin
-      - twitter
+      - label: Apple
+        value: apple
+      - label: Arrow right
+        value: arrowRight
+      - label: Arrow left
+        value: arrowLeft
+      - label: Cart
+        value: cart
+      - label: Facebook
+        value: facebook
+      - label: GitHub
+        value: github
+      - label: Google Play
+        value: googlePlay
+      - label: Instagram
+        value: instagram
+      - label: LinkedIn
+        value: linkedin
+      - label: Play
+        value: play
+      - label: Twitter
+        value: twitter
     default: arrowRight
   - type: enum
     name: iconPosition
@@ -46,8 +60,10 @@ fields:
     controlType: button-group
     label: Icon position
     options:
-      - left
-      - right
+      - label: Left
+        value: left
+      - label: Right
+        value: right
     default: right
   - type: string
     name: elementId

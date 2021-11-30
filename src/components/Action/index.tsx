@@ -1,23 +1,29 @@
 import * as React from 'react';
 import classNames from 'classnames';
 import Link from '../../utils/link';
+import Apple from '../../svgs/apple';
 import ArrowLeft from '../../svgs/arrow-left';
 import ArrowRight from '../../svgs/arrow-right';
 import Cart from '../../svgs/cart';
 import Facebook from '../../svgs/facebook';
 import GitHub from '../../svgs/github';
+import GooglePlay from '../../svgs/google-play';
 import Instagram from '../../svgs/instagram';
 import LinkedIn from '../../svgs/linkedin';
+import Play from '../../svgs/play';
 import Twitter from '../../svgs/twitter';
 
 const iconMap = {
+    apple: Apple,
     arrowLeft: ArrowLeft,
     arrowRight: ArrowRight,
     cart: Cart,
     facebook: Facebook,
     github: GitHub,
+    googlePlay: GooglePlay,
     instagram: Instagram,
     linkedin: LinkedIn,
+    play: Play,
     twitter: Twitter
 };
 

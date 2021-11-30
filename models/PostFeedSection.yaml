@@ -4,34 +4,43 @@ label: Post feed
 labelField: title
 extends:
   - Section
-groups:
-  - sectionComponent
 fieldGroups:
   - name: styles
     label: Styles
   - name: settings
     label: Settings
 fields:
+  - type: string
+    name: title
+    label: Title
+    default: Posts
+  - type: string
+    name: subtitle
+    label: Subtitle
+    default: Blog posts
+  - type: boolean
+    name: showDate
+    label: Show post date
+    default: false
+  - type: boolean
+    name: showAuthor
+    label: Show post author
+    description: Show the author of the post
+    default: false
   - type: enum
     name: variant
     group: styles
     label: Arrangement
+    default: variant-a
     options:
       - label: Three columns grid
         value: variant-a
-      - label: List
+      - label: Two columns grid
         value: variant-b
-    default: variant-a
-  - name: colors
-    default: colors-h
-  - type: string
-    name: title
-    label: Title
-    default: Latest news
-  - type: string
-    name: subtitle
-    label: Subtitle
-    default: Latest blog posts section example
+      - label: Mixed grid
+        value: variant-c
+      - label: List
+        value: variant-d
   - type: list
     name: actions
     label: Actions
@@ -45,15 +54,6 @@ fields:
         label: View all
         url: '/'
         style: primary
-  - type: boolean
-    name: showRecent
-    label: Show recent posts only
-    description: Show the specified number of recent posts
-    default: false
-  - type: number
-    name: recentCount
-    label: Number of recent posts to show
-    default: 6
   - type: style
     name: styles
     styles:

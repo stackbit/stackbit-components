@@ -44,11 +44,6 @@
         "modelName": "FeaturedPeopleSection",
         "isDynamic": true
     },
-    "FeaturedPostsSection": {
-        "path": "components/FeaturedPostsSection",
-        "modelName": "FeaturedPostsSection",
-        "isDynamic": true
-    },
     "Footer": {
         "path": "components/Footer",
         "modelName": "Footer",
@@ -82,6 +77,16 @@
     "PostFeedSection": {
         "path": "components/PostFeedSection",
         "modelName": "PostFeedSection",
+        "isDynamic": true
+    },
+    "FeaturedPostsSection": {
+        "path": "components/FeaturedPostsSection",
+        "modelName": "FeaturedPostsSection",
+        "isDynamic": true
+    },
+    "RecentPostsSection": {
+        "path": "components/RecentPostsSection",
+        "modelName": "RecentPostsSection",
         "isDynamic": true
     },
     "QuoteSection": {
@@ -132,6 +137,16 @@
     "PostLayout": {
         "path": "layouts/PostLayout",
         "modelName": "PostLayout",
+        "isDynamic": true
+    },
+    "PostFeedLayout": {
+        "path": "layouts/PostFeedLayout",
+        "modelName": "PostFeedLayout",
+        "isDynamic": true
+    },
+    "PostFeedCategoryLayout": {
+        "path": "layouts/PostFeedCategoryLayout",
+        "modelName": "PostFeedCategoryLayout",
         "isDynamic": true
     }
 }

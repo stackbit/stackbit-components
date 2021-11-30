@@ -13,6 +13,11 @@ fields:
     label: Date
     required: true
   - type: reference
+    name: category
+    label: Category
+    models:
+      - PostFeedCategoryLayout
+  - type: reference
     name: author
     label: Author
     models:

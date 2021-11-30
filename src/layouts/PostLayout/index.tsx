@@ -3,6 +3,8 @@ import dayjs from 'dayjs';
 import Markdown from 'markdown-to-jsx';
 import { getBaseLayoutComponent } from '../../utils/base-layout';
 import { getComponent } from '../../components-registry';
+import Link from '../../utils/link';
+import getPageUrlPath from '../../utils/get-page-url-path';
 
 export default function PostLayout(props) {
     const { page, site } = props;
@@ -23,7 +25,7 @@ export default function PostLayout(props) {
                                 </time>
                             </div>
                             {page.title && <h1 data-sb-field-path="title">{page.title}</h1>}
-                            {page.author && postAuthor(page.author)}
+                            <PostAttribution post={page} />
                         </header>
                         {page.markdown_content && (
                             <Markdown options={{ forceBlock: true }} className="sb-markdown max-w-screen-md mx-auto" data-sb-field-path="markdown_content">
@@ -39,11 +41,7 @@ export default function PostLayout(props) {
                             if (!Component) {
                                 throw new Error(`no component matching the page section's type: ${section.type}`);
                             }
-                            return (
-                                <div key={index} data-sb-field-path={`bottomSections.${index}`}>
-                                    <Component {...section} />
-                                </div>
-                            );
+                            return <Component key={index} {...section} data-sb-field-path={`bottomSections.${index}`} />;
                         })}
                     </div>
                 )}
@@ -52,14 +50,50 @@ export default function PostLayout(props) {
     );
 }
 
-function postAuthor(author) {
+function PostAttribution({ post }) {
+    if (!post.author && !post.category) {
+        return null;
+    }
+    const author = post.author ? postAuthor(post.author) : null;
+    const category = post.category ? postCategory(post.category) : null;
     return (
-        <div className="text-lg mt-6">
-            By{' '}
-            <span data-sb-field-path="author">
-                {author.firstName && <span data-sb-field-path=".firstName">{author.firstName}</span>}{' '}
-                {author.lastName && <span data-sb-field-path=".lastName">{author.lastName}</span>}
-            </span>
+        <div className="mt-6 text-lg">
+            {author && (
+                <>
+                    {'By '}
+                    {author}
+                </>
+            )}
+            {category && (
+                <>
+                    {author ? ' in ' : 'In '}
+                    {category}
+                </>
+            )}
         </div>
+    );
+}
+
+function postAuthor(author) {
+    const children = (
+        <>
+            {author.firstName && <span data-sb-field-path=".firstName">{author.firstName}</span>}{' '}
+            {author.lastName && <span data-sb-field-path=".lastName">{author.lastName}</span>}
+        </>
+    );
+    return author.slug ? (
+        <Link data-sb-field-path="author" href={`/blog/author/${author.slug}`}>
+            {children}
+        </Link>
+    ) : (
+        <span data-sb-field-path="author">{children}</span>
+    );
+}
+
+function postCategory(category) {
+    return (
+        <Link data-sb-field-path="category" href={getPageUrlPath(category)}>
+            {category.title}
+        </Link>
     );
 }

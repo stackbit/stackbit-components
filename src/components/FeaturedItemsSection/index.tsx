@@ -2,6 +2,7 @@ import * as React from 'react';
 import classNames from 'classnames';
 import { getComponent } from '../../components-registry';
 import { mapStylesToClassNames as mapStyles } from '../../utils/map-styles-to-class-names';
+import { getDataAttrs } from '../../utils/get-data-attrs';
 import FeaturedItem from '../FeaturedItem';
 
 export default function FeaturedItemsSection(props) {
@@ -12,6 +13,7 @@ export default function FeaturedItemsSection(props) {
     return (
         <div
             id={cssId}
+            {...getDataAttrs(props)}
             className={classNames(
                 'sb-component',
                 'sb-component-section',

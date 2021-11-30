@@ -1,0 +1,6 @@
+name: PostFeedCategoryLayout
+label: Blog Category
+layout: PostFeedCategoryLayout
+hideContent: true
+extends:
+  - PostFeedLayout

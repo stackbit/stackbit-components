@@ -3,7 +3,27 @@ import Action from './index';
 
 export default {
     title: 'Blocks/ActionBlock',
-    component: Action
+    component: Action,
+    argTypes: {
+        type: { table: { disable: true } },
+        elementId: {
+            defaultValue: ''
+        },
+        showIcon: {
+            defaultValue: false,
+            control: { type: 'boolean' }
+        },
+        icon: {
+            options: ['apple', 'arrowRight', 'arrowLeft', 'cart', 'facebook', 'github', 'googlePlay', 'instagram', 'linkedin', 'play', 'twitter'],
+            defaultValue: 'arrowRight',
+            control: { type: 'select' }
+        },
+        iconPosition: {
+            options: ['left', 'right'],
+            defaultValue: 'right',
+            control: { type: 'select' }
+        }
+    }
 };
 
 const Template = (args) => <Action {...args} />;

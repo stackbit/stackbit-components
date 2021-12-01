@@ -137,6 +137,7 @@ function postsVariantA(props) {
                                 {post.excerpt}
                             </p>
                         )}
+                        <PostTags post={post} />
                     </div>
                 </article>
             ))}
@@ -361,6 +362,22 @@ function postCategory(post) {
         <Link data-sb-field-path="category" href={getPageUrlPath(category)}>
             {category.title}
         </Link>
+    );
+}
+
+function PostTags({ post }) {
+    const tags = post.tags || [];
+    if (tags.length === 0) {
+        return null;
+    }
+    return (
+        <p className="text-sm mt-4" data-sb-field-path="tags">
+            {tags.map((tag, index) => (
+                <Link key={index} className="mr-3" data-sb-field-path={`.${index}`} href={getPageUrlPath(tag)}>
+                    {tag.title}
+                </Link>
+            ))}
+        </p>
     );
 }
 

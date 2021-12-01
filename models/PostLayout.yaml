@@ -17,6 +17,13 @@ fields:
     label: Category
     models:
       - PostFeedCategoryLayout
+  - type: list
+    name: tags
+    label: Tags
+    items:
+      type: reference
+      models:
+        - PostFeedTagLayout
   - type: reference
     name: author
     label: Author
@@ -35,7 +42,7 @@ fields:
       type: ImageBlock
       url: https://assets.stackbit.com/components/images/default/post-4.jpeg
       altText: Post thumbnail image
-      caption: ""
+      caption: ''
   - type: list
     name: bottomSections
     label: Sections

@@ -16,6 +16,8 @@ contentModels:
     isPage: true
   PostFeedCategoryLayout:
     isPage: true
+  PostFeedTagLayout:
+    isPage: true
 
 modelsSource:
   type: files

@@ -148,5 +148,10 @@
         "path": "layouts/PostFeedCategoryLayout",
         "modelName": "PostFeedCategoryLayout",
         "isDynamic": true
+    },
+    "PostFeedTagLayout": {
+        "path": "layouts/PostFeedTagLayout",
+        "modelName": "PostFeedTagLayout",
+        "isDynamic": true
     }
 }

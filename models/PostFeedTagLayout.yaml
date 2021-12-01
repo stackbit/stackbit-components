@@ -1,0 +1,7 @@
+name: PostFeedTagLayout
+label: Blog Tag
+labelField: title
+layout: PostFeedTagLayout
+hideContent: true
+extends:
+  - PostFeedLayout

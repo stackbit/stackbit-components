@@ -32,6 +32,7 @@ export default function PostLayout(props) {
                                 {page.markdown_content}
                             </Markdown>
                         )}
+                        <PostTags post={page} />
                     </div>
                 </article>
                 {sections.length > 0 && (
@@ -95,5 +96,21 @@ function postCategory(category) {
         <Link data-sb-field-path="category" href={getPageUrlPath(category)}>
             {category.title}
         </Link>
+    );
+}
+
+function PostTags({ post }) {
+    const tags = post.tags || [];
+    if (tags.length === 0) {
+        return null;
+    }
+    return (
+        <footer className="max-w-screen-md mx-auto mt-12" data-sb-field-path="tags">
+            {tags.map((tag, index) => (
+                <Link key={index} className="mr-3" data-sb-field-path={`.${index}`} href={getPageUrlPath(tag)}>
+                    {tag.title}
+                </Link>
+            ))}
+        </footer>
     );
 }

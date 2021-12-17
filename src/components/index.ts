@@ -1,4 +1,5 @@
 import Action from './Action';
+import AlertSection from './AlertSection';
 import CheckboxFormControl from './CheckboxFormControl';
 import ContactSection from './ContactSection';
 import CtaSection from './CtaSection';
@@ -26,6 +27,7 @@ import VideoBlock from './VideoBlock';
 
 export {
     Action,
+    AlertSection,
     CheckboxFormControl,
     ContactSection,
     CtaSection,

@@ -1,0 +1,12 @@
+type: object
+name: AlertSection
+label: Alert Section
+labelField: title
+extends:
+  - Section
+groups:
+  - sectionComponent
+fields:
+  - type: text
+    name: body
+    default: 'Warning, this is an alert'
